@@ -8,30 +8,43 @@
 </head>
 <body>
 <style>
-  .bs-mini { --olive:#3c4f19; --hover:#b4cfa0; --idle:#e5e1d8;
+  .bs-mini{ --olive:#3c4f19; --hover:#b4cfa0; --idle:#e5e1d8;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    display:block; text-decoration:none; color:inherit; cursor:pointer;
-    position:relative; width:100%; max-width:360px; margin:0 auto; }
-  .bs-mini svg{ width:100%; height:auto; display:block; overflow:visible; }
+    box-sizing:border-box; text-decoration:none; color:inherit; cursor:pointer;
+    position:relative; width:400px; max-width:100%; height:600px;
+    display:flex; flex-direction:column; background:#fff; border-radius:20px;
+    overflow:hidden; box-shadow:0 10px 40px rgba(40,50,20,.14); }
+  .bs-mini *{ box-sizing:border-box; }
+  .bs-mini-head{ padding:26px 24px 4px; text-align:center; }
+  .bs-mini-head h3{ margin:0; font-size:19px; font-weight:800; color:var(--olive); letter-spacing:-.2px; }
+  .bs-mini-head p{ margin:6px 0 0; font-size:13px; color:#7a7a70; }
+  .bs-mini-map{ flex:1 1 auto; min-height:0; display:flex; align-items:center;
+    justify-content:center; padding:6px 18px; }
+  .bs-mini-map svg{ width:100%; height:100%; max-height:100%; display:block; overflow:visible; }
   .bs-mini .prov-group{ cursor:pointer; }
   .bs-mini .prov-group .prov{ fill:var(--idle); stroke:#fff; stroke-width:1.42;
     stroke-linejoin:round; transition:fill .18s ease; }
   .bs-mini .prov-group:hover .prov{ fill:var(--hover); }
   .bs-mini .prov-lbl{ font-size:7px; fill:#6b6b60; text-anchor:middle;
     dominant-baseline:middle; pointer-events:none; font-weight:600; }
-  /* live tooltip */
+  .bs-mini-foot{ padding:12px 24px 22px; text-align:center; }
+  .bs-mini-cta{ display:inline-flex; align-items:center; gap:7px; font-size:14px;
+    font-weight:700; color:#fff; background:var(--olive); border-radius:30px;
+    padding:11px 22px; transition:transform .15s ease; }
+  .bs-mini:hover .bs-mini-cta{ transform:translateY(-1px); }
+  .bs-live{ width:8px; height:8px; border-radius:50%; background:#37d67a; flex:none;
+    box-shadow:0 0 0 0 rgba(55,214,122,.7); animation:bs-pulse 1.4s infinite; }
+  /* floating hover tooltip */
   .bs-tip{ position:fixed; z-index:9999; pointer-events:none; opacity:0;
     transform:translateY(4px); transition:opacity .12s ease, transform .12s ease;
     background:#1f2a10; color:#fff; border-radius:12px; padding:10px 14px;
-    box-shadow:0 8px 30px rgba(20,30,10,.28); white-space:nowrap;
-    font-size:13px; line-height:1.25; }
+    box-shadow:0 8px 30px rgba(20,30,10,.28); white-space:nowrap; font-size:13px; line-height:1.25; }
   .bs-tip.show{ opacity:1; transform:translateY(0); }
   .bs-tip-row{ display:flex; align-items:center; gap:8px; }
   .bs-dot{ width:9px; height:9px; border-radius:50%; background:#37d67a; flex:none;
     box-shadow:0 0 0 0 rgba(55,214,122,.7); animation:bs-pulse 1.4s infinite; }
   @keyframes bs-pulse{ 0%{box-shadow:0 0 0 0 rgba(55,214,122,.7)}
-    70%{box-shadow:0 0 0 8px rgba(55,214,122,0)}
-    100%{box-shadow:0 0 0 0 rgba(55,214,122,0)} }
+    70%{box-shadow:0 0 0 8px rgba(55,214,122,0)} 100%{box-shadow:0 0 0 0 rgba(55,214,122,0)} }
   .bs-tip-num{ font-weight:800; font-size:16px; filter:blur(5px);
     -webkit-user-select:none; user-select:none; letter-spacing:.5px; }
   .bs-tip-unit{ font-weight:600; opacity:.9; }
@@ -41,6 +54,11 @@
 
 <!-- TODO: set href to the page where the full Zoekersmatch widget is embedded -->
 <a class="bs-mini" id="bs-mini" href="#">
+  <div class="bs-mini-head">
+    <h3>Wie zoekt er in jouw regio?</h3>
+    <p>Beweeg over de kaart &middot; realtime zoekers</p>
+  </div>
+  <div class="bs-mini-map">
 <svg id="nl-map" viewBox="0 0 286 337" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <filter id="shadow" x="-2%" y="-2%" width="108%" height="108%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -130,7 +148,10 @@
           <text class="prov-lbl" id="lbl-zeeland" x="68" y="255">Zeeland</text>
           <text class="prov-lbl" id="lbl-zuidholland" x="83" y="205">Zuid-<tspan x="83" dy="8">Holland</tspan></text>
           </g>
-        </svg>
+        </svg>  </div>
+  <div class="bs-mini-foot">
+    <span class="bs-mini-cta"><span class="bs-live"></span> Ontdek de zoekers &rarr;</span>
+  </div>
 </a>
 <div class="bs-tip" id="bs-tip">
   <div class="bs-tip-row">
@@ -138,12 +159,11 @@
     <span><span class="bs-tip-num" id="bs-tip-num">000</span> <span class="bs-tip-unit">zoekers</span></span>
   </div>
   <div class="bs-tip-prov" id="bs-tip-prov"></div>
-  <div class="bs-tip-cta">Klik om te ontdekken →</div>
+  <div class="bs-tip-cta">Klik om te ontdekken &rarr;</div>
 </div>
 
 <script>
 (function(){
-  // Real province seeker totals (shown blurred on purpose — teaser only).
   var COUNTS = {
     'Groningen':225,'Friesland':438,'Drenthe':608,'Overijssel':833,
     'Flevoland':275,'Gelderland':1305,'Utrecht':856,'Noord-Holland':554,
@@ -154,22 +174,18 @@
   var tProv = document.getElementById('bs-tip-prov');
   var root = document.getElementById('bs-mini');
   function move(e){
-    var x = e.clientX, y = e.clientY;
-    // keep tooltip on-screen
     var w = tip.offsetWidth, h = tip.offsetHeight;
-    var left = x + 16, top = y + 16;
-    if (left + w > window.innerWidth - 8) left = x - w - 16;
-    if (top + h > window.innerHeight - 8) top = y - h - 16;
+    var left = e.clientX + 16, top = e.clientY + 16;
+    if (left + w > window.innerWidth - 8) left = e.clientX - w - 16;
+    if (top + h > window.innerHeight - 8) top = e.clientY - h - 16;
     tip.style.left = left + 'px'; tip.style.top = top + 'px';
   }
   root.querySelectorAll('.prov-group').forEach(function(g){
     g.addEventListener('mouseenter', function(e){
       var name = g.getAttribute('data-name') || '';
-      var n = COUNTS[name] || 0;
-      tNum.textContent = n.toLocaleString('nl-NL');
+      tNum.textContent = (COUNTS[name]||0).toLocaleString('nl-NL');
       tProv.textContent = name;
-      tip.classList.add('show');
-      move(e);
+      tip.classList.add('show'); move(e);
     });
     g.addEventListener('mousemove', move);
     g.addEventListener('mouseleave', function(){ tip.classList.remove('show'); });
