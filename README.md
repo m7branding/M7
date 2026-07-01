@@ -5,6 +5,16 @@ dienstverlening samenstellen. Dark M7-huisstijl met geanimeerd sterren-/pixelvel
 lichte gradients, abstracte iconen en pill-CTA's met de M7-signatuur (circulaire
 teal pijl).
 
+De experience is een **multi-step flow**: een cinematisch introscherm met het
+M7-logo, een primaire CTA en langzaam voorbij slidende dienst-/tool-labels (rij 1
+naar rechts, rij 2 naar links) in een donkere gradient. Daarna een korte intake en
+vervolgens één categorie per stap — met sticky stap-rail, voortgangsbalk en een
+uitklapbaar overzicht ("Jouw samenstelling") onderin. Per categorie tonen we
+herkenbare **brand-iconen** voor de ingezette tools (WordPress, Webflow, Figma,
+Adobe, Shopify, WooCommerce, Stripe, Zapier, Make, Airtable, Memberstack, Wized,
+Google Analytics/Tag Manager/Search Console, Meta/LinkedIn/TikTok/Reddit, iOS &
+Android, Notion, HubSpot e.a.) plus de **Webflow Professional Partner**-badge.
+
 Gebouwd met **Next.js (App Router) + TypeScript**. Geen database of externe
 dependencies nodig — volledig self-contained en klaar om te hosten of te embedden.
 
@@ -61,11 +71,16 @@ src/
     globals.css       # globale basis
     experience.css    # M7-huisstijl + alle experience-styling
   components/experience/
-    Configurator.tsx  # de interactieve configurator (client)
+    Configurator.tsx  # de multi-step flow: intro, intake, stappen, drawer, modal (client)
     Starfield.tsx     # geanimeerd sterren-/pixel-canvas
     CategoryIcon.tsx  # abstracte iconen per categorie
+    Logo.tsx          # M7 wit wordmark (inline SVG)
+    BrandIcon.tsx     # brand-/tool-iconen + Webflow Professional Partner-badge
   lib/
-    catalog.ts        # catalogus-data, intake, prijzen & aanbevelingslogica
+    catalog.ts        # catalogus-data, intake, prijzen, tools & aanbevelingslogica
+public/
+  m7-wordmark.svg     # M7 wit logo
+  brand/              # M7 brandmark-varianten (teal/pink/cyan)
 ```
 
 ## Aanpassen

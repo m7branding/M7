@@ -6,6 +6,8 @@
 // Alle prijzen zijn INDICATIEVE VANAFPRIJZEN.
 // ============================================================
 
+import type { BrandKey } from "@/components/experience/BrandIcon";
+
 export type IconKey =
   | "branding"
   | "print"
@@ -63,6 +65,8 @@ export type Category = {
   note?: string;
   options?: CategoryOption[];
   packages: Pkg[];
+  /** Platforms/tools die we in deze categorie inzetten (brand-iconen). */
+  tools?: BrandKey[];
 };
 
 // ------------------------------------------------------------
@@ -117,6 +121,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Van nieuwe startup-brand tot rebranding of co-branding. Een compleet brandbook: naming, positionering, kleur, typografie, iconografie, tone of voice, archetype, patterns en communication guide.",
     note: "Indicatieve vanafprijzen — scope en aantal iteraties bepalen de definitieve offerte.",
+    tools: ["figma", "adobe"],
     packages: [
       {
         id: "brand-essentials",
@@ -212,6 +217,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Tastbaar en op-merk: visitekaartjes, flyers, informatiebrochures, promotioneel materiaal en uitnodigingen — volledig in je brand identity.",
     note: "Prijzen zijn voor ontwerp; drukwerk (productie) rekenen we op basis van oplage na.",
+    tools: ["adobe", "figma"],
     packages: [
       {
         id: "print-cards",
@@ -267,6 +273,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Next-level design is altijd inbegrepen. Complete builds op WordPress of Webflow — met content-model, CMS met custom velden zodat je zelf beheert, basis-SEO, accessibility en een eerste content-draft.",
     note: "Indicatieve vanafprijzen — de scope (pagina's, interacties, content) bepaalt de definitieve offerte.",
+    tools: ["webflow", "wordpress", "figma"],
     options: [
       {
         id: "web-platform",
@@ -420,6 +427,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Conversiegerichte shops op WooCommerce of Shopify. Van slimme categoriestructuur en product-pagina's tot EU-VAT-controle, custom checkout, PDF-facturen, vendor-pricing en kortingscodes.",
     note: "Indicatieve vanafprijzen — aantal producten en maatwerk bepalen de definitieve offerte.",
+    tools: ["woocommerce", "shopify", "stripe", "wordpress"],
     options: [
       {
         id: "shop-platform",
@@ -486,6 +494,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Klantportalen, offerte- en reserveringsportalen, loyaliteits- en CRM-achtige systemen — volledig custom branded. Met rollen & rechten, gated content, Stripe-checkouts en automations (WhatsApp/e-mail).",
     note: "Automations, meldingen en integraties naar wens — grotendeels maatwerk.",
+    tools: ["stripe", "make", "airtable", "memberstack", "wized", "zapier"],
     packages: [
       {
         id: "wapp-portal",
@@ -542,6 +551,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Alles rondom mobiele apps: UX-research en UI-design in Figma, prototyping en testing, roadmap- en sprintmanagement met kanban, prijsstrategie-advies en volledige ontwikkeling tot in de stores.",
     note: "Ontwikkeling is maatwerk — scope, roadmap en prijs bepalen we samen met jou.",
+    tools: ["apple", "android", "figma"],
     packages: [
       {
         id: "mob-strategy",
@@ -594,6 +604,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Short-form content die blijft hangen: statische posts, carrousels, reels en animaties. Plus AI-renders o.b.v. schetsen, AI-animaties, bedrijfsvideo's, commercials en podcast.",
     note: "Stel je maandelijkse contentplan samen — pas het aantal per item aan.",
+    tools: ["adobe", "figma", "lottie"],
     packages: [
       {
         id: "org-static",
@@ -664,6 +675,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Van account-inrichting tot schaalbare campagnes. Inclusief zoekwoord- & doelgroeponderzoek en campagne-strategie op Meta, LinkedIn, Reddit of TikTok.",
     note: "Advertentiebudget (ad-spend) is exclusief en betaal je rechtstreeks aan het platform.",
+    tools: ["meta", "linkedin", "reddit", "tiktok", "googleads"],
     options: [
       {
         id: "platforms",
@@ -731,6 +743,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Organisch groeien met content o.b.v. thema's & actualiteiten (incl. webscraping) én zichtbaar worden in AI-antwoorden via slimme FAQ's en gestructureerde data.",
     note: "Drafts worden ter review klaargezet — jij houdt de regie over publicatie.",
+    tools: ["googlesearchconsole", "googleanalytics"],
     packages: [
       {
         id: "seo-boost",
@@ -796,6 +809,7 @@ export const CATALOG: Category[] = [
     kicker: "Meten & compliance",
     blurb:
       "Weten wat werkt. Van GA4 en Meta Pixel tot server-side tracking en dashboards — volledig AVG-proof met cookie-consent en Consent Mode.",
+    tools: ["googleanalytics", "googletagmanager", "googlesearchconsole", "meta"],
     packages: [
       {
         id: "trk-foundation",
@@ -846,6 +860,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Geavanceerde, custom lead-machines: reken- en configuratormodules, offerte-flows en opt-ins — met optionele e-mailreeks en automatische audience-sync.",
     note: "Hostingkosten van externe services (Make / Zapier / Resend) vallen onder dit pakket.",
+    tools: ["make", "zapier", "airtable", "activecampaign", "mailchimp", "resend"],
     packages: [
       {
         id: "fun-calc",
@@ -917,6 +932,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Geavanceerde CRM- en projectmanagement-inrichting op Odoo, HubSpot, Pipedrive, Teamleader of Notion — plus custom API-koppelingen. Scope en beheerfee spreken we op maat af.",
     note: "Alles op maat — we bepalen samen de scope en de doorlopende beheerfee.",
+    tools: ["odoo", "hubspot", "pipedrive", "teamleader", "notion"],
     packages: [
       {
         id: "crm-setup",
@@ -958,6 +974,7 @@ export const CATALOG: Category[] = [
     blurb:
       "Van A tot Z geregeld: domein & DNS, back-ups en maximale veiligheid. Op WordPress (evt. WooCommerce) of Webflow — inclusief hosting van je automations.",
     note: "Vanafprijzen — worden op basis van volume/gebruik nagerekend. Uurtarief buiten scope € 95.",
+    tools: ["wordpress", "webflow", "woocommerce", "make", "resend"],
     options: [
       {
         id: "platform",
