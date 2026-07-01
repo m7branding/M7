@@ -1030,16 +1030,21 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  /* Montage van M7-projecten als cinematische achtergrond, met M7-glows
+     erover en een donker verloop zodat de tekst leesbaar blijft. */
   background:
     radial-gradient(80% 55% at 50% 8%, rgba(47, 227, 207, 0.14), transparent 60%),
-    radial-gradient(70% 50% at 82% 12%, rgba(124, 92, 255, 0.2), transparent 60%),
+    radial-gradient(70% 50% at 82% 12%, rgba(124, 92, 255, 0.22), transparent 60%),
     radial-gradient(90% 60% at 12% 90%, rgba(34, 211, 238, 0.14), transparent 60%),
-    linear-gradient(180deg, transparent 55%, rgba(5, 5, 9, 0.85) 100%);
-  animation: exp-cinema 16s ease-in-out infinite alternate;
+    linear-gradient(180deg, rgba(6, 6, 10, 0.72) 0%, rgba(6, 6, 10, 0.55) 42%, rgba(5, 5, 9, 0.92) 100%),
+    url("/bg-experience.webp");
+  background-size: cover, cover, cover, cover, cover;
+  background-position: center, center, center, center, center;
+  animation: exp-cinema 22s ease-in-out infinite alternate;
 }
 @keyframes exp-cinema {
-  from { transform: scale(1) translateY(0); opacity: 0.9; }
-  to { transform: scale(1.08) translateY(-1.5%); opacity: 1; }
+  from { transform: scale(1.02) translateY(0); opacity: 0.94; }
+  to { transform: scale(1.1) translateY(-1.8%); opacity: 1; }
 }
 
 /* ---------- Intro-scherm ---------- */
@@ -1335,41 +1340,23 @@
   letter-spacing: -0.02em;
 }
 
-/* ---------- Webflow Professional Partner-badge ---------- */
+/* ---------- Webflow Professional Partner-badge (officieel) ---------- */
 .wf-partner {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 14px 8px 8px;
-  border-radius: 12px;
-  border: 1px solid rgba(20, 110, 245, 0.5);
-  background:
-    radial-gradient(120% 120% at 0% 0%, rgba(20, 110, 245, 0.22), transparent 60%),
-    rgba(255, 255, 255, 0.03);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -12px rgba(67, 83, 255, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.25s ease;
 }
-.wf-partner-mark {
-  display: inline-grid;
-  place-items: center;
-  width: 30px;
+.wf-partner:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px -12px rgba(67, 83, 255, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.wf-partner-img {
+  display: block;
   height: 30px;
-  border-radius: 8px;
-  background: rgba(20, 110, 245, 0.16);
-  box-shadow: inset 0 0 0 1px rgba(20, 110, 245, 0.5);
-}
-.wf-partner-txt { display: flex; flex-direction: column; line-height: 1.15; }
-.wf-partner-txt small {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--exp-muted);
-}
-.wf-partner-txt strong { font-size: 12.5px; color: #fff; letter-spacing: -0.01em; }
-.wf-partner-check {
-  width: 16px;
-  height: 16px;
-  color: #4b9bff;
-  margin-left: 2px;
+  width: auto;
 }
 
 /* ---------- Responsive: onderbalk + rail op mobiel ---------- */

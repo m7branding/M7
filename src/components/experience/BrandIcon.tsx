@@ -316,20 +316,12 @@ export function BrandChip({ name }: { name: BrandKey }) {
   );
 }
 
-/** Webflow "Professional Partner"-badge. */
+/** Officiële Webflow "Professional Partner"-badge (M7 is Webflow Professional Partner). */
 export function WebflowPartnerBadge() {
   return (
     <span className="wf-partner" title="M7 is Webflow Professional Partner">
-      <span className="wf-partner-mark">
-        <BrandIcon name="webflow" size={18} />
-      </span>
-      <span className="wf-partner-txt">
-        <small>Webflow</small>
-        <strong>Professional Partner</strong>
-      </span>
-      <svg viewBox="0 0 24 24" className="wf-partner-check" aria-hidden>
-        <path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/webflow-partner.png" alt="Webflow Professional Partner" className="wf-partner-img" />
     </span>
   );
 }
