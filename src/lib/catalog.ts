@@ -286,6 +286,12 @@ export const CATALOG: Category[] = [
         choices: ["Styleframing", "Design", "Design + development"],
         triggers: { Styleframing: "branding" },
       },
+      {
+        id: "web-domain",
+        label: "Domeinnaam",
+        choices: ["Heb ik al", "Graag registreren", "Weet ik nog niet"],
+        triggers: { "Graag registreren": "hosting" },
+      },
     ],
     packages: [
       {
@@ -415,6 +421,32 @@ export const CATALOG: Category[] = [
         price: { setup: 450 },
         features: ["Persoonlijke CMS-training", "Go-live begeleiding", "Staging-omgeving indien gewenst"],
         recommends: ["support"],
+      },
+      {
+        id: "web-domain-dns",
+        name: "Domein & DNS in beheer",
+        tagline: "Wij regelen je domein en DNS.",
+        kind: "addon",
+        price: { setup: 75, monthly: 5 },
+        features: [
+          "Domeinregistratie of -transfer",
+          "Volledig DNS-beheer door M7",
+          "Records, redirects & SSL geregeld",
+        ],
+        recommends: ["hosting", "support"],
+      },
+      {
+        id: "web-mailboxes",
+        name: "Zakelijke mailboxen",
+        tagline: "Professioneel mailen op je eigen domein.",
+        kind: "item",
+        price: { monthly: 4, suffix: "stuk" },
+        features: [
+          "Mailbox op jouw domein (jij@bedrijf.nl)",
+          "Anti-spam & mailhygiëne",
+          "Setup op al je devices",
+        ],
+        recommends: ["hosting", "support"],
       },
     ],
   },

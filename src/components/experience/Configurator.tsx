@@ -19,6 +19,8 @@ import { CategoryIcon } from "./CategoryIcon";
 import { Starfield } from "./Starfield";
 import { M7Logo } from "./Logo";
 import { BrandChip, BrandIcon, WebflowPartnerBadge, BRANDS, type BrandKey } from "./BrandIcon";
+import { CardArt } from "./CardArt";
+import { Landscape, type LandscapeData } from "./Landscape";
 
 const INTRO_MAILTO =
   "mailto:hello@m7branding.com?subject=" +
@@ -122,7 +124,8 @@ function priceLabel(price: Pkg["price"]) {
 }
 
 // ============================================================ MARQUEE
-// Langzaam voorbij slidende dienst-/tool-labels in een donkere gradient.
+// Voorbij slidende dienst-/tool-labels. Start op normale snelheid en dempt
+// na enkele seconden ease-out uit naar een veel langzamere cruise-snelheid.
 function Marquee({
   items,
   direction = "left",
@@ -131,9 +134,57 @@ function Marquee({
   direction?: "left" | "right";
 }) {
   const doubled = [...items, ...items];
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const dir = direction === "left" ? -1 : 1;
+    let half = track.scrollWidth / 2 || 1;
+    let x = dir < 0 ? 0 : -half;
+
+    const V_FAST = 85; // px/s bij de start
+    const V_SLOW = 12; // px/s cruise-snelheid
+    const HOLD = 3200; // ms op snelheid blijven
+    const EASE = 4200; // ms uitdempen (ease-out)
+
+    let raf = 0;
+    const t0 = performance.now();
+    let last = t0;
+
+    const step = (now: number) => {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      const el = now - t0;
+      let speed = V_FAST;
+      if (el >= HOLD) {
+        const k = Math.min(1, (el - HOLD) / EASE);
+        const eased = 1 - Math.pow(1 - k, 3); // easeOutCubic
+        speed = V_FAST + (V_SLOW - V_FAST) * eased;
+      }
+      x += dir * speed * dt;
+      if (x <= -half) x += half;
+      if (x >= 0) x -= half;
+      track.style.transform = `translateX(${x}px)`;
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+
+    const onResize = () => {
+      half = track.scrollWidth / 2 || 1;
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [direction, items]);
+
   return (
-    <div className="exp-marquee" data-dir={direction} aria-hidden>
-      <div className="exp-marquee-track">
+    <div className="exp-marquee" aria-hidden>
+      <div className="exp-marquee-track is-js" ref={trackRef}>
         {doubled.map((it, i) => (
           <span className="exp-marquee-pill" key={`${it.key}-${i}`}>
             {it.node}
@@ -147,6 +198,7 @@ function Marquee({
 // ============================================================ CARD
 function PkgCard({
   pkg,
+  catId,
   selected,
   qty,
   onToggle,
@@ -154,6 +206,7 @@ function PkgCard({
   reveal,
 }: {
   pkg: Pkg;
+  catId: IconKey;
   selected: boolean;
   qty: number;
   onToggle: () => void;
@@ -203,6 +256,8 @@ function PkgCard({
         }
       }}
     >
+      <CardArt cat={catId} id={pkg.id} kind={pkg.kind} />
+
       <div className="exp-card-top">
         <div>
           <h3>{pkg.name}</h3>
@@ -369,6 +424,7 @@ function CategoryStep({
             <PkgCard
               key={pkg.id}
               pkg={pkg}
+              catId={cat.id}
               selected={selected}
               qty={state.qty[pkg.id] ?? 0}
               onToggle={() => (pkg.kind === "plan" ? onPlan(cat.id, pkg.id) : onAddon(pkg.id))}
@@ -495,7 +551,7 @@ function IntakeStep({
 
 // ============================================================ MAIN
 export function Configurator() {
-  const [screen, setScreen] = useState<"intro" | "flow">("intro");
+  const [screen, setScreen] = useState<"intro" | "flow" | "review">("intro");
   const [booted, setBooted] = useState(false);
 
   const [plans, setPlans] = useState<Partial<Record<IconKey, string>>>({});
@@ -504,6 +560,7 @@ export function Configurator() {
   const [options, setOptions] = useState<Record<string, string[]>>({});
   const [modalOpen, setModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [panelOpen, setPanelOpen] = useState(false);
 
   // ---- intake
   const [stage, setStage] = useState<string | null>(null);
@@ -539,6 +596,8 @@ export function Configurator() {
     () => recommendationsFor(selectedIds, options),
     [selectedIds, options]
   );
+
+  const landscapeData: LandscapeData = { selectedIds, qty, recommendations };
 
   // ---- totalen
   const totals = useMemo(() => {
@@ -597,10 +656,21 @@ export function Configurator() {
   const goToCat = useCallback(
     (catId: IconKey) => {
       const idx = orderedCats.indexOf(catId);
-      if (idx >= 0) gotoStep(idx + 1); // +1 want stap 0 = intake
+      if (idx >= 0) {
+        setScreen("flow");
+        setPanelOpen(false);
+        gotoStep(idx + 1); // +1 want stap 0 = intake
+      }
     },
     [orderedCats, gotoStep]
   );
+
+  const openReview = useCallback(() => {
+    setDrawerOpen(false);
+    setPanelOpen(false);
+    setScreen("review");
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const startFlow = () => {
     setScreen("flow");
@@ -707,11 +777,7 @@ export function Configurator() {
             <span className="exp-eyebrow exp-intro-eyebrow">
               <Sparkle /> M7 — online experience
             </span>
-            <h1 className="exp-intro-title">
-              Groei met <span className="exp-grad-text">M7</span>
-              <br />
-              Bouw je <span className="exp-gold-text">digitale slagkracht</span>
-            </h1>
+            <h1 className="exp-intro-title">Grow your brand with M7</h1>
             <p className="exp-intro-sub">
               Vergeet tig losse offertes. Stel zelf je dienstverlening samen — van branding,
               websites en webshops tot apps, marketing, SEO/AEO, funnels, tracking en support.
@@ -843,7 +909,7 @@ export function Configurator() {
           ) : (
             <button
               className="exp-btn exp-btn-primary"
-              onClick={() => setModalOpen(true)}
+              onClick={openReview}
               disabled={totalCount === 0}
             >
               Bekijk &amp; vraag aan <CircleArrow />
@@ -930,13 +996,57 @@ export function Configurator() {
           </div>
           <button
             className="exp-btn exp-btn-primary exp-btn-sm"
-            onClick={() => setModalOpen(true)}
+            onClick={openReview}
             disabled={totalCount === 0}
           >
             Vraag aan <CircleArrow />
           </button>
         </div>
       </div>
+
+      {/* -------- ZIJPANEEL: MERKLANDSCHAP -------- */}
+      <button
+        className={`exp-panel-tab ${panelOpen ? "is-open" : ""}`}
+        onClick={() => setPanelOpen((o) => !o)}
+        aria-label="Merklandschap"
+      >
+        <span className="exp-panel-tab-icon">
+          {panelOpen ? <Arrow /> : <Sparkle />}
+        </span>
+        <span className="exp-panel-tab-txt">Merk&shy;landschap</span>
+        {totalCount > 0 && <span className="exp-panel-tab-count">{totalCount}</span>}
+      </button>
+
+      <aside className={`exp-sidepanel ${panelOpen ? "is-open" : ""}`} aria-hidden={!panelOpen}>
+        <div className="exp-sidepanel-head">
+          <div>
+            <span className="exp-eyebrow"><Sparkle /> Jouw merklandschap</span>
+            <p>Je selectie + logische upsells. Klik een <b>+</b> om die stap te openen.</p>
+          </div>
+          <button className="exp-drawer-close" onClick={() => setPanelOpen(false)} aria-label="Sluiten">×</button>
+        </div>
+        <Landscape data={landscapeData} onGoToCat={goToCat} variant="panel" />
+        <div className="exp-sidepanel-foot">
+          <div className="exp-sidepanel-tot">
+            <span>{formatEuro(totals.setup)}{totals.custom ? " +" : ""}</span>
+            <small>eenmalig</small>
+          </div>
+          <button className="exp-btn exp-btn-primary exp-btn-sm" onClick={openReview} disabled={totalCount === 0}>
+            Vraag aan <CircleArrow />
+          </button>
+        </div>
+      </aside>
+
+      {screen === "review" && (
+        <ReviewScreen
+          landscapeData={landscapeData}
+          totals={totals}
+          totalCount={totalCount}
+          onGoToCat={goToCat}
+          onBack={() => setScreen("flow")}
+          onRequest={() => setModalOpen(true)}
+        />
+      )}
 
       {modalOpen && (
         <QuoteModal
@@ -950,6 +1060,82 @@ export function Configurator() {
         />
       )}
     </>
+  );
+}
+
+// ============================================================ REVIEW (full-screen)
+function ReviewScreen({
+  landscapeData,
+  totals,
+  totalCount,
+  onGoToCat,
+  onBack,
+  onRequest,
+}: {
+  landscapeData: LandscapeData;
+  totals: { setup: number; monthly: number; custom: boolean };
+  totalCount: number;
+  onGoToCat: (cat: IconKey) => void;
+  onBack: () => void;
+  onRequest: () => void;
+}) {
+  const upsells = CATEGORY_ORDER.filter(
+    (c) =>
+      landscapeData.recommendations.has(c) &&
+      ![...landscapeData.selectedIds].some((id) => PKG_BY_ID[id]?.cat.id === c)
+  );
+  return (
+    <div className="exp-review">
+      <div className="exp-review-inner">
+        <header className="exp-review-head">
+          <span className="exp-eyebrow"><Sparkle /> Jouw geconfigureerde merklandschap</span>
+          <h2>Dit is jouw dienstenstructuur</h2>
+          <p>
+            Een overzicht van alles wat je hebt samengesteld. Mis je nog iets? Klik een{" "}
+            <b>+</b> om die stap te openen. Helemaal goed? Vraag het vrijblijvend aan.
+          </p>
+          <div className="exp-review-stats">
+            <div>
+              <strong>{totalCount}</strong>
+              <small>{totalCount === 1 ? "dienst" : "diensten"}</small>
+            </div>
+            <div>
+              <strong>{formatEuro(totals.setup)}{totals.custom ? " +" : ""}</strong>
+              <small>eenmalig vanaf</small>
+            </div>
+            <div>
+              <strong>{formatEuro(totals.monthly)}</strong>
+              <small>per maand</small>
+            </div>
+          </div>
+        </header>
+
+        <Landscape data={landscapeData} onGoToCat={onGoToCat} variant="full" />
+
+        {upsells.length > 0 && (
+          <p className="exp-review-upsellnote">
+            Vaak logisch hierbij:{" "}
+            {upsells.map((c, i) => (
+              <span key={c}>
+                <button className="exp-review-upsell" onClick={() => onGoToCat(c)}>
+                  + {CATEGORY_BY_ID[c].label}
+                </button>
+                {i < upsells.length - 1 ? " " : ""}
+              </span>
+            ))}
+          </p>
+        )}
+
+        <div className="exp-review-cta">
+          <button className="exp-btn exp-btn-ghost" onClick={onBack}>
+            <ArrowLeft /> Terug naar stappen
+          </button>
+          <button className="exp-btn exp-btn-primary exp-btn-lg" onClick={onRequest} disabled={totalCount === 0}>
+            Vraag dit aan <CircleArrow />
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -1051,10 +1237,11 @@ function QuoteModal({
 
   return (
     <div className="exp-modal-overlay" onClick={onClose}>
-      <div className="exp-modal" onClick={(e) => e.stopPropagation()} style={{ position: "relative" }}>
+      <div className="exp-modal exp-modal-split" onClick={(e) => e.stopPropagation()}>
         <button className="exp-modal-close" onClick={onClose} aria-label="Sluiten">
           ×
         </button>
+        <div className="exp-modal-main">
         <h3>Jouw dienstverlening</h3>
         <p style={{ color: "var(--exp-muted)", fontSize: 13.5, marginTop: 6 }}>
           Controleer je samenstelling en stuur 'm door — we werken 'm vrijblijvend uit tot een
@@ -1147,6 +1334,24 @@ function QuoteModal({
           </a>
           . Alle bedragen zijn indicatieve vanafprijzen.
         </p>
+        </div>
+
+        <aside className="exp-modal-aside">
+          <div className="exp-modal-aside-overlay" />
+          <div className="exp-modal-aside-content">
+            <M7Logo height={26} />
+            <h4>Klaar om te groeien met M7?</h4>
+            <p>
+              We werken je samenstelling vrijblijvend uit tot een concrete offerte — of
+              plannen eerst een kennismaking. Geen verplichtingen.
+            </p>
+            <ul>
+              <li><Check /> Reactie binnen 1 werkdag</li>
+              <li><Check /> Vaste aanspreekpartner</li>
+              <li><Check /> Transparante vanafprijzen</li>
+            </ul>
+          </div>
+        </aside>
       </div>
     </div>
   );
