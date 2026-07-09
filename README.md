@@ -61,6 +61,37 @@ Deploybaar op Vercel, Netlify of elke Node-host. Voor een **statische export**
 (handig om te embedden op WordPress/Webflow of via een CDN te hosten): zet
 `output: "export"` aan in `next.config.js` en gebruik `npm run build`.
 
+## Embedden op je eigen site
+
+De experience is bedoeld om als **iframe-widget** op je eigen site te staan
+(Webflow, WordPress of elk ander platform). De app staat framing toe voor elk
+domein via een `Content-Security-Policy: frame-ancestors *`-header
+(zie `next.config.js`).
+
+1. **Host de experience** ergens met een vaste URL — bijvoorbeeld op een
+   subdomein als `https://experience.m7branding.com/` (Vercel: voeg dit domein
+   toe onder Settings → Domains), of gebruik je Vercel-productie-URL.
+2. **Plak dit blok** in een HTML/Embed-element op je site (Webflow: "Embed" ·
+   WordPress: "Custom HTML"-blok) en vervang de URL in `src`:
+
+   ```html
+   <div style="position:relative;width:100%;height:100vh;min-height:640px;overflow:hidden;border-radius:16px;">
+     <iframe
+       src="https://experience.m7branding.com/"
+       title="M7 — Stel je online experience samen"
+       loading="lazy"
+       allow="clipboard-write; fullscreen"
+       referrerpolicy="no-referrer-when-downgrade"
+       style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+     ></iframe>
+   </div>
+   ```
+
+Een volledig voorbeeldbestand staat in [`embed-example.html`](./embed-example.html).
+Wil je 'm liever zonder Node-host embedden? Zet dan `output: "export"` aan
+(zie hierboven) en upload de `out/`-map naar je eigen server/CDN; verwijs de
+iframe daar dan naartoe.
+
 ## Structuur
 
 ```

@@ -1655,3 +1655,7 @@
   .exp-modal-aside { display: none; }
   .exp-modal.exp-modal-split { width: min(560px, 100%); }
 }
+
+/* Favicon-logo's voor niche-tools (echte merk-favicon i.p.v. lettermark) */
+.brand-fav { border-radius: 5px; object-fit: contain; display: block; }
+.brand-chip-tile .brand-fav { width: 20px; height: 20px; }

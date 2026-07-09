@@ -7,6 +7,15 @@
 
 import { BRAND_PATHS } from "./brandPaths";
 
+// Merken zonder officieel single-path logo: we tonen hun echte favicon.
+const FAVICONS: Partial<Record<string, string>> = {
+  memberstack: "/brand/memberstack.png",
+  wized: "/brand/wized.png",
+  pipedrive: "/brand/pipedrive.png",
+  teamleader: "/brand/teamleader.png",
+  activecampaign: "/brand/activecampaign.png",
+};
+
 export type BrandKey =
   | "wordpress"
   | "webflow"
@@ -97,7 +106,21 @@ export function BrandIcon({
   const b = BRANDS[name];
   if (!b) return null;
   const d = BRAND_PATHS[name];
+  const fav = FAVICONS[name];
   if (!d) {
+    if (fav) {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={fav}
+          alt={b.name}
+          width={size}
+          height={size}
+          className={`brand-fav ${className}`}
+          loading="lazy"
+        />
+      );
+    }
     return (
       <span
         className={`brand-letters ${className}`}

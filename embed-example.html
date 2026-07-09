@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+  M7 — Online Experience · embed-voorbeeld
+  ------------------------------------------------------------------
+  Plak het <div>…</div>-blok hieronder in een HTML/Embed-blok op je site
+  (Webflow: "Embed"-element · WordPress: "Custom HTML"-blok · of gewoon in
+  je thema). Vervang alleen de URL in `src` door de plek waar de M7-experience
+  gehost staat (bijv. https://experience.m7branding.com/ of je Vercel-URL).
+
+  De iframe is volledig responsive en schaalt mee met de breedte van je pagina.
+-->
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>M7 — Experience embed voorbeeld</title>
+    <style>
+      body { margin: 0; background: #0a0a0b; }
+      /* Responsieve wrapper: vult de breedte, app-hoogte met interne scroll. */
+      .m7-embed {
+        position: relative;
+        width: 100%;
+        height: 100vh;          /* app-gevoel; pas aan naar bv. 900px indien gewenst */
+        min-height: 640px;
+        overflow: hidden;
+        border-radius: 16px;
+      }
+      .m7-embed iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ▼▼▼  DIT BLOK KOPIËREN NAAR JE SITE  ▼▼▼ -->
+    <div class="m7-embed">
+      <iframe
+        src="https://REPLACE-MET-JE-M7-EXPERIENCE-URL/"
+        title="M7 — Stel je online experience samen"
+        loading="lazy"
+        allow="clipboard-write; fullscreen"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <!-- ▲▲▲  EINDE BLOK  ▲▲▲ -->
+  </body>
+</html>
