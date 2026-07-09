@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "M7 — Stel je online experience samen",
   description:
     "Blader door de M7-catalogus en stel real-time je dienstverlening samen: Branding, Websites, Webshops, Apps, Marketing, SEO/AEO, Funnels, Tracking, Hosting en Support — met heldere indicatieve prijzen.",
+  icons: { icon: [{ url: "/brand/mark-teal.svg", type: "image/svg+xml" }] },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
