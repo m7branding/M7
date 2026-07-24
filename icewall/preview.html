@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ICEWALL Roadmap Preview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html,body { margin:0; padding:0; background:#040C15; }
+  body { min-height: 300vh; }
+  .spacer { height: 60vh; display:flex; align-items:center; justify-content:center; color:rgba(230,240,247,.4); font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="spacer">↓ scroll down to reach the roadmap ↓</div>
+<!-- ============================================================
+     ICEWALL — Interactive Roadmap Timeline (embeddable component)
+     Paste this whole block into a Webflow "Embed" element (or any
+     page). Self-contained: scoped styles (prefixed `.iw-roadmap`),
+     no external JS dependencies, no ids that collide with the rest
+     of the site. Safe to drop in more than once per page only if
+     you change the #icewall-roadmap id on the extra copies.
+     ============================================================ -->
+<section class="iw-roadmap" id="icewall-roadmap">
+  <div class="iw-roadmap__glow" aria-hidden="true"></div>
+
+  <div class="iw-roadmap__inner">
+
+    <header class="iw-roadmap__head">
+      <p class="iw-roadmap__eyebrow">THE MAP AHEAD</p>
+      <h2 class="iw-roadmap__title">Roadmap</h2>
+      <p class="iw-roadmap__lede">Nine thousand six hundred fragments. Six charted territories. A wall that becomes an archipelago, a collection that becomes a community, and — eventually — a real boat, to a real coastline. Scroll to trace the ice as it opens up.</p>
+
+      <div class="iw-roadmap__stats">
+        <div class="iw-roadmap__stat">
+          <span class="iw-roadmap__stat-num" data-count="9600">0</span>
+          <span class="iw-roadmap__stat-label">Total Fragments</span>
+        </div>
+        <div class="iw-roadmap__stat">
+          <span class="iw-roadmap__stat-num" data-count="6">0</span>
+          <span class="iw-roadmap__stat-label">Charted Territories</span>
+        </div>
+        <div class="iw-roadmap__stat">
+          <span class="iw-roadmap__stat-num" data-count="19">0</span>
+          <span class="iw-roadmap__stat-label">Roadmap Milestones</span>
+        </div>
+      </div>
+
+      <div class="iw-roadmap__filters" role="group" aria-label="Filter roadmap by category">
+        <button type="button" class="iw-roadmap__filter is-active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="iw-roadmap__filter" data-filter="genesis" aria-pressed="false">Genesis</button>
+        <button type="button" class="iw-roadmap__filter" data-filter="islands" aria-pressed="false">Islands</button>
+        <button type="button" class="iw-roadmap__filter" data-filter="web3" aria-pressed="false">Web3 &amp; NFT</button>
+        <button type="button" class="iw-roadmap__filter" data-filter="community" aria-pressed="false">Community</button>
+        <button type="button" class="iw-roadmap__filter" data-filter="charity" aria-pressed="false">Charity</button>
+        <button type="button" class="iw-roadmap__filter" data-filter="merch" aria-pressed="false">Merch</button>
+        <button type="button" class="iw-roadmap__filter" data-filter="research" aria-pressed="false">Research</button>
+      </div>
+    </header>
+
+    <div class="iw-roadmap__track">
+
+      <div class="iw-roadmap__tracker" aria-live="polite">
+        <span class="iw-roadmap__tracker-dot"></span>
+        <span class="iw-roadmap__tracker-text">Q3 2026 — The Wall Opens</span>
+      </div>
+
+      <div class="iw-roadmap__list">
+
+        <div class="iw-roadmap__line" aria-hidden="true"><div class="iw-roadmap__line-fill"></div></div>
+
+        <!-- ============ 2026 ============ -->
+        <div class="iw-roadmap__chapter"><span>2026</span></div>
+
+        <!-- 01 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="genesis">
+          <div class="iw-roadmap__node"><span>01</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="genesis">GENESIS</span>
+              <span class="iw-roadmap__date">Q3 2026 · September</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">The Wall Opens</h3>
+            <div class="iw-roadmap__frag"><em>1,000</em> fragments charted</div>
+            <p class="iw-roadmap__desc">The first claim window. 1,000 founding fragments of the Genesis Wall open to early adopters — each one numbered, permanent, and visible to everyone who arrives after. $25 secures a position, not a promise.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Position</span>Genesis Wall, fragments #0001–#1000</li>
+                <li><span>Unlocks</span>Every island beyond the Wall, once this sells out</li>
+                <li><span>Note</span>Early adopters are recognised twice more — at Mint, and at Airdrop</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="islands">
+          <div class="iw-roadmap__node"><span>02</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="islands">ISLANDS</span>
+              <span class="iw-roadmap__date">Q4 2026 · October</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Isle of Umbra Unlocks</h3>
+            <div class="iw-roadmap__frag"><em>2,200</em> fragments charted</div>
+            <p class="iw-roadmap__desc">The Genesis Wall sells out, and the ice groans open to the south. Isle of Umbra emerges from permanent half-light — 2,200 fragments across a shelf that never quite sees direct sun.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Terrain</span>Shadow shelf, perpetual dusk</li>
+                <li><span>Unlock trigger</span>Genesis Wall sell-out</li>
+                <li><span>Character</span>First territory beyond the Wall</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="islands">
+          <div class="iw-roadmap__node"><span>03</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="islands">ISLANDS</span>
+              <span class="iw-roadmap__date">Q4 2026 · November</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Outer Thule Unlocks</h3>
+            <div class="iw-roadmap__frag"><em>1,600</em> fragments charted</div>
+            <p class="iw-roadmap__desc">A wind-scoured outer rim reveals itself next. Outer Thule holds 1,600 fragments along an exposed ridge — the farthest edge charted from the original Wall so far.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Terrain</span>Exposed ridge line, high wind</li>
+                <li><span>Character</span>Remote, sparsely claimed by design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="islands">
+          <div class="iw-roadmap__node"><span>04</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="islands">ISLANDS</span>
+              <span class="iw-roadmap__date">Q4 2026 · December</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Vael Expanse Unlocks</h3>
+            <div class="iw-roadmap__frag"><em>2,800</em> fragments charted</div>
+            <p class="iw-roadmap__desc">The largest territory charted to date. Vael Expanse spreads across open drift ice, holding 2,800 fragments — room enough for a community, not just a claim.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Terrain</span>Open drift plains</li>
+                <li><span>Character</span>Largest single territory on the map</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ 2027 ============ -->
+        <div class="iw-roadmap__chapter"><span>2027</span></div>
+
+        <!-- 05 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="islands">
+          <div class="iw-roadmap__node"><span>05</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="islands">ISLANDS</span>
+              <span class="iw-roadmap__date">Q1 2027 · January</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Nocturne Shelf Unlocks</h3>
+            <div class="iw-roadmap__frag"><em>1,400</em> fragments charted</div>
+            <p class="iw-roadmap__desc">The last of the founding territories. Nocturne Shelf sits at the edge of permanent night — 1,400 fragments for those who've watched the map since the beginning.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Terrain</span>Polar-night edge</li>
+                <li><span>Character</span>Final founding territory before the chain goes live</li>
+                <li><span>Beyond here</span>Uncharted. What isn't mapped yet, stays sealed.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="web3">
+          <div class="iw-roadmap__node"><span>06</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="web3">WEB3</span>
+              <span class="iw-roadmap__date">Q1 2027 · March</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Smart Contract Goes Live</h3>
+            <p class="iw-roadmap__desc">ICEWALL moves on-chain. An audited smart contract takes over custody of every fragment, claim and future trade. Chain selection — Sui or Polygon — will be finalised based on gas cost, NFT tooling, and community input.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Decision factors</span>Transaction cost, NFT standard maturity, community vote</li>
+                <li><span>Audit</span>Independent third-party review before mainnet deployment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="charity">
+          <div class="iw-roadmap__node"><span>07</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="charity">CHARITY</span>
+              <span class="iw-roadmap__date">Q1 2027 · March</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">The Conservation Split Is Locked In</h3>
+            <p class="iw-roadmap__desc">Before a single NFT is minted, the split is already written into the contract: 50% of all future trading royalties and 50% of every newly minted ICE fragment are permanently routed to the ICEWALL Conservation Fund. Not a promise — code.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Mechanism</span>On-chain, unchangeable royalty + mint split</li>
+                <li><span>Reporting</span>Every distribution publicly viewable on-chain</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="web3">
+          <div class="iw-roadmap__node"><span>08</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="web3">MINT</span>
+              <span class="iw-roadmap__date">Q2 2027 · April</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Mint Machine Launches</h3>
+            <p class="iw-roadmap__desc">Every claimed fragment becomes eligible for exchange through the Mint Machine. Each resulting NFT is unique and self-owned — island of origin, claim date, fragment number and an optional personal inscription are written permanently into its metadata. From here, your fragment isn't just held. It's owned, displayed, traded, and carried into whatever comes next.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Metadata</span>Island, fragment #, claim date, personal note</li>
+                <li><span>Ownership</span>Fully self-custodied, tradable on open marketplaces</li>
+                <li><span>Conversion</span>One-way, fragment → NFT</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="community">
+          <div class="iw-roadmap__node"><span>09</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="community">AIRDROP</span>
+              <span class="iw-roadmap__date">Q2 2027 · May</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">ICE Fragment Airdrop</h3>
+            <p class="iw-roadmap__desc">A thank-you that can't be bought. Early adopters — the first Wall, before islands, before Web3 — receive a wave of unique ICE fragments airdropped straight to their wallets. No queue, no claim window. Just a record of having been early.</p>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="charity">
+          <div class="iw-roadmap__node"><span>10</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="charity">CHARITY</span>
+              <span class="iw-roadmap__date">Q2 2027 · June</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">First Conservation Deposit</h3>
+            <p class="iw-roadmap__desc">The Mint Machine's first trades settle, and the royalty split activates for the first time. The inaugural deposit into the ICEWALL Conservation Fund is published on-chain and publicly viewable — the first of many the contract now guarantees.</p>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="merch">
+          <div class="iw-roadmap__node"><span>11</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="merch">MERCH</span>
+              <span class="iw-roadmap__date">Q3 2027 · August</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Merch Drop — Caps &amp; Tees</h3>
+            <p class="iw-roadmap__desc">The Wall goes physical. A limited first merch run — caps and tees carrying the ICEWALL mark — ships to the community, with a share of proceeds feeding the smaller conservation pushes launching alongside it.</p>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="charity">
+          <div class="iw-roadmap__node"><span>12</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="charity">CHARITY</span>
+              <span class="iw-roadmap__date">Q3 2027 · August</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">The Paw Print Initiative</h3>
+            <p class="iw-roadmap__desc">The first of several smaller, focused conservation pushes: proceeds from the merch drop seed a micro-grant program supporting polar bear habitat monitoring and sea-ice research — small enough to move fast, transparent enough to track fragment by fragment.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Focus</span>Polar bears &amp; sea-ice habitat monitoring</li>
+                <li><span>Funded by</span>Merch proceeds + ongoing royalty split</li>
+                <li><span>Model</span>Rolling micro-grants, more initiatives to follow</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="islands">
+          <div class="iw-roadmap__node"><span>13</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="islands">ISLANDS</span>
+              <span class="iw-roadmap__date">Q4 2027 · October</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Meridian Isle Unlocks</h3>
+            <div class="iw-roadmap__frag"><em>600</em> fragments charted</div>
+            <p class="iw-roadmap__desc">Something the map only ever hinted at. Meridian Isle unlocks as the smallest and most contested territory yet — just 600 fragments. The community has already nicknamed it the Victory Isle, and the name sticks before anyone official confirms it.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Terrain</span>Unconfirmed, contested</li>
+                <li><span>Character</span>Smallest territory, highest demand</li>
+                <li><span>Note</span>Selling out this island opens the next milestone</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="community">
+          <div class="iw-roadmap__node"><span>14</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="community">COMMUNITY</span>
+              <span class="iw-roadmap__date">Q4 2027 · November</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">The Antarctica Expedition Contest</h3>
+            <p class="iw-roadmap__desc">The moment Meridian Isle sells out, a contest opens to the whole community: 12 seats on a real boat expedition to Antarctica — the place the entire map has pointed to from the start. Entry mechanics, eligibility and the vessel will be announced closer to departure.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Seats</span>12, community-wide entry</li>
+                <li><span>Trigger</span>Meridian Isle sell-out</li>
+                <li><span>Details</span>Mechanics &amp; vessel announced closer to departure</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="web3">
+          <div class="iw-roadmap__node"><span>15</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="web3">GOVERNANCE</span>
+              <span class="iw-roadmap__date">Q4 2027 · December</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Community Voting Goes Live</h3>
+            <p class="iw-roadmap__desc">Ownership becomes a voice. A smart-contract-based voting system launches, letting fragment and NFT holders weigh in on future islands, merch, and partnerships — and how each quarter's share of the Conservation Fund gets allocated.</p>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="charity">
+          <div class="iw-roadmap__node"><span>16</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="charity">CHARITY</span>
+              <span class="iw-roadmap__date">Q4 2027 · December</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Year-One Conservation Report</h3>
+            <p class="iw-roadmap__desc">A full public accounting of Year One: total royalties donated, total newly-minted fragments donated, and funds distributed through the Paw Print Initiative — published on-chain and in plain language, for anyone to audit.</p>
+          </div>
+        </div>
+
+        <!-- ============ 2028 ============ -->
+        <div class="iw-roadmap__chapter"><span>2028</span></div>
+
+        <!-- 17 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="research">
+          <div class="iw-roadmap__node"><span>17</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="research">RESEARCH</span>
+              <span class="iw-roadmap__date">Q1 2028 · February</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">ICEWALL Research Collective Founded</h3>
+            <p class="iw-roadmap__desc">The Conservation Fund grows into something more permanent: an independent initiative dedicated to polar ice and Antarctic wildlife research. Its first act is a small-grants program for early-career polar researchers — funded, transparently, by the community that got here first.</p>
+            <button type="button" class="iw-roadmap__more-btn" aria-expanded="false">Details <span class="chev">⌄</span></button>
+            <div class="iw-roadmap__more">
+              <ul>
+                <li><span>Focus</span>Polar ice science &amp; Antarctic wildlife</li>
+                <li><span>First program</span>Early-career researcher grants</li>
+                <li><span>Funding</span>Conservation Fund, ongoing royalty &amp; mint split</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="iw-roadmap__item iw-roadmap__item--right" data-category="research">
+          <div class="iw-roadmap__node"><span>18</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="research">RESEARCH</span>
+              <span class="iw-roadmap__date">Q2 2028</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Field Season One</h3>
+            <p class="iw-roadmap__desc">The Collective backs its first fieldwork — sea-ice monitoring and polar-wildlife survey work carried out with independent research partners. Findings, photos and raw data are published back to the community that funded them.</p>
+          </div>
+        </div>
+
+        <!-- 19 -->
+        <div class="iw-roadmap__item iw-roadmap__item--left" data-category="research">
+          <div class="iw-roadmap__node"><span>19</span></div>
+          <div class="iw-roadmap__card">
+            <div class="iw-roadmap__card-top">
+              <span class="iw-roadmap__chip" data-chip="research">RESEARCH</span>
+              <span class="iw-roadmap__date">Q4 2028</span>
+            </div>
+            <h3 class="iw-roadmap__card-title">Open Data &amp; Residency Program</h3>
+            <p class="iw-roadmap__desc">A public data archive goes live, and the first ICEWALL research residency is awarded — a season embedded with a polar research team, documented and shared with the community. What began as 1,000 digital fragments now funds real work at the actual edge of the world.</p>
+          </div>
+        </div>
+
+      </div><!-- /.iw-roadmap__list -->
+    </div><!-- /.iw-roadmap__track -->
+
+    <p class="iw-roadmap__footnote">Roadmap reflects current plans and target quarters. Specific dates, blockchain selection, fragment counts and mechanics may evolve as development progresses — this page will be updated as milestones are confirmed.</p>
+
+  </div><!-- /.iw-roadmap__inner -->
+</section>
+
+<style>
+  .iw-roadmap {
+    --iw-ice: #98D0DA;
+    --iw-mid: #6AAFC4;
+    --iw-deep: #18384C;
+    --iw-black: #040C15;
+    --iw-text: rgba(230,240,247,.90);
+    --iw-text-muted: rgba(230,240,247,.56);
+    --iw-text-dim: rgba(230,240,247,.30);
+    --iw-line-dim: rgba(152,208,218,.14);
+    --iw-card-bg: rgba(152,208,218,.03);
+    --iw-card-border: rgba(152,208,218,.16);
+
+    position: relative;
+    isolation: isolate;
+    font-family: 'Inconsolata', 'Courier New', ui-monospace, monospace;
+    color: var(--iw-text);
+    padding: clamp(64px, 9vw, 112px) 20px clamp(56px, 8vw, 96px);
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .iw-roadmap *, .iw-roadmap *::before, .iw-roadmap *::after { box-sizing: inherit; }
+
+  .iw-roadmap__glow {
+    position: absolute;
+    inset: -10% -10%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 50% 12%, rgba(152,208,218,.10), transparent 32%),
+      radial-gradient(circle at 50% 88%, rgba(106,175,196,.08), transparent 30%);
+    filter: blur(60px);
+    animation: iwGlowDrift 26s ease-in-out infinite alternate;
+  }
+  @keyframes iwGlowDrift {
+    0%   { opacity: .55; transform: translateY(-2%) scale(1); }
+    100% { opacity: .9;  transform: translateY(2%) scale(1.04); }
+  }
+
+  .iw-roadmap__inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
+
+  /* ---------- head ---------- */
+  .iw-roadmap__head { text-align: center; max-width: 720px; margin: 0 auto; }
+  .iw-roadmap__eyebrow {
+    margin: 0 0 14px;
+    font-size: 12px;
+    letter-spacing: .38em;
+    color: var(--iw-ice);
+    opacity: .85;
+  }
+  .iw-roadmap__title {
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    text-shadow: 0 0 32px rgba(152,208,218,.22);
+  }
+  .iw-roadmap__lede {
+    margin: 0 auto 40px;
+    font-size: clamp(15px, 1.6vw, 17px);
+    line-height: 1.65;
+    color: var(--iw-text-muted);
+  }
+
+  .iw-roadmap__stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(28px, 6vw, 64px);
+    margin-bottom: 36px;
+  }
+  .iw-roadmap__stat { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .iw-roadmap__stat-num {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--iw-ice);
+    text-shadow: 0 0 22px rgba(152,208,218,.35);
+    font-variant-numeric: tabular-nums;
+  }
+  .iw-roadmap__stat-label {
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--iw-text-muted);
+  }
+
+  .iw-roadmap__filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: clamp(48px, 7vw, 80px);
+  }
+  .iw-roadmap__filter {
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: .05em;
+    color: var(--iw-text-muted);
+    background: rgba(152,208,218,.03);
+    border: 1px solid rgba(152,208,218,.18);
+    border-radius: 999px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .iw-roadmap__filter:hover { color: #fff; border-color: rgba(152,208,218,.4); transform: translateY(-1px); }
+  .iw-roadmap__filter.is-active {
+    color: var(--iw-black);
+    background: var(--iw-ice);
+    border-color: var(--iw-ice);
+  }
+
+  /* ---------- track / line ---------- */
+  .iw-roadmap__track { position: relative; }
+
+  .iw-roadmap__tracker {
+    position: sticky;
+    top: 14px;
+    z-index: 6;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto 8px;
+    width: max-content;
+    max-width: calc(100% - 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(4,12,21,.72);
+    border: 1px solid rgba(152,208,218,.28);
+    border-radius: 999px;
+    padding: 9px 18px 9px 14px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--iw-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .iw-roadmap__tracker-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex: none;
+    background: var(--iw-ice);
+    box-shadow: 0 0 0 0 rgba(152,208,218,.55);
+    animation: iwPulse 2.2s ease-out infinite;
+  }
+  @keyframes iwPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(152,208,218,.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(152,208,218,0); }
+    100% { box-shadow: 0 0 0 0 rgba(152,208,218,0); }
+  }
+
+  .iw-roadmap__list {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    column-gap: 0;
+  }
+
+  .iw-roadmap__line {
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--iw-line-dim);
+    border-radius: 2px;
+    z-index: 0;
+  }
+  .iw-roadmap__line-fill {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    transform-origin: top;
+    transform: scaleY(0);
+    background: linear-gradient(180deg, var(--iw-ice), var(--iw-mid) 55%, var(--iw-deep));
+    box-shadow: 0 0 14px rgba(152,208,218,.55);
+    border-radius: 2px;
+  }
+
+  /* chapter divider */
+  .iw-roadmap__chapter {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .iw-roadmap__chapter span {
+    background: var(--iw-black);
+    border: 1px solid rgba(152,208,218,.35);
+    color: var(--iw-ice);
+    font-size: 13px;
+    letter-spacing: .3em;
+    padding: 7px 24px;
+    border-radius: 999px;
+  }
+
+  /* item wrapper participates in grid only via its children */
+  .iw-roadmap__item { display: contents; }
+
+  .iw-roadmap__node {
+    grid-column: 2;
+    justify-self: center;
+    align-self: start;
+    margin-top: 22px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--iw-text-dim);
+    background: var(--iw-black);
+    border: 1px solid rgba(152,208,218,.22);
+    position: relative;
+    z-index: 2;
+    transition: color .5s ease, border-color .5s ease, box-shadow .5s ease, background .5s ease;
+  }
+
+  .iw-roadmap__card {
+    position: relative;
+    z-index: 1;
+    background: var(--iw-card-bg);
+    border: 1px solid var(--iw-card-border);
+    border-radius: 18px;
+    padding: 24px 26px;
+    margin: 8px 0 30px;
+    max-width: 460px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: .45;
+    transform: translateY(14px);
+    filter: blur(2px) saturate(.7);
+    transition: opacity .6s ease, transform .6s ease, filter .6s ease, border-color .6s ease, box-shadow .6s ease;
+  }
+
+  .iw-roadmap__item--left .iw-roadmap__card  { grid-column: 1; justify-self: end; text-align: right; }
+  .iw-roadmap__item--right .iw-roadmap__card { grid-column: 3; justify-self: start; text-align: left; }
+  .iw-roadmap__item--left .iw-roadmap__card-top,
+  .iw-roadmap__item--left .iw-roadmap__more li { flex-direction: row-reverse; }
+
+  /* reached (scrolled past) state */
+  .iw-roadmap__item.is-reached .iw-roadmap__card {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0) saturate(1);
+    border-color: rgba(152,208,218,.35);
+    box-shadow: 0 10px 40px rgba(4,12,21,.5), 0 0 0 1px rgba(152,208,218,.05);
+  }
+  .iw-roadmap__item.is-reached .iw-roadmap__node {
+    color: var(--iw-black);
+    background: linear-gradient(135deg, var(--iw-ice), var(--iw-mid));
+    border-color: var(--iw-ice);
+    box-shadow: 0 0 18px rgba(152,208,218,.55);
+  }
+  .iw-roadmap__item.is-current .iw-roadmap__node {
+    animation: iwNodePulse 1.8s ease-out infinite;
+  }
+  @keyframes iwNodePulse {
+    0%   { box-shadow: 0 0 0 0 rgba(152,208,218,.5), 0 0 18px rgba(152,208,218,.55); }
+    70%  { box-shadow: 0 0 0 10px rgba(152,208,218,0), 0 0 18px rgba(152,208,218,.55); }
+    100% { box-shadow: 0 0 0 0 rgba(152,208,218,0), 0 0 18px rgba(152,208,218,.55); }
+  }
+
+  .iw-roadmap__card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .iw-roadmap__chip {
+    font-size: 10px;
+    letter-spacing: .14em;
+    padding: 4px 9px;
+    border-radius: 6px;
+    color: var(--iw-ice);
+    background: rgba(152,208,218,.1);
+    border: 1px solid rgba(152,208,218,.25);
+    white-space: nowrap;
+  }
+  .iw-roadmap__date { font-size: 12px; color: var(--iw-text-muted); letter-spacing: .03em; white-space: nowrap; }
+
+  .iw-roadmap__card-title { margin: 0 0 10px; font-size: 19px; line-height: 1.3; color: #fff; font-weight: 700; }
+
+  .iw-roadmap__frag {
+    display: inline-block;
+    margin: 0 0 12px;
+    font-size: 12px;
+    color: var(--iw-text-muted);
+    letter-spacing: .02em;
+  }
+  .iw-roadmap__frag em { font-style: normal; color: var(--iw-ice); font-weight: 700; font-size: 14px; }
+
+  .iw-roadmap__desc { margin: 0; font-size: 14px; line-height: 1.65; color: var(--iw-text-muted); }
+
+  .iw-roadmap__more-btn {
+    margin-top: 14px;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--iw-ice);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .iw-roadmap__more-btn .chev { display: inline-block; transition: transform .3s ease; font-size: 13px; }
+  .iw-roadmap__more-btn.is-open .chev { transform: rotate(180deg); }
+
+  .iw-roadmap__more {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease;
+  }
+  .iw-roadmap__more ul { list-style: none; margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid rgba(152,208,218,.14); display: flex; flex-direction: column; gap: 8px; }
+  .iw-roadmap__more li { display: flex; gap: 8px; font-size: 12.5px; line-height: 1.55; color: var(--iw-text-muted); }
+  .iw-roadmap__more li span { flex: none; color: var(--iw-ice); font-weight: 700; }
+
+  /* filtered out */
+  .iw-roadmap__item.is-hidden { display: none; }
+  .iw-roadmap__chapter.is-hidden { display: none; }
+
+  .iw-roadmap__footnote {
+    margin: 20px auto 0;
+    max-width: 640px;
+    text-align: center;
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--iw-text-dim);
+  }
+
+  /* ---------- mobile / tablet ---------- */
+  @media (max-width: 899px) {
+    .iw-roadmap__list { grid-template-columns: 36px 1fr; }
+    .iw-roadmap__line { left: 18px; }
+    .iw-roadmap__node { margin-left: 0; width: 34px; height: 34px; font-size: 11px; }
+    .iw-roadmap__item--left .iw-roadmap__card,
+    .iw-roadmap__item--right .iw-roadmap__card {
+      grid-column: 2;
+      justify-self: stretch;
+      max-width: none;
+      text-align: left;
+      margin-left: 14px;
+    }
+    .iw-roadmap__item--left .iw-roadmap__card-top,
+    .iw-roadmap__item--left .iw-roadmap__more li { flex-direction: row; }
+    .iw-roadmap__chapter { justify-content: flex-start; padding-left: 0; }
+    .iw-roadmap__tracker { font-size: 11px; padding: 8px 14px; }
+  }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .iw-roadmap__glow,
+    .iw-roadmap__tracker-dot,
+    .iw-roadmap__item.is-current .iw-roadmap__node { animation: none !important; }
+    .iw-roadmap__card,
+    .iw-roadmap__node,
+    .iw-roadmap__line-fill,
+    .iw-roadmap__filter,
+    .iw-roadmap__more { transition: none !important; }
+  }
+</style>
+
+<script>
+(function () {
+  var root = document.getElementById('icewall-roadmap');
+  if (!root || root.getAttribute('data-iw-init') === '1') return;
+  root.setAttribute('data-iw-init', '1');
+
+  var track   = root.querySelector('.iw-roadmap__track');
+  var list    = root.querySelector('.iw-roadmap__list');
+  var fill    = root.querySelector('.iw-roadmap__line-fill');
+  var items   = Array.prototype.slice.call(root.querySelectorAll('.iw-roadmap__item'));
+  var tracker = root.querySelector('.iw-roadmap__tracker-text');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+  /* ---- animated stat counters, once in view ---- */
+  var statEls = root.querySelectorAll('.iw-roadmap__stat-num');
+  var statsAnimated = false;
+  function animateStats() {
+    if (statsAnimated) return;
+    statsAnimated = true;
+    statEls.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      if (reduceMotion) { el.textContent = target.toLocaleString(); return; }
+      var duration = 1300, start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = clamp((ts - start) / duration, 0, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target).toLocaleString();
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var statsRow = root.querySelector('.iw-roadmap__stats');
+  if (statsRow && 'IntersectionObserver' in window) {
+    var statsObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { animateStats(); statsObs.disconnect(); } });
+    }, { threshold: .4 });
+    statsObs.observe(statsRow);
+  } else {
+    animateStats();
+  }
+
+  /* ---- scroll-driven line fill + reached/current state ---- */
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight;
+    var reachLine = vh * 0.68;
+
+    var listRect = list.getBoundingClientRect();
+    var total = listRect.height;
+    var passed = clamp(reachLine - listRect.top, 0, total);
+    var pct = total > 0 ? passed / total : 0;
+    fill.style.transform = 'scaleY(' + pct + ')';
+
+    var current = null;
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      if (item.classList.contains('is-hidden')) continue;
+      var node = item.querySelector('.iw-roadmap__node');
+      if (!node) continue;
+      var r = node.getBoundingClientRect();
+      var center = r.top + r.height / 2;
+      var reached = center < reachLine;
+      item.classList.toggle('is-reached', reached);
+      item.classList.remove('is-current');
+      if (reached) current = item;
+    }
+    if (current) {
+      current.classList.add('is-current');
+      if (tracker) {
+        var d = current.querySelector('.iw-roadmap__date');
+        var t = current.querySelector('.iw-roadmap__card-title');
+        if (d && t) tracker.textContent = d.textContent + ' — ' + t.textContent;
+      }
+    } else if (tracker && items.length) {
+      var firstD = items[0].querySelector('.iw-roadmap__date');
+      var firstT = items[0].querySelector('.iw-roadmap__card-title');
+      if (firstD && firstT) tracker.textContent = firstD.textContent + ' — ' + firstT.textContent;
+    }
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+  if (reduceMotion) {
+    items.forEach(function (item) { item.classList.add('is-reached'); });
+    fill.style.transform = 'scaleY(1)';
+  }
+
+  /* ---- category filters ---- */
+  function updateChapterVisibility() {
+    var children = Array.prototype.slice.call(list.children).filter(function (el) {
+      return el.classList.contains('iw-roadmap__chapter') || el.classList.contains('iw-roadmap__item');
+    });
+    var lastChapter = null, sawVisible = false;
+    children.forEach(function (el) {
+      if (el.classList.contains('iw-roadmap__chapter')) {
+        if (lastChapter) lastChapter.classList.toggle('is-hidden', !sawVisible);
+        lastChapter = el;
+        sawVisible = false;
+      } else if (!el.classList.contains('is-hidden')) {
+        sawVisible = true;
+      }
+    });
+    if (lastChapter) lastChapter.classList.toggle('is-hidden', !sawVisible);
+  }
+
+  var filterBtns = Array.prototype.slice.call(root.querySelectorAll('.iw-roadmap__filter'));
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('is-active'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
+      var f = btn.getAttribute('data-filter');
+      items.forEach(function (item) {
+        var match = f === 'all' || item.getAttribute('data-category') === f;
+        item.classList.toggle('is-hidden', !match);
+      });
+      updateChapterVisibility();
+      requestAnimationFrame(update);
+    });
+  });
+
+  /* ---- expand / collapse details ---- */
+  root.querySelectorAll('.iw-roadmap__more-btn').forEach(function (btn) {
+    var panel = btn.nextElementSibling;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.classList.toggle('is-open', !open);
+      if (panel) panel.style.maxHeight = open ? '0px' : panel.scrollHeight + 'px';
+    });
+  });
+})();
+</script>
+
+<div class="spacer">— end of page —</div>
+</body>
+</html>
