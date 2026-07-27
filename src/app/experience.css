@@ -1957,3 +1957,51 @@
 @media (prefers-reduced-motion: reduce) {
   .exp-atom-orbit, .exp-atom-nucleus, .exp-loader-bar span { animation: none; }
 }
+
+/* ---------- V4.1: echte M7-quicklink-badges, reset, intake-antwoorden ---------- */
+.exp-quicklink-mark { width: 30px; height: 30px; border-radius: 999px; display: block; flex: none; }
+
+.exp-topbar-actions { display: flex; align-items: center; gap: 8px; }
+.exp-btn-reset { gap: 7px; padding-left: 12px; }
+.exp-btn-reset svg { width: 15px; height: 15px; }
+@media (max-width: 640px) { .exp-reset-txt { display: none; } .exp-btn-reset { padding: 8px 10px; } }
+
+.exp-review-reset {
+  display: block;
+  margin: 18px auto 0;
+  background: none;
+  border: none;
+  color: var(--exp-muted);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.exp-review-reset:hover { color: var(--exp-text); }
+
+.exp-answers {
+  margin: 4px 0 4px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--exp-border);
+  background: var(--exp-panel);
+}
+.exp-answers-head {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--exp-a2);
+  margin-bottom: 8px;
+}
+.exp-answers-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 6px 0;
+  border-top: 1px solid var(--exp-border);
+  font-size: 13px;
+}
+.exp-answers-row:first-of-type { border-top: none; }
+.exp-answers-row .q { color: var(--exp-muted); }
+.exp-answers-row .a { color: var(--exp-text); text-align: right; font-weight: 600; }

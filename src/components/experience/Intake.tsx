@@ -300,6 +300,22 @@ export type IntakeResult = {
   answers: Answers;
 };
 
+/** Leesbare weergave van de gegeven vervolgantwoorden (excl. stage/goals,
+ *  die apart als chips getoond worden) — voor in de offerte-aanvraag. */
+export function describeAnswers(answers: Answers): { label: string; values: string[] }[] {
+  const out: { label: string; values: string[] }[] = [];
+  for (const q of QUESTIONS) {
+    if (q.id === "stage" || q.id === "goals") continue;
+    const picked = answers[q.id] ?? [];
+    if (!picked.length) continue;
+    out.push({
+      label: q.title,
+      values: picked.map((id) => q.choices.find((c) => c.id === id)?.label ?? id),
+    });
+  }
+  return out;
+}
+
 export function Intake({
   onDone,
   onExit,

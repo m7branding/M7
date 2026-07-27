@@ -21,7 +21,7 @@ import { M7Logo } from "./Logo";
 import { BrandChip, BrandIcon, WebflowPartnerBadge, BRANDS, type BrandKey } from "./BrandIcon";
 import { CardArt } from "./CardArt";
 import { Landscape, type LandscapeData } from "./Landscape";
-import { Intake, type IntakeResult } from "./Intake";
+import { Intake, describeAnswers, type IntakeResult } from "./Intake";
 
 const INTRO_MAILTO =
   "mailto:hello@m7branding.com?subject=" +
@@ -74,42 +74,6 @@ function Sparkle() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden>
       <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z" />
-    </svg>
-  );
-}
-// M7 quick-link pictogrammen (intro): Webhosting, Webplans, Content, Growth.
-function M7Mark({ name }: { name: "hosting" | "webplans" | "content" | "growth" }) {
-  const marks: Record<string, React.ReactNode> = {
-    hosting: (
-      <>
-        <circle cx="16" cy="16" r="4" />
-        <ellipse cx="16" cy="16" rx="12" ry="5" />
-        <ellipse cx="16" cy="16" rx="12" ry="5" transform="rotate(60 16 16)" />
-        <ellipse cx="16" cy="16" rx="12" ry="5" transform="rotate(120 16 16)" />
-      </>
-    ),
-    webplans: (
-      <>
-        <path d="M16 4l10 3.5v7c0 6.4-4.4 10.3-10 12.5C10.4 24.8 6 20.9 6 14.5v-7z" />
-        <path d="M11.5 15.5l3 3 6-6.5" />
-      </>
-    ),
-    content: (
-      <>
-        <path d="M16 4l2.2 7.8L26 14l-7.8 2.2L16 24l-2.2-7.8L6 14l7.8-2.2z" />
-      </>
-    ),
-    growth: (
-      <>
-        <path d="M5 27V6M5 27h22" />
-        <path d="M9 22l6-7 5 4 8-11" />
-        <path d="M25 8h5v5" />
-      </>
-    ),
-  };
-  return (
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      {marks[name]}
     </svg>
   );
 }
@@ -542,6 +506,7 @@ export function Configurator() {
   const [stage, setStage] = useState<string | null>(null);
   const [goals, setGoals] = useState<string[]>([]);
   const [extraCats, setExtraCats] = useState<IconKey[]>([]);
+  const [answers, setAnswers] = useState<Record<string, string[]>>({});
   const journey = useMemo(() => {
     const base = journeyFor(stage, goals);
     const set = new Set<IconKey>([...base, ...extraCats]);
@@ -670,9 +635,34 @@ export function Configurator() {
     setStage(r.stage);
     setGoals(r.goals);
     setExtraCats(r.extraCats);
+    setAnswers(r.answers);
     setScreen("flow");
     setStep(0);
     requestAnimationFrame(() => scrollToTop());
+  };
+
+  // Opnieuw beginnen: wis alle keuzes + intake-antwoorden.
+  const resetAll = () => {
+    setPlans({});
+    setAddons([]);
+    setQty({});
+    setOptions({});
+    setStage(null);
+    setGoals([]);
+    setExtraCats([]);
+    setAnswers({});
+    setStep(0);
+    setDrawerOpen(false);
+    setPanelOpen(false);
+    setModalOpen(false);
+    setScreen("intro");
+    if (typeof window !== "undefined") window.scrollTo({ top: 0 });
+  };
+
+  const confirmReset = () => {
+    if (selectedIds.size === 0 || (typeof window !== "undefined" && window.confirm("Opnieuw beginnen? Je huidige selectie wordt gewist."))) {
+      resetAll();
+    }
   };
 
   // ---- selectie-handlers
@@ -787,24 +777,20 @@ export function Configurator() {
               </button>
             </div>
 
-            {/* Quick-links naar de kern-abonnementen */}
+            {/* Quick-links naar de kern-abonnementen (echte M7-brandmarks) */}
             <div className="exp-quicklinks">
-              <button className="exp-quicklink" onClick={() => jumpTo("hosting")}>
-                <span className="exp-quicklink-ico"><M7Mark name="hosting" /></span>
-                <span>M7 Webhosting</span>
-              </button>
-              <button className="exp-quicklink" onClick={() => jumpTo("support")}>
-                <span className="exp-quicklink-ico"><M7Mark name="webplans" /></span>
-                <span>M7 Webplans</span>
-              </button>
-              <button className="exp-quicklink" onClick={() => jumpTo("organic")}>
-                <span className="exp-quicklink-ico"><M7Mark name="content" /></span>
-                <span>M7 Content</span>
-              </button>
-              <button className="exp-quicklink" onClick={() => jumpTo("paid")}>
-                <span className="exp-quicklink-ico"><M7Mark name="growth" /></span>
-                <span>M7 Growth</span>
-              </button>
+              {([
+                ["hosting", "/brand/m7-webhosting.svg", "M7 Webhosting"],
+                ["support", "/brand/m7-webplans.svg", "M7 Webplans"],
+                ["organic", "/brand/m7-content.svg", "M7 Content"],
+                ["paid", "/brand/m7-growth.svg", "M7 Growth"],
+              ] as [IconKey, string, string][]).map(([cat, src, label]) => (
+                <button key={cat} className="exp-quicklink" onClick={() => jumpTo(cat)}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="exp-quicklink-mark" src={src} alt="" aria-hidden />
+                  <span>{label}</span>
+                </button>
+              ))}
             </div>
 
             <p className="exp-intro-note">
@@ -853,9 +839,15 @@ export function Configurator() {
             Stap {step + 1} / {stepTotal}
           </span>
         </div>
-        <a className="exp-btn exp-btn-ghost exp-btn-sm" href={INTRO_MAILTO}>
-          Kennismaken
-        </a>
+        <div className="exp-topbar-actions">
+          <button className="exp-btn exp-btn-ghost exp-btn-sm exp-btn-reset" onClick={confirmReset} title="Opnieuw beginnen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M4 4v6h6M20 20v-6h-6" /><path d="M20 10a8 8 0 0 0-14.3-3.7L4 8M4 14a8 8 0 0 0 14.3 3.7L20 16" /></svg>
+            <span className="exp-reset-txt">Opnieuw</span>
+          </button>
+          <a className="exp-btn exp-btn-ghost exp-btn-sm" href={INTRO_MAILTO}>
+            Kennismaken
+          </a>
+        </div>
       </header>
 
       {/* -------- STEP-RAIL -------- */}
@@ -1058,6 +1050,7 @@ export function Configurator() {
           onGoToCat={goToCat}
           onBack={() => setScreen("flow")}
           onRequest={() => setModalOpen(true)}
+          onReset={confirmReset}
         />
       )}
 
@@ -1069,6 +1062,7 @@ export function Configurator() {
           totals={totals}
           stage={stage}
           goals={goals}
+          answers={answers}
           onClose={() => setModalOpen(false)}
         />
       )}
@@ -1084,6 +1078,7 @@ function ReviewScreen({
   onGoToCat,
   onBack,
   onRequest,
+  onReset,
 }: {
   landscapeData: LandscapeData;
   totals: { setup: number; monthly: number; custom: boolean };
@@ -1091,6 +1086,7 @@ function ReviewScreen({
   onGoToCat: (cat: IconKey) => void;
   onBack: () => void;
   onRequest: () => void;
+  onReset: () => void;
 }) {
   const upsells = CATEGORY_ORDER.filter(
     (c) =>
@@ -1147,6 +1143,7 @@ function ReviewScreen({
             Vraag dit aan <CircleArrow />
           </button>
         </div>
+        <button className="exp-review-reset" onClick={onReset}>Opnieuw beginnen</button>
       </div>
     </div>
   );
@@ -1160,6 +1157,7 @@ function QuoteModal({
   totals,
   stage,
   goals,
+  answers,
   onClose,
 }: {
   selectedIds: Set<string>;
@@ -1168,6 +1166,7 @@ function QuoteModal({
   totals: { setup: number; monthly: number; custom: boolean };
   stage: string | null;
   goals: string[];
+  answers: Record<string, string[]>;
   onClose: () => void;
 }) {
   const [copied, setCopied] = useState(false);
@@ -1191,6 +1190,7 @@ function QuoteModal({
 
   const stageLabel = STAGES.find((s) => s.id === stage)?.label;
   const goalLabels = goals.map((g) => GOALS.find((x) => x.id === g)?.label).filter(Boolean) as string[];
+  const answerRows = useMemo(() => describeAnswers(answers), [answers]);
 
   const chosenOptions = useMemo(
     () =>
@@ -1214,6 +1214,10 @@ function QuoteModal({
         lines.push(`  • ${r.name}${r.n > 1 ? ` (${r.n}×)` : ""} — ${p.main} ${p.unit}`.trim());
       });
     });
+    if (answerRows.length) {
+      lines.push("", "Intake-antwoorden:");
+      answerRows.forEach((a) => lines.push(`• ${a.label} — ${a.values.join(", ")}`));
+    }
     if (chosenOptions.length) {
       lines.push("", "Voorkeuren:");
       chosenOptions.forEach((o) => lines.push(`• ${o.label}: ${o.values.join(", ")}`));
@@ -1226,7 +1230,7 @@ function QuoteModal({
       "(Indicatieve vanafprijzen — graag vrijblijvend afstemmen.)"
     );
     return lines.join("\n");
-  }, [groups, chosenOptions, totals, stageLabel, goalLabels]);
+  }, [groups, chosenOptions, answerRows, totals, stageLabel, goalLabels]);
 
   const copy = async () => {
     try {
@@ -1302,6 +1306,18 @@ function QuoteModal({
             </div>
           ))}
         </div>
+
+        {answerRows.length > 0 && (
+          <div className="exp-answers">
+            <div className="exp-answers-head">Jouw intake-antwoorden</div>
+            {answerRows.map((a) => (
+              <div className="exp-answers-row" key={a.label}>
+                <span className="q">{a.label}</span>
+                <span className="a">{a.values.join(", ")}</span>
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className="exp-summary-tot">
           <span>Totaal eenmalig (vanaf)</span>
