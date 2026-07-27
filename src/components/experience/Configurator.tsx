@@ -21,6 +21,7 @@ import { M7Logo } from "./Logo";
 import { BrandChip, BrandIcon, WebflowPartnerBadge, BRANDS, type BrandKey } from "./BrandIcon";
 import { CardArt } from "./CardArt";
 import { Landscape, type LandscapeData } from "./Landscape";
+import { Intake, type IntakeResult } from "./Intake";
 
 const INTRO_MAILTO =
   "mailto:hello@m7branding.com?subject=" +
@@ -76,6 +77,42 @@ function Sparkle() {
     </svg>
   );
 }
+// M7 quick-link pictogrammen (intro): Webhosting, Webplans, Content, Growth.
+function M7Mark({ name }: { name: "hosting" | "webplans" | "content" | "growth" }) {
+  const marks: Record<string, React.ReactNode> = {
+    hosting: (
+      <>
+        <circle cx="16" cy="16" r="4" />
+        <ellipse cx="16" cy="16" rx="12" ry="5" />
+        <ellipse cx="16" cy="16" rx="12" ry="5" transform="rotate(60 16 16)" />
+        <ellipse cx="16" cy="16" rx="12" ry="5" transform="rotate(120 16 16)" />
+      </>
+    ),
+    webplans: (
+      <>
+        <path d="M16 4l10 3.5v7c0 6.4-4.4 10.3-10 12.5C10.4 24.8 6 20.9 6 14.5v-7z" />
+        <path d="M11.5 15.5l3 3 6-6.5" />
+      </>
+    ),
+    content: (
+      <>
+        <path d="M16 4l2.2 7.8L26 14l-7.8 2.2L16 24l-2.2-7.8L6 14l7.8-2.2z" />
+      </>
+    ),
+    growth: (
+      <>
+        <path d="M5 27V6M5 27h22" />
+        <path d="M9 22l6-7 5 4 8-11" />
+        <path d="M25 8h5v5" />
+      </>
+    ),
+  };
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      {marks[name]}
+    </svg>
+  );
+}
 
 // ------------------------------------------------------------ hook: count-up
 function useAnimatedNumber(value: number) {
@@ -101,22 +138,26 @@ function useAnimatedNumber(value: number) {
 }
 
 // ------------------------------------------------------------ price label
+// `pre` = "vanaf": alle eenmalige (project)prijzen zijn indicatieve
+// vanafprijzen; doorlopende prijzen alleen als price.from is gezet.
 function priceLabel(price: Pkg["price"]) {
-  const { setup, monthly, custom, suffix } = price;
+  const { setup, monthly, custom, suffix, from } = price;
   const hasMonthly = typeof monthly === "number" && monthly > 0;
   const hasSetup = typeof setup === "number" && setup > 0;
   if (!hasMonthly && !hasSetup) {
-    return { main: "Op aanvraag", unit: "", sub: "" };
+    return { pre: "", main: "Op aanvraag", unit: "", sub: "" };
   }
   if (hasMonthly) {
     return {
-      main: `${formatEuro(monthly!)}${custom ? "" : ""}`,
-      unit: `/mnd${suffix === "stuk" ? " · p/stuk" : ""}${custom ? " vanaf" : ""}`,
-      sub: hasSetup ? `+ ${formatEuro(setup!)} eenmalig` : "",
+      pre: from || custom ? "vanaf" : "",
+      main: `${formatEuro(monthly!)}`,
+      unit: `/mnd${suffix === "stuk" ? " · p/stuk" : ""}`,
+      sub: hasSetup ? `+ vanaf ${formatEuro(setup!)} eenmalig` : "",
     };
   }
-  const unitMap: Record<string, string> = { stuk: "per stuk", "afl.": "per afl." };
+  const unitMap: Record<string, string> = { stuk: "per stuk", "afl.": "per afl.", set: "per set" };
   return {
+    pre: "vanaf",
     main: formatEuro(setup!),
     unit: suffix && unitMap[suffix] ? unitMap[suffix] : "eenmalig",
     sub: "",
@@ -267,6 +308,7 @@ function PkgCard({
       </div>
 
       <div className="exp-price">
+        {p.pre && <span className="exp-price-pre">{p.pre}</span>}
         <span className="exp-price-main">{p.main}</span>
         {p.unit && <span className="exp-price-unit">{p.unit}</span>}
       </div>
@@ -412,8 +454,10 @@ function CategoryStep({
         </div>
       )}
 
-      <div className="exp-cards">
-        {cat.packages.map((pkg) => {
+      {(() => {
+        const plans = cat.packages.filter((p) => p.kind === "plan");
+        const extras = cat.packages.filter((p) => p.kind !== "plan");
+        const renderCard = (pkg: Pkg) => {
           const selected =
             pkg.kind === "plan"
               ? state.plans[cat.id] === pkg.id
@@ -432,8 +476,34 @@ function CategoryStep({
               reveal={reveal}
             />
           );
-        })}
-      </div>
+        };
+        return (
+          <>
+            {plans.length > 0 && (
+              <div className="exp-group is-plans">
+                {(plans.length > 0 && extras.length > 0) && (
+                  <div className="exp-group-label">
+                    <span className="exp-group-kicker">Kies je plan</span>
+                    <span className="exp-group-hint">Één hoofdpakket — vormt de basis</span>
+                  </div>
+                )}
+                <div className="exp-cards is-plan-grid">{plans.map(renderCard)}</div>
+              </div>
+            )}
+            {extras.length > 0 && (
+              <div className="exp-group is-extras">
+                {plans.length > 0 && (
+                  <div className="exp-group-label">
+                    <span className="exp-group-kicker">Uitbreidingen &amp; losse opties</span>
+                    <span className="exp-group-hint">Voeg toe wat je nodig hebt</span>
+                  </div>
+                )}
+                <div className="exp-cards">{extras.map(renderCard)}</div>
+              </div>
+            )}
+          </>
+        );
+      })()}
 
       {cat.note && <p className="exp-note">{cat.note}</p>}
 
@@ -455,103 +525,9 @@ function CategoryStep({
   );
 }
 
-// ============================================================ INTAKE STEP
-function IntakeStep({
-  stage,
-  goals,
-  journey,
-  setStage,
-  setGoals,
-  onGoTo,
-}: {
-  stage: string | null;
-  goals: string[];
-  journey: IconKey[];
-  setStage: (fn: (cur: string | null) => string | null) => void;
-  setGoals: (fn: (cur: string[]) => string[]) => void;
-  onGoTo: (catId: IconKey) => void;
-}) {
-  return (
-    <section className="exp-step" key="intake">
-      <div className="exp-intake-hero">
-        <span className="exp-eyebrow">
-          <Sparkle /> Intake · stap 1
-        </span>
-        <h2>Waar sta je — en wat wil je bereiken?</h2>
-        <p className="exp-section-blurb">
-          Vertel het ons kort. Wij zetten meteen een logisch, genummerd pad uit door de catalogus —
-          je loopt het daarna stap voor stap door.
-        </p>
-      </div>
-
-      <div className="exp-intake">
-        <div className="exp-intake-step">
-          <div className="exp-intake-q">
-            <span className="exp-intake-num">1</span> Waar sta je nu?
-          </div>
-          <div className="exp-opt-chips" style={{ justifyContent: "center" }}>
-            {STAGES.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                className={`exp-opt-chip ${stage === s.id ? "is-on" : ""}`}
-                title={s.desc}
-                onClick={() => setStage((cur) => (cur === s.id ? null : s.id))}
-              >
-                {s.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="exp-intake-step">
-          <div className="exp-intake-q">
-            <span className="exp-intake-num">2</span> Wat wil je bereiken?{" "}
-            <span className="exp-intake-hint">meerdere mogelijk</span>
-          </div>
-          <div className="exp-opt-chips" style={{ justifyContent: "center" }}>
-            {GOALS.map((g) => (
-              <button
-                key={g.id}
-                type="button"
-                className={`exp-opt-chip ${goals.includes(g.id) ? "is-on" : ""}`}
-                onClick={() =>
-                  setGoals((cur) => (cur.includes(g.id) ? cur.filter((x) => x !== g.id) : [...cur, g.id]))
-                }
-              >
-                <span aria-hidden style={{ opacity: 0.85 }}>{g.emoji}</span> {g.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {journey.length > 0 && (
-        <div className="exp-path">
-          <div className="exp-path-label">
-            <Sparkle /> Jouw aanbevolen pad
-          </div>
-          <div className="exp-path-flow">
-            {journey.map((cid, i) => (
-              <span key={cid} className="exp-path-node-wrap">
-                <button className="exp-path-node" onClick={() => onGoTo(cid)}>
-                  <span className="exp-path-node-num">{i + 1}</span>
-                  <CategoryIcon name={cid} />
-                  {CATEGORY_BY_ID[cid].label}
-                </button>
-                {i < journey.length - 1 && <span className="exp-path-arrow"><Arrow /></span>}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-    </section>
-  );
-}
-
 // ============================================================ MAIN
 export function Configurator() {
-  const [screen, setScreen] = useState<"intro" | "flow" | "review">("intro");
+  const [screen, setScreen] = useState<"intro" | "intake" | "flow" | "review">("intro");
   const [booted, setBooted] = useState(false);
 
   const [plans, setPlans] = useState<Partial<Record<IconKey, string>>>({});
@@ -565,7 +541,12 @@ export function Configurator() {
   // ---- intake
   const [stage, setStage] = useState<string | null>(null);
   const [goals, setGoals] = useState<string[]>([]);
-  const journey = useMemo(() => journeyFor(stage, goals), [stage, goals]);
+  const [extraCats, setExtraCats] = useState<IconKey[]>([]);
+  const journey = useMemo(() => {
+    const base = journeyFor(stage, goals);
+    const set = new Set<IconKey>([...base, ...extraCats]);
+    return CATEGORY_ORDER.filter((c) => set.has(c));
+  }, [stage, goals, extraCats]);
 
   // ---- flow-volgorde: journey eerst, daarna de rest van de catalogus
   const orderedCats = useMemo(() => {
@@ -573,7 +554,7 @@ export function Configurator() {
     return [...journey, ...rest];
   }, [journey]);
 
-  // steps: 0 = intake, 1..N = categorieën
+  // steps: index in orderedCats (één categorie per stap)
   const [step, setStep] = useState(0);
   const stepTop = useRef<HTMLDivElement>(null);
 
@@ -646,7 +627,7 @@ export function Configurator() {
 
   const gotoStep = useCallback(
     (idx: number) => {
-      setStep(Math.max(0, Math.min(orderedCats.length, idx)));
+      setStep(Math.max(0, Math.min(orderedCats.length - 1, idx)));
       requestAnimationFrame(() => scrollToTop());
     },
     [orderedCats.length, scrollToTop]
@@ -659,7 +640,7 @@ export function Configurator() {
       if (idx >= 0) {
         setScreen("flow");
         setPanelOpen(false);
-        gotoStep(idx + 1); // +1 want stap 0 = intake
+        gotoStep(idx);
       }
     },
     [orderedCats, gotoStep]
@@ -672,7 +653,23 @@ export function Configurator() {
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const startFlow = () => {
+  const startIntake = () => {
+    setScreen("intake");
+  };
+
+  // Direct naar één categorie springen (intro-quicklinks), zonder intake.
+  const jumpTo = (catId: IconKey) => {
+    const idx = CATEGORY_ORDER.indexOf(catId);
+    setScreen("flow");
+    // orderedCats == CATEGORY_ORDER wanneer er geen journey is
+    setStep(Math.max(0, idx));
+    requestAnimationFrame(() => scrollToTop());
+  };
+
+  const onIntakeDone = (r: IntakeResult) => {
+    setStage(r.stage);
+    setGoals(r.goals);
+    setExtraCats(r.extraCats);
     setScreen("flow");
     setStep(0);
     requestAnimationFrame(() => scrollToTop());
@@ -721,8 +718,8 @@ export function Configurator() {
     ).length;
 
   const totalCount = selectedIds.size;
-  const stepTotal = orderedCats.length + 1; // incl. intake
-  const currentCat = step >= 1 ? CATEGORY_BY_ID[orderedCats[step - 1]] : null;
+  const stepTotal = orderedCats.length; // één categorie per stap
+  const currentCat = CATEGORY_BY_ID[orderedCats[step]] ?? null;
 
   // ---- marquee-data (cinematisch intro)
   const marqueeTop = useMemo(
@@ -784,14 +781,32 @@ export function Configurator() {
               Wij zetten een logisch pad uit; jij bepaalt de scope.
             </p>
             <div className="exp-intro-cta">
-              <button className="exp-btn exp-btn-primary exp-btn-lg" onClick={startFlow}>
+              <button className="exp-btn exp-btn-primary exp-btn-lg" onClick={startIntake}>
                 Start je groei met M7
                 <CircleArrow />
               </button>
-              <button className="exp-btn exp-btn-ghost" onClick={startFlow}>
-                Bekijk de diensten
+            </div>
+
+            {/* Quick-links naar de kern-abonnementen */}
+            <div className="exp-quicklinks">
+              <button className="exp-quicklink" onClick={() => jumpTo("hosting")}>
+                <span className="exp-quicklink-ico"><M7Mark name="hosting" /></span>
+                <span>M7 Webhosting</span>
+              </button>
+              <button className="exp-quicklink" onClick={() => jumpTo("support")}>
+                <span className="exp-quicklink-ico"><M7Mark name="webplans" /></span>
+                <span>M7 Webplans</span>
+              </button>
+              <button className="exp-quicklink" onClick={() => jumpTo("organic")}>
+                <span className="exp-quicklink-ico"><M7Mark name="content" /></span>
+                <span>M7 Content</span>
+              </button>
+              <button className="exp-quicklink" onClick={() => jumpTo("paid")}>
+                <span className="exp-quicklink-ico"><M7Mark name="growth" /></span>
+                <span>M7 Growth</span>
               </button>
             </div>
+
             <p className="exp-intro-note">
               Volledig vrijblijvend · indicatieve vanafprijzen · in een paar minuten samengesteld
             </p>
@@ -803,6 +818,17 @@ export function Configurator() {
             <Marquee items={marqueeBottom} direction="left" />
           </div>
         </div>
+      </>
+    );
+  }
+
+  // ============================================================ INTAKE
+  if (screen === "intake") {
+    return (
+      <>
+        <Starfield />
+        <div className="exp-bg-gradients" />
+        <Intake onDone={onIntakeDone} onExit={() => setScreen("intro")} />
       </>
     );
   }
@@ -834,10 +860,7 @@ export function Configurator() {
 
       {/* -------- STEP-RAIL -------- */}
       <nav className="exp-rail" aria-label="Stappen">
-        <button
-          className={`exp-tab ${step === 0 ? "is-active" : ""}`}
-          onClick={() => gotoStep(0)}
-        >
+        <button className="exp-tab" onClick={() => setScreen("intake")}>
           <span className="exp-tab-step">✦</span>
           Intake
         </button>
@@ -849,8 +872,8 @@ export function Configurator() {
           return (
             <button
               key={cid}
-              className={`exp-tab ${step === i + 1 ? "is-active" : ""} ${inJourney && c === 0 ? "is-journey" : ""}`}
-              onClick={() => gotoStep(i + 1)}
+              className={`exp-tab ${step === i ? "is-active" : ""} ${inJourney && c === 0 ? "is-journey" : ""}`}
+              onClick={() => gotoStep(i)}
             >
               <span className="exp-tab-step">{i + 1}</span>
               <CategoryIcon name={cid} className="exp-tab-icon" />
@@ -866,16 +889,7 @@ export function Configurator() {
       <div className="exp-shell">
         <div ref={stepTop} className="exp-step-anchor" />
         <div className="exp-step-wrap" key={step}>
-          {step === 0 ? (
-            <IntakeStep
-              stage={stage}
-              goals={goals}
-              journey={journey}
-              setStage={setStage}
-              setGoals={setGoals}
-              onGoTo={goToCat}
-            />
-          ) : currentCat ? (
+          {currentCat && (
             <CategoryStep
               cat={currentCat}
               state={state}
@@ -888,22 +902,21 @@ export function Configurator() {
               onGoTo={goToCat}
               reveal={reveal}
             />
-          ) : null}
+          )}
         </div>
 
         {/* -------- STEP-NAV -------- */}
         <div className="exp-stepnav">
           <button
             className="exp-btn exp-btn-ghost"
-            onClick={() => gotoStep(step - 1)}
-            disabled={step === 0}
+            onClick={() => (step === 0 ? setScreen("intake") : gotoStep(step - 1))}
           >
-            <ArrowLeft /> Vorige
+            <ArrowLeft /> {step === 0 ? "Intake" : "Vorige"}
           </button>
 
           {step < stepTotal - 1 ? (
             <button className="exp-btn exp-btn-primary" onClick={() => gotoStep(step + 1)}>
-              {step === 0 ? "Start bij stap 1" : "Volgende"}
+              Volgende
               <CircleArrow />
             </button>
           ) : (

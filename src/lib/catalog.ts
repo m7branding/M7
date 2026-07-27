@@ -33,6 +33,8 @@ export type Price = {
   custom?: boolean;
   /** "stuk"/"afl." toont een eenheid. */
   suffix?: string;
+  /** true = toon een "vanaf"-prijs (projectprijzen die per scope variëren). */
+  from?: boolean;
 };
 
 export type PkgKind = "plan" | "addon" | "item";
@@ -87,9 +89,13 @@ export const GOALS: Goal[] = [
   { id: "leads", label: "Meer leads & funnels", emoji: "⟿", targets: ["funnels", "paid", "tracking"] },
   { id: "findable", label: "Beter vindbaar (SEO/AEO)", emoji: "◎", targets: ["seo", "tracking"] },
   { id: "ads", label: "Betaald adverteren", emoji: "◉", targets: ["paid", "tracking"] },
+  { id: "integrations", label: "Integraties met externe software", emoji: "⧉", targets: ["crm", "funnels"] },
+  { id: "crmsetup", label: "CRM inrichten", emoji: "▦", targets: ["crm"] },
   { id: "portal", label: "Web-app / portaal", emoji: "▤", targets: ["webapps", "hosting", "support", "crm"] },
   { id: "app", label: "Mobiele app", emoji: "▢", targets: ["apps", "webapps"] },
   { id: "content", label: "Meer content", emoji: "❋", targets: ["organic", "seo"] },
+  { id: "ai", label: "Inzetten van AI", emoji: "✳", targets: ["organic", "seo", "funnels"] },
+  { id: "advice", label: "Hulp / advies", emoji: "❉", targets: [] },
   { id: "run", label: "Onderhoud & hosting", emoji: "◍", targets: ["hosting", "support"] },
 ];
 
@@ -171,7 +177,7 @@ export const CATALOG: Category[] = [
         name: "Brandbook+",
         tagline: "Strategische verdieping.",
         kind: "addon",
-        price: { setup: 950 },
+        price: { setup: 950, from: true },
         features: ["Strategische positionering", "Tone of voice", "Merk-archetype", "Mock-ups van uitingen"],
       },
       {
@@ -286,12 +292,6 @@ export const CATALOG: Category[] = [
         choices: ["Styleframing", "Design", "Design + development"],
         triggers: { Styleframing: "branding" },
       },
-      {
-        id: "web-domain",
-        label: "Domeinnaam",
-        choices: ["Heb ik al", "Graag registreren", "Weet ik nog niet"],
-        triggers: { "Graag registreren": "hosting" },
-      },
     ],
     packages: [
       {
@@ -299,7 +299,7 @@ export const CATALOG: Category[] = [
         name: "Website Essential",
         tagline: "Compacte site, groot effect.",
         kind: "plan",
-        price: { setup: 3500 },
+        price: { setup: 3500, from: true },
         features: [
           "Tot 5 pagina's",
           "Next-level design inbegrepen",
@@ -315,7 +315,7 @@ export const CATALOG: Category[] = [
         name: "Website Pro",
         tagline: "Volwaardige site met content-model.",
         kind: "plan",
-        price: { setup: 6500 },
+        price: { setup: 6500, from: true },
         highlight: true,
         badge: "Populair",
         features: [
@@ -357,7 +357,7 @@ export const CATALOG: Category[] = [
         name: "Content op alle pagina's",
         tagline: "Wij schrijven de eerste versie.",
         kind: "addon",
-        price: { setup: 1250 },
+        price: { setup: 1250, from: true },
         features: ["Volledige eerste content-draft", "SEO-bewust geschreven", "Klaar ter review"],
         recommends: ["seo"],
       },
@@ -391,7 +391,7 @@ export const CATALOG: Category[] = [
         name: "Dynamische pop-ups",
         tagline: "Engagement met een knipoog.",
         kind: "addon",
-        price: { setup: 450 },
+        price: { setup: 450, from: true },
         features: ["Klant bepaalt inhoud & zichtbaarheid", "Per pagina instelbaar", "Optioneel confetti / animatie"],
         recommends: ["funnels"],
       },
@@ -421,32 +421,6 @@ export const CATALOG: Category[] = [
         price: { setup: 450 },
         features: ["Persoonlijke CMS-training", "Go-live begeleiding", "Staging-omgeving indien gewenst"],
         recommends: ["support"],
-      },
-      {
-        id: "web-domain-dns",
-        name: "Domein & DNS in beheer",
-        tagline: "Wij regelen je domein en DNS.",
-        kind: "addon",
-        price: { setup: 75, monthly: 5 },
-        features: [
-          "Domeinregistratie of -transfer",
-          "Volledig DNS-beheer door M7",
-          "Records, redirects & SSL geregeld",
-        ],
-        recommends: ["hosting", "support"],
-      },
-      {
-        id: "web-mailboxes",
-        name: "Zakelijke mailboxen",
-        tagline: "Professioneel mailen op je eigen domein.",
-        kind: "item",
-        price: { monthly: 4, suffix: "stuk" },
-        features: [
-          "Mailbox op jouw domein (jij@bedrijf.nl)",
-          "Anti-spam & mailhygiëne",
-          "Setup op al je devices",
-        ],
-        recommends: ["hosting", "support"],
       },
     ],
   },
@@ -635,25 +609,58 @@ export const CATALOG: Category[] = [
     kicker: "Marketing · content",
     blurb:
       "Short-form content die blijft hangen: statische posts, carrousels, reels en animaties. Plus AI-renders o.b.v. schetsen, AI-animaties, bedrijfsvideo's, commercials en podcast.",
-    note: "Stel je maandelijkse contentplan samen — pas het aantal per item aan.",
+    note: "Kies een doorlopend social-abonnement — wij vullen de content maandelijks voor je in.",
     tools: ["adobe", "figma", "lottie"],
+    options: [
+      {
+        id: "podcast-gear",
+        label: "Podcast-gear (indien gewenst)",
+        choices: ["Onze studio", "Op locatie (wij nemen gear mee)", "Alleen montage"],
+      },
+    ],
     packages: [
       {
-        id: "org-static",
-        name: "Statische posts & carrousels",
-        tagline: "Op-merk beeld voor social.",
-        kind: "item",
-        price: { monthly: 45, suffix: "stuk" },
-        features: ["Statische post of carrousel", "Volledig in je huisstijl", "Klaar-om-te-plaatsen"],
+        id: "org-social-basic",
+        name: "Social Basic",
+        tagline: "Consistent zichtbaar met sterke posts.",
+        kind: "plan",
+        price: { monthly: 475, from: true },
+        features: [
+          "Vanaf 1 statische post / carrousel per week",
+          "Volledig in je huisstijl",
+          "Content-kalender & inplannen",
+          "Maandelijkse aanlevering klaar-om-te-plaatsen",
+        ],
         recommends: ["tracking"],
       },
       {
-        id: "org-reel",
-        name: "Short-form reels",
-        tagline: "Korte video's & animaties.",
-        kind: "item",
-        price: { monthly: 195, suffix: "stuk" },
-        features: ["Reel of animatie (max. 1 min.)", "Opname of motion design", "Ondertiteling & merk-outro"],
+        id: "org-social-reels",
+        name: "Social Reels",
+        tagline: "Posts én reels voor meer bereik.",
+        kind: "plan",
+        price: { monthly: 950, from: true },
+        highlight: true,
+        badge: "Populair",
+        features: [
+          "1 post + 1 reel per week",
+          "Motion & korte video-edits",
+          "Ondertiteling & merk-outro",
+          "Content-kalender & inplannen",
+        ],
+        recommends: ["tracking"],
+      },
+      {
+        id: "org-social-pro",
+        name: "Social Pro",
+        tagline: "Maximale output, elke week.",
+        kind: "plan",
+        price: { monthly: 1250, from: true },
+        features: [
+          "3 posts per week, waarvan 1 reel",
+          "Mix van statisch, carrousel & motion",
+          "Ondertiteling & merk-outro",
+          "Content-kalender, inplannen & rapportage",
+        ],
         recommends: ["tracking"],
       },
       {
@@ -693,7 +700,7 @@ export const CATALOG: Category[] = [
         name: "Podcast-productie",
         tagline: "Van opname tot aflevering.",
         kind: "item",
-        price: { setup: 675, suffix: "afl." },
+        price: { setup: 1350, suffix: "afl." },
         features: ["Opname op locatie of studio", "Montage & audioclean-up", "Social snippets"],
       },
     ],
@@ -722,7 +729,7 @@ export const CATALOG: Category[] = [
         name: "Ads Starter",
         tagline: "Zet staand op één kanaal.",
         kind: "plan",
-        price: { setup: 350, monthly: 295 },
+        price: { setup: 525, monthly: 445 },
         features: [
           "Inrichting Meta Business & Ad Account",
           "1 platform",
@@ -737,7 +744,7 @@ export const CATALOG: Category[] = [
         name: "Ads Growth",
         tagline: "Testen, retargeten, groeien.",
         kind: "plan",
-        price: { setup: 550, monthly: 595 },
+        price: { setup: 825, monthly: 895 },
         highlight: true,
         badge: "Populair",
         features: [
@@ -754,7 +761,7 @@ export const CATALOG: Category[] = [
         name: "Ads Scale",
         tagline: "Full-funnel op meerdere kanalen.",
         kind: "plan",
-        price: { monthly: 995, custom: true },
+        price: { monthly: 1495, custom: true },
         features: [
           "3+ platforms",
           "Full-funnel strategie",
@@ -919,7 +926,7 @@ export const CATALOG: Category[] = [
         name: "Product-configurator",
         tagline: "Laat klanten zelf samenstellen.",
         kind: "item",
-        price: { setup: 1750 },
+        price: { setup: 1750, from: true },
         features: ["Visuele configurator", "Prijslogica & varianten", "Deelbare configuraties"],
         recommends: ["crm"],
       },
@@ -1014,8 +1021,39 @@ export const CATALOG: Category[] = [
         choices: ["WordPress", "WooCommerce", "Webflow"],
         triggers: { WooCommerce: "tracking" },
       },
+      {
+        id: "host-domain",
+        label: "Domeinnaam",
+        choices: ["Heb ik al", "Graag registreren", "Overzetten naar M7"],
+      },
     ],
     packages: [
+      {
+        id: "host-domain-dns",
+        name: "Domein & DNS in beheer",
+        tagline: "Wij regelen je domein en DNS.",
+        kind: "addon",
+        price: { setup: 75, monthly: 5 },
+        features: [
+          "Domeinregistratie of -transfer",
+          "Volledig DNS-beheer door M7",
+          "Records, redirects & SSL geregeld",
+        ],
+        recommends: ["support"],
+      },
+      {
+        id: "host-mailboxes",
+        name: "Zakelijke mailboxen",
+        tagline: "Professioneel mailen op je eigen domein.",
+        kind: "item",
+        price: { monthly: 4, suffix: "stuk" },
+        features: [
+          "Mailbox op jouw domein (jij@bedrijf.nl)",
+          "Anti-spam & mailhygiëne",
+          "Setup op al je devices",
+        ],
+        recommends: ["support"],
+      },
       {
         id: "host-basic",
         name: "Basic",
