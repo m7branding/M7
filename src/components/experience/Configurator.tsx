@@ -6,6 +6,7 @@ import {
   CATEGORY_BY_ID,
   CATEGORY_ORDER,
   GOALS,
+  HEADINGS,
   PKG_BY_ID,
   STAGES,
   formatEuro,
@@ -350,19 +351,19 @@ function CategoryStep({
   const recCats = [...recs].filter((r) => r !== cat.id).map((r) => CATEGORY_BY_ID[r]);
   const hasWebflow = cat.tools?.includes("webflow");
 
+  const heading = HEADINGS[cat.id];
   return (
     <section className="exp-step" key={cat.id}>
-      <div className="exp-section-head">
-        <div className="exp-section-badge">
-          <CategoryIcon name={cat.id} />
+      <div className="exp-step-head">
+        <div className="exp-step-head-top">
+          <div className="exp-section-badge">
+            <CategoryIcon name={cat.id} />
+          </div>
+          <span className="exp-eyebrow">{cat.label}</span>
         </div>
-        <div>
-          <span className="exp-eyebrow">
-            Stap {stepNumber} / {stepTotal} · {cat.kicker}
-          </span>
-          <h2>{cat.label}</h2>
-          <p className="exp-section-blurb">{cat.blurb}</p>
-        </div>
+        <h2 className="exp-step-title">{heading?.title ?? cat.label}</h2>
+        <p className="exp-step-sub">{heading?.subtitle ?? cat.kicker}</p>
+        <p className="exp-step-para">{cat.blurb}</p>
       </div>
 
       {/* Tools & platforms */}
@@ -420,7 +421,8 @@ function CategoryStep({
 
       {(() => {
         const plans = cat.packages.filter((p) => p.kind === "plan");
-        const extras = cat.packages.filter((p) => p.kind !== "plan");
+        const addons = cat.packages.filter((p) => p.kind === "addon");
+        const items = cat.packages.filter((p) => p.kind === "item");
         const renderCard = (pkg: Pkg) => {
           const selected =
             pkg.kind === "plan"
@@ -441,28 +443,37 @@ function CategoryStep({
             />
           );
         };
+        const hasPlans = plans.length > 0;
         return (
           <>
-            {plans.length > 0 && (
+            {hasPlans && (
               <div className="exp-group is-plans">
-                {(plans.length > 0 && extras.length > 0) && (
-                  <div className="exp-group-label">
-                    <span className="exp-group-kicker">Kies je plan</span>
-                    <span className="exp-group-hint">Één hoofdpakket — vormt de basis</span>
-                  </div>
-                )}
-                <div className="exp-cards is-plan-grid">{plans.map(renderCard)}</div>
+                <div className="exp-group-label">
+                  <span className="exp-group-kicker">Kies je plan</span>
+                  <span className="exp-group-hint">Één hoofdpakket — dit vormt de basis</span>
+                </div>
+                {/* Brede, horizontaal scrollbare plan-cards (bleeden van het scherm af) */}
+                <div className="exp-plan-scroller">
+                  <div className="exp-plan-track">{plans.map(renderCard)}</div>
+                </div>
               </div>
             )}
-            {extras.length > 0 && (
+            {addons.length > 0 && (
               <div className="exp-group is-extras">
-                {plans.length > 0 && (
-                  <div className="exp-group-label">
-                    <span className="exp-group-kicker">Uitbreidingen &amp; losse opties</span>
-                    <span className="exp-group-hint">Voeg toe wat je nodig hebt</span>
-                  </div>
-                )}
-                <div className="exp-cards">{extras.map(renderCard)}</div>
+                <div className="exp-group-label">
+                  <span className="exp-group-kicker">{hasPlans ? "Add-ons" : "Diensten"}</span>
+                  <span className="exp-group-hint">{hasPlans ? "Breid je plan uit met extra's" : "Voeg toe wat je nodig hebt"}</span>
+                </div>
+                <div className="exp-cards">{addons.map(renderCard)}</div>
+              </div>
+            )}
+            {items.length > 0 && (
+              <div className="exp-group is-extras">
+                <div className="exp-group-label">
+                  <span className="exp-group-kicker">{hasPlans || addons.length ? "Losse diensten" : "Diensten"}</span>
+                  <span className="exp-group-hint">Per stuk bij te bestellen</span>
+                </div>
+                <div className="exp-cards">{items.map(renderCard)}</div>
               </div>
             )}
           </>
@@ -821,10 +832,8 @@ export function Configurator() {
 
   // ============================================================ FLOW
   return (
-    <>
-      <Starfield />
-      <div className="exp-bg-gradients" />
-      <div className="exp-grid-overlay" />
+    <div className="exp-flow-root">
+      <div className="exp-canvas-bg" />
 
       {/* -------- TOPBAR -------- */}
       <header className="exp-topbar is-sticky">
@@ -1066,7 +1075,7 @@ export function Configurator() {
           onClose={() => setModalOpen(false)}
         />
       )}
-    </>
+    </div>
   );
 }
 

@@ -115,6 +115,27 @@ export const STAGES: Stage[] = [
 ];
 
 // ------------------------------------------------------------
+// Kop-teksten per categorie: pakkende (feitelijke) titel + prikkelende
+// subtitel. De paragraaf zelf komt uit `blurb`.
+// ------------------------------------------------------------
+export const HEADINGS: Record<IconKey, { title: string; subtitle: string }> = {
+  branding: { title: "Bouw een merk dat blijft plakken", subtitle: "Van eerste indruk tot een complete identiteit." },
+  print: { title: "Tastbaar en helemaal on-brand", subtitle: "Drukwerk dat je merk laat vóélen." },
+  websites: { title: "Een website die werkt én verkoopt", subtitle: "Next-level design is altijd inbegrepen." },
+  webshop: { title: "Verkoop online, zonder gedoe", subtitle: "Conversiegerichte shops die met je meegroeien." },
+  webapps: { title: "Jouw eigen platform op maat", subtitle: "Portalen en tools, volledig branded." },
+  apps: { title: "Van idee naar app in de store", subtitle: "iOS & Android, doordacht ontworpen." },
+  organic: { title: "Content die blijft hangen", subtitle: "Consistent zichtbaar — elke week weer." },
+  paid: { title: "Adverteren dat écht rendeert", subtitle: "Van de eerste euro tot schaalbare campagnes." },
+  seo: { title: "Gevonden worden — door mens én AI", subtitle: "Organisch groeien en citeerbaar worden." },
+  tracking: { title: "Weten wat werkt", subtitle: "Meet alles, volledig AVG-proof." },
+  funnels: { title: "Verander bezoekers in leads", subtitle: "Slimme flows die voor je verkopen." },
+  crm: { title: "Alles verbonden, niks meer handmatig", subtitle: "CRM en integraties, op maat ingericht." },
+  hosting: { title: "Een rotsvast fundament", subtitle: "Hosting, domein en DNS — volledig geregeld." },
+  support: { title: "Altijd onderhouden, nooit alleen", subtitle: "Vaste ondersteuning die met je meegroeit." },
+};
+
+// ------------------------------------------------------------
 // CATALOG — volgorde = natuurlijke journey (identity → build → grow → run)
 // ------------------------------------------------------------
 

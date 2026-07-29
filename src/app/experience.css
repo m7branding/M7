@@ -2005,3 +2005,273 @@
 .exp-answers-row:first-of-type { border-top: none; }
 .exp-answers-row .q { color: var(--exp-muted); }
 .exp-answers-row .a { color: var(--exp-text); text-align: right; font-weight: 600; }
+
+/* ============================================================
+   V5 — LICHT "WERKENDE CANVAS"-THEMA voor de configurator-stappen
+   (intro & intake blijven dark). sui.io-achtig: ruim, licht-grijze
+   witte cards, volledig ronde knoppen, brede horizontaal-scrollende
+   plan-cards en add-ons als aparte subgroep.
+   ============================================================ */
+
+.exp-flow-root {
+  --exp-bg: #eceef2;
+  --exp-panel: #ffffff;
+  --exp-panel-2: #f5f6f9;
+  --exp-border: rgba(18, 22, 32, 0.09);
+  --exp-border-strong: rgba(18, 22, 32, 0.16);
+  --exp-text: #14161d;
+  --exp-muted: #565d6c;
+  --exp-faint: #949aa8;
+  --exp-a1: #10b3a2;
+  --exp-a2: #0ea3c2;
+  --exp-a3: #6d4dff;
+  --exp-green: #16a34a;
+  position: relative;
+  min-height: 100vh;
+  color: var(--exp-text);
+  background: var(--exp-bg);
+}
+
+/* Vierkant-gelijnd "werk"-canvas op de achtergrond */
+.exp-canvas-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--exp-bg);
+  background-image:
+    linear-gradient(rgba(18, 22, 32, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 22, 32, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(18, 22, 32, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 22, 32, 0.028) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+}
+
+/* ---------- Topbar (licht, glazig) ---------- */
+.exp-flow-root .exp-topbar.is-sticky {
+  background: rgba(255, 255, 255, 0.78);
+  border-bottom: 1px solid var(--exp-border);
+}
+.exp-flow-root .exp-topbar-logo { color: #14161d; }
+.exp-flow-root .exp-progress-bar { background: rgba(18, 22, 32, 0.08); }
+
+/* ---------- Rail (pill-tabs, licht) ---------- */
+.exp-flow-root .exp-rail {
+  background: linear-gradient(180deg, rgba(236, 238, 242, 0.95), rgba(236, 238, 242, 0.6));
+  border-bottom: 1px solid var(--exp-border);
+}
+.exp-flow-root .exp-tab {
+  border-radius: 999px;
+  background: var(--exp-panel);
+  border-color: var(--exp-border);
+  box-shadow: 0 1px 2px rgba(18, 22, 32, 0.04);
+}
+.exp-flow-root .exp-tab:hover { border-color: var(--exp-border-strong); }
+.exp-flow-root .exp-tab.is-active {
+  color: #fff;
+  background: #16181f;
+  border-color: transparent;
+  box-shadow: 0 6px 16px -8px rgba(18, 22, 32, 0.5);
+}
+.exp-flow-root .exp-tab.is-active .exp-tab-icon { color: var(--exp-a1); }
+.exp-flow-root .exp-tab-step {
+  background: var(--exp-panel-2);
+  color: var(--exp-muted);
+  border: 1px solid var(--exp-border);
+}
+.exp-flow-root .exp-tab.is-active .exp-tab-step { background: rgba(255,255,255,0.16); color: #fff; border-color: transparent; }
+.exp-flow-root .exp-tab.is-journey { border-color: rgba(109, 77, 255, 0.4); }
+
+/* ---------- Ruimere shell ---------- */
+.exp-flow-root .exp-shell { max-width: 1240px; padding: 12px 28px 200px; }
+.exp-rail { top: 65px; }
+
+/* ---------- Nieuwe kop-layout per stap ---------- */
+.exp-step { padding-top: 46px; }
+.exp-step-head { max-width: 760px; margin-bottom: 40px; }
+.exp-step-head-top { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.exp-flow-root .exp-section-badge {
+  width: 52px; height: 52px; border-radius: 16px;
+  background: var(--exp-panel);
+  border: 1px solid var(--exp-border);
+  box-shadow: 0 2px 8px rgba(18, 22, 32, 0.06);
+  color: var(--exp-a1);
+}
+.exp-flow-root .exp-section-badge svg { width: 28px; height: 28px; }
+.exp-step-head .exp-eyebrow { color: var(--exp-muted); letter-spacing: 0.16em; }
+.exp-step-title {
+  font-size: clamp(30px, 4.4vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  color: var(--exp-text);
+}
+.exp-step-sub {
+  margin-top: 12px;
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-weight: 600;
+  color: var(--exp-a1);
+  letter-spacing: -0.01em;
+}
+.exp-step-para {
+  margin-top: 14px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--exp-muted);
+  max-width: 64ch;
+}
+
+/* ---------- Tools-rij (licht) ---------- */
+.exp-flow-root .exp-tools { background: var(--exp-panel); border-color: var(--exp-border); box-shadow: 0 1px 2px rgba(18,22,32,0.04); border-radius: 18px; }
+.exp-flow-root .brand-chip { background: var(--exp-panel-2); border-color: var(--exp-border); }
+.exp-flow-root .brand-chip-tile { background: #fff; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bc) 30%, transparent); }
+
+/* ---------- Opties (licht) ---------- */
+.exp-flow-root .exp-seg { background: var(--exp-panel-2); border-color: var(--exp-border); border-radius: 999px; }
+.exp-flow-root .exp-seg button { border-radius: 999px; }
+.exp-flow-root .exp-seg button.is-on { color: #fff; background: #16181f; }
+.exp-flow-root .exp-opt-chip { background: var(--exp-panel); border-color: var(--exp-border); border-radius: 999px; }
+.exp-flow-root .exp-opt-chip.is-on { color: #14161d; border-color: var(--exp-a1); background: color-mix(in srgb, var(--exp-a1) 14%, #fff); }
+
+/* ---------- Groepen (plan / add-ons / losse diensten) ---------- */
+.exp-group + .exp-group { margin-top: 40px; }
+.exp-flow-root .exp-group.is-plans {
+  padding: 0;
+  border: none;
+  background: none;
+}
+.exp-group-kicker { color: var(--exp-text); font-size: 12.5px; }
+.exp-flow-root .exp-group-hint { color: var(--exp-faint); }
+
+/* Brede, horizontaal scrollende plan-cards die van het scherm af bleeden */
+.exp-plan-scroller {
+  margin-right: calc(50% - 50vw);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 0 18px;
+}
+.exp-plan-scroller::-webkit-scrollbar { display: none; }
+.exp-plan-track {
+  display: inline-flex;
+  gap: 20px;
+  padding-right: max(28px, calc(50vw - 620px + 28px));
+}
+.exp-plan-track .exp-card {
+  width: 380px;
+  flex: none;
+  scroll-snap-align: start;
+}
+
+/* ---------- Cards: ruim, licht (sui.io-stijl) ---------- */
+.exp-flow-root .exp-cards {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.exp-flow-root .exp-card {
+  padding: 26px;
+  border-radius: 22px;
+  border: 1px solid var(--exp-border);
+  background: var(--exp-panel);
+  box-shadow: 0 1px 2px rgba(18, 22, 32, 0.04), 0 18px 40px -30px rgba(18, 22, 32, 0.28);
+}
+.exp-flow-root .exp-card:hover {
+  border-color: var(--exp-border-strong);
+  box-shadow: 0 2px 4px rgba(18, 22, 32, 0.05), 0 26px 60px -28px rgba(18, 22, 32, 0.35);
+}
+.exp-flow-root .exp-card.is-selected {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 2px var(--exp-a1), 0 26px 60px -30px color-mix(in srgb, var(--exp-a1) 55%, transparent);
+  background: color-mix(in srgb, var(--exp-a1) 5%, #fff);
+}
+.exp-flow-root .exp-card.is-highlight::before {
+  opacity: 0.9;
+  background: linear-gradient(120deg, var(--exp-a1), var(--exp-a2), var(--exp-a3));
+}
+.exp-flow-root .exp-card h3 { color: var(--exp-text); font-size: 19px; }
+.exp-flow-root .exp-card-tag { color: var(--exp-muted); }
+.exp-flow-root .exp-price-main { color: var(--exp-text); }
+.exp-flow-root .exp-features li { color: var(--exp-muted); font-size: 14px; }
+.exp-flow-root .exp-badge { color: #fff; background: #16181f; }
+.exp-flow-root .exp-cardart {
+  background: var(--exp-panel-2);
+  border-bottom: 1px solid var(--exp-border);
+}
+.exp-flow-root .exp-cardart::after {
+  background: linear-gradient(180deg, transparent 45%, color-mix(in srgb, var(--exp-panel) 70%, transparent));
+}
+
+/* Volledig ronde knoppen in de cards */
+.exp-flow-root .exp-select-btn {
+  border-radius: 999px;
+  border-color: var(--exp-border-strong);
+  color: var(--exp-text);
+  padding: 12px 18px;
+}
+.exp-flow-root .exp-select-btn:hover { border-color: var(--exp-a1); background: var(--exp-panel-2); }
+.exp-flow-root .exp-card.is-selected .exp-select-btn { color: #fff; background: #16181f; border-color: transparent; }
+.exp-flow-root .exp-qty { border-radius: 999px; border-color: var(--exp-border-strong); }
+.exp-flow-root .exp-qty button { color: var(--exp-text); }
+.exp-flow-root .exp-qty button:hover { background: var(--exp-panel-2); }
+
+/* ---------- "Slim erbij" (licht) ---------- */
+.exp-flow-root .exp-recs {
+  border: 1px solid rgba(109, 77, 255, 0.25);
+  background:
+    radial-gradient(90% 140% at 0% 0%, rgba(109, 77, 255, 0.1), transparent 55%),
+    radial-gradient(90% 160% at 100% 100%, rgba(14, 163, 194, 0.08), transparent 55%),
+    #fff;
+}
+.exp-flow-root .exp-recs::before { opacity: 0.4; }
+.exp-flow-root .exp-rec-btn { background: var(--exp-panel-2); border-color: var(--exp-border); color: var(--exp-text); }
+.exp-flow-root .exp-note { color: var(--exp-faint); }
+
+/* ---------- Stap-navigatie (ruimer) ---------- */
+.exp-flow-root .exp-stepnav { border-top: 1px solid var(--exp-border); margin-top: 48px; padding-top: 28px; }
+
+/* ---------- Onderbalk (licht) ---------- */
+.exp-flow-root .exp-bar {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--exp-border-strong);
+  box-shadow: 0 20px 60px -24px rgba(18, 22, 32, 0.4);
+}
+.exp-flow-root .exp-bar-toggle { background: var(--exp-panel-2); border-color: var(--exp-border); color: var(--exp-text); }
+.exp-flow-root .exp-drawer { border-color: var(--exp-border); }
+.exp-flow-root .exp-drawer-row, .exp-flow-root .exp-drawer-group-head { border-color: var(--exp-border); }
+.exp-flow-root .exp-drawer-del { border-color: var(--exp-border); color: var(--exp-muted); }
+
+/* ---------- Zijpaneel (licht) ---------- */
+.exp-flow-root .exp-sidepanel { background: #fff; border-left: 1px solid var(--exp-border-strong); }
+.exp-flow-root .exp-panel-tab { background: #fff; border-color: var(--exp-border-strong); box-shadow: -10px 0 30px -18px rgba(18,22,32,0.4); }
+.exp-flow-root .exp-lchip { background: var(--exp-panel-2); border-color: var(--exp-border); }
+.exp-flow-root .exp-lnode-badge { background: var(--exp-panel-2); border-color: var(--exp-border); }
+
+/* ---------- Review (licht canvas) ---------- */
+.exp-flow-root .exp-review {
+  background:
+    radial-gradient(70% 60% at 50% -10%, rgba(109, 77, 255, 0.12), transparent 60%),
+    var(--exp-bg);
+}
+.exp-flow-root .exp-review-stats > div,
+.exp-flow-root .exp-review .exp-landscape.is-full { background: #fff; border-color: var(--exp-border); box-shadow: 0 1px 2px rgba(18,22,32,0.04); }
+
+/* ---------- Modal (licht formulier, beeld blijft dark) ---------- */
+.exp-flow-root .exp-modal.exp-modal-split { background: var(--exp-panel); }
+.exp-flow-root .exp-modal-close { color: var(--exp-text); }
+.exp-flow-root .exp-modal h3 { color: var(--exp-text); }
+.exp-flow-root .exp-field input, .exp-flow-root .exp-field textarea {
+  background: var(--exp-panel-2);
+  border-color: var(--exp-border);
+  color: var(--exp-text);
+}
+.exp-flow-root .exp-summary-list, .exp-flow-root .exp-summary-row { border-color: var(--exp-border); }
+.exp-flow-root .exp-answers { background: var(--exp-panel-2); border-color: var(--exp-border); }
+
+/* ---------- Responsive plan-scroller ---------- */
+@media (max-width: 720px) {
+  .exp-plan-track .exp-card { width: 82vw; }
+  .exp-flow-root .exp-shell { padding: 12px 16px 200px; }
+  .exp-step-head { margin-bottom: 30px; }
+}
