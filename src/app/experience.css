@@ -2275,3 +2275,50 @@
   .exp-flow-root .exp-shell { padding: 12px 16px 200px; }
   .exp-step-head { margin-bottom: 30px; }
 }
+
+/* ============================================================
+   V6 — geanimeerde tech-laag, techy card-art & paginatransitie
+   ============================================================ */
+
+/* ---------- Tech-veld (bolletjes + lijnen) op het canvas ---------- */
+.exp-techfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ---------- Techy card-art animaties ---------- */
+.ca-draw { stroke-dasharray: 280; stroke-dashoffset: 280; animation: ca-draw 2.8s cubic-bezier(0.6, 0.05, 0.2, 1) forwards; }
+@keyframes ca-draw { to { stroke-dashoffset: 0; } }
+.ca-march { animation: ca-march 3.4s linear infinite; }
+.ca-march2 { animation: ca-march 5s linear infinite reverse; }
+@keyframes ca-march { to { stroke-dashoffset: -40; } }
+.ca-orbit { transform-box: view-box; transform-origin: 150px 39px; animation: ca-orbit 6.5s linear infinite; }
+@keyframes ca-orbit { to { transform: rotate(360deg); } }
+.ca-pulse { transform-box: view-box; transform-origin: 150px 39px; animation: ca-pulse 2.6s ease-out infinite; }
+@keyframes ca-pulse { 0% { r: 3; opacity: 0.85; } 70% { r: 13; opacity: 0; } 100% { r: 13; opacity: 0; } }
+.ca-tick { animation: ca-tick 1.8s ease-in-out infinite; }
+@keyframes ca-tick { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .ca-draw, .ca-march, .ca-march2, .ca-orbit, .ca-pulse, .ca-tick { animation: none; }
+  .ca-draw { stroke-dashoffset: 0; }
+}
+
+/* ---------- Paginatransitie tussen stappen (richting-bewust) ---------- */
+.exp-step-wrap { animation: exp-step-r 0.52s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.exp-step-wrap[data-dir="1"] { animation-name: exp-step-r; }
+.exp-step-wrap[data-dir="-1"] { animation-name: exp-step-l; }
+@keyframes exp-step-r {
+  0% { opacity: 0; transform: translateX(64px) scale(0.985); filter: blur(10px); }
+  100% { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes exp-step-l {
+  0% { opacity: 0; transform: translateX(-64px) scale(0.985); filter: blur(10px); }
+  100% { opacity: 1; transform: none; filter: blur(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-step-wrap { animation: none; }
+}

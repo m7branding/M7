@@ -21,6 +21,7 @@ import { Starfield } from "./Starfield";
 import { M7Logo } from "./Logo";
 import { BrandChip, BrandIcon, WebflowPartnerBadge, BRANDS, type BrandKey } from "./BrandIcon";
 import { CardArt } from "./CardArt";
+import { TechField } from "./TechField";
 import { Landscape, type LandscapeData } from "./Landscape";
 import { Intake, describeAnswers, type IntakeResult } from "./Intake";
 
@@ -532,6 +533,12 @@ export function Configurator() {
 
   // steps: index in orderedCats (één categorie per stap)
   const [step, setStep] = useState(0);
+  // richting van de laatste stap-wissel (voor de paginatransitie)
+  const prevStepRef = useRef(0);
+  const stepDir = step >= prevStepRef.current ? 1 : -1;
+  useEffect(() => {
+    prevStepRef.current = step;
+  }, [step]);
   const stepTop = useRef<HTMLDivElement>(null);
 
   // ---- load-animatie
@@ -834,6 +841,7 @@ export function Configurator() {
   return (
     <div className="exp-flow-root">
       <div className="exp-canvas-bg" />
+      <TechField />
 
       {/* -------- TOPBAR -------- */}
       <header className="exp-topbar is-sticky">
@@ -889,7 +897,7 @@ export function Configurator() {
       {/* -------- STEP CONTENT -------- */}
       <div className="exp-shell">
         <div ref={stepTop} className="exp-step-anchor" />
-        <div className="exp-step-wrap" key={step}>
+        <div className="exp-step-wrap" key={step} data-dir={stepDir}>
           {currentCat && (
             <CategoryStep
               cat={currentCat}
