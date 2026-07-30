@@ -395,6 +395,566 @@ const SCENES: Record<string, Scene> = {
     </g>
   ),
 
+  // ---------- webshop: catalogus & structuur
+  "shop-productstructuur": (c) => (
+    <g>
+      <Panel x={64} y={48} w={40} h={22} r={6} />
+      <Bar x={72} y={57} w={24} h={4} c={c} />
+      {[26, 56, 86].map((y, i) => (
+        <g key={i}>
+          <Stroke d={`M104 59H120V${y + 10}h18`} o={0.16} dash="3 4" cls={i === 1 ? "ca-march" : "ca-march2"} />
+          <Panel x={138} y={y} w={44} h={20} r={5} />
+          <Bar x={145} y={y + 8} w={22} h={4} o={0.16} />
+        </g>
+      ))}
+      {[26, 56, 86].map((y, i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Panel x={196} y={y} w={16} h={20} r={4} />
+          <Panel x={216} y={y} w={16} h={20} r={4} />
+          <Bar x={200} y={y + 8} w={8} h={3.5} o={0.14} />
+          <Bar x={220} y={y + 8} w={8} h={3.5} c={i === 0 ? c : undefined} o={0.14} />
+        </g>
+      ))}
+    </g>
+  ),
+  "shop-pim": (c) => (
+    <g>
+      <g className="ca-float">
+        <ellipse cx={110} cy={36} rx={30} ry={9} fill="#fff" stroke={ink(0.16)} strokeWidth={1.3} />
+        <path d="M80 36v42c0 5 13 9 30 9s30-4 30-9V36" fill="#fff" stroke={ink(0.16)} strokeWidth={1.3} />
+        <ellipse cx={110} cy={56} rx={30} ry={9} fill="none" stroke={ink(0.1)} strokeWidth={1.1} />
+        <ellipse cx={110} cy={74} rx={30} ry={9} fill="none" stroke={ink(0.1)} strokeWidth={1.1} />
+        <Dot x={110} y={36} r={3} c={c} />
+      </g>
+      {[30, 56, 82].map((y, i) => (
+        <g key={i}>
+          <Stroke d={`M140 ${56 - (56 - y) * 0.35}C168 ${56 - (56 - y) * 0.35} 168 ${y} 190 ${y}`} o={0.16} dash="3 4" cls="ca-march" />
+          <Panel x={190} y={y - 10} w={46} h={20} r={5} cls={i % 2 ? "ca-float-b" : "ca-float"} />
+          <Bar x={198} y={y - 2} w={26} h={4} c={i === 0 ? c : undefined} o={0.14} />
+        </g>
+      ))}
+    </g>
+  ),
+  "shop-configurator": (c) => (
+    <g>
+      <Panel x={70} y={24} w={104} h={72} r={8} />
+      <Bar x={80} y={34} w={34} h={4} c={c} />
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <rect x={80} y={46 + i * 15} width={14} height={11} rx={3} fill={i === 0 ? c : ink(0.1)} />
+          <Bar x={100} y={49 + i * 15} w={i === 0 ? 44 : 34 - i * 6} h={4} o={0.14} />
+        </g>
+      ))}
+      <Stroke d="M80 92h84" o={0.1} />
+      <g className="ca-float-b">
+        <Panel x={186} y={30} w={58} h={44} r={8} />
+        <Stroke d="M198 62l10-14 8 9 7-11 9 16z" c={c} w={1.5} />
+        <Panel x={186} y={78} w={58} h={18} r={9} fill={c} stroke={c} />
+        <Txt x={215} y={91} t="€ 1.240" size={10} c="#fff" o={1} />
+      </g>
+    </g>
+  ),
+  "shop-b2b": (c) => (
+    <g>
+      <Panel x={66} y={22} w={116} h={76} r={8} />
+      <Bar x={76} y={32} w={30} h={4} c={c} />
+      <Stroke d="M66 44h116" o={0.1} />
+      {[1, 2, 3].map((n, i) => (
+        <g key={i}>
+          <Txt x={78} y={60 + i * 14} t={`${n * 10}+`} size={9} o={0.42} anchor="start" />
+          <rect x={104} y={53 + i * 14} width={46 - i * 12} height={7} rx={3.5} fill={c} opacity={0.28 + i * 0.24} className="ca-rise" style={{ animationDelay: `${i * 120}ms` }} />
+          <Txt x={172} y={60 + i * 14} t={`-${5 + i * 5}%`} size={9} o={0.4} anchor="end" />
+        </g>
+      ))}
+      <g className="ca-float-b">
+        <Panel x={196} y={36} w={48} h={48} r={10} />
+        <Txt x={220} y={58} t="B2B" size={12} c={c} o={1} />
+        <Bar x={206} y={66} w={28} h={4} o={0.14} />
+      </g>
+    </g>
+  ),
+  "shop-vendor": (c) => (
+    <g>
+      {[24, 50, 76].map((y, i) => (
+        <g key={i}>
+          <Panel x={64} y={y} w={52} h={20} r={6} cls={i % 2 ? "ca-float-b" : "ca-float"} />
+          <Dot x={74} y={y + 10} r={3.4} c={i === 0 ? c : undefined} o={0.24} />
+          <Bar x={82} y={y + 8} w={26} h={4} o={0.14} />
+          <Stroke d={`M116 ${y + 10}C136 ${y + 10} 132 58 148 58`} o={0.16} dash="3 4" cls="ca-march" />
+        </g>
+      ))}
+      <Panel x={150} y={30} w={64} h={56} r={9} />
+      <Stroke d="M150 44h64" o={0.1} />
+      <Stroke d="M158 40V32h48v8" c={c} w={1.5} />
+      <Txt x={182} y={66} t="1 shop" size={10} o={0.5} />
+      <g className="ca-float">
+        <circle cx={230} cy={40} r={12} fill="#fff" stroke={c} strokeWidth={1.5} />
+        <Txt x={230} y={44} t="%" size={11} c={c} o={1} />
+      </g>
+    </g>
+  ),
+
+  // ---------- webshop: checkout & conversie
+  "shop-checkout": (c) => (
+    <g>
+      <Browser x={72} y={20} w={124} h={80} c={c}>
+        {[0, 1, 2].map((i) => (
+          <g key={i}>
+            <circle cx={90 + i * 32} cy={28} r={5} fill={i < 2 ? c : "#fff"} stroke={i < 2 ? c : ink(0.2)} strokeWidth={1.2} />
+            {i < 2 ? <Stroke d={`M${87 + i * 32} 28l2 2 4-4`} c="#fff" w={1.3} /> : null}
+            {i < 2 ? <Stroke d={`M${95 + i * 32} 28h${21}`} o={0.14} /> : null}
+          </g>
+        ))}
+        <Panel x={82} y={42} w={104} h={12} r={4} stroke={ink(0.12)} />
+        <Panel x={82} y={58} w={50} h={12} r={4} stroke={ink(0.12)} />
+        <Panel x={136} y={58} w={50} h={12} r={4} stroke={ink(0.12)} />
+        <Bar x={86} y={46} w={30} h={3.5} o={0.12} />
+        <Panel x={82} y={76} w={104} h={16} r={8} fill={c} stroke={c} />
+        <Txt x={134} y={87} t="Betaal €89,00" size={9.5} c="#fff" o={1} />
+      </Browser>
+      <g className="ca-float-b">
+        <Panel x={208} y={38} w={44} h={30} r={6} />
+        <Bar x={214} y={46} w={16} h={4} c={c} />
+        <Bar x={214} y={56} w={26} h={3.5} o={0.12} />
+        <Txt x={230} y={82} t="1 stap" size={9.5} o={0.42} />
+      </g>
+    </g>
+  ),
+  "shop-upsell": (c) => (
+    <g>
+      <Panel x={72} y={28} w={62} h={62} r={8} cls="ca-float" />
+      <rect x={82} y={38} width={42} height={26} rx={4} fill={ink(0.1)} className="ca-float" />
+      <Bar x={82} y={70} w={30} h={4} c={c} cls="ca-float" />
+      <Txt x={148} y={62} t="+" size={20} c={c} o={1} />
+      {[26, 62].map((y, i) => (
+        <g key={i} className={i ? "ca-float-b" : "ca-float"}>
+          <Panel x={166} y={y} w={74} h={32} r={7} />
+          <rect x={172} y={y + 6} width={20} height={20} rx={4} fill={ink(0.09)} />
+          <Bar x={198} y={y + 9} w={34} h={4} o={0.14} />
+          <Bar x={198} y={y + 18} w={20} h={4} c={c} />
+        </g>
+      ))}
+      <Dot x={244} y={30} r={3} c={c} cls="ca-blink" />
+    </g>
+  ),
+  "shop-bundles": (c) => (
+    <g>
+      {[0, 1, 2].map((i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Panel x={70 + i * 44} y={30} w={38} h={38} r={7} />
+          <rect x={78 + i * 44} y={38} width={22} height={22} rx={4} fill={i === 1 ? c : ink(0.12)} opacity={i === 1 ? 0.85 : 1} />
+        </g>
+      ))}
+      <Stroke d="M70 78v8h132v-8" o={0.16} />
+      <Stroke d="M136 86v8" o={0.16} />
+      <g className="ca-float-b">
+        <Panel x={206} y={40} w={40} h={30} r={7} fill={c} stroke={c} />
+        <Txt x={226} y={54} t="3 = 2" size={11} c="#fff" o={1} />
+        <Txt x={226} y={65} t="bundel" size={7.5} c="#fff" o={0.8} />
+      </g>
+    </g>
+  ),
+  "shop-promo": (c) => (
+    <g>
+      <g className="ca-float">
+        <path d="M70 34h96v22a8 8 0 000 16v22H70V72a8 8 0 000-16z" fill="#fff" stroke={ink(0.16)} strokeWidth={1.3} />
+        <Stroke d="M118 34v60" o={0.12} dash="4 5" />
+        <Txt x={94} y={70} t="-20%" size={13} c={c} o={1} />
+        <Bar x={128} y={54} w={28} h={4} o={0.16} />
+        <Bar x={128} y={64} w={20} h={4} o={0.1} />
+        <Bar x={128} y={74} w={24} h={4} c={c} />
+      </g>
+      <g className="ca-float-b">
+        <circle cx={216} cy={52} r={20} fill="none" stroke={ink(0.12)} strokeWidth={2} />
+        <circle cx={216} cy={52} r={20} fill="none" stroke={c} strokeWidth={2} strokeDasharray="126" strokeDashoffset="42" strokeLinecap="round" className="ca-spin" />
+        <Stroke d="M216 42v11l7 4" c={c} w={1.6} />
+        <Txt x={216} y={88} t="Actie loopt" size={9.5} o={0.45} />
+      </g>
+    </g>
+  ),
+  "shop-popups": (c) => (
+    <g>
+      <Browser x={62} y={20} w={140} h={80} c={c}>
+        <Bar x={72} y={42} w={50} h={4} o={0.1} />
+        <Bar x={72} y={52} w={36} h={4} o={0.08} />
+      </Browser>
+      <g className="ca-float">
+        <Panel x={104} y={44} w={110} h={52} r={9} />
+        <Bar x={114} y={54} w={44} h={5} c={c} />
+        <Bar x={114} y={65} w={72} h={4} o={0.14} />
+        <Panel x={114} y={76} w={54} h={13} r={6.5} fill={c} stroke={c} />
+        <Txt x={141} y={85.5} t="Ja, geef korting" size={7.5} c="#fff" o={1} />
+        <Stroke d="M198 52l8 8m0-8l-8 8" o={0.28} w={1.4} />
+      </g>
+      <g className="ca-float-b">
+        <Stroke d="M238 96l-4-22 18 9-8 3z" c={c} w={1.4} />
+        <Stroke d="M244 34v14" o={0.2} dash="3 4" cls="ca-march" />
+      </g>
+    </g>
+  ),
+  "shop-notifications": (c) => (
+    <g>
+      <g className="ca-float">
+        <path d="M92 66c0-14 6-22 16-22s16 8 16 22l5 8H87z" fill="#fff" stroke={ink(0.18)} strokeWidth={1.4} />
+        <path d="M103 78a5 5 0 0010 0" fill="none" stroke={ink(0.18)} strokeWidth={1.4} />
+        <circle cx={124} cy={44} r={7} fill={c} className="ca-pulse-sm" />
+        <Txt x={124} y={47.5} t="2" size={8.5} c="#fff" o={1} />
+      </g>
+      {[24, 52, 80].map((y, i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"} opacity={1 - i * 0.22}>
+          <Panel x={152} y={y} w={92} h={22} r={7} />
+          <Dot x={164} y={y + 11} r={3.4} c={i === 0 ? c : undefined} o={0.2} />
+          <Bar x={174} y={y + 6} w={52} h={4} o={0.15} />
+          <Bar x={174} y={y + 14} w={32} h={3.5} o={0.09} />
+        </g>
+      ))}
+    </g>
+  ),
+  "shop-search": (c) => (
+    <g>
+      <Panel x={70} y={24} w={132} h={20} r={10} />
+      <circle cx={84} cy={34} r={5} fill="none" stroke={c} strokeWidth={1.6} />
+      <Stroke d="M88 38l4 4" c={c} w={1.6} />
+      <Bar x={98} y={32} w={44} h={4} o={0.18} />
+      <Bar x={146} y={32} w={2} h={9} c={c} cls="ca-blink" />
+      <Panel x={70} y={50} w={132} h={46} r={8} />
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <Dot x={82} y={62 + i * 13} r={2.4} c={i === 0 ? c : undefined} o={0.16} />
+          <Bar x={92} y={60 + i * 13} w={70 - i * 14} h={4} o={i === 0 ? 0.2 : 0.11} />
+        </g>
+      ))}
+      <g className="ca-float-b">
+        {[0, 1, 2].map((i) => (
+          <g key={i}>
+            <rect x={214} y={38 + i * 18} width={11} height={11} rx={3} fill={i < 2 ? c : "#fff"} stroke={i < 2 ? c : ink(0.2)} strokeWidth={1.2} />
+            {i < 2 ? <Stroke d={`M217 ${43.5 + i * 18}l2 2 4-4`} c="#fff" w={1.3} /> : null}
+            <Bar x={231} y={41 + i * 18} w={22 - i * 5} h={4} o={0.13} />
+          </g>
+        ))}
+      </g>
+    </g>
+  ),
+  "shop-reviews": (c) => (
+    <g>
+      <g className="ca-float">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <path key={i} d={`M${80 + i * 24} 34l4.4 9 9.9 1.4-7.2 7 1.7 9.8-8.8-4.6-8.8 4.6 1.7-9.8-7.2-7 9.9-1.4z`}
+            fill={i < 4 ? c : ink(0.14)} opacity={i < 4 ? 0.9 : 1} className="ca-rise" style={{ animationDelay: `${i * 110}ms` }} />
+        ))}
+      </g>
+      <Panel x={70} y={68} w={112} h={30} r={7} />
+      <Bar x={80} y={76} w={62} h={4} o={0.16} />
+      <Bar x={80} y={86} w={44} h={4} o={0.1} />
+      <g className="ca-float-b">
+        <Panel x={196} y={40} w={48} h={48} r={8} />
+        <Stroke d="M204 76l12-14 8 8 6-7 8 13z" c={c} w={1.4} />
+        <Dot x={210} y={52} r={3.6} c={c} />
+      </g>
+    </g>
+  ),
+  "shop-loyalty": (c) => (
+    <g>
+      <g className="ca-float">
+        <Panel x={68} y={32} w={104} h={58} r={9} />
+        <Bar x={80} y={44} w={40} h={5} c={c} />
+        <Bar x={80} y={56} w={26} h={4} o={0.12} />
+        {[0, 1, 2, 3, 4].map((i) => (
+          <circle key={i} cx={82 + i * 17} cy={74} r={5.5} fill={i < 3 ? c : "#fff"} stroke={i < 3 ? c : ink(0.18)} strokeWidth={1.2}
+            opacity={i < 3 ? 0.9 : 1} className={i === 2 ? "ca-pulse-sm" : undefined} />
+        ))}
+      </g>
+      <g className="ca-float-b">
+        {["Brons", "Zilver", "Goud"].map((t, i) => (
+          <g key={t}>
+            <rect x={190} y={80 - i * 22} width={54} height={16} rx={8} fill={i === 2 ? c : ink(0.09)} opacity={i === 2 ? 0.9 : 1} />
+            <Txt x={217} y={91 - i * 22} t={t} size={8.5} c={i === 2 ? "#fff" : undefined} o={i === 2 ? 1 : 0.42} />
+          </g>
+        ))}
+      </g>
+    </g>
+  ),
+  "shop-subscriptions": (c) => (
+    <g>
+      {[0, 1, 2].map((i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"} opacity={1 - i * 0.18}>
+          <Panel x={70 + i * 40} y={40} w={34} h={34} r={6} />
+          <Stroke d={`M${70 + i * 40} 50h34`} o={0.1} />
+          <Txt x={87 + i * 40} y={66} t={`${i + 1}e`} size={9.5} c={i === 0 ? c : undefined} o={0.42} />
+        </g>
+      ))}
+      <Stroke d="M87 84c30 16 84 16 114 0" o={0.16} dash="4 5" cls="ca-march" />
+      <Stroke d="M201 84l-8-2m8 2l-2 8" o={0.24} w={1.4} />
+      <g className="ca-float">
+        <circle cx={216} cy={44} r={19} fill="none" stroke={c} strokeWidth={1.6} strokeDasharray="98" strokeDashoffset="26" strokeLinecap="round" />
+        <Stroke d="M232 36l3-9 6 7z" c={c} w={1.3} />
+        <Txt x={216} y={48} t="/mnd" size={9} c={c} o={1} />
+      </g>
+    </g>
+  ),
+  "shop-wishlist": (c) => (
+    <g>
+      <g className="ca-float">
+        <path d="M110 84c-24-16-32-26-32-38a15 15 0 0132-9 15 15 0 0132 9c0 12-8 22-32 38z" fill="#fff" stroke={c} strokeWidth={1.6} />
+        <path d="M110 76c-18-13-24-21-24-30a11 11 0 0124-6 11 11 0 0124 6c0 9-6 17-24 30z" fill={c} opacity={0.14} />
+      </g>
+      <g className="ca-float-b">
+        <Panel x={166} y={26} w={78} h={68} r={8} />
+        <Stroke d="M166 40h78" o={0.1} />
+        <Txt x={205} y={36} t="Bewaard" size={8.5} o={0.42} />
+        {[0, 1, 2].map((i) => (
+          <g key={i}>
+            <rect x={176} y={48 + i * 15} width={13} height={11} rx={3} fill={ink(0.1)} />
+            <Bar x={194} y={51 + i * 15} w={40 - i * 10} h={4} o={0.13} />
+          </g>
+        ))}
+        <Dot x={240} y={30} r={3} c={c} cls="ca-blink" />
+      </g>
+    </g>
+  ),
+
+  // ---------- webshop: koppelingen & operatie
+  "shop-payments": (c) => (
+    <g>
+      <g className="ca-float">
+        <Panel x={68} y={34} w={90} h={56} r={9} />
+        <rect x={68} y={46} width={90} height={11} fill={ink(0.14)} />
+        <rect x={78} y={66} width={22} height={14} rx={3} fill={c} opacity={0.85} />
+        <Bar x={108} y={72} w={40} h={4} o={0.14} />
+      </g>
+      {[30, 56, 82].map((y, i) => (
+        <g key={i}>
+          <Stroke d={`M158 ${60 - (60 - y) * 0.3}C180 ${60 - (60 - y) * 0.3} 178 ${y} 196 ${y}`} o={0.16} dash="3 4" cls={i === 1 ? "ca-march" : "ca-march2"} />
+          <Panel x={196} y={y - 9} w={48} h={18} r={9} />
+          <Dot x={207} y={y} r={3.2} c={i === 0 ? c : undefined} o={0.22} />
+          <Bar x={215} y={y - 2} w={20} h={4} o={0.12} />
+        </g>
+      ))}
+      <g className="ca-float-b">
+        <rect x={140} y={22} width={18} height={14} rx={3} fill="#fff" stroke={c} strokeWidth={1.4} />
+        <Stroke d="M144 22v-4a5 5 0 0110 0v4" c={c} w={1.4} />
+      </g>
+    </g>
+  ),
+  "shop-bnpl": (c) => (
+    <g>
+      <Panel x={64} y={30} w={64} h={40} r={8} cls="ca-float" />
+      <Txt x={96} y={48} t="€ 180" size={13} c={ink(0.75)} cls="ca-float" />
+      <Txt x={96} y={62} t="totaal" size={8.5} o={0.4} cls="ca-float" />
+      <Stroke d="M128 50h20" o={0.18} />
+      <Stroke d="M142 45l6 5-6 5" o={0.18} />
+      {[0, 1, 2].map((i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Panel x={156} y={22 + i * 26} w={84} h={22} r={7} fill={i === 0 ? c : "#fff"} stroke={i === 0 ? c : undefined} />
+          <Txt x={172} y={36 + i * 26} t={`${i + 1}/3`} size={9} c={i === 0 ? "#fff" : undefined} o={i === 0 ? 0.9 : 0.36} />
+          <Bar x={188} y={30 + i * 26} w={40} h={5} c={i === 0 ? "#fff" : undefined} o={0.14} />
+        </g>
+      ))}
+      <Txt x={198} y={106} t="achteraf betalen" size={8.5} o={0.34} />
+    </g>
+  ),
+  "shop-analytics": (c) => (
+    <g>
+      {[
+        ["Bezoek", 120, 0],
+        ["Wagen", 88, 1],
+        ["Checkout", 60, 2],
+        ["Order", 34, 3],
+      ].map(([t, w0, i]) => (
+        <g key={i as number}>
+          <rect x={150 - (w0 as number) / 2} y={26 + (i as number) * 18} width={w0 as number} height={13} rx={4}
+            fill={c} opacity={0.2 + (i as number) * 0.22} className="ca-rise" style={{ animationDelay: `${(i as number) * 120}ms` }} />
+          <Txt x={150 - (w0 as number) / 2 - 8} y={36 + (i as number) * 18} t={t as string} size={8.5} o={0.34} anchor="end" />
+        </g>
+      ))}
+      <Stroke d="M216 92l10-16 9 8 11-22" c={c} w={1.6} cls="ca-draw" />
+      <Dot x={246} y={62} r={3} c={c} cls="ca-blink" />
+      <Txt x={150} y={110} t="conversie per stap" size={8.5} o={0.32} />
+    </g>
+  ),
+  "shop-feeds": (c) => (
+    <g>
+      <g className="ca-float">
+        <Panel x={62} y={30} w={58} h={60} r={7} />
+        <Stroke d="M104 30v10h16" o={0.16} />
+        {[0, 1, 2, 3].map((i) => <Bar key={i} x={72} y={50 + i * 10} w={i === 0 ? 38 : 30 - i * 4} h={4} c={i === 0 ? c : undefined} o={0.12} />)}
+        <Txt x={91} y={102} t="feed.xml" size={8.5} o={0.34} />
+      </g>
+      {[28, 56, 84].map((y, i) => (
+        <g key={i}>
+          <Stroke d={`M120 ${60 - (60 - y) * 0.3}C152 ${60 - (60 - y) * 0.3} 150 ${y} 176 ${y}`} o={0.16} dash="3 4" cls={i === 1 ? "ca-march2" : "ca-march"} />
+          <Panel x={176} y={y - 12} w={62} h={24} r={6} cls={i % 2 ? "ca-float-b" : "ca-float"} />
+          <rect x={184} y={y - 6} width={12} height={12} rx={3} fill={i === 0 ? c : ink(0.14)} />
+          <Bar x={202} y={y - 2} w={28} h={4} o={0.12} />
+        </g>
+      ))}
+    </g>
+  ),
+  "shop-billing": (c) => (
+    <g>
+      <g className="ca-float">
+        <Panel x={66} y={20} w={64} h={80} r={7} />
+        <Bar x={76} y={32} w={28} h={5} c={c} />
+        <Stroke d="M66 44h64" o={0.1} />
+        {[0, 1, 2].map((i) => (
+          <g key={i}><Bar x={76} y={52 + i * 11} w={26} h={4} o={0.13} /><Bar x={108} y={52 + i * 11} w={14} h={4} o={0.09} /></g>
+        ))}
+        <Stroke d="M76 88h46" o={0.12} dash="3 4" />
+        <Txt x={112} y={98} t="€ 218,90" size={9} c={c} o={1} anchor="end" />
+      </g>
+      <Stroke d="M136 60h26" o={0.18} dash="3 4" cls="ca-march" />
+      <Stroke d="M156 55l6 5-6 5" o={0.2} />
+      <g className="ca-float-b">
+        <Panel x={172} y={28} w={72} h={64} r={8} />
+        <Stroke d="M172 42h72" o={0.1} />
+        <Txt x={208} y={38} t="Boekhouding" size={8} o={0.4} />
+        {[0, 1, 2].map((i) => (
+          <g key={i}>
+            <Stroke d={`M182 ${58 + i * 13}l3 3 5-6`} c={c} w={1.4} />
+            <Bar x={196} y={56 + i * 13} w={38 - i * 8} h={4} o={0.12} />
+          </g>
+        ))}
+      </g>
+    </g>
+  ),
+  "shop-erp": (c) => (
+    <g>
+      <Panel x={62} y={38} w={68} h={44} r={8} cls="ca-float" />
+      <Stroke d="M74 58h10l4 14h20l4-10" c={c} w={1.5} cls="ca-float" />
+      <Txt x={96} y={94} t="Shop" size={9} o={0.38} />
+      <Panel x={170} y={38} w={68} h={44} r={8} cls="ca-float-b" />
+      <g className="ca-float-b">
+        {[0, 1, 2].map((i) => <rect key={i} x={182 + i * 16} y={50 + i * 4} width={12} height={20 - i * 4} rx={3} fill={i === 0 ? c : ink(0.16)} />)}
+      </g>
+      <Txt x={204} y={94} t="ERP" size={9} o={0.38} />
+      <Stroke d="M130 50h40" o={0.2} dash="4 5" cls="ca-march" />
+      <Stroke d="M164 45l6 5-6 5" o={0.24} />
+      <Stroke d="M170 70h-40" o={0.2} dash="4 5" cls="ca-march2" />
+      <Stroke d="M136 65l-6 5 6 5" o={0.24} />
+      <g className="ca-float">
+        <Panel x={126} y={16} w={48} h={18} r={9} />
+        <Txt x={150} y={29} t="in sync" size={8.5} c={c} o={1} />
+      </g>
+    </g>
+  ),
+  "shop-shipping": (c) => (
+    <g>
+      <g className="ca-float">
+        <path d="M66 44l28-14 28 14v30l-28 14-28-14z" fill="#fff" stroke={ink(0.18)} strokeWidth={1.4} />
+        <Stroke d="M66 44l28 14 28-14M94 58v30" o={0.14} />
+        <Bar x={82} y={36} w={24} h={4} c={c} />
+      </g>
+      <Stroke d="M126 62C150 62 148 34 172 34s24 28 48 28" o={0.18} dash="4 5" cls="ca-march" />
+      <Dot x={172} y={34} r={3} c={c} cls="ca-blink" />
+      <g className="ca-float-b">
+        <path d="M228 44a10 10 0 10-20 0c0 7 10 18 10 18s10-11 10-18z" fill="#fff" stroke={c} strokeWidth={1.5} />
+        <circle cx={218} cy={44} r={3.4} fill={c} />
+        <Panel x={186} y={74} w={64} h={20} r={7} />
+        <Bar x={194} y={82} w={30} h={4} o={0.14} />
+        <Txt x={240} y={88} t="1–2d" size={8.5} c={c} o={1} anchor="end" />
+      </g>
+    </g>
+  ),
+  "shop-returns": (c) => (
+    <g>
+      <g className="ca-float">
+        <path d="M76 40l26-13 26 13v28l-26 13-26-13z" fill="#fff" stroke={ink(0.18)} strokeWidth={1.4} />
+        <Stroke d="M76 40l26 13 26-13M102 53v28" o={0.14} />
+      </g>
+      <Stroke d="M128 34c30-14 62-6 62 20" c={c} w={1.6} dash="5 5" cls="ca-march2" />
+      <Stroke d="M136 28l-8 6 8 6" c={c} w={1.6} />
+      <g className="ca-float-b">
+        <Panel x={166} y={54} w={78} h={42} r={7} />
+        <Stroke d="M166 68h78" o={0.1} />
+        <Txt x={205} y={64} t="Retour" size={8.5} o={0.42} />
+        {[0, 1].map((i) => (
+          <g key={i}>
+            <rect x={176} y={74 + i * 11} width={9} height={9} rx={2.5} fill={i === 0 ? c : ink(0.12)} />
+            <Bar x={190} y={76 + i * 11} w={44 - i * 12} h={4} o={0.12} />
+          </g>
+        ))}
+      </g>
+    </g>
+  ),
+  "shop-tax": (c) => (
+    <g>
+      <g className="ca-float">
+        <circle cx={100} cy={56} r={28} fill="#fff" stroke={c} strokeWidth={1.6} />
+        <Txt x={100} y={64} t="%" size={22} c={c} o={1} />
+        {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+          <circle key={i} cx={100 + Math.cos((i / 8) * Math.PI * 2) * 36} cy={56 + Math.sin((i / 8) * Math.PI * 2) * 36} r={2} fill={c} opacity={0.45} />
+        ))}
+      </g>
+      <g className="ca-float-b">
+        <Panel x={158} y={26} w={86} h={68} r={8} />
+        <Stroke d="M158 40h86" o={0.1} />
+        <Txt x={201} y={36} t="BTW per land" size={8} o={0.4} />
+        {["NL 21%", "DE 19%", "BE 21%"].map((t, i) => (
+          <g key={t}>
+            <Bar x={168} y={52 + i * 14} w={8} h={8} c={i === 0 ? c : undefined} o={0.14} r={2} />
+            <Txt x={182} y={59 + i * 14} t={t} size={8.5} o={0.4} anchor="start" />
+          </g>
+        ))}
+      </g>
+    </g>
+  ),
+  "shop-mail": (c) => (
+    <g>
+      <g className="ca-float">
+        <Panel x={64} y={38} w={78} h={52} r={7} />
+        <Stroke d="M64 44l39 26 39-26" c={c} w={1.5} />
+        <circle cx={142} cy={38} r={7} fill={c} className="ca-pulse-sm" />
+      </g>
+      {[26, 52, 78].map((y, i) => (
+        <g key={i}>
+          <Stroke d={`M142 ${64 - (64 - y) * 0.35}C168 ${64 - (64 - y) * 0.35} 166 ${y} 184 ${y}`} o={0.16} dash="3 4" cls={i === 1 ? "ca-march2" : "ca-march"} />
+          <Panel x={184} y={y - 10} w={58} h={20} r={6} cls={i % 2 ? "ca-float-b" : "ca-float"} />
+          <Bar x={192} y={y - 2} w={30 - i * 4} h={4} c={i === 0 ? c : undefined} o={0.13} />
+        </g>
+      ))}
+      <Txt x={213} y={106} t="order · verzend · review" size={8} o={0.3} />
+    </g>
+  ),
+  "shop-marketplace": (c) => (
+    <g>
+      <g className="ca-float">
+        <Panel x={66} y={38} w={62} h={48} r={8} />
+        <Stroke d="M74 38V28h46v10" c={c} w={1.5} />
+        <Stroke d="M66 52h62" o={0.1} />
+        <Bar x={76} y={60} w={26} h={4} o={0.14} />
+        <Bar x={76} y={70} w={38} h={4} o={0.1} />
+      </g>
+      <Stroke d="M128 62h22" o={0.18} dash="3 4" cls="ca-march" />
+      {[[168, 26], [222, 26], [168, 78], [222, 78]].map(([x, y], i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Panel x={x - 22} y={y - 15} w={44} h={30} r={7} />
+          <rect x={x - 12} y={y - 8} width={16} height={16} rx={4} fill={i === 0 ? c : ink(0.14)} />
+          <Bar x={x + 8} y={y - 4} w={10} h={4} o={0.12} />
+        </g>
+      ))}
+      <Stroke d="M150 62C160 62 158 34 168 34M150 62c10 0 8 16 18 16" o={0.14} dash="3 4" cls="ca-march2" />
+    </g>
+  ),
+  "shop-compliance": (c) => (
+    <g>
+      <Browser x={62} y={20} w={122} h={80} c={c}>
+        <Bar x={72} y={40} w={54} h={4} o={0.1} />
+        <Bar x={72} y={50} w={38} h={4} o={0.08} />
+        <g className="ca-float">
+          <Panel x={70} y={64} w={106} h={28} r={9} />
+          <Bar x={78} y={72} w={44} h={4} o={0.14} />
+          <Bar x={78} y={81} w={30} h={3.5} o={0.09} />
+          <Panel x={128} y={71} w={40} h={14} r={7} fill={c} stroke={c} />
+          <Txt x={148} y={81} t="Akkoord" size={8} c="#fff" o={1} />
+        </g>
+      </Browser>
+      <g className="ca-float-b">
+        <path d="M218 26l24 9v20c0 15-11 24-24 29-13-5-24-14-24-29V35z" fill="#fff" stroke={c} strokeWidth={1.5} />
+        <Stroke d="M208 56l7 7 14-16" c={c} w={2} cls="ca-draw" />
+      </g>
+    </g>
+  ),
+
   // ===================================================== WEB-APPS
   "wapp-portal": (c) => (
     <g>
