@@ -606,9 +606,30 @@ function CategoryStep({
             />
           );
         };
+        // Categorieën met eigen subgroepen (bv. Funnels) bepalen zelf de
+        // volgorde en de kopjes; de rest valt terug op plan/add-on/los.
+        const custom = cat.groups ?? [];
+        const grouped = new Set(custom.map((g) => g.id));
+        const inCustom = (p: Pkg) => !!p.group && grouped.has(p.group);
+        const addonsRest = addons.filter((p) => !inCustom(p));
+        const itemsRest = items.filter((p) => !inCustom(p));
+
         const hasPlans = plans.length > 0;
         return (
           <>
+            {custom.map((g) => {
+              const list = cat.packages.filter((p) => p.group === g.id);
+              if (list.length === 0) return null;
+              return (
+                <div className="exp-group is-extras" key={g.id}>
+                  <div className="exp-group-label">
+                    <span className="exp-group-kicker">{g.kicker}</span>
+                    <span className="exp-group-hint">{g.hint}</span>
+                  </div>
+                  <div className="exp-cards">{list.map(renderCard)}</div>
+                </div>
+              );
+            })}
             {hasPlans && (
               <div className="exp-group is-plans">
                 <div className="exp-group-label">
@@ -621,27 +642,39 @@ function CategoryStep({
                 </div>
               </div>
             )}
-            {addons.length > 0 && (
+            {addonsRest.length > 0 && (
               <div className="exp-group is-extras">
                 <div className="exp-group-label">
                   <span className="exp-group-kicker">{hasPlans ? "Add-ons" : "Diensten"}</span>
                   <span className="exp-group-hint">{hasPlans ? "Breid je plan uit met extra's" : "Voeg toe wat je nodig hebt"}</span>
                 </div>
-                <div className="exp-cards">{addons.map(renderCard)}</div>
+                <div className="exp-cards">{addonsRest.map(renderCard)}</div>
               </div>
             )}
-            {items.length > 0 && (
+            {itemsRest.length > 0 && (
               <div className="exp-group is-extras">
                 <div className="exp-group-label">
-                  <span className="exp-group-kicker">{hasPlans || addons.length ? "Losse diensten" : "Diensten"}</span>
+                  <span className="exp-group-kicker">{hasPlans || addonsRest.length ? "Losse diensten" : "Diensten"}</span>
                   <span className="exp-group-hint">Per stuk bij te bestellen</span>
                 </div>
-                <div className="exp-cards">{items.map(renderCard)}</div>
+                <div className="exp-cards">{itemsRest.map(renderCard)}</div>
               </div>
             )}
           </>
         );
       })()}
+
+      {cat.requires && (
+        <div className="exp-requires">
+          <span className="exp-requires-ico" aria-hidden>
+            <InfoGlyph />
+          </span>
+          <div>
+            <strong>Vereist bij deze dienst</strong>
+            <p>{cat.requires}</p>
+          </div>
+        </div>
+      )}
 
       {cat.note && (
         <p className="exp-note">
@@ -870,10 +903,12 @@ export function Configurator() {
   };
 
   // Direct naar één categorie springen (intro-quicklinks), zonder intake.
+  // Vanuit de intro direct naar één categorie. Belangrijk: indexeren op
+  // orderedCats (journey eerst), niet op CATEGORY_ORDER — anders landt de
+  // knop op een andere stap zodra er een journey actief is.
   const jumpTo = (catId: IconKey) => {
-    const idx = CATEGORY_ORDER.indexOf(catId);
+    const idx = orderedCats.indexOf(catId);
     setScreen("flow");
-    // orderedCats == CATEGORY_ORDER wanneer er geen journey is
     setStep(Math.max(0, idx));
     requestAnimationFrame(() => scrollToTop());
   };
@@ -1030,7 +1065,7 @@ export function Configurator() {
                 ["hosting", "/brand/m7-webhosting.svg", "M7 Webhosting"],
                 ["support", "/brand/m7-webplans.svg", "M7 Webplans"],
                 ["organic", "/brand/m7-content.svg", "M7 Content"],
-                ["paid", "/brand/m7-growth.svg", "M7 Growth"],
+                ["paid", "/brand/m7-growth.svg", "M7 Growth"], // → Paid Ads
               ] as [IconKey, string, string][]).map(([cat, src, label]) => (
                 <button key={cat} className="exp-quicklink" onClick={() => jumpTo(cat)}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}

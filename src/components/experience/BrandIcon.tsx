@@ -51,7 +51,10 @@ export type BrandKey =
   | "openai"
   | "claude"
   | "googlegemini"
-  | "perplexity";
+  | "perplexity"
+  | "pagespeedinsights"
+  | "clarity"
+  | "weglot";
 
 type Brand = {
   name: string;
@@ -99,6 +102,9 @@ export const BRANDS: Record<BrandKey, Brand> = {
   claude: { name: "Claude", color: "#D97757" },
   googlegemini: { name: "Gemini", color: "#8E7CFF" },
   perplexity: { name: "Perplexity", color: "#20B8CD" },
+  pagespeedinsights: { name: "PageSpeed Insights", color: "#4285F4" },
+  clarity: { name: "Microsoft Clarity", color: "#0F6CBD", letters: "Cl" },
+  weglot: { name: "Weglot", color: "#3B82F6", letters: "Wg" },
 };
 
 // ------------------------------------------------------------ components

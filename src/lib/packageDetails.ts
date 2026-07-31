@@ -200,7 +200,7 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
     what:
       "Maatwerk zonder plafond: dynamische sector- en doelgroeppagina's die uit één sjabloon worden gegenereerd, Lottie- en scroll-animaties, AI-infographics, hero-video en zelf samen te stellen landingsblokken. Er gaat een volwaardige styleframing-fase aan vooraf waarin we de visuele richting vastleggen.",
     why:
-      "Als je meerdere doelgroepen, sectoren of proposities bedient, wil je voor elk daarvan een eigen landingspagina zonder tien keer hetzelfde te bouwen. Dat vergroot je organische bereik en je advertentierelevantie tegelijk. En het niveau van afwerking maakt je merk zichtbaar duurder dan de concurrentie.",
+      "Als je meerdere doelgroepen, sectoren of proposities bedient, wil je voor elk daarvan een eigen landingspagina zonder tien keer hetzelfde te bouwen. Dat vergroot je organische bereik en je advertentierelevantie tegelijk. En het niveau van afwerking maakt je merk zichtbaar duurder dan de concurrentie. Prijs op aanvraag, omdat de scope hier per project sterk verschilt.",
     includes: [
       "Styleframing-fase met visuele richting",
       "Dynamisch gegenereerde sector- of doelgroeppagina's",
@@ -285,9 +285,10 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
   },
   "web-multilang": {
     what:
-      "Meertaligheid met een nette URL-structuur (/nl/, /en/ of aparte domeinen), correct ingerichte hreflang-tags en vertaalbare CMS-velden. Optioneel starten we met machinevertaling die jij daarna redigeert.",
+      "We stellen Weglot in en koppelen het aan je site: elke taal krijgt een eigen nette URL, hreflang wordt correct gezet en alle vertalingen zijn achteraf te redigeren in het Weglot-dashboard. Wij verzorgen de eenmalige inrichting; de doorlopende Weglot-licentie loopt op jouw eigen account en is niet inbegrepen.",
     why:
-      "Half vertaalde sites schaden je vindbaarheid meer dan ze opleveren. Goed ingerichte meertaligheid opent nieuwe markten zonder je Nederlandse posities in gevaar te brengen.",
+      "Zelf een vertaallaag bouwen kost een veelvoud en moet je daarna onderhouden. Met Weglot sta je binnen een dag meertalig online, met vertalingen die je zelf kunt bijschaven — en zonder dat je Nederlandse posities in gevaar komen.",
+    tech: ["Vertaalde URL's met correcte hreflang-tags", "Vertalingen bewerkbaar in het Weglot-dashboard", "Licentiekosten van Weglot zijn exclusief"],
   },
   "web-motion": {
     what:
@@ -321,7 +322,7 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
   },
   "web-speed": {
     what:
-      "Een gerichte snelheidsslag: we meten Core Web Vitals, optimaliseren beeld en fonts, ruimen renderblokkerende scripts op en leveren een voor- en nameting op zodat de winst zichtbaar is.",
+      "Een gerichte snelheidsslag: we meten je Core Web Vitals in Google PageSpeed Insights, optimaliseren beeld en fonts, ruimen renderblokkerende scripts op en leveren een voor- en nameting op zodat de winst zwart op wit staat.",
     why:
       "Elke seconde extra laadtijd kost conversie, en snelheid weegt mee in je ranking. Het is de goedkoopste conversieverbetering die er is: je verandert niets aan je aanbod, alleen aan de wachttijd.",
   },
@@ -353,6 +354,7 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
       "Een marktplaats- of internationale opzet: meerdere vendors, headless of performance-build, koppelingen met ERP en PIM, en multi-currency met landspecifieke prijzen en belastingregels.",
     why:
       "Bij dit volume is snelheid geld en is handmatig beheer onmogelijk. Een headless front-end met een goede datastroom naar je backoffice betaalt zichzelf terug in conversie en in bespaarde uren.",
+    tech: ["Prijs op aanvraag — aantal vendors, koppelingen en landen bepalen de scope"],
   },
   "shop-productstructuur": {
     what:
@@ -460,12 +462,6 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
       "Een verkeerd geconfigureerde webhook betekent bestellingen die wel betaald zijn maar niet binnenkomen. Dit netjes inrichten voorkomt precies het soort fout dat je pas ontdekt als een klant belt.",
     tech: ["Webhooks met retry en logging", "Betaalmethodes per land en valuta", "Refund-flow getest inclusief deelbetalingen"],
   },
-  "shop-bnpl": {
-    what:
-      "Achteraf betalen via Klarna, in3 of Riverty: we begeleiden de aanvraag en aansluiting, stellen risico- en landregels in en plaatsen de betaalbadges op product- en checkoutpagina.",
-    why:
-      "Achteraf betalen verhoogt de conversie meetbaar, vooral bij hogere orderbedragen. Het verschil zit hem in de zichtbaarheid: badges op de productpagina werken beter dan pas in de kassa.",
-  },
   "shop-analytics": {
     what:
       "Volledige e-commerce tracking in GA4: alle events van productweergave tot aankoop, de winkelwagen- en checkouttrechter, omzet uitgesplitst naar kanaal, campagne en product, met Consent Mode en klaar voor server-side meting.",
@@ -497,12 +493,6 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
     why:
       "Verzendkosten en levertijd zijn de meestgenoemde reden om af te haken. Als de juiste opties en kosten meteen kloppen, verlies je minder orders én minder tijd aan statusvragen.",
   },
-  "shop-returns": {
-    what:
-      "Een retourportaal waarin klanten zelf een retour aanmelden, retourlabels automatisch worden aangemaakt en statussen en terugbetalingen worden bijgehouden. Retourredenen komen in een rapport.",
-    why:
-      "Retouren verwerken via de mail kost onevenredig veel tijd. Zelfservice verlaagt die last, en de retourredenen laten zien welke productinformatie op je site tekortschiet.",
-  },
   "shop-tax": {
     what:
       "Correcte btw-instelling per land en productgroep, OSS-drempels voor EU-verkoop, VIES-validatie van btw-nummers voor B2B en in- of exclusief prijzen per klantgroep.",
@@ -515,12 +505,6 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
     why:
       "Transactionele mails worden bijna altijd geopend; dat is je best gelezen kanaal en meestal het lelijkste. On-brand mails met een slimme flow eronder halen daar omzet uit in plaats van alleen bevestigingen te sturen.",
   },
-  "shop-marketplace": {
-    what:
-      "Koppeling met bol., Amazon of andere marktplaatsen via Channable of een directe API: assortiment en prijzen worden uitgestuurd, orders komen centraal binnen en voorraad wordt over kanalen bewaakt.",
-    why:
-      "Marktplaatsen brengen bereik dat je zelf niet snel opbouwt. De valkuil is dubbele verkoop bij dezelfde voorraad — een goede koppeling voorkomt precies dat.",
-  },
   "shop-compliance": {
     what:
       "Consent-banner gekoppeld aan je tracking, de verplichte pagina's (algemene voorwaarden, retourbeleid, privacy) netjes opgezet, betaal- en keurmerklogo's op de juiste plek en een toegankelijkheidscheck op de kernflow.",
@@ -531,10 +515,96 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
   // ===================================================== WEB-APPS & APPS
   "wapp-portal": {
     what:
-      "Een besloten klant- of dealerportaal met accounts, rollen en rechten, waarin je documenten, dossiers, prijzen of statussen deelt. Volledig in je huisstijl en gekoppeld aan de systemen die je al gebruikt.",
+      "Een besloten klantportaal met accounts, rollen en rechten, waarin je documenten, dossiers, prijzen of statussen deelt. Volledig in je huisstijl en gekoppeld aan de systemen die je al gebruikt. De vanafprijs geldt voor een portaal met de kernfunctionaliteit; koppelingen en maatwerk bepalen de uiteindelijke scope.",
     why:
       "Een portaal haalt terugkerende vragen weg bij je team en geeft klanten 24/7 toegang tot wat ze nodig hebben. Het verhoogt bovendien de overstapdrempel: wie in jouw omgeving werkt, vertrekt minder snel.",
     tech: ["Authenticatie via Memberstack, Auth0 of eigen implementatie", "Rollen en rechten per gebruikersgroep", "Audit-logging op gevoelige acties"],
+  },
+  "wapp-quote": {
+    what:
+      "Een portaal waarin klanten een aanvraag doen via een formulier met voorwaardelijke logica, automatisch een offerte-PDF ontvangen en die digitaal kunnen accorderen. Daarna volgen ze de orderstatus live, kunnen ze herhaalorders plaatsen en hun bestelhistorie inzien. Alles stroomt door naar je CRM en boekhouding.",
+    why:
+      "Offertes maken en achteraf bellen kost verkooptijd die je liever aan gesprekken besteedt. Een portaal versnelt de doorlooptijd van aanvraag naar akkoord en haalt de statusvragen weg bij je binnendienst.",
+    includes: ["Aanvraagformulier met logica", "Automatische offerte-PDF", "Digitaal akkoord", "Orderstatus en historie"],
+  },
+  "wapp-booking": {
+    what:
+      "Een reserverings- of afsprakenportaal waarin je zelf beschikbaarheid en tijdsloten beheert. Klanten boeken online met eventuele aanbetaling via Stripe, krijgen herinneringen per e-mail of WhatsApp en kunnen zelf annuleren of verzetten. Koppelbaar aan Google- of Outlook-agenda.",
+    why:
+      "Boekingen via de telefoon kosten tijd en gaan buiten kantooruren verloren. Online reserveren met aanbetaling verlaagt bovendien het aantal no-shows aanzienlijk.",
+  },
+  "wapp-docs": {
+    what:
+      "Een portaal voor je bedrijfshandboek en documentatie: handboeken, procedures en werkinstructies met versiebeheer, doorzoekbaar over alle documenten heen, met leesbevestiging per medewerker en rechten per afdeling.",
+    why:
+      "Kennis die in mappen en mailboxen zit, wordt niet gebruikt en veroudert ongemerkt. Eén doorzoekbare bron met versiebeheer scheelt zoektijd en is bij audits of certificering direct aantoonbaar.",
+  },
+  "wapp-configurator": {
+    what:
+      "Een portaal waarin klanten stapsgewijs een product of oplossing samenstellen met live prijsberekening, ondersteund door een reken- of simulatiemodel. Inclusief visuele preview, configuraties opslaan en delen, en doorzetten als offerte of order.",
+    why:
+      "Maatwerk verkopen kost normaal veel adviesgesprekken. Een configurator neemt dat voorwerk over, laat klanten zelf scenario's vergelijken en levert je aanvragen op die technisch al kloppen.",
+  },
+  "wapp-dealer": {
+    what:
+      "Een omgeving per dealer of leverancier met eigen prijzen, voorraad en documenten. Ze bestellen of leveren aan zonder mailwisseling, vinden marketingmateriaal centraal en jij ziet rapportage per partner.",
+    why:
+      "Als je keten via mail en telefoon loopt, groeit je administratie harder dan je omzet. Een portaal maakt het aantal partners waarmee je kunt werken los van de omvang van je binnendienst.",
+  },
+  "wapp-marketplace": {
+    what:
+      "Een volwaardig two-sided platform waarop aanbieders en afnemers samenkomen: onboarding en verificatie van aanbieders, zoeken en matchen, betalingen met commissie en uitbetalingen, reviews, disputen en een beheerdersdashboard. Prijs op aanvraag, omdat de scope sterk verschilt.",
+    why:
+      "Een marktplaats verdient aan transacties in plaats van aan uren — maar staat of valt met vertrouwen en liquiditeit aan beide kanten. Daarom bouwen we eerst het minimale platform waarmee je die twee kunt bewijzen.",
+    tech: ["Betalingen met split payments en payouts", "KYC/verificatie van aanbieders", "Zoek- en matchingslogica op maat"],
+  },
+  "wapp-projects": {
+    what:
+      "Een portaal waarin klanten hun eigen project volgen: fases, mijlpalen en planning, foto's en documenten per fase, vragen en meerwerk digitaal afgestemd, met automatische statusupdates.",
+    why:
+      "Bij langlopende projecten gaat de meeste tijd op aan bijpraten. Zichtbare voortgang neemt onrust weg, vermindert belletjes en legt meerwerkafspraken vast op het moment dat ze gemaakt worden.",
+  },
+  "wapp-service": {
+    what:
+      "Een service- en ticketportaal waarin klanten meldingen aanmaken met foto en locatie, met statussen, prioriteit, SLA-bewaking en notificaties, plus volledige historie per klant of object.",
+    why:
+      "Meldingen via de mail raken zoek en zijn niet te rapporteren. Een ticketportaal maakt doorlooptijden zichtbaar en helpt je aantonen dat je je SLA nakomt.",
+  },
+  "wapp-academy": {
+    what:
+      "Een e-learningomgeving met modules, lessen en video's, voortgang en toetsen per deelnemer en automatisch uitgegeven certificaten. Ook geschikt voor het opleiden van dealers en partners.",
+    why:
+      "Zelf opleiden schaalt beter dan telkens dezelfde training geven, en bij dealers zorgt het dat jouw product overal op dezelfde manier wordt verkocht.",
+  },
+  "wapp-assets": {
+    what:
+      "Een merk- en assetportaal (DAM) waarin logo's, beeld, video en documenten centraal staan, met rechten en vervaldatums per bestand, automatisch gegenereerde formaten en een downloadlogboek.",
+    why:
+      "Als niemand weet waar het juiste logo staat, gebruikt iedereen het verkeerde. Een DAM houdt je merk consistent en voorkomt dat je beelden gebruikt waarvan de licentie verlopen is.",
+  },
+  "wapp-member": {
+    what:
+      "Een leden- of communityportaal met ledenadministratie en contributie, een besloten kennisbank en agenda, aanmelding voor events en een ledenlijst met profielen.",
+    why:
+      "Verenigingen en netwerken verliezen leden aan gedoe: losse mailinglijsten, betaalherinneringen per hand en een agenda die niemand vindt. Eén omgeving houdt het beheersbaar met vrijwilligers.",
+  },
+  "wapp-intranet": {
+    what:
+      "Een intranet voor je medewerkers: nieuws, roosters en documenten, verlof- en verzuimaanvragen, onboarding-checklists voor nieuwe collega's en een smoelenboek met afdelingspagina's.",
+    why:
+      "Interne informatie die alleen per mail rondgaat, bereikt nooit iedereen en is een week later onvindbaar. Een intranet maakt van je interne communicatie een naslagwerk in plaats van een stroom.",
+  },
+  "wapp-data": {
+    what:
+      "Een rapportageportaal met dashboards per klant, vestiging of rol, gevoed uit meerdere databronnen, met export naar Excel of PDF en automatische periodieke rapportmails.",
+    why:
+      "Rapportages die handmatig in Excel worden gemaakt, kosten elke maand dezelfde uren en bevatten fouten. Een portaal levert altijd actuele cijfers en kan bovendien een dienst zijn die je aan je klanten verkoopt.",
+  },
+  "wapp-intake": {
+    what:
+      "Een intake- en aanvraagportaal met slimme formulieren, voorwaardelijke vragen, veilig documenten uploaden, tussentijds opslaan en een beoordelingsflow met statussen.",
+    why:
+      "Onvolledige dossiers zijn de grootste vertrager in aanvraagprocessen. Een portaal dwingt volledigheid af op het moment van invullen, in plaats van er later achteraan te moeten.",
   },
   "wapp-flow": {
     what:
@@ -562,9 +632,40 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
   },
   "mob-build": {
     what:
-      "Bouw en publicatie van je app voor iOS en Android, inclusief store-listing, screenshots, review-begeleiding en een releaseproces voor updates.",
+      "Bouw en publicatie van je app voor iOS en Android, inclusief store-listing, screenshots, review-begeleiding en een releaseproces voor updates. Prijs op aanvraag — het aantal schermen, koppelingen en platformen bepaalt de scope.",
     why:
       "De storepublicatie is berucht om afwijzingen op details. Wij regelen dat traject zodat je lancering niet twee weken uitloopt op een formaliteit.",
+  },
+
+  "mob-stories": {
+    what:
+      "We schrijven user stories per rol en scenario met acceptatiecriteria, prioriteren op waarde en complexiteit en leveren een backlog op die klaar is voor de eerste sprint.",
+    why:
+      "Zonder scherpe stories bouwt een team wat het denkt te begrijpen. Acceptatiecriteria maken vooraf duidelijk wanneer iets af is — dat scheelt herwerk en discussie bij oplevering.",
+  },
+  "mob-prototype": {
+    what:
+      "Wireframes van de kernschermen, samengebracht in een klikbaar Figma-prototype, getest met echte gebruikers. De bevindingen verwerken we in het ontwerp voordat er ontwikkeld wordt.",
+    why:
+      "Een prototype kost dagen, een verkeerd gebouwde app kost maanden. Gebruikers laten binnen tien minuten zien welke aannames niet kloppen.",
+  },
+  "mob-qa": {
+    what:
+      "Een testplan met testgevallen per user story, handmatig getest op zowel iOS als Android, met een regressietest bij elke release en bevindingen inclusief reproductiestappen.",
+    why:
+      "Een crash in de store kost je reviews en downloads, en een fix duurt door het reviewproces dagen. Testen vooraf is aantoonbaar goedkoper dan herstellen achteraf.",
+  },
+  "mob-pm": {
+    what:
+      "Doorlopend agile projectmanagement: vaste sprints met planning en demo, een kanban-board dat altijd actueel is, wekelijkse voortgang en risico's, en één vast aanspreekpunt.",
+    why:
+      "Bij langere trajecten zit het risico niet in de code maar in de afstemming. Vaste sprints met demo's houden scope, budget en verwachtingen bij elkaar.",
+  },
+  "mob-store": {
+    what:
+      "Doorlopend beheer van je store-aanwezigheid: listings, screenshots en teksten, releasebeheer met versienotities, het reviewproces bij Apple en Google en monitoring van crashes en gebruik.",
+    why:
+      "Apps die stil blijven staan zakken weg in de stores en lopen vast op nieuwe OS-versies. Doorlopend releasebeheer houdt je app vindbaar én werkend.",
   },
 
   // ===================================================== VIDEO & ANIMATIE
@@ -675,6 +776,19 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
     why:
       "Bij dit volume word je een kanaal in plaats van een account. Dat is het punt waarop social daadwerkelijk aanvragen gaat opleveren in plaats van alleen likes.",
   },
+  "org-profiles": {
+    what:
+      "We upgraden je social profielen tot een geheel: story-highlight covers in je huisstijl, omslag- en profielfoto's op de juiste maat per platform, een bio met haakje en call-to-action, een ingerichte link-in-bio en een profielnaam met de zoekwoorden waarop mensen je zoeken.",
+    why:
+      "Bezoekers besluiten in enkele seconden of ze je volgen, en dat besluit valt op je profielpagina — niet bij je posts. Een verzorgd profiel verhoogt je volgconversie en maakt je bovendien vindbaar in de zoekfunctie van het platform.",
+    includes: ["Highlight-covers", "Omslag- en profielfoto per platform", "Bio-opmaak met CTA", "Link-in-bio ingericht", "Naam en zoekwoorden geoptimaliseerd"],
+  },
+  "org-highlights": {
+    what:
+      "Informatieve storylines binnen je highlights: complete storyreeksen over je diensten, werkwijze en veelgestelde vragen, volledig vormgegeven in je huisstijl, met vaste sjablonen zodat je ze zelf kunt uitbreiden. Inclusief bijpassende highlight-covers.",
+    why:
+      "Highlights zijn het enige deel van je profiel dat blijft staan — het is feitelijk je website binnen social. Wie daar zijn aanbod goed uitlegt, hoeft veel minder vragen in de DM te beantwoorden.",
+  },
   "org-airender": {
     what:
       "AI-renders op basis van jouw schetsen of tekeningen: fotorealistisch of gestileerd, per stuk af te nemen. Ook voor producten die nog niet bestaan.",
@@ -782,14 +896,14 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
   // ===================================================== TRACKING
   "trk-foundation": {
     what:
-      "De eenmalige inrichting van je meetbasis: Search Console geverifieerd met sitemap, een Google Analytics 4-property met datastream, een Google Tag Manager-container met je basis-events, de Meta Pixel en een cookie-consent-oplossing gekoppeld aan Consent Mode. Daarna houden we maandelijks in de gaten of alle meetpunten blijven werken.",
+      "De eenmalige inrichting van je meetbasis: Search Console geverifieerd met sitemap, een Google Analytics 4-property met datastream, een Google Tag Manager-container met je basis-events, de Meta Pixel en Consent Mode voorbereid. Een cookiebanner (CMP) zit bewust níét in de plannen — die neem je los af als licentie, zodat je zelf kiest tussen Consent Studio en Cookiebot. Daarna houden we maandelijks in de gaten of alle meetpunten blijven werken.",
     why:
       "Zonder deze drie — Search Console, GA4 en Tag Manager — vlieg je blind. Je weet niet welke pagina's bezoekers trekken, waar ze afhaken of welk kanaal je aanvragen oplevert. Het is de goedkoopste stap met de grootste impact, want alles wat je daarna doet kun je pas beoordelen als je het kunt meten.",
     includes: [
       "Search Console: verificatie, sitemap en dekkingscontrole",
       "GA4: property, datastream, basisconversies",
       "Google Tag Manager: container, triggers en variabelen",
-      "Meta Pixel en cookie-consent gekoppeld",
+      "Meta Pixel gekoppeld, Consent Mode voorbereid",
       "Maandelijkse controle of alles blijft meten",
     ],
     tech: ["Tags volledig via GTM zodat je site schoon blijft", "Consent Mode v2 gekoppeld aan je CMP", "Interne verkeer uitgesloten van rapportage"],
@@ -820,6 +934,7 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
       "Alles uit Insights Pro, aangevuld met een maandelijkse meeting — bij ons, bij jou of online — waarin we onze ideeën, suggesties en tips persoonlijk doornemen. We bepalen samen de prioriteiten voor de komende maand en je hebt een vaste data-analist als aanspreekpunt.",
     why:
       "Een rapport dat niemand bespreekt, verandert niets. In een uur samen kijken ontstaan de beslissingen die er echt toe doen, omdat wij de cijfers kennen en jij de context van je markt. Dat combineren levert veel meer op dan beide los.",
+    tech: ["Prijs op aanvraag — afhankelijk van omvang, aantal domeinen en frequentie"],
   },
   "trk-keywords": {
     what:
@@ -878,6 +993,39 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
   "fun-audience": {
     what: "Doelgroepsegmentatie waarbij bezoekers op basis van hun keuzes verschillende content, aanbiedingen of vervolgstappen te zien krijgen.",
     why: "Eén boodschap voor iedereen raakt niemand echt. Segmenteren maakt je aanbod relevanter en verhoogt daarmee zowel je conversie als de kwaliteit van je leads.",
+  },
+
+  "fun-quiz": {
+    what: "Een adviesquiz of keuzehulp: een paar vragen met scorelogica die uitmondt in een persoonlijk advies, dat ook per e-mail wordt nagestuurd. De antwoorden segmenteren je lead meteen.",
+    why: "Mensen die twijfelen tussen opties vullen liever een quiz in dan een contactformulier. Je krijgt een lead die zichzelf al heeft ingedeeld — dat maakt je opvolging veel gerichter.",
+  },
+  "fun-booking": {
+    what: "Een demo- of afspraakplanner die je eigen agenda uitleest, bevestigings- en herinneringsmails stuurt en de afspraak direct in je CRM zet.",
+    why: "Elke stap tussen 'ik wil praten' en een ingeplande afspraak kost je aanvragen. Direct boeken haalt het heen-en-weer mailen eruit en verlaagt het aantal no-shows.",
+  },
+  "fun-scan": {
+    what: "Een online scan waarbij bezoekers een vragenlijst invullen en automatisch een PDF-rapport met scores en een benchmark tegen de markt ontvangen.",
+    why: "Een rapport met de eigen situatie erin is een veel sterkere aanleiding voor een gesprek dan een brochure. Je start het verkoopgesprek met een gedeelde probleemanalyse.",
+  },
+  "fun-chat": {
+    what: "Een chat- of WhatsApp-instap met per pagina een vooringevuld startbericht, zichtbare openingstijden, een terugbelverzoek buiten die tijden en meetbare gesprekken.",
+    why: "Een groot deel van je bezoekers wil één vraag stellen, niet een formulier invullen. WhatsApp verlaagt die drempel tot bijna nul en levert gesprekken op die anders niet waren ontstaan.",
+  },
+  "fun-leadscore": {
+    what: "Leadscoring op gedrag en profiel, waarbij leads automatisch bij de juiste collega terechtkomen, met een melding bij een hot lead en rapportage op leadkwaliteit.",
+    why: "Als alle leads gelijk behandeld worden, gaat de meeste aandacht naar wie het hardst roept in plaats van wie het meest oplevert. Scoring zorgt dat je beste kansen als eerste worden gebeld.",
+  },
+  "fun-retarget": {
+    what: "Doelgroepen op basis van funnelgedrag die automatisch naar Meta, Google en LinkedIn worden gesynchroniseerd, waarbij bestaande klanten worden uitgesloten. Volledig consent-proof ingericht.",
+    why: "De meeste bezoekers converteren niet bij het eerste bezoek. Retargeting op basis van wat ze daadwerkelijk deden, is aanzienlijk goedkoper dan opnieuw bereik inkopen.",
+  },
+  "fun-followup": {
+    what: "Een opvolgflow voor sales: taken en herinneringen in je CRM, automatische opvolgmails als het stil blijft, een statusoverzicht per aanvraag en rapportage op doorlooptijd.",
+    why: "Aanvragen die drie dagen blijven liggen, zijn vaak al elders geholpen. Een flow zorgt dat opvolging niet afhangt van wie er die dag aan denkt.",
+  },
+  "fun-report": {
+    what: "Maandelijkse funnel-rapportage met conversie per stap, toewijzing naar bron en campagne en concrete verbeterpunten.",
+    why: "Zonder inzicht per stap weet je alleen dát je te weinig leads hebt, niet waar ze verdwijnen. Eén zwakke stap oplossen levert meestal meer op dan meer verkeer inkopen.",
   },
 
   // ===================================================== CRM
@@ -963,6 +1111,20 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
   },
 
   // ===================================================== HOSTING
+  "host-dns-plan": {
+    what:
+      "Een doorlopend abonnement per domein waarin registratie of transfer, volledig DNS-beheer, redirects en doorstuurregels, SSL en de mailrecords (SPF, DKIM, DMARC) door ons worden geregeld. Wijzigingen voer je aan bij ons en wij zetten ze door.",
+    why:
+      "DNS is het soort ding dat één keer per jaar aandacht vraagt en dan meteen kritiek is: een verlopen domein of een verkeerd record legt je site of je mail plat. Uitbesteden per domein houdt het overzichtelijk en voorkomt dat niemand meer weet waar iets staat.",
+    tech: ["A-, AAAA-, CNAME-, MX-, TXT- en CAA-records", "SPF, DKIM en DMARC volledig ingericht", "Redirects op domein- en padniveau"],
+  },
+  "host-app": {
+    what:
+      "Hosting voor web-apps, portalen en API's: applicatieomgeving met database, opslag en achtergrondtaken, een staging- en productieomgeving met deploys, plus monitoring, logging en alerting. De omgeving schaalt mee met je gebruik.",
+    why:
+      "Een portaal of app stelt heel andere eisen dan een website: sessies, achtergrondtaken en piekbelasting. Op standaard webhosting loop je daar snel op vast, met trage responstijden of uitval op het slechtst denkbare moment.",
+    tech: ["Prijs op aanvraag — afhankelijk van resources, verkeer en opslag", "Geautomatiseerde deploys vanaf je repository", "Back-ups van database en bestandsopslag"],
+  },
   "host-domain-dns": {
     what: "Domeinregistratie of -verhuizing en volledige DNS-inrichting: A-, CNAME-, MX-, SPF-, DKIM- en DMARC-records correct gezet, met SSL geactiveerd.",
     why: "DNS is onzichtbaar tot het misgaat, en dan ligt je mail of je site plat. Correct ingerichte mailrecords zorgen bovendien dat je berichten niet in de spamfolder belanden.",
