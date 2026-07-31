@@ -16,6 +16,8 @@ const ACCENT: Record<IconKey, string> = {
   webshop: "#12a150",
   webapps: "#6d4dff",
   apps: "#0ea3c2",
+  video: "#e2454f",
+  ai: "#7c5cff",
   organic: "#d94fc4",
   paid: "#0e93c2",
   seo: "#d9a13a",

@@ -15,14 +15,19 @@ export type IconKey =
   | "webshop"
   | "webapps"
   | "apps"
+  | "video"
   | "organic"
   | "paid"
   | "seo"
   | "tracking"
   | "funnels"
   | "crm"
+  | "ai"
   | "hosting"
   | "support";
+
+/** Alle bedragen in deze catalogus zijn exclusief btw. */
+export const VAT_NOTE = "Alle prijzen zijn excl. btw";
 
 export type Price = {
   /** Eenmalige (setup) kosten in euro — indicatief vanaf. */
@@ -39,6 +44,21 @@ export type Price = {
 
 export type PkgKind = "plan" | "addon" | "item";
 
+/**
+ * Uitgebreide toelichting achter het (i)-icoon op elke kaart: wát we precies
+ * doen (commercieel + technisch) en waaróm je dit zou afnemen.
+ */
+export type PkgDetails = {
+  /** Wat doen we precies — 2-4 zinnen. */
+  what: string;
+  /** Waarom zou je dit doen — 2-3 zinnen, zakelijk resultaatgericht. */
+  why: string;
+  /** Concreet wat je krijgt / welke werkzaamheden erin zitten. */
+  includes?: string[];
+  /** Technische details, tooling en randvoorwaarden. */
+  tech?: string[];
+};
+
 export type Pkg = {
   id: string;
   name: string;
@@ -49,6 +69,7 @@ export type Pkg = {
   highlight?: boolean;
   badge?: string;
   recommends?: IconKey[];
+  details?: PkgDetails;
 };
 
 export type CategoryOption = {
@@ -69,6 +90,11 @@ export type Category = {
   packages: Pkg[];
   /** Platforms/tools die we in deze categorie inzetten (brand-iconen). */
   tools?: BrandKey[];
+  /**
+   * Pakket-id's uit ándere categorieën die vrijwel altijd samen met deze
+   * categorie worden afgenomen. Worden onderaan de stap als strip getoond.
+   */
+  crossSell?: string[];
 };
 
 // ------------------------------------------------------------
@@ -94,7 +120,8 @@ export const GOALS: Goal[] = [
   { id: "portal", label: "Web-app / portaal", emoji: "▤", targets: ["webapps", "hosting", "support", "crm"] },
   { id: "app", label: "Mobiele app", emoji: "▢", targets: ["apps", "webapps"] },
   { id: "content", label: "Meer content", emoji: "❋", targets: ["organic", "seo"] },
-  { id: "ai", label: "Inzetten van AI", emoji: "✳", targets: ["organic", "seo", "funnels"] },
+  { id: "video", label: "Video & animatie", emoji: "▷", targets: ["video", "organic", "paid"] },
+  { id: "ai", label: "Inzetten van AI", emoji: "✳", targets: ["ai", "organic", "seo"] },
   { id: "advice", label: "Hulp / advies", emoji: "❉", targets: [] },
   { id: "run", label: "Onderhoud & hosting", emoji: "◍", targets: ["hosting", "support"] },
 ];
@@ -125,12 +152,14 @@ export const HEADINGS: Record<IconKey, { title: string; subtitle: string }> = {
   webshop: { title: "Verkoop online, zonder gedoe", subtitle: "Conversiegerichte shops die met je meegroeien." },
   webapps: { title: "Jouw eigen platform op maat", subtitle: "Portalen en tools, volledig branded." },
   apps: { title: "Van idee naar app in de store", subtitle: "iOS & Android, doordacht ontworpen." },
+  video: { title: "Bewegend beeld dat blijft hangen", subtitle: "Van bedrijfsfilm tot 3D-animatie en ad-creatives." },
   organic: { title: "Content die blijft hangen", subtitle: "Consistent zichtbaar — elke week weer." },
-  paid: { title: "Adverteren dat écht rendeert", subtitle: "Van de eerste euro tot schaalbare campagnes." },
+  paid: { title: "Adverteren dat écht rendeert", subtitle: "Per kanaal ingericht, met eigen creatives en funnels." },
   seo: { title: "Gevonden worden — door mens én AI", subtitle: "Organisch groeien en citeerbaar worden." },
-  tracking: { title: "Weten wat werkt", subtitle: "Meet alles, volledig AVG-proof." },
+  tracking: { title: "Meten, monitoren en écht begrijpen", subtitle: "Search Console, GA4 en Tag Manager — en daarna elke maand inzicht." },
   funnels: { title: "Verander bezoekers in leads", subtitle: "Slimme flows die voor je verkopen." },
   crm: { title: "Alles verbonden, niks meer handmatig", subtitle: "CRM en integraties, op maat ingericht." },
+  ai: { title: "AI die écht werk uit handen neemt", subtitle: "Van advies en workshops tot je eigen kennisomgeving." },
   hosting: { title: "Een rotsvast fundament", subtitle: "Hosting, domein en DNS — volledig geregeld." },
   support: { title: "Altijd onderhouden, nooit alleen", subtitle: "Vaste ondersteuning die met je meegroeit." },
 };
@@ -242,7 +271,7 @@ export const CATALOG: Category[] = [
     label: "Print",
     kicker: "Drukwerk & materiaal",
     blurb:
-      "Tastbaar en op-merk: visitekaartjes, flyers, informatiebrochures, promotioneel materiaal en uitnodigingen — volledig in je brand identity.",
+      "Tastbaar en op-merk: visitekaartjes, flyers, informatiebrochures, uitnodigingen en alles voor je beursstand of buitenlocatie — vlaggen, roll-up banners, spandoeken en gevelreclame, volledig in je brand identity.",
     note: "Prijzen zijn voor ontwerp; drukwerk (productie) rekenen we op basis van oplage na.",
     tools: ["adobe", "figma"],
     packages: [
@@ -276,10 +305,55 @@ export const CATALOG: Category[] = [
       {
         id: "print-promo",
         name: "Promotioneel materiaal",
-        tagline: "Banners, posters & merch.",
+        tagline: "Posters & merch.",
         kind: "item",
         price: { setup: 350 },
-        features: ["Roll-ups, posters, banners", "Merchandise-ontwerp", "Consistente merkstijl"],
+        features: ["Posters en promotiedrukwerk", "Merchandise-ontwerp", "Consistente merkstijl"],
+      },
+      {
+        id: "print-rollup",
+        name: "Roll-up banner",
+        tagline: "Je merk staat in één beweging.",
+        kind: "item",
+        price: { setup: 275 },
+        features: ["Ontwerp op 85×200 of 100×200 cm", "Leesbaar vanaf afstand", "Drukklaar met bleed & marges"],
+        recommends: ["branding"],
+      },
+      {
+        id: "print-flag",
+        name: "Vlaggen & beachflags",
+        tagline: "Zichtbaar van ver.",
+        kind: "item",
+        price: { setup: 295 },
+        features: ["Beachflag, mastvlag of gevelvlag", "Ontwerp per vlagvorm aangepast", "Dubbelzijdig mogelijk"],
+        recommends: ["branding"],
+      },
+      {
+        id: "print-banner",
+        name: "Spandoeken & banners",
+        tagline: "Groot formaat, scherp resultaat.",
+        kind: "item",
+        price: { setup: 325 },
+        features: ["Spandoek, bouwhek- of gevelbanner", "Ontwerp op ware grootte", "Zeil-, mesh- of vinylspecificatie"],
+        recommends: ["branding"],
+      },
+      {
+        id: "print-standbuild",
+        name: "Beursstand & signing",
+        tagline: "Een stand die klopt met je merk.",
+        kind: "item",
+        price: { setup: 950, from: true },
+        features: ["Standwanden, balies & displays", "Bewegwijzering en signing", "Aanleverspecificaties per standbouwer"],
+        recommends: ["branding"],
+      },
+      {
+        id: "print-vehicle",
+        name: "Autobelettering",
+        tagline: "Rijdende reclame.",
+        kind: "item",
+        price: { setup: 450, from: true },
+        features: ["Ontwerp op voertuigsjabloon", "Van subtiele signing tot full wrap", "Snijklaar aangeleverd"],
+        recommends: ["branding"],
       },
       {
         id: "print-invite",
@@ -296,16 +370,17 @@ export const CATALOG: Category[] = [
   {
     id: "websites",
     label: "Websites",
-    kicker: "WordPress & Webflow",
+    kicker: "WordPress, Webflow & custom CMS",
     blurb:
-      "Next-level design is altijd inbegrepen. Complete builds op WordPress of Webflow — met content-model, CMS met custom velden zodat je zelf beheert, basis-SEO, accessibility en een eerste content-draft.",
+      "Next-level design is altijd inbegrepen. Wij werken met WordPress, Webflow én volledig custom CMS — met content-model, custom velden zodat je zelf beheert, basis-SEO, accessibility en een eerste content-draft.",
     note: "Indicatieve vanafprijzen — de scope (pagina's, interacties, content) bepaalt de definitieve offerte.",
-    tools: ["webflow", "wordpress", "figma"],
+    tools: ["webflow", "wordpress", "figma", "lottie"],
+    crossSell: ["trk-foundation", "trk-server", "fun-config", "fun-quote"],
     options: [
       {
         id: "web-platform",
         label: "Platform",
-        choices: ["WordPress", "Webflow"],
+        choices: ["WordPress", "Webflow", "Custom CMS", "Weet ik nog niet"],
       },
       {
         id: "web-scope",
@@ -442,6 +517,145 @@ export const CATALOG: Category[] = [
         price: { setup: 450 },
         features: ["Persoonlijke CMS-training", "Go-live begeleiding", "Staging-omgeving indien gewenst"],
         recommends: ["support"],
+      },
+      {
+        id: "web-preloader",
+        name: "Custom pre-loader",
+        tagline: "De eerste seconde is al merkbeleving.",
+        kind: "addon",
+        price: { setup: 650 },
+        features: [
+          "Geanimeerde intro met je logo of merkvorm",
+          "Naadloze overgang naar de eerste sectie",
+          "Eén keer tonen per sessie (geen irritatie)",
+          "Lichtgewicht: SVG, CSS of Lottie",
+        ],
+        recommends: ["branding"],
+      },
+      {
+        id: "web-multisite",
+        name: "Multi-site & afdeling-switcher",
+        tagline: "Meerdere labels, één fundament.",
+        kind: "addon",
+        price: { setup: 2400, from: true },
+        features: [
+          "Meerdere sites of afdelingen op één basis",
+          "Switcher om te wisselen tussen afdeling of vestiging",
+          "Gedeelde componenten, eigen kleur en content",
+          "Centraal beheer, losse publicatierechten",
+        ],
+        recommends: ["hosting", "support"],
+      },
+      {
+        id: "web-multilang",
+        name: "Meertaligheid",
+        tagline: "Eén site, meerdere talen.",
+        kind: "addon",
+        price: { setup: 1450, from: true },
+        features: [
+          "Taalwissel met nette URL-structuur",
+          "hreflang correct ingericht",
+          "Vertaalbare CMS-velden",
+          "Optioneel machinevertaling als startpunt",
+        ],
+        recommends: ["seo"],
+      },
+      {
+        id: "web-motion",
+        name: "Scroll- & Lottie-animaties",
+        tagline: "Beweging die het verhaal draagt.",
+        kind: "addon",
+        price: { setup: 1250, from: true },
+        features: [
+          "Scroll-gestuurde secties en parallax",
+          "Lottie-animaties uit After Effects",
+          "Hover- en cursor-interacties",
+          "Netjes uitgezet bij reduced motion",
+        ],
+        recommends: ["video", "branding"],
+      },
+      {
+        id: "web-portal-login",
+        name: "Besloten omgeving",
+        tagline: "Content achter een login.",
+        kind: "addon",
+        price: { setup: 1850, from: true },
+        features: [
+          "Accounts en rollen (Memberstack of eigen CMS)",
+          "Afgeschermde pagina's en downloads",
+          "Wachtwoord-reset en uitnodigingsflow",
+          "Basis voor een klant- of dealerportaal",
+        ],
+        recommends: ["webapps", "crm"],
+      },
+      {
+        id: "web-jobs",
+        name: "Vacature- & werkenbij-module",
+        tagline: "Zelf vacatures plaatsen.",
+        kind: "addon",
+        price: { setup: 950 },
+        features: [
+          "Vacatures als CMS-collectie",
+          "Filters op afdeling, locatie en uren",
+          "Sollicitatieformulier met bijlage",
+          "JobPosting-schema voor Google for Jobs",
+        ],
+        recommends: ["seo", "crm"],
+      },
+      {
+        id: "web-locations",
+        name: "Vestigingen & storelocator",
+        tagline: "Vind de dichtstbijzijnde locatie.",
+        kind: "addon",
+        price: { setup: 1250, from: true },
+        features: [
+          "Locaties als CMS-collectie",
+          "Kaart met zoeken op postcode",
+          "Openingstijden en routelink",
+          "LocalBusiness-schema per vestiging",
+        ],
+        recommends: ["seo"],
+      },
+      {
+        id: "web-accessibility",
+        name: "Toegankelijkheid (WCAG)",
+        tagline: "Bruikbaar voor iedereen.",
+        kind: "addon",
+        price: { setup: 1450, from: true },
+        features: [
+          "Audit op WCAG 2.2 AA",
+          "Contrast, focus-states en toetsenbordnavigatie",
+          "Correcte semantiek en ARIA-labels",
+          "Rapport met bevindingen en fixes",
+        ],
+      },
+      {
+        id: "web-speed",
+        name: "Performance-optimalisatie",
+        tagline: "Sneller laden, beter scoren.",
+        kind: "addon",
+        price: { setup: 850 },
+        features: [
+          "Core Web Vitals gemeten en verbeterd",
+          "Beeld- en fontoptimalisatie",
+          "Script- en renderblokkades opgeruimd",
+          "Voor- en nameting meegeleverd",
+        ],
+        recommends: ["seo", "hosting"],
+      },
+      {
+        id: "web-designsystem",
+        name: "Design system & componenten",
+        tagline: "Elke nieuwe pagina in een uur.",
+        kind: "addon",
+        price: { setup: 1950, from: true },
+        features: [
+          "Herbruikbare componentenbibliotheek",
+          "Design tokens gekoppeld aan je huisstijl",
+          "Documentatie voor je eigen team",
+          "Consistente uitstraling bij groei",
+        ],
+        recommends: ["branding"],
       },
     ],
   },
@@ -1030,15 +1244,243 @@ export const CATALOG: Category[] = [
     ],
   },
 
+  // ========================================================== VIDEO & ANIMATIE
+  {
+    id: "video",
+    label: "Video & Animatie",
+    kicker: "Film, motion & 3D",
+    blurb:
+      "Alles is mogelijk in bewegend beeld. Van bedrijfsvideo's, intro's/outro's en custom animaties tot explainers met échte of AI-gegenereerde personen, exploded-view renders, high-end productanimaties en 3D van vastgoed — desgewenst volledig opgebouwd uit je bouwtekeningen. Ondertiteling zit standaard bij elke oplevering.",
+    note: "Indicatieve vanafprijzen — lengte, aantal scènes en de mate van 3D bepalen de definitieve offerte.",
+    tools: ["adobe", "lottie", "figma"],
+    crossSell: ["ads-video-creatives", "org-social-reels"],
+    options: [
+      {
+        id: "video-style",
+        label: "Stijl",
+        multi: true,
+        choices: ["Live-action film", "Animatie / motion graphics", "3D & renders", "AI-gegenereerd"],
+      },
+      {
+        id: "video-usage",
+        label: "Waar ga je hem inzetten",
+        multi: true,
+        choices: ["Website / hero", "Social media", "Advertenties", "Beurs / presentatie", "Interne communicatie"],
+      },
+      {
+        id: "video-lang",
+        label: "Ondertiteling",
+        choices: ["Nederlands", "Nederlands + Engels", "Meerdere talen", "Geen"],
+      },
+    ],
+    packages: [
+      {
+        id: "vid-brandfilm",
+        name: "Bedrijfsvideo",
+        tagline: "Wie je bent, in twee minuten.",
+        kind: "plan",
+        price: { setup: 4500, from: true },
+        highlight: true,
+        badge: "Populair",
+        features: [
+          "Concept, script & storyboard",
+          "Draaidag op locatie met regie",
+          "Montage, kleurcorrectie & sounddesign",
+          "Ondertiteling inbegrepen",
+          "Uitgeleverd in 16:9, 1:1 en 9:16",
+        ],
+        recommends: ["branding", "organic", "paid"],
+      },
+      {
+        id: "vid-explainer-real",
+        name: "Explainer — realistisch",
+        tagline: "Echte of AI-gegenereerde personen.",
+        kind: "plan",
+        price: { setup: 3800, from: true },
+        features: [
+          "Realistische scènes met echte acteurs",
+          "Of volledig AI-gegenereerde personen & omgevingen",
+          "Script gericht op één heldere boodschap",
+          "Voice-over in de taal die je wilt",
+          "Ondertiteling inbegrepen",
+        ],
+        recommends: ["ai", "funnels"],
+      },
+      {
+        id: "vid-explainer-anim",
+        name: "Explainer — animatie",
+        tagline: "Je verhaal getekend en bewegend.",
+        kind: "plan",
+        price: { setup: 2950, from: true },
+        features: [
+          "Illustratiestijl in je eigen huisstijl",
+          "Script, storyboard & styleframes",
+          "Motion graphics met voice-over",
+          "Muziek & sounddesign",
+          "Ondertiteling inbegrepen",
+        ],
+        recommends: ["branding"],
+      },
+      {
+        id: "vid-3d",
+        name: "3D-animatie & renders",
+        tagline: "Producten en vastgoed tot leven.",
+        kind: "plan",
+        price: { setup: 6500, from: true },
+        features: [
+          "3D-modellering van product of object",
+          "Vastgoed & interieur in realistische omgeving",
+          "Op basis van bouwtekeningen of CAD-bestanden",
+          "Fotorealistische materialen & belichting",
+          "Stills én bewegende renders",
+        ],
+        recommends: ["print", "branding"],
+      },
+
+      // ---------------------------------------- add-ons
+      {
+        id: "vid-intro-outro",
+        name: "Intro & outro",
+        tagline: "Herkenbare kop en staart.",
+        kind: "addon",
+        price: { setup: 750 },
+        features: [
+          "Geanimeerde logo-intro (3–6 sec)",
+          "Outro met call-to-action & gegevens",
+          "Losse bestanden om zelf te hergebruiken",
+          "Met of zonder geluid",
+        ],
+        recommends: ["branding"],
+      },
+      {
+        id: "vid-custom-anim",
+        name: "Custom animaties",
+        tagline: "Losse animaties op maat.",
+        kind: "addon",
+        price: { setup: 950, from: true },
+        features: [
+          "Geanimeerde iconen, grafieken of infographics",
+          "Lottie-bestanden voor je website",
+          "Transparante achtergrond mogelijk",
+          "Bronbestand meegeleverd",
+        ],
+        recommends: ["websites"],
+      },
+      {
+        id: "vid-exploded",
+        name: "Exploded view",
+        tagline: "Laat zien hoe het in elkaar zit.",
+        kind: "addon",
+        price: { setup: 2400, from: true },
+        features: [
+          "Onderdelen uit elkaar en weer samen",
+          "Callouts met namen en specificaties",
+          "Op basis van CAD- of technische tekeningen",
+          "Ideaal voor techniek en maakindustrie",
+        ],
+      },
+      {
+        id: "vid-product",
+        name: "Product-hero",
+        tagline: "High-end shot van één product.",
+        kind: "addon",
+        price: { setup: 1850, from: true },
+        features: [
+          "Korte, strakke productanimatie (10–20 sec)",
+          "Studiobelichting of styling in scène",
+          "Loopbaar voor je website-hero",
+          "Meerdere kleurvarianten mogelijk",
+        ],
+        recommends: ["websites"],
+      },
+      {
+        id: "vid-subtitles",
+        name: "Ondertiteling & vertaling",
+        tagline: "Ook in andere talen.",
+        kind: "addon",
+        price: { setup: 195, suffix: "stuk" },
+        features: [
+          "Ingebrande of losse SRT-ondertiteling",
+          "Vertaling naar extra talen",
+          "Op-merk typografie",
+          "Per video af te nemen",
+        ],
+      },
+      {
+        id: "vid-snippets",
+        name: "Content-snippets",
+        tagline: "Uit één shoot, tien posts.",
+        kind: "addon",
+        price: { setup: 1250, from: true },
+        features: [
+          "8–12 korte snippets uit bestaand materiaal",
+          "Verticaal formaat voor Reels, Shorts & TikTok",
+          "Hooks, captions en ondertiteling",
+          "Klaar om maandenlang te plaatsen",
+        ],
+        recommends: ["organic"],
+      },
+      {
+        id: "vid-ads",
+        name: "Ad-video's",
+        tagline: "Gemaakt om te converteren.",
+        kind: "addon",
+        price: { setup: 1450, from: true },
+        features: [
+          "3 varianten met verschillende hooks",
+          "Per platform op maat gesneden",
+          "Ondertiteling en eindkaart met CTA",
+          "Geschikt voor A/B-testen",
+        ],
+        recommends: ["paid"],
+      },
+
+      // ---------------------------------------- losse diensten
+      {
+        id: "vid-shootday",
+        name: "Extra draaidag",
+        tagline: "Meer locaties of meer materiaal.",
+        kind: "item",
+        price: { setup: 1650 },
+        features: ["Cameraploeg incl. apparatuur", "Tot 8 uur op locatie", "Ruwe beelden gearchiveerd"],
+      },
+      {
+        id: "vid-drone",
+        name: "Drone-opnames",
+        tagline: "Je locatie van bovenaf.",
+        kind: "item",
+        price: { setup: 750 },
+        features: ["Gecertificeerde dronepiloot", "4K-luchtbeelden", "Vluchtvergunning geregeld"],
+      },
+      {
+        id: "vid-voiceover",
+        name: "Professionele voice-over",
+        tagline: "De juiste stem bij je merk.",
+        kind: "item",
+        price: { setup: 395 },
+        features: ["Stemcasting uit meerdere opties", "Studio-opname", "Ook in andere talen"],
+      },
+      {
+        id: "vid-edit",
+        name: "Montage van eigen materiaal",
+        tagline: "Jij filmt, wij monteren.",
+        kind: "item",
+        price: { setup: 650, from: true },
+        features: ["Montage van je eigen opnames", "Kleurcorrectie & audio-opschoning", "Titels en ondertiteling"],
+      },
+    ],
+  },
+
   // ========================================================== ORGANISCHE MARKETING
   {
     id: "organic",
     label: "Organisch",
     kicker: "Marketing · content",
     blurb:
-      "Short-form content die blijft hangen: statische posts, carrousels, reels en animaties. Plus AI-renders o.b.v. schetsen, AI-animaties, bedrijfsvideo's, commercials en podcast.",
+      "Short-form content die blijft hangen: statische posts, carrousels, reels en animaties. Plus AI-renders o.b.v. schetsen, AI-animaties en podcast. Grotere producties zoals bedrijfsvideo's en 3D vind je bij Video & Animatie.",
     note: "Kies een doorlopend social-abonnement — wij vullen de content maandelijks voor je in.",
     tools: ["adobe", "figma", "lottie"],
+    crossSell: ["vid-snippets", "vid-brandfilm", "ai-image"],
     options: [
       {
         id: "podcast-gear",
@@ -1108,22 +1550,6 @@ export const CATALOG: Category[] = [
         features: ["AI-motion op je beelden", "Cinematic bewegend beeld", "Voor hero's & ads"],
       },
       {
-        id: "org-ai",
-        name: "AI-beeld abonnement",
-        tagline: "Zeg vaarwel tegen stock.",
-        kind: "addon",
-        price: { monthly: 95 },
-        features: ["Doorlopend AI-beeld op maat", "Consistente merkstijl", "Onbeperkt binnen fair-use"],
-      },
-      {
-        id: "org-video",
-        name: "Bedrijfsvideo / commercial",
-        tagline: "Scripting, opname & productie.",
-        kind: "item",
-        price: { setup: 1250, suffix: "stuk" },
-        features: ["Bedrijfsvideo van 2–3 minuten", "Scripting & regie", "Montage & kleurcorrectie"],
-      },
-      {
         id: "org-podcast",
         name: "Podcast-productie",
         tagline: "Van opname tot aflevering.",
@@ -1140,64 +1566,156 @@ export const CATALOG: Category[] = [
     label: "Paid Ads",
     kicker: "Marketing · betaald",
     blurb:
-      "Van account-inrichting tot schaalbare campagnes. Inclusief zoekwoord- & doelgroeponderzoek en campagne-strategie op Meta, LinkedIn, Reddit of TikTok.",
+      "Per kanaal een eigen aanpak, want LinkedIn werkt anders dan Google. Je kiest het kanaal dat bij je doelgroep past; wij richten het account in, maken de creatives en funnels en sturen maandelijks bij op wat écht rendeert.",
     note: "Advertentiebudget (ad-spend) is exclusief en betaal je rechtstreeks aan het platform.",
-    tools: ["meta", "linkedin", "reddit", "tiktok", "googleads"],
+    tools: ["googleads", "linkedin", "meta", "tiktok", "reddit"],
     options: [
       {
         id: "platforms",
         label: "Kanalen",
         multi: true,
-        choices: ["Meta (IG/FB)", "LinkedIn", "Reddit", "TikTok"],
+        choices: ["Google Ads", "LinkedIn", "Meta (IG/FB)", "TikTok", "Reddit", "Overig"],
+      },
+      {
+        id: "ads-goal",
+        label: "Doel van de campagne",
+        choices: ["Leads genereren", "Verkoop / omzet", "Naamsbekendheid", "Vacatures / recruitment"],
       },
     ],
     packages: [
       {
-        id: "ads-starter",
-        name: "Ads Starter",
-        tagline: "Zet staand op één kanaal.",
+        id: "ads-google",
+        name: "Google Ads",
+        tagline: "AI-driven, zoekwoordgestuurd adverteren.",
         kind: "plan",
-        price: { setup: 525, monthly: 445 },
-        features: [
-          "Inrichting Meta Business & Ad Account",
-          "1 platform",
-          "Zoekwoord- & doelgroeponderzoek",
-          "Campagne-draft & strategie",
-          "Maandelijkse optimalisatie",
-        ],
-        recommends: ["tracking"],
-      },
-      {
-        id: "ads-growth",
-        name: "Ads Growth",
-        tagline: "Testen, retargeten, groeien.",
-        kind: "plan",
-        price: { setup: 825, monthly: 895 },
+        price: { monthly: 375, from: true },
         highlight: true,
         badge: "Populair",
         features: [
-          "Tot 2 platforms",
-          "A/B-testing van creatives",
-          "Retargeting-funnels",
-          "Wekelijkse optimalisatie",
-          "Conversie-rapportage",
+          "Zoekwoordenonderzoek standaard inbegrepen",
+          "AI-driven biedstrategieën (Performance Max & Search)",
+          "Account, campagnes & conversies ingericht",
+          "Doorlopende zoekwoord- en zoektermenoptimalisatie",
+          "Maandelijkse rapportage op kosten per lead",
         ],
         recommends: ["tracking", "seo", "funnels"],
       },
       {
-        id: "ads-scale",
-        name: "Ads Scale",
-        tagline: "Full-funnel op meerdere kanalen.",
+        id: "ads-linkedin",
+        name: "LinkedIn Ads",
+        tagline: "Zakelijke doelgroepen, scherp afgebakend.",
         kind: "plan",
-        price: { monthly: 1495, custom: true },
+        price: { monthly: 750, from: true },
         features: [
-          "3+ platforms",
-          "Full-funnel strategie",
-          "Creative-productie inbegrepen",
-          "Dedicated strateeg",
-          "Realtime dashboard",
+          "Incl. het maken van creatives en/of funnels",
+          "Targeting op functie, bedrijf, sector & bedrijfsgrootte",
+          "Lead Gen Forms of eigen landingspagina",
+          "A/B-testen van boodschap en beeld",
+          "Maandelijkse optimalisatie & rapportage",
         ],
-        recommends: ["tracking", "seo", "funnels"],
+        recommends: ["tracking", "funnels", "branding"],
+      },
+      {
+        id: "ads-meta",
+        name: "Meta / Instagram Ads",
+        tagline: "Bereik en beweging op Facebook & Instagram.",
+        kind: "plan",
+        price: { monthly: 750, from: true },
+        features: [
+          "Incl. het maken van creatives en/of funnels",
+          "Business Manager, pixel & Conversions API",
+          "Doelgroepen, lookalikes & retargeting",
+          "Statische én video-creatives",
+          "Maandelijkse optimalisatie & rapportage",
+        ],
+        recommends: ["tracking", "funnels", "video"],
+      },
+      {
+        id: "ads-other",
+        name: "Overige kanalen",
+        tagline: "Reddit, TikTok, Pinterest, Spotify & meer.",
+        kind: "plan",
+        price: { custom: true },
+        features: [
+          "Reddit, TikTok, Pinterest, YouTube of DOOH",
+          "Kanaalkeuze op basis van je doelgroep",
+          "Creatives afgestemd op het platform",
+          "Prijs op aanvraag — afhankelijk van kanaal en scope",
+        ],
+        recommends: ["tracking", "video"],
+      },
+
+      // ---------------------------------------- onderzoek & extra's
+      {
+        id: "ads-keywords",
+        name: "Zoekwoordenonderzoek",
+        tagline: "Actuele zoekvolumes als fundament.",
+        kind: "addon",
+        price: { setup: 650 },
+        badge: "Standaard bij Google Ads",
+        features: [
+          "Zoekwoorden met actuele volumes & concurrentie",
+          "Clustering op zoekintentie en funnel-fase",
+          "Uitsluitingslijsten om budget te sparen",
+          "Standaard inbegrepen bij het Google Ads-plan",
+        ],
+        recommends: ["seo"],
+      },
+      {
+        id: "ads-keywords-mnd",
+        name: "Doorlopend zoekwoordbeheer",
+        tagline: "Elke maand bijsturen op zoektermen.",
+        kind: "addon",
+        price: { monthly: 195 },
+        features: [
+          "Maandelijkse zoektermen-analyse",
+          "Nieuwe kansen toegevoegd, verspilling uitgesloten",
+          "Biedingen per zoekwoordgroep bijgesteld",
+          "Ook los af te nemen naast SEO",
+        ],
+        recommends: ["seo"],
+      },
+      {
+        id: "ads-creatives",
+        name: "Creative-pakket",
+        tagline: "Elke maand verse advertentiebeelden.",
+        kind: "addon",
+        price: { monthly: 495 },
+        features: [
+          "6–10 nieuwe statische creatives p/m",
+          "Varianten per doelgroep en funnel-fase",
+          "Copy & haakjes meegeleverd",
+          "Op basis van wat in de data presteert",
+        ],
+        recommends: ["branding", "video"],
+      },
+      {
+        id: "ads-video-creatives",
+        name: "Video-advertenties",
+        tagline: "Bewegend beeld dat scrollen stopt.",
+        kind: "addon",
+        price: { monthly: 750, from: true },
+        features: [
+          "2–4 videoadvertenties per maand",
+          "Verticaal (9:16) en vierkant (1:1) uitgeleverd",
+          "Ondertiteling standaard",
+          "Hooks getest op de eerste 3 seconden",
+        ],
+        recommends: ["video"],
+      },
+      {
+        id: "ads-audit",
+        name: "Account-audit",
+        tagline: "Wat loopt er weg aan budget?",
+        kind: "item",
+        price: { setup: 495 },
+        features: [
+          "Doorlichting van je bestaande advertentieaccount",
+          "Structuur, conversiemeting & biedstrategie",
+          "Verspilling en gemiste kansen benoemd",
+          "Rapport met prioriteiten",
+        ],
+        recommends: ["tracking"],
       },
     ],
   },
@@ -1252,11 +1770,11 @@ export const CATALOG: Category[] = [
       },
       {
         id: "aeo-answers",
-        name: "AEO — Answer Engine",
+        name: "AEO-optimalisatie",
         tagline: "Gevonden worden dóór AI.",
         kind: "addon",
-        price: { setup: 450, monthly: 75 },
-        badge: "GEO",
+        price: { custom: true },
+        badge: "GEO · op aanvraag",
         features: [
           "FAQ-hub (helpdesk & kennisbank)",
           "Cross-referenced slimme vragen",
@@ -1273,47 +1791,145 @@ export const CATALOG: Category[] = [
   {
     id: "tracking",
     label: "Tracking",
-    kicker: "Meten & compliance",
+    kicker: "Meten, monitoren & inzicht",
     blurb:
-      "Weten wat werkt. Van GA4 en Meta Pixel tot server-side tracking en dashboards — volledig AVG-proof met cookie-consent en Consent Mode.",
-    tools: ["googleanalytics", "googletagmanager", "googlesearchconsole", "meta"],
+      "Eerst de meetbasis eenmalig goed inrichten — Search Console, Google Analytics 4 en Google Tag Manager — en daarna elke maand je websitegebruik bijhouden en monitoren. Dat is cruciaal om op élke plek van je website of web-app te zien wat er gebeurt, en in de hogere plannen kijken we met Microsoft Clarity mee in échte gebruikerssessies en heatmaps.",
+    note: "De eenmalige inrichting is de basis; het maandbedrag dekt het bijhouden, monitoren en de rapportage.",
+    tools: ["googlesearchconsole", "googleanalytics", "googletagmanager", "meta"],
     packages: [
       {
         id: "trk-foundation",
-        name: "Foundation",
-        tagline: "De basis netjes op orde.",
+        name: "Meetbasis",
+        tagline: "Search Console, GA4 & Tag Manager ingericht.",
         kind: "plan",
         price: { setup: 195, monthly: 15 },
-        features: ["GA4 + Google Tag Manager", "Meta Pixel", "Basis-conversies", "Cookie-consent (CMP) & compliance"],
+        features: [
+          "Eenmalig: Search Console geverifieerd & sitemap ingediend",
+          "Eenmalig: Google Analytics 4 property + datastream",
+          "Eenmalig: Google Tag Manager container & basis-events",
+          "Meta Pixel en basis-conversies",
+          "Cookie-consent (CMP) & Consent Mode",
+          "Maandelijks: meetpunten bewaakt en gecontroleerd",
+        ],
+        recommends: ["seo"],
       },
       {
         id: "trk-server",
-        name: "Server-side",
-        tagline: "Betrouwbaar meten na iOS & consent.",
+        name: "Monitoring",
+        tagline: "Elke maand bijhouden wat er gebeurt.",
         kind: "plan",
         price: { setup: 495, monthly: 45 },
         highlight: true,
         badge: "Populair",
         features: [
-          "Alles uit Foundation",
-          "Server-side tracking (sGTM)",
-          "Meta Conversions API",
-          "Enhanced conversions",
-          "Consent Mode v2 & custom events",
+          "Alles uit Meetbasis",
+          "Maandelijkse monitoring van je websitegebruik",
+          "Server-side tracking (sGTM) & Meta Conversions API",
+          "Enhanced conversions & custom events",
+          "Signaleren van meetfouten en wegvallende data",
+          "Beknopt maandoverzicht van de cijfers",
         ],
       },
       {
         id: "trk-insights",
         name: "Insights Pro",
-        tagline: "Van data naar beslissingen.",
+        tagline: "Clarity, heatmaps & een rapport met inzichten.",
         kind: "plan",
         price: { setup: 795, monthly: 95 },
         features: [
-          "Alles uit Server-side",
-          "Looker Studio dashboards",
-          "Attributiemodellen",
+          "Alles uit Monitoring",
+          "Microsoft Clarity: sessie-opnames & heatmaps",
+          "Analyse + klein rapportje met inzichten uit échte sessies",
+          "Looker Studio dashboard & attributiemodellen",
           "Funnel- & cohortanalyse",
-          "Maandelijkse datarapportage",
+          "Concrete verbeterpunten per pagina",
+        ],
+        recommends: ["funnels"],
+      },
+      {
+        id: "trk-partner",
+        name: "Insights Partner",
+        tagline: "Inclusief maandelijkse meeting.",
+        kind: "plan",
+        price: { setup: 795, monthly: 245 },
+        features: [
+          "Alles uit Insights Pro",
+          "Maandelijkse meeting — in persoon of online",
+          "Onze ideeën, suggesties & tips live doorgenomen",
+          "Prioriteitenlijst voor de komende maand",
+          "Vaste data-analist als aanspreekpunt",
+        ],
+        recommends: ["funnels", "seo"],
+      },
+
+      // ---------------------------------------- onderzoek & advies
+      {
+        id: "trk-keywords",
+        name: "Zoekwoordenonderzoek",
+        tagline: "Actuele zoekvolumes in kaart.",
+        kind: "addon",
+        price: { setup: 650 },
+        features: [
+          "Zoekwoorden met actuele volumes & concurrentie",
+          "Clustering op zoekintentie",
+          "Kansen die je nu laat liggen",
+          "Direct bruikbaar voor SEO én ads",
+        ],
+        recommends: ["seo", "paid"],
+      },
+      {
+        id: "trk-keywords-mnd",
+        name: "Zoekwoorden-monitoring",
+        tagline: "Doorlopend zicht op je zoekvolumes.",
+        kind: "addon",
+        price: { monthly: 195 },
+        features: [
+          "Maandelijkse update van volumes & posities",
+          "Nieuwe en opkomende zoektermen",
+          "Seizoenspatronen gesignaleerd",
+          "Contentkansen aangedragen",
+        ],
+        recommends: ["seo"],
+      },
+      {
+        id: "trk-competition",
+        name: "Concurrentieanalyse",
+        tagline: "Web én social naast elkaar gelegd.",
+        kind: "addon",
+        price: { setup: 950, from: true },
+        features: [
+          "Analyse van 3–5 concurrenten online",
+          "Website, content, zoekwoorden & advertenties",
+          "Social media: posting, tone of voice & engagement",
+          "Rapport met inzichten en aanbevelingen",
+        ],
+        recommends: ["organic", "paid", "seo"],
+      },
+      {
+        id: "trk-strategy",
+        name: "Periodieke strategiesessie",
+        tagline: "Elk kwartaal samen bijsturen.",
+        kind: "addon",
+        price: { monthly: 275 },
+        features: [
+          "Kwartaalsessie met strateeg en data-analist",
+          "Doorlopende concurrentie- en marktmonitoring",
+          "Prioriteiten en roadmap voor het volgende kwartaal",
+          "Verslag met besluiten en acties",
+        ],
+      },
+      {
+        id: "trk-cookiebanner",
+        name: "Cookiebanner (CMP)",
+        tagline: "Consent Studio of Usercentrics Cookiebot.",
+        kind: "addon",
+        price: { setup: 450, monthly: 15 },
+        features: [
+          "Consent Studio (NL) of Usercentrics Cookiebot",
+          "Banner in je eigen huisstijl",
+          "Automatische cookie-scan & cookieverklaring",
+          "Gekoppeld aan Consent Mode v2 in GTM",
+          "Consent-logging voor de bewaarplicht",
         ],
       },
     ],
@@ -1429,6 +2045,171 @@ export const CATALOG: Category[] = [
         kind: "plan",
         price: { monthly: 0, custom: true },
         features: ["Doorlopend beheer", "Nieuwe automations", "Beheerfee op maat"],
+      },
+    ],
+  },
+
+  // ========================================================== AI
+  {
+    id: "ai",
+    label: "AI",
+    kicker: "Advies, inrichting & automatisering",
+    blurb:
+      "AI is pas waardevol als het in jóuw processen zit. Wij adviseren waar het echt tijd oplevert, richten je eigen AI-kennisomgeving in met je bedrijfsdocumenten, leren je team goed prompten in ChatGPT en Claude, zetten beeldgeneratie op in je huisstijl en automatiseren bedrijfsprocessen van offerte tot rapportage.",
+    note: "Licentiekosten voor AI-tools (ChatGPT, Claude, beeldgeneratie) zijn exclusief en lopen op jouw eigen account.",
+    tools: ["openai", "claude", "googlegemini", "perplexity", "make", "airtable"],
+    crossSell: ["aeo-answers", "org-airender"],
+    options: [
+      {
+        id: "ai-maturity",
+        label: "Waar staan jullie nu",
+        choices: ["Nog niets mee gedaan", "Individueel wat geprobeerd", "Team gebruikt het al", "Willen echt automatiseren"],
+      },
+      {
+        id: "ai-focus",
+        label: "Waar wil je AI inzetten",
+        multi: true,
+        choices: ["Marketing & content", "Sales & offertes", "Klantenservice", "Administratie", "Kennis & documentatie", "Beeld & design"],
+      },
+    ],
+    packages: [
+      {
+        id: "ai-scan",
+        name: "AI-scan & advies",
+        tagline: "Waar levert AI jou echt tijd op?",
+        kind: "plan",
+        price: { setup: 1450 },
+        features: [
+          "Doorlichting van je huidige processen",
+          "Kansen gerangschikt op tijdwinst en haalbaarheid",
+          "Advies over tooling, kosten en privacy",
+          "Rapport met roadmap voor 6–12 maanden",
+          "Presentatie aan je team",
+        ],
+        recommends: ["crm"],
+      },
+      {
+        id: "ai-knowledge",
+        name: "Eigen AI-kennisomgeving",
+        tagline: "Jouw documenten, jouw antwoorden.",
+        kind: "plan",
+        price: { setup: 4500, from: true },
+        highlight: true,
+        badge: "Populair",
+        features: [
+          "Eigen projecten & knowledge base ingericht",
+          "Je handleidingen, offertes en beleid als bron",
+          "Antwoorden met bronvermelding uit je eigen documenten",
+          "Toegang en rollen per team",
+          "Instructie-set zodat de output on-brand blijft",
+        ],
+        recommends: ["webapps", "support"],
+      },
+      {
+        id: "ai-automation",
+        name: "Procesautomatisering met AI",
+        tagline: "Werk dat vanzelf doorloopt.",
+        kind: "plan",
+        price: { setup: 3500, from: true },
+        features: [
+          "Automatisering van terugkerende processen",
+          "AI-stappen in Make, Zapier of eigen code",
+          "Van inkomende mail tot offerte of rapportage",
+          "Foutafhandeling, logging en een menselijke check",
+          "Overdracht en documentatie",
+        ],
+        recommends: ["crm", "funnels"],
+      },
+
+      // ---------------------------------------- add-ons
+      {
+        id: "ai-workshop",
+        name: "Prompting-workshop",
+        tagline: "Je team in één dagdeel op niveau.",
+        kind: "addon",
+        price: { setup: 1250 },
+        features: [
+          "Dagdeel op locatie of online (tot 12 personen)",
+          "Werken met ChatGPT, Claude en Gemini",
+          "Prompting-technieken met eigen praktijkcases",
+          "Promptbibliotheek voor je team",
+          "Afspraken over veilig en verantwoord gebruik",
+        ],
+      },
+      {
+        id: "ai-image",
+        name: "AI-beeld abonnement",
+        tagline: "Elke maand nieuw beeld in je stijl.",
+        kind: "addon",
+        price: { custom: true },
+        badge: "Op aanvraag",
+        features: [
+          "Maandelijks nieuwe AI-beelden in je huisstijl",
+          "Eigen stijl-referentie zodat alles consistent blijft",
+          "Product-, sfeer- en campagnebeeld",
+          "Retouche en upscaling inbegrepen",
+          "Prijs op aanvraag — afhankelijk van volume",
+        ],
+        recommends: ["organic", "paid"],
+      },
+      {
+        id: "ai-policy",
+        name: "AI-beleid & governance",
+        tagline: "Veilig gebruik, zwart op wit.",
+        kind: "addon",
+        price: { setup: 950 },
+        features: [
+          "Gebruiksbeleid voor je organisatie",
+          "Wat mag wel en niet met bedrijfsdata",
+          "AVG- en AI-Act-aandachtspunten",
+          "Toolkeuze met dataverwerkingsafspraken",
+        ],
+      },
+      {
+        id: "ai-agent",
+        name: "AI-assistent op je site",
+        tagline: "24/7 antwoord op je eigen content.",
+        kind: "addon",
+        price: { setup: 2950, from: true },
+        features: [
+          "Chat-assistent getraind op je eigen content",
+          "Doorverwijzing naar mens bij twijfel",
+          "Gesprekken en veelgestelde vragen inzichtelijk",
+          "In je eigen huisstijl geïntegreerd",
+        ],
+        recommends: ["websites", "crm"],
+      },
+      {
+        id: "ai-content",
+        name: "AI-contentmotor",
+        tagline: "Sneller content, wel jouw stem.",
+        kind: "addon",
+        price: { monthly: 495 },
+        features: [
+          "Vaste prompts en sjablonen voor je contentsoorten",
+          "Tone-of-voice vastgelegd in instructies",
+          "Concepten klaargezet ter review",
+          "Menselijke eindredactie blijft de norm",
+        ],
+        recommends: ["organic", "seo"],
+      },
+
+      // ---------------------------------------- losse diensten
+      {
+        id: "ai-session",
+        name: "AI-sparringsessie",
+        tagline: "Twee uur, al je vragen.",
+        kind: "item",
+        price: { setup: 395 },
+        features: ["Sessie van 2 uur met een AI-specialist", "Concrete vragen uit je eigen praktijk", "Beknopt verslag met vervolgstappen"],
+      },
+      {
+        id: "ai-prompt-pack",
+        name: "Promptbibliotheek",
+        tagline: "Kant-en-klare prompts voor je team.",
+        kind: "item",
+        price: { setup: 650 },
+        features: ["25–40 prompts voor jouw functies", "Getest op jouw eigen cases", "Onderhoudbaar document of Notion-pagina"],
       },
     ],
   },

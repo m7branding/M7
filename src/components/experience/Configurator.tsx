@@ -9,6 +9,7 @@ import {
   HEADINGS,
   PKG_BY_ID,
   STAGES,
+  VAT_NOTE,
   formatEuro,
   journeyFor,
   recommendationsFor,
@@ -16,6 +17,7 @@ import {
   type IconKey,
   type Pkg,
 } from "@/lib/catalog";
+import { detailsFor } from "@/lib/packageDetails";
 import { CategoryIcon } from "./CategoryIcon";
 import { Starfield } from "./Starfield";
 import { M7Logo } from "./Logo";
@@ -70,6 +72,15 @@ function CircleArrow() {
         <path d="M7 17L17 7M8 7h9v9" />
       </svg>
     </span>
+  );
+}
+function InfoGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.1} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="12" cy="12" r="9.2" />
+      <path d="M12 11v5.5" />
+      <circle cx="12" cy="7.6" r="1.15" fill="currentColor" stroke="none" />
+    </svg>
   );
 }
 function Sparkle() {
@@ -210,6 +221,7 @@ function PkgCard({
   qty,
   onToggle,
   onQty,
+  onInfo,
   reveal,
 }: {
   pkg: Pkg;
@@ -218,6 +230,7 @@ function PkgCard({
   qty: number;
   onToggle: () => void;
   onQty: (delta: number) => void;
+  onInfo: () => void;
   reveal: (el: HTMLElement | null) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -249,7 +262,7 @@ function PkgCard({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       onClick={(e) => {
-        if ((e.target as HTMLElement).closest(".exp-qty")) return;
+        if ((e.target as HTMLElement).closest(".exp-qty, .exp-card-info")) return;
         if (isItem && qty === 0) onQty(1);
         else if (isItem && qty > 0) return;
         else onToggle();
@@ -265,6 +278,19 @@ function PkgCard({
     >
       <CardArt cat={catId} id={pkg.id} kind={pkg.kind} />
 
+      <button
+        type="button"
+        className="exp-card-info"
+        onClick={(e) => {
+          e.stopPropagation();
+          onInfo();
+        }}
+        aria-label={`Meer informatie over ${pkg.name}`}
+        title="Meer informatie"
+      >
+        <InfoGlyph />
+      </button>
+
       <div className="exp-card-top">
         <div>
           <h3>{pkg.name}</h3>
@@ -278,7 +304,10 @@ function PkgCard({
         <span className="exp-price-main">{p.main}</span>
         {p.unit && <span className="exp-price-unit">{p.unit}</span>}
       </div>
-      {p.sub && <div className="exp-price-sub">{p.sub}</div>}
+      <div className="exp-price-sub">
+        {p.sub && <span>{p.sub} · </span>}
+        <span className="exp-vat">{VAT_NOTE}</span>
+      </div>
 
       <ul className="exp-features">
         {pkg.features.map((f) => (
@@ -315,6 +344,136 @@ function PkgCard({
   );
 }
 
+// ============================================================ INFO MODAL
+// Uitgebreide toelichting per pakket: wát we doen en waaróm.
+function PkgInfoModal({
+  pkg,
+  cat,
+  selected,
+  onToggle,
+  onClose,
+}: {
+  pkg: Pkg;
+  cat: Category;
+  selected: boolean;
+  onToggle: () => void;
+  onClose: () => void;
+}) {
+  const d = detailsFor(pkg, cat);
+  const p = priceLabel(pkg.price);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div className="exp-modal-overlay" onClick={onClose}>
+      <div className="exp-modal exp-modal-info" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={pkg.name}>
+        <button className="exp-modal-close" onClick={onClose} aria-label="Sluiten">
+          ✕
+        </button>
+
+        <div className="exp-info-art">
+          <CardArt cat={cat.id} id={pkg.id} kind={pkg.kind} />
+        </div>
+
+        <div className="exp-info-body">
+          <div className="exp-info-head">
+            <span className="exp-info-eyebrow">
+              <CategoryIcon name={cat.id} />
+              {cat.label}
+            </span>
+            <h3>{pkg.name}</h3>
+            <p className="exp-info-tag">{pkg.tagline}</p>
+          </div>
+
+          <div className="exp-info-price">
+            <div className="exp-price">
+              {p.pre && <span className="exp-price-pre">{p.pre}</span>}
+              <span className="exp-price-main">{p.main}</span>
+              {p.unit && <span className="exp-price-unit">{p.unit}</span>}
+            </div>
+            <div className="exp-price-sub">
+              {p.sub && <span>{p.sub} · </span>}
+              <span className="exp-vat">{VAT_NOTE}</span>
+            </div>
+          </div>
+
+          <section className="exp-info-block">
+            <h4>Wat doen we precies?</h4>
+            <p>{d.what}</p>
+          </section>
+
+          <section className="exp-info-block">
+            <h4>Waarom zou je dit doen?</h4>
+            <p>{d.why}</p>
+          </section>
+
+          {d.includes && d.includes.length > 0 && (
+            <section className="exp-info-block">
+              <h4>Wat je krijgt</h4>
+              <ul className="exp-info-list">
+                {d.includes.map((i) => (
+                  <li key={i}>
+                    <Check />
+                    {i}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {d.tech && d.tech.length > 0 && (
+            <section className="exp-info-block">
+              <h4>Technisch &amp; praktisch</h4>
+              <ul className="exp-info-list is-tech">
+                {d.tech.map((i) => (
+                  <li key={i}>{i}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          <section className="exp-info-block">
+            <h4>Inbegrepen in dit pakket</h4>
+            <ul className="exp-info-list">
+              {pkg.features.map((f) => (
+                <li key={f}>
+                  <Check />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {cat.note && <p className="exp-info-note">{cat.note}</p>}
+
+          <div className="exp-info-actions">
+            <button
+              type="button"
+              className="exp-btn exp-btn-primary exp-btn-lg"
+              onClick={() => {
+                onToggle();
+                onClose();
+              }}
+            >
+              {selected ? "✓ Toegevoegd — verwijderen" : pkg.kind === "plan" ? "Kies dit plan" : "+ Toevoegen"}
+              {!selected && <CircleArrow />}
+            </button>
+            <button type="button" className="exp-btn exp-btn-ghost" onClick={onClose}>
+              Sluiten
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ============================================================ types
 type ConfigState = {
   plans: Partial<Record<IconKey, string>>;
@@ -335,6 +494,7 @@ function CategoryStep({
   onQty,
   onOption,
   onGoTo,
+  onInfo,
   reveal,
 }: {
   cat: Category;
@@ -346,6 +506,7 @@ function CategoryStep({
   onQty: (pkgId: string, delta: number) => void;
   onOption: (optId: string, value: string, multi: boolean) => void;
   onGoTo: (catId: IconKey) => void;
+  onInfo: (pkgId: string) => void;
   reveal: (el: HTMLElement | null) => void;
 }) {
   const recs = state.recommendations;
@@ -440,6 +601,7 @@ function CategoryStep({
               qty={state.qty[pkg.id] ?? 0}
               onToggle={() => (pkg.kind === "plan" ? onPlan(cat.id, pkg.id) : onAddon(pkg.id))}
               onQty={(d) => onQty(pkg.id, d)}
+              onInfo={() => onInfo(pkg.id)}
               reveal={reveal}
             />
           );
@@ -481,7 +643,73 @@ function CategoryStep({
         );
       })()}
 
-      {cat.note && <p className="exp-note">{cat.note}</p>}
+      {cat.note && (
+        <p className="exp-note">
+          {cat.note} <span className="exp-vat">· {VAT_NOTE}</span>
+        </p>
+      )}
+      {!cat.note && <p className="exp-note"><span className="exp-vat">{VAT_NOTE}</span></p>}
+
+      {/* Vrijwel altijd samen afgenomen — meting & funnels erbij */}
+      {(() => {
+        const cross = (cat.crossSell ?? [])
+          .map((id) => PKG_BY_ID[id])
+          .filter(Boolean) as { pkg: Pkg; cat: Category }[];
+        if (cross.length === 0) return null;
+        return (
+          <div className="exp-cross">
+            <div className="exp-cross-head">
+              <span className="exp-cross-kicker">
+                <Sparkle /> Bijna altijd samen afgenomen
+              </span>
+              <span className="exp-cross-hint">
+                Zonder meten en opvolgen haal je er niet uit wat erin zit — deze pakketten horen er praktisch altijd bij.
+              </span>
+            </div>
+            <div className="exp-cross-row">
+              {cross.map(({ pkg, cat: pc }) => {
+                const isSel =
+                  pkg.kind === "plan"
+                    ? state.plans[pc.id] === pkg.id
+                    : pkg.kind === "addon"
+                    ? state.addons.includes(pkg.id)
+                    : (state.qty[pkg.id] ?? 0) > 0;
+                const cp = priceLabel(pkg.price);
+                return (
+                  <div key={pkg.id} className={`exp-cross-card ${isSel ? "is-on" : ""}`}>
+                    <span className="exp-cross-cat">
+                      <CategoryIcon name={pc.id} />
+                      {pc.label}
+                    </span>
+                    <strong>{pkg.name}</strong>
+                    <span className="exp-cross-tag">{pkg.tagline}</span>
+                    <span className="exp-cross-price">
+                      {cp.pre && <em>{cp.pre} </em>}
+                      {cp.main}
+                      {cp.unit && <em> {cp.unit}</em>}
+                    </span>
+                    <div className="exp-cross-actions">
+                      <button
+                        type="button"
+                        className="exp-cross-add"
+                        onClick={() => (pkg.kind === "plan" ? onPlan(pc.id, pkg.id) : onAddon(pkg.id))}
+                      >
+                        {isSel ? "✓ Toegevoegd" : "+ Toevoegen"}
+                      </button>
+                      <button type="button" className="exp-cross-info" onClick={() => onInfo(pkg.id)} aria-label={`Info over ${pkg.name}`}>
+                        <InfoGlyph />
+                      </button>
+                      <button type="button" className="exp-cross-goto" onClick={() => onGoTo(pc.id)}>
+                        Naar {pc.label} <Arrow />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
 
       {recCats.length > 0 && (
         <div className="exp-recs">
@@ -504,6 +732,7 @@ function CategoryStep({
 // ============================================================ MAIN
 export function Configurator() {
   const [screen, setScreen] = useState<"intro" | "intake" | "flow" | "review">("intro");
+  const [infoPkg, setInfoPkg] = useState<string | null>(null);
   const [booted, setBooted] = useState(false);
 
   const [plans, setPlans] = useState<Partial<Record<IconKey, string>>>({});
@@ -909,6 +1138,7 @@ export function Configurator() {
               onQty={onQtyChange}
               onOption={onOption}
               onGoTo={goToCat}
+              onInfo={setInfoPkg}
               reveal={reveal}
             />
           )}
@@ -1015,6 +1245,7 @@ export function Configurator() {
                 {formatEuro(animMonthly)} <small>/mnd</small>
               </div>
             </div>
+            <span className="exp-bar-vat exp-vat">{VAT_NOTE}</span>
           </div>
           <button
             className="exp-btn exp-btn-primary exp-btn-sm"
@@ -1083,6 +1314,27 @@ export function Configurator() {
           onClose={() => setModalOpen(false)}
         />
       )}
+
+      {infoPkg && PKG_BY_ID[infoPkg] && (
+        <PkgInfoModal
+          pkg={PKG_BY_ID[infoPkg].pkg}
+          cat={PKG_BY_ID[infoPkg].cat}
+          selected={
+            PKG_BY_ID[infoPkg].pkg.kind === "plan"
+              ? state.plans[PKG_BY_ID[infoPkg].cat.id] === infoPkg
+              : PKG_BY_ID[infoPkg].pkg.kind === "addon"
+              ? state.addons.includes(infoPkg)
+              : (state.qty[infoPkg] ?? 0) > 0
+          }
+          onToggle={() => {
+            const { pkg, cat } = PKG_BY_ID[infoPkg];
+            if (pkg.kind === "plan") onPlan(cat.id, pkg.id);
+            else if (pkg.kind === "addon") onAddon(pkg.id);
+            else onQtyChange(pkg.id, (state.qty[pkg.id] ?? 0) > 0 ? -(state.qty[pkg.id] ?? 0) : 1);
+          }}
+          onClose={() => setInfoPkg(null)}
+        />
+      )}
     </div>
   );
 }
@@ -1134,6 +1386,7 @@ function ReviewScreen({
               <small>per maand</small>
             </div>
           </div>
+          <p className="exp-review-vat exp-vat">{VAT_NOTE} · indicatieve vanafprijzen</p>
         </header>
 
         <Landscape data={landscapeData} onGoToCat={onGoToCat} variant="full" />
@@ -1347,6 +1600,7 @@ function QuoteModal({
           <span>Totaal doorlopend</span>
           <span>{formatEuro(totals.monthly)} /mnd</span>
         </div>
+        <p className="exp-vat" style={{ marginTop: 6 }}>{VAT_NOTE} · indicatieve vanafprijzen</p>
 
         <div className="exp-field">
           <label>Naam</label>

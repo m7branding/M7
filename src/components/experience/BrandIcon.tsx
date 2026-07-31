@@ -47,7 +47,11 @@ export type BrandKey =
   | "mailchimp"
   | "activecampaign"
   | "resend"
-  | "lottie";
+  | "lottie"
+  | "openai"
+  | "claude"
+  | "googlegemini"
+  | "perplexity";
 
 type Brand = {
   name: string;
@@ -91,6 +95,10 @@ export const BRANDS: Record<BrandKey, Brand> = {
   activecampaign: { name: "ActiveCampaign", color: "#356AE6", letters: "Ac" },
   resend: { name: "Resend", color: "#E9E9EE" },
   lottie: { name: "Lottie", color: "#00DDB3" },
+  openai: { name: "ChatGPT", color: "#E9E9EE" },
+  claude: { name: "Claude", color: "#D97757" },
+  googlegemini: { name: "Gemini", color: "#8E7CFF" },
+  perplexity: { name: "Perplexity", color: "#20B8CD" },
 };
 
 // ------------------------------------------------------------ components

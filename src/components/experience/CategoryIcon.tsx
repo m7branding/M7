@@ -98,6 +98,20 @@ const paths: Record<IconKey, React.ReactNode> = {
       <path d="M11 11h10" opacity="0.6" />
     </>
   ),
+  video: (
+    <>
+      <rect x="3" y="8" width="17" height="16" rx="2.5" />
+      <path d="M20 14l8-4v12l-8-4z" />
+      <path d="M9 13l5 3-5 3z" fill="currentColor" stroke="none" opacity="0.75" />
+    </>
+  ),
+  ai: (
+    <>
+      <path d="M16 4l2.6 6.4L25 13l-6.4 2.6L16 22l-2.6-6.4L7 13l6.4-2.6L16 4z" />
+      <path d="M24.5 21l1.1 2.7 2.7 1.1-2.7 1.1-1.1 2.7-1.1-2.7-2.7-1.1 2.7-1.1 1.1-2.7z" opacity="0.6" />
+      <circle cx="6" cy="24" r="1.4" fill="currentColor" stroke="none" opacity="0.6" />
+    </>
+  ),
   crm: (
     <>
       <circle cx="8" cy="8" r="3" />

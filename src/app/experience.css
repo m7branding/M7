@@ -2356,3 +2356,259 @@
   .ca-float, .ca-float-b, .ca-rise, .ca-blink, .ca-spin, .ca-pulse-sm { animation: none; }
   .ca-rise { transform: none; opacity: 1; }
 }
+
+/* ============================================================
+   V8 — info-modal per pakket, btw-vermelding & cross-sell strip
+   ============================================================ */
+
+/* ---------- (i)-knop op elke kaart ---------- */
+.exp-card-info {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(12, 14, 20, 0.42);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.72;
+  transition: opacity 0.18s ease, transform 0.18s ease, background 0.18s ease;
+}
+.exp-card-info svg { width: 17px; height: 17px; }
+.exp-card-info:hover { opacity: 1; transform: scale(1.08); background: rgba(12, 14, 20, 0.62); }
+.exp-flow-root .exp-card-info {
+  border-color: rgba(18, 22, 32, 0.12);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--exp-text);
+}
+.exp-flow-root .exp-card-info:hover { background: #fff; }
+
+/* ---------- Kleine btw-vermelding ---------- */
+.exp-vat {
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  opacity: 0.66;
+  white-space: nowrap;
+}
+.exp-flow-root .exp-vat { color: var(--exp-faint); opacity: 1; }
+.exp-price-sub { display: block; }
+
+/* ---------- Info-modal ---------- */
+.exp-modal-info {
+  width: min(760px, 100%);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+.exp-info-art { position: relative; }
+.exp-info-art .exp-cardart {
+  height: 180px;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--exp-border);
+}
+.exp-info-body {
+  padding: 24px 30px 30px;
+  max-height: calc(90vh - 180px);
+  overflow: auto;
+}
+.exp-info-head h3 { font-size: 26px; margin-top: 4px; }
+.exp-info-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--exp-a1);
+}
+.exp-info-eyebrow svg { width: 15px; height: 15px; }
+.exp-info-tag { margin-top: 6px; color: var(--exp-muted); font-size: 15px; }
+.exp-info-price {
+  margin: 16px 0 22px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: var(--exp-panel-2, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--exp-border);
+}
+.exp-info-price .exp-price { margin: 0; }
+.exp-info-block { margin-bottom: 20px; }
+.exp-info-block h4 {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--exp-faint, var(--exp-muted));
+  margin-bottom: 8px;
+}
+.exp-info-block p { font-size: 15px; line-height: 1.65; color: var(--exp-muted); }
+.exp-info-list { display: grid; gap: 8px; }
+.exp-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--exp-muted);
+}
+.exp-info-list svg { width: 14px; height: 14px; flex: none; margin-top: 4px; color: var(--exp-a1); }
+.exp-info-list.is-tech li {
+  padding-left: 15px;
+  position: relative;
+  font-size: 13.5px;
+}
+.exp-info-list.is-tech li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 2px;
+  background: var(--exp-a2);
+  opacity: 0.6;
+}
+.exp-info-note {
+  font-size: 12.5px;
+  color: var(--exp-faint, var(--exp-muted));
+  padding-top: 14px;
+  border-top: 1px solid var(--exp-border);
+}
+.exp-info-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.exp-flow-root .exp-modal-info { background: #fff; }
+.exp-flow-root .exp-info-body p,
+.exp-flow-root .exp-info-list li { color: var(--exp-muted); }
+.exp-flow-root .exp-info-price { background: var(--exp-panel-2); }
+
+@media (max-width: 720px) {
+  .exp-modal-info { width: 100%; }
+  .exp-info-body { padding: 20px 20px 26px; max-height: calc(92vh - 140px); }
+  .exp-info-art .exp-cardart { height: 140px; }
+  .exp-info-head h3 { font-size: 22px; }
+}
+
+/* ---------- Cross-sell strip (bijna altijd samen afgenomen) ---------- */
+.exp-cross {
+  margin: 34px 0 8px;
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px dashed var(--exp-border-strong, var(--exp-border));
+  background: var(--exp-panel-2, rgba(255, 255, 255, 0.04));
+}
+.exp-flow-root .exp-cross {
+  background: linear-gradient(180deg, rgba(16, 179, 162, 0.05), rgba(14, 163, 194, 0.03));
+  border-color: rgba(16, 179, 162, 0.28);
+}
+.exp-cross-head { margin-bottom: 16px; }
+.exp-cross-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--exp-a1);
+}
+.exp-cross-kicker svg { width: 14px; height: 14px; }
+.exp-cross-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--exp-muted);
+  max-width: 62ch;
+}
+.exp-cross-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+}
+.exp-cross-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--exp-border);
+  background: var(--exp-panel, rgba(255, 255, 255, 0.03));
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+.exp-flow-root .exp-cross-card { background: #fff; }
+.exp-cross-card:hover { transform: translateY(-2px); border-color: var(--exp-a1); }
+.exp-cross-card.is-on { border-color: var(--exp-a1); box-shadow: inset 0 0 0 1px var(--exp-a1); }
+.exp-cross-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--exp-faint, var(--exp-muted));
+}
+.exp-cross-cat svg { width: 13px; height: 13px; }
+.exp-cross-card strong { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; }
+.exp-cross-tag { font-size: 12.5px; color: var(--exp-muted); line-height: 1.45; }
+.exp-cross-price { font-size: 13.5px; font-weight: 800; margin-top: 4px; }
+.exp-cross-price em { font-style: normal; font-weight: 600; font-size: 11.5px; opacity: 0.65; }
+.exp-cross-actions { display: flex; align-items: center; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.exp-cross-add {
+  flex: 1 1 auto;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--exp-border-strong, var(--exp-border));
+  background: transparent;
+  color: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+.exp-cross-add:hover { border-color: var(--exp-a1); }
+.exp-cross-card.is-on .exp-cross-add { background: var(--exp-a1); border-color: var(--exp-a1); color: #04120f; }
+.exp-cross-info {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--exp-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.exp-cross-info svg { width: 16px; height: 16px; }
+.exp-cross-info:hover { opacity: 1; border-color: var(--exp-a1); }
+.exp-cross-goto {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 4px 2px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--exp-muted);
+  cursor: pointer;
+}
+.exp-cross-goto svg { width: 13px; height: 13px; }
+.exp-cross-goto:hover { color: var(--exp-a1); }
+.exp-bar-vat { align-self: center; margin-left: 4px; }
+.exp-review-vat { margin-top: 10px; }
+@media (max-width: 900px) { .exp-bar-vat { display: none; } }
