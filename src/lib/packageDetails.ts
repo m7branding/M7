@@ -331,6 +331,696 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
     why:
       "Zonder systeem groeit elke site richting inconsistentie en wordt elke wijziging duurder. Met een design system bouw je nieuwe pagina's in een uur en verander je je merkkleur op één plek.",
   },
+
+  // ===================================================== WEBSHOP
+  "shop-start": {
+    what:
+      "Een complete webshop tot vijftig producten op WooCommerce of Shopify. We bouwen conversiegerichte productpagina's, een logische categoriestructuur, betaalmethodes en verzendregels, en zetten de basis-SEO goed neer zodat je producten gevonden worden.",
+    why:
+      "De meeste shops verliezen omzet op de basis: onduidelijke productpagina's, te veel klikken naar de kassa en verzendkosten die pas op het laatst zichtbaar worden. Wij richten die basis in volgens wat aantoonbaar werkt, zodat je vanaf dag één verkoopt in plaats van eerst maanden moet leren.",
+    includes: ["Ontwerp en bouw van shop en productsjablonen", "Categorie- en filterstructuur", "Betaal- en verzendmethodes ingericht", "Basis-SEO en sitemap"],
+    tech: ["WooCommerce op WordPress of Shopify", "Productimport via CSV-sjabloon", "Testorders in sandbox voor livegang"],
+  },
+  "shop-pro": {
+    what:
+      "Een onbeperkt schaalbare shop met de techniek helemaal op orde: EU-VAT-controle, een geavanceerde custom checkout, kortingscodes en campagnes, PDF-facturen in je huisstijl en vendor-based pricing voor verschillende klantgroepen.",
+    why:
+      "Zodra je serieus verkoopt, lopen standaardshops vast op btw-regels, uitzonderingen in prijzen en handmatige administratie. Dit pakket haalt dat handwerk weg en voorkomt fiscale fouten die achteraf duur zijn om recht te zetten.",
+    tech: ["VIES-validatie van btw-nummers voor B2B", "OSS-drempels per land", "Checkout-aanpassingen zonder de update-paden te breken"],
+  },
+  "shop-scale": {
+    what:
+      "Een marktplaats- of internationale opzet: meerdere vendors, headless of performance-build, koppelingen met ERP en PIM, en multi-currency met landspecifieke prijzen en belastingregels.",
+    why:
+      "Bij dit volume is snelheid geld en is handmatig beheer onmogelijk. Een headless front-end met een goede datastroom naar je backoffice betaalt zichzelf terug in conversie en in bespaarde uren.",
+  },
+  "shop-productstructuur": {
+    what:
+      "We werken je categorie- en filterboom uit, bepalen welke eigenschappen varianten worden en welke filters, en leggen het URL- en breadcrumbschema vast. Je krijgt een importsjabloon waarin je je productdata gestructureerd aanlevert.",
+    why:
+      "Een verkeerde productstructuur merk je pas als je duizend producten hebt en niets meer te vinden is. Vooraf ordenen kost een fractie van wat achteraf herstructureren kost — en het is direct merkbaar in je vindbaarheid en conversie.",
+    tech: ["Attributen versus varianten expliciet gescheiden", "Filterbare eigenschappen voorbereid op facetnavigatie", "URL-schema zonder dubbele content"],
+  },
+  "shop-pim": {
+    what:
+      "Een centrale productdatabase (een echt PIM of een goed ingerichte Airtable) waar alle productinformatie vandaan komt. Vanuit die bron synchroniseren we automatisch naar je shop, en we richten bulkverrijking, vertalingen en leveranciersfeeds in.",
+    why:
+      "Zodra je op meerdere kanalen verkoopt of met leveranciersdata werkt, wordt losse productinvoer in de shop onhoudbaar. Eén bron betekent dat een prijswijziging op één plek gebeurt en overal doorwerkt — en dat je nooit meer verouderde specs op je site hebt.",
+    tech: ["Sync via API of scheduled jobs met foutlogging", "Veldmapping per kanaal", "Versiebeheer op productdata"],
+  },
+  "shop-configurator": {
+    what:
+      "Een stap-voor-stap configurator waarin de klant zelf een product samenstelt, met live prijsberekening en een visuele preview van de keuze. De volledige configuratie gaat mee in de order zodat productie precies weet wat er gemaakt moet worden.",
+    why:
+      "Maatwerkproducten verkopen slecht via een standaard productpagina, omdat de klant zich geen voorstelling kan maken en jij eindeloos moet mailen over opties. Een configurator neemt dat gesprek over en filtert bovendien de serieuze aanvragen eruit.",
+  },
+  "shop-b2b": {
+    what:
+      "Zakelijke klanten krijgen hun eigen prijzen: klantgroepen met afgesproken tarieven, staffel- en volumekortingen, bestellen op rekening met PO-nummer, een snelbestellijst en herhaalorders in één klik.",
+    why:
+      "B2B-klanten willen niet zoeken — ze willen hun vaste artikelen snel opnieuw bestellen tegen hun eigen prijs. Wie dat online goed regelt, ziet orders verschuiven van de telefoon naar de shop, en dat scheelt direct in verkoopuren.",
+  },
+  "shop-vendor": {
+    what:
+      "Een omgeving per vendor of dealer waarin zij zelf producten en voorraad beheren, met commissie- en uitbetalingsoverzicht en automatische ordersplitsing per leverancier.",
+    why:
+      "Als je assortiment van meerdere partijen komt, wil je niet de tussenpersoon zijn die alles handmatig doorstuurt. Een vendorportaal maakt je schaalbaar zonder dat je team meegroeit.",
+  },
+  "shop-checkout": {
+    what:
+      "Een checkout die op maat is gemaakt: one-page of stapsgewijs, met adres-autocomplete en validatie, bezorg- en afhaalopties duidelijk in beeld en een order-bump vlak voor het betalen.",
+    why:
+      "Gemiddeld haakt zeven op de tien bezoekers af in de winkelwagen of checkout. Elke stap en elk verplicht veld dat je weghaalt, verdient zich direct terug. Een order-bump verhoogt bovendien je gemiddelde orderwaarde zonder extra advertentiebudget.",
+    tech: ["Adresvalidatie via postcode-API", "Minimale verplichte velden", "Meetbaar gemaakt per checkout-stap"],
+  },
+  "shop-upsell": {
+    what:
+      "Upsell- en cross-sellblokken op de juiste momenten: 'vaak samen gekocht' op de productpagina, upgrade-suggesties, cross-sells in winkelwagen en checkout en een post-purchase aanbod op de bedankpagina.",
+    why:
+      "Een bestaande koper overtuigen kost bijna niets vergeleken met een nieuwe bezoeker werven. Goede upsells verhogen je orderwaarde met tientallen procenten zonder dat je advertentiebudget meebeweegt.",
+  },
+  "shop-bundles": {
+    what:
+      "Vaste en zelf samen te stellen bundels met een eigen bundelprijs, staffelkorting per aantal en correcte voorraadafboeking per bundelonderdeel.",
+    why:
+      "Bundels verhogen je orderwaarde en helpen je langzaam lopende producten mee te verkopen. Bovendien maken ze prijsvergelijking met concurrenten lastiger.",
+  },
+  "shop-promo": {
+    what:
+      "Een actie-engine waarmee je zelf kortingscodes en automatische acties instelt — per periode, klantgroep of productselectie — inclusief actiebanners en een aftelklok, allemaal beheerbaar vanuit het CMS.",
+    why:
+      "Acties moeten binnen een uur kunnen draaien, niet binnen een sprint. Zelf kunnen instellen betekent dat je kunt inspelen op Black Friday, een beurs of een overvolle voorraad zonder ontwikkelaar.",
+  },
+  "shop-popups": {
+    what:
+      "Slimme pop-ups met regels: een exit-intent aanbod, een drempelmelding ('nog €12 tot gratis verzending') en varianten per pagina of bezoekerstype, meetbaar gemaakt zodat je weet wat werkt.",
+    why:
+      "Bezoekers die op het punt staan te vertrekken zijn goedkoop terug te winnen. Eén goed getimede pop-up levert vaak meer op dan een maand extra advertentiebudget.",
+  },
+  "shop-notifications": {
+    what:
+      "Meldingen die je klant helpen beslissen: voorraad- en levertijdinformatie, een 'laat me weten'-melding bij uitverkochte producten, een verzendbalk met bezorgbelofte en een site-brede aankondigingsbalk.",
+    why:
+      "Urgentie werkt alleen als hij klopt. Echte voorraad- en levertijdinformatie verlaagt twijfel en het aantal 'waar blijft mijn bestelling'-mails tegelijk.",
+  },
+  "shop-search": {
+    what:
+      "Een zoekfunctie die suggesties toont tijdens het typen, typefouten opvangt en resultaten combineert met facetfilters. Inclusief synoniemen, merchandisingregels en een rapport van wat bezoekers zoeken.",
+    why:
+      "Bezoekers die de zoekfunctie gebruiken converteren meestal een veelvoud van de rest — mits ze iets vinden. Het zoekrapport laat bovendien precies zien welke producten je mist in je assortiment.",
+  },
+  "shop-reviews": {
+    what:
+      "Reviews van een extern platform (Kiyoh, Trustpilot of Google) op je productpagina's, inclusief sterren in de zoekresultaten via rich snippets, klantfoto's en een automatische reviewuitnodiging na levering.",
+    why:
+      "Sociale bewijskracht is bij online aankopen doorslaggevend, en sterren in Google verhogen je doorklikratio zichtbaar. Automatische uitnodigingen zorgen dat je stroom aan reviews niet opdroogt.",
+  },
+  "shop-loyalty": {
+    what:
+      "Een spaarprogramma met punten, klantniveaus met eigen voordelen en een referral-mechanisme waarmee klanten nieuwe klanten aanbrengen. Het saldo is zichtbaar in het klantaccount.",
+    why:
+      "Herhaalaankopen zijn goedkoper dan nieuwe klanten werven. Een loyaltyprogramma verhoogt zowel de frequentie als de klantwaarde, en geeft je een reden om contact te houden.",
+  },
+  "shop-subscriptions": {
+    what:
+      "Abonnementsproducten met bezorgfrequentie, automatische incasso of herhaalbetaling, zelfservice om te pauzeren of te wijzigen en een flow voor herinneringen en mislukte betalingen.",
+    why:
+      "Terugkerende omzet maakt je bedrijf voorspelbaar en direct meer waard. Voor verbruiksartikelen is een abonnement bovendien vaak gemakkelijker voor de klant dan telkens opnieuw bestellen.",
+  },
+  "shop-wishlist": {
+    what:
+      "Een verlanglijst per account, de mogelijkheid om winkelwagens te bewaren en te delen, en een herinnering bij prijsdaling. Meteen de basis voor je verlaten-winkelwagenflow.",
+    why:
+      "Veel bezoekers zijn nog niet klaar om te kopen. Wie je ze laat bewaren, houdt het contact vast in plaats van het te verliezen aan de volgende tab.",
+  },
+  "shop-payments": {
+    what:
+      "We sluiten je betaalprovider aan — Mollie, Stripe of Adyen — inclusief API-keys en webhooks, activeren de betaalmethodes per land en testen zowel test- als live-transacties. Terugbetalingen kun je daarna vanuit de shop doen.",
+    why:
+      "Een verkeerd geconfigureerde webhook betekent bestellingen die wel betaald zijn maar niet binnenkomen. Dit netjes inrichten voorkomt precies het soort fout dat je pas ontdekt als een klant belt.",
+    tech: ["Webhooks met retry en logging", "Betaalmethodes per land en valuta", "Refund-flow getest inclusief deelbetalingen"],
+  },
+  "shop-bnpl": {
+    what:
+      "Achteraf betalen via Klarna, in3 of Riverty: we begeleiden de aanvraag en aansluiting, stellen risico- en landregels in en plaatsen de betaalbadges op product- en checkoutpagina.",
+    why:
+      "Achteraf betalen verhoogt de conversie meetbaar, vooral bij hogere orderbedragen. Het verschil zit hem in de zichtbaarheid: badges op de productpagina werken beter dan pas in de kassa.",
+  },
+  "shop-analytics": {
+    what:
+      "Volledige e-commerce tracking in GA4: alle events van productweergave tot aankoop, de winkelwagen- en checkouttrechter, omzet uitgesplitst naar kanaal, campagne en product, met Consent Mode en klaar voor server-side meting.",
+    why:
+      "Zonder e-commerce tracking weet je wel hoeveel je omzet, maar niet waar het vandaan komt of waar het misgaat. Met deze inrichting kun je per stap zien hoeveel omzet je laat liggen — en dat is meestal de goedkoopste groei die er is.",
+    tech: ["GA4 recommended e-commerce events", "Datalayer-implementatie in de shop", "Consent Mode v2 gekoppeld aan je CMP"],
+  },
+  "shop-feeds": {
+    what:
+      "Een productfeed voor Google Shopping en Meta, met feedregels, categorie-mapping en filters, gesynchroniseerde voorraad en prijzen, en het oplossen van afkeuringen in Merchant Center.",
+    why:
+      "Shopping-advertenties zijn voor de meeste shops het best presterende kanaal, maar ze staan of vallen met feedkwaliteit. Afgekeurde producten kosten je onzichtbaar omzet zolang niemand ernaar kijkt.",
+  },
+  "shop-billing": {
+    what:
+      "Koppeling met je boekhouding (Moneybird, Exact of e-Boekhouden): automatische facturen en creditnota's, betaalstatus terug in de shop en een PDF-factuur in je eigen huisstijl.",
+    why:
+      "Handmatig facturen overtypen is niet alleen tijdrovend, het is ook de plek waar fouten insluipen. Een koppeling levert je per maand uren op en maakt je administratie op elk moment actueel.",
+  },
+  "shop-erp": {
+    what:
+      "Een koppeling tussen shop en ERP waarbij producten, prijzen en voorraad synchroon lopen en orders automatisch doorstromen naar je backoffice, met foutafhandeling en logging.",
+    why:
+      "Voorraad die niet klopt kost je twee keer: nee-verkopen én bestellingen die je niet kunt leveren. Eén waarheid over voorraad lost dat structureel op.",
+  },
+  "shop-shipping": {
+    what:
+      "Verzendlogica van winkelwagen tot voordeur: koppeling met Sendcloud, MyParcel, DHL of PostNL, verzendregels op gewicht, zone en orderwaarde, afhaalpunten en bezorgmomenten, en automatische track-and-tracemails.",
+    why:
+      "Verzendkosten en levertijd zijn de meestgenoemde reden om af te haken. Als de juiste opties en kosten meteen kloppen, verlies je minder orders én minder tijd aan statusvragen.",
+  },
+  "shop-returns": {
+    what:
+      "Een retourportaal waarin klanten zelf een retour aanmelden, retourlabels automatisch worden aangemaakt en statussen en terugbetalingen worden bijgehouden. Retourredenen komen in een rapport.",
+    why:
+      "Retouren verwerken via de mail kost onevenredig veel tijd. Zelfservice verlaagt die last, en de retourredenen laten zien welke productinformatie op je site tekortschiet.",
+  },
+  "shop-tax": {
+    what:
+      "Correcte btw-instelling per land en productgroep, OSS-drempels voor EU-verkoop, VIES-validatie van btw-nummers voor B2B en in- of exclusief prijzen per klantgroep.",
+    why:
+      "Btw-fouten worden pas zichtbaar bij de aangifte of controle, en dan gaan ze over alle orders met terugwerkende kracht. Dit vooraf goed zetten is puur risicobeperking.",
+  },
+  "shop-mail": {
+    what:
+      "Alle transactionele mails in je huisstijl — order, verzending, retour — plus marketingflows zoals verlaten winkelwagen, reviewverzoek en herhaalaankoop, gekoppeld aan Klaviyo, Mailchimp of ActiveCampaign.",
+    why:
+      "Transactionele mails worden bijna altijd geopend; dat is je best gelezen kanaal en meestal het lelijkste. On-brand mails met een slimme flow eronder halen daar omzet uit in plaats van alleen bevestigingen te sturen.",
+  },
+  "shop-marketplace": {
+    what:
+      "Koppeling met bol., Amazon of andere marktplaatsen via Channable of een directe API: assortiment en prijzen worden uitgestuurd, orders komen centraal binnen en voorraad wordt over kanalen bewaakt.",
+    why:
+      "Marktplaatsen brengen bereik dat je zelf niet snel opbouwt. De valkuil is dubbele verkoop bij dezelfde voorraad — een goede koppeling voorkomt precies dat.",
+  },
+  "shop-compliance": {
+    what:
+      "Consent-banner gekoppeld aan je tracking, de verplichte pagina's (algemene voorwaarden, retourbeleid, privacy) netjes opgezet, betaal- en keurmerklogo's op de juiste plek en een toegankelijkheidscheck op de kernflow.",
+    why:
+      "Voor webshops is dit deels wettelijk verplicht en deels conversieverhogend: keurmerken en duidelijke voorwaarden nemen twijfel weg bij mensen die je nog niet kennen.",
+  },
+
+  // ===================================================== WEB-APPS & APPS
+  "wapp-portal": {
+    what:
+      "Een besloten klant- of dealerportaal met accounts, rollen en rechten, waarin je documenten, dossiers, prijzen of statussen deelt. Volledig in je huisstijl en gekoppeld aan de systemen die je al gebruikt.",
+    why:
+      "Een portaal haalt terugkerende vragen weg bij je team en geeft klanten 24/7 toegang tot wat ze nodig hebben. Het verhoogt bovendien de overstapdrempel: wie in jouw omgeving werkt, vertrekt minder snel.",
+    tech: ["Authenticatie via Memberstack, Auth0 of eigen implementatie", "Rollen en rechten per gebruikersgroep", "Audit-logging op gevoelige acties"],
+  },
+  "wapp-flow": {
+    what:
+      "Een web-app op maat voor een specifiek proces: aanvragen, offertes, planning, keuringen of orders — met formulieren, statussen, notificaties en een dashboard.",
+    why:
+      "Excel-bestanden en mailwisselingen zijn gratis tot ze het niet meer zijn. Een app die precies jouw proces volgt, bespaart uren per week en maakt fouten zichtbaar voordat ze doorwerken.",
+  },
+  "wapp-loyalty": {
+    what:
+      "Een spaar- of klantenprogramma als eigen omgeving, met punten, beloningen, ledenprofielen en rapportage over gebruik.",
+    why:
+      "Een eigen programma geeft je directe data over je beste klanten en een reden om regelmatig contact te hebben — zonder afhankelijk te zijn van een platform.",
+  },
+  "mob-strategy": {
+    what:
+      "Een strategiefase voor je app: doelgroepen, kernfunctionaliteit, technische keuzes (native, cross-platform of PWA), storekosten en een realistische roadmap met kostenraming.",
+    why:
+      "De meeste mislukte apps zijn gebouwd voordat iemand had bepaald wat succes betekent. Een paar weken denkwerk voorkomt maanden bouwen aan het verkeerde.",
+  },
+  "mob-uiux": {
+    what:
+      "Volledig UI/UX-ontwerp voor iOS en Android volgens de richtlijnen van beide platforms, met een klikbaar prototype waarmee je de app kunt testen voordat er één regel code is.",
+    why:
+      "Ontwerp aanpassen is goedkoop, code aanpassen niet. Met een prototype haal je gebruikersfeedback op in de fase waarin je er nog iets mee kunt.",
+  },
+  "mob-build": {
+    what:
+      "Bouw en publicatie van je app voor iOS en Android, inclusief store-listing, screenshots, review-begeleiding en een releaseproces voor updates.",
+    why:
+      "De storepublicatie is berucht om afwijzingen op details. Wij regelen dat traject zodat je lancering niet twee weken uitloopt op een formaliteit.",
+  },
+
+  // ===================================================== VIDEO & ANIMATIE
+  "vid-brandfilm": {
+    what:
+      "Een bedrijfsvideo van ongeveer twee minuten: we schrijven concept en script, maken een storyboard, draaien op locatie met regie en verzorgen montage, kleurcorrectie en sounddesign. Je krijgt hem uitgeleverd in 16:9, 1:1 en 9:16 met ondertiteling.",
+    why:
+      "Mensen lezen je 'over ons'-pagina niet, maar kijken wel twee minuten. Een goede bedrijfsvideo verkoopt je sfeer, je mensen en je vakmanschap in één keer — en is jarenlang inzetbaar op je site, in sales en bij werving.",
+    includes: ["Concept, script en storyboard", "Draaidag met regie en cameraploeg", "Montage, kleurcorrectie en sounddesign", "Ondertiteling en meerdere beeldverhoudingen"],
+    tech: ["Opname in minimaal 4K zodat uitsneden scherp blijven", "Losse SRT-bestanden naast ingebrande ondertiteling", "Webgeoptimaliseerde export naast de mastervariant"],
+  },
+  "vid-explainer-real": {
+    what:
+      "Een explainer met realistische scènes: opgenomen met echte acteurs of volledig AI-gegenereerd met synthetische personen en omgevingen. Eén heldere boodschap, een script dat naar de call-to-action leidt en een voice-over in de taal die je wilt.",
+    why:
+      "Complexe diensten verkopen slecht in tekst. Een explainer laat in negentig seconden zien wat je doet, waardoor je verkoopgesprekken korter worden en je website minder afhakers heeft. De AI-route maakt dit haalbaar zonder dure productie.",
+    tech: ["AI-gegenereerde personen consistent gehouden over scènes heen", "Lipsync bij voice-over in meerdere talen", "Rechtenvrije of eigen muziek"],
+  },
+  "vid-explainer-anim": {
+    what:
+      "Een geanimeerde explainer in een illustratiestijl die op je huisstijl is gebaseerd: script, storyboard, styleframes, motion graphics, voice-over, muziek en sounddesign.",
+    why:
+      "Animatie kan dingen tonen die je niet kunt filmen — processen, data, abstracte diensten. Bovendien veroudert een animatie minder snel dan beelden van een kantoor of team dat verandert.",
+  },
+  "vid-3d": {
+    what:
+      "3D-modellering en fotorealistische renders van producten, objecten of vastgoed, desgewenst opgebouwd uit je bouwtekeningen of CAD-bestanden, met realistische materialen en belichting. Je krijgt zowel stills als bewegende renders.",
+    why:
+      "Je kunt niet fotograferen wat nog niet bestaat. Met 3D verkoop je een product of gebouw voordat het er is, in elke kleur of uitvoering, en zonder de kosten van een fotoshoot per variant.",
+    includes: ["3D-model op basis van tekeningen of CAD", "Materialen, belichting en omgeving", "Stills in hoge resolutie", "Bewegende render of camerabeweging"],
+    tech: ["Aanlevering in DWG, IFC, STEP of SKP", "Renders in 4K, stills tot printresolutie", "Varianten in kleur of uitvoering uit hetzelfde model"],
+  },
+  "vid-intro-outro": {
+    what:
+      "Een geanimeerde logo-intro van drie tot zes seconden en een outro met call-to-action en contactgegevens, als losse bestanden zodat je ze zelf voor elke video hergebruikt.",
+    why:
+      "Een vaste kop en staart maken losse video's herkenbaar als één merk. Het is een eenmalige investering die je bij elke volgende video terugverdient.",
+  },
+  "vid-custom-anim": {
+    what:
+      "Losse animaties op maat: bewegende iconen, grafieken of infographics, uitgeleverd als Lottie-bestand voor je website of als video met transparante achtergrond. Bronbestand krijg je mee.",
+    why:
+      "Een geanimeerde uitleg of grafiek houdt aandacht vast waar een statisch plaatje wordt weggescrold. Als Lottie blijven ze scherp op elk scherm en wegen ze nauwelijks iets.",
+  },
+  "vid-exploded": {
+    what:
+      "Een exploded-view animatie waarin je product uit elkaar valt en weer samenkomt, met callouts die onderdelen en specificaties benoemen, opgebouwd uit je CAD- of technische tekeningen.",
+    why:
+      "Voor techniek en maakindustrie is dit de snelste manier om kwaliteit en opbouw te laten zien. Wat in een gesprek tien minuten uitleg kost, is in twintig seconden duidelijk.",
+  },
+  "vid-product": {
+    what:
+      "Een korte, strakke productanimatie van tien tot twintig seconden met studiobelichting of styling in scène, loopbaar zodat hij als website-hero kan draaien. Meerdere kleurvarianten uit hetzelfde model of dezelfde opname.",
+    why:
+      "Bewegend beeld op je homepage vergroot de tijd die iemand blijft en laat je product premium ogen. Een loop van een paar seconden is daarvoor genoeg.",
+  },
+  "vid-subtitles": {
+    what:
+      "Ondertiteling per video, ingebrand of als los SRT-bestand, in je eigen typografie, met vertaling naar extra talen indien gewenst.",
+    why:
+      "Het overgrote deel van social video wordt zonder geluid bekeken. Zonder ondertiteling gooi je dus het grootste deel van je bereik weg — en met vertaling open je meteen nieuwe markten.",
+  },
+  "vid-snippets": {
+    what:
+      "Acht tot twaalf korte snippets gesneden uit bestaand materiaal, verticaal opgemaakt voor Reels, Shorts en TikTok, met hooks, captions en ondertiteling.",
+    why:
+      "Uit één draaidag haal je maandenlang content. Snippets zijn de goedkoopste manier om consistent zichtbaar te blijven zonder elke week opnieuw te filmen.",
+  },
+  "vid-ads": {
+    what:
+      "Drie advertentievarianten met verschillende hooks, per platform op maat gesneden, met ondertiteling en een eindkaart met call-to-action — opgezet om tegen elkaar te testen.",
+    why:
+      "In advertenties bepaalt de creative het grootste deel van je resultaat, meer dan targeting of budget. Meerdere hooks testen is de snelste route naar een lagere kosten-per-lead.",
+  },
+  "vid-shootday": {
+    what: "Een extra draaidag met cameraploeg en apparatuur, tot acht uur op locatie. Alle ruwe beelden worden gearchiveerd zodat je er later nog uit kunt putten.",
+    why: "Meerdere locaties of afdelingen in één project vragen simpelweg meer draaitijd. Een extra dag levert bovendien voorraad op voor toekomstige content.",
+  },
+  "vid-drone": {
+    what: "Luchtbeelden in 4K door een gecertificeerde dronepiloot, inclusief het regelen van de benodigde vluchtvergunning.",
+    why: "Eén luchtshot laat de schaal van je locatie, project of terrein zien op een manier die vanaf de grond onmogelijk is. Het tilt de productiewaarde van een video direct op.",
+  },
+  "vid-voiceover": {
+    what: "Een professionele voice-over met stemcasting uit meerdere opties, opgenomen in studio, ook in andere talen beschikbaar.",
+    why: "De stem bepaalt de toon van je video. Een professionele opname klinkt onmiddellijk anders dan een telefoonopname en houdt de aandacht langer vast.",
+  },
+  "vid-edit": {
+    what: "Montage van je eigen opnames: selectie, opbouw, kleurcorrectie, audio-opschoning, titels en ondertiteling.",
+    why: "Als je zelf materiaal hebt maar het blijft liggen, is montage het ontbrekende stuk. Vaak zit er meer in je archief dan je denkt.",
+  },
+
+  // ===================================================== ORGANISCH
+  "org-social-basic": {
+    what:
+      "Een doorlopend social-abonnement waarin wij maandelijks je content maken en klaarzetten: statische posts en carrousels in je huisstijl, met copy en hashtags, ter review voordat er iets online gaat.",
+    why:
+      "Consistentie verslaat perfectie op social. Het probleem is bijna nooit het idee maar de uitvoering elke week. Uitbesteden zorgt dat je zichtbaar blijft, ook in drukke maanden.",
+  },
+  "org-social-reels": {
+    what:
+      "Het middenpakket met naast statische content ook reels en korte animaties per maand: concept, montage, ondertiteling en publicatieklaar aangeleverd.",
+    why:
+      "Reels krijgen structureel meer bereik dan statische posts, ook bij kleine accounts. Wie alleen statisch post, betaalt dat in zichtbaarheid.",
+  },
+  "org-social-pro": {
+    what:
+      "Het uitgebreide pakket met meer volume, meer bewegend beeld en een maandelijkse contentkalender, afgestemd op je campagnes en actualiteiten.",
+    why:
+      "Bij dit volume word je een kanaal in plaats van een account. Dat is het punt waarop social daadwerkelijk aanvragen gaat opleveren in plaats van alleen likes.",
+  },
+  "org-airender": {
+    what:
+      "AI-renders op basis van jouw schetsen of tekeningen: fotorealistisch of gestileerd, per stuk af te nemen. Ook voor producten die nog niet bestaan.",
+    why:
+      "Beeld maken van iets dat nog niet gebouwd is, was voorheen een dure 3D-klus. Met AI-renders kun je een idee binnen dagen visueel testen bij je markt.",
+  },
+  "org-aimotion": {
+    what: "AI-motion op bestaande beelden: subtiele beweging of cinematic camerabewegingen, geschikt voor hero's en advertenties.",
+    why: "Een stilstaand beeld dat licht beweegt trekt aantoonbaar meer aandacht in de tijdlijn, tegen een fractie van de kosten van een filmproductie.",
+  },
+  "org-podcast": {
+    what:
+      "Podcastproductie per aflevering: opname in onze studio of op locatie, montage, audio-opschoning en het uitsnijden van social snippets.",
+    why:
+      "Een podcast bouwt autoriteit op bij een publiek dat je anders nooit twintig minuten aandacht geeft. De snippets eruit voeden bovendien maandenlang je social kanalen.",
+  },
+
+  // ===================================================== PAID ADS
+  "ads-google": {
+    what:
+      "Adverteren op Google waar de vraag al bestaat. Zoekwoordenonderzoek zit standaard in dit plan: we bepalen op welke termen je wilt verschijnen, richten Search- en Performance Max-campagnes in met AI-driven biedstrategieën, koppelen je conversies en optimaliseren doorlopend op zoektermen en uitsluitingen.",
+    why:
+      "Iemand die zoekt heeft al een probleem en zoekt een oplossing — dat is de warmste doelgroep die er is. Het verschil tussen een middelmatig en een goed ingericht account zit vrijwel volledig in zoekwoordbeheer en conversiemeting, en daar zit onze aandacht.",
+    includes: ["Zoekwoordenonderzoek en campagnestructuur", "Search en Performance Max ingericht", "Conversies gekoppeld en gevalideerd", "Maandelijkse optimalisatie en rapportage"],
+    tech: ["Slimme biedstrategieën op basis van conversiewaarde", "Zoektermen-analyse met uitsluitingslijsten", "Advertentie-extensies volledig ingevuld"],
+  },
+  "ads-linkedin": {
+    what:
+      "LinkedIn-campagnes inclusief het maken van creatives en/of funnels. We targeten op functietitel, bedrijf, sector en bedrijfsgrootte, kiezen tussen Lead Gen Forms of een eigen landingspagina en testen boodschap en beeld tegen elkaar.",
+    why:
+      "Nergens anders bereik je zo precies de beslisser die je zoekt. LinkedIn is duurder per klik, maar bij zakelijke diensten met hoge klantwaarde verdient één deal de campagne meestal al terug.",
+    tech: ["Insight Tag en conversietracking ingericht", "Matched Audiences voor retargeting en ABM", "Formulieren gekoppeld aan je CRM"],
+  },
+  "ads-meta": {
+    what:
+      "Campagnes op Facebook en Instagram inclusief het maken van creatives en/of funnels. We richten Business Manager, pixel en Conversions API in, bouwen doelgroepen, lookalikes en retargeting en leveren zowel statische als video-creatives.",
+    why:
+      "Meta is het kanaal om vraag te créëren bij mensen die je nog niet zochten. Dat werkt alleen met genoeg goede creatives — en dat is precies wat de meeste adverteerders tekortkomen.",
+    tech: ["Conversions API naast de browserpixel voor betrouwbaar meten", "Creatives per plaatsing bijgesneden", "Retargeting op basis van sitegedrag en video-kijkduur"],
+  },
+  "ads-other": {
+    what:
+      "Adverteren op kanalen buiten de gebaande paden: Reddit, TikTok, Pinterest, YouTube of digital out-of-home. We bepalen samen welk kanaal bij je doelgroep past en maken de creatives specifiek voor dat platform.",
+    why:
+      "Op minder verzadigde kanalen zijn de kosten per bereik vaak veel lager. Het vraagt wel creatives die bij het platform passen — een LinkedIn-advertentie op TikTok werkt gegarandeerd niet.",
+  },
+  "ads-keywords": {
+    what:
+      "Een volledig zoekwoordenonderzoek met actuele zoekvolumes en concurrentiecijfers, geclusterd op zoekintentie en funnel-fase, inclusief uitsluitingslijsten. Bij het Google Ads-plan zit dit standaard inbegrepen.",
+    why:
+      "Zonder actuele volumes gok je waar je budget heen gaat. Een goed onderzoek laat zien welke termen commercieel interessant zijn en welke je juist moet uitsluiten om verspilling te voorkomen — dat scheelt vaak tientallen procenten aan advertentiebudget.",
+  },
+  "ads-keywords-mnd": {
+    what:
+      "Maandelijkse zoektermenanalyse waarbij we nieuwe kansen toevoegen, verspilling uitsluiten en biedingen per zoekwoordgroep bijstellen. Ook los af te nemen naast een SEO-traject.",
+    why:
+      "Zoekgedrag verandert continu en advertentieplatforms verbreden je bereik automatisch. Zonder maandelijkse controle betaal je ongemerkt voor zoekopdrachten die nooit klant worden.",
+  },
+  "ads-creatives": {
+    what:
+      "Elke maand zes tot tien nieuwe statische advertentiebeelden, met varianten per doelgroep en funnel-fase, inclusief copy en haakjes, gebaseerd op wat in de data presteert.",
+    why:
+      "Advertenties slijten: dezelfde creative wordt na een paar weken minder effectief. Een vaste stroom nieuwe beelden houdt je kosten per resultaat stabiel in plaats van langzaam oplopend.",
+  },
+  "ads-video-creatives": {
+    what:
+      "Twee tot vier videoadvertenties per maand, uitgeleverd in 9:16 en 1:1, standaard met ondertiteling en met hooks die specifiek op de eerste drie seconden zijn getest.",
+    why:
+      "Video presteert op vrijwel elk platform beter dan statisch, maar alleen als de eerste seconden pakken. Daar leggen we de nadruk, want daar valt negentig procent van je publiek af.",
+  },
+  "ads-audit": {
+    what:
+      "Een doorlichting van je bestaande advertentieaccount: structuur, conversiemeting, biedstrategie, zoektermen en creatives, met een rapport waarin verspilling en gemiste kansen op prioriteit staan.",
+    why:
+      "Bijna elk account dat wij openen bevat budget dat naar niets loopt: kapotte conversies, verkeerde matchtypes of campagnes die elkaar beconcurreren. De audit verdient zich meestal binnen een maand terug.",
+  },
+
+  // ===================================================== SEO / AEO
+  "seo-boost": {
+    what:
+      "Een eenmalige optimalisatieslag: meta-titels en -beschrijvingen herschreven, zoekwoordonderzoek, mediacompressie en een technische SEO-scan met de belangrijkste fixes.",
+    why:
+      "Veel sites laten laaghangend fruit liggen: ontbrekende metateksten, zware afbeeldingen en technische fouten die indexatie remmen. Dit is de snelste manier om zichtbaar terrein te winnen zonder maandelijkse verplichting.",
+  },
+  "seo-growth": {
+    what:
+      "Doorlopende SEO met twee blogs of landingspagina's per maand, gebaseerd op thema's en actualiteiten die we via webscraping signaleren. Drafts worden ter review klaargezet; jij houdt de regie over publicatie. Daarnaast optimaliseren we bestaande pagina's en de interne linkstructuur.",
+    why:
+      "SEO is een sneeuwbal: elke maand content bouwt op de vorige voort en je autoriteit groeit cumulatief. Stoppen kost je die opbouw, en concurrenten die wél doorgaan lopen je voorbij.",
+  },
+  "seo-authority": {
+    what:
+      "Het zwaarste SEO-pakket: vier contentstukken per maand, linkbuilding en digital PR, concurrentie-monitoring en elk kwartaal een strategische herijking.",
+    why:
+      "In competitieve markten win je niet op content alleen — autoriteit via externe links is de doorslaggevende factor. Dit pakket is bedoeld voor wie echt bovenaan wil staan en daar de tijd voor neemt.",
+  },
+  "aeo-answers": {
+    what:
+      "Optimalisatie om geciteerd te worden dóór AI-antwoordmachines. We bouwen een FAQ-hub met cross-referenced vragen, zetten JSON-LD-schema's op (FAQ, Article, Organization, Product), richten robots.txt en llms.txt in en stemmen content af op hoe ChatGPT, Gemini en Perplexity bronnen selecteren. Prijs op aanvraag, omdat de scope sterk verschilt per site.",
+    why:
+      "Steeds meer mensen krijgen hun antwoord zonder ooit op een zoekresultaat te klikken. Wie in die antwoorden genoemd wordt, houdt zichtbaarheid; wie er niet in staat, verdwijnt langzaam uit beeld. Dit is de vroege fase waarin je nog voorsprong kunt pakken.",
+    tech: ["Gestructureerde data volgens schema.org", "llms.txt en crawler-richtlijnen voor AI-bots", "Entiteiten en bronvermeldingen consistent gemaakt"],
+  },
+
+  // ===================================================== TRACKING
+  "trk-foundation": {
+    what:
+      "De eenmalige inrichting van je meetbasis: Search Console geverifieerd met sitemap, een Google Analytics 4-property met datastream, een Google Tag Manager-container met je basis-events, de Meta Pixel en een cookie-consent-oplossing gekoppeld aan Consent Mode. Daarna houden we maandelijks in de gaten of alle meetpunten blijven werken.",
+    why:
+      "Zonder deze drie — Search Console, GA4 en Tag Manager — vlieg je blind. Je weet niet welke pagina's bezoekers trekken, waar ze afhaken of welk kanaal je aanvragen oplevert. Het is de goedkoopste stap met de grootste impact, want alles wat je daarna doet kun je pas beoordelen als je het kunt meten.",
+    includes: [
+      "Search Console: verificatie, sitemap en dekkingscontrole",
+      "GA4: property, datastream, basisconversies",
+      "Google Tag Manager: container, triggers en variabelen",
+      "Meta Pixel en cookie-consent gekoppeld",
+      "Maandelijkse controle of alles blijft meten",
+    ],
+    tech: ["Tags volledig via GTM zodat je site schoon blijft", "Consent Mode v2 gekoppeld aan je CMP", "Interne verkeer uitgesloten van rapportage"],
+  },
+  "trk-server": {
+    what:
+      "Bovenop de meetbasis houden we je websitegebruik maandelijks bij: we monitoren de cijfers, signaleren meetfouten en wegvallende data en sturen bij. Technisch versterken we de meting met server-side tracking (sGTM), de Meta Conversions API, enhanced conversions en custom events. Je krijgt maandelijks een beknopt overzicht.",
+    why:
+      "Meetopstellingen gaan stuk: een formulier wordt vervangen, een tag valt weg, een update breekt een event. Zonder maandelijkse controle ontdek je dat pas als je een kwartaalrapport maakt en de data niet meer klopt. Server-side meten vangt bovendien op wat browsers en ad-blockers tegenhouden.",
+    tech: ["Server-side GTM-container met eigen subdomein", "Meta Conversions API naast de browserpixel", "Enhanced conversions voor betere matching"],
+  },
+  "trk-insights": {
+    what:
+      "Naast monitoring zetten we Microsoft Clarity in: sessie-opnames en heatmaps van échte bezoekers. Elke maand analyseren we die sessies en leveren we een klein rapportje met inzichten — waar mensen vastlopen, wat ze negeren en welke pagina's frustratie opleveren. Aangevuld met een Looker Studio-dashboard, attributiemodellen en funnel- en cohortanalyse.",
+    why:
+      "Cijfers vertellen je dát mensen afhaken, opnames laten zien wáárom. Dat is het verschil tussen gissen en gericht verbeteren. Eén rage-click-patroon op een knop die niet werkt, kan maandenlang omzet hebben gekost zonder dat het in de statistieken opviel.",
+    includes: [
+      "Microsoft Clarity ingericht en gekoppeld aan GA4",
+      "Maandelijkse analyse van sessie-opnames en heatmaps",
+      "Kort rapport met concrete verbeterpunten per pagina",
+      "Looker Studio-dashboard op maat",
+      "Funnel-, cohort- en attributieanalyse",
+    ],
+    tech: ["Clarity is gratis in licentie; wij verzorgen inrichting en analyse", "Opnames gemaskeerd waar persoonsgegevens in beeld komen", "Segmenten op apparaat, kanaal en landingspagina"],
+  },
+  "trk-partner": {
+    what:
+      "Alles uit Insights Pro, aangevuld met een maandelijkse meeting — bij ons, bij jou of online — waarin we onze ideeën, suggesties en tips persoonlijk doornemen. We bepalen samen de prioriteiten voor de komende maand en je hebt een vaste data-analist als aanspreekpunt.",
+    why:
+      "Een rapport dat niemand bespreekt, verandert niets. In een uur samen kijken ontstaan de beslissingen die er echt toe doen, omdat wij de cijfers kennen en jij de context van je markt. Dat combineren levert veel meer op dan beide los.",
+  },
+  "trk-keywords": {
+    what:
+      "Een zoekwoordenonderzoek met actuele zoekvolumes en concurrentiecijfers, geclusterd op zoekintentie, met een overzicht van de kansen die je nu laat liggen. Direct bruikbaar voor zowel SEO als advertenties.",
+    why:
+      "Je weet pas of je content op de juiste onderwerpen zit als je de actuele volumes kent. Vaak blijkt dat het zwaartepunt van de vraag ergens anders ligt dan waar je site over gaat — dat inzicht verandert je hele contentplan.",
+  },
+  "trk-keywords-mnd": {
+    what:
+      "Maandelijkse update van je zoekvolumes en posities, met nieuwe en opkomende zoektermen, gesignaleerde seizoenspatronen en aangedragen contentkansen.",
+    why:
+      "Zoekgedrag verschuift met het seizoen en met de markt. Wie dat maandelijks volgt, publiceert op het moment dat de vraag stijgt in plaats van erna.",
+  },
+  "trk-competition": {
+    what:
+      "Een analyse van drie tot vijf concurrenten, zowel op internet als op social media: hun website en content, op welke zoekwoorden ze scoren, welke advertenties ze draaien, hoe vaak ze posten, hun tone of voice en hun engagement. Je krijgt een rapport met inzichten en concrete aanbevelingen.",
+    why:
+      "Je hoeft het wiel niet opnieuw uit te vinden — je concurrenten hebben al betaald voor de experimenten. Zien waar zij op inzetten laat je zowel hun succesformules kopiëren als de gaten vinden die zij laten liggen.",
+    includes: ["Web: content, zoekwoorden, posities en advertenties", "Social: frequentie, formats, tone of voice en engagement", "Positioneringsvergelijking", "Rapport met aanbevelingen op prioriteit"],
+  },
+  "trk-strategy": {
+    what:
+      "Elk kwartaal een strategiesessie met een strateeg en data-analist, gevoed door doorlopende concurrentie- en marktmonitoring. We bepalen prioriteiten en een roadmap voor het volgende kwartaal en leggen besluiten en acties vast.",
+    why:
+      "Zonder vast moment om terug te kijken blijft marketing hollen van campagne naar campagne. Eén sessie per kwartaal houdt je bezig met wat werkt in plaats van met wat toevallig langskomt.",
+  },
+  "trk-cookiebanner": {
+    what:
+      "Een volwaardige cookiebanner via Consent Studio (Nederlandse partij) of Usercentrics Cookiebot, in je eigen huisstijl, met automatische cookie-scan, een altijd actuele cookieverklaring, koppeling aan Consent Mode v2 in Tag Manager en consent-logging voor de bewaarplicht.",
+    why:
+      "Een zelfgebouwd bannertje voldoet meestal niet: je moet kunnen aantonen wát iemand wanneer heeft toegestaan, en je scripts moeten daadwerkelijk pas ná toestemming laden. Een professionele CMP regelt dat aantoonbaar en houdt zich automatisch bij aan veranderende regels.",
+    tech: ["Consent Mode v2 zodat GA4 geanonimiseerd blijft meten zonder toestemming", "Automatische maandelijkse cookie-scan", "Licentiekosten van de CMP-leverancier zijn niet inbegrepen"],
+  },
+
+  // ===================================================== FUNNELS
+  "fun-calc": {
+    what: "Een rekentool of prijsindicator op je site waarmee bezoekers zelf een indicatie krijgen op basis van hun situatie, met de ingevulde gegevens als lead in je mailbox of CRM.",
+    why: "Prijs is de meestgestelde vraag en tegelijk de reden dat mensen niet bellen. Een indicatie geven filtert je aanvragen én verhoogt het aantal, omdat mensen weten waar ze aan toe zijn.",
+  },
+  "fun-quote": {
+    what: "Een offerte-aanvraagflow met logische vervolgvragen, waarbij de bezoeker stap voor stap zijn situatie beschrijft en jij een compleet ingevulde aanvraag ontvangt.",
+    why: "Onvolledige aanvragen kosten twee tot drie mails heen en weer voordat je kunt offreren. Een goede flow levert je meteen alles wat je nodig hebt en verkort je doorlooptijd zichtbaar.",
+  },
+  "fun-config": {
+    what: "Een configurator waarmee bezoekers een product of dienst samenstellen, met live prijsopbouw en een samenvatting die als aanvraag binnenkomt.",
+    why: "Zelf samenstellen verhoogt de betrokkenheid en de kans dat iemand doorzet. Bovendien weet je precies wat de klant wil voordat het eerste gesprek begint.",
+  },
+  "fun-ebook": {
+    what: "Een downloadbare gids of whitepaper met landingspagina, formulier en automatische aflevering per mail, gekoppeld aan je mailinglijst.",
+    why: "Niet iedereen is klaar om te kopen, maar wel om iets te leren. Een download maakt van anonieme bezoekers bekende contacten die je daarna kunt opvolgen.",
+  },
+  "fun-email": {
+    what: "Een geautomatiseerde e-mailflow die nieuwe contacten opvolgt met een reeks berichten, afgestemd op wat ze hebben gedaan of gedownload.",
+    why: "De meeste leads kopen niet meteen. Een flow houdt het contact warm zonder dat iemand er handmatig achteraan moet — en verhoogt de conversie van je bestaande leads meetbaar.",
+  },
+  "fun-audience": {
+    what: "Doelgroepsegmentatie waarbij bezoekers op basis van hun keuzes verschillende content, aanbiedingen of vervolgstappen te zien krijgen.",
+    why: "Eén boodschap voor iedereen raakt niemand echt. Segmenteren maakt je aanbod relevanter en verhoogt daarmee zowel je conversie als de kwaliteit van je leads.",
+  },
+
+  // ===================================================== CRM
+  "crm-setup": {
+    what: "Inrichting van je CRM (HubSpot, Pipedrive, Teamleader of Odoo): pijplijnen, velden, gebruikers, rechten en de eerste automatiseringen, plus import van je bestaande contacten.",
+    why: "Een CRM dat niet aansluit op je verkoopproces wordt niet gebruikt, en een CRM dat niet gebruikt wordt is een dure adressenlijst. Goede inrichting bepaalt of je team het omarmt of ontwijkt.",
+  },
+  "crm-api": {
+    what: "Koppelingen tussen je systemen via API's, Make of Zapier: website, CRM, boekhouding, planning en mail die elkaar automatisch voeden, inclusief foutafhandeling en logging.",
+    why: "Elk handmatig overtypen van gegevens is tijd én een kans op fouten. Systemen die met elkaar praten leveren per week uren op en houden je data overal actueel.",
+  },
+  "crm-manage": {
+    what: "Doorlopend beheer van je CRM en integraties: nieuwe automatiseringen, aanpassingen aan je proces, monitoring van koppelingen en ondersteuning voor je team.",
+    why: "Processen veranderen en koppelingen breken bij updates. Vast beheer voorkomt dat je stilstaat op het moment dat je systeem het meest nodig hebt.",
+  },
+
+  // ===================================================== AI
+  "ai-scan": {
+    what:
+      "We lichten je huidige processen door en brengen in kaart waar AI daadwerkelijk tijd oplevert. De kansen rangschikken we op tijdwinst en haalbaarheid, met advies over tooling, kosten en privacy. Je krijgt een rapport met een roadmap voor zes tot twaalf maanden en we presenteren het aan je team.",
+    why:
+      "De meeste organisaties beginnen bij de tool in plaats van bij het probleem, en houden er na drie maanden weer mee op. Door eerst te kijken waar je uren echt weglopen, investeer je in de twee of drie toepassingen die wél blijven hangen.",
+    includes: ["Interviews met sleutelrollen", "Procesinventarisatie met tijdsbesteding", "Kansen gescoord op impact en haalbaarheid", "Adviesrapport met roadmap en kostenraming"],
+  },
+  "ai-knowledge": {
+    what:
+      "We richten je eigen AI-kennisomgeving in: projecten en een knowledge base gevuld met jouw handleidingen, offertes, beleidsstukken en procedures, zodat de AI antwoordt op basis van jóuw documenten met bronvermelding. Inclusief toegang en rollen per team en een instructie-set die de output on-brand houdt.",
+    why:
+      "Een algemene chatbot kent jouw prijzen, procedures en afspraken niet en verzint dus. Met je eigen kennisomgeving krijgen medewerkers antwoorden die kloppen, met de bron erbij — dat scheelt zoektijd en voorkomt dat mensen elkaar blijven vragen wat er ook alweer was afgesproken.",
+    includes: [
+      "Inventarisatie en opschoning van je documentatie",
+      "Projecten en knowledge base ingericht",
+      "Instructies en tone of voice vastgelegd",
+      "Rollen en toegangsrechten per team",
+      "Training zodat je team ermee aan de slag kan",
+    ],
+    tech: ["Werkt met ChatGPT-projecten, Claude Projects of een eigen RAG-opzet", "Bronvermelding bij elk antwoord", "Afspraken over wat wel en niet als bron wordt opgenomen"],
+  },
+  "ai-automation": {
+    what:
+      "We automatiseren terugkerende processen met AI-stappen erin: van inkomende mail naar een gestructureerde aanvraag, van aanvraag naar conceptofferte, van data naar rapportage. Gebouwd in Make, Zapier of eigen code, met foutafhandeling, logging en altijd een menselijke controle op het juiste moment.",
+    why:
+      "AI wordt pas waardevol als het niet meer afhangt van iemand die eraan denkt het te gebruiken. Automatisering haalt handwerk structureel weg en levert per proces vaak meerdere uren per week op — bij gelijkblijvende kwaliteit, omdat de check blijft bestaan.",
+    tech: ["Make, Zapier of eigen serverless functies", "Logging en alerting bij fouten", "Menselijke goedkeuringsstap op onomkeerbare acties"],
+  },
+  "ai-workshop": {
+    what:
+      "Een dagdeel op locatie of online voor maximaal twaalf personen, waarin je team leert werken met ChatGPT, Claude en Gemini. We behandelen prompting-technieken aan de hand van jullie eigen praktijkcases, leveren een promptbibliotheek op en maken afspraken over veilig gebruik.",
+    why:
+      "Het verschil tussen iemand die AI 'wel eens probeert' en iemand die het goed gebruikt, is een factor in productiviteit. Eén dagdeel training verdient zich meestal binnen twee weken terug, en voorkomt tegelijk dat er bedrijfsgevoelige informatie in de verkeerde tool belandt.",
+  },
+  "ai-image": {
+    what:
+      "Een doorlopend abonnement waarin we elke maand nieuw AI-beeld in jouw huisstijl maken: product-, sfeer- en campagnebeeld, met een vaste stijlreferentie zodat alles consistent blijft. Retouche en upscaling zitten erbij. De prijs stellen we op aanvraag vast, omdat volume en complexiteit sterk verschillen.",
+    why:
+      "Stockbeeld dat je concurrent ook gebruikt kost je onderscheidend vermogen, en een fotoshoot per campagne is voor de meeste bedrijven te duur en te traag. Met AI-beeld heb je binnen dagen origineel materiaal dat wél bij je merk past.",
+  },
+  "ai-policy": {
+    what:
+      "Een gebruiksbeleid voor AI binnen je organisatie: wat mag wel en niet met bedrijfsdata, welke tools zijn goedgekeurd, hoe ga je om met klantgegevens, en welke AVG- en AI-Act-punten raken jou. Inclusief dataverwerkingsafspraken per tool.",
+    why:
+      "Je medewerkers gebruiken AI al, met of zonder beleid. Zonder afspraken belandt vertrouwelijke informatie in tools waar je geen zicht op hebt. Beleid maakt gebruik veilig in plaats van dat het het verbiedt.",
+  },
+  "ai-agent": {
+    what:
+      "Een chat-assistent op je website, getraind op je eigen content, die bezoekers 24/7 antwoord geeft en netjes doorverwijst naar een mens bij twijfel. Gesprekken en veelgestelde vragen worden inzichtelijk gemaakt, en de assistent staat volledig in je huisstijl.",
+    why:
+      "Bezoekers stellen buiten kantoortijd hun vragen en haken af als er niemand is. Een assistent vangt dat op en laat je bovendien precies zien welke vragen mensen hebben — informatie die je ook direct in je content kunt verwerken.",
+  },
+  "ai-content": {
+    what:
+      "Een contentmotor met vaste prompts en sjablonen per contentsoort, met je tone of voice vastgelegd in de instructies. Concepten worden klaargezet ter review; menselijke eindredactie blijft de norm.",
+    why:
+      "AI-content zonder sturing klinkt naar niemand. Met vastgelegde stem en structuur versnel je het schrijfwerk aanzienlijk terwijl het herkenbaar jouw merk blijft — en je publiceert nooit iets dat niemand heeft gelezen.",
+  },
+  "ai-session": {
+    what: "Een sessie van twee uur met een AI-specialist over concrete vragen uit je eigen praktijk, met een beknopt verslag en vervolgstappen.",
+    why: "Soms zit je vast op één specifieke vraag en heb je geen heel traject nodig. Twee uur gericht sparren brengt je vaak verder dan weken zelf uitzoeken.",
+  },
+  "ai-prompt-pack": {
+    what: "Vijfentwintig tot veertig kant-en-klare prompts voor de functies binnen jouw organisatie, getest op je eigen cases, in een onderhoudbaar document of Notion-pagina.",
+    why: "Prompts die aantoonbaar werken zijn direct herbruikbaar door je hele team. Het scheelt iedereen de leercurve en zorgt dat de output onderling consistent blijft.",
+  },
+
+  // ===================================================== HOSTING
+  "host-domain-dns": {
+    what: "Domeinregistratie of -verhuizing en volledige DNS-inrichting: A-, CNAME-, MX-, SPF-, DKIM- en DMARC-records correct gezet, met SSL geactiveerd.",
+    why: "DNS is onzichtbaar tot het misgaat, en dan ligt je mail of je site plat. Correct ingerichte mailrecords zorgen bovendien dat je berichten niet in de spamfolder belanden.",
+  },
+  "host-mailboxes": {
+    what: "Zakelijke mailboxen op je eigen domein, ingericht en gekoppeld aan de apparaten van je team, met aliassen, doorstuurregels en spamfilter.",
+    why: "Een gmail-adres voor je bedrijf kost je geloofwaardigheid bij precies de klanten die je wilt hebben. Eigen mail op je domein is een kleine stap met een groot effect.",
+  },
+  "host-basic": {
+    what: "Managed hosting met dagelijkse back-ups, monitoring, SSL, updates en een SLA op bereikbaarheid.",
+    why: "Goedkope hosting kost je uiteindelijk meer: trage laadtijden drukken je conversie en ranking, en zonder back-ups is een fout onherstelbaar.",
+  },
+  "host-premium": {
+    what: "Zwaardere hosting met meer resources, staging-omgeving, CDN en uitgebreidere monitoring, geschikt voor drukbezochte sites en webshops.",
+    why: "Bij hogere bezoekersaantallen is snelheid direct omzet. Een staging-omgeving betekent bovendien dat je nooit meer op de live site hoeft te experimenteren.",
+  },
+  "host-taylored": {
+    what: "Een op maat ingerichte hostingomgeving voor specifieke eisen: eigen server, verhoogde beveiliging, compliance-eisen of een bijzondere technische stack.",
+    why: "Sommige organisaties hebben eisen die standaard pakketten niet dekken. Dan is maatwerk goedkoper dan een pakket dat net niet past en constant workarounds vraagt.",
+  },
+  "host-automation": {
+    what: "Automatisering rondom je hosting: geautomatiseerde deploys, back-uptests, uptime-alerts en periodieke rapportage over performance en beveiliging.",
+    why: "Een back-up die nooit is teruggezet, is geen back-up. Automatisering en periodieke controle zorgen dat je zekerheden ook echt zekerheden zijn.",
+  },
+
+  // ===================================================== SUPPORT
+  "sup-mini": {
+    what: "Het instapabonnement: updates, monitoring en beveiligingspatches, zonder vaste ontwikkeluren.",
+    why: "Een site zonder onderhoud is een kwestie van tijd voordat er iets breekt of gehackt wordt. Dit is de minimale verzekering daartegen.",
+  },
+  "sup-solid": {
+    what: "Onderhoud plus één uur ontwikkeltijd per maand voor kleine aanpassingen, tekstwijzigingen en vragen.",
+    why: "Kleine wijzigingen blijven anders eindeloos liggen omdat het niet de moeite is om er een offerte voor te vragen. Met vaste uren gebeurt het gewoon.",
+  },
+  "sup-build": {
+    what: "Drie uur per maand voor doorontwikkeling: nieuwe secties, aanpassingen en verbeteringen, bovenop het reguliere onderhoud.",
+    why: "Websites die maandelijks een beetje beter worden, presteren na een jaar aanzienlijk beter dan sites die na livegang stil blijven staan.",
+  },
+  "sup-craft": {
+    what: "Vijf uur per maand met prioriteit op je verzoeken, geschikt voor organisaties die regelmatig content en functionaliteit toevoegen.",
+    why: "Op dit niveau kun je echt plannen: een nieuwe landingspagina per maand of een doorlopende reeks verbeteringen, zonder telkens te moeten afstemmen over budget.",
+  },
+  "sup-forge": {
+    what: "Acht uur per maand, genoeg voor een vaste stroom aan verbeteringen en kleine features naast het onderhoud.",
+    why: "Wie zijn site als groeikanaal gebruikt in plaats van als visitekaartje, heeft structureel ontwikkelcapaciteit nodig. Dit is het punt waarop dat begint.",
+  },
+  "sup-scale": {
+    what: "Twaalf uur per maand met vaste inplanning, geschikt voor sites en portalen die continu doorontwikkeld worden.",
+    why: "Bij dit volume werk je feitelijk met een vast ontwikkelteam, zonder de kosten en het risico van iemand in dienst nemen.",
+  },
+  "sup-apex": {
+    what: "Zestien uur per maand met prioriteitsafhandeling en vaste overlegmomenten.",
+    why: "Voor organisaties waarbij de website of applicatie een kernonderdeel van de bedrijfsvoering is en stilstand direct geld kost.",
+  },
+  "sup-custom": {
+    what: "Meer dan zestien uur per maand, volledig op maat ingericht met eigen SLA, vaste contactpersonen en afgesproken responstijden.",
+    why: "Bij bedrijfskritische toepassingen wil je geen wachtrij. Een eigen SLA legt vast wanneer wij er zijn en wat je van ons kunt verwachten.",
+  },
 };
 
 /** Compose een nette fallback voor pakketten zonder eigen tekst. */
