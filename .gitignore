@@ -11,6 +11,9 @@ next-env.d.ts
 # production
 /build
 
+# static export bundel (gegenereerd via `npm run export`)
+m7-experience-letsgo.zip
+
 # misc
 .DS_Store
 *.pem
