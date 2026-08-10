@@ -40,6 +40,8 @@ export type Price = {
   suffix?: string;
   /** true = toon een "vanaf"-prijs (projectprijzen die per scope variëren). */
   from?: boolean;
+  /** Doorlopende kosten per JAAR in euro (bv. domeinregistratie). */
+  yearly?: number;
 };
 
 export type PkgKind = "plan" | "addon" | "item";
@@ -72,6 +74,11 @@ export type Pkg = {
   details?: PkgDetails;
   /** Optionele eigen subgroep binnen de categorie (zie Category.groups). */
   group?: string;
+  /**
+   * Toon dit pakket alleen als de keuze bij `Category.platformOption` een van
+   * deze waarden is. Leeg/afwezig = altijd tonen.
+   */
+  platforms?: string[];
 };
 
 export type CategoryOption = {
@@ -105,6 +112,13 @@ export type Category = {
   groups?: { id: string; kicker: string; hint: string }[];
   /** Harde voorwaarde bij deze categorie — als opvallende callout getoond. */
   requires?: string;
+  /**
+   * Id van de optie die bepaalt welke pakketten zichtbaar zijn (zie
+   * `Pkg.platforms`). Wordt als toggle bovenaan de stap getoond.
+   */
+  platformOption?: string;
+  /** Pakket-id dat met één klik als "erbij"-optie op de plan-kaarten staat. */
+  trackingPlus?: string;
 };
 
 // ------------------------------------------------------------
@@ -2077,75 +2091,61 @@ export const CATALOG: Category[] = [
     label: "Tracking",
     kicker: "Meten, monitoren & inzicht",
     blurb:
-      "Eerst de meetbasis eenmalig goed inrichten — Search Console, Google Analytics 4 en Google Tag Manager — en daarna elke maand je websitegebruik bijhouden en monitoren. Dat is cruciaal om op élke plek van je website of web-app te zien wat er gebeurt, en in de hogere plannen kijken we met Microsoft Clarity mee in échte gebruikerssessies en heatmaps.",
-    note: "De eenmalige inrichting is de basis; het maandbedrag dekt het bijhouden, monitoren en de rapportage. Een cookiebanner (CMP) zit níét in de plannen — die neem je los af als licentie onderaan deze pagina.",
-    tools: ["googlesearchconsole", "googleanalytics", "googletagmanager", "clarity", "meta"],
+      "Wij zetten je volledige meetstructuur op: Google Analytics 4, Search Console, Google Tag Manager en — indien aanwezig — de Meta Pixel, Microsoft Clarity en je cookiebanner. Het maandbedrag is voor het hosten en beheren daarvan; de eenmalige inrichting hangt af van de meetstructuur en het aantal events.",
+    note:
+      "De eenmalige inrichting (eventueel server-side) start vanaf € 295 en is sterk afhankelijk van het aantal events en de complexiteit van de metingen. Een cookiebanner (CMP) zit níét in de plannen — die neem je los af bij Hosting.",
+    tools: ["googleanalytics", "googlesearchconsole", "googletagmanager", "clarity", "meta", "consentstudio"],
     packages: [
       {
         id: "trk-foundation",
         name: "Meetbasis",
-        tagline: "Search Console, GA4 & Tag Manager ingericht.",
+        tagline: "Alles opgezet, gehost en beheerd.",
         kind: "plan",
-        price: { setup: 195, monthly: 15 },
+        price: { setup: 295, monthly: 15, from: true },
         features: [
-          "Eenmalig: Search Console geverifieerd & sitemap ingediend",
-          "Eenmalig: Google Analytics 4 property + datastream",
-          "Eenmalig: Google Tag Manager container & basis-events",
-          "Meta Pixel en basis-conversies",
-          "Consent Mode voorbereid (CMP apart af te nemen)",
-          "Maandelijks: meetpunten bewaakt en gecontroleerd",
+          "Google Analytics 4 volledig ingericht",
+          "Search Console geverifieerd met sitemap",
+          "Google Tag Manager container & events",
+          "Meta Pixel en Microsoft Clarity indien aanwezig",
+          "Cookiebanner aangesloten indien van toepassing",
+          "Af en toe inzichten vanuit ons — geen doorlopende rapportage",
         ],
         recommends: ["seo"],
       },
       {
-        id: "trk-server",
-        name: "Monitoring",
-        tagline: "Elke maand bijhouden wat er gebeurt.",
+        id: "trk-insights",
+        name: "Insights Pro",
+        tagline: "Proactieve monitoring & rapportage.",
         kind: "plan",
-        price: { setup: 495, monthly: 45 },
+        price: { setup: 295, monthly: 175, from: true },
         highlight: true,
         badge: "Populair",
         features: [
           "Alles uit Meetbasis",
-          "Maandelijkse monitoring van je websitegebruik",
-          "Server-side tracking (sGTM) & Meta Conversions API",
-          "Enhanced conversions & custom events",
-          "Signaleren van meetfouten en wegvallende data",
-          "Beknopt maandoverzicht van de cijfers",
-        ],
-      },
-      {
-        id: "trk-insights",
-        name: "Insights Pro",
-        tagline: "Clarity, heatmaps & een rapport met inzichten.",
-        kind: "plan",
-        price: { setup: 795, monthly: 175 },
-        features: [
-          "Alles uit Monitoring",
-          "Microsoft Clarity: sessie-opnames & heatmaps",
-          "Analyse + klein rapportje met inzichten uit échte sessies",
-          "Looker Studio dashboard & attributiemodellen",
-          "Funnel- & cohortanalyse",
+          "Proactieve monitoring van je meetpunten en cijfers",
+          "Maandelijkse rapportage met inzichten",
+          "Microsoft Clarity: sessie-opnames & heatmaps geanalyseerd",
+          "Looker Studio dashboard & funnelanalyse",
           "Concrete verbeterpunten per pagina",
         ],
-        recommends: ["funnels"],
+        recommends: ["funnels", "paid"],
       },
       {
         id: "trk-partner",
         name: "Insights Partner",
-        tagline: "Inclusief maandelijkse meeting.",
+        tagline: "Strategische sessies op basis van de data.",
         kind: "plan",
-        price: { custom: true },
+        price: { setup: 295, custom: true },
         badge: "Op aanvraag",
         features: [
           "Alles uit Insights Pro",
-          "Maandelijkse meeting — in persoon of online",
-          "Onze ideeën, suggesties & tips live doorgenomen",
-          "Prioriteitenlijst voor de komende maand",
+          "Wekelijkse, tweewekelijkse of maandelijkse sessie",
+          "Fysiek of online — strategisch, op basis van de insights",
+          "Direct samen acteren op wat de data laat zien",
           "Vaste data-analist als aanspreekpunt",
-          "Prijs op aanvraag — afhankelijk van omvang en frequentie",
+          "Prijs op aanvraag — afhankelijk van frequentie en omvang",
         ],
-        recommends: ["funnels", "seo"],
+        recommends: ["funnels", "seo", "paid"],
       },
 
       // ---------------------------------------- onderzoek & advies
@@ -2205,11 +2205,26 @@ export const CATALOG: Category[] = [
         ],
       },
       {
+        id: "trk-server",
+        name: "Server-side tracking",
+        tagline: "Meten wat browsers tegenhouden.",
+        kind: "addon",
+        price: { setup: 295, monthly: 45, from: true },
+        features: [
+          "Server-side GTM-container op eigen subdomein",
+          "Meta Conversions API naast de browserpixel",
+          "Enhanced conversions voor betere matching",
+          "Minder dataverlies door ad-blockers en iOS",
+          "Eenmalige kosten afhankelijk van complexiteit",
+        ],
+        recommends: ["paid"],
+      },
+      {
         id: "trk-cookiebanner",
         name: "Cookiebanner (CMP)",
         tagline: "Losse licentie — niet in de plannen inbegrepen.",
         kind: "addon",
-        price: { setup: 450, monthly: 15 },
+        price: { monthly: 10, from: true },
         badge: "Losse licentie",
         features: [
           "Consent Studio (NL) of Usercentrics Cookiebot",
@@ -2601,29 +2616,227 @@ export const CATALOG: Category[] = [
     label: "Hosting",
     kicker: "Solide fundament",
     blurb:
-      "Van A tot Z geregeld: domein & DNS, back-ups en maximale veiligheid. Op WordPress (evt. WooCommerce) of Webflow — inclusief hosting van je automations.",
-    note: "Vanafprijzen — worden op basis van volume/gebruik nagerekend. Uurtarief buiten scope € 95.",
-    tools: ["wordpress", "webflow", "woocommerce", "make", "resend"],
+      "Managed hosting waarbij het minimaal benodigde vaste onderhoud is inbegrepen. Kies je platform — WordPress, WooCommerce, Webflow, een web-applicatie of een app — en het tarief past zich aan. Domein, DNS en redirects regelen we per domein los.",
+    note:
+      "Tarieven zijn afhankelijk van bandbreedte en eventueel benodigde extra licenties of externe tools. Aanvullende plugins, licenties en diensten van derden worden doorberekend. Uurtarief buiten scope € 95.",
+    requires:
+      "Buiten het core-onderhoud zit hier géén doorlopende ondersteuning of doorontwikkeling in — daarvoor zijn onze M7 Webplans bedoeld. Bij een E-Commerce- of Premium-pakket, een web-applicatie of een app is een Webplan verplicht.",
+    tools: [
+      "wordpress",
+      "woocommerce",
+      "webflow",
+      "amazonwebservices",
+      "vercel",
+      "netlify",
+      "cloudflare",
+      "github",
+      "supabase",
+      "postgresql",
+      "docker",
+      "nodedotjs",
+      "nextdotjs",
+      "make",
+      "zapier",
+      "airtable",
+      "wized",
+      "memberstack",
+      "resend",
+      "gmail",
+      "microsoft365",
+      "googletagmanager",
+      "googlesearchconsole",
+      "googleanalytics",
+      "clarity",
+      "consentstudio",
+      "usercentrics",
+      "weglot",
+      "translatepress",
+      "apple",
+      "testflight",
+      "android",
+      "openai",
+      "anthropic",
+    ],
+    platformOption: "platform",
+    trackingPlus: "trk-foundation",
+    crossSell: ["trk-foundation", "sup-build"],
+    groups: [
+      { id: "domein", kicker: "Domein & DNS", hint: "Los af te nemen, per domein — ongeacht welk platform je kiest" },
+      { id: "extra", kicker: "Optionele uitbreidingen", hint: "Compliance, vertalingen en mail — bij te schakelen op elk pakket" },
+    ],
     options: [
       {
         id: "platform",
-        label: "Platform",
-        choices: ["WordPress", "WooCommerce", "Webflow"],
-        triggers: { WooCommerce: "tracking" },
+        label: "Wat hosten we voor je",
+        choices: ["WordPress", "WordPress + WooCommerce", "Webflow", "Web-applicatie", "App"],
+        triggers: { "WordPress + WooCommerce": "tracking" },
       },
       {
         id: "host-domain",
         label: "Domeinnaam",
         choices: ["Heb ik al", "Graag registreren", "Overzetten naar M7"],
       },
+      {
+        id: "host-bandwidth",
+        label: "Verwacht verkeer",
+        choices: ["Tot 10.000 bezoekers p/m", "10.000 – 50.000", "50.000 – 250.000", "Meer / weet ik niet"],
+      },
     ],
     packages: [
+      // ---------------------------------------- WordPress
+      {
+        id: "host-wp-basic",
+        name: "WordPress Basic",
+        tagline: "Voor reguliere WordPress-sites.",
+        kind: "plan",
+        platforms: ["WordPress"],
+        price: { monthly: 29, from: true },
+        highlight: true,
+        badge: "Populair",
+        features: [
+          "Managed hosting met dagelijkse back-ups",
+          "Vast onderhoud: WP-core, thema & belangrijkste plugins",
+          "Elementor of thema-/pagebuilder-licentie inbegrepen",
+          "Caching-licentie inbegrepen",
+          "SSL, monitoring & beveiligingsupdates",
+        ],
+        recommends: ["support", "tracking"],
+      },
+      {
+        id: "host-wp-ecom",
+        name: "WordPress E-Commerce",
+        tagline: "Voor WooCommerce-shops.",
+        kind: "plan",
+        platforms: ["WordPress + WooCommerce"],
+        price: { monthly: 39 },
+        highlight: true,
+        badge: "Populair",
+        features: [
+          "Alles uit Basic, afgestemd op WooCommerce",
+          "Vast onderhoud: WP-core, thema, Woo & kernplugins",
+          "Elementor/pagebuilder- en caching-licentie inbegrepen",
+          "Zwaardere resources voor shopverkeer",
+          "Extra aandacht voor checkout- en betaalflows",
+        ],
+        recommends: ["support", "tracking", "webshop"],
+      },
+      {
+        id: "host-wp-premium",
+        name: "WordPress Premium",
+        tagline: "Shops met koppelingen en automatiseringen.",
+        kind: "plan",
+        platforms: ["WordPress", "WordPress + WooCommerce"],
+        price: { monthly: 59, from: true },
+        features: [
+          "Alles uit E-Commerce",
+          "Voor WooCommerce met koppelingen en automatiseringen",
+          "Onderhoud op niet-standaard functionaliteit",
+          "Monitoring van integraties en foutafhandeling",
+          "Staging-omgeving voor veilige updates",
+        ],
+        recommends: ["support", "tracking", "crm"],
+      },
+
+      // ---------------------------------------- Webflow
+      {
+        id: "host-wf-basic",
+        name: "Webflow Basic (Managed)",
+        tagline: "Managed Webflow zonder gedoe.",
+        kind: "plan",
+        platforms: ["Webflow"],
+        price: { monthly: 34 },
+        highlight: true,
+        badge: "Populair",
+        features: [
+          "Managed Webflow-hosting via M7",
+          "Vast onderhoud aan CDN en projectinstellingen",
+          "Formulieren en meldingen bewaakt",
+          "Doorvoeren van platform-updates",
+          "SSL en domeinkoppeling geregeld",
+        ],
+        recommends: ["support", "tracking"],
+      },
+      {
+        id: "host-wf-premium",
+        name: "Webflow Premium (Managed)",
+        tagline: "Met custom scripts en koppelingen.",
+        kind: "plan",
+        platforms: ["Webflow"],
+        price: { monthly: 44, from: true },
+        features: [
+          "Alles uit Webflow Basic",
+          "Onderhoud aan custom scripts en interacties",
+          "Automatiseringen en koppelingen bewaakt",
+          "Monitoring van externe services",
+          "Voorrang bij storingen",
+        ],
+        recommends: ["support", "tracking", "crm"],
+      },
+
+      // ---------------------------------------- Web-applicaties
+      {
+        id: "host-app-basic",
+        name: "Web-app Basic",
+        tagline: "Gated content en member-portalen.",
+        kind: "plan",
+        platforms: ["Web-applicatie"],
+        price: { monthly: 79, from: true },
+        highlight: true,
+        badge: "Populair",
+        features: [
+          "Hosting voor eenvoudige gated content of member-portalen",
+          "Vast onderhoud aan koppelingen, licenties en services",
+          "Scripts en integraties bewaakt",
+          "Back-ups van database en bestanden",
+          "Monitoring, logging en alerting",
+        ],
+        recommends: ["support", "webapps", "tracking"],
+      },
+      {
+        id: "host-app-pro",
+        name: "Web-app Pro",
+        tagline: "Login, auth en geavanceerde automatiseringen.",
+        kind: "plan",
+        platforms: ["Web-applicatie"],
+        price: { monthly: 149, from: true },
+        features: [
+          "Voor functionele web-applicaties met login (auth)",
+          "Geavanceerde automatiseringen en achtergrondtaken",
+          "Staging- en productieomgeving met deploys",
+          "Onderhoud aan koppelingen, licenties en services",
+          "Uitgebreide monitoring en alerting",
+        ],
+        recommends: ["support", "webapps", "tracking"],
+      },
+
+      // ---------------------------------------- Apps
+      {
+        id: "host-mobile-basic",
+        name: "App Basic",
+        tagline: "Alles rond je app in de lucht.",
+        kind: "plan",
+        platforms: ["App"],
+        price: { monthly: 99, from: true },
+        highlight: true,
+        badge: "Populair",
+        features: [
+          "Apple Developer-licentie inbegrepen",
+          "TestFlight voor testbuilds",
+          "Benodigde basishosting en licenties",
+          "Vast onderhoud aan de codebase",
+          "Monitoring op crashes en storingen",
+        ],
+        recommends: ["support", "apps", "tracking"],
+      },
+
+      // ---------------------------------------- domein & DNS (los)
       {
         id: "host-dns-plan",
         name: "M7 Domain, DNS & Redirect",
-        tagline: "Registratie en DNS-beheer per domein.",
-        kind: "plan",
-        price: { monthly: 25, from: true },
+        tagline: "Per domein, los van je hostingpakket.",
+        kind: "addon",
+        group: "domein",
+        price: { yearly: 25 },
         features: [
           "Domeinregistratie of -transfer per domein",
           "Volledig DNS-beheer door M7",
@@ -2634,23 +2847,11 @@ export const CATALOG: Category[] = [
         recommends: ["support"],
       },
       {
-        id: "host-domain-dns",
-        name: "Domein & DNS in beheer",
-        tagline: "Wij regelen je domein en DNS.",
-        kind: "addon",
-        price: { setup: 75, monthly: 5 },
-        features: [
-          "Domeinregistratie of -transfer",
-          "Volledig DNS-beheer door M7",
-          "Records, redirects & SSL geregeld",
-        ],
-        recommends: ["support"],
-      },
-      {
         id: "host-mailboxes",
         name: "Zakelijke mailboxen",
         tagline: "Professioneel mailen op je eigen domein.",
-        kind: "item",
+        kind: "addon",
+        group: "domein",
         price: { monthly: 4, suffix: "stuk" },
         features: [
           "Mailbox op jouw domein (jij@bedrijf.nl)",
@@ -2659,80 +2860,71 @@ export const CATALOG: Category[] = [
         ],
         recommends: ["support"],
       },
+
+      // ---------------------------------------- optionele uitbreidingen
       {
-        id: "host-basic",
-        name: "Basic",
-        tagline: "Voor een solide basis.",
-        kind: "plan",
-        price: { setup: 95, monthly: 19 },
+        id: "host-cmp",
+        name: "Cookie Compliance banner",
+        tagline: "Consent Studio of Usercentrics.",
+        kind: "addon",
+        group: "extra",
+        price: { monthly: 10, from: true },
         features: [
-          "Domein- & DNS-management",
-          "Redirect-management",
-          "Dagelijkse back-ups",
-          "SSL-certificaat & 99.8% uptime",
-          "Support bij storingen",
-          "Tot 3 mailaccounts",
+          "Via Consent Studio (NL) of Usercentrics (marktleider)",
+          "Voor websites, webshops, web-apps en apps",
+          "Banner in je eigen huisstijl",
+          "Automatische cookie-scan & cookieverklaring",
+          "Gekoppeld aan Consent Mode v2",
         ],
-        recommends: ["support"],
+        recommends: ["tracking"],
       },
       {
-        id: "host-premium",
-        name: "Premium",
-        tagline: "Voor actieve websites.",
-        kind: "plan",
-        price: { setup: 145, monthly: 39 },
-        highlight: true,
-        badge: "Populair",
+        id: "host-translate",
+        name: "Automatische vertalingen",
+        tagline: "Weglot of TranslatePress.",
+        kind: "addon",
+        group: "extra",
+        price: { monthly: 10, from: true, suffix: "taal" },
         features: [
-          "Alles uit Basic",
-          "2 domeinregistraties + 1 subdomein",
-          "Tot 5 mailaccounts",
-          "Premium support",
-          "500 API-operations",
-          "Staging-omgeving",
+          "Weglot (bij Webflow) of TranslatePress (bij WordPress)",
+          "Voor websites en webshops",
+          "Prijs per extra taal",
+          "Vertalingen zelf te redigeren",
+          "hreflang correct ingericht",
         ],
-        recommends: ["support", "tracking"],
-      },
-      {
-        id: "host-taylored",
-        name: "Taylored",
-        tagline: "Voor digitale raketten.",
-        kind: "plan",
-        price: { monthly: 95, suffix: "+", custom: true },
-        features: [
-          "Test- & productieomgeving",
-          "5+ domeinen · 10+ mailaccounts",
-          "Cloud / VPS-hosting",
-          "DDoS-beveiliging & flexibel schalen",
-          "1M+ API-operations",
-          "Persoonlijke accountmanager",
-        ],
-        recommends: ["support", "tracking", "funnels"],
-      },
-      {
-        id: "host-app",
-        name: "App-hosting",
-        tagline: "Voor web-apps, portalen en API's.",
-        kind: "plan",
-        price: { custom: true },
-        badge: "Op aanvraag",
-        features: [
-          "Hosting voor web-apps, portalen en API's",
-          "Database, opslag en achtergrondtaken",
-          "Staging- en productieomgeving met deploys",
-          "Monitoring, logging en alerting",
-          "Schaalt mee met gebruik — prijs op aanvraag",
-        ],
-        recommends: ["webapps", "support"],
+        recommends: ["seo"],
       },
       {
         id: "host-automation",
         name: "Automation-hosting",
-        tagline: "Draaiuren voor je scenario's.",
+        tagline: "Je Make- en Zapier-scenario's draaiend.",
         kind: "addon",
-        price: { monthly: 15 },
-        features: ["Beheer van Make / Zapier / n8n", "Monitoring van scenario's", "Transactionele e-mail (Resend)"],
-        recommends: ["funnels"],
+        group: "extra",
+        price: { monthly: 15, from: true },
+        features: [
+          "Hosting en bewaking van je automatiseringen",
+          "Foutmeldingen worden opgepakt",
+          "Operations en verbruik gemonitord",
+          "Licenties van externe tools worden doorberekend",
+        ],
+        recommends: ["crm", "funnels"],
+      },
+      {
+        id: "host-taylored",
+        name: "Taylored omgeving",
+        tagline: "Eigen server of bijzondere eisen.",
+        kind: "addon",
+        group: "extra",
+        price: { custom: true },
+        badge: "Op aanvraag",
+        features: [
+          "Eigen server, VPS of cloudomgeving",
+          "Verhoogde beveiliging of compliance-eisen",
+          "DDoS-beveiliging en flexibel schalen",
+          "Test- en productieomgeving",
+          "Persoonlijke accountmanager",
+        ],
+        recommends: ["support", "tracking"],
       },
     ],
   },

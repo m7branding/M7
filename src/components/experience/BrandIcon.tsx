@@ -54,7 +54,61 @@ export type BrandKey =
   | "perplexity"
   | "pagespeedinsights"
   | "clarity"
-  | "weglot";
+  | "weglot"
+  | "amazonwebservices"
+  | "netlify"
+  | "vercel"
+  | "github"
+  | "anthropic"
+  | "gmail"
+  | "whatsapp"
+  | "pinterest"
+  | "googledrive"
+  | "dropbox"
+  | "slack"
+  | "cloudflare"
+  | "supabase"
+  | "postgresql"
+  | "docker"
+  | "nodedotjs"
+  | "nextdotjs"
+  | "react"
+  | "typescript"
+  | "tailwindcss"
+  | "vimeo"
+  | "youtube"
+  | "spotify"
+  | "canva"
+  | "miro"
+  | "trello"
+  | "asana"
+  | "clickup"
+  | "jira"
+  | "googlecalendar"
+  | "googlesheets"
+  | "googledocs"
+  | "microsoft365"
+  | "microsoftword"
+  | "microsoftexcel"
+  | "microsoftpowerpoint"
+  | "testflight"
+  | "metabusiness"
+  | "consentstudio"
+  | "usercentrics"
+  | "translatepress";
+
+/** Merken waarvan het logo (bijna) wit is: op een licht canvas tonen we die
+ *  in inkt-zwart, zodat ze niet wegvallen. */
+const LIGHT_MARKS = new Set([
+  "apple",
+  "tiktok",
+  "notion",
+  "resend",
+  "vercel",
+  "github",
+  "nextdotjs",
+  "openai",
+]);
 
 type Brand = {
   name: string;
@@ -105,6 +159,47 @@ export const BRANDS: Record<BrandKey, Brand> = {
   pagespeedinsights: { name: "PageSpeed Insights", color: "#4285F4" },
   clarity: { name: "Microsoft Clarity", color: "#0F6CBD", letters: "Cl" },
   weglot: { name: "Weglot", color: "#3B82F6", letters: "Wg" },
+  amazonwebservices: { name: "AWS", color: "#FF9900" },
+  netlify: { name: "Netlify", color: "#00C7B7" },
+  vercel: { name: "Vercel", color: "#E9E9EE" },
+  github: { name: "GitHub", color: "#E9E9EE" },
+  anthropic: { name: "Anthropic", color: "#D97757" },
+  gmail: { name: "Gmail", color: "#EA4335" },
+  whatsapp: { name: "WhatsApp", color: "#25D366" },
+  pinterest: { name: "Pinterest", color: "#BD081C" },
+  googledrive: { name: "Google Drive", color: "#4285F4" },
+  dropbox: { name: "Dropbox", color: "#0061FF" },
+  slack: { name: "Slack", color: "#4A154B" },
+  cloudflare: { name: "Cloudflare", color: "#F38020" },
+  supabase: { name: "Supabase", color: "#3FCF8E" },
+  postgresql: { name: "PostgreSQL", color: "#4169E1" },
+  docker: { name: "Docker", color: "#2496ED" },
+  nodedotjs: { name: "Node.js", color: "#5FA04E" },
+  nextdotjs: { name: "Next.js", color: "#E9E9EE" },
+  react: { name: "React", color: "#61DAFB" },
+  typescript: { name: "TypeScript", color: "#3178C6" },
+  tailwindcss: { name: "Tailwind CSS", color: "#06B6D4" },
+  vimeo: { name: "Vimeo", color: "#1AB7EA" },
+  youtube: { name: "YouTube", color: "#FF0000" },
+  spotify: { name: "Spotify", color: "#1DB954" },
+  canva: { name: "Canva", color: "#00C4CC" },
+  miro: { name: "Miro", color: "#FFD02F" },
+  trello: { name: "Trello", color: "#0052CC" },
+  asana: { name: "Asana", color: "#F06A6A" },
+  clickup: { name: "ClickUp", color: "#7B68EE" },
+  jira: { name: "Jira", color: "#0052CC" },
+  googlecalendar: { name: "Google Agenda", color: "#4285F4" },
+  googlesheets: { name: "Google Sheets", color: "#34A853" },
+  googledocs: { name: "Google Docs", color: "#4285F4" },
+  microsoft365: { name: "Microsoft 365", color: "#D83B01", letters: "365" },
+  microsoftword: { name: "Word", color: "#2B579A", letters: "W" },
+  microsoftexcel: { name: "Excel", color: "#217346", letters: "X" },
+  microsoftpowerpoint: { name: "PowerPoint", color: "#D24726", letters: "P" },
+  testflight: { name: "TestFlight", color: "#0D96F6", letters: "TF" },
+  metabusiness: { name: "Meta Business Suite", color: "#0866FF", letters: "MB" },
+  consentstudio: { name: "Consent Studio", color: "#12A150", letters: "CS" },
+  usercentrics: { name: "Usercentrics", color: "#1F5AF6", letters: "UC" },
+  translatepress: { name: "TranslatePress", color: "#4B65F6", letters: "TP" },
 };
 
 // ------------------------------------------------------------ components
@@ -150,9 +245,10 @@ export function BrandIcon({
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      className={className}
+      className={`brand-svg ${className}`}
       style={{ color: b.color }}
       fill="currentColor"
+      data-light={LIGHT_MARKS.has(name) ? "1" : undefined}
       aria-hidden
     >
       <path d={d} />

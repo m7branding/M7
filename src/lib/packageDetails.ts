@@ -1111,9 +1111,82 @@ export const PKG_DETAILS: Record<string, PkgDetails> = {
   },
 
   // ===================================================== HOSTING
+  "host-wp-basic": {
+    what:
+      "Managed WordPress-hosting waarbij het minimaal benodigde vaste onderhoud is inbegrepen: WordPress-core, je thema en de belangrijkste plugins houden we up-to-date. De licentie voor Elementor of je thema-/pagebuilder en de cachinglicentie zitten erbij, net als dagelijkse back-ups, SSL en monitoring.",
+    why:
+      "Een WordPress-site die niet wordt bijgewerkt, is binnen een jaar een beveiligingsrisico — en losse licenties voor pagebuilder en caching lopen ongemerkt op. In dit pakket zit dat allemaal, zodat je site veilig blijft draaien zonder dat je zelf updates hoeft te bewaken.",
+    tech: [
+      "Tarief is afhankelijk van bandbreedte en benodigde licenties",
+      "Aanvullende plugins of externe tools worden doorberekend",
+      "Buiten het core-onderhoud: doorontwikkeling loopt via een M7 Webplan",
+    ],
+  },
+  "host-wp-ecom": {
+    what:
+      "Hetzelfde als Basic, maar afgestemd op WordPress-installaties met WooCommerce. Naast core, thema en kernplugins onderhouden we ook WooCommerce zelf, met zwaardere resources voor shopverkeer en extra aandacht voor de checkout- en betaalflows. Pagebuilder- en cachinglicentie zitten er ook hier bij.",
+    why:
+      "Bij een shop kost downtime of een kapotte checkout direct omzet, en WooCommerce-updates raken vaker functionaliteit dan een gewone site-update. Dit pakket is daarop ingericht, inclusief de zwaardere hosting die een shop nodig heeft.",
+    tech: ["Bij dit pakket is een M7 Webplan verplicht", "Betaal- en verzendplugins worden meegenomen in het onderhoud"],
+  },
+  "host-wp-premium": {
+    what:
+      "Voor WordPress-installaties met WooCommerce én een of meer koppelingen of automatiseringen die niet standaard zijn — denk aan ERP-sync, PIM, boekhouding of maatwerkflows. Wij onderhouden ook die niet-standaard functionaliteit, monitoren de integraties en bieden een staging-omgeving voor veilige updates.",
+    why:
+      "Zodra er koppelingen aan je shop hangen, breekt een update niet alleen je site maar je hele orderstroom. Monitoring op integraties en testen op staging voorkomt dat je daar op een maandagochtend achter komt.",
+    tech: ["Bij dit pakket is een M7 Webplan verplicht", "Licenties van externe diensten worden doorberekend"],
+  },
+  "host-wf-basic": {
+    what:
+      "Managed Webflow via M7: wij houden CDN, formulieren en projectinstellingen in de gaten, voeren platform-updates door en regelen SSL en domeinkoppeling. Jij hoeft je niet bezig te houden met de technische kant van je Webflow-project.",
+    why:
+      "Webflow doet veel zelf, maar formulieren die stilletjes stoppen, verlopen instellingen of een verkeerd gekoppeld domein merk je pas als er iets misgaat. Managed hosting betekent dat wij dat signaleren in plaats van jij.",
+    tech: ["Tarief afhankelijk van bandbreedte en benodigde licenties", "Webflow-workspace en site-plan lopen via M7 of op jouw account"],
+  },
+  "host-wf-premium": {
+    what:
+      "Voor Webflow-sites met custom scripts, automatiseringen of koppelingen. Naast het reguliere onderhoud bewaken we die scripts en integraties, monitoren we de externe services waarvan je site afhankelijk is en krijg je voorrang bij storingen.",
+    why:
+      "Custom code in Webflow breekt vaak niet door je eigen wijzigingen, maar door een update aan de andere kant van een koppeling. Actieve monitoring vangt dat af voordat je bezoekers het merken.",
+    tech: ["Bij dit pakket is een M7 Webplan verplicht"],
+  },
+  "host-app-basic": {
+    what:
+      "Hosting voor eenvoudige web-applicaties zoals gated content of member-portalen, inclusief het vaste onderhoud aan koppelingen, licenties, services en scripts. Met back-ups van database en bestanden en monitoring met alerting.",
+    why:
+      "Een portaal is geen website: er zitten sessies, data en externe services aan vast die allemaal onderhoud vragen. Op standaard webhosting loopt zoiets binnen een jaar vast.",
+    tech: ["Tarief afhankelijk van resources, verkeer en opslag", "Licenties van externe services worden doorberekend", "M7 Webplan verplicht"],
+  },
+  "host-app-pro": {
+    what:
+      "Voor functionele web-applicaties met login- en authenticatiefunctionaliteit en geavanceerde automatiseringen. Inclusief staging- en productieomgeving met deploys, achtergrondtaken en uitgebreide monitoring en alerting.",
+    why:
+      "Zodra gebruikers inloggen en er data in je applicatie staat, is stilstand of dataverlies geen ongemak maar een incident. Dit pakket is ingericht op beschikbaarheid en herstelbaarheid.",
+    tech: ["Geautomatiseerde deploys vanaf de repository", "Aparte staging-omgeving", "M7 Webplan verplicht"],
+  },
+  "host-mobile-basic": {
+    what:
+      "Alles wat je app nodig heeft om in de lucht te blijven: de Apple Developer-licentie, TestFlight voor testbuilds, de benodigde basishosting en licenties, en vast onderhoud aan de codebase. Inclusief monitoring op crashes.",
+    why:
+      "Apps verlopen letterlijk: certificaten, licenties en OS-versies dwingen je elk jaar tot onderhoud, ook als je niets nieuws bouwt. Zonder dat onderhoud verdwijnt je app uiteindelijk uit de store.",
+    tech: ["Apple Developer-licentie inbegrepen", "Google Play-account op aanvraag", "M7 Webplan verplicht"],
+  },
+  "host-cmp": {
+    what:
+      "Een cookie compliance banner via Consent Studio (Nederlandse partij) of Usercentrics (internationale marktleider), in je eigen huisstijl, met automatische cookie-scan, actuele cookieverklaring en koppeling aan Consent Mode v2. Inzetbaar op websites, webshops, web-apps en apps.",
+    why:
+      "Een zelfgebouwd bannertje voldoet meestal niet: je moet kunnen aantonen wát iemand wanneer heeft toegestaan én je scripts mogen pas ná toestemming laden. Een professionele CMP regelt dat aantoonbaar en volgt automatisch veranderende regels.",
+  },
+  "host-translate": {
+    what:
+      "Automatische vertalingen via Weglot (bij Webflow) of TranslatePress (bij WordPress), met een correcte URL-structuur en hreflang. De prijs geldt per extra taal; vertalingen kun je zelf redigeren.",
+    why:
+      "Meertalig gaan zonder losse sites te bouwen is de snelste manier om een nieuwe markt te testen. Blijkt het te werken, dan schaal je op; blijkt van niet, dan zet je de taal weer uit.",
+    tech: ["Prijs per taal per maand", "Licentiekosten van de vertaaldienst zijn hierin verwerkt vanaf het instaptarief"],
+  },
   "host-dns-plan": {
     what:
-      "Een doorlopend abonnement per domein waarin registratie of transfer, volledig DNS-beheer, redirects en doorstuurregels, SSL en de mailrecords (SPF, DKIM, DMARC) door ons worden geregeld. Wijzigingen voer je aan bij ons en wij zetten ze door.",
+      "Een jaarabonnement per domein (€ 25 per jaar) waarin registratie of transfer, volledig DNS-beheer, redirects en doorstuurregels, SSL en de mailrecords (SPF, DKIM, DMARC) door ons worden geregeld. Los af te nemen, ongeacht welk hostingpakket je kiest.",
     why:
       "DNS is het soort ding dat één keer per jaar aandacht vraagt en dan meteen kritiek is: een verlopen domein of een verkeerd record legt je site of je mail plat. Uitbesteden per domein houdt het overzichtelijk en voorkomt dat niemand meer weet waar iets staat.",
     tech: ["A-, AAAA-, CNAME-, MX-, TXT- en CAA-records", "SPF, DKIM en DMARC volledig ingericht", "Redirects op domein- en padniveau"],

@@ -26,6 +26,8 @@ import { CardArt } from "./CardArt";
 import { TechField } from "./TechField";
 import { Landscape, type LandscapeData } from "./Landscape";
 import { Intake, describeAnswers, type IntakeResult } from "./Intake";
+import { ToolsCloud } from "./ToolsCloud";
+import { TOOLS } from "@/lib/tools";
 
 const INTRO_MAILTO =
   "mailto:hello@m7branding.com?subject=" +
@@ -118,9 +120,18 @@ function useAnimatedNumber(value: number) {
 // `pre` = "vanaf": alle eenmalige (project)prijzen zijn indicatieve
 // vanafprijzen; doorlopende prijzen alleen als price.from is gezet.
 function priceLabel(price: Pkg["price"]) {
-  const { setup, monthly, custom, suffix, from } = price;
+  const { setup, monthly, yearly, custom, suffix, from } = price;
   const hasMonthly = typeof monthly === "number" && monthly > 0;
+  const hasYearly = typeof yearly === "number" && yearly > 0;
   const hasSetup = typeof setup === "number" && setup > 0;
+  if (hasYearly) {
+    return {
+      pre: from ? "vanaf" : "",
+      main: formatEuro(yearly!),
+      unit: `/jaar${suffix ? ` · p/${suffix}` : " · per domein"}`,
+      sub: hasSetup ? `+ vanaf ${formatEuro(setup!)} eenmalig` : "",
+    };
+  }
   if (!hasMonthly && !hasSetup) {
     return { pre: "", main: "Op aanvraag", unit: "", sub: "" };
   }
@@ -128,7 +139,7 @@ function priceLabel(price: Pkg["price"]) {
     return {
       pre: from || custom ? "vanaf" : "",
       main: `${formatEuro(monthly!)}`,
-      unit: `/mnd${suffix === "stuk" ? " · p/stuk" : ""}`,
+      unit: `/mnd${suffix ? ` · p/${suffix}` : ""}`,
       sub: hasSetup ? `+ vanaf ${formatEuro(setup!)} eenmalig` : "",
     };
   }
@@ -139,6 +150,15 @@ function priceLabel(price: Pkg["price"]) {
     unit: suffix && unitMap[suffix] ? unitMap[suffix] : "eenmalig",
     sub: "",
   };
+}
+
+/** Maandbedrag van twee pakketten samen, als "€ 44 /mnd"-label. */
+function combinedPrice(a: Pkg, b: Pkg) {
+  const monthly = (p: Pkg) => (p.price.monthly ?? 0) + Math.round((p.price.yearly ?? 0) / 12);
+  const total = monthly(a) + monthly(b);
+  if (total === 0) return "op aanvraag";
+  const vanaf = a.price.from || b.price.from || a.price.custom || b.price.custom;
+  return `${vanaf ? "v.a. " : ""}${formatEuro(total)} /mnd samen`;
 }
 
 // ============================================================ MARQUEE
@@ -222,6 +242,7 @@ function PkgCard({
   onToggle,
   onQty,
   onInfo,
+  plus,
   reveal,
 }: {
   pkg: Pkg;
@@ -231,6 +252,8 @@ function PkgCard({
   onToggle: () => void;
   onQty: (delta: number) => void;
   onInfo: () => void;
+  /** Tweede "erbij"-knop (bv. hosting + tracking) onderaan de kaart. */
+  plus?: { label: string; price: string; on: boolean; onClick: () => void };
   reveal: (el: HTMLElement | null) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -340,6 +363,23 @@ function PkgCard({
           </button>
         )}
       </div>
+
+      {plus && (
+        <button
+          type="button"
+          className={`exp-card-plus ${plus.on ? "is-on" : ""}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            plus.onClick();
+          }}
+        >
+          <span className="exp-card-plus-sign" aria-hidden>
+            {plus.on ? "✓" : "+"}
+          </span>
+          <span className="exp-card-plus-label">{plus.label}</span>
+          <span className="exp-card-plus-price">{plus.price}</span>
+        </button>
+      )}
     </div>
   );
 }
@@ -582,9 +622,19 @@ function CategoryStep({
       )}
 
       {(() => {
-        const plans = cat.packages.filter((p) => p.kind === "plan");
-        const addons = cat.packages.filter((p) => p.kind === "addon");
-        const items = cat.packages.filter((p) => p.kind === "item");
+        // Platform-afhankelijke pakketten (bv. hosting): alleen tonen wat bij
+        // de gekozen toggle hoort. Zolang er niets gekozen is: alles tonen.
+        const platformPick = cat.platformOption ? state.options[cat.platformOption] ?? [] : [];
+        const visible = cat.packages.filter(
+          (p) => !p.platforms || platformPick.length === 0 || p.platforms.some((v) => platformPick.includes(v))
+        );
+        const plans = visible.filter((p) => p.kind === "plan");
+        const addons = visible.filter((p) => p.kind === "addon");
+        const items = visible.filter((p) => p.kind === "item");
+        // "Erbij"-knop: bv. hosting-plan + Meetbasis in één klik.
+        const plusPkg = cat.trackingPlus ? PKG_BY_ID[cat.trackingPlus] : undefined;
+        const plusOn = plusPkg ? state.plans[plusPkg.cat.id] === plusPkg.pkg.id : false;
+
         const renderCard = (pkg: Pkg) => {
           const selected =
             pkg.kind === "plan"
@@ -602,6 +652,19 @@ function CategoryStep({
               onToggle={() => (pkg.kind === "plan" ? onPlan(cat.id, pkg.id) : onAddon(pkg.id))}
               onQty={(d) => onQty(pkg.id, d)}
               onInfo={() => onInfo(pkg.id)}
+              plus={
+                plusPkg && pkg.kind === "plan"
+                  ? {
+                      label: `Meten erbij — ${plusPkg.pkg.name}`,
+                      price: combinedPrice(pkg, plusPkg.pkg),
+                      on: plusOn,
+                      onClick: () => {
+                        if (!selected && pkg.kind === "plan") onPlan(cat.id, pkg.id);
+                        onPlan(plusPkg.cat.id, plusPkg.pkg.id);
+                      },
+                    }
+                  : undefined
+              }
               reveal={reveal}
             />
           );
@@ -613,12 +676,13 @@ function CategoryStep({
         const inCustom = (p: Pkg) => !!p.group && grouped.has(p.group);
         const addonsRest = addons.filter((p) => !inCustom(p));
         const itemsRest = items.filter((p) => !inCustom(p));
+        const groupList = (gid: string) => visible.filter((p) => p.group === gid);
 
         const hasPlans = plans.length > 0;
         return (
           <>
             {custom.map((g) => {
-              const list = cat.packages.filter((p) => p.group === g.id);
+              const list = groupList(g.id);
               if (list.length === 0) return null;
               return (
                 <div className="exp-group is-extras" key={g.id}>
@@ -764,7 +828,7 @@ function CategoryStep({
 
 // ============================================================ MAIN
 export function Configurator() {
-  const [screen, setScreen] = useState<"intro" | "intake" | "flow" | "review">("intro");
+  const [screen, setScreen] = useState<"intro" | "intake" | "flow" | "review" | "tools">("intro");
   const [infoPkg, setInfoPkg] = useState<string | null>(null);
   const [booted, setBooted] = useState(false);
 
@@ -837,6 +901,8 @@ export function Configurator() {
       const n = entry.pkg.kind === "item" ? qty[id] ?? 1 : 1;
       if (price.setup) setup += price.setup * n;
       if (price.monthly) monthly += price.monthly * n;
+      // Jaarprijzen (bv. domein) tellen we mee als maandbedrag, afgerond.
+      if (price.yearly) monthly += Math.round((price.yearly * n) / 12);
       if (price.custom) custom = true;
     }
     return { setup, monthly, custom };
@@ -993,6 +1059,38 @@ export function Configurator() {
   const stepTotal = orderedCats.length; // één categorie per stap
   const currentCat = CATEGORY_BY_ID[orderedCats[step]] ?? null;
 
+  // ---- deep links: elke stap heeft een eigen URL (?stap=hosting)
+  const urlBooted = useRef(false);
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const stap = p.get("stap");
+    const scherm = p.get("scherm");
+    if (stap) {
+      const idx = orderedCats.indexOf(stap as IconKey);
+      if (idx >= 0) {
+        setScreen("flow");
+        setStep(idx);
+      }
+    } else if (scherm === "intake") setScreen("intake");
+    else if (scherm === "overzicht") setScreen("review");
+    else if (scherm === "tools") setScreen("tools");
+    urlBooted.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!urlBooted.current) return;
+    const p = new URLSearchParams(window.location.search);
+    p.delete("stap");
+    p.delete("scherm");
+    if (screen === "flow" && currentCat) p.set("stap", currentCat.id);
+    else if (screen === "intake") p.set("scherm", "intake");
+    else if (screen === "review") p.set("scherm", "overzicht");
+    else if (screen === "tools") p.set("scherm", "tools");
+    const q = p.toString();
+    window.history.replaceState(null, "", q ? `?${q}` : window.location.pathname);
+  }, [screen, currentCat]);
+
   // ---- marquee-data (cinematisch intro)
   const marqueeTop = useMemo(
     () =>
@@ -1024,6 +1122,27 @@ export function Configurator() {
     }
     return names;
   }, []);
+
+  // ============================================================ TOOLS
+  if (screen === "tools") {
+    return (
+      <div className="exp-flow-root">
+        <div className="exp-canvas-bg" />
+        <TechField />
+        <header className="exp-topbar">
+          <button className="exp-logo-btn" onClick={() => setScreen("intro")} aria-label="Terug naar start">
+            <M7Logo height={24} />
+          </button>
+          <a className="exp-btn exp-btn-ghost exp-btn-sm" href={INTRO_MAILTO}>
+            Kennismaken
+          </a>
+        </header>
+        <div className="exp-shell">
+          <ToolsCloud onBack={() => setScreen("intro")} />
+        </div>
+      </div>
+    );
+  }
 
   // ============================================================ INTRO
   if (screen === "intro") {
@@ -1074,6 +1193,10 @@ export function Configurator() {
                 </button>
               ))}
             </div>
+
+            <button className="exp-intro-tools" onClick={() => setScreen("tools")}>
+              Bekijk onze volledige toolstack ({TOOLS.length} tools) <Arrow />
+            </button>
 
             <p className="exp-intro-note">
               Volledig vrijblijvend · indicatieve vanafprijzen · in een paar minuten samengesteld

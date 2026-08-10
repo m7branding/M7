@@ -3114,6 +3114,189 @@ const SCENES: Record<string, Scene> = {
     </g>
   ),
 
+
+  // ===================================================== HOSTING (per platform)
+  "host-wp-basic": (c) => (
+    <g>
+      <g className="ca-float">
+        <circle cx={104} cy={58} r={30} fill="none" stroke={c} strokeWidth={1.8} />
+        <Stroke d="M82 46l14 34 10-24 10 24 12-34" c={c} w={1.8} />
+      </g>
+      {[0, 1, 2].map((i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Panel x={162} y={26 + i * 24} w={80} h={20} r={10} />
+          <Stroke d={`M174 ${36 + i * 24}l3 3 6-7`} c={c} w={1.5} />
+          <Bar x={192} y={34 + i * 24} w={38 - i * 8} h={4} o={0.13} />
+        </g>
+      ))}
+      <Txt x={104} y={104} t="core · thema · plugins" size={8} o={0.32} />
+    </g>
+  ),
+  "host-wp-ecom": (c) => (
+    <g>
+      <g className="ca-float">
+        <circle cx={98} cy={54} r={26} fill="none" stroke={c} strokeWidth={1.7} />
+        <Stroke d="M79 44l12 28 8-20 8 20 10-28" c={c} w={1.6} />
+      </g>
+      <g className="ca-float-b">
+        <Stroke d="M142 36h10l6 30h30l6-22" c={c} w={1.7} />
+        <Dot x={160} y={74} r={3.4} c={c} /><Dot x={186} y={74} r={3.4} c={c} />
+        <circle cx={196} cy={34} r={9} fill={c} /><Txt x={196} y={37.5} t="3" size={9.5} c="#fff" o={1} />
+      </g>
+      <Stroke d="M62 92h176" o={0.1} dash="3 6" />
+      <Txt x={150} y={106} t="WooCommerce" size={8} o={0.32} />
+    </g>
+  ),
+  "host-wp-premium": (c) => (
+    <g>
+      <g className="ca-float">
+        <circle cx={90} cy={56} r={24} fill="none" stroke={c} strokeWidth={1.6} />
+        <Stroke d="M73 47l11 26 7-18 7 18 9-26" c={c} w={1.5} />
+      </g>
+      {[[176, 28], [212, 56], [176, 84]].map(([x, y], i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Stroke d={`M114 56C142 56 ${x - 30} ${y} ${x - 16} ${y}`} o={0.16} dash="3 4" cls="ca-march" />
+          <Panel x={x - 16} y={y - 11} w={54} h={22} r={11} fill={i === 1 ? c : "#fff"} stroke={i === 1 ? c : undefined} />
+          <Dot x={x - 4} y={y} r={3.2} c={i === 1 ? "#fff" : c} o={0.5} />
+          <Bar x={x + 6} y={y - 2} w={22} h={4} c={i === 1 ? "#fff" : undefined} o={0.13} />
+        </g>
+      ))}
+    </g>
+  ),
+  "host-wf-basic": (c) => (
+    <g>
+      <g className="ca-float">
+        <Stroke d="M66 44l14 32 12-24 8 24 16-32" c={c} w={2} />
+        <Stroke d="M66 84h64" o={0.12} />
+      </g>
+      {[0, 1, 2].map((i) => (
+        <g key={i} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Panel x={152} y={24 + i * 24} w={88} h={20} r={10} />
+          <Dot x={165} y={34 + i * 24} r={3.4} c={i === 0 ? c : undefined} o={0.2} />
+          <Bar x={176} y={32 + i * 24} w={44 - i * 8} h={4} o={0.13} />
+        </g>
+      ))}
+      <Txt x={98} y={102} t="managed CDN" size={8} o={0.32} />
+    </g>
+  ),
+  "host-wf-premium": (c) => (
+    <g>
+      <g className="ca-float">
+        <Stroke d="M62 40l12 28 10-21 7 21 14-28" c={c} w={1.8} />
+      </g>
+      <g className="ca-float-b">
+        <Panel x={124} y={26} w={72} h={68} r={8} />
+        <Stroke d="M124 42h72" o={0.1} />
+        <Txt x={160} y={38} t="custom js" size={8} o={0.36} />
+        {[0, 1, 2].map((i) => (
+          <Bar key={i} x={136} y={54 + i * 12} w={48 - i * 10} h={4} c={i === 0 ? c : undefined} o={0.12} />
+        ))}
+        <Stroke d="M136 86h34" o={0.1} dash="3 4" />
+      </g>
+      <g className="ca-float">
+        <circle cx={222} cy={44} r={13} fill="none" stroke={c} strokeWidth={1.5} strokeDasharray="70" strokeDashoffset="18" className="ca-spin" />
+        <Dot x={222} y={44} r={3.4} c={c} />
+        <Txt x={222} y={78} t="bewaakt" size={8} o={0.34} />
+      </g>
+    </g>
+  ),
+  "host-app-basic": (c) => (
+    <g>
+      <g className="ca-float">
+        <Panel x={66} y={26} w={92} h={68} r={8} />
+        <Stroke d="M66 42h92" o={0.1} />
+        <rect x={78} y={54} width={26} height={22} rx={4} fill="none" stroke={c} strokeWidth={1.5} />
+        <Stroke d="M83 54v-5a8 8 0 0116 0v5" c={c} w={1.5} />
+        <Bar x={114} y={58} w={32} h={4} o={0.13} />
+        <Bar x={114} y={68} w={22} h={4} o={0.09} />
+      </g>
+      <g className="ca-float-b">
+        <ellipse cx={206} cy={38} rx={22} ry={7} fill="#fff" stroke={ink(0.16)} strokeWidth={1.2} />
+        <path d="M184 38v32c0 4 10 7 22 7s22-3 22-7V38" fill="#fff" stroke={ink(0.16)} strokeWidth={1.2} />
+        <ellipse cx={206} cy={56} rx={22} ry={7} fill="none" stroke={ink(0.1)} strokeWidth={1} />
+        <Dot x={206} y={38} r={2.8} c={c} />
+      </g>
+    </g>
+  ),
+  "host-app-pro": (c) => (
+    <g>
+      <g className="ca-float">
+        <Panel x={62} y={34} w={64} h={52} r={8} />
+        <circle cx={94} cy={54} r={9} fill="none" stroke={c} strokeWidth={1.6} />
+        <path d="M85 70a9 9 0 0118 0z" fill={c} opacity={0.25} />
+        <Txt x={94} y={102} t="auth" size={8} o={0.34} />
+      </g>
+      <Stroke d="M126 60h16" o={0.18} dash="3 4" cls="ca-march" />
+      <g className="ca-float-b">
+        <Panel x={146} y={22} w={44} h={30} r={6} />
+        <Txt x={168} y={41} t="staging" size={7.5} o={0.38} />
+        <Panel x={146} y={62} w={44} h={30} r={6} fill={c} stroke={c} />
+        <Txt x={168} y={81} t="productie" size={7.5} c="#fff" o={0.95} />
+        <Stroke d="M168 52v10" o={0.2} dash="3 3" cls="ca-march" />
+      </g>
+      <g className="ca-float">
+        <Panel x={202} y={40} w={40} h={36} r={8} />
+        <Stroke d="M210 62l7-9 5 5 6-8" c={c} w={1.5} />
+        <Dot x={236} y={48} r={3} c={c} cls="ca-blink" />
+      </g>
+    </g>
+  ),
+  "host-mobile-basic": (c) => (
+    <g>
+      <g className="ca-float">
+        <Phone x={82} y={20} w={50} h={80} c={c}>
+          <rect x={92} y={38} width={30} height={24} rx={5} fill={c} opacity={0.16} />
+          <Stroke d="M100 50l5 5 9-11" c={c} w={1.6} />
+          <Bar x={92} y={70} w={30} h={4} o={0.12} />
+        </Phone>
+      </g>
+      {["Developer", "TestFlight", "Codebase"].map((t, i) => (
+        <g key={t} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Panel x={156} y={24 + i * 24} w={86} h={20} r={10} fill={i === 1 ? c : "#fff"} stroke={i === 1 ? c : undefined} />
+          <Txt x={199} y={38 + i * 24} t={t} size={8.5} c={i === 1 ? "#fff" : undefined} o={i === 1 ? 0.95 : 0.4} />
+        </g>
+      ))}
+    </g>
+  ),
+  "host-cmp": (c) => (
+    <g>
+      <Browser x={62} y={20} w={126} h={80} c={c}>
+        <Bar x={74} y={40} w={50} h={4} o={0.09} />
+        <Bar x={74} y={50} w={34} h={4} o={0.07} />
+        <g className="ca-float">
+          <Panel x={72} y={62} w={108} h={30} r={9} />
+          <Bar x={80} y={70} w={42} h={4} o={0.14} />
+          <Bar x={80} y={79} w={28} h={3.5} o={0.09} />
+          <Panel x={128} y={69} w={44} h={15} r={7.5} fill={c} stroke={c} />
+          <Txt x={150} y={79.5} t="Akkoord" size={7.5} c="#fff" o={1} />
+        </g>
+      </Browser>
+      <g className="ca-float-b">
+        <circle cx={220} cy={54} r={20} fill="none" stroke={c} strokeWidth={1.6} />
+        <circle cx={214} cy={49} r={3} fill={c} opacity={0.6} />
+        <circle cx={226} cy={57} r={2.4} fill={c} opacity={0.45} />
+        <circle cx={218} cy={62} r={2} fill={c} opacity={0.35} />
+        <Txt x={220} y={90} t="CMP" size={8.5} o={0.36} />
+      </g>
+    </g>
+  ),
+  "host-translate": (c) => (
+    <g>
+      <g className="ca-float">
+        <circle cx={98} cy={58} r={28} fill="#fff" stroke={ink(0.18)} strokeWidth={1.4} />
+        <ellipse cx={98} cy={58} rx={12} ry={28} fill="none" stroke={ink(0.12)} strokeWidth={1.1} />
+        <Stroke d="M70 48h56M70 68h56M98 30v56" o={0.12} />
+      </g>
+      {["NL", "EN", "DE"].map((t, i) => (
+        <g key={t} className={i % 2 ? "ca-float-b" : "ca-float"}>
+          <Panel x={158} y={24 + i * 24} w={50} h={20} r={10} fill={i === 0 ? c : "#fff"} stroke={i === 0 ? c : undefined} />
+          <Txt x={183} y={38 + i * 24} t={t} size={9} c={i === 0 ? "#fff" : undefined} o={i === 0 ? 1 : 0.4} />
+        </g>
+      ))}
+      <Txt x={214} y={62} t="p/taal" size={8.5} c={c} o={1} anchor="start" />
+    </g>
+  ),
+
 };
 
 // ------------------------------------------------------------ fallback
