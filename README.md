@@ -1,78 +1,178 @@
-# M7 — Online Experience
+# M7 — Website & Online Experience
 
-Een **next-level, interactieve service-catalogus** waarmee klanten zelf hun
-dienstverlening samenstellen. Dark M7-huisstijl met geanimeerd sterren-/pixelveld,
-lichte gradients, abstracte iconen en pill-CTA's met de M7-signatuur (circulaire
-teal pijl).
+Eén repo, twee ervaringen:
 
-Gebouwd met **Next.js (App Router) + TypeScript**. Geen database of externe
-dependencies nodig — volledig self-contained en klaar om te hosten of te embedden.
+| Domein | Route in deze app | Wat |
+| --- | --- | --- |
+| **m7branding.com** | `/` (NL) en `/en` (EN) | De nieuwe website: premium, interactief, cross-referenced content model |
+| **letsgo.m7branding.com** | `/letsgo` | De interactieve configurator (service-catalogus met indicatieve prijzen) |
 
-## Wat zit erin
+De middleware stuurt bezoekers van `letsgo.*` automatisch naar de configurator, dus beide domeinen
+kunnen aan **hetzelfde Vercel-project** gekoppeld worden.
 
-Een intake-flow (_waar sta je nu?_ + _wat wil je bereiken?_) die een genummerd,
-aanbevolen pad door de catalogus uitzet, met conditionele cross-sell. Categorieën:
+Gebouwd met **Next.js 14 (App Router) + TypeScript**, volledig statisch gegenereerd (± 260 pagina's),
+met Lenis (smooth scroll), simple-icons (tool-iconen) en lottie-web (eigen Lottie-animaties).
 
-- **Branding** — nieuwe/rebranding/co-branding, volledig brandbook, logo-export,
-  e-mailhandtekening, 3D mock-ups, illustraties
-- **Print** — visitekaartjes, flyers, brochures, promo, uitnodigingen
-- **Websites** — WordPress/Webflow builds, CMS met custom velden, content-model,
-  styleframing, animaties/Lottie, AI-beeld, dynamische blokken & pop-ups, migratie
-- **Webshops** — WooCommerce/Shopify, EU-VAT, custom checkout, PDF-facturen
-- **Web-apps & portalen** — klant-/offerte-/loyaliteitsportalen, Stripe, automations
-- **Apps** — UI/UX, kanban/sprintmanagement, testing, ontwikkeling
-- **Organisch** — posts, reels, AI-renders (schets→beeld), AI-animaties, video, podcast
-- **Paid Ads** — Meta/LinkedIn/Reddit/TikTok, account-inrichting, strategie
-- **SEO / AEO** — content, optimalisatie, linkbuilding, JSON-LD, GEO/AI-answers
-- **Tracking** — GA4/server-side, dashboards, cookie-consent & compliance
-- **Funnels** — configuratoren, offerte-flows, opt-ins, e-mailreeksen, audience-sync
-- **CRM & Integraties** — Odoo/HubSpot/Pipedrive/Teamleader/Notion, custom API's
-- **Hosting** & **Support** — webhosting en webplans
+---
 
-Live totalen (indicatieve vanafprijzen: eenmalig + doorlopend), gegroepeerde
-samenvatting en offerte-/kennismakingsaanvraag via e-mail.
-
-## Lokaal draaien
+## Snel starten
 
 ```bash
 npm install
-npm run dev
+cp .env.example .env.local   # vul GA4-ID, Search Console, webhooks in
+npm run dev                  # http://localhost:3000  ·  configurator: /letsgo
+npm run build && npm start   # productie
 ```
 
-Open <http://localhost:3000>.
+---
 
-## Bouwen / deployen
+## Content bewerken (alles staat in `src/content/`)
 
-```bash
-npm run build && npm run start
-```
+Het content model is **getypeerd en cross-referenced via slugs**. Verwijs je naar een slug die niet
+bestaat (een tikfout in een dienst, toepassing, sector of tool), dan faalt de build. Zo lopen links nooit dood.
 
-Deploybaar op Vercel, Netlify of elke Node-host. Voor een **statische export**
-(handig om te embedden op WordPress/Webflow of via een CDN te hosten): zet
-`output: "export"` aan in `next.config.js` en gebruik `npm run build`.
+| Bestand | Wat staat erin |
+| --- | --- |
+| `registry.ts` | **De ruggengraat**: alle diensten (kapstok), toepassingen per dienst en sectoren |
+| `services/<dienst>.ts` | Per peiler: titel, tagline, intro, highlights, **termen**, **tools**, werkwijze, **SEO-tekst**, **FAQ** + alle **toepassingen** van die dienst |
+| `sectors.ts` | Sectoren met uitdagingen, gekoppelde diensten/toepassingen en FAQ |
+| `cases.ts` | Projecten, gekoppeld aan diensten, toepassingen, sector, tools en review |
+| `reviews.ts` | Reviews per dienst (concept-reviews hebben `draft: true`) |
+| `tools.ts` | Alle tools/platformen met iconen (simple-icons) of monogram |
+| `team.ts` | Teamleden + foto's |
+| `site.ts` | Bedrijfsgegevens, socials, cijfers, klantlogo's, integraties |
+| `legal.ts` | Privacybeleid, algemene voorwaarden, cookies |
+| `src/lib/dict.ts` | Vaste UI-teksten (NL + EN) |
+
+Alle teksten zijn `{ nl, en }`. NL is leidend, EN de vertaling.
+
+### Afgeleide cross-references (automatisch)
+
+Je koppelt iets maar op één plek; de rest volgt vanzelf (`src/lib/content.ts`):
+
+- Een case met `services: ["websites-webshops"]` verschijnt in de projecten-masonry van die dienst,
+  op de bijbehorende toepassingspagina's, in de sector en in het cases-filter.
+- Reviews met `services: [...]` verschijnen op die dienstpagina's.
+- Een sector met `services`/`applications` verschijnt als "Voor welke sectoren" op die pagina's.
+- Toepassingen verschijnen in de mega-menu's, folders, sliders, de CTA-marquee, sitemap en llms.txt.
+- Het aantal cases tussen haakjes in het menu (`Cases (13)`) telt automatisch.
+
+### Een toepassing toevoegen
+
+1. Voeg de slug toe onder de juiste dienst in `registry.ts`.
+2. Schrijf de content in `services/<dienst>.ts` (TypeScript helpt je met alle velden).
+3. Klaar: pagina, sitemap, menu's, sliders en JSON-LD worden automatisch gegenereerd.
+
+### Eigen beelden, Lottie & video
+
+- **Case-beelden**: zet ze in `public/media/cases/` en verwijs met `cover` / `gallery`.
+  Zonder beeld genereert de site een cover in de case-kleur.
+- **Klantlogo's**: `public/media/clients/` + `clients` in `site.ts` (zonder logo → woordmerk).
+- **Eigen animatie per peiler of toepassing** i.p.v. de code-mockup:
+  ```ts
+  media: { type: "lottie", src: "/media/lottie/branding.json" }
+  // of { type: "video", src: "/media/video/web.mp4", poster: "..." }
+  // of { type: "image", src: "/media/....webp" }
+  ```
+  Lottie wordt pas geladen als hij in beeld komt en pauzeert buiten beeld.
+
+---
+
+## Wat er in zit
+
+### Pagina's (NL + EN, vertaalde URL's)
+
+| NL | EN |
+| --- | --- |
+| `/` | `/en` |
+| `/diensten`, `/diensten/[dienst]`, `/diensten/[dienst]/[toepassing]` | `/en/services/...` |
+| `/toepassingen` (zoek- en filterbaar) | `/en/applications` |
+| `/sectoren`, `/sectoren/[sector]` | `/en/sectors/...` |
+| `/cases` (filter op dienst/sector), `/cases/[case]` | `/en/cases/...` |
+| `/over-m7` · `/contact` | `/en/about` · `/en/contact` |
+| `/privacybeleid` · `/algemene-voorwaarden` · `/cookies` | `/en/privacy-policy` · ... |
+
+### Motion & interactie
+
+- **Preloader** (1× per sessie): het M7-logo tekent zichzelf (*lined*) → vult zich (*emblem*) →
+  de gradient-ring sluit (*badge*), met "Welcome to the world of brands and digital solutions."
+  Daarna veegt het doek omhoog met een teal→groene rand. Pure CSS, dus direct vanaf de eerste paint.
+- **Page transitions**: gelaagde "vegen" over elke interne link; de nieuwe route is al voorgeladen,
+  dus het voelt alsof er geen laadtijd is. Inhoud "landt" zacht na de veeg.
+- **Smooth scroll** (Lenis), split-text reveals, stagger-reveals, magnetische knoppen, cursor met labels.
+- **Levende achtergronden**: WebGL "aurora" (zijdezachte banen die langzaam ademen en op de muis
+  reageren — o.a. de AI-kaart), ademende radial gradients met muis-spotlight, twinkelende sterren
+  en het pixel-raster uit het design dat pulseert en oplicht rond de muis.
+- **10 unieke geanimeerde mockups** (één per peiler, puur code, schaalt via container queries):
+  logo-constructie, website die zichzelf bouwt, facturen-app, workflow-nodes, SERP + AI-antwoord,
+  social feed + ROAS, viewfinder + 3D + tijdlijn, openvouwende brochure, configurator, AI-chat + agent.
+- **Folders** onder de hero (de kapstok): bij hover schuiven de toepassingen als papiertjes omhoog.
+- **Full-screen menu**: gelaagd gordijn, grote links met hover-gradient, live previews per item
+  (diensten, sectoren, cases met beeld, team, contact), mobiel als accordeon.
+- Alles respecteert `prefers-reduced-motion` en pauzeert buiten beeld.
+
+### SEO, AEO & GEO
+
+- Statisch gegenereerd, canonical + **hreflang** (nl/en/x-default) op elke pagina.
+- **JSON-LD**: Organization/ProfessionalService, WebSite, BreadcrumbList, Service (met offer catalog),
+  **FAQPage** op elke dienst, toepassing en sector, CreativeWork per case, ItemList op overzichten.
+- Uitgebreide **FAQ** (`<details>`: crawlbaar zonder JS) + **SEO-tekst** onderaan elke dienst.
+- `sitemap.xml` (met alternates), `robots.txt` (AI-crawlers expliciet welkom),
+  **`/llms.txt`** en **`/llms-full.txt`** (complete AI-vriendelijke index incl. alle FAQ's).
+- Dynamische **Open Graph-afbeeldingen** in M7-stijl: `/og?title=...`.
+
+### Integraties
+
+- **Google Analytics 4** (zelfde property als de huidige site) of **GTM**, met **Consent Mode v2**
+  en een eigen minimalistische cookiebanner. SPA page views worden per navigatie verstuurd.
+  Ook de letsgo-configurator gebruikt dezelfde property.
+- **Search Console**: `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (of DNS-verificatie) + sitemap.
+- **AnswerLink / answers.m7branding.com**: gekoppeld in menu, footer, FAQ-blokken ("Meer antwoorden"),
+  bento-kaart, contactpagina, JSON-LD `sameAs` en llms.txt. Per dienst kun je een `answersPath`
+  zetten voor een deeplink. Een eventueel AnswerLink embed-script laad je via `NEXT_PUBLIC_ANSWERLINK_SCRIPT`.
+- **Formulieren** (contact + nieuwsbrief) posten naar `CONTACT_WEBHOOK_URL` / `NEWSLETTER_WEBHOOK_URL`
+  (bv. Make → Odoo/HubSpot/Mailchimp). Zonder webhook tonen ze een mailto-fallback.
+
+---
+
+## Deployen (Vercel)
+
+1. Importeer de repo in Vercel (framework: Next.js).
+2. Zet de environment variables uit `.env.example`.
+3. Koppel **m7branding.com** (+ `www`) én **letsgo.m7branding.com** aan hetzelfde project.
+4. Search Console: dien `https://m7branding.com/sitemap.xml` in.
+
+---
 
 ## Structuur
 
 ```
 src/
   app/
-    layout.tsx        # root layout (Poppins) + globals
-    page.tsx          # rendert de experience
-    globals.css       # globale basis
-    experience.css    # M7-huisstijl + alle experience-styling
-  components/experience/
-    Configurator.tsx  # de interactieve configurator (client)
-    Starfield.tsx     # geanimeerd sterren-/pixel-canvas
-    CategoryIcon.tsx  # abstracte iconen per categorie
-  lib/
-    catalog.ts        # catalogus-data, intake, prijzen & aanbevelingslogica
+    [lang]/            website (NL/EN): layout, home, diensten, toepassingen, sectoren, cases, over, contact, juridisch
+    letsgo/            de configurator (eigen root layout)
+    api/               contact- en nieuwsbrief-webhooks
+    sitemap.ts · robots.ts · llms.txt · llms-full.txt · og/
+  components/
+    brand/             M7-logo's (lined / emblem / badge)
+    chrome/            header, mega-menu, full-screen menu, footer, nieuwsbrief
+    motion/            preloader, page transitions, Lenis, reveals, cursor, aurora, glowfield, sterren, pixelgrid
+    mockups/           10 geanimeerde peiler-mockups + hero-telefoons + Lottie/video-player
+    sections/          home-secties, page hero, filters, slider, formulieren
+    ui/                knoppen, kaarten, FAQ, tools, breadcrumbs, marquee, iconen
+    analytics/ seo/    GA4/GTM + consent, JSON-LD
+    experience/        de letsgo-configurator
+  content/             ← alle content (zie hierboven)
+  lib/                 i18n, query-laag, paden, SEO-helpers, llms.txt
+  styles/              tokens, base, motion, chrome, secties, mockups, pagina's
+  middleware.ts        NL/EN-routing + letsgo-host
 ```
 
-## Aanpassen
+## Nog aan te vullen
 
-- **Diensten & prijzen**: `src/lib/catalog.ts` (alle categorieën, pakketten,
-  opties, doelen en cross-sell-regels op één plek).
-- **Huisstijl**: de kleur-tokens bovenin `src/app/experience.css` (`--exp-a1`
-  teal, `--exp-gold`, `--exp-green`, enz.).
-- **Contact**: het e-mailadres staat in `Configurator.tsx` (`INTRO_MAILTO`) en de
-  offerte-submit.
+- GA4-ID, Search Console-verificatie, telefoonnummer, KvK en webhooks (`.env.example`).
+- Socials in `site.ts` (Instagram is geverifieerd, controleer de rest).
+- Teamnamen en -rollen in `team.ts`.
+- Echte reviews in `reviews.ts` (concepten zijn gemarkeerd en verborgen in productie).
+- Case-teksten met `concept: true` aanvullen met echte projectinfo, en beelden voor cases zonder cover.
+- Juridische teksten in `legal.ts`.
