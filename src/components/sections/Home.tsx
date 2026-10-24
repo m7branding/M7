@@ -7,10 +7,12 @@ import { Aurora } from "@/components/motion/Aurora";
 import { Counter } from "@/components/motion/Counter";
 import { GlowField } from "@/components/motion/GlowField";
 import { PixelGrid } from "@/components/motion/PixelGrid";
+import { ScrollSequence } from "@/components/motion/ScrollSequence";
 import { SplitText } from "@/components/motion/SplitText";
 import { Starfield } from "@/components/motion/Starfield";
 import { TLink } from "@/components/motion/TLink";
-import { HeroPhones, Mockup } from "@/components/mockups";
+import { Mockup } from "@/components/mockups";
+import { ServiceMedia } from "@/components/mockups/ServiceMedia";
 import { Btn } from "@/components/ui/Button";
 import { CaseCover } from "@/components/ui/CaseCard";
 import { Icon } from "@/components/ui/Icon";
@@ -65,9 +67,16 @@ export function HomeHero({ locale }: { locale: Locale }) {
         <div className="hero__cta" data-reveal="up" style={{ ["--d" as string]: "0.9s" }}>
           <Btn href={site.letsgo}>{d.cta.launch}</Btn>
         </div>
-        <div className="hero__visual" data-reveal="scale" style={{ ["--d" as string]: "0.4s" }}>
+        <div className="hero__visual" data-reveal="fade" style={{ ["--d" as string]: "0.3s" }}>
           <HeroScene>
-            <HeroPhones />
+            <ScrollSequence
+              src="/media/sequences/hero"
+              mode="leave"
+              align="bottom"
+              eager
+              className="hero__seq"
+              alt={locale === "nl" ? "Website en app van M7 op twee telefoons" : "Website and app by M7 on two phones"}
+            />
           </HeroScene>
         </div>
       </div>
@@ -80,8 +89,14 @@ export function HomeHero({ locale }: { locale: Locale }) {
       </a>
 
       <nav className="hero__rail" aria-label="Social">
-        {(["facebook", "instagram", "linkedin", "youtube"] as const).map((k) => (
-          <a key={k} href={site.socials[k]} target="_blank" rel="noopener" aria-label={k}>
+        {[
+          { k: "facebook", url: site.socials.facebook },
+          { k: "instagram", url: site.socials.instagram },
+          { k: "linkedin", url: site.socials.linkedin },
+          ...(site.whatsapp ? [{ k: "whatsapp", url: `https://wa.me/${site.whatsapp.replace(/\D/g, "")}` }] : []),
+          { k: "youtube", url: site.socials.youtube },
+        ].map(({ k, url }) => (
+          <a key={k} href={url} target="_blank" rel="noopener" aria-label={k}>
             <SocialIcon name={k} size={19} />
           </a>
         ))}
@@ -162,44 +177,38 @@ export function FolderGrid({ locale }: { locale: Locale }) {
   );
 }
 
-/* ---------------- Peilers als stacking cards met unieke mockups ---------------- */
-export function PillarStack({ locale }: { locale: Locale }) {
+/* ---------------- Peiler-kaarten (zoals in het design: tekst | mockup, afwisselend) ---------------- */
+export function PillarStack({ locale, from = 0, to }: { locale: Locale; from?: number; to?: number }) {
   const d = getDict(locale);
-  const list = allServices();
+  const all = allServices();
+  const list = all.slice(from, to ?? all.length);
   return (
     <section className="pillars" aria-label={d.nav.services}>
       <div className="container">
-        {list.map((s, i) => {
-          const apps = applicationsFor(s.slug);
+        {list.map((s, n) => {
+          const i = from + n;
+          const title = tr(s.title, locale);
           return (
             <article
               key={s.slug}
               className={`pillar${i % 2 ? " pillar--flip" : ""}`}
-              style={{ ["--accent" as string]: s.color, ["--i" as string]: i, ["--n" as string]: list.length }}
+              style={{ ["--accent" as string]: s.color, ["--i" as string]: n }}
             >
               <div className="pillar__card">
                 <div className="pillar__text">
-                  <p className="pillar__num">
-                    {String(i + 1).padStart(2, "0")} <span>/ {String(list.length).padStart(2, "0")}</span>
-                  </p>
-                  <h2 className="h2 pillar__title">{tr(s.title, locale)}</h2>
-                  <p className="pillar__tagline g-accent">{tr(s.tagline, locale)}</p>
-                  <p className="body">{tr(s.intro, locale)}</p>
-                  <ul className="pillar__apps">
-                    {apps.slice(0, 5).map((a) => (
-                      <li key={a.slug}>
-                        <TLink href={paths.application(a)} className="chip chip--ghost">
-                          {tr(a.title, locale)}
-                        </TLink>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="row">
-                    <Btn href={paths.service(s)}>{d.cta.discover}</Btn>
+                  <h2 className="pillar__title">
+                    <TLink href={paths.service(s)}>{title}</TLink>
+                  </h2>
+                  <p className="pillar__body">{tr(s.description, locale).split("\n\n")[0]}</p>
+                  <div className="pillar__cta">
+                    <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+                    <TLink href={paths.service(s)} className="link-dash">
+                      {d.cta.discover} {tr(s.short, locale)}
+                    </TLink>
                   </div>
                 </div>
-                <div className="pillar__visual">
-                  <Mockup kind={s.mockup} accent={s.color} />
+                <div className={`pillar__visual${s.media?.type === "sequence" ? " pillar__visual--seq" : ""}`}>
+                  {s.media ? <ServiceMedia media={s.media} alt={title} /> : <Mockup kind={s.mockup} accent={s.color} />}
                 </div>
               </div>
             </article>
@@ -214,8 +223,12 @@ export function PillarStack({ locale }: { locale: Locale }) {
 export function Masterpieces({ locale }: { locale: Locale }) {
   const d = getDict(locale);
   const all = allCases();
-  const cols: Case[][] = [[], [], [], []];
-  all.forEach((c, i) => cols[i % 4].push(c));
+  // Wall met echte projectbeelden (covers + galerij), zoals in het design
+  const tiles: { c: Case; img: string }[] = all.flatMap((c) =>
+    [c.cover, ...(c.gallery || [])].filter((x): x is string => !!x && !x.includes("titanium")).map((img) => ({ c, img })),
+  );
+  const cols: { c: Case; img: string }[][] = [[], [], [], []];
+  tiles.forEach((t, i) => cols[i % 4].push(t));
   return (
     <section className="section masters" aria-labelledby="masters-title">
       <div className="masters__pixels">
@@ -234,9 +247,9 @@ export function Masterpieces({ locale }: { locale: Locale }) {
           <div key={ci} className={`masters__col${ci % 2 ? " is-rev" : ""}`} style={{ ["--speed" as string]: `${38 + ci * 6}s` }}>
             {[0, 1].map((dup) => (
               <div key={dup} className="masters__group" aria-hidden={dup === 1}>
-                {col.map((c) => (
-                  <TLink key={c.slug + dup} href={paths.case(c)} className="masters__tile" data-cursor={d.cta.viewCase} tabIndex={dup ? -1 : 0}>
-                    <CaseCover c={c} sizes="25vw" />
+                {col.map(({ c, img }) => (
+                  <TLink key={img + dup} href={paths.case(c)} className="masters__tile" data-cursor={d.cta.viewCase} tabIndex={dup ? -1 : 0}>
+                    <img src={img} alt={c.client} loading="lazy" decoding="async" sizes="25vw" />
                     <span className="masters__label">
                       <strong>{c.client}</strong>
                       <small>{tr(c.summary, locale).slice(0, 70)}…</small>

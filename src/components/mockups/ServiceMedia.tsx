@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ScrollSequence } from "@/components/motion/ScrollSequence";
 import type { Media } from "@/content/types";
 
 /**
- * Eigen creatieve assets i.p.v. de code-mockup: Lottie (JSON),
- * video (mp4/webm) of afbeelding. Lottie wordt pas geladen als hij
+ * Eigen creatieve assets i.p.v. de code-mockup: scroll-gestuurde frame-reeks,
+ * Lottie (JSON), video (mp4/webm) of afbeelding. Lottie wordt pas geladen als hij
  * in beeld komt; buiten beeld pauzeert hij.
  */
-export function ServiceMedia({ media, alt }: { media: Media; alt: string }) {
+export function ServiceMedia({ media, alt, placement = "card" }: { media: Media; alt: string; placement?: "hero" | "card" }) {
+  if (media.type === "sequence")
+    return <ScrollSequence src={media.src} alt={alt} mode={placement === "hero" ? "leave" : "through"} eager={placement === "hero"} className="svc-media svc-media--seq" />;
   if (media.type === "image") return <img src={media.src} alt={alt} className="svc-media" loading="lazy" />;
   if (media.type === "video")
     return <video className="svc-media" src={media.src} poster={media.poster} autoPlay muted loop playsInline aria-label={alt} />;

@@ -23,14 +23,16 @@ export default function HomePage({ params }: { params: { lang: Locale } }) {
   const locale = params.lang;
   return (
     <>
+      {/* Volgorde en opbouw volgens het Figma-ontwerp */}
       <HomeHero locale={locale} />
       <LogoMarquee />
       <OneStop locale={locale} />
-      <PillarStack locale={locale} />
       <Masterpieces locale={locale} />
       <Experience locale={locale} />
       <StatsBand locale={locale} />
+      <PillarStack locale={locale} from={0} to={5} />
       <Juices locale={locale} />
+      <PillarStack locale={locale} from={5} />
       <Bento locale={locale} />
       <LevelUp locale={locale} />
       <JsonLd data={itemListLd(allServices().map((s) => ({ name: tr(s.title, locale), path: paths.service(s) })), locale)} />

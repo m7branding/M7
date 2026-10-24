@@ -331,6 +331,11 @@
 .steps__item:last-child::after {
   display: none;
 }
+@media (max-width: 600px) {
+  .steps__item::after {
+    display: none;
+  }
+}
 .steps__num {
   font-size: 4.2rem;
   font-weight: 800;

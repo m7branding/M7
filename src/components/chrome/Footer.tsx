@@ -18,7 +18,7 @@ export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="ftr">
       <div className="ftr__badge-row">
-        <PixelGrid variant="sides" />
+        <PixelGrid variant="sides" intensity={1.8} />
         <M7Badge className="ftr__badge" id="ftr" />
       </div>
       <div className="container ftr__news">

@@ -10,6 +10,16 @@
   overflow: hidden;
   background: radial-gradient(90% 70% at 50% 100%, #19191c 0%, #050506 62%);
 }
+/* zachte overgang naar de zwarte logo-band, zodat de telefoons niet hard afgekapt worden */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  height: clamp(70px, 12vh, 150px);
+  background: linear-gradient(180deg, transparent, #000);
+  pointer-events: none;
+}
 .hero__bg,
 .hero__pixels {
   position: absolute;
@@ -28,7 +38,8 @@
   text-align: center;
 }
 .hero__title {
-  max-width: 14ch;
+  font-size: clamp(2.6rem, 5.2vw, 5.4rem);
+  letter-spacing: -0.02em;
 }
 .hero__sub {
   margin-top: clamp(14px, 2vh, 22px);
@@ -50,13 +61,20 @@
 .hero__visual {
   position: relative;
   z-index: 1;
-  margin-top: -40px;
-  width: 100%;
+  margin-top: clamp(-90px, -5vw, -40px);
+  width: min(1180px, 100vw);
+  margin-inline: calc(50% - min(590px, 50vw));
 }
 .hero__scene {
   --hp: 0;
-  transform: translate3d(0, calc(var(--hp) * -6%), 0) scale(calc(1 + var(--hp) * 0.08));
-  opacity: calc(1 - var(--hp) * 0.6);
+  --mx: 0;
+  --my: 0;
+  /* blijft achter bij het scrollen zodat de scroll-animatie langer zichtbaar is */
+  transform: translate3d(0, calc(var(--hp) * 20vh), 0);
+}
+.hero__seq {
+  transform: perspective(1800px) rotateY(calc(var(--mx) * 5deg)) rotateX(calc(var(--my) * -4deg));
+  transition: transform 0.2s linear;
 }
 .partner {
   position: absolute;
@@ -168,16 +186,18 @@
   background: linear-gradient(180deg, #000 0%, #06060a 100%);
 }
 .onestop__text {
-  margin-top: 28px;
-  max-width: 800px;
+  margin-top: 30px;
+  max-width: 860px;
   margin-inline: auto;
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  line-height: 2.1;
 }
 .folders {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: clamp(16px, 2vw, 28px) clamp(14px, 1.8vw, 24px);
   margin-top: clamp(56px, 7vw, 96px);
-  max-width: 1120px;
+  max-width: 1180px;
   margin-inline: auto;
 }
 .folder {
@@ -219,8 +239,8 @@
   justify-items: center;
   align-content: center;
   gap: 14px;
-  min-height: 132px;
-  padding: 26px 14px 22px;
+  min-height: 150px;
+  padding: 28px 14px 24px;
   border-radius: 6px 18px 18px 18px;
   background: linear-gradient(180deg, #212125, #18181b);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 20px 40px -20px #000;
@@ -263,7 +283,7 @@
 }
 .folder__label {
   font-weight: 700;
-  font-size: 0.86rem;
+  font-size: clamp(0.8rem, 1vw, 0.98rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1.3;
@@ -291,28 +311,26 @@
   }
 }
 
-/* ---------------- Pillar stacking cards ---------------- */
+/* ---------------- Peiler-kaarten (design: grote zwarte kaart, tekst | mockup) ---------------- */
 .pillars {
   position: relative;
-  padding-block: 40px var(--section);
-  background: linear-gradient(180deg, #06060a, #0a0c14 50%, #08080b);
+  padding-block: clamp(48px, 6vw, 90px);
+  background: linear-gradient(180deg, #161616 0%, #121418 50%, #0d1018 100%);
 }
 .pillar {
   position: sticky;
-  top: calc(var(--header-h) + 12px + var(--i) * 10px);
-  padding-bottom: 28px;
+  top: calc(var(--header-h) + 8px + var(--i) * 12px);
+  padding-bottom: clamp(18px, 2.4vw, 32px);
 }
 .pillar__card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(24px, 4vw, 64px);
-  min-height: min(78vh, 720px);
-  padding: clamp(28px, 5vw, 80px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: clamp(460px, 39vw, 680px);
   border-radius: var(--r-xl);
-  background: radial-gradient(70% 90% at 85% 50%, color-mix(in srgb, var(--accent) 9%, #000), #000 70%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.06), 0 -30px 60px -30px rgba(0, 0, 0, 0.9);
+  background: #000;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 -30px 60px -30px rgba(0, 0, 0, 0.9);
   overflow: hidden;
   transform-origin: 50% 0;
 }
@@ -324,53 +342,70 @@
   }
   @keyframes pillar-shrink {
     to {
-      transform: scale(0.92);
-      filter: brightness(0.5);
+      transform: scale(0.93);
+      filter: brightness(0.45);
     }
   }
 }
+.pillar__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(20px, 2.2vw, 34px);
+  padding: clamp(32px, 6vw, 120px) clamp(28px, 4vw, 70px) clamp(32px, 6vw, 120px) clamp(28px, 6vw, 120px);
+}
 .pillar--flip .pillar__text {
   order: 2;
-}
-.pillar__num {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--accent);
-}
-.pillar__num span {
-  color: var(--faint);
+  padding: clamp(32px, 6vw, 120px) clamp(28px, 6vw, 120px) clamp(32px, 6vw, 120px) clamp(28px, 4vw, 70px);
 }
 .pillar__title {
-  margin-top: 18px;
-  color: #e9e9ee;
+  font-size: clamp(2.1rem, 3.9vw, 4.1rem);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: #e3e3e6;
+  text-wrap: balance;
 }
-.pillar__tagline {
-  margin: 14px 0 22px;
-  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: -0.01em;
+.pillar__title a {
+  transition: color 0.4s;
 }
-.pillar__text .body {
-  max-width: 540px;
+.pillar__title a:hover {
+  color: #fff;
 }
-.pillar__apps {
+.pillar__body {
+  color: #b9b9c0;
+  line-height: 2.05;
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  font-weight: 300;
+  max-width: 560px;
+}
+.pillar__cta {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 26px 0 34px;
-}
-.pillar__apps .chip {
-  padding: 8px 14px;
-  font-size: 0.82rem;
-  border-radius: 999px;
+  gap: 18px 28px;
+  margin-top: 6px;
 }
 .pillar__visual {
   position: relative;
-  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 3vw, 48px);
+  background: radial-gradient(60% 60% at 50% 50%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%);
+}
+.pillar__visual .mk {
   max-width: 560px;
-  justify-self: center;
+}
+/* frame-reeks: groot en aflopend over de kaartrand, zoals de telefoon in het design */
+.pillar__visual--seq {
+  padding: 0;
+  overflow: hidden;
+  background: none;
+}
+.pillar__visual--seq .seq {
+  width: 175%;
+  max-width: none;
+  border-radius: 0;
 }
 @media (max-width: 900px) {
   .pillar {
@@ -378,11 +413,18 @@
     top: 0;
   }
   .pillar__card {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     min-height: 0;
   }
   .pillar--flip .pillar__text {
     order: 0;
+  }
+  .pillar__text,
+  .pillar--flip .pillar__text {
+    padding: 36px 26px 10px;
+  }
+  .pillar__visual--seq .seq {
+    width: 150%;
   }
 }
 
@@ -405,8 +447,12 @@
   height: min(1000px, 120vh);
   margin-top: clamp(48px, 6vw, 80px);
   padding-inline: 22px;
-  mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
-  transform: perspective(1600px) rotateX(10deg) scale(1.04);
+  mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent);
+  width: calc(100% + 18vw);
+  margin-left: -9vw;
+}
+.masters .section-head {
+  max-width: none;
 }
 .masters__col {
   overflow: hidden;
@@ -439,13 +485,11 @@
   position: relative;
   display: block;
   aspect-ratio: 4 / 3;
-  border-radius: 34px;
+  border-radius: clamp(22px, 2.4vw, 36px);
   overflow: hidden;
   background: #16161a;
 }
-.masters__tile:nth-child(3n + 2) {
-  aspect-ratio: 1 / 1.05;
-}
+
 .masters__tile img {
   width: 100%;
   height: 100%;
@@ -481,7 +525,8 @@
   .masters__wall {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     height: 760px;
-    transform: none;
+    width: 100%;
+    margin-left: 0;
   }
   .masters__col:nth-child(n + 3) {
     display: none;
@@ -780,7 +825,7 @@
   color: #e9e9ee;
   font-variant-numeric: tabular-nums;
 }
-.stat span {
+.stat > span {
   margin-top: 16px;
   color: var(--muted);
   font-size: 1.05rem;

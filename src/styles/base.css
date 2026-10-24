@@ -424,6 +424,14 @@ a.chip:hover {
   font-size: 1.15rem;
   border-radius: 16px;
 }
+@media (max-width: 600px) {
+  .chip--lg {
+    max-width: 100%;
+    padding: 12px 18px;
+    font-size: 1rem;
+    white-space: normal;
+  }
+}
 .chip--ghost {
   background: transparent;
 }

@@ -184,6 +184,8 @@ export interface TeamMember {
 
 /* ---------- Media (eigen assets) ---------- */
 export type Media =
+  /** Scroll-gestuurde frame-reeks (zie scripts/sequence.mjs), bv. de Lotties van /home-2. */
+  | { type: "sequence"; src: string }
   | { type: "lottie"; src: string; poster?: string }
   | { type: "video"; src: string; poster?: string }
   | { type: "image"; src: string; alt?: T };

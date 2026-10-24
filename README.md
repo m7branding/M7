@@ -76,6 +76,32 @@ Je koppelt iets maar op één plek; de rest volgt vanzelf (`src/lib/content.ts`)
   ```
   Lottie wordt pas geladen als hij in beeld komt en pauzeert buiten beeld.
 
+### Scroll-animaties (zoals op /home-2)
+
+De 3D-renders van `/home-2` (hero-telefoons en de mockup in de zwarte sectie) draaien hier als
+**scroll-sequence**: losse WebP-frames die op een canvas met de scroll worden afgespeeld. Dat is
+ca. 3× lichter dan de oorspronkelijke "movie-to-lottie"-JSON's en scherper op retina.
+
+- Hero: speelt af terwijl je de hero uit scrollt, blijft iets achter (parallax) en kantelt met de muis.
+- Peilerkaart / dienst-hero: speelt af terwijl de kaart door het beeld gaat.
+- Frames laden progressief (eerst elke 8e, dan steeds fijner); mobiel en "data besparen" krijgen
+  een lichtere set. Zwart wegvallen gaat via `mix-blend-mode: lighten`, dus render op zwart.
+
+Een nieuwe render toevoegen (MP4/MOV of movie-to-lottie JSON, vereist `ffmpeg`):
+
+```bash
+node scripts/sequence.mjs ~/Downloads/branding-render.mp4 branding
+# → public/media/sequences/branding/{lg,sm}/0000.webp … + manifest.json
+```
+
+En koppel hem aan een peiler of toepassing:
+
+```ts
+media: { type: "sequence", src: "/media/sequences/branding" }
+```
+
+Tip: ±3–5 seconden op 24–30 fps, 16:9, product gecentreerd op een zwarte achtergrond.
+
 ---
 
 ## Wat er in zit
@@ -103,6 +129,8 @@ Je koppelt iets maar op één plek; de rest volgt vanzelf (`src/lib/content.ts`)
 - **Levende achtergronden**: WebGL "aurora" (zijdezachte banen die langzaam ademen en op de muis
   reageren — o.a. de AI-kaart), ademende radial gradients met muis-spotlight, twinkelende sterren
   en het pixel-raster uit het design dat pulseert en oplicht rond de muis.
+- **Scroll-animaties van /home-2**: 3D-renders als frame-sequence die met de scroll meespeelt
+  (hero + Websites & Webshops), zie "Scroll-animaties" hierboven.
 - **10 unieke geanimeerde mockups** (één per peiler, puur code, schaalt via container queries):
   logo-constructie, website die zichzelf bouwt, facturen-app, workflow-nodes, SERP + AI-antwoord,
   social feed + ROAS, viewfinder + 3D + tijdlijn, openvouwende brochure, configurator, AI-chat + agent.
@@ -156,7 +184,7 @@ src/
   components/
     brand/             M7-logo's (lined / emblem / badge)
     chrome/            header, mega-menu, full-screen menu, footer, nieuwsbrief
-    motion/            preloader, page transitions, Lenis, reveals, cursor, aurora, glowfield, sterren, pixelgrid
+    motion/            preloader, page transitions, Lenis, reveals, cursor, aurora, glowfield, sterren, pixelgrid, scroll-sequence
     mockups/           10 geanimeerde peiler-mockups + hero-telefoons + Lottie/video-player
     sections/          home-secties, page hero, filters, slider, formulieren
     ui/                knoppen, kaarten, FAQ, tools, breadcrumbs, marquee, iconen
@@ -166,6 +194,8 @@ src/
   lib/                 i18n, query-laag, paden, SEO-helpers, llms.txt
   styles/              tokens, base, motion, chrome, secties, mockups, pagina's
   middleware.ts        NL/EN-routing + letsgo-host
+public/media/sequences/  scroll-animaties (frames + manifest), gemaakt met scripts/sequence.mjs
+scripts/sequence.mjs     zet een render (video of movie-to-lottie JSON) om naar een scroll-sequence
 ```
 
 ## Nog aan te vullen

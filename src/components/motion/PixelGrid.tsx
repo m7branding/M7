@@ -10,10 +10,13 @@ import { useEffect, useRef } from "react";
 export function PixelGrid({
   variant = "sides",
   color = "255,255,255",
+  intensity = 1,
   className,
 }: {
   variant?: "sides" | "bottom" | "top" | "full";
   color?: string;
+  /** Vermenigvuldigt de basis-helderheid van de pixels. */
+  intensity?: number;
   className?: string;
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -60,7 +63,7 @@ export function PixelGrid({
         for (let x = STEP / 2; x < w; x += STEP) {
           const m = mask(x / w, y / h);
           if (m <= 0.02 || Math.random() > 0.55 + m * 0.4) continue;
-          px.push({ x, y, base: m * (0.05 + Math.random() * 0.1), ph: Math.random() * 100, sp: 0.2 + Math.random() * 0.6, glow: 0 });
+          px.push({ x, y, base: m * (0.05 + Math.random() * 0.1) * intensity, ph: Math.random() * 100, sp: 0.2 + Math.random() * 0.6, glow: 0 });
         }
       }
     };
@@ -107,7 +110,7 @@ export function PixelGrid({
       ro.disconnect();
       window.removeEventListener("pointermove", onMove);
     };
-  }, [variant, color]);
+  }, [variant, color, intensity]);
 
   return <canvas ref={ref} className={`pixelgrid${className ? " " + className : ""}`} aria-hidden="true" />;
 }

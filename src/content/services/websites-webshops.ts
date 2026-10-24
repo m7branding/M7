@@ -243,6 +243,8 @@ export const service: Service = {
     en: "Fast websites and web shops in Webflow, WordPress, WooCommerce and Shopify. Including hosting, domains, SSL and maintenance. Webflow Professional Partner.",
   },
   related: ["seo-aeo-geo", "branding-rebranding", "marketing-automatisering-funnels"],
+  // Scroll-animatie van /home-2 (Repairlab-site + app op 3D-telefoons)
+  media: { type: "sequence", src: "/media/sequences/phones" },
   configurator: ["websites", "webshop", "hosting", "support"],
 };
 

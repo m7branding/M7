@@ -513,3 +513,36 @@ html.js[data-loading="1"] .page-shell {
   height: 100%;
   pointer-events: none;
 }
+
+/* ---------------- Scroll-sequence (frames) ---------------- */
+.seq {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1100 / 618;
+  -webkit-mask-image: radial-gradient(75% 80% at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(75% 80% at 50% 50%, #000 62%, transparent 100%);
+}
+.seq__poster,
+.seq__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Zwarte frame-achtergrond laten wegvallen tegen de pagina. Moet op de buitenste
+   wrapper: transforms/masks binnenin isoleren de blend. */
+.hero__visual,
+.svc-hero__visual:has(.seq),
+.pillar__visual--seq {
+  mix-blend-mode: lighten;
+}
+.seq--bottom .seq__poster {
+  object-position: 50% 100%;
+}
+.seq__poster {
+  transition: opacity 0.4s;
+}
+.seq.is-ready .seq__poster {
+  opacity: 0;
+}

@@ -1,0 +1,15 @@
+{
+  "fps": 30,
+  "sets": {
+    "lg": {
+      "count": 160,
+      "ext": "webp"
+    },
+    "sm": {
+      "count": 80,
+      "ext": "webp"
+    }
+  },
+  "width": 1100,
+  "height": 618
+}

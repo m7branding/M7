@@ -114,7 +114,7 @@ export default function ServicePage({ params }: P) {
             </dl>
           </div>
           <div className="svc-hero__visual" data-reveal="scale" style={{ ["--d" as string]: "0.2s" }}>
-            {s.media ? <ServiceMedia media={s.media} alt={title} /> : <Mockup kind={s.mockup} accent={s.color} />}
+            {s.media ? <ServiceMedia media={s.media} alt={title} placement="hero" /> : <Mockup kind={s.mockup} accent={s.color} />}
           </div>
         </div>
       </section>
