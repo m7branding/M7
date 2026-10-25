@@ -60,8 +60,51 @@ html.js:not([data-loading="1"]) .hdr {
   flex: none;
   transition: opacity 0.3s;
 }
-.hdr__logo:hover {
-  opacity: 0.8;
+/* hover: emblem → lijn-versie, als een technische tekening */
+.m7d {
+  display: block;
+  overflow: visible;
+}
+.m7d__fill {
+  fill: currentColor;
+  transition: opacity 0.45s var(--ease-soft) 0.2s;
+}
+.m7d__lined path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.15px;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.7s var(--ease-in-out) calc(0.25s - var(--pi) * 0.05s);
+}
+.m7d__guides line {
+  stroke: var(--teal);
+  stroke-width: 0.6px;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0.55;
+  transition: stroke-dashoffset 0.6s var(--ease-in-out);
+}
+.hdr__logo:hover .m7d__fill,
+.hdr__logo:focus-visible .m7d__fill {
+  opacity: 0;
+  transition-delay: 0s;
+}
+.hdr__logo:hover .m7d__lined path,
+.hdr__logo:focus-visible .m7d__lined path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.1s var(--ease-in-out) calc(var(--pi) * 0.09s);
+}
+.hdr__logo:hover .m7d__guides line,
+.hdr__logo:focus-visible .m7d__guides line {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.9s var(--ease-out) 0.15s;
+}
+.hdr__logo:hover .m7d__guides line:nth-child(3) {
+  transition-delay: 0.35s;
 }
 .hdr__nav {
   display: flex;
@@ -102,10 +145,9 @@ html.js:not([data-loading="1"]) .hdr {
   transform-origin: 0 50%;
 }
 .hdr__count {
-  font-size: 0.68rem;
-  color: var(--teal);
-  margin-left: -2px;
-  top: -0.6em;
+  margin-left: 2px;
+  font-size: 0.66rem;
+  padding: 0.18em 0.6em;
 }
 .hdr__chev {
   opacity: 0.7;
@@ -459,19 +501,11 @@ html.js:not([data-loading="1"]) .hdr {
 }
 .fm__watermark {
   position: absolute;
-  right: -6vw;
-  bottom: -8vh;
-  width: min(80vw, 1100px);
-  color: rgba(255, 255, 255, 0.05);
-}
-.fm__watermark path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 2.4s var(--ease-in-out);
-  transition-delay: calc(0.5s + var(--pi) * 0.1s);
-}
-.fm.is-open .fm__watermark path {
-  stroke-dashoffset: 0;
+  right: -4vw;
+  bottom: -6vh;
+  width: min(72vw, 1040px);
+  aspect-ratio: 89 / 51;
+  pointer-events: none;
 }
 .fm__body {
   position: relative;
@@ -488,19 +522,8 @@ html.js:not([data-loading="1"]) .hdr {
 }
 .fm__item {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: minmax(0, 1fr);
   align-items: baseline;
-}
-.fm__num {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--teal);
-  letter-spacing: 0.1em;
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition:
-    opacity 0.6s,
-    transform 0.8s var(--ease-out);
 }
 .fm__link {
   position: relative;
@@ -546,12 +569,10 @@ html.js:not([data-loading="1"]) .hdr {
   transform: none;
 }
 .fm__count {
-  font-size: 0.32em;
-  font-weight: 600;
-  color: var(--teal);
-  align-self: flex-start;
-  margin-top: 0.5em;
-  letter-spacing: 0;
+  align-self: center;
+  margin-top: -0.6em;
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  padding: 0.28em 0.75em;
   opacity: 0;
   transition: opacity 0.6s;
 }
@@ -577,14 +598,13 @@ html.js:not([data-loading="1"]) .hdr {
   transform: none;
   transition-delay: calc(0.5s + var(--i) * 0.07s);
 }
-.fm.is-open .fm__num,
 .fm.is-open .fm__count {
   opacity: 1;
   transform: none;
   transition-delay: calc(0.6s + var(--i) * 0.07s);
 }
 .fm__acc {
-  grid-column: 2;
+  grid-column: 1;
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.6s var(--ease-out);
@@ -836,13 +856,38 @@ html.js:not([data-loading="1"]) .hdr {
   filter: drop-shadow(0 0 30px rgba(58, 255, 255, 0.25));
   animation: float 7s ease-in-out infinite;
 }
+.ftr__badge-row::after {
+  /* zachte gloed die meekomt met de reveal */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 320px;
+  height: 320px;
+  margin: -160px 0 0 -160px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(58, 255, 255, 0.12), transparent);
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 1.6s var(--ease-soft) 0.9s,
+    transform 2.2s var(--ease-out) 0.9s;
+  pointer-events: none;
+}
+.ftr__badge-row:has(.m7r.is-in)::after {
+  opacity: 1;
+  transform: none;
+}
 @keyframes float {
   50% {
     transform: translate3d(0, -8px, 0);
   }
 }
+/* de nieuwsbrief-balk valt half over het pixel-raster heen */
 .ftr__news {
-  margin-top: 8px;
+  position: relative;
+  z-index: 2;
+  margin-top: -39px;
 }
 .news {
   display: flex;
@@ -1032,4 +1077,10 @@ html.js:not([data-loading="1"]) .hdr {
 .rail a:hover {
   opacity: 1;
   transform: scale(1.15);
+}
+.fm__kicker-count {
+  margin-left: 6px;
+  padding: 0.1em 0.6em;
+  font-size: 0.68rem;
+  vertical-align: 0.1em;
 }

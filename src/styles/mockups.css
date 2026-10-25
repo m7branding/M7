@@ -27,6 +27,7 @@
   animation-play-state: paused !important;
 }
 .mk__glow {
+  pointer-events: none;
   position: absolute;
   inset: 8%;
   border-radius: 50%;

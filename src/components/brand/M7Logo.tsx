@@ -39,6 +39,33 @@ export function M7Lined({ className }: { className?: string }) {
   );
 }
 
+/**
+ * Emblem dat bij hover van zijn link (.hdr__logo) overgaat in de lijn-versie:
+ * de vulling trekt weg, de contouren tekenen zich als een technische tekening
+ * met dunne hulplijnen (basislijn, kaphoogte en de as tussen M en 7).
+ */
+export function M7EmblemDraw({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 89 51" className={`m7d${className ? " " + className : ""}`} aria-hidden="true">
+      <g className="m7d__guides">
+        <line x1="-10" x2="99" y1="0.3" y2="0.3" pathLength={1} />
+        <line x1="99" x2="-10" y1="49.9" y2="49.9" pathLength={1} />
+        <line x1="57" x2="57" y1="-8" y2="58" pathLength={1} />
+      </g>
+      <g className="m7d__fill">
+        {M7_PATHS.map((d, i) => (
+          <path key={i} d={d} />
+        ))}
+      </g>
+      <g className="m7d__lined">
+        {M7_PATHS.map((d, i) => (
+          <path key={i} d={d} pathLength={1} style={{ ["--pi" as string]: i }} />
+        ))}
+      </g>
+    </svg>
+  );
+}
+
 /** Volledige badge: emblem in een gradient-ring (#3AFFFF → #00FF19). */
 export function M7Badge({ className, id = "m7b" }: { className?: string; id?: string }) {
   return (

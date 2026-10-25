@@ -4,8 +4,9 @@ import { useEffect, useRef } from "react";
 
 /**
  * Het pixel-raster uit het design (vierkantjes in 'heuvels' aan de
- * zijkanten). Pixels pulseren willekeurig en lichten op rond de muis,
- * zodat het raster subtiel 'leeft'.
+ * zijkanten). Ingetogen: in plaats van losse knipperende pixels rollen er
+ * rustige golven doorheen (een smalle scan-band vanaf de randen en een trage
+ * diagonale deining), en pixels lichten zacht op rond de muis.
  */
 export function PixelGrid({
   variant = "sides",
@@ -30,7 +31,7 @@ export function PixelGrid({
       h = 0,
       raf = 0,
       visible = true;
-    type Px = { x: number; y: number; base: number; ph: number; sp: number; glow: number };
+    type Px = { x: number; y: number; nx: number; ny: number; d: number; m: number; base: number; glow: number };
     let px: Px[] = [];
     const STEP = 27,
       SIZE = 8;
@@ -63,7 +64,9 @@ export function PixelGrid({
         for (let x = STEP / 2; x < w; x += STEP) {
           const m = mask(x / w, y / h);
           if (m <= 0.02 || Math.random() > 0.55 + m * 0.4) continue;
-          px.push({ x, y, base: m * (0.05 + Math.random() * 0.1) * intensity, ph: Math.random() * 100, sp: 0.2 + Math.random() * 0.6, glow: 0 });
+          const nx = x / w,
+            ny = y / h;
+          px.push({ x, y, nx, ny, d: Math.abs(nx - 0.5) * 2, m, base: m * (0.028 + Math.random() * 0.045) * intensity, glow: 0 });
         }
       }
     };
@@ -84,11 +87,18 @@ export function PixelGrid({
       ctx.clearRect(0, 0, w, h);
       const T = t * 0.001;
       for (const p of px) {
-        const pulse = reduce ? 0 : Math.max(0, Math.sin(T * p.sp + p.ph)) ** 12 * 0.28;
-        const d = Math.hypot(p.x - mx, p.y - my);
-        const target = d < 140 ? (1 - d / 140) * 0.35 : 0;
-        p.glow += (target - p.glow) * 0.08;
-        const a = Math.min(0.75, p.base + pulse + p.glow);
+        let wave = 0;
+        if (!reduce) {
+          // smalle scan-band die vanaf de randen naar binnen rolt
+          const b1 = Math.max(0, Math.sin(p.d * 9 + T * 0.75 + p.ny * 2.4)) ** 12;
+          // trage, brede diagonale deining
+          const b2 = Math.max(0, Math.sin(p.nx * 5.5 - p.ny * 3 - T * 0.3 + 1.3)) ** 6;
+          wave = (b1 * 0.12 + b2 * 0.06) * p.m * intensity;
+        }
+        const dist = Math.hypot(p.x - mx, p.y - my);
+        const target = dist < 150 ? (1 - dist / 150) * 0.22 : 0;
+        p.glow += (target - p.glow) * 0.06;
+        const a = Math.min(0.5, p.base + wave + p.glow);
         ctx.fillStyle = `rgba(${color},${a.toFixed(3)})`;
         ctx.fillRect(p.x - SIZE / 2, p.y - SIZE / 2, SIZE, SIZE);
       }

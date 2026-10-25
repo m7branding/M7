@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GlowField } from "@/components/motion/GlowField";
+import { ScrollShowcase } from "@/components/motion/ScrollShowcase";
 import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
+import { CaseStory } from "@/components/sections/CaseStory";
+import { HeroScene } from "@/components/sections/HeroScene";
 import { LevelUp } from "@/components/sections/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -10,14 +12,14 @@ import { Btn } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/Cards";
 import { CaseCard, CaseCover } from "@/components/ui/CaseCard";
 import { Icon } from "@/components/ui/Icon";
-import { ReviewCard } from "@/components/ui/ReviewCard";
 import { ToolBadge } from "@/components/ui/ToolBadge";
 import { LOCALES, type Locale } from "@/content/types";
-import { allCases, applicationsBySlugs, casesForService, getCase, getReview, getSector, getService, nextCase } from "@/lib/content";
+import { allCases, applicationsBySlugs, casesForService, getCase, getSector, getService, nextCase } from "@/lib/content";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 import { buildMetadata, creativeWorkLd } from "@/lib/seo";
+import { storyFor } from "@/lib/story";
 
 type P = { params: { lang: Locale; case: string } };
 
@@ -34,7 +36,7 @@ export function generateMetadata({ params }: P): Metadata {
     path: paths.case(c),
     title: `${c.client}: ${tr(c.title, params.lang)} | M7`,
     description: tr(c.summary, params.lang).slice(0, 158),
-    image: c.cover,
+    image: c.hero?.image ?? c.cover,
   });
 }
 
@@ -46,59 +48,64 @@ export default function CasePage({ params }: P) {
   const services = c.services.map((s) => getService(s)!).filter(Boolean);
   const sector = getSector(c.sector);
   const apps = applicationsBySlugs(c.applications);
-  const review = getReview(c.review);
   const more = casesForService(c.services[0]).filter((x) => x.slug !== c.slug).slice(0, 3);
   const next = nextCase(c.slug);
   const title = tr(c.title, locale);
 
-  const blocks = [
-    { k: d.cases.challenge, v: tr(c.challenge, locale) },
-    { k: d.cases.approach, v: tr(c.approach, locale) },
-    { k: d.cases.result, v: tr(c.result, locale) },
-  ];
+  const story = storyFor(c);
+  const heroImg = c.hero?.image ?? c.cover;
 
   return (
     <article className="case" style={{ ["--cc" as string]: c.color, ["--accent" as string]: services[0]?.color }}>
-      <section className="page-hero case-hero">
-        <div className="page-hero__bg">
-          <GlowField
-            blobs={[
-              { x: "70%", y: "20%", c: `${c.color}40`, s: "60vmax", dur: 18 },
-              { x: "10%", y: "80%", c: "rgba(58,255,255,.05)", s: "50vmax", dur: 22, delay: -6 },
-            ]}
-          />
-        </div>
-        <div className="container">
-          <Breadcrumbs
-            locale={locale}
-            label={d.misc.breadcrumbs}
-            items={[
-              { name: d.nav.home, path: "/" },
-              { name: d.nav.cases, path: paths.cases },
-              { name: c.client, path: paths.case(c) },
-            ]}
-          />
-          <p className="kicker case-hero__kicker" data-reveal="fade">
-            {c.client} · {c.year}
-            {c.concept ? <span className="case-hero__concept">{d.cases.concept}</span> : null}
-          </p>
-          <SplitText as="h1" className="h1 case-hero__title" parts={title} delay={0.1} />
-          <p className="lead case-hero__lead" data-reveal="up" style={{ ["--d" as string]: "0.35s" }}>
-            {tr(c.summary, locale)}
-          </p>
-          <div className="chips case-hero__tags" data-reveal="up" style={{ ["--d" as string]: "0.45s" }}>
-            {services.map((s) => (
-              <TLink key={s.slug} href={paths.service(s)} className="chip" style={{ ["--accent" as string]: s.color }}>
-                <span className="chip__dot" />
-                {tr(s.short, locale)}
-              </TLink>
-            ))}
+      {/* ---------- Hero: schermvullend beeld (ingesprongen, afgerond) met donkere overlay ---------- */}
+      <section className="case-hero">
+        <div className="case-hero__frame">
+          <HeroScene>
+            <div className="case-hero__media">
+              {c.hero?.video ? (
+                <video src={c.hero.video} poster={c.hero.poster} autoPlay muted loop playsInline style={{ objectPosition: c.hero.position }} />
+              ) : heroImg ? (
+                <img src={heroImg} alt={c.client} fetchPriority="high" style={{ objectPosition: c.hero?.position }} />
+              ) : (
+                <CaseCover c={c} sizes="100vw" />
+              )}
+            </div>
+          </HeroScene>
+          <div className="case-hero__shade" aria-hidden="true" />
+          <div className="container case-hero__content">
+            <Breadcrumbs
+              locale={locale}
+              label={d.misc.breadcrumbs}
+              items={[
+                { name: d.nav.home, path: "/" },
+                { name: d.nav.cases, path: paths.cases },
+                { name: c.client, path: paths.case(c) },
+              ]}
+            />
+            <div className="case-hero__text">
+              <p className="kicker case-hero__kicker" data-reveal="fade">
+                {c.client} · {c.year}
+                {c.concept ? <span className="case-hero__concept">{d.cases.concept}</span> : null}
+              </p>
+              <SplitText as="h1" className="h1 case-hero__title" parts={title} delay={0.15} />
+              <p className="lead case-hero__lead" data-reveal="up" style={{ ["--d" as string]: "0.4s" }}>
+                {tr(c.summary, locale)}
+              </p>
+              <div className="chips case-hero__tags" data-reveal="up" style={{ ["--d" as string]: "0.5s" }}>
+                {services.map((s) => (
+                  <TLink key={s.slug} href={paths.service(s)} className="inlink case-hero__tag" style={{ ["--accent" as string]: s.color }}>
+                    <span className="inlink__ic" aria-hidden="true">
+                      <Icon name={s.icon} size={13} stroke={2} />
+                    </span>
+                    {tr(s.short, locale)}
+                  </TLink>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="container">
-          <div className="case-hero__media" data-reveal="clip" style={{ ["--d" as string]: "0.25s" }}>
-            <CaseCover c={c} sizes="100vw" />
-          </div>
+          <span className="case-hero__scroll" aria-hidden="true">
+            {d.cases.scroll}
+          </span>
         </div>
       </section>
 
@@ -145,54 +152,13 @@ export default function CasePage({ params }: P) {
         </div>
       </section>
 
-      <section className="section case-story">
-        <div className="container case-story__grid">
-          {blocks.map((b, i) => (
-            <div key={i} className="case-story__block" data-reveal="up" style={{ ["--d" as string]: `${i * 0.08}s` }}>
-              <span className="case-story__num">0{i + 1}</span>
-              <h2 className="h3">{b.k}</h2>
-              <p className="body">{b.v}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {c.gallery?.length ? (
-        <section className="section section--tight case-gallery">
-          <div className="container">
-            <div className="case-gallery__grid">
-              {c.gallery.map((g, i) => (
-                <figure key={g} className="case-gallery__item" data-reveal="clip" style={{ ["--d" as string]: `${i * 0.1}s` }}>
-                  <img src={g} alt={`${c.client} ${i + 1}`} loading="lazy" />
-                </figure>
-              ))}
-            </div>
-          </div>
+      {c.reveal ? (
+        <section className="case-reveal">
+          <ScrollShowcase video={c.reveal.video} image={c.reveal.image} poster={c.reveal.poster} position={c.reveal.position} alt={c.client} />
         </section>
       ) : null}
 
-      {c.results?.length ? (
-        <section className="section section--tight">
-          <div className="container">
-            <dl className="svc-hero__stats case-results" data-stagger="">
-              {c.results.map((r) => (
-                <div key={r.value}>
-                  <dt>{r.value}</dt>
-                  <dd>{tr(r.label, locale)}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-      ) : null}
-
-      {review ? (
-        <section className="section section--tight">
-          <div className="container container--narrow">
-            <ReviewCard r={review} locale={locale} draftLabel={d.misc.showDrafts} />
-          </div>
-        </section>
-      ) : null}
+      <CaseStory blocks={story} c={c} locale={locale} />
 
       <section className="section section--tight">
         <div className="container">

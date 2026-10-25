@@ -1,4 +1,4 @@
-import { M7Badge } from "@/components/brand/M7Logo";
+import { M7BadgeReveal } from "@/components/brand/M7BadgeReveal";
 import { PixelGrid } from "@/components/motion/PixelGrid";
 import { TLink } from "@/components/motion/TLink";
 import { SocialIcon } from "@/components/ui/Social";
@@ -18,8 +18,8 @@ export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="ftr">
       <div className="ftr__badge-row">
-        <PixelGrid variant="sides" intensity={1.8} />
-        <M7Badge className="ftr__badge" id="ftr" />
+        <PixelGrid variant="sides" intensity={1.25} />
+        <M7BadgeReveal className="ftr__badge" />
       </div>
       <div className="container ftr__news">
         <Newsletter label={d.newsletter.label} question={d.newsletter.question} placeholder={d.newsletter.placeholder} thanks={d.newsletter.thanks} />

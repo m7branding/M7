@@ -40,7 +40,7 @@ export default function LegalPage({ params }: P) {
       />
       <section className="section section--tight">
         <div className="container container--narrow legal">
-          <RichText text={tr(doc.body, locale)} className="body" />
+          <RichText text={tr(doc.body, locale)} className="body" locale={locale} />
         </div>
       </section>
     </>

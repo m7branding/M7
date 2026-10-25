@@ -34,6 +34,22 @@ export interface TextSection {
   body: T;
 }
 
+/**
+ * Rustige content-sectie tussen de blokken door (extra SEO in de nuchtere
+ * Brabantse M7-toon). In `body` kun je een dienst of toepassing als
+ * klikbaar label met icoon opnemen: [[websites-webshops]] of
+ * [[webflow-website|eigen label]].
+ */
+export interface Chapter {
+  /** Korte Engelse kicker / mini-quote boven de kop (optioneel), bv. "No nonsense.". */
+  kicker?: T;
+  h: T;
+  /** Alinea's (\n\n), lijsten ("- ") en inline labels ([[slug]]). */
+  body: T;
+  /** Optionele pull-quote die groot naast de tekst komt. */
+  quote?: T;
+}
+
 export interface Step {
   title: T;
   text: T;
@@ -76,6 +92,8 @@ export interface Service {
   tools: ToolSlug[];
   /** Werkwijze voor deze dienst. */
   process: Step[];
+  /** Extra content-secties die tussen de blokken van de dienstpagina komen. */
+  chapters?: Chapter[];
   /** SEO-tekst onderaan de pagina. */
   seo: { title: T; sections: TextSection[] };
   /** Uitgebreide FAQ (GEO / AEO). */
@@ -118,6 +136,12 @@ export interface Sector {
   title: T;
   short: T;
   icon: IconKey;
+  /** Breed beeld (bij voorkeur eigen werk uit deze sector) dat bij het scrollen openschuift. */
+  image?: string;
+  /** object-position van het beeld, bv. "50% 30%". */
+  imagePosition?: string;
+  /** Korte (Engelse) quote die over het beeld verschijnt. */
+  quote?: T;
   intro: T;
   description: T;
   challenges: Benefit[];
@@ -127,6 +151,31 @@ export interface Sector {
   metaTitle: T;
   metaDescription: T;
 }
+
+/* ---------- Case-verhaal (vrij op te bouwen blokken) ---------- */
+export interface StoryImage {
+  src: string;
+  alt?: T;
+  caption?: T;
+}
+
+export type StoryBlock =
+  /** Introductie of statement over het project, groot in beeld. */
+  | { type: "intro"; kicker?: T; text: T }
+  /** Tekstsectie: kop links, tekst rechts. Inline dienst-labels mogen: [[slug]]. */
+  | { type: "text"; kicker?: T; h: T; body: T; quote?: T }
+  /** Schermvullende masonry-galerij (beelden in hun eigen verhouding). */
+  | { type: "masonry"; images: StoryImage[] }
+  /** Eén breed beeld of video dat bij het scrollen openvouwt, optioneel met quote erop. */
+  | { type: "media"; image?: string; video?: string; poster?: string; position?: string; quote?: T }
+  /** Grote quote, bv. van de klant. */
+  | { type: "quote"; text: T; cite?: string; role?: T; avatar?: string }
+  /** Beeld naast tekst. */
+  | { type: "split"; image: string; kicker?: T; h: T; body: T; reverse?: boolean }
+  /** Mijlpalen (met datum/fase) of een checklist van wat we opleverden. */
+  | { type: "timeline"; title?: T; style?: "timeline" | "checklist"; items: { label: T; text?: T; date?: string }[] }
+  /** De resultaten (`results`) als grote cijfers. */
+  | { type: "results" };
 
 /* ---------- Case / project ---------- */
 export interface Case {
@@ -155,6 +204,16 @@ export interface Case {
   review?: string;
   /** Concepttekst: nog verifiëren / aanvullen met echte projectinfo. */
   concept?: boolean;
+  /** Schermvullende hero-achtergrond (beeld of video, met donkere overlay). Zonder hero: de cover. */
+  hero?: { image?: string; video?: string; poster?: string; position?: string };
+  /** Optionele video (of beeld) die na de hero omhoog schuift en meegroeit bij het scrollen. */
+  reveal?: { video?: string; image?: string; poster?: string; position?: string };
+  /**
+   * Het verhaal van het project: tekst, masonry-galerijen, quotes, beeld en
+   * een tijdlijn, in vrije volgorde. Zonder story bouwt de pagina er zelf
+   * een op uit challenge, approach, result, beelden en review.
+   */
+  story?: StoryBlock[];
 }
 
 /* ---------- Review ---------- */

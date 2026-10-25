@@ -36,7 +36,7 @@ export function Faq({
               </span>
             </summary>
             <div className="faq__a">
-              <RichText text={tr(f.a, locale)} />
+              <RichText text={tr(f.a, locale)} locale={locale} />
             </div>
           </details>
         ))}

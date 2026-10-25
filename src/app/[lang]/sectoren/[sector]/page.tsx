@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ScrollShowcase } from "@/components/motion/ScrollShowcase";
 import { TLink } from "@/components/motion/TLink";
 import { LevelUp } from "@/components/sections/Home";
 import { PageHero } from "@/components/sections/PageHero";
@@ -8,7 +9,6 @@ import { Btn } from "@/components/ui/Button";
 import { SectionHead, ServiceCard } from "@/components/ui/Cards";
 import { CasesMasonry } from "@/components/ui/CaseCard";
 import { Faq } from "@/components/ui/Faq";
-import { Icon } from "@/components/ui/Icon";
 import { RichText } from "@/components/ui/RichText";
 import { site } from "@/content/site";
 import { LOCALES, type Locale } from "@/content/types";
@@ -58,12 +58,15 @@ export default function SectorPage({ params }: P) {
         <Btn href={site.letsgo}>{d.cta.launch}</Btn>
       </PageHero>
 
+      {s.image ? (
+        <section className="sector-showcase" aria-label={title}>
+          <ScrollShowcase image={s.image} position={s.imagePosition} alt={title} quote={s.quote ? tr(s.quote, locale) : undefined} />
+        </section>
+      ) : null}
+
       <section className="section sector-intro">
-        <div className="container sector-intro__grid">
-          <div className="sector-intro__icon" data-reveal="scale">
-            <Icon name={s.icon} size={120} stroke={0.9} />
-          </div>
-          <RichText text={tr(s.description, locale)} className="body sector-intro__text" />
+        <div className="container container--narrow">
+          <RichText text={tr(s.description, locale)} className="body sector-intro__text" locale={locale} />
         </div>
       </section>
 

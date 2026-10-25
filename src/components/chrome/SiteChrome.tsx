@@ -2,7 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { M7Emblem, M7Lined } from "@/components/brand/M7Logo";
+import { M7EmblemDraw } from "@/components/brand/M7Logo";
+import { PixelLogo } from "@/components/motion/PixelLogo";
 import { GlowField } from "@/components/motion/GlowField";
 import { useLocale } from "@/components/motion/LocaleProvider";
 import { useLenis, useScroll } from "@/components/motion/SmoothScroll";
@@ -93,7 +94,7 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
       >
         <div className="hdr__bar container">
           <TLink href="/" className="hdr__logo" aria-label="M7 home">
-            <M7Emblem />
+            <M7EmblemDraw />
           </TLink>
 
           <nav className="hdr__nav" aria-label="Hoofdmenu">
@@ -106,7 +107,7 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
                   onFocus={() => openPanel(it.key)}
                 >
                   {it.label}
-                  {it.count ? <sup className="hdr__count">({it.count})</sup> : null}
+                  {it.count ? <span className="count-pill hdr__count">{it.count}</span> : null}
                   <Icon name="chevronDown" size={15} stroke={2} className="hdr__chev" />
                 </TLink>
               </div>
@@ -140,7 +141,6 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
                 setPanel(null);
                 setOpen((o) => !o);
               }}
-              data-magnetic=""
             >
               <span />
               <span />
@@ -312,14 +312,13 @@ function FullMenu({
             { x: "70%", y: "90%", c: "rgba(0,255,25,.08)", s: "50vmax", dur: 20, delay: -3 },
           ]}
         />
-        <M7Lined className="fm__watermark" />
+        <PixelLogo active={open} className="fm__watermark" />
       </div>
 
       <div className="fm__body container" data-lenis-prevent="">
         <ol className="fm__links" onMouseLeave={() => setActive("services")}>
           {items.map((it, i) => (
             <li key={it.key} className={`fm__item${active === it.key ? " is-active" : ""}`} style={{ ["--i" as string]: i }}>
-              <span className="fm__num">0{i + 1}</span>
               <TLink
                 href={it.href}
                 className="fm__link"
@@ -334,7 +333,7 @@ function FullMenu({
                   <span>{it.label}</span>
                   <span aria-hidden="true">{it.label}</span>
                 </span>
-                {it.count ? <span className="fm__count">({it.count})</span> : null}
+                {it.count ? <span className="count-pill fm__count">{it.count}</span> : null}
                 <Icon name="arrowUpRight" size={34} stroke={1.6} className="fm__arrow" />
               </TLink>
               {it.sub && (
@@ -385,7 +384,7 @@ function FullMenu({
           </div>
           <div className={`fm__pane${active === "cases" ? " is-on" : ""}`}>
             <p className="kicker">
-              {dict.nav.cases} ({nav.caseCount})
+              {dict.nav.cases} <span className="count-pill fm__kicker-count">{nav.caseCount}</span>
             </p>
             <div className="fm__cases">
               {nav.cases.slice(0, 4).map((c, i) => (

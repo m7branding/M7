@@ -1,6 +1,7 @@
 import { site, stats } from "@/content/site";
 import { allApplications, allCases, allSectors, allServices, applicationsFor } from "@/lib/content";
 import { tr } from "@/lib/i18n";
+import { stripRefs } from "@/lib/inline";
 import { paths } from "@/lib/paths";
 
 const u = (p: string) => `${site.url}${p === "/" ? "" : p}`;
@@ -42,13 +43,24 @@ export function llmsTxt(full = false): string {
   for (const c of allCases()) out.push(`- [${c.client}](${u(paths.case(c))}): ${tr(c.summary, l)}`);
   if (full) {
     out.push("");
+    out.push("## Uitleg per dienst");
+    for (const s of allServices()) {
+      out.push("");
+      out.push(`### ${tr(s.title, l)}`);
+      for (const c of [...(s.chapters ?? []), ...s.seo.sections]) {
+        out.push(`**${tr(c.h, l)}**`);
+        out.push(stripRefs(tr(c.body, l), l));
+        out.push("");
+      }
+    }
+    out.push("");
     out.push("## Veelgestelde vragen");
     for (const s of allServices()) {
       out.push("");
       out.push(`### ${tr(s.title, l)}`);
       for (const f of s.faqs) {
         out.push(`**${tr(f.q, l)}**`);
-        out.push(tr(f.a, l));
+        out.push(stripRefs(tr(f.a, l), l));
         out.push("");
       }
     }

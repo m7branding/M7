@@ -304,14 +304,30 @@ ol {
   pointer-events: none;
   transition: opacity 0.4s;
 }
+/* lichtstreep die bij hover rustig over de knop glijdt */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.07) 46%, rgba(58, 255, 255, 0.09) 50%, transparent 62%) no-repeat;
+  background-size: 260% 100%;
+  background-position: 130% 0;
+  transition: background-position 1.1s var(--ease-out);
+  pointer-events: none;
+}
 .btn:hover {
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 18px 40px -12px rgba(58, 255, 255, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 16px 44px -14px rgba(58, 255, 255, 0.22),
     0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 .btn:hover::before {
   opacity: 1;
+}
+.btn:hover::after {
+  background-position: -30% 0;
 }
 .btn__dot {
   position: relative;
@@ -333,8 +349,18 @@ ol {
   position: absolute;
   transform: translate(-150%, 150%);
 }
+.btn__dot {
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--btn-dot) 0%, transparent);
+  transition:
+    transform 0.6s var(--ease-out),
+    box-shadow 0.6s var(--ease-out);
+}
 .btn:hover .btn__dot {
-  transform: scale(1.08);
+  transform: scale(1.04);
+  box-shadow: 0 0 22px -2px color-mix(in srgb, var(--btn-dot) 55%, transparent);
+}
+.btn:active .btn__dot {
+  transform: scale(0.96);
 }
 .btn:hover .btn__dot svg:first-child {
   transform: translate(150%, -150%);
@@ -382,13 +408,26 @@ ol {
 .link-dash:hover::before {
   width: 64px;
 }
+/* klein, strak telpilletje (bv. Cases 13) */
+.count-pill {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.9em;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #000;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
 .count-badge {
   display: inline-grid;
   place-items: center;
   min-width: 26px;
   height: 20px;
-  padding: 0 6px;
-  border-radius: 6px;
+  padding: 0 7px;
+  border-radius: 999px;
   background: var(--teal);
   color: #000;
   font-size: 0.72rem;

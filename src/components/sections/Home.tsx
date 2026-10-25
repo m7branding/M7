@@ -429,9 +429,9 @@ export function LevelUp({ locale }: { locale: Locale }) {
         </div>
         <div className="levelup__chips">
           {rows.map((row, ri) => (
-            <Marquee key={ri} speed={70 + ri * 12} reverse={ri === 1}>
+            <Marquee key={ri} speed={row.length * (11 + ri)} reverse={ri === 1}>
               {row.map((a) => (
-                <TLink key={a.slug} href={paths.application(a)} className="chip chip--lg" style={{ ["--accent" as string]: svcColor[a.service] }}>
+                <TLink key={a.slug} href={paths.application(a)} className="chip" style={{ ["--accent" as string]: svcColor[a.service] }}>
                   {tr(a.title, locale)}
                 </TLink>
               ))}

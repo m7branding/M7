@@ -2,6 +2,8 @@ import type { Sector } from "./types";
 
 /* ============================================================
    Sectoren — één entry per slug in SECTOR_SLUGS (registry.ts),
+   `image` is het brede beeld op de sectorpagina: vervang de
+   tijdelijke beelden door eigen werk uit die sector zodra het er is.
    in dezelfde volgorde. Verwijzingen naar diensten en
    toepassingen zijn getypeerd: een slug die niet bestaat breekt
    de build.
@@ -14,6 +16,9 @@ export const sectors: Sector[] = [
     title: { nl: "Automotive & Mobiliteit", en: "Automotive & Mobility" },
     short: { nl: "Automotive", en: "Automotive" },
     icon: "car",
+    image: "/media/sectors/automotive.webp",
+    imagePosition: "50% 50%",
+    quote: { nl: "People buy with their eyes. So we make it shine.", en: "People buy with their eyes. So we make it shine." },
     intro: {
       nl: "Van detailing en exclusieve car care tot dealers en mobiliteitsdiensten: wij geven automotive merken een online beleving die net zo strak is als het product.",
       en: "From detailing and exclusive car care to dealers and mobility services: we give automotive brands an online experience as sharp as the product itself.",
@@ -100,6 +105,9 @@ export const sectors: Sector[] = [
     title: { nl: "Sport & Media", en: "Sports & Media" },
     short: { nl: "Sport", en: "Sports" },
     icon: "trophy",
+    image: "/media/sectors/sport-media.webp",
+    imagePosition: "50% 45%",
+    quote: { nl: "Every match deserves a stage.", en: "Every match deserves a stage." },
     intro: {
       nl: "Sportclubs, bonden, evenementen en mediaplatformen: wij bouwen merken, apps en content die fans, leden en sponsors met elkaar verbinden.",
       en: "Sports clubs, federations, events and media platforms: we build brands, apps and content that connect fans, members and sponsors.",
@@ -186,6 +194,9 @@ export const sectors: Sector[] = [
     title: { nl: "Tech, SaaS & Startups", en: "Tech, SaaS & Startups" },
     short: { nl: "Tech", en: "Tech" },
     icon: "rocket",
+    image: "/media/sectors/tech-saas.webp",
+    imagePosition: "50% 40%",
+    quote: { nl: "Great tech deserves a brand that explains itself.", en: "Great tech deserves a brand that explains itself." },
     intro: {
       nl: "Van eerste MVP tot schaalbaar SaaS-platform: wij helpen techbedrijven en startups met een merk, product en marketing die klaar zijn voor groei.",
       en: "From first MVP to scalable SaaS platform: we help tech companies and startups with a brand, product and marketing that are ready for growth.",
@@ -279,6 +290,9 @@ export const sectors: Sector[] = [
     title: { nl: "E-commerce & Retail", en: "E-commerce & Retail" },
     short: { nl: "E-commerce", en: "E-commerce" },
     icon: "cart",
+    image: "/media/cases/repairlab.webp",
+    imagePosition: "50% 50%",
+    quote: { nl: "A shop that keeps selling while you sleep.", en: "A shop that keeps selling while you sleep." },
     intro: {
       nl: "Webshops en retailers die willen groeien: wij bouwen online winkels, tools en campagnes die bezoekers omzetten in kopers.",
       en: "Web shops and retailers that want to grow: we build online stores, tools and campaigns that turn visitors into buyers.",
@@ -372,6 +386,9 @@ export const sectors: Sector[] = [
     title: { nl: "Zakelijke dienstverlening", en: "Business Services" },
     short: { nl: "Dienstverlening", en: "Services" },
     icon: "briefcase",
+    image: "/media/sectors/business.webp",
+    imagePosition: "50% 40%",
+    quote: { nl: "Serious business doesn't have to look boring.", en: "Serious business doesn't have to look boring." },
     intro: {
       nl: "Adviseurs, accountants, incassobureaus en andere dienstverleners: wij maken je expertise zichtbaar en je processen slimmer.",
       en: "Consultants, accountants, collection agencies and other service providers: we make your expertise visible and your processes smarter.",
@@ -458,6 +475,9 @@ export const sectors: Sector[] = [
     title: { nl: "Bouw, Vastgoed & Architectuur", en: "Construction, Real Estate & Architecture" },
     short: { nl: "Bouw & vastgoed", en: "Real estate" },
     icon: "building",
+    image: "/media/cases/koppens.webp",
+    imagePosition: "50% 50%",
+    quote: { nl: "Built on detail, from blueprint to browser.", en: "Built on detail, from blueprint to browser." },
     intro: {
       nl: "Architecten, bouwbedrijven, projectontwikkelaars en makelaars: wij laten je projecten zien zoals ze bedoeld zijn, nog voordat de eerste paal de grond in gaat.",
       en: "Architects, builders, developers and estate agents: we show your projects as they are meant to be, before the first pile is even driven.",
@@ -544,6 +564,9 @@ export const sectors: Sector[] = [
     title: { nl: "Industrie & Techniek", en: "Industry & Engineering" },
     short: { nl: "Industrie", en: "Industry" },
     icon: "factory",
+    image: "/media/sectors/industrie.webp",
+    imagePosition: "50% 38%",
+    quote: { nl: "Complex products, made simple to choose.", en: "Complex products, made simple to choose." },
     intro: {
       nl: "Maakbedrijven, machinebouwers en technische dienstverleners: wij vertalen complexe techniek naar een helder verhaal, sterke beelden en slimme tools.",
       en: "Manufacturers, machine builders and technical service providers: we translate complex engineering into a clear story, strong visuals and smart tools.",
@@ -630,6 +653,9 @@ export const sectors: Sector[] = [
     title: { nl: "Zorg & Welzijn", en: "Healthcare & Wellbeing" },
     short: { nl: "Zorg", en: "Healthcare" },
     icon: "heart",
+    image: "/media/sectors/zorg.webp",
+    imagePosition: "50% 50%",
+    quote: { nl: "Care starts with clarity.", en: "Care starts with clarity." },
     intro: {
       nl: "Zorgaanbieders, praktijken en welzijnsorganisaties: wij bouwen toegankelijke websites, apps en merken die vertrouwen geven en mensen op weg helpen.",
       en: "Care providers, practices and wellbeing organisations: we build accessible websites, apps and brands that inspire trust and help people on their way.",
@@ -716,6 +742,9 @@ export const sectors: Sector[] = [
     title: { nl: "Finance & Fintech", en: "Finance & Fintech" },
     short: { nl: "Finance", en: "Finance" },
     icon: "coin",
+    image: "/media/sectors/business.webp",
+    imagePosition: "50% 55%",
+    quote: { nl: "Trust is designed, one detail at a time.", en: "Trust is designed, one detail at a time." },
     intro: {
       nl: "Financieel adviseurs, verzekeraars en fintechs: wij bouwen merken, platformen en tools die complexe financiële zaken helder en betrouwbaar maken.",
       en: "Financial advisors, insurers and fintechs: we build brands, platforms and tools that make complex financial matters clear and trustworthy.",
@@ -802,6 +831,9 @@ export const sectors: Sector[] = [
     title: { nl: "Travel & Leisure", en: "Travel & Leisure" },
     short: { nl: "Travel", en: "Travel" },
     icon: "plane",
+    image: "/media/sectors/travel.webp",
+    imagePosition: "50% 50%",
+    quote: { nl: "Make them want to go before they've even booked.", en: "Make them want to go before they've even booked." },
     intro: {
       nl: "Hotels, reisorganisaties, recreatie en hospitality: wij bouwen merken, websites en boekingservaringen die mensen laten wegdromen én direct laten boeken.",
       en: "Hotels, travel companies, recreation and hospitality: we build brands, websites and booking experiences that make people dream away and book right away.",

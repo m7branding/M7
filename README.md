@@ -76,6 +76,64 @@ Je koppelt iets maar op één plek; de rest volgt vanzelf (`src/lib/content.ts`)
   ```
   Lottie wordt pas geladen als hij in beeld komt en pauzeert buiten beeld.
 
+### Inline dienst-labels
+
+Noem je in een tekst een dienst of toepassing, zet hem dan tussen dubbele haken. Dan wordt het
+een klikbaar label met het icoon en de kleur van de dienst:
+
+```ts
+"... dan laat je de [[seo-aeo-geo|vindbaarheid]] meteen meenemen."
+"... met een [[webflow-website]] die je zelf beheert."   // zonder label: de naam van de toepassing
+```
+
+Werkt in alle lopende teksten (hoofdstukken, SEO-tekst, FAQ, cases, sectoren). Een slug die niet
+bestaat wordt gewone tekst. In llms.txt en JSON-LD komt alleen het label terecht.
+
+### Extra content op dienstpagina's (`chapters`)
+
+Per dienst rustige content-secties die tussen de blokken van de pagina komen (na de toepassingen,
+na de werkwijze, na de reviews, de rest voor de SEO-tekst). Schrijf ze in de nuchtere M7-toon:
+
+```ts
+chapters: [
+  {
+    kicker: { nl: "Words before pixels.", en: "Words before pixels." }, // korte Engelse quote
+    h: { nl: "Wat moet je zelf aanleveren?", en: "What do you need to provide?" },
+    body: { nl: "Alinea's met \n\n, lijstjes met '- ' en [[slug]]-labels.", en: "..." },
+    quote: { nl: "Optionele pull-quote.", en: "Optional pull quote." },
+  },
+],
+```
+
+### Case-pagina's: het verhaal (`story`)
+
+Een case bouw je op uit blokken, in elke volgorde en zo vaak als je wilt:
+
+| Blok | Wat het doet |
+| --- | --- |
+| `intro` | groot statement over het project (woord voor woord reveal) |
+| `text` | kop links, tekst rechts (met `[[slug]]`-labels en optionele quote) |
+| `masonry` | schermvullende galerij, beelden in hun eigen verhouding |
+| `media` | breed beeld of video dat bij het scrollen omhoog schuift en openvouwt, optioneel met quote |
+| `split` | beeld naast tekst (`reverse` draait het om) |
+| `quote` | grote quote van de klant, met naam, rol en foto |
+| `timeline` | mijlpalen (met `date`) of een checklist van wat we opleverden |
+| `results` | de `results`-cijfers groot in beeld |
+
+Daarnaast optioneel:
+
+- `hero: { image | video, poster, position }`: schermvullende hero (2rem ingesprongen, afgeronde
+  hoeken, donkere overlay). Zonder `hero` gebruikt de pagina de `cover`.
+- `reveal: { video | image }`: video die direct na de hero omhoog schuift en meegroeit.
+
+Zonder `story` bouwt de pagina zelf een verhaal uit `challenge`, `approach`, `result`, de beelden,
+de review en de toepassingen. Zie de case `teamtv` in `cases.ts` voor een compleet voorbeeld.
+
+### Sectorpagina's
+
+`image`, `imagePosition` en `quote` per sector: het brede beeld na de hero dat bij het scrollen
+openvouwt, met de quote erop. Voor Zorg en Travel staan tijdelijke beelden, vervang ze door eigen werk.
+
 ### Scroll-animaties (zoals op /home-2)
 
 De 3D-renders van `/home-2` (hero-telefoons en de mockup in de zwarte sectie) draaien hier als
@@ -125,10 +183,13 @@ Tip: ±3–5 seconden op 24–30 fps, 16:9, product gecentreerd op een zwarte ac
   Daarna veegt het doek omhoog met een teal→groene rand. Pure CSS, dus direct vanaf de eerste paint.
 - **Page transitions**: gelaagde "vegen" over elke interne link; de nieuwe route is al voorgeladen,
   dus het voelt alsof er geen laadtijd is. Inhoud "landt" zacht na de veeg.
-- **Smooth scroll** (Lenis), split-text reveals, stagger-reveals, magnetische knoppen, cursor met labels.
+- **Smooth scroll** (Lenis), split-text reveals, stagger-reveals, rustige lichtstreep-hover op knoppen,
+  een subtiel sterretje als cursor dat bij links uitgroeit tot een lichtblauwe ring (met labels).
 - **Levende achtergronden**: WebGL "aurora" (zijdezachte banen die langzaam ademen en op de muis
   reageren — o.a. de AI-kaart), ademende radial gradients met muis-spotlight, twinkelende sterren
-  en het pixel-raster uit het design dat pulseert en oplicht rond de muis.
+  en het pixel-raster uit het design, ingetogen, met rustige golven en zacht oplichtend rond de muis.
+- **Logo**: in de nav tekent het M7-logo bij hover zichzelf als lijntekening; in de footer speelt
+  de reveal van de preloader elke keer dat je hem bereikt; in het menu staat een M7 van pixels en sterren.
 - **Scroll-animaties van /home-2**: 3D-renders als frame-sequence die met de scroll meespeelt
   (hero + Websites & Webshops), zie "Scroll-animaties" hierboven.
 - **10 unieke geanimeerde mockups** (één per peiler, puur code, schaalt via container queries):

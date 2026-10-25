@@ -94,10 +94,7 @@ export default function ApplicationPage({ params }: P) {
               {tr(s.title, locale)}
             </TLink>
             <SplitText as="h1" className="h1" parts={title} delay={0.1} />
-            <p className="svc-hero__tagline g-accent" data-reveal="up" style={{ ["--d" as string]: "0.3s" }}>
-              {tr(a.summary, locale)}
-            </p>
-            <p className="lead" data-reveal="up" style={{ ["--d" as string]: "0.4s" }}>
+            <p className="lead" data-reveal="up" style={{ ["--d" as string]: "0.3s" }}>
               {tr(a.intro, locale)}
             </p>
             <div className="row svc-hero__cta" data-reveal="up" style={{ ["--d" as string]: "0.5s" }}>
@@ -120,7 +117,7 @@ export default function ApplicationPage({ params }: P) {
             {a.body.map((sec, i) => (
               <div key={i} className="seo-block" data-reveal="up">
                 <h2 className="h3">{tr(sec.h, locale)}</h2>
-                <RichText text={tr(sec.body, locale)} className="body" />
+                <RichText text={tr(sec.body, locale)} className="body" locale={locale} />
               </div>
             ))}
           </div>
@@ -199,7 +196,7 @@ export default function ApplicationPage({ params }: P) {
           </SectionHead>
         </div>
         <div className="svc-apps__slider" data-reveal="fade">
-          <Marquee speed={60}>
+          <Marquee speed={related.length * 12}>
             {related.map((r, i) => (
               <AppCard key={r.slug} a={r} locale={locale} index={i} showService />
             ))}

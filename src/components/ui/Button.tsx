@@ -8,7 +8,6 @@ export function Btn({
   variant,
   size,
   className,
-  magnetic = true,
   type,
   onClick,
 }: {
@@ -17,7 +16,6 @@ export function Btn({
   variant?: "contact" | "light";
   size?: "sm";
   className?: string;
-  magnetic?: boolean;
   type?: "submit" | "button";
   onClick?: () => void;
 }) {
@@ -33,13 +31,13 @@ export function Btn({
   );
   if (href) {
     return (
-      <TLink href={href} className={cls} {...(magnetic ? { "data-magnetic": "" } : {})}>
+      <TLink href={href} className={cls}>
         {inner}
       </TLink>
     );
   }
   return (
-    <button type={type || "button"} className={cls} onClick={onClick} {...(magnetic ? { "data-magnetic": "" } : {})}>
+    <button type={type || "button"} className={cls} onClick={onClick}>
       {inner}
     </button>
   );

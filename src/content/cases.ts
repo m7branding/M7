@@ -27,6 +27,72 @@ export const cases: Case[] = [
     cover: "/media/cases/teamtv-platform.webp",
     gallery: ["/media/cases/teamtv-mobile.webp", "/media/cases/teamtv-tablet.webp"],
     color: "#5B4BFF",
+    hero: { image: "/media/cases/teamtv-devices.webp", position: "50% 45%" },
+    story: [
+      {
+        type: "intro",
+        kicker: { nl: "Stream. Analyze. Publish.", en: "Stream. Analyze. Publish." },
+        text: {
+          nl: "TeamTV is het videoplatform waarmee sportclubs hun wedstrijden streamen, analyseren en delen. Het platform groeide hard in functionaliteit, en de interface moest dat bijhouden: moderner, rustiger en klaar voor alles wat nog komt.",
+          en: "TeamTV is the video platform sports clubs use to stream, analyse and share their matches. The platform was growing fast in functionality, and the interface had to keep up: more modern, calmer and ready for everything still to come.",
+        },
+      },
+      {
+        type: "masonry",
+        images: [
+          { src: "/media/cases/teamtv-platform.webp", alt: { nl: "TeamTV platform op desktop", en: "TeamTV platform on desktop" } },
+          { src: "/media/cases/teamtv-mobile.webp", alt: { nl: "TeamTV op mobiel", en: "TeamTV on mobile" } },
+          { src: "/media/cases/teamtv-tablet.webp", alt: { nl: "TeamTV op tablet", en: "TeamTV on tablet" } },
+        ],
+      },
+      {
+        type: "text",
+        kicker: { nl: "Design that scales.", en: "Design that scales." },
+        h: { nl: "Eén designsysteem voor jaren aan nieuwe features", en: "One design system for years of new features" },
+        body: {
+          nl: "In plaats van losse schermen ontwierpen we een systeem: componenten, kleuren, typografie en patronen die met elkaar kloppen. Zo kan het team van TeamTV nieuwe functies toevoegen zonder dat de [[web-apps-portals-apps|web-app]] een lappendeken wordt.\n\nDe drie kernflows, streamen, analyseren en publiceren, kregen elk een eigen, heldere route. Minder klikken, meer overzicht, en een interface die rustig blijft, ook als er veel gebeurt op het veld.",
+          en: "Instead of loose screens we designed a system: components, colours, typography and patterns that work together. That way the TeamTV team can add new features without the [[web-apps-portals-apps|web app]] turning into a patchwork.\n\nThe three core flows, streaming, analysing and publishing, each got their own clear route. Fewer clicks, more overview, and an interface that stays calm, even when a lot is happening on the pitch.",
+        },
+      },
+      {
+        type: "media",
+        image: "/media/cases/teamtv-tablet-dark.webp",
+        position: "50% 50%",
+        quote: { nl: "Video platform for clubs.", en: "Video platform for clubs." },
+      },
+      {
+        type: "split",
+        image: "/media/cases/teamtv-mobile.webp",
+        kicker: { nl: "One story, every screen.", en: "One story, every screen." },
+        h: { nl: "Van web-app tot marketingwebsite", en: "From web app to marketing website" },
+        body: {
+          nl: "Naast de app vernieuwden we de [[webflow-website|marketingwebsite in Webflow]], in dezelfde beeldtaal. Wie de site bezoekt en daarna inlogt, merkt geen breuk: het voelt als één product. Het [[ux-ui-app-design|UI/UX-ontwerp]] is mobiel net zo sterk als op een groot scherm langs de lijn.",
+          en: "Alongside the app we renewed the [[webflow-website|marketing website in Webflow]], in the same visual language. Anyone who visits the site and then logs in notices no break: it feels like one product. The [[ux-ui-app-design|UI/UX design]] works just as well on mobile as on a big screen by the pitch.",
+        },
+      },
+      {
+        type: "quote",
+        text: {
+          nl: "Dankzij hun ontwerpen kreeg het platform een moderne, strakke uitstraling die veel positieve reacties van onze gebruikers opleverde.",
+          en: "Through their designs, this platform gained a modern and clean appearance that triggered many positive reactions from our users.",
+        },
+        cite: "Emiel van Lieshout",
+        role: { nl: "CEO, TeamTV", en: "CEO, TeamTV" },
+      },
+      {
+        type: "timeline",
+        style: "checklist",
+        title: { nl: "Wat we opleverden", en: "What we delivered" },
+        items: [
+          { label: { nl: "Schaalbaar designsysteem", en: "Scalable design system" } },
+          { label: { nl: "Nieuwe UI/UX voor de web-app", en: "New UI/UX for the web app" } },
+          { label: { nl: "Flows voor streamen, analyseren en publiceren", en: "Flows for streaming, analysing and publishing" } },
+          { label: { nl: "Dashboards en overzichten", en: "Dashboards and overviews" } },
+          { label: { nl: "Vernieuwde marketingwebsite in Webflow", en: "Renewed marketing website in Webflow" } },
+          { label: { nl: "Animaties en motion design", en: "Animations and motion design" } },
+        ],
+      },
+    ],
     challenge: {
       nl: "TeamTV groeide hard in functionaliteit. De interface moest moderner, overzichtelijker en klaar voor jaren aan nieuwe features.",
       en: "TeamTV was growing fast in functionality. The interface had to become more modern, clearer and ready for years of new features.",
@@ -125,6 +191,7 @@ export const cases: Case[] = [
     applications: ["webflow-website", "ux-ui-app-design", "saas-platform"],
     tools: ["figma", "webflow", "react"],
     cover: "/media/cases/sami.webp",
+    hero: { image: "/media/cases/sami-devices.webp", position: "50% 40%" },
     color: "#4F5BFF",
     challenge: {
       nl: "Een innovatief inspectieplatform moest in één oogopslag duidelijk maken wat het doet en waarom het tijd bespaart.",
@@ -158,7 +225,8 @@ export const cases: Case[] = [
     applications: ["webflow-website", "productfotografie", "bedrijfsfilm", "huisstijl"],
     tools: ["webflow", "figma", "lightroom", "premiere"],
     cover: "/media/cases/jurgh.webp",
-    gallery: ["/media/cases/jurgh-tablet.webp"],
+    gallery: ["/media/cases/jurgh-tablet.webp", "/media/cases/jurgh-porsche.webp"],
+    hero: { image: "/media/cases/jurgh-porsche.webp", position: "50% 40%" },
     color: "#3A4BFF",
     challenge: {
       nl: "Exclusieve klanten verwachten een online uitstraling die net zo verzorgd is als hun auto.",
@@ -193,6 +261,8 @@ export const cases: Case[] = [
     applications: ["klantportaal", "dashboards", "ux-ui-app-design", "api-koppelingen"],
     tools: ["figma", "react", "nextjs", "postgresql"],
     cover: "/media/cases/debiteurnet.webp",
+    gallery: ["/media/cases/debiteurnet-imac.webp"],
+    hero: { image: "/media/cases/debiteurnet-imac.webp", position: "50% 40%" },
     color: "#1C6FB8",
     challenge: {
       nl: "Ondernemers verliezen tijd en grip op openstaande offertes en facturen. Het portaal moest complexe data simpel maken.",
@@ -226,6 +296,7 @@ export const cases: Case[] = [
     applications: ["productconfigurator", "3d-configurator", "offerte-calculator", "3d-visualisatie"],
     tools: ["react", "threejs", "blender", "shopify"],
     cover: "/media/cases/titanium-exhaust.webp",
+    gallery: ["/media/cases/titanium-phone.webp"],
     color: "#E8262B",
     challenge: {
       nl: "Een technisch, maatwerkproduct verkopen aan liefhebbers die precies willen weten wat er op hun auto past.",

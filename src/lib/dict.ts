@@ -109,6 +109,9 @@ const nl = {
     nextCase: "Volgende case",
     concept: "Concepttekst",
     visit: "Bekijk live",
+    delivered: "Wat we opleverden",
+    milestones: "Mijlpalen",
+    scroll: "Scroll",
   },
   about: {
     title: "Over M7",
@@ -291,6 +294,9 @@ const en: Dict = {
     nextCase: "Next case",
     concept: "Draft copy",
     visit: "Visit live",
+    delivered: "What we delivered",
+    milestones: "Milestones",
+    scroll: "Scroll",
   },
   about: {
     title: "About M7",

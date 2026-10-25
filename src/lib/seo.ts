@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 import type { FAQ, Locale } from "@/content/types";
 import { localize, tr } from "./i18n";
+import { stripRefs } from "./inline";
 
 export const abs = (p: string) => (p.startsWith("http") ? p : `${site.url}${p === "/" ? "" : p}`);
 
@@ -120,7 +121,7 @@ export function faqLd(faqs: FAQ[], locale: Locale) {
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: tr(f.q, locale),
-      acceptedAnswer: { "@type": "Answer", text: tr(f.a, locale) },
+      acceptedAnswer: { "@type": "Answer", text: stripRefs(tr(f.a, locale), locale) },
     })),
   };
 }

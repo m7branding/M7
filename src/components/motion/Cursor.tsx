@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Zachte cursor-ring met label (bv. "Bekijk") op [data-cursor] en
- * magnetische knoppen op [data-magnetic]. Alleen op desktop.
+ * Kleine, subtiele cursor (sterretje) die bij links uitgroeit tot een
+ * lichtblauwe ring, met label (bv. "Bekijk") op [data-cursor]. Alleen op desktop.
  */
 export function Cursor() {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,7 +19,6 @@ export function Cursor() {
       tx = -100,
       ty = -100,
       raf = 0;
-    let magnet: HTMLElement | null = null;
 
     const loop = () => {
       x += (tx - x) * 0.18;
@@ -28,13 +27,6 @@ export function Cursor() {
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
-
-    const releaseMagnet = () => {
-      if (magnet) {
-        magnet.style.transform = "";
-        magnet = null;
-      }
-    };
 
     const onMove = (e: PointerEvent) => {
       tx = e.clientX;
@@ -45,33 +37,22 @@ export function Cursor() {
       el.classList.toggle("has-label", !!labelled);
       el.classList.toggle("is-link", !!link && !labelled);
       if (labelled && labelRef.current) labelRef.current.textContent = labelled.dataset.cursor || "";
-
-      const m = t?.closest?.("[data-magnetic]") as HTMLElement | null;
-      if (m !== magnet) releaseMagnet();
-      if (m) {
-        magnet = m;
-        const r = m.getBoundingClientRect();
-        const dx = e.clientX - (r.left + r.width / 2);
-        const dy = e.clientY - (r.top + r.height / 2);
-        m.style.transition = "transform .5s cubic-bezier(.16,1,.3,1)";
-        m.style.transform = `translate3d(${dx * 0.18}px, ${dy * 0.3}px, 0)`;
-      }
     };
-    const onLeave = () => {
-      el.classList.add("is-hidden");
-      releaseMagnet();
-    };
+    const onLeave = () => el.classList.add("is-hidden");
     const onEnter = () => el.classList.remove("is-hidden");
-    const onNav = () => {
-      el.classList.remove("has-label", "is-link");
-      releaseMagnet();
-    };
+    const onDown = () => el.classList.add("is-down");
+    const onUp = () => el.classList.remove("is-down");
+    const onNav = () => el.classList.remove("has-label", "is-link");
 
     window.addEventListener("pointermove", onMove, { passive: true });
     document.documentElement.addEventListener("pointerleave", onLeave);
     document.documentElement.addEventListener("pointerenter", onEnter);
     window.addEventListener("m7:navigate", onNav);
+    window.addEventListener("pointerdown", onDown, { passive: true });
+    window.addEventListener("pointerup", onUp, { passive: true });
     return () => {
+      window.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointerup", onUp);
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeave);
@@ -82,6 +63,7 @@ export function Cursor() {
 
   return (
     <div className="cursor" ref={ref} aria-hidden="true">
+      <span className="cursor__star" />
       <div className="cursor__ring">
         <span className="cursor__label" ref={labelRef} />
       </div>

@@ -12,6 +12,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Btn } from "@/components/ui/Button";
 import { AppCard, SectionHead, ServiceCard } from "@/components/ui/Cards";
 import { CasesMasonry } from "@/components/ui/CaseCard";
+import { ChapterBlock } from "@/components/ui/Chapter";
 import { Collapse } from "@/components/ui/Collapse";
 import { Faq } from "@/components/ui/Faq";
 import { Icon } from "@/components/ui/Icon";
@@ -50,14 +51,14 @@ export default function ServicePage({ params }: P) {
   const s = getService(params.service);
   if (!s) notFound();
   const d = getDict(locale);
-  const list = allServices();
-  const index = list.findIndex((x) => x.slug === s.slug);
   const apps = applicationsFor(s.slug);
   const cases = casesForService(s.slug);
   const reviews = reviewsForService(s.slug);
   const sectors = sectorsForService(s.slug);
   const related = s.related.map((r) => getService(r)!).filter(Boolean);
   const title = tr(s.title, locale);
+  const chapters = s.chapters ?? [];
+  const chapter = (i: number) => (chapters[i] ? <ChapterBlock c={chapters[i]} locale={locale} id={`chapter-${i}`} /> : null);
 
   return (
     <article className="svc" style={{ ["--accent" as string]: s.color }}>
@@ -86,14 +87,8 @@ export default function ServicePage({ params }: P) {
                 { name: title, path: paths.service(s) },
               ]}
             />
-            <p className="kicker svc-hero__kicker" data-reveal="fade">
-              {d.service.kicker} {String(index + 1).padStart(2, "0")} / {String(list.length).padStart(2, "0")}
-            </p>
             <SplitText as="h1" className="h1" parts={title} delay={0.1} />
-            <p className="svc-hero__tagline g-accent" data-reveal="up" style={{ ["--d" as string]: "0.3s" }}>
-              {tr(s.tagline, locale)}
-            </p>
-            <p className="lead" data-reveal="up" style={{ ["--d" as string]: "0.4s" }}>
+            <p className="lead" data-reveal="up" style={{ ["--d" as string]: "0.3s" }}>
               {tr(s.intro, locale)}
             </p>
             <div className="row svc-hero__cta" data-reveal="up" style={{ ["--d" as string]: "0.5s" }}>
@@ -125,7 +120,7 @@ export default function ServicePage({ params }: P) {
           <SectionHead kicker={d.service.applications} title={d.service.applicationsTitle} text={tr(s.description, locale).split("\n\n")[0]} id="apps-title" />
         </div>
         <div className="svc-apps__slider" data-reveal="fade">
-          <Marquee speed={Math.max(40, apps.length * 7)} label={d.service.applications}>
+          <Marquee speed={Math.max(70, apps.length * 12)} label={d.service.applications}>
             {apps.map((a, i) => (
               <AppCard key={a.slug} a={a} locale={locale} index={i} />
             ))}
@@ -144,7 +139,7 @@ export default function ServicePage({ params }: P) {
           </ul>
         </div>
         <div className="svc-terms" aria-label={d.service.terms}>
-          <Marquee speed={60} reverse>
+          <Marquee speed={95} reverse>
             {s.terms.map((t) => (
               <span key={t} className="svc-terms__item">
                 {t}
@@ -154,6 +149,8 @@ export default function ServicePage({ params }: P) {
           </Marquee>
         </div>
       </section>
+
+      {chapter(0)}
 
       {/* ---------- Tools & platformen ---------- */}
       <section className="section svc-tools" aria-labelledby="tools-title">
@@ -194,6 +191,8 @@ export default function ServicePage({ params }: P) {
         </div>
       </section>
 
+      {chapter(1)}
+
       {/* ---------- Projecten ---------- */}
       {cases.length ? (
         <section className="section svc-cases" id="projecten" aria-labelledby="cases-title">
@@ -224,6 +223,8 @@ export default function ServicePage({ params }: P) {
         </section>
       ) : null}
 
+      {chapter(2)}
+
       {/* ---------- Sectoren & gerelateerd ---------- */}
       <section className="section section--tight svc-cross" aria-label={d.service.related}>
         <div className="container">
@@ -253,6 +254,10 @@ export default function ServicePage({ params }: P) {
         </div>
       </section>
 
+      {chapters.slice(3).map((c, i) => (
+        <ChapterBlock key={i} c={c} locale={locale} id={`chapter-${i + 3}`} />
+      ))}
+
       {/* ---------- SEO-tekst ---------- */}
       <section className="section svc-seo" aria-labelledby="seo-title">
         <div className="container container--narrow">
@@ -263,7 +268,7 @@ export default function ServicePage({ params }: P) {
             {s.seo.sections.map((sec, i) => (
               <div key={i} className="seo-block">
                 <h3>{tr(sec.h, locale)}</h3>
-                <RichText text={tr(sec.body, locale)} className="body" />
+                <RichText text={tr(sec.body, locale)} className="body" locale={locale} />
               </div>
             ))}
           </Collapse>
