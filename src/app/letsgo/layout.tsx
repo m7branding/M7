@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import { Suspense } from "react";
 import { Analytics } from "@/components/analytics/Analytics";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
@@ -10,9 +10,15 @@ import "@/styles/tokens.css";
 import "@/styles/consent.css";
 import "./globals.css";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+// Lettertype zit in de repo (src/fonts), dus geen download bij het starten of bouwen
+const poppins = localFont({
+  src: [
+    { path: "../../fonts/poppins-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/poppins-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/poppins-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/poppins-latin-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "../../fonts/poppins-latin-800-normal.woff2", weight: "800", style: "normal" },
+  ],
   variable: "--font-sans",
   display: "swap",
 });

@@ -24,6 +24,14 @@ npm run dev                  # http://localhost:3000  ·  configurator: /letsgo
 npm run build && npm start   # productie
 ```
 
+Zie je op localhost:3000 de configurator in plaats van de nieuwe site? Dan draai je een oude
+versie (de `main`-branch, of een eerdere server die nog openstaat). Stop alle servers (Ctrl + C)
+en start opnieuw vanuit deze branch. Kijk in de Terminal op welke poort hij draait
+(`Local: http://localhost:3001` als 3000 nog bezet is).
+
+De lettertypes (Montserrat, Poppins) staan in `src/fonts/`, dus er hoeft niets van Google
+gedownload te worden om de site te starten of te bouwen.
+
 ---
 
 ## Content bewerken (alles staat in `src/content/`)

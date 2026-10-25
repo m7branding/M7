@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Analytics } from "@/components/analytics/Analytics";
@@ -32,8 +32,11 @@ import "@/styles/sections.css";
 import "@/styles/mockups.css";
 import "@/styles/pages.css";
 
-const montserrat = Montserrat({
-  subsets: ["latin", "latin-ext"],
+// Lettertype zit in de repo (src/fonts), dus geen download bij het starten of bouwen
+const montserrat = localFont({
+  src: "../../fonts/montserrat-latin-wght-normal.woff2",
+  weight: "100 900",
+  style: "normal",
   variable: "--font-montserrat",
   display: "swap",
 });
