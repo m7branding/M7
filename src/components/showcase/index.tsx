@@ -30,7 +30,15 @@ const SHOWCASES: Record<ServiceSlug, { C: () => JSX.Element; label: string }> = 
 };
 
 /** Showcases die af zijn en op de homepage staan; de rest houdt (nog) de oude mockup. */
-const READY: ServiceSlug[] = ["branding-rebranding", "websites-webshops", "web-apps-portals-apps", "foto-video-3d-animatie", "grafisch-ontwerp-print"];
+const READY: ServiceSlug[] = [
+  "branding-rebranding",
+  "websites-webshops",
+  "web-apps-portals-apps",
+  "marketing-automatisering-funnels",
+  "seo-aeo-geo",
+  "foto-video-3d-animatie",
+  "grafisch-ontwerp-print",
+];
 
 export function hasShowcase(slug: string): slug is ServiceSlug {
   return (READY as string[]).includes(slug);

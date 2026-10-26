@@ -402,9 +402,15 @@
   opacity: clamp(0, var(--kCount) * 5, 1);
   transform: translate3d(0, calc((1 - clamp(0, var(--kCount) * 4, 1)) * 1.5cqw), 0);
 }
-/* teller: telt mee met de scroll (afgerond geheel getal) */
+/* teller: telt mee met de scroll (geregistreerd als geheel getal → afgerond) */
+@property --bs-zoekers {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 709;
+}
 .num {
-  counter-reset: zoekers calc(var(--eCount) * 709);
+  --bs-zoekers: calc(var(--eCount) * 709);
+  counter-reset: zoekers var(--bs-zoekers);
   font-size: 5.2cqw;
   font-weight: 700;
   line-height: 1;

@@ -136,7 +136,7 @@ export function SandtAnswers() {
             key={e.k}
             className={`${s.engine} ${s[e.k]}`}
             style={v({ "--x": e.x, "--y": e.y, "--z": e.z, "--depth": e.depth, "--n": n })}
-            title={e.name}
+            data-engine={e.name}
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               {e.k === "gemini" ? (

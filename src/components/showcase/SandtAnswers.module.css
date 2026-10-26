@@ -351,7 +351,7 @@
   left: 22cqw;
   top: 46.5cqw;
   width: calc(76cqw + var(--bleed) * 8cqw);
-  min-height: 46cqw;
+  min-height: 58cqw;
   padding: 0 0 3cqw;
   border-radius: 2cqw;
   background: var(--c-bg);
