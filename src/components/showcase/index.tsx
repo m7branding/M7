@@ -36,6 +36,7 @@ const READY: ServiceSlug[] = [
   "web-apps-portals-apps",
   "marketing-automatisering-funnels",
   "seo-aeo-geo",
+  "content-marketing-online-ads",
   "foto-video-3d-animatie",
   "grafisch-ontwerp-print",
 ];
