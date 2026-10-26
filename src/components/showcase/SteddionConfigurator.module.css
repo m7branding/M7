@@ -34,7 +34,7 @@
   --kin: clamp(0, var(--spe) / 0.76, 1); /* venster komt binnen */
   --ks0: clamp(0, (var(--sp) - 0.47) / 0.13, 1); /* scherm scrolt naar simulatie */
   --ks: calc(var(--ks0) * var(--ks0) * (3 - 2 * var(--ks0)));
-  --kr0: clamp(0, (var(--sp) - 0.86) / 0.14, 1); /* rapport schuift naar voren */
+  --kr0: clamp(0, (var(--sp) - 0.885) / 0.115, 1); /* rapport schuift naar voren */
   --kr: calc(1 - (1 - var(--kr0)) * (1 - var(--kr0)) * (1 - var(--kr0)));
 
   position: absolute;
@@ -894,11 +894,11 @@
   inset: 0;
   z-index: 3;
   background: rgba(28, 16, 49, 0.42);
-  opacity: calc(clamp(0, (var(--sp) - 0.655) / 0.04, 1) - clamp(0, (var(--sp) - 0.895) / 0.04, 1));
+  opacity: calc(clamp(0, (var(--sp) - 0.655) / 0.04, 1) - clamp(0, (var(--sp) - 0.885) / 0.035, 1));
 }
 .modal {
   --km: clamp(0, (var(--sp) - 0.655) / 0.04, 1);
-  --kx: clamp(0, (var(--sp) - 0.895) / 0.04, 1);
+  --kx: clamp(0, (var(--sp) - 0.885) / 0.035, 1);
   --kp: clamp(0, 1 - max(var(--sp) - 0.85, 0.85 - var(--sp)) * 70, 1);
   --kd: clamp(0, (var(--sp) - 0.855) / 0.02, 1);
   position: absolute;
@@ -1006,7 +1006,7 @@
 
 /* toast na het aanmaken van het account */
 .toast {
-  --k: clamp(0, (var(--sp) - 0.905) / 0.04, 1);
+  --k: clamp(0, (var(--sp) - 0.9) / 0.04, 1);
   position: absolute;
   z-index: 4;
   left: 2.6cqw;
@@ -1069,9 +1069,9 @@
     0 0 0 1px rgba(255, 255, 255, 0.4),
     0 5cqw 9cqw rgba(8, 3, 20, 0.6),
     0 0.8cqw 2cqw rgba(8, 3, 20, 0.35);
-  opacity: clamp(0, var(--kr0) * 5, 1);
+  opacity: clamp(0, var(--kr0) * 10, 1);
   transform:
-    translate3d(calc(var(--dir) * (1 - var(--kr)) * 24cqw), calc((1 - var(--kr)) * 62cqh), 0)
+    translate3d(calc(var(--dir) * (1 - var(--kr)) * 24cqw), calc((1 - var(--kr)) * 80cqh), 0)
     rotate(calc(var(--dir) * (-5deg + (1 - var(--kr)) * 16deg)));
   animation: float 7s ease-in-out infinite;
 }
