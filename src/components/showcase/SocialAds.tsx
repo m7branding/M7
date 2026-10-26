@@ -263,7 +263,7 @@ export function SocialAds() {
         </p>
         <p className={`${s.chip} ${s.c3}`}>
           <span>
-            Klikken<small>Aanvragen</small>
+            CTR<small>Knop Aanvragen</small>
           </span>
           <i className={s.barsUp} />
         </p>

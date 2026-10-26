@@ -75,16 +75,6 @@
     opacity: 0.8;
   }
 }
-.grid {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(162, 148, 189, 0.32) 0.09cqw, transparent 0.14cqw);
-  background-size: 3cqw 3cqw;
-  -webkit-mask: radial-gradient(80% 70% at 50% 40%, #000, transparent 75%);
-  mask: radial-gradient(80% 70% at 50% 40%, #000, transparent 75%);
-  opacity: 0.5;
-}
-
 /* ---------- woordmerk ---------- */
 .mark {
   display: inline-flex;
@@ -950,7 +940,6 @@
   display: inline-block;
   overflow: hidden;
   max-width: calc(var(--kf) * 20cqw);
-  padding-right: 0.1cqw;
   font-style: normal;
   border-right: 0.13cqw solid color-mix(in srgb, var(--p) calc(var(--foc) * 100%), transparent);
 }
@@ -1284,9 +1273,25 @@
   font-size: 1.1cqw;
   font-weight: 600;
 }
+.advice {
+  margin: 1.4cqw 0 0;
+  padding: 1.1cqw 1.3cqw;
+  border-radius: 0.9cqw;
+  background: #fff6dd;
+  box-shadow: inset 0.25cqw 0 0 var(--y);
+  font-size: 0.98cqw;
+  line-height: 1.5;
+  color: #5b4a1c;
+}
+.advice b {
+  display: block;
+  font-size: 0.85cqw;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a6400;
+}
 .rFoot {
-  display: flex;
-  justify-content: space-between;
   margin: 1.2cqw 0 0;
   font-size: 0.85cqw;
   color: #a39cb5;

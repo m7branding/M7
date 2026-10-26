@@ -27,13 +27,15 @@ const ROWS = [
   { id: "TCNU 384410-3", ty: "40' HC", k: "Van Dijk Foods", t: "Alblasserdam", a: "Klaar voor transport", c: "ok" },
 ];
 
-/* AI-taken: verschijnen in volgorde van ontdekking (from) en worden daarna geprioriteerd (to) */
+/* AI-taken: verschijnen in volgorde van ontdekking (from) en sorteren zich daarna in vier stappen
+   op prioriteit (d = verschuiving per stap, j = taak die in die stap "opgetild" omhoog springt):
+   [C A D B E] → [A C D B E] → [A E C D B] → [A E B C D] → [A E B D C] */
 const TASKS = [
-  { t: "Schade HLXU 248807-2 afhandelen", src: "E-mail 09:12", m: "Kempen Bouwstoffen · foto bijgevoegd", c: "red", from: 1, to: 0, at: 0.4, draft: true },
-  { t: "Demurrage-risico MSCU 903316-7", src: "ERP", m: "vrije dagen verlopen morgen", c: "red", from: 4, to: 1, at: 0.52, done: 0.72 },
-  { t: "Retour MSKU 482193-0 inplannen", src: "ERP", m: "retourdeadline do 29 okt", c: "amber", from: 3, to: 2, at: 0.48, done: 0.78 },
-  { t: "Zegelnummer CMAU 615402-9 aanvullen", src: "Terminal-data", m: "Alblasserdam · gate-in 07:58", c: "amber", from: 2, to: 3, at: 0.44 },
-  { t: "Referentie Brouwer Textiel opvragen", src: "E-mail 08:47", m: "PO-nummer ontbreekt in boeking", c: "amber", from: 0, to: 4, at: 0.36 },
+  { t: "Schade HLXU 248807-2 afhandelen", src: "E-mail 09:12", m: "Kempen Bouwstoffen · foto bijgevoegd", c: "red", from: 1, d: [-1, 0, 0, 0], at: 0.4, draft: true },
+  { t: "Demurrage-risico MSCU 903316-7", src: "ERP", m: "vrije dagen verlopen morgen", c: "red", from: 4, d: [0, -3, 0, 0], j: 2, at: 0.52, done: 0.72 },
+  { t: "Retour MSKU 482193-0 inplannen", src: "ERP", m: "retourdeadline do 29 okt", c: "amber", from: 3, d: [0, 1, -2, 0], j: 3, at: 0.48, done: 0.78 },
+  { t: "Zegelnummer CMAU 615402-9 aanvullen", src: "Terminal-data", m: "Alblasserdam · gate-in 07:58", c: "amber", from: 2, d: [0, 1, 1, -1], at: 0.44 },
+  { t: "Referentie Brouwer Textiel opvragen", src: "E-mail 08:47", m: "PO-nummer ontbreekt in boeking", c: "amber", from: 0, d: [1, 1, 1, 1], at: 0.36 },
 ];
 
 /* antwoord per regel, zodat het regel voor regel kan "typen" */
@@ -173,11 +175,23 @@ export function BctnControlTower() {
             </span>
           </div>
           <ol className={s.tasks}>
-            {TASKS.map((t) => (
+            {TASKS.map((t, n) => (
               <li
                 key={t.t}
                 className={`${s[t.c]} ${t.draft ? s.isDraft : ""}`}
-                style={v({ "--from": t.from, "--to": t.to, "--at": t.at, "--done": t.done ?? 9, zIndex: 5 + t.from - t.to })}
+                style={v({
+                  "--from": t.from,
+                  "--d1": t.d[0],
+                  "--d2": t.d[1],
+                  "--d3": t.d[2],
+                  "--d4": t.d[3],
+                  "--j2": t.j === 2 ? 1 : 0,
+                  "--j3": t.j === 3 ? 1 : 0,
+                  "--u": t.from === 0 ? 1 : 0,
+                  "--at": t.at,
+                  "--done": t.done ?? 9,
+                  zIndex: t.j ? 9 : 5 - n,
+                })}
               >
                 <i className={s.check} />
                 <b>{t.t}</b>
@@ -185,7 +199,7 @@ export function BctnControlTower() {
                   <span className={s.via}>{t.src}</span>
                   {t.m}
                 </p>
-                <em className={s.rank}>{t.to + 1}</em>
+                <em className={s.rank}>{n + 1}</em>
                 {t.draft && <span className={s.draftTag}>Concept klaar</span>}
               </li>
             ))}

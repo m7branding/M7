@@ -78,7 +78,6 @@ export function SteddionConfigurator() {
   return (
     <div className={s.root}>
       <div className={s.glow} aria-hidden="true" />
-      <div className={s.grid} aria-hidden="true" />
 
       <div className={s.win}>
         <div className={s.chrome}>
@@ -379,10 +378,11 @@ export function SteddionConfigurator() {
             <dt>CO₂-reductie</dt>
             <dd>1.120 ton / jaar</dd>
           </dl>
-          <p className={s.rFoot}>
-            <span>Opgesteld voor Sanne de Vries</span>
-            <span>1 / 12</span>
+          <p className={s.advice}>
+            <b>Volgende stap</b>
+            Plan een energiediagnose op locatie met een Steddion-adviseur.
           </p>
+          <p className={s.rFoot}>Opgesteld voor Sanne de Vries · pagina 1 van 12</p>
         </div>
         <span className={s.pdf}>PDF</span>
       </article>

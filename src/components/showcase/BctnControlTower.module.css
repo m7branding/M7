@@ -25,8 +25,6 @@
 
   /* tijdlijn */
   --kin: clamp(0, var(--spe) / 0.7, 1);
-  --kp0: clamp(0, (var(--sp) - 0.56) / 0.1, 1); /* prioriteren */
-  --kp: calc(var(--kp0) * var(--kp0) * (3 - 2 * var(--kp0)));
   --km0: clamp(0, (var(--sp) - 0.8) / 0.1, 1); /* e-mailconcept */
   --km: calc(1 - (1 - var(--km0)) * (1 - var(--km0)) * (1 - var(--km0)));
 
@@ -436,7 +434,7 @@
   list-style: none;
 }
 .rows li {
-  --kr: clamp(0, (var(--sp) - 0.02 - var(--n) * 0.02) / 0.06, 1);
+  --kr: clamp(0, (var(--sp) + 0.05 - var(--n) * 0.02) / 0.07, 1);
   --kt: clamp(0, (var(--sp) - 0.242 - var(--n) * 0.0275) / 0.02, 1);
   --kf: clamp(0, (var(--sp) - var(--fix)) / 0.02, 1);
   position: relative;
@@ -581,7 +579,7 @@
 }
 .state {
   --ka: clamp(0, (var(--sp) - 0.34) * 30, 1);
-  --kq: clamp(0, (var(--sp) - 0.6) / 0.04, 1);
+  --kq: clamp(0, (var(--sp) - 0.66) / 0.03, 1);
   display: grid;
   margin-left: auto;
 }
@@ -617,6 +615,15 @@
 }
 
 .tasks {
+  /* prioriteren in vier stappen */
+  --k1r: clamp(0, (var(--sp) - 0.56) / 0.03, 1);
+  --k2r: clamp(0, (var(--sp) - 0.59) / 0.03, 1);
+  --k3r: clamp(0, (var(--sp) - 0.62) / 0.03, 1);
+  --k4r: clamp(0, (var(--sp) - 0.65) / 0.03, 1);
+  --k1: calc(var(--k1r) * var(--k1r) * (3 - 2 * var(--k1r)));
+  --k2: calc(var(--k2r) * var(--k2r) * (3 - 2 * var(--k2r)));
+  --k3: calc(var(--k3r) * var(--k3r) * (3 - 2 * var(--k3r)));
+  --k4: calc(var(--k4r) * var(--k4r) * (3 - 2 * var(--k4r)));
   position: relative;
   height: 38.8cqw;
   margin: 0;
@@ -626,7 +633,13 @@
 .tasks li {
   --ka: clamp(0, (var(--sp) - var(--at)) / 0.035, 1);
   --kd: clamp(0, (var(--sp) - var(--done)) / 0.02, 1);
-  --slot: calc(var(--from) + (var(--to) - var(--from)) * var(--kp));
+  --slot: calc(var(--from) + var(--d1) * var(--k1) + var(--d2) * var(--k2) + var(--d3) * var(--k3) + var(--d4) * var(--k4));
+  --lift: calc(var(--j2) * var(--k2r) * (1 - var(--k2r)) * 4 + var(--j3) * var(--k3r) * (1 - var(--k3r)) * 4);
+  /* de laagste prioriteit duikt onder de rest door naar beneden */
+  --dip: calc(
+    var(--u) * 4 *
+      (var(--k1r) * (1 - var(--k1r)) + var(--k2r) * (1 - var(--k2r)) + var(--k3r) * (1 - var(--k3r)) + var(--k4r) * (1 - var(--k4r)))
+  );
   position: absolute;
   left: 0;
   right: 0;
@@ -638,13 +651,13 @@
   border-radius: 1cqw;
   background: #111f34;
   border: 1px solid rgba(148, 178, 220, 0.12);
-  box-shadow: 0 0.4cqw 1.2cqw rgba(0, 0, 0, 0.25);
-  opacity: calc(var(--ka) * (1 - var(--kd) * 0.4));
-  transform: translate3d(
-    calc(max(0, var(--to) - var(--from)) * -0.7cqw * var(--kp) * (1 - var(--kp)) * 4 + (1 - var(--ka)) * 2cqw),
-    calc(var(--slot) * 7.8cqw),
-    0
-  );
+  box-shadow:
+    0 0.4cqw 1.2cqw rgba(0, 0, 0, 0.25),
+    0 calc(var(--lift) * 1.6cqw) calc(var(--lift) * 3cqw) rgba(0, 0, 0, 0.45),
+    0 0 0 calc(var(--lift) * 0.12cqw) rgba(45, 212, 191, 0.6);
+  opacity: calc(var(--ka) * (1 - var(--kd) * 0.4) * (1 - var(--dip) * 0.5));
+  transform: translate3d(calc(var(--lift) * -1.4cqw + var(--dip) * 1.2cqw + (1 - var(--ka)) * 2cqw), calc(var(--slot) * 7.8cqw), 0)
+    scale(calc(1 + var(--lift) * 0.035 - var(--dip) * 0.04));
 }
 .tasks li::before {
   content: "";
@@ -726,8 +739,8 @@
   font-style: normal;
   color: color-mix(in srgb, var(--c) 85%, #fff);
   background: color-mix(in srgb, var(--c) 16%, transparent);
-  opacity: calc(clamp(0, (var(--sp) - 0.63) / 0.03, 1) * (1 - var(--kd)));
-  transform: scale(calc(0.6 + clamp(0, (var(--sp) - 0.63) / 0.03, 1) * 0.4));
+  opacity: calc(clamp(0, (var(--sp) - 0.67) / 0.03, 1) * (1 - var(--kd)));
+  transform: scale(calc(0.6 + clamp(0, (var(--sp) - 0.67) / 0.03, 1) * 0.4));
 }
 .isDraft {
   --kg: clamp(0, (var(--sp) - 0.9) / 0.04, 1);
@@ -927,13 +940,12 @@
   display: inline-block;
   overflow: hidden;
   max-width: calc(var(--k) * 52cqw);
-  padding-right: 0.15cqw;
   white-space: nowrap;
   vertical-align: top;
   border-right: 0.13cqw solid color-mix(in srgb, var(--teal) calc(clamp(0, min(var(--k) * 40, (1 - var(--k)) * 40), 1) * 100%), transparent);
 }
 .mBody p:last-child span {
-  border-right-color: var(--teal);
+  border-right-color: color-mix(in srgb, var(--teal) calc(var(--k) * 100%), transparent);
   animation: caret 1s steps(1) infinite;
 }
 @keyframes caret {
