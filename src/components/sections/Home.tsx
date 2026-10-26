@@ -13,6 +13,7 @@ import { Starfield } from "@/components/motion/Starfield";
 import { TLink } from "@/components/motion/TLink";
 import { Mockup } from "@/components/mockups";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
+import { Showcase, hasShowcase } from "@/components/showcase";
 import { Btn } from "@/components/ui/Button";
 import { CaseCover } from "@/components/ui/CaseCard";
 import { Icon } from "@/components/ui/Icon";
@@ -207,9 +208,15 @@ export function PillarStack({ locale, from = 0, to }: { locale: Locale; from?: n
                     </TLink>
                   </div>
                 </div>
-                <div className={`pillar__visual${s.media?.type === "sequence" ? " pillar__visual--seq" : ""}`}>
-                  {s.media ? <ServiceMedia media={s.media} alt={title} /> : <Mockup kind={s.mockup} accent={s.color} />}
-                </div>
+                {hasShowcase(s.slug) ? (
+                  <div className="pillar__visual pillar__visual--show">
+                    <Showcase slug={s.slug} flip={i % 2 === 1} />
+                  </div>
+                ) : (
+                  <div className={`pillar__visual${s.media?.type === "sequence" ? " pillar__visual--seq" : ""}`}>
+                    {s.media ? <ServiceMedia media={s.media} alt={title} /> : <Mockup kind={s.mockup} accent={s.color} />}
+                  </div>
+                )}
               </div>
             </article>
           );

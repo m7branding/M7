@@ -432,6 +432,40 @@
   }
 }
 
+/* Showcase van echt werk: vult de kaarthelft (cover), devices mogen over de rand lopen */
+.pillar__visual--show {
+  padding: 0;
+  overflow: hidden;
+  background: none;
+  isolation: isolate;
+}
+.show {
+  --sp: 0;
+  --spe: 0;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  container-type: size;
+  border-radius: inherit;
+}
+.show[data-play="0"] *,
+.show[data-play="0"] *::before,
+.show[data-play="0"] *::after {
+  animation-play-state: paused !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .show * ,
+  .show *::before,
+  .show *::after {
+    animation: none !important;
+  }
+}
+@media (max-width: 900px) {
+  .pillar__visual--show {
+    min-height: clamp(380px, 96vw, 600px);
+  }
+}
+
 /* ---------------- Masterpieces wall ---------------- */
 .masters {
   overflow: hidden;

@@ -1,0 +1,261 @@
+/* DesignersHouse brandbook. Scroll: --sp (lineair) / --spe (ge-eased), 0 → 1.
+   Alles schaalt met de kaart via container-units (cqw / cqh). */
+.root {
+  --dir: 1;
+  --gold: #d3c089;
+  --charcoal: #383736;
+  --pw: 54cqw; /* breedte van één (liggende) pagina */
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(90% 70% at 70% 40%, #3b3936 0%, #232220 55%, #161514 100%);
+}
+:global(.show--flip) .root {
+  --dir: -1;
+}
+
+.glow {
+  position: absolute;
+  left: 30%;
+  top: 18%;
+  width: 70cqw;
+  height: 70cqw;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(211, 192, 137, 0.22), transparent);
+  opacity: calc(0.4 + var(--spe) * 0.6);
+  animation: breathe 9s ease-in-out infinite;
+}
+@keyframes breathe {
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+
+.watermark {
+  position: absolute;
+  right: -14cqw;
+  top: -12cqh;
+  width: 62cqw;
+  aspect-ratio: 600 / 691;
+  background: var(--gold);
+  -webkit-mask: url("/media/showcase/designershouse/emblem-mask.webp") center / contain no-repeat;
+  mask: url("/media/showcase/designershouse/emblem-mask.webp") center / contain no-repeat;
+  opacity: 0.05;
+  transform: rotate(calc(-8deg + var(--sp) * 10deg));
+}
+
+/* ---------- 3D-boek ---------- */
+.scene {
+  position: absolute;
+  inset: 0;
+  perspective: 2400px;
+  perspective-origin: 50% 20%;
+}
+.book {
+  position: absolute;
+  left: calc(50cqw - var(--pw));
+  top: calc(50cqh - var(--pw) * 9 / 32);
+  width: calc(var(--pw) * 2);
+  aspect-ratio: 32 / 9;
+  transform-style: preserve-3d;
+  /* dicht en gecentreerd → pant en zoomt mee naar rechts terwijl hij opengaat */
+  transform:
+    translate3d(calc(var(--dir) * (-26cqw + var(--spe) * 38cqw)), calc(10cqh - var(--spe) * 8cqh), 0)
+    rotateX(calc(50deg - var(--spe) * 18deg))
+    rotateZ(calc(-20deg + var(--spe) * 8deg))
+    scale(calc(0.98 + var(--spe) * 0.2));
+}
+.shadow {
+  position: absolute;
+  inset: 6% 2% -4% 46%;
+  background: rgba(0, 0, 0, 0.75);
+  filter: blur(26px);
+  border-radius: 12px;
+  transform: translateZ(-3px);
+  /* schaduw groeit mee naar links als het boek open gaat */
+  left: calc(46% - clamp(0, (var(--sp) - 0.2) / 0.4, 1) * 44%);
+}
+.right {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+.page,
+.leaf {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: 0 50%;
+}
+.base {
+  overflow: hidden;
+  border-radius: 0 6px 6px 0;
+  background: #2f2e2d;
+  /* dikte van het blok pagina's */
+  box-shadow:
+    2px 2px 0 #e9e5df,
+    4px 4px 0 #d9d3cc,
+    6px 6px 0 #cfc8c0,
+    10px 14px 24px rgba(0, 0, 0, 0.45);
+}
+.leaf2 {
+  transform: rotateY(calc(clamp(0, (var(--sp) - 0.66) / 0.28, 1) * -180deg)) translateZ(1px);
+}
+.cover {
+  transform: rotateY(calc(clamp(0, (var(--sp) - 0.2) / 0.38, 1) * -180deg)) translateZ(2.5px);
+}
+.face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 0 6px 6px 0;
+  background: #2f2e2d;
+}
+.back {
+  transform: rotateY(180deg);
+  border-radius: 6px 0 0 6px;
+}
+.face img,
+.base img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* rugschaduw (goot) op elke pagina */
+.front::after,
+.base::after,
+.back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0) 9%, rgba(255, 255, 255, 0.04) 60%, rgba(0, 0, 0, 0.12));
+}
+.back::after {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0) 9%, rgba(255, 255, 255, 0.04) 60%, rgba(0, 0, 0, 0.12));
+}
+
+/* ---------- Kaft: charcoal met goudfolie ---------- */
+.coverFront {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 90% at 25% 15%, rgba(255, 255, 255, 0.07), transparent 55%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, #42413f, var(--charcoal) 45%, #2a2928);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+.coverFront::after {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5%, rgba(255, 255, 255, 0.03) 7%, transparent 9%);
+}
+.foil {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  width: 22%;
+  aspect-ratio: 600 / 691;
+  translate: -50% 0;
+  background: linear-gradient(115deg, #a8925c 0%, #d3c089 30%, #f6ebc4 45%, #d3c089 55%, #8f7a48 100%);
+  background-size: 260% 100%;
+  -webkit-mask: url("/media/showcase/designershouse/emblem-mask.webp") center / contain no-repeat;
+  mask: url("/media/showcase/designershouse/emblem-mask.webp") center / contain no-repeat;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.4));
+  animation: foil 5.5s ease-in-out infinite;
+}
+@keyframes foil {
+  0%,
+  100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0% 0;
+  }
+}
+.coverWord {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  translate: -50% 0;
+  display: grid;
+  justify-items: end;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.2cqw;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #ebe7e1;
+}
+.coverWord small {
+  margin-top: 0.25em;
+  font-family: var(--font);
+  font-size: 0.32em;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+}
+.coverLabel {
+  position: absolute;
+  left: 7%;
+  bottom: 8%;
+  font-size: 1.05cqw;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(235, 231, 225, 0.55);
+}
+
+/* ---------- Kleurstalen ---------- */
+.swatches {
+  position: absolute;
+  left: calc(50cqw - var(--dir) * 20cqw);
+  bottom: 6cqh;
+  display: flex;
+  translate: -50% 0;
+  pointer-events: none;
+}
+.swatches li {
+  --k: clamp(0, (var(--sp) - 0.52 - var(--n) * 0.05) / 0.28, 1);
+  width: 15.5cqw;
+  margin-right: -3.2cqw;
+  border-radius: 1.2cqw;
+  overflow: hidden;
+  background: #fbfaf8;
+  box-shadow: 0 1.6cqw 3cqw rgba(0, 0, 0, 0.45);
+  transform:
+    translate3d(0, calc((1 - var(--k)) * 46cqh), 0)
+    rotate(calc(-14deg + var(--n) * 6deg + (1 - var(--k)) * -10deg));
+  opacity: var(--k);
+  animation: float 6s ease-in-out infinite;
+  animation-delay: calc(var(--n) * -1.4s);
+}
+@keyframes float {
+  50% {
+    translate: 0 -0.8cqh;
+  }
+}
+.chip {
+  display: block;
+  aspect-ratio: 1 / 0.9;
+  background: var(--c);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+.meta {
+  display: grid;
+  gap: 0.2em;
+  padding: 0.9cqw 1cqw 1.1cqw;
+  font-size: 1.25cqw;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #6b6863;
+}
+.meta b {
+  font-family: Georgia, serif;
+  font-size: 1.45cqw;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #2b2a28;
+}
