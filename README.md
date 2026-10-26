@@ -142,6 +142,20 @@ de review en de toepassingen. Zie de case `teamtv` in `cases.ts` voor een comple
 `image`, `imagePosition` en `quote` per sector: het brede beeld na de hero dat bij het scrollen
 openvouwt, met de quote erop. Voor Zorg en Travel staan tijdelijke beelden, vervang ze door eigen werk.
 
+### Showcases op de homepage (echt werk per peiler)
+
+Elke peilerkaart op de homepage heeft een eigen, geanimeerde mockup van een echt project
+(`src/components/showcase/`): DesignersHouse (brandbook en drukwerk), Plenty Planet (website en
+Green Eco Corridor), Monvy, Buitenstate, The Sandt, Alpacafarm Vorstenbosch + GRID + Major Capital,
+Steddion en BCTN. Ze spelen af op de scroll: terwijl de kaart omhoog schuift tot hij vaststaat loopt
+`--sp` van 0 naar 1 (zie `Stage.tsx`), kleine details leven door als CSS-loop.
+
+- Beelden staan in `public/media/showcase/<klant>/`.
+- Alpacafarm: de posts zijn nu illustraties. Vul in `SocialAds.tsx` per post een `src` in
+  (bv. `/media/showcase/alpacafarm/wandelen.webp`) en de foto vervangt de illustratie.
+- Een showcase aan/uit zetten op de homepage: de lijst `READY` in `src/components/showcase/index.tsx`.
+- Bekijken en finetunen in development: `/lab?k=<dienst-slug>&sp=0.6&flip=1` (niet in productie).
+
 ### Scroll-animaties (zoals op /home-2)
 
 De 3D-renders van `/home-2` (hero-telefoons en de mockup in de zwarte sectie) draaien hier als

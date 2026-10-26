@@ -338,16 +338,37 @@
   overflow: hidden;
   transform-origin: 50% 0;
 }
+/* alleen waar de kaarten echt stapelen (desktop); op mobiel zou het beeld dimmen terwijl je ernaar kijkt */
 @supports (animation-timeline: view()) {
-  .pillar__card {
-    animation: pillar-shrink linear both;
-    animation-timeline: view();
-    animation-range: exit -10% exit 60%;
+  @media (min-width: 901px) {
+    .pillar__card {
+      animation: pillar-shrink linear both;
+      animation-timeline: view();
+      animation-range: exit -10% exit 60%;
+    }
+    /* dimmen via een zwarte laag (opacity) i.p.v. filter: veel goedkoper met animaties eronder */
+    .pillar__card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      border-radius: inherit;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+      animation: pillar-dim linear both;
+      animation-timeline: view();
+      animation-range: exit -10% exit 60%;
+    }
   }
   @keyframes pillar-shrink {
     to {
       transform: scale(0.93);
-      filter: brightness(0.45);
+    }
+  }
+  @keyframes pillar-dim {
+    to {
+      opacity: 0.55;
     }
   }
 }
@@ -450,8 +471,15 @@
 }
 .show[data-play="0"] *,
 .show[data-play="0"] *::before,
-.show[data-play="0"] *::after {
+.show[data-play="0"] *::after,
+.show.is-covered *,
+.show.is-covered *::before,
+.show.is-covered *::after {
   animation-play-state: paused !important;
+}
+/* onder de volgende kaart: niet meer tekenen (scheelt veel werk met tien kaarten op elkaar) */
+.show.is-covered {
+  visibility: hidden;
 }
 @media (prefers-reduced-motion: reduce) {
   .show * ,

@@ -29,6 +29,10 @@ export function ShowcaseStage({ children, flip = false, sp, label }: { children:
     const r = el.getBoundingClientRect();
     const vh = window.innerHeight;
     set(Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.78))));
+    // is er van deze kaart nog maar een smal randje zichtbaar onder de volgende, dan hoeft hij niet meer te animeren of te tekenen
+    const next = el.closest(".pillar")?.nextElementSibling;
+    const covered = !!next && next.classList.contains("pillar") && next.getBoundingClientRect().top - r.top < 64;
+    el.classList.toggle("is-covered", covered);
   }, [set, sp]);
 
   useScroll(update);

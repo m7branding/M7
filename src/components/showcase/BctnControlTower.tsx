@@ -17,11 +17,11 @@ const KPIS = [
 
 /* containerlijst; `fix` = moment waarop de AI-taak is afgehandeld */
 const ROWS = [
-  { id: "MSKU 482193-0", ty: "40' HC", k: "Van Dijk Foods", t: "Nijmegen", a: "Retourdeadline over 2 dagen", c: "amber", fix: 0.79, ok: "Retour ingepland" },
+  { id: "MSKU 482193-0", ty: "40' HC", k: "Van Dijk Foods", t: "Nijmegen", a: "Retourdeadline over 2 dagen", c: "amber", fix: 0.765, ok: "Retour ingepland" },
   { id: "TGHU 730551-8", ty: "20' DV", k: "Brouwer Textiel", t: "Den Bosch", a: "Referentie ontbreekt", c: "amber" },
   { id: "HLXU 248807-2", ty: "40' DV", k: "Kempen Bouwstoffen", t: "Veghel", a: "Schade gemeld + foto", c: "red", photo: true },
   { id: "CMAU 615402-9", ty: "40' HC", k: "Noordhaven Trading", t: "Alblasserdam", a: "Zegelnummer ontbreekt", c: "amber" },
-  { id: "MSCU 903316-7", ty: "45' HC", k: "De Lage Velden", t: "Nijmegen", a: "Demurrage-risico", c: "red", fix: 0.73, ok: "Klant geïnformeerd" },
+  { id: "MSCU 903316-7", ty: "45' HC", k: "De Lage Velden", t: "Nijmegen", a: "Demurrage-risico", c: "red", fix: 0.715, ok: "Klant geïnformeerd" },
   { id: "OOLU 157624-0", ty: "20' RF", k: "Maaskant Retail", t: "Den Bosch", a: "Gereed voor levering", c: "ok" },
   { id: "BMOU 556201-8", ty: "20' DV", k: "Noordhaven Trading", t: "Veghel", a: "Douane in behandeling", c: "blue" },
   { id: "TCNU 384410-3", ty: "40' HC", k: "Van Dijk Foods", t: "Alblasserdam", a: "Klaar voor transport", c: "ok" },
@@ -32,8 +32,8 @@ const ROWS = [
    [C A D B E] → [A C D B E] → [A E C D B] → [A E B C D] → [A E B D C] */
 const TASKS = [
   { t: "Schade HLXU 248807-2 afhandelen", src: "E-mail 09:12", m: "Kempen Bouwstoffen · foto bijgevoegd", c: "red", from: 1, d: [-1, 0, 0, 0], at: 0.4, draft: true },
-  { t: "Demurrage-risico MSCU 903316-7", src: "ERP", m: "vrije dagen verlopen morgen", c: "red", from: 4, d: [0, -3, 0, 0], j: 2, at: 0.52, done: 0.72 },
-  { t: "Retour MSKU 482193-0 inplannen", src: "ERP", m: "retourdeadline do 29 okt", c: "amber", from: 3, d: [0, 1, -2, 0], j: 3, at: 0.48, done: 0.78 },
+  { t: "Demurrage-risico MSCU 903316-7", src: "ERP", m: "vrije dagen verlopen morgen", c: "red", from: 4, d: [0, -3, 0, 0], j: 2, at: 0.52, done: 0.705 },
+  { t: "Retour MSKU 482193-0 inplannen", src: "ERP", m: "retourdeadline do 29 okt", c: "amber", from: 3, d: [0, 1, -2, 0], j: 3, at: 0.48, done: 0.755 },
   { t: "Zegelnummer CMAU 615402-9 aanvullen", src: "Terminal-data", m: "Alblasserdam · gate-in 07:58", c: "amber", from: 2, d: [0, 1, 1, -1], at: 0.44 },
   { t: "Referentie Brouwer Textiel opvragen", src: "E-mail 08:47", m: "PO-nummer ontbreekt in boeking", c: "amber", from: 0, d: [1, 1, 1, 1], at: 0.36 },
 ];

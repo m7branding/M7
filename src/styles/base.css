@@ -593,3 +593,10 @@ html.js [data-stagger].is-in > * {
     clip-path: none !important;
   }
 }
+
+/* Secties buiten beeld: CSS-loops pauzeren (RevealObserver zet data-play) */
+section[data-play="0"] *,
+section[data-play="0"] *::before,
+section[data-play="0"] *::after {
+  animation-play-state: paused !important;
+}

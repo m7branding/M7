@@ -25,7 +25,7 @@
 
   /* tijdlijn */
   --kin: clamp(0, var(--spe) / 0.7, 1);
-  --km0: clamp(0, (var(--sp) - 0.8) / 0.1, 1); /* e-mailconcept */
+  --km0: clamp(0, (var(--sp) - 0.775) / 0.1, 1); /* e-mailconcept */
   --km: calc(1 - (1 - var(--km0)) * (1 - var(--km0)) * (1 - var(--km0)));
 
   position: absolute;
@@ -349,7 +349,7 @@
   content: counter(num);
 }
 .kpis .red b {
-  --minus: calc(clamp(0, (var(--sp) - 0.72) * 60, 1) + clamp(0, (var(--sp) - 0.78) * 60, 1));
+  --minus: calc(clamp(0, (var(--sp) - 0.715) * 60, 1) + clamp(0, (var(--sp) - 0.765) * 60, 1));
 }
 .kpis small {
   font-size: 0.86cqw;
@@ -926,7 +926,7 @@
   color: #dbe4f0;
 }
 .mBody p {
-  --k: clamp(0, (var(--sp) - 0.86 - var(--l) * 0.018) / 0.018, 1);
+  --k: clamp(0, (var(--sp) - 0.845 - var(--l) * 0.018) / 0.018, 1);
   margin: 0;
   height: 1.75em;
 }

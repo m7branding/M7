@@ -39,6 +39,8 @@ const READY: ServiceSlug[] = [
   "content-marketing-online-ads",
   "foto-video-3d-animatie",
   "grafisch-ontwerp-print",
+  "configurators-lead-tools-widgets",
+  "ai-consultancy",
 ];
 
 export function hasShowcase(slug: string): slug is ServiceSlug {

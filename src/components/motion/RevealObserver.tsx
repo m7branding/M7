@@ -37,7 +37,8 @@ export function RevealObserver() {
         }
         reveal.observe(el);
       });
-      root.querySelectorAll<HTMLElement>("[data-play]").forEach((el) => play.observe(el));
+      // secties buiten beeld pauzeren hun CSS-loops (zie base.css: section[data-play="0"])
+      root.querySelectorAll<HTMLElement>("[data-play], main section").forEach((el) => play.observe(el));
     };
 
     // Wacht tot de preloader / page-transition klaar is voor de eerste reveal
