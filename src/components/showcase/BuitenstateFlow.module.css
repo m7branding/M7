@@ -73,6 +73,7 @@
   --mailTop: 3cqh;
   --mailH: 47cqh;
   --crmTop: 58cqh;
+  --crmLift: 32cqh; /* CRM rust eerst hoger (sleutelbeeld) en zakt naar zijn plek als de mail komt */
   --cs: 1cqw; /* maat-eenheid van CRM, mail en lijnen */
   /* kaart-hero: middelpunt van de kaart en zoomfactor */
   --hx: 4cqw;
@@ -92,54 +93,57 @@
   --b0: clamp(0, (var(--sp) - 0.325) / 0.04, 1);
   --pill: calc(var(--b0) * var(--b0) * (3 - 2 * var(--b0)));
   /* camera zoomt uit van kaart naar widget; widget-chroom verschijnt */
-  --p0: clamp(0, (var(--sp) - 0.33) / 0.16, 1);
+  --p0: clamp(0, (var(--sp) - 0.33) / 0.15, 1);
   --kp: calc(var(--p0) * var(--p0) * (3 - 2 * var(--p0)));
   --zc: calc(1 + (var(--Zh) - 1) * (1 - var(--kp)));
-  --c0: clamp(0, (var(--sp) - 0.35) / 0.14, 1);
+  --c0: clamp(0, (var(--sp) - 0.35) / 0.12, 1);
   --kch: calc(var(--c0) * var(--c0) * (3 - 2 * var(--c0)));
   /* panelen 2, 3, 4 */
-  --q2: clamp(0, (var(--sp) - 0.505) / 0.035, 1);
+  --q2: clamp(0, (var(--sp) - 0.495) / 0.035, 1);
   --p2: calc(var(--q2) * var(--q2) * (3 - 2 * var(--q2)));
-  --q3: clamp(0, (var(--sp) - 0.575) / 0.035, 1);
+  --q3: clamp(0, (var(--sp) - 0.565) / 0.035, 1);
   --p3: calc(var(--q3) * var(--q3) * (3 - 2 * var(--q3)));
-  --q4: clamp(0, (var(--sp) - 0.655) / 0.035, 1);
+  --q4: clamp(0, (var(--sp) - 0.643) / 0.035, 1);
   --p4: calc(var(--q4) * var(--q4) * (3 - 2 * var(--q4)));
   /* tellers */
-  --n1: clamp(0, (var(--sp) - 0.51) / 0.08, 1);
+  --n1: clamp(0, (var(--sp) - 0.5) / 0.08, 1);
   --e1: calc(var(--n1) * var(--n1) * (3 - 2 * var(--n1)));
-  --n2: clamp(0, (var(--sp) - 0.66) / 0.07, 1);
+  --n2: clamp(0, (var(--sp) - 0.648) / 0.065, 1);
   --e2: calc(var(--n2) * var(--n2) * (3 - 2 * var(--n2)));
   /* camera: welk deel van de widget (echte px) moet onderin nog in beeld zijn */
   --kb1: clamp(0, (var(--sp) - 0.44) / 0.08, 1);
-  --kb2: clamp(0, (var(--sp) - 0.66) / 0.1, 1);
+  --kb2: clamp(0, (var(--sp) - 0.645) / 0.1, 1);
   --B: calc(
     680 + 60 * var(--kb1) * var(--kb1) * (3 - 2 * var(--kb1)) + 30 * var(--p3) + 150 * var(--kb2) * var(--kb2) * (3 - 2 * var(--kb2))
   );
   /* eind: uitzoomen, CRM, automatisering, mail */
-  --kZ: clamp(0, (var(--sp) - 0.56) / 0.17, 1);
+  --kZ: clamp(0, (var(--sp) - 0.54) / 0.15, 1);
   --eZ: calc(var(--kZ) * var(--kZ) * (3 - 2 * var(--kZ)));
   --wz: calc(1 - var(--eZ) * (1 - var(--z1)));
   --pan: max(0px, calc(var(--B) * var(--u) - (100cqh - var(--T)) / var(--wz)));
-  --kC: clamp(0, (var(--sp) - 0.635) / 0.145, 1);
+  --kC: clamp(0, (var(--sp) - 0.63) / 0.12, 1);
   --eC: calc(var(--kC) * var(--kC) * (3 - 2 * var(--kC)));
-  --w1: clamp(0, (var(--sp) - 0.72) / 0.04, 1);
+  --w1: clamp(0, (var(--sp) - 0.685) / 0.035, 1);
   --kW1: calc(var(--w1) * var(--w1) * (3 - 2 * var(--w1)));
-  --l0: clamp(0, (var(--sp) - 0.73) / 0.07, 1);
+  --l0: clamp(0, (var(--sp) - 0.69) / 0.048, 1);
   --kL: calc(var(--l0) * var(--l0) * (3 - 2 * var(--l0)));
-  --w2: clamp(0, (var(--sp) - 0.8) / 0.05, 1);
+  --dn0: clamp(0, (var(--sp) - 0.78) / 0.15, 1);
+  --eDn: calc(var(--dn0) * var(--dn0) * (3 - 2 * var(--dn0)));
+  --crmY: calc(var(--crmTop) - (1 - var(--eDn)) * var(--crmLift));
+  --w2: clamp(0, (var(--sp) - 0.885) / 0.045, 1);
   --kW2: calc(var(--w2) * var(--w2) * (3 - 2 * var(--w2)));
-  --k0: clamp(0, (var(--sp) - 0.82) / 0.05, 1);
+  --k0: clamp(0, (var(--sp) - 0.9) / 0.05, 1);
   --kK: calc(var(--k0) * var(--k0) * (3 - 2 * var(--k0)));
-  --kM: clamp(0, (var(--sp) - 0.83) / 0.15, 1);
+  --kM: clamp(0, (var(--sp) - 0.85) / 0.13, 1);
   --eM: calc(var(--kM) * var(--kM) * (3 - 2 * var(--kM)));
   /* na het vastzetten: alles drijft langzaam door */
   --d0: clamp(0, (var(--sp) - 0.7) / 0.3, 1);
   --kd: calc(var(--d0) * var(--d0) * (3 - 2 * var(--d0)));
   /* klikken van de cursor */
   --clk: calc(
-    max(0, 1 - max(var(--sp) - 0.32, 0.32 - var(--sp)) * 90) + max(0, 1 - max(var(--sp) - 0.505, 0.505 - var(--sp)) * 90) +
-      max(0, 1 - max(var(--sp) - 0.575, 0.575 - var(--sp)) * 90) + max(0, 1 - max(var(--sp) - 0.655, 0.655 - var(--sp)) * 90) +
-      max(0, 1 - max(var(--sp) - 0.72, 0.72 - var(--sp)) * 90)
+    max(0, 1 - max(var(--sp) - 0.32, 0.32 - var(--sp)) * 90) + max(0, 1 - max(var(--sp) - 0.495, 0.495 - var(--sp)) * 90) +
+      max(0, 1 - max(var(--sp) - 0.565, 0.565 - var(--sp)) * 90) + max(0, 1 - max(var(--sp) - 0.643, 0.643 - var(--sp)) * 90) +
+      max(0, 1 - max(var(--sp) - 0.685, 0.685 - var(--sp)) * 90)
   );
 
   position: absolute;
@@ -229,7 +233,7 @@
   inset: 0;
   z-index: -1;
   background: #fff;
-  opacity: clamp(0, var(--kch) * 3, 1);
+  opacity: clamp(0, var(--kch) * 5, 1);
   clip-path: inset(
     calc(var(--i) * 250 * var(--u)) calc(var(--i) * 118 * var(--u)) calc(var(--i) * (100% - 640 * var(--u))) calc(var(--i) * 118 * var(--u))
       round calc((20 + var(--i) * 10) * var(--u))
@@ -491,17 +495,17 @@
   font-size: calc(15 * var(--u));
 }
 .next {
-  --h: calc(clamp(0, (var(--sp) - 0.493) / 0.006, 1) * clamp(0, (0.512 - var(--sp)) / 0.004, 1));
+  --h: calc(clamp(0, (var(--sp) - 0.483) / 0.006, 1) * clamp(0, (0.502 - var(--sp)) / 0.004, 1));
   margin-top: calc(24 * var(--u));
   background: color-mix(in srgb, #2c3c10 calc(var(--h) * 100%), color-mix(in srgb, var(--olive) calc(var(--sel) * 100%), #c5c2bb));
   box-shadow: 0 calc(4 * var(--u)) calc(14 * var(--u)) rgba(60, 79, 25, calc(var(--h) * 0.3));
   transform: translate3d(0, calc(var(--h) * -1 * var(--u)), 0);
 }
 .go2 {
-  --h: calc(clamp(0, (var(--sp) - 0.565) / 0.006, 1) * clamp(0, (0.582 - var(--sp)) / 0.004, 1));
+  --h: calc(clamp(0, (var(--sp) - 0.555) / 0.006, 1) * clamp(0, (0.572 - var(--sp)) / 0.004, 1));
 }
 .go3 {
-  --h: calc(clamp(0, (var(--sp) - 0.645) / 0.006, 1) * clamp(0, (0.662 - var(--sp)) / 0.004, 1));
+  --h: calc(clamp(0, (var(--sp) - 0.633) / 0.006, 1) * clamp(0, (0.65 - var(--sp)) / 0.004, 1));
 }
 .go2,
 .go3 {
@@ -780,7 +784,7 @@
   color: #999;
 }
 .cta {
-  --h: calc(clamp(0, (var(--sp) - 0.71) / 0.006, 1) * clamp(0, (0.745 - var(--sp)) / 0.01, 1));
+  --h: calc(clamp(0, (var(--sp) - 0.677) / 0.006, 1) * clamp(0, (0.71 - var(--sp)) / 0.01, 1));
   margin-top: calc(18 * var(--u));
   padding: calc(16 * var(--u));
   background: color-mix(in srgb, #4aa2c7 calc(var(--h) * 100%), var(--blue));
@@ -852,10 +856,10 @@
   --ib: calc(3 * (1 - var(--kg)) * (1 - var(--kg)) * var(--kg));
   --ic: calc(3 * (1 - var(--kg)) * var(--kg) * var(--kg));
   --id: calc(var(--kg) * var(--kg) * var(--kg));
-  --m2: clamp(0, (var(--sp) - 0.43) / 0.068, 1);
-  --m3: clamp(0, (var(--sp) - 0.54) / 0.03, 1);
-  --m5: clamp(0, (var(--sp) - 0.615) / 0.035, 1);
-  --m6: clamp(0, (var(--sp) - 0.675) / 0.04, 1);
+  --m2: clamp(0, (var(--sp) - 0.425) / 0.062, 1);
+  --m3: clamp(0, (var(--sp) - 0.525) / 0.035, 1);
+  --m5: clamp(0, (var(--sp) - 0.605) / 0.032, 1);
+  --m6: clamp(0, (var(--sp) - 0.65) / 0.031, 1);
   --s2: calc(var(--m2) * var(--m2) * (3 - 2 * var(--m2)));
   --s3: calc(var(--m3) * var(--m3) * (3 - 2 * var(--m3)));
   --s5: calc(var(--m5) * var(--m5) * (3 - 2 * var(--m5)));
@@ -874,7 +878,7 @@
   z-index: 3;
   width: calc(22 * var(--u));
   height: calc(26 * var(--u));
-  opacity: calc(clamp(0, (var(--sp) - 0.06) / 0.035, 1) * (1 - clamp(0, (var(--sp) - 0.74) / 0.025, 1)));
+  opacity: calc(clamp(0, (var(--sp) - 0.06) / 0.035, 1) * (1 - clamp(0, (var(--sp) - 0.7) / 0.025, 1)));
   transform-origin: 0 0;
   transform: translate3d(calc(var(--cx) * var(--u)), calc(var(--cy) * var(--u)), 0) scale(calc(1 / var(--zc)));
 }
@@ -917,11 +921,11 @@
   pointer-events: none;
 }
 .w1 {
-  /* van de CTA (widgetrand) naar het CRM */
+  /* van de widgetrand naar de nieuwe lead in het CRM (beweegt mee met het CRM) */
   --l: calc(var(--colX) + var(--colW) / 2);
   --r: calc(var(--x1) - 280 * var(--u) * var(--z1));
   left: calc(50cqw + var(--dir) * (var(--l) + var(--r)) / 2);
-  top: calc(var(--T) + 866 * var(--u) * var(--z1));
+  top: calc(var(--crmY) + 7.4 * var(--cs));
   width: calc(var(--r) - var(--l));
   height: calc(0.28 * var(--cs));
   margin: calc(-0.14 * var(--cs)) 0 0 calc((var(--l) - var(--r)) / 2);
@@ -1012,9 +1016,9 @@
     0 calc(3.5 * var(--cs)) calc(7 * var(--cs)) rgba(0, 0, 0, 0.45);
 }
 .crm {
-  top: var(--crmTop);
+  top: var(--crmY);
   color: #23301a;
-  opacity: clamp(0, var(--kC) * 2.5, 1);
+  opacity: clamp(0, var(--eC) * 2.2, 1);
   transform: translate3d(calc(var(--dir) * (1 - var(--eC)) * calc(-4 * var(--cs))), calc((1 - var(--eC)) * 16cqh), 0) rotate(calc(var(--dir) * (1 - var(--eC)) * -2.5deg));
 }
 .cBar {
@@ -1248,8 +1252,8 @@
   max-height: var(--mailH);
   color: #333;
   opacity: clamp(0, var(--eM) * 2, 1);
-  transform-origin: 50% 100%;
-  transform: translate3d(0, calc((1 - var(--eM)) * 5cqh), 0) scale(calc(0.95 + var(--eM) * 0.05));
+  transform-origin: 50% 0;
+  transform: scale(calc(0.95 + var(--eM) * 0.05));
 }
 .mTop {
   display: flex;
@@ -1389,9 +1393,10 @@
     --colX: -20cqw;
     --colW: 52cqw;
     --cs: 1.22cqw;
-    --mailTop: 3cqh;
-    --mailH: 50cqh;
+    --mailTop: 5cqh;
+    --mailH: 48cqh;
     --crmTop: 61cqh;
+    --crmLift: 30cqh;
   }
   .w1 {
     display: none;

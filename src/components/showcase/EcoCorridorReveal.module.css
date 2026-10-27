@@ -1,6 +1,6 @@
 /* Plenty Planet: Green Eco Corridor die "rendert" op scroll. --sp (lineair) 0 → 1 over het hele leven
    van de kaart (0.74 = vastgezet, sleutelbeeld: render klaar). Rustige, overlappende fases met smoothstep:
-   venster drijft binnen (0.02 → 0.52) · draadmodel tekent (0.04 → 0.34) · claypass, diagonale wipe (0.26 → 0.52)
+   venster drijft binnen (0.02 → 0.52) · draadmodel tekent (0.04 → 0.34) · claypass, diagonale wipe (0.2 → 0.53)
    · kleurenrender in tegels (0.48 → 0.73) · Camera_02 (0.78 → 1). De dolly loopt tot het eind door.
    Geen achtergrondvlak: alleen een zachte groene gloed rond het venster. */
 @counter-style pp-pad4 {
@@ -21,15 +21,16 @@
   /* fases */
   --wi: clamp(0, (var(--sp) - 0.02) / 0.5, 1);
   --ws: calc(var(--wi) * var(--wi) * (3 - 2 * var(--wi)));
-  --cl: clamp(0, (var(--sp) - 0.26) / 0.26, 1);
-  --c: calc(var(--cl) * var(--cl) * (3 - 2 * var(--cl)));
+  /* claypass: half lineair, half smoothstep, zodat de wipe-lijn nergens hard versnelt */
+  --cl: clamp(0, (var(--sp) - 0.2) / 0.33, 1);
+  --c: calc(var(--cl) * 0.5 + var(--cl) * var(--cl) * (3 - 2 * var(--cl)) * 0.5);
   --r: clamp(0, (var(--sp) - 0.48) / 0.26, 1);
   --xk: clamp(0, (var(--sp) - 0.78) / 0.22, 1);
   --x2: calc(var(--xk) * var(--xk) * (3 - 2 * var(--xk)));
   /* statuswissels (kleine UI-details) */
-  --a1: clamp(0, (var(--sp) - 0.25) / 0.04, 1);
+  --a1: clamp(0, (var(--sp) - 0.22) / 0.04, 1);
   --a2: clamp(0, (var(--sp) - 0.47) / 0.04, 1);
-  --a3: clamp(0, (var(--sp) - 0.72) / 0.04, 1);
+  --a3: clamp(0, (var(--sp) - 0.69) / 0.04, 1); /* "Render klaar" staat er vóór het sleutelbeeld (0.74) */
   --idx: calc(var(--a1) + var(--a2));
   position: absolute;
   inset: 0;
@@ -670,7 +671,7 @@
   inset: 22% 0 auto;
   height: 0.7cqw;
   background:
-    linear-gradient(var(--k), var(--k)) 26% 0 / 0.7cqw 100% no-repeat,
+    linear-gradient(var(--k), var(--k)) 22% 0 / 0.7cqw 100% no-repeat,
     linear-gradient(var(--k), var(--k)) 48% 0 / 0.7cqw 100% no-repeat,
     linear-gradient(var(--k), var(--k)) 78% 0 / 0.7cqw 100% no-repeat;
   opacity: 0.8;
