@@ -151,6 +151,11 @@ Steddion en BCTN. Ze spelen af op de scroll: terwijl de kaart omhoog schuift tot
 `--sp` van 0 naar 1 (zie `Stage.tsx`), kleine details leven door als CSS-loop.
 
 - Beelden staan in `public/media/showcase/<klant>/`.
+- Plenty Planet, Steddion en Buitenstate zijn nagebouwd op de live sites (echte logo's, teksten,
+  kleuren en beelden). Hun merkletters (MuseoModerno, Poppins) staan in `showcase/fonts.ts` en laden
+  pas als de showcase in beeld komt. Gebruikersgegevens in de mockups zijn verzonnen.
+- Video in een mockup: `<video muted loop playsInline preload="none">` zonder `autoPlay`; de stage
+  speelt hem af zolang de kaart in beeld is en pauzeert hem daarna.
 - Alpacafarm: de posts zijn nu illustraties. Vul in `SocialAds.tsx` per post een `src` in
   (bv. `/media/showcase/alpacafarm/wandelen.webp`) en de foto vervangt de illustratie.
 - Een showcase aan/uit zetten op de homepage: de lijst `READY` in `src/components/showcase/index.tsx`.
