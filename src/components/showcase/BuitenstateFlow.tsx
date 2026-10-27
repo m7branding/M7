@@ -1,272 +1,311 @@
-import { siHubspot } from "simple-icons";
 import s from "./BuitenstateFlow.module.css";
 
 const P = "/media/showcase/buitenstate";
 
-/* zoekers rond de woning (offset t.o.v. de woning, in cqw), van binnen naar buiten */
-const SEEKERS: [number, number][] = [
-  [3.3, 0.2], [2.2, 2.9], [3.4, -2.5], [-3.3, -3], [0.5, -4.7], [-3.1, 3.7], [1.3, 5.2], [-5.5, 1.1],
-  [7.2, 1.3], [-3, 6.8], [3.1, -6.8], [-5.4, 6], [-7.8, -2.2], [8, -3], [-6.5, -6.3], [7.1, 5.7],
-  [8.6, -6.4], [-1.8, 9.8], [-0.6, -10], [2.8, -9.4], [4.8, 8.6], [-9.6, 2.9],
-];
-
-/* lijnen in rig-coördinaten (cqw): widget → HubSpot, HubSpot → workflow → telefoon */
-const WA = "M58 30 C61.6 30 60.9 17 64.5 17";
-const WB = "M73 29.5 V43";
-
-const STEPS = ["Adres", "Type woning", "Contact", "Resultaat"];
-
 const v = (o: Record<string, string | number>) => o as React.CSSProperties;
 
-function Logo({ className }: { className: string }) {
-  return (
-    <span className={className}>
-      <b>
-        BUITEN
-        <br />
-        STATE
-      </b>
-      <i>makelaars</i>
-    </span>
-  );
-}
+const STEPS = ["Provincie", "Zoekers", "Gegevens", "Resultaat"];
 
-const Check = () => (
-  <svg viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M3.5 8.4 6.6 11.4 12.5 4.8" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+/* stap 3: label, placeholder (zoals op de site), ingevulde (fictieve) waarde, breedte in em, wide = hele rij */
+const FIELDS: [string, string, string, number, boolean][] = [
+  ["Voornaam", "Jan", "Sanne", 3.2, false],
+  ["Achternaam", "Jansen", "de Vries", 4.4, false],
+  ["E-mailadres", "jan@example.nl", "sanne@voorbeeld.nl", 9.6, true],
+  ["Telefoonnummer", "06 12 34 56 78", "06 23 45 67 89", 7.6, true],
+  ["Adres", "Kerkstraat 14", "Eikenlaan 7", 5.6, true],
+  ["Postcode", "6841 AB", "5261 AB", 4.4, false],
+  ["Woonplaats", "Arnhem", "Vught", 2.9, false],
+];
+
+const Pin = () => (
+  <svg className={s.pinIco} viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M8 15.2s-4.6-4.7-4.6-8.4a4.6 4.6 0 0 1 9.2 0c0 3.7-4.6 8.4-4.6 8.4z" fill="#e0453a" />
+    <circle cx="8" cy="6.6" r="1.7" fill="#fff" fillOpacity=".75" />
   </svg>
 );
 
 /**
- * Buitenstate Zoekersmatch: de widget pakt een adres, de kaart zoomt uit,
- * de straal groeit en zoekers ploppen op terwijl de teller naar 709 rolt.
- * Daarna loopt de stap-flow door naar het resultaat, gaat de lead over de
- * lijn naar HubSpot en vuurt de workflow de Zoekersmatch-mail af,
- * die op de telefoon binnenkomt.
+ * Buitenstate Zoekersmatch, 1-op-1 naar de echte widget (buitenstate.nl/zoekers):
+ * provincie aanklikken op de kaart → 1.447 zoekers in Noord-Brabant → gegevens
+ * invullen → zoekers rond het adres binnen 50 km. De klik op "Vraag gratis
+ * waardebepaling aan" schiet als lead het CRM in en de automatisering stuurt
+ * de bevestigingsmail met het aantal zoekers.
  */
 export function BuitenstateFlow() {
   return (
     <div className={s.root}>
       <div className={s.topo} aria-hidden="true" />
-      <div className={s.rig}>
-        <div className={s.glow} aria-hidden="true" />
+      <div className={s.glow} aria-hidden="true" />
 
-        {/* verbindingen widget → CRM → mail */}
-        <svg className={s.wires} viewBox="0 0 100 85" preserveAspectRatio="none" aria-hidden="true">
-          <path className={`${s.wire} ${s.wA}`} pathLength={1} d={WA} />
-          <path className={`${s.pulse} ${s.wA}`} pathLength={1} d={WA} />
-          <path className={`${s.wire} ${s.wB}`} pathLength={1} d={WB} />
-          <path className={`${s.pulse} ${s.wB}`} pathLength={1} d={WB} />
-          <circle className={`${s.node} ${s.wA}`} cx="58" cy="30" r="0.7" />
-          <circle className={`${s.node} ${s.wA}`} cx="64.5" cy="17" r="0.7" />
-          <circle className={`${s.node} ${s.wB}`} cx="73" cy="29.5" r="0.7" />
-        </svg>
-
-        {/* ---------- Widget ---------- */}
-        <span className={s.url}>
-          <svg viewBox="0 0 16 16" aria-hidden="true">
-            <path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-          </svg>
-          buitenstate.nl<em>/zoekers/zoekers-voor-mijn-woning</em>
-        </span>
-        <div className={s.widget}>
-          <div className={s.wHead}>
-            <Logo className={s.logo} />
-            <div className={s.wTitle}>
-              <b>Zoekersmatch</b>
-              <span>Hoeveel kopers zoeken een woning zoals de jouwe?</span>
-            </div>
-            <span className={s.free}>Gratis · 1 min</span>
+      {/* ---------- De echte widget ---------- */}
+      <div className={s.widget}>
+        <div className={s.head}>
+          <img className={s.logo} src={`${P}/logo.svg`} alt="" loading="lazy" decoding="async" />
+          <div>
+            <b>Wie zoekt jouw landelijke woning?</b>
+            <span>Buitenstate Zoekersmatch</span>
           </div>
-
-          <div className={s.map}>
-            <img className={s.mapImg} src={`${P}/map.svg`} alt="" loading="lazy" decoding="async" />
-            <div className={s.radius}>
-              <span className={s.ping} />
-              <span className={s.km}>65 km</span>
-            </div>
-            {SEEKERS.map(([x, y], n) => (
-              <span key={n} className={s.dot} style={v({ "--x": x, "--y": y, "--n": n })} />
-            ))}
-            <span className={s.pin}>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4.5 11.2 12 5l7.5 6.2V19a1 1 0 0 1-1 1h-4v-5h-5v5h-4a1 1 0 0 1-1-1z" fill="currentColor" />
-              </svg>
-            </span>
-            <div className={s.count}>
-              <span className={s.num} aria-hidden="true" />
-              <b>actieve zoekers</b>
-              <small>binnen 65 km · Nistelrode</small>
-            </div>
-          </div>
-
-          <ol className={s.steps}>
-            {STEPS.map((t, i) => (
-              <li key={t} style={v({ "--i": i })}>
-                <span className={s.bullet}>
-                  <em>{i + 1}</em>
-                  <Check />
-                </span>
-                {t}
-              </li>
-            ))}
-          </ol>
-
-          <div className={s.panes}>
-            <div className={s.paneTrack}>
-              <div className={s.pane}>
-                <p className={s.q}>Wat is het adres van je woning?</p>
-                <div className={s.field}>
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" strokeWidth="2" />
-                    <circle cx="12" cy="10" r="2.2" fill="currentColor" />
-                  </svg>
-                  <span className={s.typed}>Heideweg 12, Nistelrode</span>
-                  <span className={s.caret} />
-                </div>
-                <span className={s.btn}>Volgende</span>
-              </div>
-              <div className={s.pane}>
-                <p className={s.q}>Wat voor woning heb je?</p>
-                <div className={s.chips}>
-                  <span className={s.on}>
-                    <Check />
-                    Woonboerderij
-                  </span>
-                  <span>Landhuis</span>
-                  <span>Vrijstaand</span>
-                  <span>Villa</span>
-                </div>
-                <span className={s.btn}>Volgende</span>
-              </div>
-              <div className={s.pane}>
-                <p className={s.q}>Waar sturen we je overzicht naartoe?</p>
-                <div className={s.duo}>
-                  <span className={s.field}>Sanne de Vries</span>
-                  <span className={s.field}>sanne@voorbeeld.nl</span>
-                </div>
-                <span className={s.btn}>Toon mijn zoekers</span>
-              </div>
-              <div className={`${s.pane} ${s.done}`}>
-                <span className={s.ok}>
-                  <Check />
-                </span>
-                <p>
-                  <b>Je overzicht is onderweg</b>
-                  Een makelaar uit de regio neemt vrijblijvend contact met je op.
-                </p>
-              </div>
-            </div>
-          </div>
-          <p className={s.note}>
-            <svg viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M4.5 7V5.2a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-            </svg>
-            Je gegevens gaan alleen naar één makelaar in jouw regio.
-          </p>
         </div>
 
-        {/* ---------- CRM ---------- */}
-        <div className={s.crm}>
-          <div className={s.cHead}>
-            <svg className={s.hs} viewBox="0 0 24 24" aria-hidden="true">
-              <path d={siHubspot.path} fill="currentColor" />
-            </svg>
-            <b>HubSpot</b>
-            <span>Contacten</span>
-            <em className={s.newLead}>Nieuwe lead</em>
-          </div>
-          <div className={s.person}>
-            <span className={s.avatar}>SV</span>
-            <span>
+        <ol className={s.prog}>
+          {STEPS.map((t, i) => (
+            <li key={t}>
+              <span className={s.circ}>{i + 1}</span>
+              {t}
+            </li>
+          ))}
+        </ol>
+
+        <div className={s.body}>
+          {/* stap 1: provincie */}
+          <section className={`${s.panel} ${s.p1}`}>
+            <b className={s.title}>Selecteer jouw provincie</b>
+            <p className={s.sub}>Klik op de provincie waar jouw landelijke woning staat</p>
+            <div className={s.map}>
+              <img src={`${P}/nl-map.svg`} alt="" loading="lazy" decoding="async" />
+              <img className={s.hov} src={`${P}/nl-brabant-hover.svg`} alt="" loading="lazy" decoding="async" />
+              <img className={s.sel} src={`${P}/nl-brabant.svg`} alt="" loading="lazy" decoding="async" />
+              <svg className={s.lbl} viewBox="0 0 286 337" aria-hidden="true">
+                <text x="150" y="248">
+                  Noord-
+                  <tspan x="150" dy="8">
+                    Brabant
+                  </tspan>
+                </text>
+              </svg>
+            </div>
+            <div className={s.badgeRow}>
+              <span className={s.badge}>Noord-Brabant</span>
+            </div>
+            <span className={`${s.btn} ${s.next}`}>Volgende stap →</span>
+          </section>
+
+          {/* stap 2: zoekers in de provincie */}
+          <section className={`${s.panel} ${s.p2}`}>
+            <b className={s.title}>Zo veel kopers zoeken al in jouw provincie</b>
+            <p className={s.sub}>
+              Dit is het aantal actieve zoekers in jouw provincie. Wil je weten hoeveel kopers er specifiek rondom jóuw woning zoeken? Vul straks je adres in.
+            </p>
+            <div className={s.hero}>
+              <span className={s.eyebrow}>Actieve zoekers in</span>
+              <b className={s.prov}>Noord-Brabant</b>
+              <span className={`${s.count} ${s.c1}`} />
+              <span className={s.heroSub}>
+                potentiële kopers zoeken actief naar
+                <br />
+                een landelijke woning in deze provincie
+              </span>
+            </div>
+            <p className={s.blurb}>
+              In <strong>Noord-Brabant</strong> zijn op dit moment <strong>1.447 actieve zoekers</strong> op zoek naar een landelijke woning. Benieuwd hoeveel kopers er specifiek
+              rondom <em>jouw</em> woning zoeken? Vul je gegevens in — we tonen direct de zoekers binnen een instelbare straal van jouw adres, plus de makelaar die jou het beste kan
+              helpen.
+            </p>
+            <div className={s.row}>
+              <span className={s.back}>← Terug</span>
+              <span className={`${s.btn} ${s.go2}`}>Zoekers rond mijn adres bekijken →</span>
+            </div>
+          </section>
+
+          {/* stap 3: gegevens */}
+          <section className={`${s.panel} ${s.p3}`}>
+            <b className={s.title}>Verfijn naar jouw adres</b>
+            <p className={s.sub}>Vul je gegevens in — we tonen direct hoeveel zoekers er rondom jouw woning actief zijn én welke makelaar jou het beste kan helpen.</p>
+            <div className={s.form}>
+              {FIELDS.map(([label, ph, val, w, wide], i) => (
+                <label key={label} className={wide ? s.wide : undefined} data-split={i === 4 ? "" : undefined}>
+                  {label}
+                  <span className={s.inp} data-ph={ph} style={v({ "--t": (0.455 + i * 0.0145).toFixed(4), "--w": `${w}em` })}>
+                    <span className={s.typed}>{val}</span>
+                  </span>
+                </label>
+              ))}
+            </div>
+            <div className={s.row}>
+              <span className={s.back}>← Terug</span>
+              <span className={`${s.btn} ${s.go3}`}>Zoekers rond mijn adres tonen →</span>
+            </div>
+          </section>
+
+          {/* stap 4: resultaat rond het adres */}
+          <section className={`${s.panel} ${s.p4}`}>
+            <b className={s.title}>Zoekers rondom jouw woning</b>
+            <p className={s.sub}>Dit zijn de actieve zoekers in de buurt van jouw adres. Stel hieronder zelf de straal in en ontdek wie er naar een woning zoals die van jou zoekt.</p>
+            <div className={s.hero}>
+              <span className={s.eyebrow}>Actieve zoekers rond</span>
+              <b className={s.prov}>Vught</b>
+              <span className={`${s.count} ${s.c2}`} />
+              <span className={s.heroSub}>
+                potentiële kopers zoeken actief naar
+                <br />
+                een landelijke woning
+              </span>
+            </div>
+            <p className={s.blurb}>
+              In jouw regio hebben wij op dit moment <strong>570 actieve zoekers</strong> in de Buitenstate database op zoek naar een landelijke woning rond <strong>Vught</strong>.
+              Kom in contact met <strong>Buitenstate Makelaars</strong> en ontdek kosteloos wat jouw landelijke woning waard is voor deze mogelijke kopers!
+            </p>
+            <div className={s.radius}>
+              <div className={s.rHead}>
+                <span>
+                  <Pin />
+                  Zoekers binnen straal van jouw adres
+                </span>
+                <em>50 km</em>
+              </div>
+              <span className={s.slider} />
+              <p className={s.rRes}>
+                <b>570</b> actieve zoekers met een zoekopdracht binnen deze straal van jouw woning
+                <small>Zoekers zoeken o.a. in: Breda (56), Eindhoven (23), Helmond (23), &apos;s-Hertogenbosch (20), Tilburg (18) +194 meer</small>
+              </p>
+            </div>
+            <span className={s.cta}>Vraag gratis waardebepaling aan →</span>
+            <div className={s.broker}>
+              <span className={s.bAv}>
+                <img src={`${P}/logo.svg`} alt="" loading="lazy" decoding="async" />
+              </span>
+              <span>
+                <b>Buitenstate Makelaars</b>
+                Regio Noord-Brabant
+                <i>
+                  <Pin />
+                  Vught · ±4 km
+                </i>
+              </span>
+            </div>
+            <div className={s.row}>
+              <span className={s.back}>← Terug</span>
+            </div>
+          </section>
+        </div>
+
+        <span className={s.cursor} aria-hidden="true">
+          <svg viewBox="0 0 20 24">
+            <path d="M2 1.5v17.2l4.3-4.1 3 6.6 3.1-1.4-3-6.4h6z" />
+          </svg>
+        </span>
+      </div>
+
+      {/* ---------- Verbindingen ---------- */}
+      <span className={`${s.wire} ${s.w1}`} aria-hidden="true">
+        <i />
+      </span>
+      <span className={`${s.wire} ${s.w2}`} aria-hidden="true">
+        <i />
+      </span>
+
+      {/* ---------- CRM ---------- */}
+      <div className={s.crm}>
+        <div className={s.cBar}>
+          <img src={`${P}/logo.svg`} alt="" loading="lazy" decoding="async" />
+          <b>CRM</b>
+          <span>Aanvragen · Waardebepaling</span>
+          <em>1 nieuw</em>
+        </div>
+        <div className={s.fresh}>
+          <div className={s.lead}>
+            <span className={s.av}>SV</span>
+            <span className={s.who}>
               <b>Sanne de Vries</b>
-              sanne@voorbeeld.nl · Nistelrode
+              Eikenlaan 7, 5261 AB Vught
+            </span>
+            <span className={s.stamp}>
+              <em>Nieuw</em>
+              zojuist
             </span>
           </div>
-          <dl className={s.props}>
-            <div style={v({ "--n": 0 })}>
+          <dl className={s.facts}>
+            <div>
               <dt>Bron</dt>
               <dd>Zoekersmatch</dd>
             </div>
-            <div style={v({ "--n": 1 })}>
-              <dt>Lifecycle-fase</dt>
-              <dd>
-                <span className={s.tag}>Lead</span>
-              </dd>
+            <div>
+              <dt>Provincie</dt>
+              <dd>Noord-Brabant</dd>
             </div>
-            <div style={v({ "--n": 2 })}>
-              <dt>Makelaar</dt>
-              <dd>De Hoeve Makelaars</dd>
+            <div>
+              <dt>Straal</dt>
+              <dd>50 km</dd>
             </div>
-            <div style={v({ "--n": 3 })}>
-              <dt>Zoekers (65 km)</dt>
-              <dd>709</dd>
+            <div>
+              <dt>Zoekers getoond</dt>
+              <dd>570</dd>
             </div>
           </dl>
+          <ol className={s.pipe}>
+            <li>Nieuw</li>
+            <li>Contact</li>
+            <li>Taxatie</li>
+            <li>Opdracht</li>
+          </ol>
         </div>
+        <div className={s.olds}>
+          <div className={s.old}>
+            <span className={s.av}>MB</span>
+            <span className={s.who}>
+              <b>Mark Bakker</b>
+              Boxtel · Waardebepaling
+            </span>
+            <small>gisteren</small>
+          </div>
+          <div className={s.old}>
+            <span className={s.av}>LV</span>
+            <span className={s.who}>
+              <b>Lotte Verbeek</b>
+              Oisterwijk · Zoekersmatch
+            </span>
+            <small>ma 14:20</small>
+          </div>
+          <div className={s.old}>
+            <span className={s.av}>JH</span>
+            <span className={s.who}>
+              <b>Joost Hendriks</b>
+              Haaren · Waardebepaling
+            </span>
+            <small>vr 09:12</small>
+          </div>
+        </div>
+      </div>
 
-        {/* ---------- Workflow ---------- */}
-        <div className={s.flow}>
-          <span className={s.bolt}>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z" fill="currentColor" />
-            </svg>
-          </span>
+      {/* ---------- Automatisering ---------- */}
+      <span className={s.chip}>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z" />
+        </svg>
+        Bevestigingsmail
+        <em>verstuurd</em>
+      </span>
+
+      {/* ---------- E-mail ---------- */}
+      <div className={s.mail}>
+        <div className={s.mTop}>
+          <img src={`${P}/logo.svg`} alt="" loading="lazy" decoding="async" />
           <span>
-            <small>Workflow</small>
-            Zoekersmatch-mail
+            <b>Buitenstate Makelaars</b>
+            aan sanne@voorbeeld.nl
           </span>
-          <em className={s.sent}>
-            <Check />
-            verstuurd
-          </em>
+          <small>nu</small>
         </div>
-
-        {/* ---------- Telefoon met de mail ---------- */}
-        <div className={s.phone}>
-          <div className={s.screen}>
-            <span className={s.island} />
-            <div className={s.status}>
-              <b>9:41</b>
-              <span className={s.bars} />
-            </div>
-            <div className={s.inbox}>
-              <span className={s.from}>
-                <span className={s.logoXs}>B</span>
-                <span>
-                  <b>Buitenstate</b>
-                  Jouw Zoekersmatch: 709 zoekers
-                </span>
+        <b className={s.subject}>Er zoeken 570 kopers rond jouw woning</b>
+        <div className={s.mBody}>
+          <div className={s.mCard}>
+            <div className={s.mHead}>
+              <img src={`${P}/logo.svg`} alt="" loading="lazy" decoding="async" />
+              <span>
+                <b>Bedankt voor je aanvraag</b>
+                Buitenstate Zoekersmatch
               </span>
-              <small>nu</small>
             </div>
-            <div className={s.mail}>
-              <div className={s.mHead}>
-                <Logo className={s.logoMail} />
-              </div>
-              <div className={s.mBody}>
-                <h4>Beste Sanne,</h4>
-                <p>
-                  Bedankt voor je aanvraag via de <b>Buitenstate Zoekersmatch</b>. Hieronder vind je een overzicht van wat je hebt ingevuld en wat je zag.
-                </p>
-                <div className={s.box}>
-                  <small>Actieve zoekers rondom Nistelrode</small>
-                  <strong>709</strong>
-                  <span>binnen een straal van 65 km van jouw woning</span>
-                </div>
-                <small className={s.lbl}>Jouw gegevens</small>
-                <dl className={s.rows}>
-                  <dt>Naam</dt>
-                  <dd>Sanne de Vries</dd>
-                  <dt>E-mail</dt>
-                  <dd className={s.link}>sanne@voorbeeld.nl</dd>
-                  <dt>Adres</dt>
-                  <dd>Heideweg 12, Nistelrode</dd>
-                  <dt>Jouw makelaar</dt>
-                  <dd className={s.mk}>De Hoeve Makelaars</dd>
-                </dl>
-              </div>
+            <b className={s.hi}>Beste Sanne,</b>
+            <p>Je aanvraag voor een gratis waardebepaling is ontvangen. Dit zag je in de Zoekersmatch:</p>
+            <div className={s.mHero}>
+              <span>Actieve zoekers rond Vught</span>
+              <strong>570</strong>
+              <span>binnen 50 km van Eikenlaan 7</span>
             </div>
+            <p>
+              <b>Buitenstate Makelaars</b> neemt vrijblijvend contact met je op.
+            </p>
           </div>
         </div>
       </div>
