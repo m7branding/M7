@@ -129,7 +129,7 @@ export function BuitenstateFlow() {
                     {FIELDS.map(([label, ph, val, w, wide], i) => (
                       <label key={label} className={wide ? s.wide : undefined} data-split={i === 4 ? "" : undefined}>
                         {label}
-                        <span className={s.inp} data-ph={ph} style={v({ "--t": (0.574 + i * 0.0085).toFixed(4), "--w": `${w}em` })}>
+                        <span className={s.inp} data-ph={ph} style={v({ "--t": (0.586 + i * 0.0074).toFixed(4), "--w": `${w}em` })}>
                           <span className={s.typed}>{val}</span>
                         </span>
                       </label>

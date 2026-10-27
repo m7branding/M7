@@ -1,6 +1,16 @@
-/* The Sandt in AI-antwoorden. Scroll: --sp (lineair) / --spe, 0 → 1.
+/* The Sandt in AI-antwoorden. Scroll: --sp (lineair, gedempt) 0 → 1.
    Rig = 100cqw × 85cqw, alle posities in cqw. Bij .show--flip spiegelt de rig
-   en draait elk paneel zichzelf terug (scaleX(var(--dir)) als laatste transform). */
+   en draait elk paneel zichzelf terug (scaleX(var(--dir)) als laatste transform).
+   Alles wat reist loopt via smoothstep: k = clamp((sp − A) / (B − A)); ks = k²(3 − 2k).
+   Verhaal (sp):
+     0    → 0.30  zoekbalk komt binnen; de vraag wordt getypt (0.12 → 0.38)
+     0.10 → 0.58  AI-engines zweven één voor één binnen (parallax loopt door tot 1)
+     0.30 → 0.52  Google AI-overzicht schuift omhoog, zoekbalk schuift mee naar boven
+     0.40 → 0.58  skelet → antwoord
+     0.52 → 0.66  The Sandt licht op als bron
+     0.54 → 0.72  ChatGPT-antwoord schuift ervoor; tekst verschijnt (0.60 → 0.74)
+     0.62 → 0.74  thesandt.com-citaat gloeit, "Genoemd in 5 AI-engines"
+     0.60 → 1     camera drijft langzaam omhoog en iets naar voren; engines blijven zweven */
 .root {
   --dir: 1;
   /* 1 = panelen lopen over de buitenrand (rechts); gespiegeld (0) blijft LTR-tekst heel */
@@ -15,46 +25,57 @@
   --c-bg: #212121;
   --c-ink: #ececec;
 
-  --kIn: clamp(0, var(--sp) / 0.24, 1);
-  --eIn: calc(1 - (1 - var(--kIn)) * (1 - var(--kIn)) * (1 - var(--kIn)));
-  --kType: clamp(0, (var(--sp) - 0.03) / 0.25, 1);
-  --kOv: clamp(0, (var(--sp) - 0.2) / 0.24, 1);
-  --eOv: calc(1 - (1 - var(--kOv)) * (1 - var(--kOv)) * (1 - var(--kOv)));
-  --kAns: clamp(0, (var(--sp) - 0.34) / 0.14, 1);
-  --kCite: clamp(0, (var(--sp) - 0.46) / 0.1, 1);
-  --kChat: clamp(0, (var(--sp) - 0.5) / 0.26, 1);
-  --eChat: calc(1 - (1 - var(--kChat)) * (1 - var(--kChat)) * (1 - var(--kChat)));
-  --kReply: clamp(0, (var(--sp) - 0.62) / 0.2, 1);
-  --kGpt: clamp(0, (var(--sp) - 0.8) / 0.08, 1);
-  --kBadge: clamp(0, (var(--sp) - 0.84) / 0.12, 1);
+  --i0: clamp(0, var(--sp) / 0.3, 1);
+  --eIn: calc(var(--i0) * var(--i0) * (3 - 2 * var(--i0)));
+  --t0: clamp(0, (var(--sp) - 0.13) / 0.26, 1);
+  --kType: var(--t0); /* typen: gelijkmatig tempo */
+  --o0: clamp(0, (var(--sp) - 0.3) / 0.22, 1);
+  --eOv: calc(var(--o0) * var(--o0) * (3 - 2 * var(--o0)));
+  --kOv: var(--eOv);
+  --a0: clamp(0, (var(--sp) - 0.4) / 0.18, 1);
+  --kAns: calc(var(--a0) * var(--a0) * (3 - 2 * var(--a0)));
+  --ci0: clamp(0, (var(--sp) - 0.52) / 0.14, 1);
+  --kCite: calc(var(--ci0) * var(--ci0) * (3 - 2 * var(--ci0)));
+  --ch0: clamp(0, (var(--sp) - 0.54) / 0.18, 1);
+  --eChat: calc(var(--ch0) * var(--ch0) * (3 - 2 * var(--ch0)));
+  --kChat: var(--eChat);
+  --r0: clamp(0, (var(--sp) - 0.6) / 0.14, 1);
+  --kReply: calc(var(--r0) * var(--r0) * (3 - 2 * var(--r0)));
+  --g0: clamp(0, (var(--sp) - 0.66) / 0.08, 1);
+  --kGpt: calc(var(--g0) * var(--g0) * (3 - 2 * var(--g0)));
+  --b0: clamp(0, (var(--sp) - 0.62) / 0.12, 1);
+  --kBadge: calc(var(--b0) * var(--b0) * (3 - 2 * var(--b0)));
+  /* na het vastzetten: camera drijft langzaam door */
+  --d0: clamp(0, (var(--sp) - 0.6) / 0.4, 1);
+  --kd: calc(var(--d0) * var(--d0) * (3 - 2 * var(--d0)));
 
   position: absolute;
   inset: 0;
   overflow: hidden;
   font-family: var(--font);
-  background:
-    radial-gradient(75% 55% at calc(50% + var(--dir) * 34%) 0%, rgba(48, 160, 156, 0.26), transparent 70%),
-    radial-gradient(70% 45% at calc(50% - var(--dir) * 40%) 105%, rgba(214, 182, 124, 0.13), transparent 70%),
-    linear-gradient(180deg, #0c171b 0%, #091114 55%, #06090b 100%);
 }
 :global(.show--flip) .root {
   --dir: -1;
 }
 
-/* rustige lichtvlekken (zee) */
+/* één zachte teal gloed achter de panelen (+ een vleugje zand onderin); dooft ruim voor de randen uit */
 .sea {
   position: absolute;
-  inset: -20% -20%;
+  left: calc(50cqw + var(--dir) * 10cqw - 38cqw);
+  top: 2cqh;
+  width: 76cqw;
+  height: 90cqh;
+  border-radius: 50%;
   background:
-    radial-gradient(28% 20% at 30% 40%, rgba(95, 212, 201, 0.07), transparent 70%),
-    radial-gradient(24% 18% at 70% 70%, rgba(95, 212, 201, 0.05), transparent 70%),
-    radial-gradient(30% 16% at 50% 90%, rgba(234, 216, 176, 0.05), transparent 70%);
-  transform: translate3d(0, calc(var(--sp) * -6cqh), 0);
-  animation: drift 16s ease-in-out infinite alternate;
+    radial-gradient(closest-side at 50% 42%, rgba(60, 170, 165, 0.2), rgba(48, 140, 140, 0.07) 55%, transparent),
+    radial-gradient(42% 30% at 46% 88%, rgba(214, 182, 124, 0.08), transparent 70%);
+  opacity: calc(0.5 + var(--eIn) * 0.5);
+  animation: breathe 11s ease-in-out infinite;
 }
-@keyframes drift {
-  to {
-    translate: 4cqw 2cqh;
+@keyframes breathe {
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
   }
 }
 
@@ -64,7 +85,9 @@
   top: calc((100cqh - 85cqw) * 0.3);
   width: 100cqw;
   height: 85cqw;
-  transform: scaleX(var(--dir));
+  /* langzame camera-drift: iets omhoog en naar voren, oorsprong boven aan de binnenkant */
+  transform-origin: 0 0;
+  transform: scaleX(var(--dir)) translateY(calc(var(--kd) * -3cqh)) scale(calc(1 + var(--kd) * 0.03));
 }
 
 /* ---------- Zoekbalk ---------- */
@@ -83,11 +106,12 @@
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.06),
     0 1.2cqw 3cqw rgba(0, 0, 0, 0.45);
-  opacity: calc(0.35 + var(--kIn) * 0.65);
-  /* eerst groot in het midden (zoekpagina), schuift omhoog als het AI-overzicht binnenkomt */
+  opacity: calc(0.3 + var(--eIn) * 0.7);
+  /* eerst groter en lager (zoekpagina), schuift omhoog als het AI-overzicht binnenkomt;
+     de schaal groeit naar de buitenkant (binnenrand blijft vrij) */
   transform:
-    translate3d(0, calc((1 - var(--eIn)) * 30cqh + (1 - var(--eOv)) * 20cqw), 0)
-    scale(calc(1.12 - var(--eOv) * 0.12))
+    translate3d(calc((1 - var(--eOv)) * 0.1 * 41cqw), calc((1 - var(--eIn)) * 8cqh + (1 - var(--eOv)) * 11cqw), 0)
+    scale(calc(1.1 - var(--eOv) * 0.1))
     scaleX(var(--dir));
 }
 .g {
@@ -154,7 +178,7 @@
     0 1.5cqw 3cqw rgba(0, 0, 0, 0.35),
     0 4cqw 8cqw rgba(0, 0, 0, 0.45);
   opacity: clamp(0, var(--kOv) * 2.5, 1);
-  transform: translate3d(0, calc((1 - var(--eOv)) * 44cqh), 0) scaleX(var(--dir));
+  transform: translate3d(0, calc((1 - var(--eOv)) * 34cqh), 0) scaleX(var(--dir));
 }
 .overview::after {
   /* zakt iets weg als ChatGPT ervoor schuift */
@@ -362,8 +386,8 @@
     0 4cqw 8cqw rgba(0, 0, 0, 0.55);
   opacity: clamp(0, var(--kChat) * 2.5, 1);
   transform:
-    translate3d(calc((1 - var(--eChat)) * 10cqw), calc((1 - var(--eChat)) * 46cqh), 0)
-    rotate(calc((1 - var(--eChat)) * 4deg))
+    translate3d(calc((1 - var(--eChat)) * 6cqw), calc((1 - var(--eChat)) * 34cqh), 0)
+    rotate(calc((1 - var(--eChat)) * 2.5deg))
     scaleX(var(--dir));
 }
 .chHead {
@@ -463,7 +487,8 @@
 
 /* ---------- Zwevende AI-engines ---------- */
 .engine {
-  --k: clamp(0, (var(--sp) - 0.1 - var(--n) * 0.08) / 0.2, 1);
+  --k0: clamp(0, (var(--sp) - 0.1 - var(--n) * 0.07) / 0.2, 1);
+  --k: calc(var(--k0) * var(--k0) * (3 - 2 * var(--k0)));
   position: absolute;
   left: calc(var(--x) * 1cqw);
   top: calc(var(--y) * 1cqw);
@@ -482,10 +507,10 @@
   color: #fff;
   opacity: var(--k);
   transform:
-    translate3d(0, calc((1 - var(--spe)) * var(--depth) * 26cqh), 0)
-    scale(calc(0.6 + var(--k) * 0.4))
+    translate3d(0, calc((1 - var(--sp)) * var(--depth) * 13cqw), 0)
+    scale(calc(0.75 + var(--k) * 0.25))
     scaleX(var(--dir));
-  animation: bob 7s ease-in-out infinite;
+  animation: bob 8s ease-in-out infinite;
   animation-delay: calc(var(--n) * -1.7s);
 }
 @keyframes bob {
@@ -508,8 +533,8 @@
 /* ---------- Indicator ---------- */
 .badge {
   position: absolute;
-  left: 2.5cqw;
-  top: 73cqw;
+  left: 5cqw;
+  top: 72cqw;
   display: flex;
   align-items: center;
   gap: 1cqw;

@@ -10,8 +10,8 @@ const ENGINES = [
   { k: "gpt", name: "ChatGPT", d: siOpenai.path, x: 17.5, y: 42.5, z: 7.8, depth: 1.1 },
   { k: "google", name: "Google", d: siGoogle.path, x: 89.5, y: 3.4, z: 6.6, depth: 0.6 },
   { k: "gemini", name: "Gemini", d: siGooglegemini.path, x: 92, y: 16.5, z: 5.8, depth: 0.9 },
-  { k: "claude", name: "Claude", d: siClaude.path, x: 3.5, y: 52, z: 7, depth: 1.4 },
-  { k: "bing", name: "Bing", d: BING, x: 11, y: 63.5, z: 6, depth: 1.8 },
+  { k: "claude", name: "Claude", d: siClaude.path, x: 6, y: 52, z: 7, depth: 1.4 },
+  { k: "bing", name: "Bing", d: BING, x: 11, y: 60, z: 6, depth: 1.8 },
 ];
 
 const Sandt = () => <span className={s.emblem}>S</span>;
@@ -20,7 +20,8 @@ const Sandt = () => <span className={s.emblem}>S</span>;
  * The Sandt in AI-antwoorden: de vraag wordt getypt, Google bouwt een
  * AI-overzicht op (skelet → antwoord) waarin The Sandt als bron oplicht,
  * daarna schuift een ChatGPT-antwoord ervoor dat thesandt.com citeert.
- * Rondom zweven de AI-engines met een zachte parallax.
+ * Rondom zweven de AI-engines met een zachte parallax; na het vastzetten
+ * drijft de camera rustig door tot het eind.
  */
 export function SandtAnswers() {
   return (

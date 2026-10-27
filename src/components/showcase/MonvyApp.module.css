@@ -8,7 +8,7 @@
      0.12 → 0.52  dashboard bouwt op: staven, rollende KPI's, tooltip, gebeurtenissen
      0.36 → 0.56  cursor glijdt naar "Opvolgingen" en klikt (± 0.54)
      0.53 → 0.72  zijbalk klapt open, dashboard maakt plaats voor het opvolgingenbord
-     0.66 → 0.80  betaling komt binnen (melding, groene rand op de factuur)
+     0.62 → 0.74  betaling komt binnen (melding, groene rand op de factuur)
      0.74 → 0.96  factuur schuift van "1ste herinnering" naar "Betaald", tellers lopen mee
      0.60 → 1     bord pant langzaam, camera drijft en zoomt licht in */
 .root {
@@ -143,7 +143,7 @@
   --kout: calc(var(--u0) * var(--u0) * (3 - 2 * var(--u0)));
   --v0: clamp(0, (var(--sp) - 0.56) / 0.14, 1); /* bord in */
   --kv: calc(var(--v0) * var(--v0) * (3 - 2 * var(--v0)));
-  --p0: clamp(0, (var(--sp) - 0.66) / 0.14, 1); /* betaling binnen */
+  --p0: clamp(0, (var(--sp) - 0.62) / 0.12, 1); /* betaling binnen */
   --kpay: calc(var(--p0) * var(--p0) * (3 - 2 * var(--p0)));
   --m0: clamp(0, (var(--sp) - 0.74) / 0.22, 1); /* factuur verhuist */
   --km: calc(var(--m0) * var(--m0) * (3 - 2 * var(--m0)));
@@ -798,7 +798,7 @@
   transform: translateX(calc((1 - var(--kv)) * 5cqw - var(--kpan) * 3cqw));
 }
 .col {
-  --q0: clamp(0, (var(--sp) - 0.575 - var(--c) * 0.015) / 0.14, 1);
+  --q0: clamp(0, (var(--sp) - 0.57 - var(--c) * 0.012) / 0.13, 1);
   --kq: calc(var(--q0) * var(--q0) * (3 - 2 * var(--q0)));
   --n: 2;
   position: absolute;
