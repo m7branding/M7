@@ -1,4 +1,6 @@
-/* Plenty Planet (plentyplanet.com) op een HDR-scherm. Scroll: --sp (lineair) / --spe (ge-eased), 0 → 1.
+/* Plenty Planet (plentyplanet.com) op een HDR-scherm. Scroll: --sp (lineair) 0 → 1 over het hele leven van de
+   kaart (0.74 = vastgezet, sleutelbeeld). Scherm komt rustig binnen (0.05 → 0.5), hero bouwt op (0.16 → 0.6),
+   daarna scrollt de site traag en ononderbroken (0.38 → 1.04). Geen achtergrondvlak, alleen schermgloed.
    Alles in container-units. Binnen het scherm rekent de site in --p: één pixel van de echte
    1440 px brede site, zodat maten 1-op-1 uit hun CSS komen. */
 .root {
