@@ -13,6 +13,18 @@ import { useScroll } from "@/components/motion/SmoothScroll";
  */
 export function ShowcaseStage({ children, flip = false, sp, label }: { children: React.ReactNode; flip?: boolean; sp?: number; label?: string }) {
   const ref = useRef<HTMLDivElement>(null);
+  const playing = useRef(false);
+
+  // video's in een mockup (zonder autoPlay, preload="none") spelen alleen zolang de kaart echt in beeld is
+  const video = useCallback((on: boolean) => {
+    const el = ref.current;
+    if (!el || playing.current === on) return;
+    playing.current = on;
+    el.querySelectorAll("video").forEach((v) => {
+      if (on) v.play().catch(() => {});
+      else v.pause();
+    });
+  }, []);
 
   const set = useCallback((p: number) => {
     const el = ref.current;
@@ -33,7 +45,8 @@ export function ShowcaseStage({ children, flip = false, sp, label }: { children:
     const next = el.closest(".pillar")?.nextElementSibling;
     const covered = !!next && next.classList.contains("pillar") && next.getBoundingClientRect().top - r.top < 64;
     el.classList.toggle("is-covered", covered);
-  }, [set, sp]);
+    video(!covered && r.top < vh && r.bottom > 0);
+  }, [set, sp, video]);
 
   useScroll(update);
   useEffect(() => {
