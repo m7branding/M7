@@ -17,11 +17,11 @@ const KPIS = [
 
 /* containerlijst; `fix` = moment waarop de AI-taak is afgehandeld */
 const ROWS = [
-  { id: "MSKU 482193-0", ty: "40' HC", k: "Van Dijk Foods", t: "Nijmegen", a: "Retourdeadline over 2 dagen", c: "amber", fix: 0.765, ok: "Retour ingepland" },
+  { id: "MSKU 482193-0", ty: "40' HC", k: "Van Dijk Foods", t: "Nijmegen", a: "Retourdeadline over 2 dagen", c: "amber", fix: 0.79, ok: "Retour ingepland" },
   { id: "TGHU 730551-8", ty: "20' DV", k: "Brouwer Textiel", t: "Den Bosch", a: "Referentie ontbreekt", c: "amber" },
   { id: "HLXU 248807-2", ty: "40' DV", k: "Kempen Bouwstoffen", t: "Veghel", a: "Schade gemeld + foto", c: "red", photo: true },
   { id: "CMAU 615402-9", ty: "40' HC", k: "Noordhaven Trading", t: "Alblasserdam", a: "Zegelnummer ontbreekt", c: "amber" },
-  { id: "MSCU 903316-7", ty: "45' HC", k: "De Lage Velden", t: "Nijmegen", a: "Demurrage-risico", c: "red", fix: 0.715, ok: "Klant geïnformeerd" },
+  { id: "MSCU 903316-7", ty: "45' HC", k: "De Lage Velden", t: "Nijmegen", a: "Demurrage-risico", c: "red", fix: 0.61, ok: "Klant geïnformeerd" },
   { id: "OOLU 157624-0", ty: "20' RF", k: "Maaskant Retail", t: "Den Bosch", a: "Gereed voor levering", c: "ok" },
   { id: "BMOU 556201-8", ty: "20' DV", k: "Noordhaven Trading", t: "Veghel", a: "Douane in behandeling", c: "blue" },
   { id: "TCNU 384410-3", ty: "40' HC", k: "Van Dijk Foods", t: "Alblasserdam", a: "Klaar voor transport", c: "ok" },
@@ -31,11 +31,11 @@ const ROWS = [
    op prioriteit (d = verschuiving per stap, j = taak die in die stap "opgetild" omhoog springt):
    [C A D B E] → [A C D B E] → [A E C D B] → [A E B C D] → [A E B D C] */
 const TASKS = [
-  { t: "Schade HLXU 248807-2 afhandelen", src: "E-mail 09:12", m: "Kempen Bouwstoffen · foto bijgevoegd", c: "red", from: 1, d: [-1, 0, 0, 0], at: 0.4, draft: true },
-  { t: "Demurrage-risico MSCU 903316-7", src: "ERP", m: "vrije dagen verlopen morgen", c: "red", from: 4, d: [0, -3, 0, 0], j: 2, at: 0.52, done: 0.705 },
-  { t: "Retour MSKU 482193-0 inplannen", src: "ERP", m: "retourdeadline do 29 okt", c: "amber", from: 3, d: [0, 1, -2, 0], j: 3, at: 0.48, done: 0.755 },
-  { t: "Zegelnummer CMAU 615402-9 aanvullen", src: "Terminal-data", m: "Alblasserdam · gate-in 07:58", c: "amber", from: 2, d: [0, 1, 1, -1], at: 0.44 },
-  { t: "Referentie Brouwer Textiel opvragen", src: "E-mail 08:47", m: "PO-nummer ontbreekt in boeking", c: "amber", from: 0, d: [1, 1, 1, 1], at: 0.36 },
+  { t: "Schade HLXU 248807-2 afhandelen", src: "E-mail 09:12", m: "Kempen Bouwstoffen · foto bijgevoegd", c: "red", from: 1, d: [-1, 0, 0, 0], at: 0.355, draft: true },
+  { t: "Demurrage-risico MSCU 903316-7", src: "ERP", m: "vrije dagen verlopen morgen", c: "red", from: 4, d: [0, -3, 0, 0], j: 2, at: 0.46, done: 0.6 },
+  { t: "Retour MSKU 482193-0 inplannen", src: "ERP", m: "retourdeadline do 29 okt", c: "amber", from: 3, d: [0, 1, -2, 0], j: 3, at: 0.425, done: 0.78 },
+  { t: "Zegelnummer CMAU 615402-9 aanvullen", src: "Terminal-data", m: "Alblasserdam · gate-in 07:58", c: "amber", from: 2, d: [0, 1, 1, -1], at: 0.39 },
+  { t: "Referentie Brouwer Textiel opvragen", src: "E-mail 08:47", m: "PO-nummer ontbreekt in boeking", c: "amber", from: 0, d: [1, 1, 1, 1], at: 0.32 },
 ];
 
 /* antwoord per regel, zodat het regel voor regel kan "typen" */
@@ -69,18 +69,17 @@ function Sparkle() {
 
 /**
  * BCTN: AI Customer Service Control Tower.
- * Scroll: het donkere dashboard kantelt binnen, ERP / mailbox / terminal-data
+ * Scroll (0 → 0.74): het donkere dashboard kantelt binnen, ERP / mailbox / terminal-data
  * synchroniseren, een AI-scanlijn loopt door de containerlijst en zet alerts
- * (retourdeadline, referentie, zegel, schade, demurrage). Rechts verschijnen
- * AI-taken met hun bron, ze sorteren zich op prioriteit en worden afgevinkt.
- * Tot slot schuift een door AI opgesteld antwoord naar voren dat zichzelf typt.
+ * (retourdeadline, referentie, zegel, schade, demurrage). Rechts verschijnen AI-taken met
+ * hun bron, ze sorteren zich op prioriteit; een door AI opgesteld antwoord schuift naar voren
+ * en typt zichzelf. Daarna (0.74 → 1) drijft het beeld rustig door: de laatste taak wordt
+ * afgevinkt, het laatste alert opgelost en de verstuurknop licht op.
  */
 export function BctnControlTower() {
   return (
     <div className={s.root}>
-      <div className={s.radar} aria-hidden="true">
-        <i />
-      </div>
+      <i className={s.glow} aria-hidden="true" />
 
       <div className={s.win}>
         <nav className={s.rail} aria-hidden="true">

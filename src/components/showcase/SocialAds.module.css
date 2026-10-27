@@ -282,8 +282,8 @@
 /* ================= Instagram-UI (feed) ================= */
 .feed {
   /* scrolt van de Alpacafarm-post naar de GRID-advertentie; daarna nog heel rustig verder */
-  --D: 717;
-  --fk: clamp(0, (var(--sp) - 0.48) / 0.3, 1);
+  --D: 619;
+  --fk: clamp(0, (var(--sp) - 0.46) / 0.34, 1);
   --sc: calc(var(--fk) * var(--fk) * (3 - 2 * var(--fk)) * (var(--D) - 26) + var(--t) * 26);
   position: absolute;
   inset: 0 0 auto;
@@ -374,7 +374,7 @@
 }
 .media {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
   overflow: hidden;
   background: #1a1d22;
 }
@@ -518,9 +518,9 @@
 }
 
 /* ================= Zwevende echte post ================= */
-/* komt achter telefoon 1 vandaan naar buiten-boven, zakt daarna mee naar buiten-onder als telefoon 1 wijkt */
+/* stijgt aan de buitenkant mee op naast telefoon 1, zakt daarna mee naar buiten-onder als telefoon 1 wijkt */
 .card {
-  --k: clamp(0, (var(--sp) - 0.14) / 0.32, 1);
+  --k: clamp(0, (var(--sp) - 0.12) / 0.34, 1);
   --e: calc(var(--k) * var(--k) * (3 - 2 * var(--k)));
   --w: 21cqw;
   position: absolute;
@@ -537,11 +537,11 @@
     0 0.4cqw 1cqw rgba(0, 0, 0, 0.3);
   transform:
     translate(
-      calc(var(--dir) * (-30cqw * (1 - var(--e)) + var(--r1) * 5cqw)),
-      calc((1 - var(--e)) * 12cqh + var(--r1) * 25cqh + (0.5 - var(--sp)) * 4cqh)
+      calc(var(--dir) * (4cqw * (1 - var(--e)) + var(--r1) * 5cqw)),
+      calc((1 - var(--e)) * 22cqh + var(--r1) * 25cqh + (0.5 - var(--sp)) * 4cqh)
     )
     rotate(calc(var(--dir) * (-5deg * (0.4 + var(--e) * 0.6) + var(--r1) * 2deg)))
-    scale(calc((0.7 + var(--e) * 0.3) * (1 - var(--r1) * 0.06)));
+    scale(calc((0.86 + var(--e) * 0.14) * (1 - var(--r1) * 0.06)));
   opacity: min(1, calc(var(--k) * 2.5));
   animation: float 8s ease-in-out infinite;
 }

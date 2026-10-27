@@ -145,10 +145,13 @@ openvouwt, met de quote erop. Voor Zorg en Travel staan tijdelijke beelden, verv
 ### Showcases op de homepage (echt werk per peiler)
 
 Elke peilerkaart op de homepage heeft een eigen, geanimeerde mockup van een echt project
-(`src/components/showcase/`): DesignersHouse (brandbook en drukwerk), Plenty Planet (website en
-Green Eco Corridor), Monvy, Buitenstate, The Sandt, Alpacafarm Vorstenbosch + GRID + Major Capital,
-Steddion en BCTN. Ze spelen af op de scroll: terwijl de kaart omhoog schuift tot hij vaststaat loopt
-`--sp` van 0 naar 1 (zie `Stage.tsx`), kleine details leven door als CSS-loop.
+(`src/components/showcase/`): DesignersHouse (brandbook), Plenty Planet (website en Green Eco
+Corridor), Monvy, Buitenstate, The Sandt, Alpacafarm Vorstenbosch + GRID, Bernheze Makelaars
+(drukwerk), Steddion en BCTN. Ze spelen af op de scroll: `--sp` loopt van 0 naar 1 over het hele
+leven van de kaart in beeld (binnenkomen, vaststaan rond 0,74, half bedekt door de volgende kaart
+bij 1) en ijlt licht na, zodat de beweging rustig blijft (zie `Stage.tsx`). De mockups hebben geen
+eigen achtergrond, alleen een zachte gloed en schaduw op de zwarte kaart. Kleine details leven door
+als CSS-loop.
 
 - Beelden staan in `public/media/showcase/<klant>/`.
 - Plenty Planet, Steddion en Buitenstate zijn nagebouwd op de live sites (echte logo's, teksten,
@@ -156,8 +159,7 @@ Steddion en BCTN. Ze spelen af op de scroll: terwijl de kaart omhoog schuift tot
   pas als de showcase in beeld komt. Gebruikersgegevens in de mockups zijn verzonnen.
 - Video in een mockup: `<video muted loop playsInline preload="none">` zonder `autoPlay`; de stage
   speelt hem af zolang de kaart in beeld is en pauzeert hem daarna.
-- Alpacafarm: de posts zijn nu illustraties. Vul in `SocialAds.tsx` per post een `src` in
-  (bv. `/media/showcase/alpacafarm/wandelen.webp`) en de foto vervangt de illustratie.
+- Alpacafarm: het echte Instagram-profiel en echte foto's (`public/media/showcase/alpacafarm/`).
 - Een showcase aan/uit zetten op de homepage: de lijst `READY` in `src/components/showcase/index.tsx`.
 - Bekijken en finetunen in development: `/lab?k=<dienst-slug>&sp=0.6&flip=1` (niet in productie).
 

@@ -1,5 +1,7 @@
-/* BCTN · AI Customer Service Control Tower. Scroll: --sp (lineair) / --spe (ge-eased), 0 → 1.
-   Alles in container-units (cqw / cqh); het dashboard loopt van de buitenrand (links bij flip) en de onderkant af. */
+/* BCTN · AI Customer Service Control Tower. Scroll: --sp 0 → 1 over het hele leven van de kaart;
+   sleutelbeeld rond 0.74 (alles opgebouwd, concept getypt), daarna een rustige camerabeweging tot 1.
+   Alles in container-units (cqw / cqh); het dashboard loopt van de buitenrand (links bij flip) en de onderkant af.
+   Geen achtergrondvulling: alleen een zachte teal glow; de binnenrand (tekstkant) blijft vrij. */
 
 @property --bcNum {
   syntax: "<integer>";
@@ -23,10 +25,14 @@
   --wx: 6cqw; /* linkerrand venster (niet gespiegeld: loopt rechts af) */
   --mx: 36cqw; /* linkerrand e-mailconcept */
 
-  /* tijdlijn */
-  --kin: clamp(0, var(--spe) / 0.7, 1);
-  --km0: clamp(0, (var(--sp) - 0.775) / 0.1, 1); /* e-mailconcept */
-  --km: calc(1 - (1 - var(--km0)) * (1 - var(--km0)) * (1 - var(--km0)));
+  /* tijdlijn (smoothstep-ramps, overlappend) */
+  --kink: clamp(0, var(--sp) / 0.42, 1); /* venster kantelt binnen */
+  --kin: calc(var(--kink) * var(--kink) * (3 - 2 * var(--kink)));
+  --km0: clamp(0, (var(--sp) - 0.54) / 0.18, 1); /* e-mailconcept schuift naar voren */
+  --km: calc(var(--km0) * var(--km0) * (3 - 2 * var(--km0)));
+  /* staart na het vastzetten: zacht in, blijft tot het eind bewegen (t²(2 − t)) */
+  --tk: clamp(0, (var(--sp) - 0.62) / 0.38, 1);
+  --t: calc(var(--tk) * var(--tk) * (2 - var(--tk)));
 
   position: absolute;
   inset: 0;
@@ -35,9 +41,6 @@
   color: var(--txt);
   perspective: 2200px;
   perspective-origin: 50% 30%;
-  background:
-    radial-gradient(60% 55% at 50% 45%, rgba(45, 212, 191, 0.09), transparent 70%),
-    radial-gradient(90% 80% at 40% 30%, #11233a 0%, #0a1527 45%, var(--bg0) 100%);
 }
 :global(.show--flip) .root {
   --dir: -1;
@@ -45,33 +48,22 @@
   --mx: 3cqw;
 }
 
-/* radar / control tower in de achtergrond */
-.radar {
+/* zachte teal glow boven/achter het venster: vervaagt ruim voor de randen */
+.glow {
   position: absolute;
-  left: calc(50% + var(--dir) * -62cqw);
-  top: -44cqh;
-  width: 96cqw;
-  aspect-ratio: 1;
-  translate: -50% 0;
+  left: calc(50cqw + var(--dir) * 6cqw - 38cqw);
+  top: 4cqh;
+  width: 76cqw;
+  height: 46cqh;
   border-radius: 50%;
-  overflow: hidden;
-  background: repeating-radial-gradient(circle, rgba(45, 212, 191, 0.1) 0 1px, transparent 1.5px 5.5cqw);
-  -webkit-mask: radial-gradient(closest-side, #000 40%, transparent);
-  mask: radial-gradient(closest-side, #000 40%, transparent);
-  opacity: 0.8;
+  background: radial-gradient(closest-side, rgba(45, 212, 191, 0.2), rgba(45, 212, 191, 0.08) 50%, rgba(78, 168, 255, 0.025) 80%, rgba(78, 168, 255, 0) 100%);
+  opacity: calc(0.4 + var(--kin) * 0.6);
+  animation: breathe 12s ease-in-out infinite;
 }
-:global(.show--flip) .radar {
-  left: calc(50% + 62cqw);
-}
-.radar i {
-  position: absolute;
-  inset: 0;
-  background: conic-gradient(from 0deg, rgba(45, 212, 191, 0.22), transparent 16%);
-  animation: sweep 12s linear infinite;
-}
-@keyframes sweep {
-  to {
-    transform: rotate(1turn);
+@keyframes breathe {
+  50% {
+    transform: scale(1.04);
+    opacity: 0.8;
   }
 }
 
@@ -86,17 +78,18 @@
   overflow: hidden;
   background: var(--bg1);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.07),
-    0 0 0 1px rgba(148, 178, 220, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(148, 178, 220, 0.16),
     0 3cqw 8cqw rgba(0, 0, 0, 0.6),
-    0 0 6cqw rgba(45, 212, 191, 0.06);
+    0 0 2.6cqw rgba(45, 212, 191, 0.09);
   transform-origin: calc(50% + var(--dir) * 50%) 0;
+  /* klein beetje kleiner dan de halve kaart: vrij van de binnenrand, leest als los object */
   transform:
-    translate3d(calc(var(--dir) * (1 - var(--kin)) * 9cqw), calc((1 - var(--kin)) * 26cqh), 0)
-    rotateX(calc(2deg + (1 - var(--kin)) * 20deg))
-    rotateY(calc(var(--dir) * (-3deg - (1 - var(--kin)) * 12deg)))
+    translate3d(calc(var(--dir) * (1 - var(--kin)) * 9cqw), calc((1 - var(--kin)) * 26cqh - var(--t) * 3cqh), 0)
+    rotateX(calc(2deg + (1 - var(--kin)) * 20deg - var(--t) * 1deg))
+    rotateY(calc(var(--dir) * (-3deg - (1 - var(--kin)) * 12deg - var(--t) * 1.5deg)))
     rotateZ(calc(var(--dir) * (1 - var(--kin)) * 2deg))
-    scale(calc(1 - var(--km) * 0.015));
+    scale(calc(0.955 - var(--km) * 0.012 + var(--t) * 0.018));
 }
 .win::after {
   content: "";
@@ -199,7 +192,7 @@
   border-radius: inherit;
   box-shadow: 0 0 1.4cqw rgba(45, 212, 191, 0.45);
   opacity: 0.3;
-  animation: glow 3.2s ease-in-out infinite;
+  animation: glow 6.4s ease-in-out infinite;
 }
 @keyframes glow {
   50% {
@@ -246,7 +239,7 @@
   color: var(--mut);
 }
 .src {
-  --k: clamp(0, (var(--sp) - var(--at)) / 0.03, 1);
+  --k: clamp(0, (var(--sp) - var(--at)) / 0.1, 1);
   display: inline-flex;
   align-items: center;
   gap: 0.55cqw;
@@ -278,13 +271,13 @@
   border-radius: 50%;
   background: color-mix(in srgb, var(--teal) calc(var(--k) * 100%), #5d6b80);
   box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.5);
-  animation: ping 2.6s ease-out infinite;
+  animation: ping 6s ease-out infinite;
 }
 .src:nth-child(3) i {
-  animation-delay: -0.9s;
+  animation-delay: -2s;
 }
 .src:nth-child(4) i {
-  animation-delay: -1.7s;
+  animation-delay: -4s;
 }
 @keyframes ping {
   70%,
@@ -310,7 +303,7 @@
   list-style: none;
 }
 .kpis li {
-  --kk: clamp(0, (var(--sp) - 0.24 - var(--n) * 0.02) / 0.18, 1);
+  --kk: clamp(0, (var(--sp) - 0.22 - var(--n) * 0.03) / 0.2, 1);
   position: relative;
   display: grid;
   gap: 0.3cqw;
@@ -349,7 +342,7 @@
   content: counter(num);
 }
 .kpis .red b {
-  --minus: calc(clamp(0, (var(--sp) - 0.715) * 60, 1) + clamp(0, (var(--sp) - 0.765) * 60, 1));
+  --minus: calc(clamp(0, (var(--sp) - 0.615) * 30, 1) + clamp(0, (var(--sp) - 0.795) * 30, 1));
 }
 .kpis small {
   font-size: 0.86cqw;
@@ -434,9 +427,11 @@
   list-style: none;
 }
 .rows li {
-  --kr: clamp(0, (var(--sp) + 0.05 - var(--n) * 0.02) / 0.07, 1);
-  --kt: clamp(0, (var(--sp) - 0.242 - var(--n) * 0.0275) / 0.02, 1);
-  --kf: clamp(0, (var(--sp) - var(--fix)) / 0.02, 1);
+  --kr0: clamp(0, (var(--sp) - 0.1 - var(--n) * 0.02) / 0.1, 1);
+  --kr: calc(var(--kr0) * var(--kr0) * (3 - 2 * var(--kr0)));
+  /* signaal verschijnt als de scanlijn de rij passeert */
+  --kt: clamp(0, (var(--sp) - 0.25 - var(--n) * 0.03) / 0.05, 1);
+  --kf: clamp(0, (var(--sp) - var(--fix)) / 0.05, 1);
   position: relative;
   height: 5.2cqw;
   border-bottom: 1px solid rgba(148, 178, 220, 0.07);
@@ -521,7 +516,7 @@
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
 }
 .scan {
-  --ks: clamp(0, (var(--sp) - 0.22) / 0.22, 1);
+  --ks: clamp(0, (var(--sp) - 0.24) / 0.24, 1);
   position: absolute;
   left: 0;
   right: 0;
@@ -578,8 +573,8 @@
   color: var(--txt);
 }
 .state {
-  --ka: clamp(0, (var(--sp) - 0.34) * 30, 1);
-  --kq: clamp(0, (var(--sp) - 0.66) / 0.03, 1);
+  --ka: clamp(0, (var(--sp) - 0.3) / 0.06, 1);
+  --kq: clamp(0, (var(--sp) - 0.6) / 0.06, 1);
   display: grid;
   margin-left: auto;
 }
@@ -597,7 +592,7 @@
   color: var(--sub);
   background: linear-gradient(100deg, rgba(255, 255, 255, 0.05) 30%, rgba(45, 212, 191, 0.22) 50%, rgba(255, 255, 255, 0.05) 70%) 0 0 / 300% 100%;
   opacity: calc(var(--ka) - var(--kq));
-  animation: shimmer 2.2s linear infinite;
+  animation: shimmer 6s linear infinite;
 }
 @keyframes shimmer {
   from {
@@ -616,10 +611,10 @@
 
 .tasks {
   /* prioriteren in vier stappen */
-  --k1r: clamp(0, (var(--sp) - 0.56) / 0.03, 1);
-  --k2r: clamp(0, (var(--sp) - 0.59) / 0.03, 1);
-  --k3r: clamp(0, (var(--sp) - 0.62) / 0.03, 1);
-  --k4r: clamp(0, (var(--sp) - 0.65) / 0.03, 1);
+  --k1r: clamp(0, (var(--sp) - 0.48) / 0.06, 1);
+  --k2r: clamp(0, (var(--sp) - 0.515) / 0.06, 1);
+  --k3r: clamp(0, (var(--sp) - 0.55) / 0.06, 1);
+  --k4r: clamp(0, (var(--sp) - 0.585) / 0.06, 1);
   --k1: calc(var(--k1r) * var(--k1r) * (3 - 2 * var(--k1r)));
   --k2: calc(var(--k2r) * var(--k2r) * (3 - 2 * var(--k2r)));
   --k3: calc(var(--k3r) * var(--k3r) * (3 - 2 * var(--k3r)));
@@ -631,8 +626,9 @@
   list-style: none;
 }
 .tasks li {
-  --ka: clamp(0, (var(--sp) - var(--at)) / 0.035, 1);
-  --kd: clamp(0, (var(--sp) - var(--done)) / 0.02, 1);
+  --ka0: clamp(0, (var(--sp) - var(--at)) / 0.08, 1);
+  --ka: calc(var(--ka0) * var(--ka0) * (3 - 2 * var(--ka0)));
+  --kd: clamp(0, (var(--sp) - var(--done)) / 0.05, 1);
   --slot: calc(var(--from) + var(--d1) * var(--k1) + var(--d2) * var(--k2) + var(--d3) * var(--k3) + var(--d4) * var(--k4));
   --lift: calc(var(--j2) * var(--k2r) * (1 - var(--k2r)) * 4 + var(--j3) * var(--k3r) * (1 - var(--k3r)) * 4);
   /* de laagste prioriteit duikt onder de rest door naar beneden */
@@ -739,11 +735,11 @@
   font-style: normal;
   color: color-mix(in srgb, var(--c) 85%, #fff);
   background: color-mix(in srgb, var(--c) 16%, transparent);
-  opacity: calc(clamp(0, (var(--sp) - 0.67) / 0.03, 1) * (1 - var(--kd)));
-  transform: scale(calc(0.6 + clamp(0, (var(--sp) - 0.67) / 0.03, 1) * 0.4));
+  opacity: calc(clamp(0, (var(--sp) - 0.6) / 0.06, 1) * (1 - var(--kd)));
+  transform: scale(calc(0.7 + clamp(0, (var(--sp) - 0.6) / 0.06, 1) * 0.3));
 }
 .isDraft {
-  --kg: clamp(0, (var(--sp) - 0.9) / 0.04, 1);
+  --kg: clamp(0, (var(--sp) - 0.56) / 0.08, 1);
   border-color: color-mix(in srgb, var(--teal) calc(var(--kg) * 55%), rgba(148, 178, 220, 0.12));
   box-shadow:
     0 0.4cqw 1.2cqw rgba(0, 0, 0, 0.25),
@@ -766,7 +762,8 @@
 }
 
 .summary {
-  --k: clamp(0, (var(--sp) - 0.62) / 0.06, 1);
+  --k0: clamp(0, (var(--sp) - 0.52) / 0.1, 1);
+  --k: calc(var(--k0) * var(--k0) * (3 - 2 * var(--k0)));
   margin-top: 0.4cqw;
   padding: 1.3cqw 1.4cqw 1.4cqw;
   border-radius: 1cqw;
@@ -818,15 +815,15 @@
     0 0 0 1px rgba(45, 212, 191, 0.3),
     0 3cqw 7cqw rgba(0, 0, 0, 0.6),
     0 0 5cqw rgba(45, 212, 191, 0.12);
-  opacity: clamp(0, var(--km0) * 5, 1);
+  opacity: min(1, calc(var(--km0) * 3));
   transform:
-    translate3d(calc(var(--dir) * (1 - var(--km)) * 14cqw), calc((1 - var(--km)) * 46cqh), 0)
-    rotate(calc(var(--dir) * (-1.2deg + (1 - var(--km)) * 8deg)));
-  animation: float 7s ease-in-out infinite;
+    translate3d(calc(var(--dir) * (1 - var(--km)) * 12cqw), calc((1 - var(--km)) * 40cqh - var(--t) * 4cqh), 0)
+    rotate(calc(var(--dir) * (-1.2deg + (1 - var(--km)) * 6deg)));
+  animation: float 8s ease-in-out infinite;
 }
 @keyframes float {
   50% {
-    translate: 0 -0.7cqh;
+    translate: 0 -0.5cqh;
   }
 }
 .mBar {
@@ -878,8 +875,13 @@
   box-shadow: inset 0 0 0 1px rgba(148, 178, 220, 0.25);
 }
 .mSend {
+  --kb0: clamp(0, (var(--sp) - 0.82) / 0.14, 1);
+  --kb: calc(var(--kb0) * var(--kb0) * (3 - 2 * var(--kb0)));
   color: #041621;
   background: var(--teal);
+  box-shadow:
+    0 0 0 calc(var(--kb) * 0.35cqw) rgba(45, 212, 191, 0.28),
+    0 0 calc(var(--kb) * 2.2cqw) rgba(45, 212, 191, 0.45);
 }
 .mSend::after {
   content: " →";
@@ -926,7 +928,7 @@
   color: #dbe4f0;
 }
 .mBody p {
-  --k: clamp(0, (var(--sp) - 0.845 - var(--l) * 0.018) / 0.018, 1);
+  --k: clamp(0, (var(--sp) - 0.59 - var(--l) * 0.018) / 0.04, 1);
   margin: 0;
   height: 1.75em;
 }

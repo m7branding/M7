@@ -104,7 +104,7 @@ export function SocialAds() {
                       <small>Vorstenbosch, Noord-Brabant</small>
                     </span>
                   </header>
-                  <div className={`${s.media} ${s.beat}`}>{img(`${AF}/xmas-lounge.webp`, "50% 40%")}</div>
+                  <div className={`${s.media} ${s.beat}`}>{img(`${AF}/xmas-lounge.webp`, "50% 45%")}</div>
                   <div className={`${s.actions} ${s.liked}`} />
                   <p className={s.likes}>1.517 vind-ik-leuks</p>
                   <p className={s.cap}>
