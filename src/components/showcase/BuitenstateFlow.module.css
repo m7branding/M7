@@ -181,6 +181,13 @@
   transform: scale(calc(1 + var(--kd) * 0.03));
 }
 
+/* venster om de camera (op mobiel met een zachte bovenrand, zie onderaan) */
+.win {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 /* camera rond de widget: eerst ingezoomd op de kaart (middelpunt kaart = 280, 444 widget-px) */
 .cam {
   position: absolute;
@@ -1019,7 +1026,7 @@
   top: var(--crmY);
   color: #23301a;
   opacity: clamp(0, var(--eC) * 2.2, 1);
-  transform: translate3d(calc(var(--dir) * (1 - var(--eC)) * calc(-4 * var(--cs))), calc((1 - var(--eC)) * 16cqh), 0) rotate(calc(var(--dir) * (1 - var(--eC)) * -2.5deg));
+  transform: translate3d(0, calc((1 - var(--eC)) * 16cqh), 0) rotate(calc(var(--dir) * (1 - var(--eC)) * -2deg));
 }
 .cBar {
   display: flex;
@@ -1400,5 +1407,10 @@
   }
   .w1 {
     display: none;
+  }
+  /* bovenrand is hier de binnenrand: de widget scrolt onder een zachte rand weg en raakt hem nooit */
+  .win {
+    -webkit-mask: linear-gradient(transparent 3.5cqw, #000 10cqw);
+    mask: linear-gradient(transparent 3.5cqw, #000 10cqw);
   }
 }
