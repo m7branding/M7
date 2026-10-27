@@ -57,7 +57,7 @@ const RAYS = Array.from({ length: 8 }, (_, i) => {
 
 function Scene() {
   return (
-    <svg className={s.scene} viewBox="53 -19 650 624" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <svg className={s.scene} viewBox="20 -19 650 624" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <clipPath id="stdGround">
           <path d="M220.9 299.6L355.2 366.7L534.4 277.2L534.4 120L220.9 120Z" />

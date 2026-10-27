@@ -107,7 +107,7 @@
   --kPw: clamp(0, (var(--sp) - 0.805) / 0.015, 1);
   --kChk: clamp(0, (var(--sp) - 0.822) / 0.008, 1);
   --kOk: clamp(0, (var(--sp) - 0.842) / 0.018, 1);
-  --kRep: clamp(0, (var(--sp) - 0.83) / 0.1, 1);
+  --kRep: clamp(0, (var(--sp) - 0.85) / 0.09, 1);
   --eRep: calc(1 - (1 - var(--kRep)) * (1 - var(--kRep)) * (1 - var(--kRep)));
   --kSendOn: clamp(0, (var(--sp) - 0.95) / 0.01, 1);
   --kSent: clamp(0, (var(--sp) - 0.966) / 0.02, 1);
@@ -154,6 +154,7 @@
 
 /* ============================== podium + venster ============================== */
 .stage {
+  --repB: 97;
   --px: calc(104cqw / 1200);
   --spx: calc(104cqw / 1200);
   position: absolute;
@@ -1023,12 +1024,14 @@
   background: #fff;
 }
 
+/* scène: zelfde schaal als de tool; in een hogere kaart zoomt hij iets in (slice, begrensd) */
 .scene {
   position: absolute;
   left: 0;
-  top: calc(var(--px) * 40);
+  top: calc(50% + var(--px) * 20);
   width: 100%;
-  height: calc(100% - var(--px) * 40);
+  height: min(calc(100% - var(--px) * 40), calc(var(--px) * 860));
+  translate: 0 -50%;
   overflow: visible;
 }
 .plate {
@@ -1336,7 +1339,8 @@
   --px: calc(var(--spx) * 1.04);
   --e: calc(1 - (1 - var(--kMin)) * (1 - var(--kMin)) * (1 - var(--kMin)));
   left: calc(var(--spx) * 278);
-  top: calc(var(--spx) * 168);
+  top: 50%;
+  translate: 0 -50%;
   width: calc(var(--px) * 540);
   box-shadow: 0 calc(var(--px) * 24) calc(var(--px) * 64) rgba(0, 0, 0, 0.3);
   opacity: var(--kModal);
@@ -1559,7 +1563,7 @@
 .report {
   --px: calc(var(--spx) * 1.1);
   left: calc(var(--spx) * -14);
-  top: calc(var(--spx) * 204);
+  bottom: calc(var(--spx) * var(--repB));
   width: calc(var(--px) * 420);
   padding: calc(var(--px) * 20) calc(var(--px) * 24) calc(var(--px) * 22);
   box-shadow:
@@ -1669,7 +1673,7 @@
   font-weight: 400;
   opacity: calc(1 - clamp(0, var(--t) * 6, 1));
 }
-.send {
+.report .send {
   --on: var(--kSendOn);
   margin-top: calc(var(--px) * 16);
   opacity: calc(1 - var(--kSent));
@@ -1705,19 +1709,25 @@
 
 /* ============================== cursor ============================== */
 .cursor {
-  /* route langs de klikdoelen, in venster-eenheden (vpx) */
+  /* route langs de klikdoelen: x/y in venster-eenheden (vpx), f = deel van de podiumhoogte */
   --w0x: 760;
-  --w0y: 540;
+  --w0y: 0;
+  --w0f: 0.55;
   --w1x: 280;
   --w1y: 280;
+  --w1f: 0;
   --w2x: 740;
-  --w2y: 568;
+  --w2y: 184;
+  --w2f: 0.5;
   --w3x: 1058;
   --w3y: 116;
+  --w3f: 0;
   --w4x: 960;
   --w4y: 252;
+  --w4f: 0;
   --w5x: 240;
-  --w5y: 782;
+  --w5y: calc(-1 * var(--repB) - 46);
+  --w5f: 1;
   --c1: clamp(0, (var(--sp) - 0.39) / 0.04, 1);
   --c2: clamp(0, (var(--sp) - 0.5) / 0.05, 1);
   --c3: clamp(0, (var(--sp) - 0.66) / 0.06, 1);
@@ -1725,9 +1735,10 @@
   --c5: clamp(0, (var(--sp) - 0.905) / 0.05, 1);
   --x: calc(var(--w0x) + (var(--w1x) - var(--w0x)) * var(--c1) + (var(--w2x) - var(--w1x)) * var(--c2) + (var(--w3x) - var(--w2x)) * var(--c3) + (var(--w4x) - var(--w3x)) * var(--c4) + (var(--w5x) - var(--w4x)) * var(--c5));
   --y: calc(var(--w0y) + (var(--w1y) - var(--w0y)) * var(--c1) + (var(--w2y) - var(--w1y)) * var(--c2) + (var(--w3y) - var(--w2y)) * var(--c3) + (var(--w4y) - var(--w3y)) * var(--c4) + (var(--w5y) - var(--w4y)) * var(--c5));
+  --f: calc(var(--w0f) + (var(--w1f) - var(--w0f)) * var(--c1) + (var(--w2f) - var(--w1f)) * var(--c2) + (var(--w3f) - var(--w2f)) * var(--c3) + (var(--w4f) - var(--w3f)) * var(--c4) + (var(--w5f) - var(--w4f)) * var(--c5));
   position: absolute;
   left: calc(var(--spx) * (var(--x) - 5));
-  top: calc(var(--spx) * (var(--y) - 2.6));
+  top: calc(var(--spx) * (var(--y) - 2.6) + var(--f) * 100%);
   z-index: 6;
   width: calc(var(--spx) * 22);
   height: calc(var(--spx) * 22);
@@ -1779,6 +1790,7 @@
 @container (max-width: 520px) {
   /* smalle kaart: venster zonder zijbalk (virtuele viewport 760 px), scène groter in beeld */
   .stage {
+    --repB: -62;
     --px: calc(104cqw / 760);
     --spx: calc(104cqw / 760);
     left: 2cqw;
@@ -1797,11 +1809,10 @@
     gap: calc(var(--px) * 18);
   }
   .scene {
-    transform: translate(calc(var(--px) * 120), calc(var(--px) * 6)) scale(1.12);
+    transform: translateX(calc(var(--px) * 90));
   }
   .modal {
     left: calc(var(--spx) * 96);
-    top: calc(var(--spx) * 150);
   }
   .acct {
     left: calc(var(--spx) * 410);
@@ -1809,20 +1820,17 @@
   .report {
     --px: calc(var(--spx) * 0.86);
     left: calc(var(--spx) * -24);
-    top: calc(var(--spx) * 318);
   }
   .cursor {
     --w0x: 600;
-    --w0y: 640;
-    --w1x: 532;
-    --w1y: 500;
+    --w1x: 550;
+    --w1y: 141;
+    --w1f: 0.5;
     --w2x: 548;
-    --w2y: 552;
     --w3x: 628;
-    --w3y: 116;
     --w4x: 568;
     --w4y: 254;
     --w5x: 284;
-    --w5y: 592;
+    --w5y: -154;
   }
 }
