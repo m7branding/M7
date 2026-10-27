@@ -166,10 +166,6 @@ const nl = {
     decline: "Alleen noodzakelijk",
     more: "Meer info",
   },
-  preloader: {
-    a: "Welcome to the world of",
-    b: "brands and digital solutions.",
-  },
   notFound: {
     title: "Lost in space.",
     text: "Deze pagina bestaat niet (meer). Laten we je terugbrengen.",
@@ -350,10 +346,6 @@ const en: Dict = {
     accept: "Accept",
     decline: "Necessary only",
     more: "More info",
-  },
-  preloader: {
-    a: "Welcome to the world of",
-    b: "brands and digital solutions.",
   },
   notFound: {
     title: "Lost in space.",

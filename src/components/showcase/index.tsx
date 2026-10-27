@@ -6,7 +6,7 @@ import { BuitenstateFlow } from "./BuitenstateFlow";
 import { SandtAnswers } from "./SandtAnswers";
 import { SocialAds } from "./SocialAds";
 import { EcoCorridorReveal } from "./EcoCorridorReveal";
-import { DesignersHousePrint } from "./DesignersHousePrint";
+import { BernhezePrint } from "./BernhezePrint";
 import { SteddionConfigurator } from "./SteddionConfigurator";
 import { BctnControlTower } from "./BctnControlTower";
 import { ShowcaseStage } from "./Stage";
@@ -22,9 +22,9 @@ const SHOWCASES: Record<ServiceSlug, { C: () => JSX.Element; label: string }> = 
   "web-apps-portals-apps": { C: MonvyApp, label: "Monvy: web-app op een tablet" },
   "marketing-automatisering-funnels": { C: BuitenstateFlow, label: "Buitenstate: zoekers-widget, flow, CRM en e-mail" },
   "seo-aeo-geo": { C: SandtAnswers, label: "The Sandt: genoemd in AI-antwoorden" },
-  "content-marketing-online-ads": { C: SocialAds, label: "Alpacafarm Vorstenbosch, GRID en Major Capital: social & ads" },
+  "content-marketing-online-ads": { C: SocialAds, label: "Alpacafarm Vorstenbosch en GRID: social & ads" },
   "foto-video-3d-animatie": { C: EcoCorridorReveal, label: "Plenty Planet: Green Eco Corridor in 3D" },
-  "grafisch-ontwerp-print": { C: DesignersHousePrint, label: "DesignersHouse: brochure en uitnodigingen" },
+  "grafisch-ontwerp-print": { C: BernhezePrint, label: "Bernheze Makelaars: Investment Memorandum, visitekaartje en brochure" },
   "configurators-lead-tools-widgets": { C: SteddionConfigurator, label: "Steddion: Energy Property Configurator" },
   "ai-consultancy": { C: BctnControlTower, label: "BCTN: AI Customer Service Control Tower" },
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { M7_PATHS } from "@/components/brand/M7Logo";
 import { ready } from "./PageTransition";
 
@@ -8,17 +8,16 @@ const MIN_MS = 3100;
 const MAX_MS = 5200;
 
 /**
- * Preloader: "Welcome to the world of brands and digital solutions."
+ * Preloader: alleen de badge, geen tekst.
  * Het M7-logo tekent zichzelf (lined) → vult zich (emblem) → de
  * gradient-ring sluit zich (badge). Daarna veegt het doek omhoog.
  * De animatie zelf is pure CSS (start bij de eerste paint);
- * JS regelt alleen de teller en het moment van wegvegen.
+ * JS regelt alleen het moment van wegvegen.
  * Eén keer per sessie; daarna direct door.
  */
-export function Preloader({ a, b }: { a: string; b: string }) {
+export function Preloader() {
   const [done, setDone] = useState(false);
   const [gone, setGone] = useState(false);
-  const countRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const html = document.documentElement;
@@ -35,9 +34,6 @@ export function Preloader({ a, b }: { a: string; b: string }) {
 
     const tick = () => {
       const el = performance.now() - t0;
-      const p = Math.min(1, el / (MIN_MS - 300));
-      const eased = 1 - Math.pow(1 - p, 3);
-      if (countRef.current) countRef.current.textContent = String(Math.round(eased * 100)).padStart(3, "0");
       if ((el >= MIN_MS && loaded) || el >= MAX_MS) {
         setDone(true);
         try {
@@ -57,9 +53,6 @@ export function Preloader({ a, b }: { a: string; b: string }) {
   }, []);
 
   if (gone) return null;
-
-  const wordsA = a.split(" ");
-  const wordsB = b.split(" ");
 
   return (
     <div className={`pl${done ? " is-done" : ""}`} aria-hidden="true">
@@ -107,31 +100,6 @@ export function Preloader({ a, b }: { a: string; b: string }) {
               </g>
             </svg>
           </div>
-          <p className="pl__text">
-            <span className="pl__line">
-              {wordsA.map((w, i) => (
-                <span className="pl__w" key={i}>
-                  <span style={{ ["--i" as string]: i }}>{w}</span>
-                </span>
-              ))}
-            </span>
-            <span className="pl__line pl__line--b">
-              {wordsB.map((w, i) => (
-                <span className="pl__w" key={i}>
-                  <span style={{ ["--i" as string]: i + wordsA.length }}>{w}</span>
-                </span>
-              ))}
-            </span>
-          </p>
-        </div>
-        <div className="pl__foot">
-          <span className="pl__brand">M7 Branding &amp; Design</span>
-          <span className="pl__bar">
-            <span />
-          </span>
-          <span className="pl__count" ref={countRef}>
-            000
-          </span>
         </div>
       </div>
     </div>

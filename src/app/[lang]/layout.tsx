@@ -123,7 +123,7 @@ export default function LangLayout({ children, params }: { children: React.React
       <body>
         <LocaleProvider locale={locale}>
           <SmoothScroll>
-            <Preloader a={dict.preloader.a} b={dict.preloader.b} />
+            <Preloader />
             <SiteChrome nav={nav} dict={dict} />
             <div className="page-shell">
               <main id="main">{children}</main>
