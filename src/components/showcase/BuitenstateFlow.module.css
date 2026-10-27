@@ -1136,8 +1136,9 @@
    E-mail
    ========================================================= */
 .mail {
-  top: var(--mailTop);
-  height: var(--mailH);
+  /* onderkant vast op het lijntje naar het CRM, hoogte volgt de inhoud (op hoge kaarten geen lege strook) */
+  bottom: calc(100cqh - var(--mailTop) - var(--mailH));
+  max-height: var(--mailH);
   color: #333;
   opacity: clamp(0, var(--kM) * 2.5, 1);
   transform: translate3d(0, calc((1 - var(--eM)) * -16cqh), 0) scale(calc(0.94 + var(--eM) * 0.06));
