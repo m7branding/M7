@@ -7,6 +7,11 @@
   --gold: #d3c089;
   --charcoal: #383736;
   --pw: 50cqw; /* breedte van één (liggende) pagina */
+  /* horizontale camerabaan: dicht → open → drift. Het boek opent altijd naar links, dus gespiegeld
+     is dit geen spiegeling maar een eigen baan (dicht aan de buitenkant, open rechts vrij van de tekst) */
+  --x0: -14cqw;
+  --x1: 23cqw;
+  --x2: 8cqw;
   /* camera: zijwaarts meeschuiven en kantelen met de kaft (0.04 → 0.5), bijdraaien (0.02 → 0.62) */
   --x: clamp(0, (var(--sp) - 0.04) / 0.46, 1);
   --xs: calc(var(--x) * var(--x) * (3 - 2 * var(--x)));
@@ -27,6 +32,9 @@
 }
 :global(.show--flip) .root {
   --dir: -1;
+  --x0: -26cqw;
+  --x1: 15.5cqw;
+  --x2: -6cqw;
 }
 
 /* warme lichtplas onder het boek; loopt ruim vóór de randen uit naar transparant */
@@ -65,7 +73,7 @@
   /* dicht en schuin → draait bij en schuift naar de buitenrand terwijl hij opengaat, daarna trage drift */
   transform:
     translate3d(
-      calc(var(--dir) * (-14cqw + var(--xs) * 23cqw + var(--ds) * 8cqw)),
+      calc(var(--x0) + var(--xs) * var(--x1) + var(--ds) * var(--x2)),
       calc(5cqh - var(--as) * 7cqh - var(--ds) * 2cqh),
       0
     )

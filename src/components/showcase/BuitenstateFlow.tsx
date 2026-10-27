@@ -6,6 +6,17 @@ const v = (o: Record<string, string | number>) => o as React.CSSProperties;
 
 const STEPS = ["Provincie", "Zoekers", "Gegevens", "Resultaat"];
 
+/* kaart met losse provincies (id per provincie) */
+const MAP = `${P}/nl-provinces.svg`;
+/* provincies waar de cursor overheen glijdt, in volgorde (klasse = eigen hover-timing) */
+const HOVER: [string, string][] = [
+  ["groningen", "gr"],
+  ["drenthe", "dr"],
+  ["overijssel", "ov"],
+  ["gelderland", "ge"],
+  ["noord-brabant", "nb"],
+];
+
 /* stap 3: label, placeholder (zoals op de site), ingevulde (fictieve) waarde, breedte in em, wide = hele rij */
 const FIELDS: [string, string, string, number, boolean][] = [
   ["Voornaam", "Jan", "Sanne", 3.2, false],
@@ -25,19 +36,22 @@ const Pin = () => (
 );
 
 /**
- * Buitenstate Zoekersmatch, 1-op-1 naar de echte widget (buitenstate.nl/zoekers):
- * provincie aanklikken op de kaart → 1.447 zoekers in Noord-Brabant → gegevens
- * invullen → zoekers rond het adres binnen 50 km. De klik op "Vraag gratis
- * waardebepaling aan" schiet als lead het CRM in en de automatisering stuurt
- * de bevestigingsmail met het aantal zoekers.
+ * Buitenstate Zoekersmatch, 1-op-1 naar de echte widget (buitenstate.nl/zoekers).
+ * Opent op de interactieve provinciekaart: de cursor glijdt van Groningen naar het
+ * zuiden, de provincies lichten één voor één op (hover) en Noord-Brabant wordt
+ * gekozen. Dan zoomt de camera rustig uit en verschijnt de widget rond de kaart:
+ * 1.447 zoekers in Noord-Brabant → gegevens invullen → zoekers rond het adres
+ * binnen 50 km. De klik op "Vraag gratis waardebepaling aan" schiet als lead het
+ * CRM in en de automatisering stuurt de bevestigingsmail met het aantal zoekers.
  */
 export function BuitenstateFlow() {
   return (
     <div className={s.root}>
-      <div className={s.topo} aria-hidden="true" />
       <div className={s.glow} aria-hidden="true" />
 
-      {/* ---------- De echte widget ---------- */}
+      <div className={s.rig}>
+      {/* ---------- De echte widget (camera: eerst ingezoomd op de kaart) ---------- */}
+      <div className={s.cam}>
       <div className={s.widget}>
         <div className={s.head}>
           <img className={s.logo} src={`${P}/logo.svg`} alt="" loading="lazy" decoding="async" />
@@ -62,17 +76,16 @@ export function BuitenstateFlow() {
             <b className={s.title}>Selecteer jouw provincie</b>
             <p className={s.sub}>Klik op de provincie waar jouw landelijke woning staat</p>
             <div className={s.map}>
-              <img src={`${P}/nl-map.svg`} alt="" loading="lazy" decoding="async" />
-              <img className={s.hov} src={`${P}/nl-brabant-hover.svg`} alt="" loading="lazy" decoding="async" />
-              <img className={s.sel} src={`${P}/nl-brabant.svg`} alt="" loading="lazy" decoding="async" />
-              <svg className={s.lbl} viewBox="0 0 286 337" aria-hidden="true">
-                <text x="150" y="248">
-                  Noord-
-                  <tspan x="150" dy="8">
-                    Brabant
-                  </tspan>
-                </text>
+              <img src={MAP} alt="" loading="lazy" decoding="async" />
+              {/* hover-laag: dezelfde provincievormen (uit nl-provinces.svg), kleur per provincie via --sp */}
+              <svg className={s.hl} viewBox="0 0 286 337" aria-hidden="true">
+                {HOVER.map(([id, cls]) => (
+                  <use key={id} href={`${MAP}#${id}`} className={`${s.pv} ${s[cls]}`} />
+                ))}
               </svg>
+              {/* labels boven de hover-laag (als beeld: svg-tekst in een geschaalde laag rendert onbetrouwbaar) */}
+              <img className={s.lbls} src={`${P}/nl-labels.svg`} alt="" loading="lazy" decoding="async" />
+              <img className={s.lblSel} src={`${P}/nl-label-brabant.svg`} alt="" loading="lazy" decoding="async" />
             </div>
             <div className={s.badgeRow}>
               <span className={s.badge}>Noord-Brabant</span>
@@ -184,6 +197,7 @@ export function BuitenstateFlow() {
             <path d="M2 1.5v17.2l4.3-4.1 3 6.6 3.1-1.4-3-6.4h6z" />
           </svg>
         </span>
+      </div>
       </div>
 
       {/* ---------- Verbindingen ---------- */}
@@ -308,6 +322,7 @@ export function BuitenstateFlow() {
             </p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

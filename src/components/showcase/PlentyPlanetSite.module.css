@@ -7,49 +7,71 @@
   --blue: #163044;
   --lblue: #0094c8;
   --gray: #e9e9e9;
-  /* scherm komt binnen en draait recht */
-  --a: clamp(0, var(--sp) / 0.44, 1);
-  --ae: calc(1 - (1 - var(--a)) * (1 - var(--a)) * (1 - var(--a)));
-  /* scherm gaat aan, menubalk zakt in */
-  --on: clamp(0, (var(--sp) - 0.12) / 0.16, 1);
-  --nv: clamp(0, (var(--sp) - 0.26) / 0.12, 1);
-  /* site scrollt (smoothstep) */
-  --ps: clamp(0, (var(--sp) - 0.56) / 0.38, 1);
+  /* scherm komt rustig binnen en draait recht (0.05 → 0.5) */
+  --a: clamp(0, (var(--sp) - 0.05) / 0.45, 1);
+  --ae: calc(var(--a) * var(--a) * (3 - 2 * var(--a)));
+  /* scherm gaat aan (0.16 → 0.38), menubalk zakt in (0.26 → 0.46) */
+  --o: clamp(0, (var(--sp) - 0.16) / 0.22, 1);
+  --on: calc(var(--o) * var(--o) * (3 - 2 * var(--o)));
+  --nb: clamp(0, (var(--sp) - 0.26) / 0.2, 1);
+  --nv: calc(var(--nb) * var(--nb) * (3 - 2 * var(--nb)));
+  /* hero-video zoomt traag uit (0.16 → 0.62) */
+  --v: clamp(0, (var(--sp) - 0.16) / 0.46, 1);
+  --ve: calc(var(--v) * var(--v) * (3 - 2 * var(--v)));
+  /* de site scrollt (0.38 → 1.04, smoothstep, max. ± 1,3× de paginascroll): bij 0.5 nog maar ± 120 px,
+     bij 0.74 ≈ 800 px (statement + kaarten), bij 1 ≈ 1390 px en nog in beweging.
+     --y is de scrollpositie in px van de echte site; alles daarna rekent daarmee. */
+  --ps: clamp(0, (var(--sp) - 0.38) / 0.66, 1);
   --pe: calc(var(--ps) * var(--ps) * (3 - 2 * var(--ps)));
+  --y: calc(var(--pe) * 1410);
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background:
-    radial-gradient(90% 80% at calc(50% + var(--dir) * 4%) 42%, #0f2333 0%, #09151f 50%, #050a0f 100%);
 }
 :global(.show--flip) .root {
   --dir: -1;
 }
 
-/* licht van het HDR-scherm op de achtergrond: groen-blauw bij de hero, koel wit bij de witte pagina */
+/* licht van het HDR-scherm: groen-blauw bij de hero, koel wit bij de witte pagina. Geen vlak, alleen
+   gloed die ruim vóór de binnenrand (en de bovenrand) uitloopt naar transparant. */
 .spill {
   position: absolute;
-  left: calc(50cqw + var(--dir) * 4cqw);
-  top: 42cqh;
-  width: 160cqw;
-  height: 130cqh;
+  left: calc(50cqw + var(--dir) * 4.5cqw);
+  top: 44cqh;
+  width: 102cqw;
+  height: 82cqh;
   translate: -50% -50%;
   border-radius: 50%;
-  background:
-    radial-gradient(closest-side at 38% 58%, rgba(105, 167, 57, 0.22), transparent 70%),
-    radial-gradient(closest-side at 62% 40%, rgba(0, 148, 200, 0.26), transparent 75%);
-  opacity: calc(var(--on) * (1 - var(--pe) * 0.6));
-  animation: breathe 9s ease-in-out infinite;
+  background: radial-gradient(
+    closest-side,
+    rgba(0, 148, 200, 0.2),
+    rgba(60, 160, 140, 0.15) 62%,
+    rgba(105, 167, 57, 0.06) 82%,
+    transparent
+  );
+  opacity: calc(var(--on) * (1 - var(--pe) * 0.75));
 }
 .spillWhite {
-  background: radial-gradient(closest-side, rgba(200, 225, 240, 0.2), rgba(120, 175, 210, 0.08) 55%, transparent 80%);
-  opacity: calc(var(--on) * var(--pe));
-  animation: none;
+  background: radial-gradient(
+    closest-side,
+    rgba(205, 228, 242, 0.2),
+    rgba(170, 205, 228, 0.13) 62%,
+    rgba(120, 175, 210, 0.05) 82%,
+    transparent
+  );
+  opacity: calc(var(--on) * var(--pe) * 0.85);
 }
-@keyframes breathe {
-  50% {
-    transform: scale(1.06);
-  }
+/* lichtplas van het scherm op het bureau, onder de voet (mag onderaan uit de kaart lopen) */
+.floor {
+  position: absolute;
+  left: calc(50cqw + var(--dir) * 4.5cqw);
+  top: 90cqh;
+  width: 80cqw;
+  height: 30cqh;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(150, 205, 225, 0.16), transparent);
+  opacity: calc(var(--on) * var(--ae));
 }
 
 /* ---------- Het scherm ---------- */
@@ -57,24 +79,24 @@
   position: absolute;
   inset: 0;
   perspective: 160cqw;
-  perspective-origin: calc(50% + var(--dir) * 4%) 45%;
+  perspective-origin: calc(50% + var(--dir) * 4.5%) 45%;
 }
 .display {
-  --W: 98cqw; /* breedte van het beeld */
+  --W: 94cqw; /* breedte van het beeld */
   --bz: 1.15cqw; /* zwarte rand */
   --p: calc(var(--W) / 1440); /* 1 px van de echte site */
   position: absolute;
-  left: calc(50cqw + var(--dir) * 4cqw - var(--W) / 2 - var(--bz));
+  left: calc(50cqw + var(--dir) * 4.5cqw - var(--W) / 2 - var(--bz));
   top: calc(46cqh - var(--W) * 9 / 32 - var(--bz));
   width: calc(var(--W) + var(--bz) * 2);
   transform-style: preserve-3d;
   transform-origin: 50% 70%;
-  /* komt van onder, draait van schuin naar recht */
+  /* komt van onder, draait van schuin naar recht; daarna een heel trage camera-drift tot het eind */
   transform:
-    translate3d(calc(var(--dir) * (1 - var(--ae)) * 8cqw), calc((1 - var(--ae)) * 44cqh), 0)
-    rotateY(calc(var(--dir) * (1 - var(--ae)) * -32deg))
-    rotateX(calc((1 - var(--ae)) * 12deg))
-    scale(calc(0.86 + var(--ae) * 0.14));
+    translate3d(calc(var(--dir) * (1 - var(--ae)) * 7cqw), calc((1 - var(--ae)) * 30cqh - var(--pe) * 1.5cqh), 0)
+    rotateY(calc(var(--dir) * (1 - var(--ae)) * -26deg))
+    rotateX(calc((1 - var(--ae)) * 10deg))
+    scale(calc(0.88 + var(--ae) * 0.12 + var(--pe) * 0.02));
 }
 /* gestapelde kaart (mobiel/tablet): er is geen buitenkant, dus beeld groter en altijd rechts
    uit de kaart, zodat logo en kop links vrij blijven */
@@ -94,7 +116,7 @@
     0 0 0 0.15cqw #c9cdd1,
     0 0 0 0.3cqw #7b8085,
     0 -0.12cqw 0 0.3cqw #dfe2e5,
-    0 3.5cqw 6cqw -1cqw rgba(0, 0, 0, 0.8);
+    0 4cqw 5cqw -2cqw rgba(0, 0, 0, 0.8);
 }
 .screen {
   position: relative;
@@ -121,13 +143,13 @@
   background:
     linear-gradient(
       180deg,
-      #05090d 0%,
-      #05090d 30%,
-      rgba(5, 9, 13, 0.85) 31.5%,
-      rgba(5, 9, 13, 0.5) 38%,
-      rgba(5, 9, 13, 0.36) 46%,
-      rgba(5, 9, 13, 0.7) 60%,
-      rgba(5, 9, 13, 0.92) 74%
+      #000 0%,
+      #000 30%,
+      rgba(0, 0, 0, 0.85) 31.5%,
+      rgba(0, 0, 0, 0.5) 38%,
+      rgba(0, 0, 0, 0.36) 46%,
+      rgba(0, 0, 0, 0.7) 60%,
+      #000 76%
     ),
     linear-gradient(90deg, #dfe2e5 0, #8a8e92 0.5%, #9a9ea2 6%, #c0c3c6 34%, #b0b4b7 52%, #a3a7ab 88%, #7a7e82 99.5%, #d2d5d8 100%);
 }
@@ -138,9 +160,7 @@
   inset: 0;
   border-radius: 1.55cqw;
   transform: translateZ(-1cqw);
-  box-shadow:
-    0 0 4cqw 0.4cqw rgba(170, 215, 235, 0.13),
-    0 0 12cqw 2cqw rgba(105, 167, 57, 0.09);
+  box-shadow: 0 0 2.4cqw 0.2cqw rgba(170, 215, 235, 0.14);
   opacity: var(--on);
 }
 
@@ -201,7 +221,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  transform: translate3d(0, calc(var(--pe) * -1270 * var(--p)), 0);
+  transform: translate3d(0, calc(var(--y) * -1 * var(--p)), 0);
 }
 
 /* hero */
@@ -222,7 +242,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(calc(1.16 - var(--on) * 0.16));
+  transform: scale(calc(1.14 - var(--ve) * 0.14));
 }
 .heroOverlay {
   position: absolute;
@@ -244,10 +264,11 @@
   color: #fff;
 }
 .w {
-  --k: clamp(0, (var(--sp) - 0.3 - var(--i) * 0.03) / 0.12, 1);
+  --k: clamp(0, (var(--sp) - 0.28 - var(--i) * 0.035) / 0.14, 1);
+  --ks: calc(var(--k) * var(--k) * (3 - 2 * var(--k)));
   display: inline-block;
-  opacity: var(--k);
-  transform: translateY(calc((1 - var(--k)) * 0.5em));
+  opacity: var(--ks);
+  transform: translateY(calc((1 - var(--ks)) * 0.35em));
 }
 /* roterend woord, zoals op hun site: energie → decarbonisatie → natuurpositieve oplossingen */
 .rot {
@@ -288,22 +309,22 @@
   }
 }
 .sub {
-  --k: clamp(0, (var(--sp) - 0.42) / 0.1, 1);
+  --k: clamp(0, (var(--sp) - 0.4) / 0.16, 1);
   max-width: calc(1011 * var(--p));
   margin: 0 0 calc(16 * var(--p));
   font-size: calc(20 * var(--p));
   line-height: calc(32 * var(--p));
   color: #fff;
-  opacity: var(--k);
-  transform: translateY(calc((1 - var(--k)) * 24 * var(--p)));
+  opacity: calc(var(--k) * var(--k) * (3 - 2 * var(--k)));
+  transform: translateY(calc((1 - var(--k)) * 18 * var(--p)));
 }
 .ctas {
-  --k: clamp(0, (var(--sp) - 0.46) / 0.1, 1);
+  --k: clamp(0, (var(--sp) - 0.44) / 0.16, 1);
   display: flex;
   align-items: center;
   gap: calc(16 * var(--p));
-  opacity: var(--k);
-  transform: translateY(calc((1 - var(--k)) * 24 * var(--p)));
+  opacity: calc(var(--k) * var(--k) * (3 - 2 * var(--k)));
+  transform: translateY(calc((1 - var(--k)) * 18 * var(--p)));
 }
 .btn {
   position: relative;
@@ -351,7 +372,7 @@
 .emblem {
   width: calc(64 * var(--p));
   height: calc(64 * var(--p));
-  opacity: clamp(0, (var(--ps) - 0.05) / 0.12, 1);
+  opacity: clamp(0, (var(--y) - 200) / 260, 1);
 }
 .quote {
   width: calc(960 * var(--p));
@@ -362,8 +383,10 @@
   font-weight: 500;
   color: #333;
 }
+/* het statement kleurt woord voor woord in terwijl het door het scherm schuift (y 300 → 720) */
 .quote span {
-  opacity: calc(0.12 + 0.88 * clamp(0, (var(--ps) - 0.1 - var(--i) * 0.013) / 0.1, 1));
+  --q: clamp(0, (var(--y) - 300) / 420, 1.2);
+  opacity: calc(0.12 + 0.88 * clamp(0, (var(--q) - var(--i) * 0.03) / 0.3, 1));
 }
 .quote .hot {
   color: var(--lblue);
@@ -379,7 +402,8 @@
   margin: calc(24 * var(--p)) auto 0;
 }
 .card {
-  --c: clamp(0, (var(--ps) - 0.4 - var(--n) * 0.07) / 0.32, 1);
+  --c: clamp(0, (var(--y) - 400 - var(--n) * 40) / 320, 1);
+  --cs: calc(var(--c) * var(--c) * (3 - 2 * var(--c)));
   position: relative;
   display: flex;
   flex-direction: column;
@@ -390,8 +414,8 @@
   border-radius: calc(24 * var(--p));
   background: var(--gray);
   color: #1a1a1a;
-  opacity: var(--c);
-  transform: translateY(calc((1 - var(--c)) * 200 * var(--p)));
+  opacity: clamp(0, var(--c) * 1.6, 1);
+  transform: translateY(calc((1 - var(--cs)) * 130 * var(--p)));
 }
 .cardTop {
   display: flex;
@@ -440,6 +464,83 @@
 }
 .card:nth-child(3) .cardImg img {
   object-position: 66% 0;
+}
+
+/* whitepaper-blok (zoals op de site: brochure links, tekst en formulier rechts) */
+.wp {
+  --w: clamp(0, (var(--y) - 1100) / 320, 1);
+  display: grid;
+  grid-template-columns: calc(560 * var(--p)) 1fr;
+  align-items: center;
+  gap: calc(48 * var(--p));
+  width: calc(1200 * var(--p));
+  margin: calc(100 * var(--p)) auto 0;
+  padding-bottom: calc(120 * var(--p));
+  opacity: clamp(0, var(--w) * 1.5, 1);
+  transform: translateY(calc((1 - var(--w)) * 60 * var(--p)));
+}
+.wpImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 calc(30 * var(--p)) calc(30 * var(--p)) rgba(0, 0, 0, 0.18));
+}
+.wpText {
+  display: grid;
+  gap: calc(20 * var(--p));
+}
+.wpH {
+  font-size: calc(32 * var(--p));
+  line-height: calc(41.6 * var(--p));
+  font-weight: 600;
+  color: #333;
+}
+.wpText p {
+  margin: 0;
+  font-size: calc(16 * var(--p));
+  line-height: calc(28 * var(--p));
+  color: #777;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(10 * var(--p));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(8 * var(--p));
+  padding: calc(6 * var(--p)) calc(12 * var(--p)) calc(6 * var(--p)) calc(8 * var(--p));
+  border-radius: calc(40 * var(--p));
+  background: #eef4e8;
+  font-size: calc(16 * var(--p));
+  color: #333;
+}
+.check {
+  width: calc(18 * var(--p));
+  height: calc(18 * var(--p));
+}
+.form {
+  display: flex;
+  gap: calc(10 * var(--p));
+  margin-top: calc(24 * var(--p));
+}
+.input {
+  display: inline-flex;
+  align-items: center;
+  width: calc(260 * var(--p));
+  height: calc(56 * var(--p));
+  padding: 0 calc(24 * var(--p));
+  border-radius: calc(48 * var(--p));
+  box-shadow: inset 0 0 0 calc(1 * var(--p)) #d4d4d4;
+  font-size: calc(16 * var(--p));
+  color: #aaa;
+}
+.form .btn {
+  padding: 0 calc(24 * var(--p));
 }
 
 /* zwevende witte menubalk */

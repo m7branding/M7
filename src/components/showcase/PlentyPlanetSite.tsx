@@ -84,21 +84,35 @@ const QUOTE: [string, boolean?][] = [
   ["energie-integratie."],
 ];
 
+const CHIPS = ["Natuurpositief", "Geïntegreerde laadinfra", "Financieren met voorspelbare maandlast", "5 jaar terugverdientijd"];
+
+/** Groen vinkje uit hun whitepaper-blok. */
+function Check() {
+  return (
+    <svg className={s.check} viewBox="0 0 16 16" aria-hidden="true">
+      <circle cx="8" cy="8" r="8" fill="#69A739" />
+      <path d="M4.6 8.2 7 10.5l4.4-4.6" fill="none" stroke="#fff" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 const H1 = ["Strategische", "autonomie", "begint", "bij"];
 const WORDS = ["energie", "decarbonisatie", "natuurpositieve oplossingen"];
 
 /**
  * Plenty Planet: hun echte homepage (plentyplanet.com) op een HDR-scherm in
- * Studio Display-stijl. Het scherm komt omhoog en draait recht, gaat aan op
+ * Studio Display-stijl. Het scherm komt rustig omhoog en draait recht, gaat aan op
  * de hero-video, de menubalk zakt in en de kop verschijnt woord voor woord.
- * Daarna scrollt de site: het statement kleurt in, de vier oplossingskaarten
- * schuiven gestaffeld omhoog. Een cursor zweeft naar "Contact".
+ * Daarna scrollt de site langzaam en ononderbroken door tot het eind: het statement
+ * kleurt in, de vier oplossingskaarten schuiven gestaffeld omhoog en het
+ * whitepaper-blok komt in beeld. Een cursor zweeft naar "Contact".
  */
 export function PlentyPlanetSite() {
   return (
     <div className={`${s.root} ${museoModerno.variable}`}>
       <div className={s.spill} aria-hidden="true" />
       <div className={`${s.spill} ${s.spillWhite}`} aria-hidden="true" />
+      <div className={s.floor} aria-hidden="true" />
 
       <div className={s.scene} aria-hidden="true">
         <div className={s.display}>
@@ -190,6 +204,27 @@ export function PlentyPlanetSite() {
                       </span>
                     </div>
                   ))}
+                </div>
+
+                {/* whitepaper: de site scrollt hier nog langzaam naartoe terwijl de kaart vaststaat */}
+                <div className={s.wp}>
+                  <img className={s.wpImg} src={`${P}/brochure.webp`} alt="" loading="lazy" decoding="async" />
+                  <div className={s.wpText}>
+                    <b className={s.wpH}>Van parkeerterrein naar energiecentrale: de kracht van solar car parks</b>
+                    <p>{CARDS[0].text}</p>
+                    <ul className={s.chips}>
+                      {CHIPS.map((c) => (
+                        <li key={c}>
+                          <Check />
+                          {c}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className={s.form}>
+                      <span className={s.input}>Vul je e-mailadres in...</span>
+                      <span className={s.btn}>Download whitepaper</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 

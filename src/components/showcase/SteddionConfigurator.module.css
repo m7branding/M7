@@ -68,87 +68,120 @@
   --b-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5l10 -10'/%3E%3C/svg%3E");
   --b-chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6l6 -6'/%3E%3C/svg%3E");
   --b-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 2.8l13.2 7.9-5.9 1.4 3.5 6.4-2.6 1.4-3.5-6.4-4.4 4.2z' fill='%2316121f' stroke='%23ffffff' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E");
-  /* ---------- tijdlijn (scroll) ---------- */
-  --kWin: clamp(0, var(--sp) / 0.28, 1);
-  --eWin: calc(1 - (1 - var(--kWin)) * (1 - var(--kWin)) * (1 - var(--kWin)));
-  --kPlate: clamp(0, (var(--sp) - 0.04) / 0.1, 1);
-  --kBld: clamp(0, (var(--sp) - 0.1) / 0.12, 1);
-  --eBld: calc(1 - (1 - var(--kBld)) * (1 - var(--kBld)));
-  --kPole: clamp(0, (var(--sp) - 0.17) / 0.07, 1);
-  --kSun: clamp(0, (var(--sp) - 0.19) / 0.07, 1);
-  --kFlow0: clamp(0, (var(--sp) - 0.22) / 0.06, 1);
-  --kT2: clamp(0, (var(--sp) - 0.27) / 0.03, 1);
-  --kTruck: clamp(0, (var(--sp) - 0.28) / 0.08, 1);
-  --eTruck: calc(1 - (1 - var(--kTruck)) * (1 - var(--kTruck)) * (1 - var(--kTruck)));
-  --kB2: clamp(0, (var(--sp) - 0.3) / 0.06, 1);
-  --kT3: clamp(0, (var(--sp) - 0.37) / 0.03, 1);
+  /* ---------- tijdlijn (scroll) ----------
+     --sp 0 → 1 over het hele leven van de kaart; 0.74 = vastgezet (sleutelbeeld: oplossing staat,
+     samenvatting verstuurd). Daarna, hoog in beeld: account aanmaken; de camera drijft rustig door.
+     Alles wat reist loopt over smoothstep-ramps (vlak in- en uitlopend). */
+  --kWinL: clamp(0, (var(--sp) + 0.04) / 0.38, 1);
+  --kWin: calc(var(--kWinL) * var(--kWinL) * (3 - 2 * var(--kWinL)));
+  --eWin: var(--kWin);
+  --kPlateL: clamp(0, (var(--sp) - 0.1) / 0.14, 1);
+  --kPlate: calc(var(--kPlateL) * var(--kPlateL) * (3 - 2 * var(--kPlateL)));
+  --kBldL: clamp(0, (var(--sp) - 0.13) / 0.17, 1);
+  --kBld: calc(var(--kBldL) * var(--kBldL) * (3 - 2 * var(--kBldL)));
+  --eBld: var(--kBld);
+  --kPoleL: clamp(0, (var(--sp) - 0.22) / 0.1, 1);
+  --kPole: calc(var(--kPoleL) * var(--kPoleL) * (3 - 2 * var(--kPoleL)));
+  --kSunL: clamp(0, (var(--sp) - 0.24) / 0.1, 1);
+  --kSun: calc(var(--kSunL) * var(--kSunL) * (3 - 2 * var(--kSunL)));
+  --kFlow0L: clamp(0, (var(--sp) - 0.27) / 0.09, 1);
+  --kFlow0: calc(var(--kFlow0L) * var(--kFlow0L) * (3 - 2 * var(--kFlow0L)));
+  --kT2L: clamp(0, (var(--sp) - 0.28) / 0.05, 1);
+  --kT2: calc(var(--kT2L) * var(--kT2L) * (3 - 2 * var(--kT2L)));
+  --kTruckL: clamp(0, (var(--sp) - 0.29) / 0.14, 1);
+  --kTruck: calc(var(--kTruckL) * var(--kTruckL) * (3 - 2 * var(--kTruckL)));
+  --eTruck: var(--kTruck);
+  --kB2L: clamp(0, (var(--sp) - 0.31) / 0.12, 1);
+  --kB2: calc(var(--kB2L) * var(--kB2L) * (3 - 2 * var(--kB2L)));
+  --kT3L: clamp(0, (var(--sp) - 0.39) / 0.05, 1);
+  --kT3: calc(var(--kT3L) * var(--kT3L) * (3 - 2 * var(--kT3L)));
   --t2out: clamp(0, var(--kT2) * 2, 1);
   --t2in: clamp(0, var(--kT2) * 2 - 1, 1);
   --t3out: clamp(0, var(--kT3) * 2, 1);
   --t3in: clamp(0, var(--kT3) * 2 - 1, 1);
-  --kHot: clamp(0, (var(--sp) - 0.39) / 0.04, 1);
-  --kMin: clamp(0, (var(--sp) - 0.445) / 0.035, 1);
-  --kMout: clamp(0, (var(--sp) - 0.565) / 0.03, 1);
+  --kHotL: clamp(0, (var(--sp) - 0.41) / 0.06, 1);
+  --kHot: calc(var(--kHotL) * var(--kHotL) * (3 - 2 * var(--kHotL)));
+  --kMinL: clamp(0, (var(--sp) - 0.455) / 0.06, 1);
+  --kMin: calc(var(--kMinL) * var(--kMinL) * (3 - 2 * var(--kMinL)));
+  --kMoutL: clamp(0, (var(--sp) - 0.543) / 0.032, 1);
+  --kMout: calc(var(--kMoutL) * var(--kMoutL) * (3 - 2 * var(--kMoutL)));
   --kModal: calc(var(--kMin) - var(--kMout));
-  --kApply: clamp(0, (var(--sp) - 0.585) / 0.03, 1);
+  --kApplyL: clamp(0, (var(--sp) - 0.548) / 0.03, 1);
+  --kApply: calc(var(--kApplyL) * var(--kApplyL) * (3 - 2 * var(--kApplyL)));
   --apOut: clamp(0, var(--kApply) * 2, 1);
   --apIn: clamp(0, var(--kApply) * 2 - 1, 1);
-  --kAddPv: clamp(0, (var(--sp) - 0.595) / 0.025, 1);
-  --kAddBess: clamp(0, (var(--sp) - 0.625) / 0.025, 1);
-  --kBess: clamp(0, (var(--sp) - 0.63) / 0.06, 1);
-  --eBess: calc(1 - (1 - var(--kBess)) * (1 - var(--kBess)) * (1 - var(--kBess)));
-  --kFlow: clamp(0, (var(--sp) - 0.665) / 0.05, 1);
-  --kGreen: clamp(0, (var(--sp) - 0.62) / 0.1, 1);
-  --kNum: clamp(0, (var(--sp) - 0.62) / 0.12, 1);
-  --kCta: clamp(0, (var(--sp) - 0.67) / 0.03, 1);
-  --kAcc: clamp(0, (var(--sp) - 0.73) / 0.04, 1);
-  --eAcc: calc(1 - (1 - var(--kAcc)) * (1 - var(--kAcc)) * (1 - var(--kAcc)));
-  --kMail: clamp(0, (var(--sp) - 0.77) / 0.035, 1);
-  --kPw: clamp(0, (var(--sp) - 0.805) / 0.015, 1);
-  --kChk: clamp(0, (var(--sp) - 0.822) / 0.008, 1);
-  --kOk: clamp(0, (var(--sp) - 0.842) / 0.018, 1);
-  --kRep: clamp(0, (var(--sp) - 0.85) / 0.09, 1);
-  --eRep: calc(1 - (1 - var(--kRep)) * (1 - var(--kRep)) * (1 - var(--kRep)));
-  --kSendOn: clamp(0, (var(--sp) - 0.95) / 0.01, 1);
-  --kSent: clamp(0, (var(--sp) - 0.966) / 0.02, 1);
+  --kAddPvL: clamp(0, (var(--sp) - 0.553) / 0.025, 1);
+  --kAddPv: calc(var(--kAddPvL) * var(--kAddPvL) * (3 - 2 * var(--kAddPvL)));
+  --kAddBessL: clamp(0, (var(--sp) - 0.568) / 0.025, 1);
+  --kAddBess: calc(var(--kAddBessL) * var(--kAddBessL) * (3 - 2 * var(--kAddBessL)));
+  --kBessL: clamp(0, (var(--sp) - 0.568) / 0.07, 1);
+  --kBess: calc(var(--kBessL) * var(--kBessL) * (3 - 2 * var(--kBessL)));
+  --eBess: var(--kBess);
+  --kFlowL: clamp(0, (var(--sp) - 0.598) / 0.07, 1);
+  --kFlow: calc(var(--kFlowL) * var(--kFlowL) * (3 - 2 * var(--kFlowL)));
+  --kGreenL: clamp(0, (var(--sp) - 0.558) / 0.1, 1);
+  --kGreen: calc(var(--kGreenL) * var(--kGreenL) * (3 - 2 * var(--kGreenL)));
+  --kNumL: clamp(0, (var(--sp) - 0.558) / 0.12, 1);
+  --kNum: calc(var(--kNumL) * var(--kNumL) * (3 - 2 * var(--kNumL)));
+  --kCtaL: clamp(0, (var(--sp) - 0.588) / 0.03, 1);
+  --kCta: calc(var(--kCtaL) * var(--kCtaL) * (3 - 2 * var(--kCtaL)));
+  --kRepL: clamp(0, (var(--sp) - 0.625) / 0.095, 1);
+  --kRep: calc(var(--kRepL) * var(--kRepL) * (3 - 2 * var(--kRepL)));
+  --eRep: var(--kRep);
+  --kSendOnL: clamp(0, (var(--sp) - 0.7) / 0.01, 1);
+  --kSendOn: calc(var(--kSendOnL) * var(--kSendOnL) * (3 - 2 * var(--kSendOnL)));
+  --kSentL: clamp(0, (var(--sp) - 0.718) / 0.02, 1);
+  --kSent: calc(var(--kSentL) * var(--kSentL) * (3 - 2 * var(--kSentL)));
+  --kAccL: clamp(0, (var(--sp) - 0.8) / 0.06, 1);
+  --kAcc: calc(var(--kAccL) * var(--kAccL) * (3 - 2 * var(--kAccL)));
+  --eAcc: var(--kAcc);
+  --kMail: clamp(0, (var(--sp) - 0.845) / 0.04, 1);
+  --kPw: clamp(0, (var(--sp) - 0.885) / 0.02, 1);
+  --kChkL: clamp(0, (var(--sp) - 0.905) / 0.01, 1);
+  --kChk: calc(var(--kChkL) * var(--kChkL) * (3 - 2 * var(--kChkL)));
+  --kOkL: clamp(0, (var(--sp) - 0.932) / 0.028, 1);
+  --kOk: calc(var(--kOkL) * var(--kOkL) * (3 - 2 * var(--kOkL)));
+  /* camera drijft na het vastzetten rustig door */
+  --kDriftL: clamp(0, (var(--sp) - 0.6) / 0.4, 1);
+  --kDrift: calc(var(--kDriftL) * var(--kDriftL) * (3 - 2 * var(--kDriftL)));
 
   position: absolute;
   inset: 0;
   overflow: hidden;
   font-family: var(--f-poppins), "Poppins", sans-serif;
-  background: radial-gradient(120% 95% at 74% 22%, #2c1d4f 0%, #1b1233 46%, #0e0a1a 100%);
 }
 :global(.show--flip) .root {
   --dir: -1;
 }
-/* subtiel stippenraster, net als het canvas van de tool */
-.root::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(217, 210, 232, 0.14) 0.12cqw, transparent 0.17cqw);
-  background-size: 2.6cqw 2.6cqw;
-  -webkit-mask-image: radial-gradient(80% 70% at 50% 40%, #000 20%, transparent 80%);
-  mask-image: radial-gradient(80% 70% at 50% 40%, #000 20%, transparent 80%);
-  opacity: calc(0.4 + var(--eWin) * 0.6);
-}
-/* zonnegloed */
+/* geen vlakvulling: een zachte paarse gloed achter het venster en een warme zonnegloed rechtsboven,
+   beide ruim binnen de randen volledig uitgedoofd */
+.root::before,
 .root::after {
   content: "";
   position: absolute;
-  left: calc(50cqw + var(--dir) * 22cqw - 30cqw);
-  top: -22cqh;
-  width: 60cqw;
-  height: 60cqw;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(249, 193, 66, 0.2), rgba(249, 193, 66, 0));
-  animation: glow 9s ease-in-out infinite;
   pointer-events: none;
+}
+.root::before {
+  left: calc(50cqw + var(--dir) * 6cqw - 40cqw);
+  top: calc(52cqh - 34cqw);
+  width: 80cqw;
+  height: 68cqw;
+  background: radial-gradient(closest-side, rgba(110, 72, 186, 0.24), rgba(110, 72, 186, 0.08) 55%, rgba(110, 72, 186, 0));
+  opacity: calc(0.3 + var(--eWin) * 0.7);
+}
+.root::after {
+  left: calc(50cqw + var(--dir) * 24cqw - 20cqw);
+  top: calc(30cqh - 20cqw);
+  width: 40cqw;
+  height: 40cqw;
+  background: radial-gradient(closest-side, rgba(249, 193, 66, 0.16), rgba(249, 193, 66, 0));
+  opacity: var(--kSun);
+  animation: glow 9s ease-in-out infinite;
 }
 @keyframes glow {
   50% {
-    transform: scale(1.12);
-    opacity: 0.75;
+    transform: scale(1.08);
   }
 }
 
@@ -158,24 +191,29 @@
   --px: calc(104cqw / 1200);
   --spx: calc(104cqw / 1200);
   position: absolute;
-  left: 2.5cqw;
+  left: 3.5cqw;
   top: 7cqh;
   width: 104cqw;
   height: 94.5cqh;
   z-index: 1;
   color: var(--c-text);
+  /* komt rustig omhoog; na het vastzetten zoomt hij heel licht in (binnenrand blijft staan) */
   transform:
     perspective(140cqw)
-    translate3d(calc(var(--dir) * (1 - var(--eWin)) * 5cqw), calc((1 - var(--eWin)) * 42cqh), 0)
-    rotateX(calc((1 - var(--eWin)) * 12deg))
-    scale(calc(0.94 + var(--eWin) * 0.06));
+    translate3d(
+      calc(var(--dir) * ((1 - var(--eWin)) * 4cqw + var(--kDrift) * 1.3cqw)),
+      calc((1 - var(--eWin)) * 34cqh + var(--kDrift) * 1cqh),
+      0
+    )
+    rotateX(calc((1 - var(--eWin)) * 10deg))
+    scale(calc(0.95 + var(--eWin) * 0.05 + var(--kDrift) * 0.025));
   transform-origin: 50% 0;
 }
 :global(.show--flip) .stage {
-  left: -0.8cqw;
+  left: -7.5cqw;
 }
 :global(.show--flip) .report {
-  left: calc(var(--spx) * 18);
+  left: calc(var(--spx) * 92);
 }
 .win {
   position: absolute;
@@ -396,7 +434,7 @@
   font-size: calc(var(--px) * 12);
   font-weight: 600;
   /* klik door de cursor */
-  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.728, 0.728 - var(--sp)) / 0.008, 1) * 0.06);
+  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.8, 0.8 - var(--sp)) / 0.012, 1) * 0.06);
 }
 .bannerX {
   flex: none;
@@ -659,7 +697,7 @@
   color: var(--c-primary);
   font-size: calc(var(--px) * 13);
   font-weight: 600;
-  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.432, 0.432 - var(--sp)) / 0.008, 1) * 0.03);
+  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.452, 0.452 - var(--sp)) / 0.012, 1) * 0.03);
 }
 .suggest::after {
   content: "";
@@ -811,7 +849,7 @@
   font-weight: 600;
 }
 .plot {
-  --kBars: clamp(0, (var(--sp) - 0.08) / 0.14, 1);
+  --kBars: clamp(0, (var(--sp) - 0.12) / 0.14, 1);
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -831,7 +869,8 @@
 }
 .bar {
   --h: calc(var(--a) + (var(--b) - var(--a)) * var(--kB2));
-  --kb: clamp(0, (var(--sp) - 0.08 - var(--i) * 0.0045) / 0.07, 1);
+  --kbL: clamp(0, (var(--sp) - 0.12 - var(--i) * 0.005) / 0.1, 1);
+  --kb: calc(var(--kbL) * var(--kbL) * (3 - 2 * var(--kbL)));
   position: relative;
   flex: 1;
   height: calc(var(--h) / 132 * 100%);
@@ -1048,7 +1087,8 @@
   transform: translateY(calc((1 - var(--eBld)) * 31px));
 }
 .panels path {
-  --k: clamp(0, (var(--sp) - 0.6 - var(--i) * 0.0065) / 0.022, 1);
+  --kL: clamp(0, (var(--sp) - 0.553 - var(--i) * 0.005) / 0.03, 1);
+  --k: calc(var(--kL) * var(--kL) * (3 - 2 * var(--kL)));
   fill: #3b3a6b;
   stroke: #5b5a95;
   stroke-width: 0.5;
@@ -1287,6 +1327,7 @@
   color: color-mix(in srgb, var(--c-text) calc(var(--on) * 100%), var(--c-muted));
   font-size: calc(var(--px) * 14);
   font-weight: 600;
+  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.622, 0.622 - var(--sp)) / 0.012, 1) * 0.06);
 }
 .cta span {
   grid-area: 1 / 1;
@@ -1420,7 +1461,7 @@
   background: var(--c-accent);
   font-size: calc(var(--px) * 14);
   font-weight: 600;
-  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.556, 0.556 - var(--sp)) / 0.008, 1) * 0.06);
+  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.54, 0.54 - var(--sp)) / 0.012, 1) * 0.06);
 }
 .mOk::after {
   --ic: var(--i-arrow);
@@ -1525,7 +1566,7 @@
 }
 .aBtn {
   opacity: calc(1 - var(--kOk));
-  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.838, 0.838 - var(--sp)) / 0.006, 1) * 0.05);
+  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.928, 0.928 - var(--sp)) / 0.012, 1) * 0.05);
 }
 .aOk,
 .sent {
@@ -1562,15 +1603,15 @@
 /* Samenvatting: Jouw energieontwerp */
 .report {
   --px: calc(var(--spx) * 1.1);
-  left: calc(var(--spx) * -14);
+  left: 0;
   bottom: calc(var(--spx) * var(--repB));
   width: calc(var(--px) * 420);
   padding: calc(var(--px) * 20) calc(var(--px) * 24) calc(var(--px) * 22);
   box-shadow:
     0 calc(var(--px) * 34) calc(var(--px) * 80) rgba(5, 2, 14, 0.55),
     0 0 0 1px rgba(69, 41, 122, 0.06);
-  opacity: clamp(0, var(--kRep) * 2.5, 1);
-  transform: translate3d(calc(var(--dir) * (1 - var(--eRep)) * var(--px) * -40), calc((1 - var(--eRep)) * var(--px) * 260), 0) rotate(calc(var(--dir) * (1 - var(--eRep)) * -4deg));
+  opacity: clamp(0, var(--kRepL) * 2.5, 1);
+  transform: translate3d(calc(var(--dir) * (1 - var(--eRep)) * var(--px) * 24), calc((1 - var(--eRep)) * var(--px) * 240), 0) rotate(calc(var(--dir) * (1 - var(--eRep)) * 3deg));
   transform-origin: 0 100%;
 }
 .rTitle {
@@ -1658,7 +1699,7 @@
   gap: calc(var(--px) * 8);
 }
 .lead {
-  --t: clamp(0, (var(--sp) - 0.895 - var(--f) * 0.017) / 0.02, 1);
+  --t: clamp(0, (var(--sp) - 0.655 - var(--f) * 0.015 - max(0, var(--f) - 3)) / 0.02, 1);
   height: calc(var(--px) * 38);
   border-radius: calc(var(--px) * 8);
   font-weight: 500;
@@ -1677,7 +1718,7 @@
   --on: var(--kSendOn);
   margin-top: calc(var(--px) * 16);
   opacity: calc(1 - var(--kSent));
-  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.96, 0.96 - var(--sp)) / 0.006, 1) * 0.04);
+  scale: calc(1 - clamp(0, 1 - max(var(--sp) - 0.714, 0.714 - var(--sp)) / 0.01, 1) * 0.04);
 }
 .send::after {
   --ic: var(--i-send);
@@ -1719,30 +1760,41 @@
   --w2x: 740;
   --w2y: 184;
   --w2f: 0.5;
-  --w3x: 1058;
-  --w3y: 116;
-  --w3f: 0;
-  --w4x: 960;
-  --w4y: 252;
-  --w4f: 0;
-  --w5x: 240;
-  --w5y: calc(-1 * var(--repB) - 46);
-  --w5f: 1;
-  --c1: clamp(0, (var(--sp) - 0.39) / 0.04, 1);
-  --c2: clamp(0, (var(--sp) - 0.5) / 0.05, 1);
-  --c3: clamp(0, (var(--sp) - 0.66) / 0.06, 1);
-  --c4: clamp(0, (var(--sp) - 0.79) / 0.04, 1);
-  --c5: clamp(0, (var(--sp) - 0.905) / 0.05, 1);
-  --x: calc(var(--w0x) + (var(--w1x) - var(--w0x)) * var(--c1) + (var(--w2x) - var(--w1x)) * var(--c2) + (var(--w3x) - var(--w2x)) * var(--c3) + (var(--w4x) - var(--w3x)) * var(--c4) + (var(--w5x) - var(--w4x)) * var(--c5));
-  --y: calc(var(--w0y) + (var(--w1y) - var(--w0y)) * var(--c1) + (var(--w2y) - var(--w1y)) * var(--c2) + (var(--w3y) - var(--w2y)) * var(--c3) + (var(--w4y) - var(--w3y)) * var(--c4) + (var(--w5y) - var(--w4y)) * var(--c5));
-  --f: calc(var(--w0f) + (var(--w1f) - var(--w0f)) * var(--c1) + (var(--w2f) - var(--w1f)) * var(--c2) + (var(--w3f) - var(--w2f)) * var(--c3) + (var(--w4f) - var(--w3f)) * var(--c4) + (var(--w5f) - var(--w4f)) * var(--c5));
+  --w3x: 1035;
+  --w3y: -38;
+  --w3f: 1;
+  --w4x: 240;
+  --w4y: calc(-1 * var(--repB) - 46);
+  --w4f: 1;
+  --w5x: 1058;
+  --w5y: 116;
+  --w5f: 0;
+  --w6x: 960;
+  --w6y: 252;
+  --w6f: 0;
+  /* elk traject vlak in- en uitlopend (smoothstep) */
+  --c1L: clamp(0, (var(--sp) - 0.38) / 0.065, 1);
+  --c2L: clamp(0, (var(--sp) - 0.49) / 0.045, 1);
+  --c3L: clamp(0, (var(--sp) - 0.565) / 0.05, 1);
+  --c4L: clamp(0, (var(--sp) - 0.672) / 0.036, 1);
+  --c5L: clamp(0, (var(--sp) - 0.745) / 0.05, 1);
+  --c6L: clamp(0, (var(--sp) - 0.85) / 0.07, 1);
+  --c1: calc(var(--c1L) * var(--c1L) * (3 - 2 * var(--c1L)));
+  --c2: calc(var(--c2L) * var(--c2L) * (3 - 2 * var(--c2L)));
+  --c3: calc(var(--c3L) * var(--c3L) * (3 - 2 * var(--c3L)));
+  --c4: calc(var(--c4L) * var(--c4L) * (3 - 2 * var(--c4L)));
+  --c5: calc(var(--c5L) * var(--c5L) * (3 - 2 * var(--c5L)));
+  --c6: calc(var(--c6L) * var(--c6L) * (3 - 2 * var(--c6L)));
+  --x: calc(var(--w0x) + (var(--w1x) - var(--w0x)) * var(--c1) + (var(--w2x) - var(--w1x)) * var(--c2) + (var(--w3x) - var(--w2x)) * var(--c3) + (var(--w4x) - var(--w3x)) * var(--c4) + (var(--w5x) - var(--w4x)) * var(--c5) + (var(--w6x) - var(--w5x)) * var(--c6));
+  --y: calc(var(--w0y) + (var(--w1y) - var(--w0y)) * var(--c1) + (var(--w2y) - var(--w1y)) * var(--c2) + (var(--w3y) - var(--w2y)) * var(--c3) + (var(--w4y) - var(--w3y)) * var(--c4) + (var(--w5y) - var(--w4y)) * var(--c5) + (var(--w6y) - var(--w5y)) * var(--c6));
+  --f: calc(var(--w0f) + (var(--w1f) - var(--w0f)) * var(--c1) + (var(--w2f) - var(--w1f)) * var(--c2) + (var(--w3f) - var(--w2f)) * var(--c3) + (var(--w4f) - var(--w3f)) * var(--c4) + (var(--w5f) - var(--w4f)) * var(--c5) + (var(--w6f) - var(--w5f)) * var(--c6));
   position: absolute;
   left: calc(var(--spx) * (var(--x) - 5));
   top: calc(var(--spx) * (var(--y) - 2.6) + var(--f) * 100%);
   z-index: 6;
   width: calc(var(--spx) * 22);
   height: calc(var(--spx) * 22);
-  opacity: clamp(0, (var(--sp) - 0.375) / 0.025, 1);
+  opacity: clamp(0, (var(--sp) - 0.36) / 0.04, 1);
   pointer-events: none;
 }
 .cursor::before {
@@ -1816,10 +1868,11 @@
   }
   .acct {
     left: calc(var(--spx) * 410);
+    top: calc(var(--spx) * -12);
   }
   .report {
     --px: calc(var(--spx) * 0.86);
-    left: calc(var(--spx) * -24);
+    left: calc(var(--spx) * 8);
   }
   .cursor {
     --w0x: 600;
@@ -1827,10 +1880,11 @@
     --w1y: 141;
     --w1f: 0.5;
     --w2x: 548;
-    --w3x: 628;
-    --w4x: 568;
-    --w4y: 254;
-    --w5x: 284;
-    --w5y: -154;
+    --w3x: 597;
+    --w4x: 284;
+    --w4y: -154;
+    --w5x: 628;
+    --w6x: 568;
+    --w6y: 254;
   }
 }
