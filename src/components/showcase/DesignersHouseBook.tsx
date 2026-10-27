@@ -9,32 +9,46 @@ const SWATCHES = [
   { name: "Soft silver", hex: "#F6F6F6", ink: "#2b2a28" },
 ];
 
+function Img({ n }: { n: string }) {
+  return <img src={`${P}/brandbook-${n}.webp`} alt="" loading="lazy" decoding="async" />;
+}
+
 /**
- * DesignersHouse: het brandbook ligt als hardcover op tafel en slaat open
- * terwijl de kaart in beeld schuift. Eerst de kaft met goudfolie-embleem,
- * dan "About" + kleurenpalet, daarna bladert hij door naar typografie +
- * logovarianten. Kleurstalen schuiven er los naast.
+ * DesignersHouse: het brandbook ligt als hardcover op tafel. Eén doorlopende, trage
+ * camerabeweging over de hele scroll: het dichte boek drijft binnen en draait bij,
+ * de kaft gaat langzaam open ("About" + kleurenpalet), daarna slaan de bladen één
+ * voor één om (typografie + logovarianten, dan stijlelementen + sfeerbeeld) terwijl
+ * de camera rustig blijft pannen en inzoomen. Kleurstalen zweven er los naast.
  */
 export function DesignersHouseBook() {
   return (
     <div className={s.root}>
       <div className={s.glow} aria-hidden="true" />
-      <div className={s.watermark} aria-hidden="true" />
 
       <div className={s.scene}>
         <div className={s.book}>
           <div className={s.shadow} />
-          {/* rechterhelft: onderste pagina, een blad en de kaft draaien om de rug */}
+          {/* linkerhelft: het blok pagina's dat onder de omgeslagen bladen ligt */}
+          <div className={s.leftBlock} />
+          {/* rechterhelft: onderste pagina, twee bladen en de kaft draaien om de rug */}
           <div className={s.right}>
             <div className={`${s.page} ${s.base}`}>
-              <img src={`${P}/brandbook-16.webp`} alt="" loading="lazy" decoding="async" />
+              <Img n="03" />
             </div>
             <div className={`${s.leaf} ${s.leaf2}`}>
               <div className={`${s.face} ${s.front}`}>
-                <img src={`${P}/brandbook-17.webp`} alt="" loading="lazy" decoding="async" />
+                <Img n="16" />
               </div>
               <div className={`${s.face} ${s.back}`}>
-                <img src={`${P}/brandbook-18.webp`} alt="" loading="lazy" decoding="async" />
+                <Img n="21" />
+              </div>
+            </div>
+            <div className={`${s.leaf} ${s.leaf1}`}>
+              <div className={`${s.face} ${s.front}`}>
+                <Img n="17" />
+              </div>
+              <div className={`${s.face} ${s.back}`}>
+                <Img n="18" />
               </div>
             </div>
             <div className={`${s.leaf} ${s.cover}`}>
@@ -47,7 +61,7 @@ export function DesignersHouseBook() {
                 <span className={s.coverLabel}>Brandbook · 2025</span>
               </div>
               <div className={`${s.face} ${s.back}`}>
-                <img src={`${P}/brandbook-02.webp`} alt="" loading="lazy" decoding="async" />
+                <Img n="02" />
               </div>
             </div>
           </div>

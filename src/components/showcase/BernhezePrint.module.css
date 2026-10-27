@@ -1,4 +1,360 @@
+/* Bernheze Makelaars · drukwerk op tafel (Investment Memorandum, brochure, visitekaartje).
+   Scroll: --sp 0 → 1 over het hele leven van de kaart; 0.74 = vastgezet (sleutelbeeld).
+   Alle bewegingen lopen over smoothstep-ramps; alles in container-units. */
+
 .root {
+  --dir: 1;
+  --green: #1e2822;
+  --green-2: #2b372f;
+  --paper: #f7f6f2;
+  --pw: 37cqw; /* één A4-pagina van het IM */
+  --ph: calc(var(--pw) * 1.4143);
+
+  /* camera: komt aan (0 → 0.74) en drijft daarna rustig door (0.6 → 1) */
+  --c1: clamp(0, var(--sp) / 0.74, 1);
+  --c1s: calc(var(--c1) * var(--c1) * (3 - 2 * var(--c1)));
+  --c2: clamp(0, (var(--sp) - 0.6) / 0.4, 1);
+  --c2s: calc(var(--c2) * var(--c2) * (3 - 2 * var(--c2)));
+  /* het boek schuift tijdens het openslaan naar het midden van de spread */
+  --ko: clamp(0, (var(--sp) - 0.3) / 0.42, 1);
+  --kos: calc(var(--ko) * var(--ko) * (3 - 2 * var(--ko)));
+  /* bladen: kaft 0.30 → 0.52, daarna om de 0.073 het volgende blad (laatste landt op 0.74) */
+  --q0: clamp(0, (var(--sp) - 0.3) / 0.22, 1);
+  --q1: clamp(0, (var(--sp) - 0.373) / 0.22, 1);
+  --q2: clamp(0, (var(--sp) - 0.446) / 0.22, 1);
+  --q3: clamp(0, (var(--sp) - 0.519) / 0.22, 1);
+  /* zolang er een blad rechtop staat neemt de camera iets afstand (vlak in- en uitlopend) */
+  --fan: calc(
+    16 * var(--q0) * var(--q0) * (1 - var(--q0)) * (1 - var(--q0)) +
+    16 * var(--q1) * var(--q1) * (1 - var(--q1)) * (1 - var(--q1)) +
+    16 * var(--q2) * var(--q2) * (1 - var(--q2)) * (1 - var(--q2)) +
+    16 * var(--q3) * var(--q3) * (1 - var(--q3)) * (1 - var(--q3))
+  );
+
   position: absolute;
   inset: 0;
+}
+:global(.show--flip) .root {
+  --dir: -1;
+}
+
+/* ---------- gloed (geen vlakvulling): zacht groen achter het IM, warm bij de brochure ---------- */
+.glow,
+.glowWarm {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.glow {
+  left: calc(50cqw + var(--dir) * 2cqw - 42cqw);
+  top: calc(44cqh - 36cqw);
+  width: 84cqw;
+  height: 72cqw;
+  background: radial-gradient(closest-side, rgba(116, 148, 126, 0.24), rgba(116, 148, 126, 0.09) 55%, rgba(116, 148, 126, 0) 100%);
+  opacity: calc(0.35 + var(--c1s) * 0.65);
+  animation: breathe 10s ease-in-out infinite;
+}
+.glowWarm {
+  left: calc(50cqw + var(--dir) * 24cqw - 24cqw);
+  top: calc(64cqh - 20cqw);
+  width: 48cqw;
+  height: 40cqw;
+  background: radial-gradient(closest-side, rgba(214, 178, 120, 0.13), rgba(214, 178, 120, 0) 100%);
+  opacity: clamp(0, (var(--sp) - 0.4) / 0.3, 1);
+}
+@keyframes breathe {
+  50% {
+    transform: scale(1.06);
+    opacity: calc(0.3 + var(--c1s) * 0.55);
+  }
+}
+
+/* ---------- tafel (camera) ---------- */
+.scene {
+  position: absolute;
+  inset: 0;
+  perspective: 260cqw;
+  perspective-origin: 50% 24%;
+}
+.table {
+  position: absolute;
+  left: 50cqw;
+  top: 50cqh;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transform:
+    translate3d(0, calc((1 - var(--c1s)) * 16cqh + var(--fan) * 7cqh + var(--c2s) * 1.5cqh), 0)
+    rotateX(calc(36deg - var(--c1s) * 14deg - var(--c2s) * 7deg))
+    rotateZ(calc(var(--dir) * (-12deg + var(--c1s) * 9deg + var(--c2s) * 4deg)))
+    scale(calc(0.9 + var(--c1s) * 0.12 - var(--fan) * 0.03 + var(--c2s) * 0.05));
+}
+
+/* ---------- brochure: voor- en achterplat ---------- */
+.sheet {
+  --k: clamp(0, (var(--sp) - var(--a)) / 0.24, 1);
+  --ks: calc(var(--k) * var(--k) * (3 - 2 * var(--k)));
+  position: absolute;
+  left: calc(var(--dir) * var(--x) - var(--pw) / 2);
+  top: calc(var(--y) - var(--ph) / 2);
+  width: var(--pw);
+  height: var(--ph);
+  overflow: hidden;
+  border-radius: 0.25cqw;
+  background: var(--green);
+  opacity: clamp(0, var(--k) * 4, 1);
+  /* papierdikte (licht groene snede) + contactschaduw in het tafelvlak */
+  box-shadow:
+    0 0 0 0.08cqw rgba(196, 214, 201, 0.18),
+    0.12cqw 0.18cqw 0 #3a4a40,
+    0.24cqw 0.34cqw 0 #2a352e,
+    1.2cqw 2.4cqw 4cqw rgba(0, 0, 0, 0.55);
+  transform:
+    translate3d(
+      calc(var(--dir) * ((1 - var(--ks)) * 16cqw + var(--c2s) * var(--dx))),
+      calc((1 - var(--ks)) * 18cqw + var(--c2s) * var(--dy)),
+      var(--z)
+    )
+    rotate(calc(var(--dir) * (var(--r) + (1 - var(--ks)) * 9deg + var(--c2s) * var(--dr))));
+}
+.achter {
+  --a: 0.38;
+  --x: 12cqw;
+  --y: 36cqw;
+  --r: -7deg;
+  --z: 0px;
+  --dx: 2cqw;
+  --dy: 1.2cqw;
+  --dr: -2deg;
+}
+.voor {
+  --a: 0.46;
+  --x: 35.5cqw;
+  --y: 27cqw;
+  --r: 8deg;
+  --z: 2px;
+  --dx: 3cqw;
+  --dy: 0.6cqw;
+  --dr: 2.5deg;
+}
+.sheet img,
+.card img,
+.face img,
+.base img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* de brochure-renders hebben een lichte rand van 1–2 px rechts en onder: net buiten beeld schalen */
+.sheet img {
+  transform-origin: 0 0;
+  scale: 1.008;
+}
+/* zacht licht over het papier */
+.sheet::after,
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 38%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.16));
+}
+
+/* ---------- visitekaartje ---------- */
+.card {
+  --k: clamp(0, (var(--sp) - var(--a)) / 0.22, 1);
+  --ks: calc(var(--k) * var(--k) * (3 - 2 * var(--k)));
+  --cw: calc(var(--pw) * 0.5);
+  position: absolute;
+  left: calc(var(--dir) * var(--x) - var(--cw) / 2);
+  top: calc(var(--y) - var(--cw) * 55 / 170);
+  width: var(--cw);
+  aspect-ratio: 85 / 55;
+  overflow: hidden;
+  border-radius: 0.3cqw;
+  opacity: clamp(0, var(--k) * 3, 1);
+  transform:
+    translate3d(
+      calc(var(--dir) * (1 - var(--ks)) * -4cqw),
+      calc((1 - var(--ks)) * 16cqw + var(--c2s) * var(--dy)),
+      var(--z)
+    )
+    rotate(calc(var(--dir) * (var(--r) + (1 - var(--ks)) * -8deg + var(--c2s) * var(--dr))));
+}
+.cardBack {
+  --a: 0.5;
+  --x: -21.5cqw;
+  --y: 29.2cqw;
+  /* alleen de smalle rand met iconen en NVM-logo piept onder de voorkant uit (gespiegeld: 180° gedraaid);
+     naam en contactgegevens blijven eronder */
+  --r: calc(-13deg + (1 - var(--dir)) * 90deg);
+  --z: 1px;
+  --dy: 0.4cqw;
+  --dr: 1.5deg;
+  background: #fff;
+  box-shadow:
+    0.1cqw 0.14cqw 0 #d9d9d4,
+    0.2cqw 0.28cqw 0 #bdbdb7,
+    0.8cqw 1.6cqw 2.6cqw rgba(0, 0, 0, 0.5);
+}
+.cardFront {
+  --a: 0.54;
+  --x: -26cqw;
+  --y: 30cqw;
+  --r: -9deg;
+  --z: 3px;
+  --dy: -0.3cqw;
+  --dr: -1deg;
+  background: var(--green);
+  box-shadow:
+    0 0 0 0.06cqw rgba(196, 214, 201, 0.22),
+    0.1cqw 0.14cqw 0 #3d4d43,
+    0.2cqw 0.28cqw 0 #2c3830,
+    0.9cqw 1.8cqw 3cqw rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Investment Memorandum ---------- */
+.book {
+  --bx: -4.5cqw;
+  --by: -10cqw;
+  position: absolute;
+  left: calc(var(--dir) * var(--bx));
+  top: var(--by);
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  /* dicht: kaft gecentreerd; open: rug in het midden. Draait intussen langzaam bij. */
+  transform:
+    translate3d(calc((1 - var(--kos)) * var(--pw) * -0.5), 0, 8px)
+    rotateZ(calc(-2deg - (1 - var(--c1s)) * 7deg));
+}
+.bookShadow {
+  position: absolute;
+  top: calc(var(--ph) / -2);
+  left: calc(var(--kos) * var(--pw) * -1);
+  width: calc(var(--pw) * (1 + var(--kos)));
+  height: var(--ph);
+  border-radius: 0.4cqw;
+  box-shadow:
+    1.4cqw 2.8cqw 4.5cqw rgba(0, 0, 0, 0.6),
+    0.3cqw 0.6cqw 1cqw rgba(0, 0, 0, 0.35);
+  transform: translateZ(-6px);
+}
+/* linker blok (de omgeslagen bladen): dikte aan de buitenkant */
+.leftBlock {
+  position: absolute;
+  top: calc(var(--ph) / -2);
+  left: calc(var(--pw) * -1);
+  width: var(--pw);
+  height: var(--ph);
+  border-radius: 0.35cqw 0 0 0.35cqw;
+  background: var(--paper);
+  opacity: clamp(0, (var(--sp) - 0.47) / 0.05, 1);
+  box-shadow:
+    -0.12cqw 0.16cqw 0 #e4e2dc,
+    -0.24cqw 0.3cqw 0 #d2cfc7;
+  transform: translateZ(-4px);
+}
+.right {
+  position: absolute;
+  top: calc(var(--ph) / -2);
+  left: 0;
+  width: var(--pw);
+  height: var(--ph);
+  transform-style: preserve-3d;
+}
+.base,
+.leaf {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 50%;
+  transform-style: preserve-3d;
+}
+.base {
+  overflow: hidden;
+  border-radius: 0 0.35cqw 0.35cqw 0;
+  background: var(--paper);
+  /* blok pagina's: snede rechts en aan de voorkant */
+  box-shadow:
+    0.12cqw 0.16cqw 0 #e8e6e0,
+    0.24cqw 0.32cqw 0 #dcd9d2,
+    0.36cqw 0.48cqw 0 #ceCAC2,
+    0.48cqw 0.62cqw 0 #bfbab1;
+}
+/* bladen slaan na elkaar om (waaier); het laatste (7/8) landt vlak voor het sleutelbeeld */
+.leaf {
+  --k: clamp(0, (var(--sp) - 0.3 - var(--n) * 0.073) / 0.22, 1);
+  --ks: calc(var(--k) * var(--k) * (3 - 2 * var(--k)));
+  /* papier buigt tijdens het omslaan: het blad reikt dan iets minder ver */
+  transform:
+    rotateY(calc(var(--ks) * -180deg))
+    translateZ(calc((4.5 - var(--n)) * 0.5px))
+    scaleX(calc(1 - 16 * var(--k) * var(--k) * (1 - var(--k)) * (1 - var(--k)) * 0.16));
+}
+.face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 0 0.35cqw 0.35cqw 0;
+  background: var(--paper);
+}
+.back {
+  transform: rotateY(180deg);
+  border-radius: 0.35cqw 0 0 0.35cqw;
+}
+/* rugschaduw (goot) en een flauwe bolling van het papier */
+.front::after,
+.base::after,
+.back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.06) 3%, rgba(255, 255, 255, 0.05) 8%, rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.06));
+}
+.back::after {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.07) 3%, rgba(255, 255, 255, 0.05) 8%, rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.08));
+}
+/* licht tijdens het omslaan: voorkant dimt bij het optillen, achterkant licht op bij het landen */
+.front::before,
+.back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: #000;
+}
+.front::before {
+  opacity: calc(var(--ks) * 0.45);
+}
+.back::before {
+  opacity: calc((1 - var(--ks)) * 0.4);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    animation: none;
+  }
+}
+
+/* ---------- smalle kaart (mobiel) ---------- */
+@container (max-width: 520px) {
+  .root {
+    --pw: 39cqw;
+  }
+  .table {
+    top: 47cqh;
+  }
+  .book {
+    --bx: 0cqw;
+  }
+  .cardBack {
+    --x: -17.5cqw;
+  }
+  .cardFront {
+    --x: -22cqw;
+  }
 }

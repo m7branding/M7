@@ -1,6 +1,16 @@
-/* Monvy web-app op een iPad Pro (liggend). Scroll: --sp (lineair) / --spe (ge-eased), 0 → 1.
+/* Monvy web-app op een iPad Pro (liggend). Scroll: --sp (lineair, gedempt) 0 → 1.
    Stage-maten in cqw/cqh van de kaarthelft; binnen .screen (eigen size-container)
-   is 1cqw = 1% van de schermbreedte, zodat de UI exact meeschaalt. */
+   is 1cqw = 1% van de schermbreedte, zodat de UI exact meeschaalt.
+   Alle bewegingen lopen via smoothstep-rampen:
+     --k: clamp(0, (sp - A) / (B - A), 1);  --ks: k² (3 − 2k)
+   Verhaal (sp):
+     0    → 0.50  tablet komt rustig binnen en komt tot rust (drijft daarna langzaam door)
+     0.12 → 0.52  dashboard bouwt op: staven, rollende KPI's, tooltip, gebeurtenissen
+     0.36 → 0.56  cursor glijdt naar "Opvolgingen" en klikt (± 0.54)
+     0.53 → 0.72  zijbalk klapt open, dashboard maakt plaats voor het opvolgingenbord
+     0.66 → 0.80  betaling komt binnen (melding, groene rand op de factuur)
+     0.74 → 0.96  factuur schuift van "1ste herinnering" naar "Betaald", tellers lopen mee
+     0.60 → 1     bord pant langzaam, camera drijft en zoomt licht in */
 .root {
   --dir: 1;
   --blue: #005f9c;
@@ -9,14 +19,14 @@
   --ink: #1d2527;
   --muted: #8b93aa;
   --tw: 106cqw; /* tabletbreedte */
-  --tl: 5cqw; /* afstand tot de binnenrand */
+  --tl: 6.5cqw; /* afstand tot de binnenrand */
   --tt: 15cqh;
+  --doc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3h7l5 5v13H7zM14 3v5h5'/%3E%3C/svg%3E");
+  --doc-s: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-opacity='.55' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3h7l5 5v13H7zM14 3v5h5'/%3E%3C/svg%3E");
+  --usr: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239aa1b5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20c.6-3.4 3.7-5.6 7.5-5.6s6.9 2.2 7.5 5.6'/%3E%3C/svg%3E");
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background:
-    radial-gradient(70% 60% at 70% 42%, rgba(0, 95, 156, 0.32), transparent 70%),
-    radial-gradient(120% 100% at 60% 30%, #0c1d2e 0%, #08111c 55%, #05080d 100%);
 }
 :global(.show--flip) .root {
   --dir: -1;
@@ -29,21 +39,28 @@
   }
 }
 
+/* zachte, blauw getinte gloed achter de tablet: dooft ruim voor de binnenrand uit */
 .glow {
   position: absolute;
-  left: calc(50cqw + var(--dir) * 12cqw - 40cqw);
-  top: 18cqh;
+  left: calc(50cqw + var(--dir) * 14cqw - 40cqw);
+  top: 6cqh;
   width: 80cqw;
-  height: 70cqh;
+  height: 96cqh;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(0, 140, 220, 0.22), transparent);
-  opacity: calc(0.35 + var(--spe) * 0.65);
-  animation: breathe 9s ease-in-out infinite;
+  background: radial-gradient(closest-side, rgba(0, 120, 200, 0.22), rgba(0, 95, 156, 0.08) 55%, transparent);
+  opacity: calc(0.4 + var(--sp) * 0.6);
+  animation: breathe 10s ease-in-out infinite;
 }
 @keyframes breathe {
   50% {
-    transform: scale(1.1);
-    opacity: 0.8;
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+@container (max-aspect-ratio: 1.05) {
+  .glow {
+    top: 16cqh;
+    height: 84cqh;
   }
 }
 
@@ -55,20 +72,25 @@
   perspective-origin: calc(50% - var(--dir) * 20%) 40%;
 }
 .tablet {
-  --ke0: clamp(0, var(--sp) / 0.62, 1);
-  --ke: calc(1 - (1 - var(--ke0)) * (1 - var(--ke0)) * (1 - var(--ke0)));
+  /* binnenkomen (0 → 0.5) en daarna langzaam doordrijven (0.3 → 1) */
+  --k0: clamp(0, var(--sp) / 0.5, 1);
+  --ke: calc(var(--k0) * var(--k0) * (3 - 2 * var(--k0)));
+  --d0: clamp(0, (var(--sp) - 0.3) / 0.7, 1);
+  --kd: calc(var(--d0) * var(--d0) * (3 - 2 * var(--d0)));
+  --z0: clamp(0, (var(--sp) - 0.5) / 0.32, 1); /* camera zoomt in op het bord */
+  --kz: calc(var(--z0) * var(--z0) * (3 - 2 * var(--z0)));
   position: absolute;
   left: calc(50cqw + var(--dir) * (var(--tl) + var(--tw) / 2 - 50cqw) - var(--tw) / 2);
   top: var(--tt);
   width: var(--tw);
   aspect-ratio: 1.39;
-  transform-origin: calc(50% - var(--dir) * 30%) 50%;
-  /* komt schuin van onder/buiten binnen en komt bijna vlak tot rust */
+  transform-origin: calc(50% - var(--dir) * 50%) 18%;
   transform:
-    translate3d(calc(var(--dir) * (1 - var(--ke)) * 20cqw), calc((1 - var(--ke)) * 38cqh), 0)
-    rotateX(calc(5deg + (1 - var(--ke)) * 30deg))
-    rotateY(calc(var(--dir) * (-10deg - (1 - var(--ke)) * 22deg)))
-    rotateZ(calc(var(--dir) * (1 - var(--ke)) * 9deg));
+    translate3d(calc(var(--dir) * (1 - var(--ke)) * 12cqw), calc((1 - var(--ke)) * 30cqh - var(--kd) * 2.5cqh), 0)
+    rotateX(calc(4deg + (1 - var(--ke)) * 22deg - var(--kd) * 2deg))
+    rotateY(calc(var(--dir) * (-11deg - (1 - var(--ke)) * 16deg + var(--kd) * 4deg)))
+    rotateZ(calc(var(--dir) * (1 - var(--ke)) * 5deg))
+    scale(calc(1 + var(--kd) * 0.03 + var(--kz) * 0.05));
 }
 .frame {
   position: absolute;
@@ -80,7 +102,8 @@
     linear-gradient(135deg, #9aa0a6, #43464a 18%, #26282b 45%, #2f3236 70%, #8f959b) border-box;
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.7),
-    0 0.6cqw 1.2cqw rgba(0, 0, 0, 0.35),
+    0 0 2.5cqw rgba(0, 110, 190, 0.14),
+    0 1cqw 2cqw rgba(0, 0, 0, 0.45),
     0 5cqw 9cqw -1cqw rgba(0, 0, 0, 0.7);
 }
 .cam {
@@ -105,15 +128,33 @@
   content: "";
   position: absolute;
   inset: -10% -60%;
-  background: linear-gradient(110deg, transparent 42%, rgba(255, 255, 255, 0.1) 48%, transparent 56%);
+  background: linear-gradient(110deg, transparent 42%, rgba(255, 255, 255, 0.08) 48%, transparent 56%);
   transform: translateX(calc(-30% + var(--sp) * 50%));
 }
 
 /* ---------- scherm ---------- */
 .screen {
-  --kact: clamp(0, (var(--sp) - 0.765) / 0.02, 1); /* Factoring actief na de klik */
-  --kp0: clamp(0, (var(--sp) - 0.78) / 0.13, 1); /* paneel */
-  --kp: calc(1 - (1 - var(--kp0)) * (1 - var(--kp0)) * (1 - var(--kp0)));
+  /* gedeelde fases (smoothstep) */
+  --a0: clamp(0, (var(--sp) - 0.53) / 0.08, 1); /* Opvolgingen actief na de klik (kleurtje) */
+  --kact: calc(var(--a0) * var(--a0) * (3 - 2 * var(--a0)));
+  --s0: clamp(0, (var(--sp) - 0.55) / 0.15, 1); /* submenu klapt open */
+  --ksub: calc(var(--s0) * var(--s0) * (3 - 2 * var(--s0)));
+  --u0: clamp(0, (var(--sp) - 0.53) / 0.1, 1); /* dashboard uit */
+  --kout: calc(var(--u0) * var(--u0) * (3 - 2 * var(--u0)));
+  --v0: clamp(0, (var(--sp) - 0.56) / 0.14, 1); /* bord in */
+  --kv: calc(var(--v0) * var(--v0) * (3 - 2 * var(--v0)));
+  --p0: clamp(0, (var(--sp) - 0.66) / 0.14, 1); /* betaling binnen */
+  --kpay: calc(var(--p0) * var(--p0) * (3 - 2 * var(--p0)));
+  --m0: clamp(0, (var(--sp) - 0.74) / 0.22, 1); /* factuur verhuist */
+  --km: calc(var(--m0) * var(--m0) * (3 - 2 * var(--m0)));
+  --o0: clamp(0, (var(--sp) - 0.74) / 0.15, 1); /* "Betaald" maakt ruimte */
+  --kopen: calc(var(--o0) * var(--o0) * (3 - 2 * var(--o0)));
+  --c0: clamp(0, (var(--sp) - 0.81) / 0.16, 1); /* gat in "herinnering" sluit */
+  --kclose: calc(var(--c0) * var(--c0) * (3 - 2 * var(--c0)));
+  --n0: clamp(0, (var(--sp) - 0.84) / 0.12, 1); /* tellers */
+  --kn: calc(var(--n0) * var(--n0) * (3 - 2 * var(--n0)));
+  --g0: clamp(0, (var(--sp) - 0.6) / 0.4, 1); /* bord pant */
+  --kpan: calc(var(--g0) * var(--g0) * (3 - 2 * var(--g0)));
   position: absolute;
   inset: 1.65cqw;
   overflow: hidden;
@@ -188,9 +229,11 @@
   font-weight: 700;
   color: #fff;
 }
-.chev {
+.user::after {
+  content: "";
   width: 1.3cqw;
-  color: #333;
+  height: 1.3cqw;
+  background: var(--ic) center / contain no-repeat;
 }
 .notif {
   position: absolute;
@@ -219,16 +262,16 @@
   inset: 0;
   border-radius: 50%;
   border: 0.15cqw solid #ff4545;
-  animation: ping 2.4s ease-out infinite;
+  animation: ping 6s ease-out infinite;
 }
 @keyframes ping {
   0% {
     transform: scale(1);
-    opacity: 0.8;
+    opacity: 0.7;
   }
-  70%,
+  40%,
   100% {
-    transform: scale(2.6);
+    transform: scale(2.4);
     opacity: 0;
   }
 }
@@ -248,16 +291,20 @@
   align-items: center;
   gap: 1.1cqw;
   height: 3.9cqw;
-  padding-left: 1cqw;
+  padding-left: 3.7cqw;
   font-size: 1.36cqw;
   font-weight: 500;
   color: #4b4b4b;
 }
-.menu li svg,
-.settings svg {
-  position: relative;
+.menu li::after {
+  content: "";
+  position: absolute;
+  left: 1cqw;
+  top: 50%;
   width: 1.6cqw;
-  color: var(--blue);
+  height: 1.6cqw;
+  translate: 0 -50%;
+  background: var(--ic) center / contain no-repeat;
 }
 .menu li::before {
   content: "";
@@ -265,26 +312,55 @@
   z-index: -1;
   inset: 0.35cqw 0;
   border-radius: 0.8cqw;
-  background: #e9f2f9;
+  background: #eef4f9;
   box-shadow: inset 0.3cqw 0 0 var(--blue);
   opacity: 0;
 }
 .menu .isDash::before {
   opacity: calc(1 - var(--kact));
 }
-.menu .isFactor::before {
-  opacity: var(--kact);
-}
-.menu .isFactor {
-  color: color-mix(in srgb, var(--blue) calc(var(--kact) * 100%), #4b4b4b);
-  font-weight: calc(500 + var(--kact) * 100);
-}
 .menu .isDash {
   color: color-mix(in srgb, var(--blue) calc((1 - var(--kact)) * 100%), #4b4b4b);
   font-weight: calc(600 - var(--kact) * 100);
 }
-.menu li > * {
-  position: relative;
+/* Opvolgingen: actief + openklappend blok met submenu (zoals in de app) */
+.menu .isOpv::before {
+  bottom: calc(0.35cqw - var(--ksub) * 5.8cqw);
+  box-shadow: none;
+  opacity: var(--kact);
+}
+.menu .isOpv {
+  color: color-mix(in srgb, var(--blue) calc(var(--kact) * 100%), #4b4b4b);
+  font-weight: calc(500 + var(--kact) * 100);
+}
+.menu .below {
+  transform: translateY(calc(var(--ksub) * 5.8cqw));
+}
+.subMenu {
+  position: absolute;
+  left: 5.3cqw;
+  top: 38.4cqw;
+  display: grid;
+  gap: 1.1cqw;
+  font-size: 1.12cqw;
+  color: #3b3b3b;
+  opacity: var(--ksub);
+  clip-path: inset(0 0 calc((1 - var(--ksub)) * 100%) 0);
+  transform: translateY(calc((1 - var(--ksub)) * -1cqw));
+}
+.subMenu b {
+  font-weight: 600;
+  color: var(--ink);
+}
+.rail {
+  position: absolute;
+  right: 0;
+  top: 34.9cqw;
+  width: 0.35cqw;
+  height: calc(3.3cqw + var(--ksub) * 5.8cqw);
+  border-radius: 0.3cqw 0 0 0.3cqw;
+  background: var(--blue);
+  opacity: var(--kact);
 }
 .settings {
   position: absolute;
@@ -293,7 +369,11 @@
   bottom: 2.4cqw;
   display: flex;
   align-items: center;
-  gap: 1.1cqw;
+  height: 2cqw;
+  padding-left: 2.7cqw;
+  background:
+    var(--ic) 0 50% / 1.6cqw no-repeat,
+    var(--ic2) 100% 50% / 1.6cqw no-repeat;
   font-size: 1.36cqw;
   font-weight: 500;
   color: #4b4b4b;
@@ -308,15 +388,13 @@
   z-index: -1;
   background: linear-gradient(180deg, transparent, #f7f7f7 40%);
 }
-.settings .logout {
-  margin-left: auto;
-  color: #333;
-}
 
-/* hoofdgedeelte */
+/* ================= dashboard ================= */
 .main {
   position: absolute;
   inset: 0 0 0 24.4cqw;
+  opacity: calc(1 - var(--kout));
+  transform: translateX(calc(var(--kout) * -2.5cqw));
 }
 .title {
   position: absolute;
@@ -400,8 +478,8 @@
 }
 /* rollend cijfer */
 .roll {
-  --kr0: clamp(0, (var(--sp) - var(--t0, 0.27) - var(--o) * var(--ts, 0.03)) / var(--td, 0.24), 1);
-  --kr: calc(1 - (1 - var(--kr0)) * (1 - var(--kr0)) * (1 - var(--kr0)));
+  --kr0: clamp(0, (var(--sp) - 0.16 - var(--o) * 0.03) / 0.24, 1);
+  --kr: calc(var(--kr0) * var(--kr0) * (3 - 2 * var(--kr0)));
   display: inline-block;
   height: 1.1em;
   overflow: hidden;
@@ -457,8 +535,8 @@
   overflow: hidden;
 }
 .bar {
-  --kb0: clamp(0, (var(--sp) - 0.26 - var(--i) * 0.03) / 0.3, 1);
-  --kb: calc(1 - (1 - var(--kb0)) * (1 - var(--kb0)) * (1 - var(--kb0)));
+  --kb0: clamp(0, (var(--sp) - 0.12 - var(--i) * 0.03) / 0.22, 1);
+  --kb: calc(var(--kb0) * var(--kb0) * (3 - 2 * var(--kb0)));
   display: flex;
   flex-direction: column;
   gap: 0.25cqw;
@@ -516,7 +594,8 @@
   color: var(--blue);
 }
 .tip {
-  --k: clamp(0, (var(--sp) - 0.5) / 0.08, 1);
+  --k0: clamp(0, (var(--sp) - 0.36) / 0.16, 1);
+  --k: calc(var(--k0) * var(--k0) * (3 - 2 * var(--k0)));
   position: absolute;
   left: 11.4cqw;
   top: -0.6cqw;
@@ -529,7 +608,7 @@
   color: #fff;
   opacity: var(--k);
   transform: translateY(calc((1 - var(--k)) * 1cqw));
-  animation: bob 4s ease-in-out infinite;
+  animation: bob 7s ease-in-out infinite;
 }
 .tip b {
   font-size: 0.98cqw;
@@ -547,7 +626,7 @@
 }
 @keyframes bob {
   50% {
-    translate: 0 -0.35cqw;
+    translate: 0 -0.3cqw;
   }
 }
 
@@ -581,11 +660,11 @@
   height: 0.5cqw;
   border-radius: 50%;
   background: #00c27a;
-  animation: blink 1.8s ease-in-out infinite;
+  animation: blink 6s ease-in-out infinite;
 }
 @keyframes blink {
   50% {
-    opacity: 0.25;
+    opacity: 0.3;
   }
 }
 .events {
@@ -596,8 +675,8 @@
   gap: 1cqw;
 }
 .ev {
-  --ke0: clamp(0, (var(--sp) - 0.4 - var(--i) * 0.05) / 0.2, 1);
-  --ke: calc(1 - (1 - var(--ke0)) * (1 - var(--ke0)) * (1 - var(--ke0)));
+  --ke0: clamp(0, (var(--sp) - 0.28 - var(--i) * 0.04) / 0.18, 1);
+  --ke: calc(var(--ke0) * var(--ke0) * (3 - 2 * var(--ke0)));
   position: relative;
   flex: none;
   width: 21.3cqw;
@@ -607,7 +686,7 @@
   overflow: hidden;
   box-shadow: 0 0.2cqw 1.2cqw rgba(16, 24, 40, 0.06);
   opacity: var(--ke);
-  transform: translateX(calc((1 - var(--ke)) * 22cqw));
+  transform: translateX(calc((1 - var(--ke)) * 8cqw));
 }
 .evTop {
   display: grid;
@@ -630,8 +709,14 @@
   font-size: 1cqw;
   font-weight: 500;
 }
-.evTop svg {
+.evTop span::before {
+  content: "";
+  flex: none;
   width: 1.05cqw;
+  height: 1.05cqw;
+  background: currentColor;
+  -webkit-mask: var(--doc) center / contain no-repeat;
+  mask: var(--doc) center / contain no-repeat;
 }
 .tag {
   position: absolute;
@@ -674,31 +759,327 @@
   box-shadow: 0.7cqw 0 0 #404040, -0.7cqw 0 0 #404040;
 }
 
-/* scrim + toast */
-.scrim {
+/* ================= opvolgingen: bord per fase ================= */
+.follow {
   position: absolute;
   inset: 0 0 0 24.4cqw;
-  z-index: 1;
-  background: rgba(10, 28, 44, 0.3);
-  opacity: var(--kp);
+  overflow: hidden;
+  opacity: var(--kv);
 }
-.toast {
-  --k: clamp(0, (var(--sp) - 0.5) / 0.09, 1);
+.fTitle {
   position: absolute;
-  left: 57cqw;
-  top: 2.2cqw;
+  left: 4.6cqw;
+  top: 3.6cqw;
+  display: flex;
+  align-items: center;
+  gap: 1.1cqw;
+  margin: 0;
+  font-size: 2.25cqw;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  transform: translateX(calc((1 - var(--kv)) * 2cqw));
+}
+.fTitle span {
+  padding-left: 1.1cqw;
+  border-left: 0.15cqw solid #c9ccd4;
+  font-size: 1.6cqw;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #4b4f58;
+}
+.board {
+  --W: 15cqw; /* kolombreedte */
+  --step: 16.2cqw; /* kolom + tussenruimte */
+  --slot: 9.2cqw; /* kaart + tussenruimte */
+  position: absolute;
+  left: 4.6cqw;
+  top: 9.4cqw;
+  transform: translateX(calc((1 - var(--kv)) * 5cqw - var(--kpan) * 3cqw));
+}
+.col {
+  --q0: clamp(0, (var(--sp) - 0.575 - var(--c) * 0.015) / 0.14, 1);
+  --kq: calc(var(--q0) * var(--q0) * (3 - 2 * var(--q0)));
+  --n: 2;
+  position: absolute;
+  left: calc(var(--c) * var(--step));
+  top: 0;
+  width: var(--W);
+  opacity: var(--kq);
+  transform: translateY(calc((1 - var(--kq)) * 2.2cqw));
+}
+/* fasekleuren = kleuren uit de facturengrafiek */
+.paid {
+  --dot: #2cea34;
+  --tint: #dcfbe2;
+  --tink: #11752a;
+  --n: calc(2 + var(--kopen));
+}
+.rem {
+  --dot: #e3d500;
+  --tint: #fbf5c4;
+  --tink: #6b5e00;
+  --n: calc(3 - var(--kclose));
+}
+.warn {
+  --dot: #f4aa3a;
+  --tint: #ffe6cf;
+  --tink: #8a4b00;
+  --n: 3;
+}
+.def {
+  --dot: #f43a3a;
+  --tint: #ffdcd9;
+  --tink: #9b1c1c;
+}
+.debt {
+  --dot: #f43ac0;
+  --tint: #fcdaf1;
+  --tink: #94136f;
+}
+.cHead {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6cqw;
+  height: 2.4cqw;
+  padding-left: 0.4cqw;
+  font-size: 1.12cqw;
+  white-space: nowrap;
+}
+.cHead::before {
+  content: "";
+  flex: none;
+  width: 0.7cqw;
+  height: 0.7cqw;
+  border-radius: 50%;
+  background: var(--dot);
+}
+.cHead b {
+  font-weight: 600;
+  color: #1c1f24;
+}
+/* teller en totaal wisselen zacht (oude ↔ nieuwe waarde uit data-attributen) */
+.cHead i,
+.cHead small {
+  position: relative;
+  display: inline-grid;
+  font-style: normal;
+}
+.cHead i::before,
+.cHead i::after,
+.cHead small::before,
+.cHead small::after {
+  grid-area: 1 / 1;
+}
+.cHead i::before,
+.cHead small::before {
+  content: attr(data-a);
+  opacity: calc(1 - var(--kn));
+}
+.cHead i::after,
+.cHead small::after {
+  content: attr(data-b);
+  opacity: var(--kn);
+}
+.cHead i {
+  min-width: 1.5cqw;
+  padding: 0.12cqw 0.42cqw;
+  border-radius: 0.4cqw;
+  background: #1c1c1c;
+  font-size: 0.78cqw;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+}
+.cHead small {
+  position: absolute;
+  left: 1.7cqw;
+  top: 2.6cqw;
+  font-size: 0.98cqw;
+  font-weight: 600;
+  color: #7c8396;
+}
+.cards {
+  position: relative;
+  margin-top: 2.9cqw;
+  padding: 0.8cqw;
+}
+.cards::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(0.8cqw + var(--n) * var(--slot));
+  border-radius: 1cqw;
+  background: #f0f1f4;
+  box-shadow: inset 0 0 0 1px rgba(16, 24, 40, 0.025);
+}
+/* factuurkaart: nummerpil (::before + data-no), bedrag (::after + data-amt), debiteur, dagen + actie */
+.card,
+.mover {
+  position: relative;
+  height: 8.4cqw;
+  margin-bottom: 0.8cqw;
+  padding: 0.95cqw 1cqw 0;
+  border-radius: 0.7cqw;
+  background: #fff;
+  box-shadow: 0 0.15cqw 0.8cqw rgba(16, 24, 40, 0.06), 0 0 0 1px rgba(16, 24, 40, 0.03);
+  font-size: 0.95cqw;
+  color: #6f7586;
+}
+.card::before,
+.mover::before {
+  content: attr(data-no);
+  display: inline-block;
+  padding: 0.28cqw 0.55cqw 0.28cqw 1.55cqw;
+  border-radius: 0.4cqw;
+  background: var(--doc-s) 0.45cqw 50% / 0.9cqw no-repeat, var(--tint);
+  font-size: 0.8cqw;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--tink);
+}
+.card::after,
+.mover::after {
+  content: attr(data-amt);
+  position: absolute;
+  right: 1cqw;
+  top: 1.1cqw;
+  font-size: 1.1cqw;
+  font-weight: 700;
+  color: var(--ink);
+}
+.who {
+  display: block;
+  margin-top: 0.95cqw;
+  padding-left: 1.45cqw;
+  overflow: hidden;
+  background: var(--usr) 0 50% / 1cqw no-repeat;
+  font-size: 1.02cqw;
+  font-weight: 500;
+  color: #2d323b;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.card footer,
+.mover footer {
+  position: absolute;
+  left: 1cqw;
+  right: 1cqw;
+  bottom: 1cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.86cqw;
+  white-space: nowrap;
+}
+.card footer::before {
+  content: attr(data-d);
+}
+.card em,
+.mover em {
+  display: inline-grid;
+  padding: 0.2cqw 0.55cqw;
+  border-radius: 99px;
+  background: var(--tint);
+  font-size: 0.76cqw;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--tink);
+}
+.card em::before {
+  content: attr(data-c);
+}
+
+/* kaartjes in "Betaald" schuiven een plek omlaag, in "herinnering" sluit het gat */
+.paid .card {
+  transform: translateY(calc(var(--kopen) * var(--slot)));
+}
+.rem .cards {
+  padding-top: calc(0.8cqw + var(--slot));
+}
+.rem .card {
+  transform: translateY(calc(var(--kclose) * -1 * var(--slot)));
+}
+
+/* de verhuizende factuur: van kolom 2 (slot 1) naar kolom 1 (slot 1) */
+.mover {
+  --lift: sin(var(--km) * 180deg);
+  --kc0: clamp(0, (var(--sp) - 0.79) / 0.14, 1);
+  --kc: calc(var(--kc0) * var(--kc0) * (3 - 2 * var(--kc0)));
+  --tint: color-mix(in srgb, #dcfbe2 calc(var(--kc) * 100%), #fbf5c4);
+  --tink: color-mix(in srgb, #11752a calc(var(--kc) * 100%), #6b5e00);
+  position: absolute;
+  z-index: 2;
+  left: calc(var(--step) + 0.8cqw);
+  top: calc(5.3cqw + 0.8cqw);
+  width: calc(var(--W) - 1.6cqw);
+  margin: 0;
+  --kq0: clamp(0, (var(--sp) - 0.59) / 0.14, 1);
+  --kq: calc(var(--kq0) * var(--kq0) * (3 - 2 * var(--kq0)));
+  opacity: var(--kq);
+  box-shadow:
+    0 0 0 calc(var(--kpay) * 0.2cqw) rgba(44, 200, 80, calc(var(--kpay) * (1 - var(--kc)) * 0.9)),
+    0 calc(0.15cqw + var(--lift) * 1.6cqw) calc(0.8cqw + var(--lift) * 2.6cqw) rgba(16, 24, 40, calc(0.06 + var(--lift) * 0.12)),
+    0 0 0 1px rgba(16, 24, 40, 0.03);
+  transform:
+    translate(calc(var(--km) * -1 * var(--step)), calc(var(--lift) * -0.9cqw + (1 - var(--kq)) * 2.2cqw))
+    rotate(calc(var(--lift) * -2deg))
+    scale(calc(1 + var(--lift) * 0.045));
+}
+.mover footer::before,
+.mover footer::after {
+  grid-area: 1 / 1;
+}
+.mover footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+.mover footer::before {
+  content: attr(data-d);
+  grid-area: 1 / 1;
+  opacity: calc(1 - clamp(0, var(--kc) * 2, 1));
+}
+.mover footer::after {
+  content: attr(data-d2);
+  grid-area: 1 / 1;
+  opacity: clamp(0, var(--kc) * 2 - 1, 1);
+}
+.mover em {
+  grid-area: 1 / 2;
+}
+.mover em::before,
+.mover em::after {
+  grid-area: 1 / 1;
+  text-align: center;
+}
+.mover em::before {
+  content: attr(data-c);
+  opacity: calc(1 - clamp(0, var(--kc) * 1.7, 1));
+}
+.mover em::after {
+  content: attr(data-c2);
+  opacity: clamp(0, var(--kc) * 1.7 - 0.7, 1);
+}
+
+/* ---------- betaalmelding ---------- */
+.toast {
+  position: absolute;
+  left: 59cqw;
+  top: 2cqw;
   z-index: 4;
   display: flex;
   align-items: center;
   gap: 1cqw;
-  padding: 1cqw 1.6cqw 1cqw 1cqw;
+  padding: 0.9cqw 1.6cqw 0.9cqw 0.9cqw;
   border-radius: 1cqw;
   background: #fff;
-  box-shadow: 0 1.2cqw 3cqw rgba(10, 30, 50, 0.16), 0 0 0 1px rgba(10, 30, 50, 0.05);
+  box-shadow: 0 1.2cqw 3cqw rgba(10, 30, 50, 0.14), 0 0 0 1px rgba(10, 30, 50, 0.05);
   font-size: 0.92cqw;
   color: #7b8396;
-  opacity: var(--k);
-  transform: translateY(calc((1 - var(--k)) * -4cqw)) scale(calc(0.9 + var(--k) * 0.1 + sin(var(--k) * 180deg) * 0.05));
+  white-space: nowrap;
+  opacity: var(--kpay);
+  transform: translateY(calc((1 - var(--kpay)) * -1.6cqw));
 }
 .toast > span:last-child {
   display: grid;
@@ -729,239 +1110,16 @@
   inset: 0;
   border-radius: 50%;
   border: 0.2cqw solid #00c27a;
-  animation: ping 2.8s ease-out infinite;
+  animation: ping 6s ease-out infinite;
 }
 
-/* factoringpaneel: schuift onder de zijbalk vandaan */
-.panel {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 24.4cqw;
-  z-index: 2;
-  width: 33cqw;
-  padding: 2.8cqw 2.8cqw 0;
-  background: #fff;
-  box-shadow: 1.5cqw 0 4cqw rgba(10, 30, 50, 0.22);
-  transform: translateX(calc((1 - var(--kp)) * -102%));
-}
-.pHead {
-  display: flex;
-  align-items: center;
-  gap: 0.9cqw;
-  font-size: 0.95cqw;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--blue);
-}
-.pChip {
-  display: grid;
-  place-items: center;
-  width: 2.6cqw;
-  height: 2.6cqw;
-  border-radius: 0.7cqw;
-  background: #e9f2f9;
-}
-.pChip svg {
-  width: 1.5cqw;
-}
-.pClose {
-  width: 1.5cqw;
-  margin-left: auto;
-  color: #9aa1b5;
-}
-.pTitle {
-  margin: 2.6cqw 0 0.6cqw;
-  font-size: 2.35cqw;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-.pSub {
-  margin: 0;
-  font-size: 1.08cqw;
-  color: var(--muted);
-}
-.pAmount {
-  --t0: 0.79;
-  --td: 0.1;
-  --ts: 0.018;
-  position: relative;
-  display: grid;
-  gap: 0.5cqw;
-  margin-top: 2.2cqw;
-  padding: 2cqw 2cqw 1.9cqw;
-  border-radius: 1.1cqw;
-  overflow: hidden;
-  background:
-    radial-gradient(90% 120% at 100% 0%, rgba(0, 255, 163, 0.2), transparent 60%),
-    linear-gradient(135deg, #0a6fb0, var(--blue) 50%, var(--blue-d));
-  box-shadow: 0 1cqw 2.4cqw rgba(0, 95, 156, 0.28);
-  color: #fff;
-}
-.pAmount small {
-  font-size: 1cqw;
-  opacity: 0.75;
-}
-.pAmount strong {
-  display: flex;
-  font-size: 4.3cqw;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  font-variant-numeric: tabular-nums;
-}
-.pAmount > span {
-  display: flex;
-  align-items: center;
-  gap: 0.6cqw;
-  font-size: 1.1cqw;
-  font-weight: 500;
-  color: var(--mint);
-}
-.pAmount > span svg {
-  width: 1.3cqw;
-}
-/* stappen: vinken lopen binnen als het paneel open is */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 2.2cqw 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0.95cqw;
-  font-weight: 600;
-  text-align: center;
-  color: var(--ink);
-}
-.steps li {
-  --k: clamp(0, (var(--sp) - 0.86) / 0.05, 1);
-  position: relative;
-  display: grid;
-  justify-items: center;
-  gap: 0.7cqw;
-}
-.steps li + li {
-  --k: clamp(0, (var(--sp) - 0.9) / 0.05, 1);
-}
-.steps li:last-child {
-  --k: clamp(0, (var(--sp) - 0.94) / 0.05, 1);
-  color: var(--blue);
-}
-.steps li + li::before {
-  content: "";
-  position: absolute;
-  top: 1.2cqw;
-  right: calc(50% + 1.8cqw);
-  width: calc(100% - 3.6cqw);
-  height: 0.2cqw;
-  border-radius: 1cqw;
-  background: linear-gradient(90deg, #00c27a calc(var(--k) * 100%), #e6e9ef 0);
-}
-.steps i {
-  display: grid;
-  place-items: center;
-  width: 2.4cqw;
-  height: 2.4cqw;
-  border-radius: 50%;
-  background: #e6e9ef;
-  color: #fff;
-  position: relative;
-}
-.steps i::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: #00c27a;
-  transform: scale(var(--k));
-}
-.steps li:last-child i::before {
-  background: var(--blue);
-}
-.screen .steps svg {
-  position: relative;
-  width: 1.3cqw;
-  stroke-width: 2.6;
-  opacity: var(--k);
-}
-.pRows {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  margin: 1.8cqw 0 0;
-  font-size: 1.1cqw;
-}
-.pRows dt,
-.pRows dd {
-  margin: 0;
-  padding: 1.05cqw 0;
-  border-bottom: 1px solid #eef0f4;
-}
-.pRows dt {
-  color: var(--muted);
-}
-.pRows dd {
-  font-weight: 600;
-  color: var(--ink);
-}
-.pBtn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8cqw;
-  height: 4.4cqw;
-  margin-top: 2.2cqw;
-  overflow: hidden;
-  border-radius: 0.9cqw;
-  background: var(--blue);
-  box-shadow: 0 0.6cqw 1.4cqw rgba(0, 95, 156, 0.25);
-  /* hover zodra de cursor erop staat */
-  filter: brightness(calc(1 - clamp(0, (var(--sp) - 0.95) / 0.04, 1) * 0.14));
-  font-size: 1.2cqw;
-  font-weight: 600;
-  color: #fff;
-}
-.pBtn svg {
-  width: 1.4cqw;
-}
-.pBtn::after {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 40%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-  transform: translateX(-120%);
-  animation: shine 3.6s ease-in-out infinite;
-}
-@keyframes shine {
-  60%,
-  100% {
-    transform: translateX(300%);
-  }
-}
-.pNote {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5cqw;
-  margin: 1.3cqw 0 0;
-  font-size: 0.92cqw;
-  color: var(--muted);
-}
-.pNote svg {
-  width: 1.15cqw;
-  color: #00b874;
-}
-
-/* cursor + klik-rimpel (scherm-cqw-coördinaten) */
+/* ---------- cursor + klik-rimpel (scherm-cqw-coördinaten) ---------- */
 .screen .cursor {
-  --c1: clamp(0, (var(--sp) - 0.6) / 0.15, 1);
+  --c1: clamp(0, (var(--sp) - 0.38) / 0.15, 1);
   --c1e: calc(var(--c1) * var(--c1) * (3 - 2 * var(--c1)));
-  --c2: clamp(0, (var(--sp) - 0.86) / 0.1, 1);
+  --c2: clamp(0, (var(--sp) - 0.57) / 0.16, 1);
   --c2e: calc(var(--c2) * var(--c2) * (3 - 2 * var(--c2)));
-  --press: sin(clamp(0, (var(--sp) - 0.748) / 0.035, 1) * 180deg);
+  --press: sin(clamp(0, (var(--sp) - 0.522) / 0.04, 1) * 180deg);
   position: absolute;
   left: 0;
   top: 0;
@@ -971,25 +1129,25 @@
   stroke: #fff;
   stroke-width: 1.4;
   filter: drop-shadow(0 0.25cqw 0.35cqw rgba(0, 0, 0, 0.3));
-  opacity: clamp(0, (var(--sp) - 0.54) / 0.05, 1);
+  opacity: calc(clamp(0, (var(--sp) - 0.35) / 0.07, 1) * (1 - clamp(0, (var(--sp) - 0.62) / 0.1, 1)));
   transform-origin: 18% 12%;
   transform:
-    translate(calc(1cqw * (60 + (9.5 - 60) * var(--c1e) + (43 - 9.5) * var(--c2e)) - 0.4cqw),
-      calc(1cqw * (31 + (40.4 - 31) * var(--c1e) + (55 - 40.4) * var(--c2e)) - 0.3cqw))
-    scale(calc(1 - var(--press) * 0.18));
+    translate(calc(1cqw * (62 + (10 - 62) * var(--c1e) + (17 - 10) * var(--c2e)) - 0.4cqw),
+      calc(1cqw * (31 + (36.6 - 31) * var(--c1e) + (49 - 36.6) * var(--c2e)) - 0.3cqw))
+    scale(calc(1 - var(--press) * 0.16));
 }
 .ripple {
-  --k: clamp(0, (var(--sp) - 0.755) / 0.08, 1);
+  --k: clamp(0, (var(--sp) - 0.53) / 0.09, 1);
   position: absolute;
-  left: 9.5cqw;
-  top: 40.4cqw;
+  left: 10cqw;
+  top: 36.6cqw;
   z-index: 5;
   width: 5cqw;
   height: 5cqw;
   margin: -2.5cqw 0 0 -2.5cqw;
   border-radius: 50%;
-  background: rgba(0, 95, 156, 0.16);
-  border: 0.2cqw solid rgba(0, 95, 156, 0.5);
-  opacity: calc(sin(var(--k) * 180deg) * 0.9);
+  background: rgba(0, 95, 156, 0.14);
+  border: 0.2cqw solid rgba(0, 95, 156, 0.45);
+  opacity: calc(sin(var(--k) * 180deg) * 0.85);
   transform: scale(calc(0.3 + var(--k) * 1.1));
 }

@@ -14,12 +14,7 @@ const I = {
   settings: "M4 5h16v6H4zM4 13h16v6H4zM8 8h.01M8 16h.01",
   logout: "M13 4H5v16h8M10 12h11M17 8l4 4-4 4",
   chev: "M6 9l6 6 6-6",
-  doc: "M7 3h7l5 5v13H7zM14 3v5h5",
   check: "M5 12.5l4.5 4.5L19 7",
-  clock: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3.2 2",
-  close: "M6 6l12 12M18 6L6 18",
-  arrow: "M5 12h14M13 6l6 6-6 6",
-  shield: "M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6zM9 12l2.2 2.2L15.5 10",
 };
 
 function Ico({ d, className }: { d: string; className?: string }) {
@@ -29,6 +24,14 @@ function Ico({ d, className }: { d: string; className?: string }) {
     </svg>
   );
 }
+
+const v = (o: Record<string, string | number>) => o as React.CSSProperties;
+
+/* lijn-icoon als data-URI (achtergrond/::after): scheelt een svg + path per icoon in de DOM */
+const ico = (d: string, c = "#005f9c") =>
+  `url("data:image/svg+xml,${encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='${c}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='${d}'/></svg>`,
+  )}")`;
 
 const MENU: [string, string][] = [
   ["Dashboard", I.dash],
@@ -59,24 +62,92 @@ const INVOICES: { m: string; seg: [string, number][] }[] = [
 ];
 const EVENTS = [
   { name: "Bakkerij Verhoeven", ref: "OF-2024-412", tag: "Offerte geaccepteerd", tone: "g", time: "2 uur geleden" },
-  { name: "Noordkap Finance", ref: "FO-2024-031", tag: "Factoringofferte ontvangen", tone: "b", time: "5 uur geleden" },
-  { name: "Van Dijk Installaties", ref: "F-2024-097", tag: "Factuur verlopen", tone: "o", time: "8 uur geleden" },
-  { name: "Hofman Media", ref: "F-2024-118", tag: "Factuur betaald", tone: "g", time: "Zojuist" },
+  { name: "Van Dijk Techniek", ref: "F-2024-097", tag: "Factuur verlopen", tone: "o", time: "5 uur geleden" },
+  { name: "Kroon Catering", ref: "F-2024-101", tag: "Aanmaning verstuurd", tone: "b", time: "8 uur geleden" },
 ];
+
+/* opvolgingen-bord: kolom per fase; [factuur, debiteur, bedrag, dagen, actie] (fictief) */
+type Card = [string, string, string, string, string];
+const BOARD: { k: string; name: string; n: [number, number]; sum: [string, string]; cards: Card[] }[] = [
+  {
+    k: "paid",
+    name: "Betaald",
+    n: [2, 3],
+    sum: ["€4.650", "€9.490"],
+    cards: [
+      ["F-2024-109", "Bakkerij Smits", "€1.250", "Ontvangen 4-11", "Betaald"],
+      ["F-2024-104", "Studio Noord", "€3.400", "Ontvangen 1-11", "Betaald"],
+    ],
+  },
+  {
+    k: "rem",
+    name: "1ste herinnering",
+    n: [3, 2],
+    sum: ["€10.735", "€5.895"],
+    cards: [
+      ["F-2024-121", "De Groot Bouw", "€2.115", "6 dagen te laat", "E-mail"],
+      ["F-2024-123", "Leeuwen Logistiek", "€3.780", "4 dagen te laat", "AI-call"],
+    ],
+  },
+  {
+    k: "warn",
+    name: "Aanmaning",
+    n: [3, 3],
+    sum: ["€11.240", "€11.240"],
+    cards: [
+      ["F-2024-097", "Van Dijk Techniek", "€5.600", "21 dagen te laat", "Brief"],
+      ["F-2024-101", "Kroon Catering", "€1.980", "18 dagen te laat", "AI-call"],
+      ["F-2024-099", "Atelier Meijer", "€3.660", "16 dagen te laat", "E-mail"],
+    ],
+  },
+  {
+    k: "def",
+    name: "Ingebrekestelling",
+    n: [2, 2],
+    sum: ["€7.150", "€7.150"],
+    cards: [
+      ["F-2024-082", "Smit Transport", "€4.200", "38 dagen te laat", "Aangetekend"],
+      ["F-2024-086", "Bloemsma Retail", "€2.950", "34 dagen te laat", "Aangetekend"],
+    ],
+  },
+  {
+    k: "debt",
+    name: "Incasso",
+    n: [2, 2],
+    sum: ["€6.410", "€6.410"],
+    cards: [
+      ["F-2024-071", "Jansen Bouw", "€3.900", "52 dagen te laat", "Incassopartner"],
+      ["F-2024-068", "Hoeve de Linde", "€2.510", "47 dagen te laat", "Incassopartner"],
+    ],
+  },
+];
+
+function Inv({ c, i, className }: { c: Card; i: number; className?: string }) {
+  return (
+    <article className={className ?? s.card} data-no={c[0]} data-amt={c[2]} data-r={i}>
+      <span className={s.who}>{c[1]}</span>
+      <footer data-d={c[3]}>
+        <em data-c={c[4]} />
+      </footer>
+    </article>
+  );
+}
 
 /** Rollend cijfer (CSS-only): --d = doelcijfer, --o = volgorde voor de stagger. */
 function Roll({ d, o }: { d: number; o: number }) {
-  return <span className={s.roll} style={{ ["--d" as string]: d, ["--o" as string]: o }} />;
+  return <span className={s.roll} style={v({ "--d": d, "--o": o })} />;
 }
 
 /**
- * Monvy: het dashboard van het debiteuren- en financieringsplatform op een
- * iPad Pro. De tablet kantelt in perspectief binnen en komt tot rust; de
- * staafgrafieken groeien, de KPI's rollen op, gebeurtenissen schuiven binnen,
- * een betaalmelding popt op en de cursor klikt op Factoring, waarna het
- * paneel met de factoringofferte openschuift.
+ * Monvy: het debiteuren- en financieringsplatform op een iPad Pro. De tablet
+ * komt rustig binnen, het dashboard bouwt op (staven groeien, KPI's rollen,
+ * gebeurtenissen schuiven in). De cursor klikt in de zijbalk op Opvolgingen:
+ * het opvolgingen-dashboard opent als bord met een kolom per fase (aantal +
+ * openstaand bedrag). Een betaling komt binnen en de factuur schuift rustig
+ * van "1ste herinnering" naar "Betaald", terwijl de camera langzaam meedrijft.
  */
 export function MonvyApp() {
+  const mover: Card = ["F-2024-118", "Hofman Media", "€4.840", "9 dagen te laat", "E-mail"];
   return (
     <div className={s.root}>
       <div className={s.glow} aria-hidden="true" />
@@ -95,26 +166,31 @@ export function MonvyApp() {
                   </svg>
                   <span>monvy</span>
                 </div>
-                <div className={s.user}>
+                <div className={s.user} style={v({ "--ic": ico(I.chev, "#333333") })}>
                   <span className={s.avatar}>SV</span>
                   <b>Welkom, Sanne</b>
-                  <Ico d={I.chev} className={s.chev} />
                 </div>
                 <div className={s.notif}>
                   7 nieuwe notificaties<i />
                 </div>
                 <ul className={s.menu}>
                   {MENU.map(([label, d], n) => (
-                    <li key={label} className={n === 0 ? s.isDash : n === 5 ? s.isFactor : undefined}>
-                      <Ico d={d} />
+                    <li
+                      key={label}
+                      className={n === 0 ? s.isDash : n === 4 ? s.isOpv : n > 4 ? s.below : undefined}
+                      style={v({ "--ic": ico(d) })}
+                    >
                       {label}
                     </li>
                   ))}
                 </ul>
-                <div className={s.settings}>
-                  <Ico d={I.settings} />
+                <div className={s.subMenu}>
+                  <b>Overzicht</b>
+                  <span>Alle opvolgingen</span>
+                </div>
+                <span className={s.rail} />
+                <div className={s.settings} style={v({ "--ic": ico(I.settings), "--ic2": ico(I.logout, "#333333") })}>
                   Instellingen
-                  <Ico d={I.logout} className={s.logout} />
                 </div>
               </aside>
 
@@ -143,9 +219,9 @@ export function MonvyApp() {
                     </span>
                     <div className={s.plot}>
                       {OFFERS.map((b, i) => (
-                        <div key={b.m} className={s.bar} style={{ ["--i" as string]: i }}>
-                          <span className={s.b} style={{ ["--s" as string]: b.b }} />
-                          {b.g > 0 && <span className={s.g} style={{ ["--s" as string]: b.g }} />}
+                        <div key={b.m} className={s.bar} style={v({ "--i": i })}>
+                          <span className={s.b} style={v({ "--s": b.b })} />
+                          {b.g > 0 && <span className={s.g} style={v({ "--s": b.g })} />}
                         </div>
                       ))}
                     </div>
@@ -180,9 +256,9 @@ export function MonvyApp() {
                     </span>
                     <div className={s.plot}>
                       {INVOICES.map((b, i) => (
-                        <div key={b.m} className={s.bar} style={{ ["--i" as string]: i + 2 }}>
+                        <div key={b.m} className={s.bar} style={v({ "--i": i + 2 })}>
                           {b.seg.map(([c, h], j) => (
-                            <span key={j} className={s[c]} style={{ ["--s" as string]: h }} />
+                            <span key={j} className={s[c]} style={v({ "--s": h })} />
                           ))}
                         </div>
                       ))}
@@ -200,13 +276,10 @@ export function MonvyApp() {
                 </h4>
                 <div className={s.events}>
                   {EVENTS.map((e, i) => (
-                    <article key={e.ref} className={s.ev} style={{ ["--i" as string]: i }}>
+                    <article key={e.ref} className={s.ev} style={v({ "--i": i })}>
                       <div className={s.evTop}>
                         <b>{e.name}</b>
-                        <span>
-                          <Ico d={I.doc} />
-                          {e.ref}
-                        </span>
+                        <span>{e.ref}</span>
                       </div>
                       <em className={`${s.tag} ${s["t" + e.tone]}`}>{e.tag}</em>
                       <footer>
@@ -218,82 +291,46 @@ export function MonvyApp() {
                 </div>
               </main>
 
-              <div className={s.scrim} />
+              {/* ---------- opvolgingen: bord per fase ---------- */}
+              <section className={s.follow}>
+                <h3 className={s.fTitle}>
+                  Opvolgingen <span>Overzicht</span>
+                </h3>
+                <div className={s.board}>
+                  {BOARD.map((col, c) => (
+                    <div key={col.k} className={`${s.col} ${s[col.k]}`} style={v({ "--c": c })}>
+                      <header className={s.cHead}>
+                        <b>{col.name}</b>
+                        <i data-a={col.n[0]} data-b={col.n[1]} />
+                        <small data-a={col.sum[0]} data-b={col.sum[1]} />
+                      </header>
+                      <div className={s.cards}>
+                        {col.cards.map((card, r) => (
+                          <Inv key={card[0]} c={card} i={r} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  {/* de factuur die betaald wordt en naar "Betaald" schuift */}
+                  <article className={s.mover} data-no={mover[0]} data-amt={mover[2]}>
+                    <span className={s.who}>{mover[1]}</span>
+                    <footer data-d={mover[3]} data-d2="Ontvangen 6-11">
+                      <em data-c={mover[4]} data-c2="Betaald" />
+                    </footer>
+                  </article>
+                </div>
+              </section>
 
-              {/* ---------- toast ---------- */}
+              {/* ---------- betaalmelding ---------- */}
               <div className={s.toast}>
                 <span className={s.tick}>
                   <Ico d={I.check} />
                 </span>
                 <span>
-                  <b>Factuur F-2024-118 betaald</b>
-                  €4.840 ontvangen van Hofman Media
+                  <b>Betaling ontvangen</b>
+                  €4.840 · Hofman Media
                 </span>
               </div>
-
-              {/* ---------- factoringpaneel ---------- */}
-              <section className={s.panel}>
-                <header className={s.pHead}>
-                  <span className={s.pChip}>
-                    <Ico d={I.factor} />
-                  </span>
-                  Factoring
-                  <Ico d={I.close} className={s.pClose} />
-                </header>
-                <h4 className={s.pTitle}>Factoringofferte</h4>
-                <p className={s.pSub}>Factuur F-2024-121 · De Groot Bouw B.V.</p>
-                <div className={s.pAmount}>
-                  <small>Je ontvangt</small>
-                  <strong>
-                    €<Roll d={1} o={0} />
-                    <Roll d={8} o={1} />.<Roll d={2} o={2} />
-                    <Roll d={5} o={3} />
-                    <Roll d={0} o={4} />
-                  </strong>
-                  <span>
-                    <Ico d={I.clock} />
-                    binnen 24 uur op je rekening
-                  </span>
-                </div>
-                <ol className={s.steps}>
-                  <li>
-                    <i>
-                      <Ico d={I.check} />
-                    </i>
-                    Aangevraagd
-                  </li>
-                  <li>
-                    <i>
-                      <Ico d={I.check} />
-                    </i>
-                    Goedgekeurd
-                  </li>
-                  <li>
-                    <i>
-                      <Ico d={I.clock} />
-                    </i>
-                    Uitbetaling
-                  </li>
-                </ol>
-                <dl className={s.pRows}>
-                  <dt>Factuurbedrag</dt>
-                  <dd>€19.210</dd>
-                  <dt>Bevoorschotting</dt>
-                  <dd>95%</dd>
-                  <dt>Looptijd</dt>
-                  <dd>max. 60 dagen</dd>
-                  <dt>Partner</dt>
-                  <dd>Noordkap Finance</dd>
-                </dl>
-                <span className={s.pBtn}>
-                  Offerte accepteren
-                  <Ico d={I.arrow} />
-                </span>
-                <p className={s.pNote}>
-                  <Ico d={I.shield} />
-                  Geen vaste kosten, per factuur te kiezen
-                </p>
-              </section>
 
               {/* ---------- cursor ---------- */}
               <span className={s.ripple} />
