@@ -160,33 +160,25 @@
 .ov *::after {
   box-sizing: border-box;
 }
-.ov button,
-.ov input,
-.ov textarea {
+/* Resets zonder specificiteit, zodat elke klasse hieronder wint */
+:where(.ov) :where(button, input, textarea) {
   font: inherit;
   color: inherit;
 }
-.ov button {
+:where(.ov) :where(button) {
   background: none;
   border: 0;
   padding: 0;
   cursor: pointer;
 }
-.ov a {
+:where(.ov) :where(a) {
   color: inherit;
   text-decoration: none;
 }
-.ov h2,
-.ov h3,
-.ov p,
-.ov ul,
-.ov ol,
-.ov dl,
-.ov dd {
+:where(.ov) :where(h2, h3, p, ul, ol, dl, dd) {
   margin: 0;
 }
-.ov ul,
-.ov ol {
+:where(.ov) :where(ul, ol) {
   padding: 0;
   list-style: none;
 }
@@ -253,7 +245,6 @@
     color 0.3s,
     opacity 0.3s;
 }
-.ov .ov-btn--primary,
 .ov-btn--primary {
   padding: 6px 6px 6px 24px;
   color: #fff;
@@ -286,7 +277,6 @@
 .ov-btn--primary:hover .ov-btn__dot {
   transform: translateX(2px);
 }
-.ov .ov-btn--ghost,
 .ov-btn--ghost {
   color: rgba(255, 255, 255, 0.75);
   background: transparent;
@@ -348,14 +338,14 @@
   height: 42px;
   border-radius: 50%;
   color: #fff;
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   transition:
     background 0.3s,
     transform 0.6s var(--ease-out, ease);
 }
 .ov-close:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.1);
   transform: rotate(90deg);
 }
 
@@ -401,7 +391,7 @@
   border-radius: 20px;
   text-align: left;
   color: var(--text, #f6f6f8);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.09);
   transition:
     box-shadow 0.35s var(--ease-out, ease),
@@ -409,7 +399,7 @@
     transform 0.5s var(--ease-out, ease);
 }
 .ov-choice:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.03)) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.03));
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--acc) 45%, transparent);
   transform: translateY(-2px);
 }
@@ -418,7 +408,7 @@
     180deg,
     color-mix(in srgb, var(--acc) 16%, rgba(12, 12, 15, 0.8)),
     color-mix(in srgb, var(--acc) 6%, rgba(12, 12, 15, 0.8))
-  ) !important;
+  );
   box-shadow:
     inset 0 0 0 1.5px var(--acc),
     0 14px 44px -20px color-mix(in srgb, var(--acc) 70%, transparent);
@@ -538,7 +528,7 @@
   line-height: 1.25;
   text-align: left;
   color: var(--text, #f6f6f8);
-  background: rgba(255, 255, 255, 0.045) !important;
+  background: rgba(255, 255, 255, 0.045);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   transition:
     background 0.3s,
@@ -546,14 +536,14 @@
     transform 0.45s var(--ease-out, ease);
 }
 .ov-chip:hover {
-  background: rgba(255, 255, 255, 0.075) !important;
+  background: rgba(255, 255, 255, 0.075);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--acc) 50%, transparent);
 }
 .ov-chip:active {
   transform: scale(0.98);
 }
 .ov-chip.is-on {
-  background: color-mix(in srgb, var(--acc) 15%, rgba(12, 12, 15, 0.7)) !important;
+  background: color-mix(in srgb, var(--acc) 15%, rgba(12, 12, 15, 0.7));
   box-shadow: inset 0 0 0 1.5px var(--acc);
 }
 .ov-chip__box {
@@ -651,8 +641,7 @@
     inset 0 0 0 1.5px #ff6b6b,
     0 0 0 4px rgba(255, 107, 107, 0.1);
 }
-.ov-field__err,
-.ov .ov-field__err {
+.ov-field__err {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -998,7 +987,7 @@
   outline: none;
 }
 .sup__sub {
-  margin-top: -8px !important;
+  margin-top: -8px;
   color: var(--muted, #a7a7b0);
   font-size: 0.95rem;
   line-height: 1.6;
@@ -1508,7 +1497,7 @@
 }
 .itk__sub {
   max-width: 62ch;
-  margin-top: -6px !important;
+  margin-top: -6px;
   color: var(--muted, #a7a7b0);
   font-size: clamp(1rem, 1.25vw, 1.12rem);
   line-height: 1.6;
@@ -1593,12 +1582,9 @@
 .itk__unsure {
   --acc: #b48cff;
   margin-top: 4px;
-  background: transparent !important;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  border: 1px dashed transparent;
 }
-.itk__unsure.is-on {
-  background: color-mix(in srgb, var(--acc) 12%, rgba(12, 12, 15, 0.8)) !important;
+.itk__unsure:not(.is-on) {
+  background: transparent;
 }
 .itk__wide {
   max-width: 760px;
@@ -1661,7 +1647,7 @@
   border-radius: 18px;
   text-align: left;
   color: var(--text, #f6f6f8);
-  background: rgba(12, 12, 15, 0.74) !important;
+  background: rgba(12, 12, 15, 0.74);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   transition:
     background 0.3s,
@@ -1692,7 +1678,7 @@
     color 0.3s;
 }
 .itk__qa:hover {
-  background: rgba(22, 22, 26, 0.88) !important;
+  background: rgba(22, 22, 26, 0.88);
   box-shadow: inset 0 0 0 1px rgba(58, 255, 255, 0.4);
   transform: translateY(-1px);
 }
@@ -1905,7 +1891,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin: 0 0 14px !important;
+  margin: 0 0 14px;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -1923,7 +1909,7 @@
 }
 .pathblk__text {
   max-width: 46ch;
-  margin: 12px 0 0 !important;
+  margin: 12px 0 0;
   font-size: 0.98rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);

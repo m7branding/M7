@@ -1077,7 +1077,7 @@ html.js .pw-hero__pick[data-reveal].is-in {
 }
 @media (max-width: 1000px) {
   .pw-info {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .pw-info__aside {
     position: static;
@@ -1232,6 +1232,19 @@ html.js .pw-hero__pick[data-reveal].is-in {
   }
 }
 @media (max-width: 520px) {
+  .pw-card {
+    padding: 22px 20px;
+  }
+  .pw-facts__cta .btn {
+    min-height: 48px;
+    padding: 6px 6px 6px 20px;
+    gap: 14px;
+    font-size: 0.9rem;
+  }
+  .pw-facts__cta .btn__dot {
+    width: 36px;
+    height: 36px;
+  }
   .pw-all__grid {
     gap: 10px;
   }
