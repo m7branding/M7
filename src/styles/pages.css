@@ -919,6 +919,11 @@
 .sector-ticker .marquee {
   --gap: 12px;
 }
+/* zelfde maat als de ticker op home */
+.sector-ticker .chip {
+  padding: 11px 20px;
+  font-size: clamp(0.88rem, 0.95vw, 0.98rem);
+}
 
 /* FAQ per doelgroep */
 .sector-faq__head {

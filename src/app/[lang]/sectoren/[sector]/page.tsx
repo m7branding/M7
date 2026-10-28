@@ -118,7 +118,7 @@ export default function SectorPage({ params }: P) {
               {appRows.map((row, ri) => (
                 <Marquee key={ri} speed={Math.max(36, row.length * (12 + ri * 2))} reverse={ri === 1}>
                   {row.map((a) => (
-                    <TLink key={a.slug} href={paths.application(a)} className="chip chip--lg" style={{ ["--accent" as string]: getService(a.service)!.color }}>
+                    <TLink key={a.slug} href={paths.application(a)} className="chip" style={{ ["--accent" as string]: getService(a.service)!.color }}>
                       <span className="chip__dot" />
                       {tr(a.title, locale)}
                     </TLink>
