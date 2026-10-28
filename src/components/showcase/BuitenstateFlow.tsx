@@ -37,12 +37,14 @@ const Pin = () => (
 
 /**
  * Buitenstate Zoekersmatch, 1-op-1 naar de echte widget (buitenstate.nl/zoekers).
- * Opent op de interactieve provinciekaart: de cursor glijdt van Groningen naar het
- * zuiden, de provincies lichten één voor één op (hover) en Noord-Brabant wordt
- * gekozen. Dan zoomt de camera rustig uit en verschijnt de widget rond de kaart:
- * 1.447 zoekers in Noord-Brabant → gegevens invullen → zoekers rond het adres
- * binnen 50 km. De klik op "Vraag gratis waardebepaling aan" schiet als lead het
- * CRM in en de automatisering stuurt de bevestigingsmail met het aantal zoekers.
+ * Opent op de interactieve provinciekaart in de widget: de widget komt licht gekanteld
+ * omhoog en komt vlak tot rust, de camera is ingezoomd op de kaart. De cursor glijdt
+ * van Groningen naar het zuiden, de provincies lichten één voor één op (hover) en
+ * Noord-Brabant wordt gekozen, terwijl de camera in één lange beweging uitzoomt tot de
+ * hele widget in beeld is: 1.447 zoekers in Noord-Brabant → gegevens invullen →
+ * zoekers rond het adres binnen 50 km. De klik op "Vraag gratis waardebepaling aan"
+ * schiet als lead het CRM in en de automatisering stuurt de bevestigingsmail; CRM en
+ * mail stapelen zich als zwevende kaartjes over de widget.
  */
 export function BuitenstateFlow() {
   return (
@@ -271,14 +273,6 @@ export function BuitenstateFlow() {
                 Oisterwijk · Zoekersmatch
               </span>
               <small>ma 14:20</small>
-            </div>
-            <div className={s.old}>
-              <span className={s.av}>JH</span>
-              <span className={s.who}>
-                <b>Joost Hendriks</b>
-                Haaren · Waardebepaling
-              </span>
-              <small>vr 09:12</small>
             </div>
           </div>
         </div>
