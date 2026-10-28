@@ -1534,10 +1534,10 @@
   gap: 14px;
 }
 .itk__grid--goals {
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
 }
 .itk__grid--goals .ov-choice--tile {
-  min-height: 168px;
+  min-height: 158px;
 }
 .itk__grid--list {
   grid-template-columns: repeat(2, minmax(0, 1fr));

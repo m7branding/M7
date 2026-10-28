@@ -184,6 +184,12 @@
   transform: translateY(-1px);
 }
 
+/* de reveal zet clip-path op .is-in: dat zou de gloed rond de balk afknippen */
+html.js .page-hero .page-hero__extra.is-in:has(> .af),
+html.js .svc-aud .svc-aud__finder.is-in {
+  clip-path: none;
+}
+
 /* hero van de sectorpagina: balk over de volle breedte van de kolom */
 .page-hero__extra:has(> .af) {
   justify-self: stretch;
