@@ -2027,13 +2027,13 @@
   align-items: center;
   gap: 14px 20px;
 }
-.csup__foot a {
+.csup__foot a:not(.btn) {
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--muted, #a7a7b0);
   transition: color 0.3s;
 }
-.csup__foot a:hover {
+.csup__foot a:not(.btn):hover {
   color: #fff;
 }
 .contact-paths {

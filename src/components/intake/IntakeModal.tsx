@@ -89,7 +89,7 @@ const C = {
   submit: { nl: "Verstuur intake", en: "Send intake" },
   sending: { nl: "Versturen…", en: "Sending…" },
   direct: { nl: "Liever direct?", en: "Rather go direct?" },
-  team: { nl: "Je intake komt direct bij ons team terecht.", en: "Your intake goes straight to our team." },
+  team: { nl: "Je intake gaat direct naar ons team.", en: "Your intake goes straight to our team." },
   wa: { nl: "WhatsApp {name}", en: "WhatsApp {name}" },
   waD: { nl: "Met je keuzes al ingevuld", en: "With your choices filled in" },
   call: { nl: "Bel {name}", en: "Call {name}" },
@@ -538,7 +538,7 @@ export function IntakeModal({
 
   const teamRow = team.length ? (
     <p className="itk__team">
-      <Avatars people={team} size={34} more={Math.max(0, teamSize - team.length)} ring="#0c0c0f" />
+      <Avatars people={team} size={32} more={Math.max(0, teamSize - team.length)} ring="#0c0c0f" />
       <span>{L(C.team)}</span>
     </p>
   ) : null;

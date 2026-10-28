@@ -1354,15 +1354,16 @@
   justify-items: center;
   gap: 26px;
   margin-top: clamp(48px, 6vw, 70px);
-  padding-inline: 20px;
 }
 .levelup__team {
   --av-ring: #050505;
+  max-width: 100%;
 }
 @media (max-width: 560px) {
-  .levelup__team {
+  .levelup__team.av-line {
     flex-direction: column;
     gap: 12px;
+    max-width: 30ch;
     text-align: center;
   }
 }
