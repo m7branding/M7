@@ -139,8 +139,18 @@ export default function AboutPage({ params }: P) {
         </div>
       </section>
 
-      <div id="werkwijze">
+      <div id="werkwijze" style={{ position: "relative" }}>
         <Juices locale={locale} />
+        {/* naar alle tien werkprocessen (de slider hierboven toont er vier) */}
+        <p
+          className="center"
+          data-reveal="fade"
+          style={{ position: "absolute", insetInline: 0, bottom: "calc(var(--section) * 0.42)", margin: 0, paddingInline: "var(--gutter)" }}
+        >
+          <TLink href={paths.process} className="link-dash">
+            {locale === "nl" ? "Bekijk het werkproces per dienst" : "See the process per service"}
+          </TLink>
+        </p>
       </div>
 
       <section className="section section--tight">

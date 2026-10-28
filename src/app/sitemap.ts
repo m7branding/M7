@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: paths.sectors, priority: 0.7, freq: "monthly" },
     { path: paths.cases, priority: 0.8, freq: "weekly" },
     { path: paths.about, priority: 0.6, freq: "monthly" },
+    { path: paths.process, priority: 0.7, freq: "monthly" },
     { path: paths.contact, priority: 0.6, freq: "yearly" },
     ...allServices().map((s) => ({ path: paths.service(s), priority: 0.9, freq: "monthly" as const })),
     ...allApplications().map((a) => ({ path: paths.application(a), priority: 0.7, freq: "monthly" as const })),

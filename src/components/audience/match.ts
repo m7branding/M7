@@ -31,6 +31,8 @@ export const STOP = new Set([
   "and", "the", "for", "with", "that", "who", "from", "to", "your", "a", "an", "on", "at",
   "bedrijf", "bedrijven", "bedrijv", "organisatie", "organisaties", "ondernemer", "ondernemers",
   "company", "companies", "business", "businesses", "organisation", "organisations", "organization", "organizations",
+  "firm", "firms", "provider", "providers", "service", "services", "specialist", "specialists", "specialisten",
+  "bureau", "bureaus", "kantoor", "kantoren", "office", "offices", "agency", "agencies", "zelfstandige", "independent",
 ]);
 
 export const words = (s: string) => norm(s).split(" ").filter((w) => w.length > 1);
@@ -65,8 +67,9 @@ export function wordScore(t: string, st: string, w: string, sw: string): number 
   if (sw === st) return 0.96;
   if (w.startsWith(t)) return 0.9 - Math.min(0.15, (w.length - t.length) * 0.01);
   if (t.length >= 4 && sw.startsWith(st)) return 0.86;
-  // samenstellingen: "aankoopmakelaars" bevat "makelaar"
-  if (st.length >= 4 && w.includes(st)) return 0.74;
+  // samenstellingen: in het Nederlands zit de kern achteraan ("autodealers", "aankoopmakelaars")
+  if (st.length >= 4 && (sw.endsWith(st) || w.endsWith(t))) return 0.86;
+  if (st.length >= 4 && w.includes(st)) return 0.72;
   if (t.length >= 4) {
     const k = t.length >= 7 ? 2 : 1;
     if (osa(t, w.slice(0, t.length), k) <= k || osa(t, w.slice(0, t.length + 1), k) <= k) return 0.62;
@@ -103,7 +106,7 @@ export function scoreQuery(q: string, h: Haystack): number {
     const st = stem(t);
     let best = 0;
     for (let i = 0; i < h.w.length && best < 1; i++) best = Math.max(best, wordScore(t, st, h.w[i], h.ws[i]));
-    for (let i = 0; i < h.a.length && best < 0.9; i++) best = Math.max(best, 0.92 * wordScore(t, st, h.a[i], h.as[i]));
+    for (let i = 0; i < h.a.length && best < 0.8; i++) best = Math.max(best, 0.8 * wordScore(t, st, h.a[i], h.as[i]));
     if (t.length >= 4) for (let i = 0; i < h.k.length && best < 0.55; i++) best = Math.max(best, 0.58 * wordScore(t, st, h.k[i], h.ks[i]));
     if (!best) return 0;
     sum += best;

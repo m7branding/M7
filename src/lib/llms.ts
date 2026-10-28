@@ -54,6 +54,13 @@ export function llmsTxt(full = false): string {
       }
     }
     out.push("");
+    out.push(`## Werkproces per dienst (${u(paths.process)})`);
+    for (const s of allServices()) {
+      out.push("");
+      out.push(`### ${tr(s.title, l)}`);
+      s.process.forEach((p, i) => out.push(`${i + 1}. **${tr(p.title, l)}**: ${tr(p.text, l)}`));
+    }
+    out.push("");
     out.push("## Veelgestelde vragen");
     for (const s of allServices()) {
       out.push("");
@@ -68,6 +75,7 @@ export function llmsTxt(full = false): string {
   out.push("");
   out.push("## Optioneel");
   out.push(`- [Over M7](${u(paths.about)})`);
+  out.push(`- [Werkproces per dienst](${u(paths.process)}): hoe M7 per dienst te werk gaat, stap voor stap`);
   out.push(`- [Contact](${u(paths.contact)})`);
   out.push(`- [Alle toepassingen](${u(paths.applications)})`);
   out.push(`- [Volledige versie](${site.url}/llms-full.txt)`);

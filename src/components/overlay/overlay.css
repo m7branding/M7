@@ -636,10 +636,12 @@
     0 0 0 4px rgba(58, 255, 255, 0.12);
 }
 .ov-field.is-invalid input,
-.ov-field.is-invalid textarea {
+.ov-field.is-invalid textarea,
+.ov-field.is-invalid input:focus,
+.ov-field.is-invalid textarea:focus {
   box-shadow:
     inset 0 0 0 1.5px #ff6b6b,
-    0 0 0 4px rgba(255, 107, 107, 0.1);
+    0 0 0 4px rgba(255, 107, 107, 0.12);
 }
 .ov-field__err {
   display: flex;
@@ -976,6 +978,8 @@
   gap: 20px;
   padding: 28px 34px 26px;
   animation: ov-step-in 0.55s var(--ease-out, ease) both;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
@@ -1261,14 +1265,6 @@
     grid-template-rows: auto minmax(0, 1fr);
     border-radius: 26px 26px 0 0;
   }
-  .sup__main {
-    position: static;
-  }
-  .sup .ov-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-  }
   .sup__aside {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
@@ -1277,13 +1273,14 @@
       "avs title";
     align-items: center;
     gap: 6px 14px;
-    padding: 18px 64px 16px 18px;
+    padding: 18px 18px 16px;
     border-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     overflow: hidden;
   }
   .sup__status {
     grid-area: status;
+    justify-self: start;
     padding: 5px 10px 5px 9px;
     font-size: 0.72rem;
   }

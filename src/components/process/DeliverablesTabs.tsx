@@ -29,6 +29,15 @@ export function DeliverablesTabs({ service, apps, label, more }: { service: stri
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pick.n]);
 
+  // op mobiel is de tabrij veegbaar: actieve tab horizontaal in beeld houden (zonder de pagina te scrollen)
+  useEffect(() => {
+    const t = tabs.current[apps.findIndex((a) => a.slug === cur)];
+    const row = t?.parentElement;
+    if (!t || !row || row.scrollWidth <= row.clientWidth) return;
+    row.scrollTo({ left: t.offsetLeft - row.offsetLeft - 20, behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cur]);
+
   const onKey = (e: React.KeyboardEvent, k: number) => {
     const n = apps.length;
     const map: Record<string, number> = {
