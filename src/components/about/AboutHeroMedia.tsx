@@ -94,6 +94,15 @@ export function AboutHeroMedia({
     return () => window.clearTimeout(t);
   }, [prev, cur]);
 
+  // metadata die al binnen was vóór de hydratatie (dan mist React het event)
+  useEffect(() => {
+    videos.current.forEach((v, i) => {
+      if (v && v.readyState >= 1 && Number.isFinite(v.duration) && v.duration > 0) {
+        setDur((o) => (o[i] ? o : { ...o, [i]: v.duration }));
+      }
+    });
+  }, [armed]);
+
   // video's: alleen de actieve speelt (de uitgaande mag uitfaden)
   useEffect(() => {
     videos.current.forEach((v, i) => {
