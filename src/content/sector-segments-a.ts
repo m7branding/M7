@@ -498,7 +498,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
             application: "presentaties-pitchdecks",
           },
           {
-            title: { nl: "Clubapp met afmelden en pushberichten", en: "A club app with sign-offs and push alerts" },
+            title: { nl: "Clubapp met afmelden en pushberichten", en: "A club app with sign-offs and alerts" },
             text: {
               nl: "Leden melden zich af, reserveren een baan en krijgen een seintje bij een afgelasting, gekoppeld aan je ledenadministratie.",
               en: "Members sign off, book a court and get a heads-up when a match is cancelled, linked to your membership administration.",
