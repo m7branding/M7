@@ -3,7 +3,7 @@
 import * as branding from "./services/branding-rebranding";
 import * as websites from "./services/websites-webshops";
 import * as webapps from "./services/web-apps-portals-apps";
-import * as marketing from "./services/marketing-automatisering-funnels";
+import * as marketing from "./services/automation-funnels";
 import * as seo from "./services/seo-aeo-geo";
 import * as content from "./services/content-marketing-online-ads";
 import * as media from "./services/foto-video-3d-animatie";

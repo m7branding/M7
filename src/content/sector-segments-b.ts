@@ -692,7 +692,7 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Klanten melden een storing met foto's en het type installatie, en via een automatisering staat het meteen in je planning. De klant krijgt een bevestiging, je monteur weet wat hij mee moet nemen.",
               en: "Customers report a fault with photos and the type of installation, and an automation puts it straight into your schedule. The customer gets a confirmation, your engineer knows what to bring.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "workflow-automatisering",
           },
           {
@@ -1049,7 +1049,7 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Elke aanvraag krijgt direct een bevestiging en je team een taak. Wie na een consult twijfelt, krijgt een vriendelijke herinnering.",
               en: "Every enquiry gets an instant confirmation and your team gets a task. Anyone hesitating after a consultation gets a friendly reminder.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "crm-implementatie",
           },
           {
@@ -1425,7 +1425,7 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Wie nog niet klaar is voor een gesprek, krijgt een paar nuttige mails over zijn situatie. Op het juiste moment volgt de afspraak vanzelf.",
               en: "Anyone not ready for a meeting yet gets a few useful emails about their situation. At the right moment, the appointment follows naturally.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "lead-nurturing",
           },
         ],
@@ -1491,7 +1491,7 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Een verhuizing, een nieuwe auto of de start van een bedrijf: dan stuur je een relevante check. Niet iedereen dezelfde nieuwsbrief.",
               en: "A house move, a new car or starting a business: that is when you send a relevant check. Not the same newsletter to everyone.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "marketing-automation",
           },
           {
@@ -1723,7 +1723,7 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Aanvragen, documenten en statusupdates gaan automatisch naar je CRM of acceptatieomgeving. Met logging, zodat je terugziet wie wat deed.",
               en: "Applications, documents and status updates flow automatically into your CRM or credit environment. With logging, so you can trace who did what.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "workflow-automatisering",
           },
           {
@@ -1826,7 +1826,7 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Praktische info voor aankomst, een reviewverzoek na vertrek en later een seizoensaanbod. Automatisch op basis van de boeking.",
               en: "Practical info before arrival, a review request after departure and a seasonal offer later on. Automatically, based on the booking.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "e-mailmarketing",
           },
           {
@@ -2046,7 +2046,7 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "We meten waar bezoekers afhaken bij het kopen van een ticket of tijdslot en verbeteren dat stap voor stap.",
               en: "We measure where visitors drop out when buying a ticket or time slot and improve it step by step.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "conversie-optimalisatie",
           },
           {

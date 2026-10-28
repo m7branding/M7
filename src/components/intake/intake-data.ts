@@ -71,22 +71,22 @@ export const CHALLENGES: Record<Exclude<GoalId, "other">, (Opt & { services: Ser
     {
       id: "convert",
       t: { nl: "Wel bezoekers, maar weinig aanvragen", en: "Visitors, but few enquiries" },
-      services: ["configurators-lead-tools-widgets", "websites-webshops", "marketing-automatisering-funnels"],
+      services: ["configurators-lead-tools-widgets", "websites-webshops", "automation-funnels"],
     },
     {
       id: "quality",
       t: { nl: "Aanvragen zijn niet de juiste", en: "Enquiries aren't the right ones" },
-      services: ["marketing-automatisering-funnels", "configurators-lead-tools-widgets"],
+      services: ["automation-funnels", "configurators-lead-tools-widgets"],
     },
     {
       id: "followup",
       t: { nl: "Opvolging gaat handmatig of schiet erbij in", en: "Follow-up is manual or slips through" },
-      services: ["marketing-automatisering-funnels", "ai-consultancy"],
+      services: ["automation-funnels", "ai-consultancy"],
     },
     {
       id: "nodata",
       t: { nl: "Geen idee wat werkt (geen data)", en: "No idea what works (no data)" },
-      services: ["marketing-automatisering-funnels", "content-marketing-online-ads"],
+      services: ["automation-funnels", "content-marketing-online-ads"],
     },
   ],
   brand: [
@@ -123,17 +123,17 @@ export const CHALLENGES: Record<Exclude<GoalId, "other">, (Opt & { services: Ser
     {
       id: "manual",
       t: { nl: "Veel handwerk en dubbel invoeren", en: "Lots of manual work and double entry" },
-      services: ["marketing-automatisering-funnels", "ai-consultancy"],
+      services: ["automation-funnels", "ai-consultancy"],
     },
     {
       id: "systems",
       t: { nl: "Systemen praten niet met elkaar", en: "Systems don't talk to each other" },
-      services: ["web-apps-portals-apps", "marketing-automatisering-funnels"],
+      services: ["web-apps-portals-apps", "automation-funnels"],
     },
     {
       id: "quotes",
       t: { nl: "Offertes en aanvragen kosten veel tijd", en: "Quotes and requests take too long" },
-      services: ["configurators-lead-tools-widgets", "marketing-automatisering-funnels"],
+      services: ["configurators-lead-tools-widgets", "automation-funnels"],
     },
     { id: "ai", t: { nl: "Benieuwd wat AI voor ons kan doen", en: "Curious what AI can do for us" }, services: ["ai-consultancy"] },
     { id: "insight", t: { nl: "Geen overzicht in onze data", en: "No overview of our data" }, services: ["web-apps-portals-apps", "ai-consultancy"] },
@@ -169,7 +169,7 @@ export const CHALLENGES: Record<Exclude<GoalId, "other">, (Opt & { services: Ser
     {
       id: "integrations",
       t: { nl: "Koppelingen tussen systemen", en: "Integrations between systems" },
-      services: ["web-apps-portals-apps", "marketing-automatisering-funnels"],
+      services: ["web-apps-portals-apps", "automation-funnels"],
     },
   ],
 };
@@ -179,7 +179,7 @@ export const SERVICE_PITCH: Record<ServiceSlug, T> = {
   "branding-rebranding": { nl: "Een merk met een helder verhaal en een strakke huisstijl.", en: "A brand with a clear story and a sharp identity." },
   "websites-webshops": { nl: "Een snelle site of webshop die je zelf beheert.", en: "A fast site or shop you can manage yourself." },
   "web-apps-portals-apps": { nl: "Portalen, apps en tools die werk uit handen nemen.", en: "Portals, apps and tools that take work off your hands." },
-  "marketing-automatisering-funnels": { nl: "Funnels, CRM en e-mail die vanzelf opvolgen.", en: "Funnels, CRM and email that follow up on their own." },
+  "automation-funnels": { nl: "Funnels, CRM en e-mail die vanzelf opvolgen.", en: "Funnels, CRM and email that follow up on their own." },
   "seo-aeo-geo": { nl: "Gevonden worden in Google én in AI-antwoorden.", en: "Get found in Google and in AI answers." },
   "content-marketing-online-ads": { nl: "Content en campagnes die de juiste mensen bereiken.", en: "Content and campaigns that reach the right people." },
   "foto-video-3d-animatie": { nl: "Beeld dat blijft hangen: foto, film, 3D en motion.", en: "Visuals that stick: photo, film, 3D and motion." },
@@ -287,7 +287,7 @@ export const SPECIFICS: Record<ServiceSlug, SpecQ[]> = {
       ],
     },
   ],
-  "marketing-automatisering-funnels": [
+  "automation-funnels": [
     {
       id: "focus",
       q: { nl: "Waar wil je mee aan de slag?", en: "What do you want to work on?" },

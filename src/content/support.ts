@@ -4,6 +4,7 @@
    ============================================================ */
 
 import { site } from "./site";
+import { member } from "./team";
 import type { T } from "./types";
 
 export interface SupportPerson {
@@ -12,10 +13,15 @@ export interface SupportPerson {
   first: string;
   role: T;
   /**
-   * Portretfoto (vierkant, bv. /media/team/team-1.webp).
+   * Vierkante portretfoto (bv. /media/team/avatar/martijn-roefs.webp).
    * Zonder foto tonen we initialen in de merkgradient.
    */
   photo?: string;
+}
+
+function pick(slug: string) {
+  const m = member(slug);
+  return { name: m.name, first: m.first, photo: m.avatar, role: m.role };
 }
 
 export const support = {
@@ -27,15 +33,11 @@ export const support = {
   phoneOwnerFull: "Martijn Roefs",
   /** WhatsApp-nummer (env NEXT_PUBLIC_WHATSAPP, internationaal: 316…). Leeg = geen WhatsApp-knop. */
   whatsapp: site.whatsapp,
-  /*
-   * TODO(M7): koppel de juiste teamfoto's. We weten nog niet welke foto in
-   * public/media/team/team-1..6.webp bij wie hoort (team-4 is de kantoorhond).
-   * Zet per persoon `photo: "/media/team/team-X.webp"` en controleer de rollen.
-   */
+  /** Wie support oppakt: Martijn als vast aanspreekpunt, Alexander en Finn aan de techniek. */
   people: [
-    { name: "Martijn Roefs", first: "Martijn", role: { nl: "Je vaste aanspreekpunt", en: "Your point of contact" } },
-    { name: "Alexander", first: "Alexander", role: { nl: "Support", en: "Support" } },
-    { name: "Finn", first: "Finn", role: { nl: "Support", en: "Support" } },
+    { ...pick("martijn-roefs"), role: { nl: "Je vaste aanspreekpunt", en: "Your point of contact" } },
+    pick("alexander-koselka"),
+    pick("finn-oliemeulen"),
   ] as SupportPerson[],
 };
 

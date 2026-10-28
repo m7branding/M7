@@ -264,7 +264,7 @@ export const service: Service = {
     nl: "M7 maakt AI praktisch: AI-chatbots, AI-agents, integraties met OpenAI, Claude en Gemini, AI-strategie en workshops. Veilig, AVG-bewust en op maat.",
     en: "M7 makes AI practical: AI chatbots, AI agents, integrations with OpenAI, Claude and Gemini, AI strategy and workshops. Safe, GDPR-aware and tailored.",
   },
-  related: ["marketing-automatisering-funnels", "web-apps-portals-apps", "seo-aeo-geo"],
+  related: ["automation-funnels", "web-apps-portals-apps", "seo-aeo-geo"],
   configurator: ["crm", "funnels"],
 };
 

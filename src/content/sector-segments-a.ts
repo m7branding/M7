@@ -63,7 +63,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Een automatische mail of WhatsApp als de APK of onderhoudsbeurt bijna verloopt, met een directe link om in te plannen.",
               en: "An automatic email or WhatsApp message when the inspection or service is almost due, with a direct link to book.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "marketing-automation",
           },
         ],
@@ -301,7 +301,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Wie een offerte opvroeg maar nog twijfelt, krijgt op het juiste moment een nuttige mail in plaats van drie telefoontjes.",
               en: "Anyone who requested a quote but is still hesitating gets a useful email at the right moment instead of three phone calls.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "lead-nurturing",
           },
           {
@@ -577,7 +577,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Een welkomstreeks, een berichtje als iemand een paar weken wegblijft en een felicitatie bij een mijlpaal, allemaal automatisch.",
               en: "A welcome series, a message when someone stays away for a few weeks and congratulations at a milestone, all automatic.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "marketing-automation",
           },
           {
@@ -649,7 +649,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Eerst de deelnemers van vorig jaar, dan een early-bird en herinneringen voor elke prijsstap, met praktische info voor wie al ingeschreven staat.",
               en: "Last year's participants first, then an early-bird and reminders before every price step, with practical info for those already registered.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "e-mailmarketing",
           },
           {
@@ -926,7 +926,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Onboardingmails die reageren op wat iemand in je product doet, met een seintje naar sales als iemand vastloopt.",
               en: "Onboarding emails that respond to what someone does in your product, with a nudge to sales when someone gets stuck.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "marketing-automation",
           },
           {
@@ -1231,7 +1231,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Een reeks mails en pushberichten die nieuwe gebruikers naar hun eerste succes helpen, in plaats van één welkomstmail en daarna stilte.",
               en: "A series of emails and push messages that helps new users to their first success, instead of one welcome email followed by silence.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "e-mailmarketing",
           },
           {
@@ -1519,7 +1519,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Een maandelijkse mail met het nieuwe menu en op tijd een herinnering voor de bedrijfslunch of kerstborrel.",
               en: "A monthly email with the new menu and a timely reminder for the company lunch or Christmas drinks.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "e-mailmarketing",
           },
         ],
@@ -1673,7 +1673,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Een seintje als de koffie, het hondenvoer of de verzorgingsproducten bijna op zijn, met één klik opnieuw bestellen.",
               en: "A reminder when the coffee, dog food or care products are almost finished, with one-click reordering.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "e-mailmarketing",
           },
           {
@@ -1769,7 +1769,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Klanten krijgen ruim voor de deadline een persoonlijk lijstje en een uploadlink, met vriendelijke herinneringen als er niets binnenkomt.",
               en: "Clients receive a personal checklist and upload link well before the deadline, with friendly reminders if nothing comes in.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "workflow-automatisering",
           },
           {
@@ -2027,7 +2027,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
               nl: "Een CRM dat bijhoudt wie wat zoekt en kandidaten automatisch een seintje geeft bij een passende vacature.",
               en: "A CRM that tracks who is looking for what and automatically alerts candidates to a matching vacancy.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "crm-implementatie",
           },
           {

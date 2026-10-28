@@ -61,7 +61,7 @@ export const NEW_SECTORS_B: Sector[] = [
     ],
     services: [
       "websites-webshops",
-      "marketing-automatisering-funnels",
+      "automation-funnels",
       "grafisch-ontwerp-print",
       "branding-rebranding",
       "seo-aeo-geo",
@@ -86,7 +86,7 @@ export const NEW_SECTORS_B: Sector[] = [
     visuals: {
       "websites-webshops": { kind: "browser", src: `${T}/buitenstate-site.webp`, url: "buitenstate.nl", scroll: true, label: "Buitenstate" },
       /* Zoekersmatch-widget: lead-funnel richting CRM en e-mail */
-      "marketing-automatisering-funnels": { kind: "tablet", src: `${T}/buitenstate-zoekers.webp`, label: "Buitenstate" },
+      "automation-funnels": { kind: "tablet", src: `${T}/buitenstate-zoekers.webp`, label: "Buitenstate" },
       /* Investment Memorandum: Locatie & Ligging / Bereikbaarheid */
       "grafisch-ontwerp-print": { kind: "book", left: `${SC}/bernheze/im-p08.webp`, right: `${SC}/bernheze/im-p09.webp`, label: "Bernheze Makelaars" },
       "branding-rebranding": {
@@ -189,7 +189,7 @@ export const NEW_SECTORS_B: Sector[] = [
               nl: "Wie nog niet zover is, krijgt een korte e-mailreeks met tips over verkopen. Tot het moment dat hij er klaar voor is.",
               en: "Anyone not ready yet gets a short email series with tips on selling. Until the moment they are.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "lead-nurturing",
           },
         ],
@@ -275,7 +275,7 @@ export const NEW_SECTORS_B: Sector[] = [
               nl: "Op vaste momenten nieuwe beelden, de prijslijst of een uitnodiging voor de informatieavond. Relevant voor het woningtype dat iemand zoekt.",
               en: "New visuals, the price list or an invitation to the information evening at set moments. Relevant to the home type each person is after.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "marketing-automation",
           },
         ],
@@ -358,7 +358,7 @@ export const NEW_SECTORS_B: Sector[] = [
               nl: "Na de aanvraag volgt automatisch een bevestiging, een afspraakvoorstel en een bericht zodra het rapport klaar is. Dat scheelt telefoontjes met 'hoe staat het ervoor?'.",
               en: "After the request comes an automatic confirmation, a proposed appointment and a message as soon as the report is ready. That saves a lot of 'how is it going?' calls.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "workflow-automatisering",
           },
         ],
@@ -425,7 +425,7 @@ export const NEW_SECTORS_B: Sector[] = [
               nl: "Kandidaten krijgen direct een bevestiging en een uitnodiging voor een bezichtiging. Je team ziet in het CRM wie waar in het proces staat.",
               en: "Candidates instantly receive a confirmation and an invitation to a viewing. Your team sees in the CRM who is where in the process.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "crm-implementatie",
           },
           {
@@ -991,7 +991,7 @@ export const NEW_SECTORS_B: Sector[] = [
               nl: "Na het eerste gesprek automatisch het ontwerp, een paar inspiratiemails en een uitnodiging voor een vervolgafspraak. Een keuken koop je niet in één dag.",
               en: "After the first meeting, the design, a few inspiration emails and an invitation for a follow-up appointment go out automatically. Nobody buys a kitchen in a day.",
             },
-            service: "marketing-automatisering-funnels",
+            service: "automation-funnels",
             application: "lead-nurturing",
           },
         ],

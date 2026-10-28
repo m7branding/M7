@@ -10,10 +10,18 @@ const nextConfig = {
       ["bouw-vastgoed-architectuur", "bouw-architectuur"],
       ["e-commerce-retail", "food-retail"],
     ];
-    return moved.flatMap(([from, to]) => [
-      { source: `/sectoren/${from}`, destination: `/sectoren/${to}`, permanent: true },
-      { source: `/en/sectors/${from}`, destination: `/en/sectors/${to}`, permanent: true },
-    ]);
+    // hernoemde diensten (ook de toepassingen eronder)
+    const services = [["marketing-automatisering-funnels", "automation-funnels"]];
+    return [
+      ...moved.flatMap(([from, to]) => [
+        { source: `/sectoren/${from}`, destination: `/sectoren/${to}`, permanent: true },
+        { source: `/en/sectors/${from}`, destination: `/en/sectors/${to}`, permanent: true },
+      ]),
+      ...services.flatMap(([from, to]) => [
+        { source: `/diensten/${from}/:app*`, destination: `/diensten/${to}/:app*`, permanent: true },
+        { source: `/en/services/${from}/:app*`, destination: `/en/services/${to}/:app*`, permanent: true },
+      ]),
+    ];
   },
 };
 

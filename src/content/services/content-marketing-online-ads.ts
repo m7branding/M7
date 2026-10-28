@@ -275,7 +275,7 @@ export const service: Service = {
     nl: "Content die opvalt en campagnes die meetbaar werken: social media, contentkalender, copywriting en ads op Google, Meta, LinkedIn en TikTok door M7.",
     en: "Content that stands out and campaigns that measurably work: social media, content calendars, copywriting and ads on Google, Meta, LinkedIn and TikTok by M7.",
   },
-  related: ["seo-aeo-geo", "foto-video-3d-animatie", "marketing-automatisering-funnels"],
+  related: ["seo-aeo-geo", "foto-video-3d-animatie", "automation-funnels"],
   configurator: ["organic", "paid"],
 };
 

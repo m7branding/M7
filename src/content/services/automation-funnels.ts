@@ -1,10 +1,10 @@
 import type { Application, Service } from "../types";
 
 export const service: Service = {
-  slug: "marketing-automatisering-funnels",
+  slug: "automation-funnels",
   order: 4,
-  title: { nl: "Marketing, Automatiseringen & Funnels", en: "Marketing, Automation & Funnels" },
-  short: { nl: "Marketing", en: "Marketing" },
+  title: { nl: "Automation & Funnels", en: "Automation & Funnels" },
+  short: { nl: "Automation", en: "Automation" },
   color: "#FFC23D",
   icon: "flow",
   mockup: "flow",
@@ -293,7 +293,7 @@ export const service: Service = {
 export const applications: Application[] = [
   {
     slug: "marketing-automation",
-    service: "marketing-automatisering-funnels",
+    service: "automation-funnels",
     title: { nl: "Marketing automation", en: "Marketing automation" },
     summary: {
       nl: "Persoonlijke opvolging op basis van gedrag, volledig op de automatische piloot.",
@@ -360,7 +360,7 @@ export const applications: Application[] = [
   },
   {
     slug: "e-mailmarketing",
-    service: "marketing-automatisering-funnels",
+    service: "automation-funnels",
     title: { nl: "E-mailmarketing & e-mailflows", en: "Email marketing & email flows" },
     summary: {
       nl: "Nieuwsbrieven en flows die gelezen worden én omzet opleveren.",
@@ -427,7 +427,7 @@ export const applications: Application[] = [
   },
   {
     slug: "salesfunnels",
-    service: "marketing-automatisering-funnels",
+    service: "automation-funnels",
     title: { nl: "Salesfunnels & opt-ins", en: "Sales funnels & opt-ins" },
     summary: {
       nl: "Van advertentie tot afspraak: funnels die bezoekers stap voor stap overtuigen.",
@@ -494,7 +494,7 @@ export const applications: Application[] = [
   },
   {
     slug: "crm-implementatie",
-    service: "marketing-automatisering-funnels",
+    service: "automation-funnels",
     title: { nl: "CRM implementatie", en: "CRM implementation" },
     summary: {
       nl: "Het juiste CRM, goed ingericht en gekoppeld aan al je tools.",
@@ -561,7 +561,7 @@ export const applications: Application[] = [
   },
   {
     slug: "workflow-automatisering",
-    service: "marketing-automatisering-funnels",
+    service: "automation-funnels",
     title: { nl: "Workflow-automatisering", en: "Workflow automation" },
     summary: {
       nl: "Make, Zapier of n8n: je tools werken samen, jij hoeft niets meer over te typen.",
@@ -628,7 +628,7 @@ export const applications: Application[] = [
   },
   {
     slug: "lead-nurturing",
-    service: "marketing-automatisering-funnels",
+    service: "automation-funnels",
     title: { nl: "Lead scoring & nurturing", en: "Lead scoring & nurturing" },
     summary: {
       nl: "Leads warm maken en sales pas inschakelen als iemand er klaar voor is.",
@@ -695,7 +695,7 @@ export const applications: Application[] = [
   },
   {
     slug: "tracking-analytics",
-    service: "marketing-automatisering-funnels",
+    service: "automation-funnels",
     title: { nl: "Tracking & analytics", en: "Tracking & analytics" },
     summary: {
       nl: "GA4, Tag Manager, server-side tagging en dashboards die kloppen.",
@@ -762,7 +762,7 @@ export const applications: Application[] = [
   },
   {
     slug: "conversie-optimalisatie",
-    service: "marketing-automatisering-funnels",
+    service: "automation-funnels",
     title: { nl: "Conversie-optimalisatie (CRO)", en: "Conversion rate optimisation (CRO)" },
     summary: {
       nl: "Meer resultaat uit hetzelfde verkeer, met data en A/B-tests.",

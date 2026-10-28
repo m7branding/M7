@@ -287,12 +287,21 @@ export interface Review {
 
 /* ---------- Team ---------- */
 export interface TeamMember {
+  slug: string;
   name: string;
+  /** Voornaam voor korte teksten ("Bel Martijn"). */
+  first: string;
   role: T;
+  /** Portret 800×999. */
   photo: string;
+  /** Vierkante gezichtsuitsnede 256×256 voor avatar-emblemen. */
+  avatar: string;
   /** Leuk detail voor de hover-kaart. */
   fun?: T;
   linkedin?: string;
+  founder?: boolean;
+  /** Millie: wel in het team, niet als Person in JSON-LD. */
+  dog?: boolean;
 }
 
 /* ---------- Media (eigen assets) ---------- */

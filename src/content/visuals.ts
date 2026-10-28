@@ -30,7 +30,7 @@ export const DEFAULT_VISUALS: Record<ServiceSlug, TileVisual> = {
   },
   "web-apps-portals-apps": { kind: "tablet", src: `${T}/monvy-dashboard.webp`, label: "Monvy" },
   /* Zoekersmatch-widget (lead-funnel richting CRM en e-mail) */
-  "marketing-automatisering-funnels": { kind: "tablet", src: `${T}/buitenstate-zoekers.webp`, label: "Buitenstate" },
+  "automation-funnels": { kind: "tablet", src: `${T}/buitenstate-zoekers.webp`, label: "Buitenstate" },
   "seo-aeo-geo": { kind: "browser", src: `${T}/sandt-chatgpt.webp`, url: "chatgpt.com", label: "The Sandt" },
   "content-marketing-online-ads": { kind: "phone", src: `${SC}/alpacafarm/profile-head.webp`, label: "Alpacafarm Vorstenbosch" },
   "foto-video-3d-animatie": { kind: "video", src: `${SC}/plentyplanet/greenecocorridor.webp`, label: "Plenty Planet" },

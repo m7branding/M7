@@ -360,7 +360,7 @@ export const cases: Case[] = [
     },
     year: 2022,
     sector: "vastgoed-makelaardij",
-    services: ["websites-webshops", "marketing-automatisering-funnels", "content-marketing-online-ads"],
+    services: ["websites-webshops", "automation-funnels", "content-marketing-online-ads"],
     applications: ["webflow-website", "e-mailmarketing", "contentstrategie", "meertalige-website"],
     tools: ["webflow", "mailchimp", "ga4"],
     cover: "/media/cases/buitenstate.webp",

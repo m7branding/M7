@@ -276,7 +276,7 @@ export const reviews: Review[] = [
       "M7 regelt voor ons eigenlijk alles rondom marketing en online zichtbaarheid. Van social media en campagnes tot de website, slimme openingstijdenwidgets en functies die meegaan met onze seizoenen. Ze snappen hoe ons bedrijf werkt en vertalen dat naar creatieve, praktische oplossingen. Top samenwerking!",
     ),
     lang: "nl",
-    services: ["content-marketing-online-ads", "websites-webshops", "configurators-lead-tools-widgets", "marketing-automatisering-funnels"],
+    services: ["content-marketing-online-ads", "websites-webshops", "configurators-lead-tools-widgets", "automation-funnels"],
     draft: true,
   },
   {

@@ -146,7 +146,7 @@ export const sectors: Sector[] = [
         },
       },
     ],
-    services: ["web-apps-portals-apps", "branding-rebranding", "foto-video-3d-animatie", "content-marketing-online-ads", "websites-webshops", "marketing-automatisering-funnels"],
+    services: ["web-apps-portals-apps", "branding-rebranding", "foto-video-3d-animatie", "content-marketing-online-ads", "websites-webshops", "automation-funnels"],
     applications: ["saas-platform", "mobiele-app", "ledenportaal-loyaliteit", "webflow-website", "social-video", "bedrijfsfilm", "motion-design", "social-media-marketing", "e-mailmarketing"],
     faqs: [
       {
@@ -235,7 +235,7 @@ export const sectors: Sector[] = [
         },
       },
     ],
-    services: ["branding-rebranding", "web-apps-portals-apps", "websites-webshops", "marketing-automatisering-funnels", "seo-aeo-geo", "ai-consultancy"],
+    services: ["branding-rebranding", "web-apps-portals-apps", "websites-webshops", "automation-funnels", "seo-aeo-geo", "ai-consultancy"],
     applications: ["mvp-ontwikkeling", "saas-platform", "ux-ui-app-design", "naamgeving", "merkstrategie", "webflow-website", "presentaties-pitchdecks", "salesfunnels", "linkedin-ads", "ai-integraties"],
     faqs: [
       {
@@ -425,7 +425,7 @@ export const sectors: Sector[] = [
         },
       },
     ],
-    services: ["branding-rebranding", "websites-webshops", "web-apps-portals-apps", "marketing-automatisering-funnels", "seo-aeo-geo", "ai-consultancy"],
+    services: ["branding-rebranding", "websites-webshops", "web-apps-portals-apps", "automation-funnels", "seo-aeo-geo", "ai-consultancy"],
     applications: ["klantportaal", "dashboards", "crm-implementatie", "workflow-automatisering", "lead-nurturing", "ai-agents", "webflow-website", "huisstijl", "seo-content", "linkedin-ads"],
     faqs: [
       {
@@ -825,7 +825,7 @@ export const sectors: Sector[] = [
         },
       },
     ],
-    services: ["branding-rebranding", "web-apps-portals-apps", "websites-webshops", "configurators-lead-tools-widgets", "seo-aeo-geo", "marketing-automatisering-funnels"],
+    services: ["branding-rebranding", "web-apps-portals-apps", "websites-webshops", "configurators-lead-tools-widgets", "seo-aeo-geo", "automation-funnels"],
     applications: ["klantportaal", "dashboards", "saas-platform", "ux-ui-app-design", "offerte-calculator", "check-tools", "api-koppelingen", "merkstrategie", "infographics", "aeo"],
     faqs: [
       {

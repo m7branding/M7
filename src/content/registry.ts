@@ -13,7 +13,7 @@ export const SERVICE_SLUGS = [
   "branding-rebranding",
   "websites-webshops",
   "web-apps-portals-apps",
-  "marketing-automatisering-funnels",
+  "automation-funnels",
   "seo-aeo-geo",
   "content-marketing-online-ads",
   "foto-video-3d-animatie",
@@ -55,7 +55,7 @@ export const APPLICATIONS_BY_SERVICE = {
     "api-koppelingen",
     "mvp-ontwikkeling",
   ],
-  "marketing-automatisering-funnels": [
+  "automation-funnels": [
     "marketing-automation",
     "e-mailmarketing",
     "salesfunnels",
