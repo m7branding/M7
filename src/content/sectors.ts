@@ -518,6 +518,20 @@ export const sectors: Sector[] = [
     ],
     services: ["branding-rebranding", "websites-webshops", "foto-video-3d-animatie", "grafisch-ontwerp-print", "seo-aeo-geo", "configurators-lead-tools-widgets"],
     applications: ["3d-visualisatie", "dronevideo", "bedrijfsfilm", "webflow-website", "huisstijl", "brochures-magazines", "beurs-signing", "lokale-seo", "offerte-calculator"],
+    /* Mockups in de dienstentegels: eigen werk uit vastgoed (foto/video: automatisch / standaard) */
+    visuals: {
+      "branding-rebranding": {
+        kind: "print",
+        front: "/media/showcase/bernheze/cover-front.webp",
+        back: "/media/showcase/bernheze/cover-back.webp",
+        card: "/media/showcase/bernheze/card-front.webp",
+        label: "Bernheze Makelaars",
+      },
+      "websites-webshops": { kind: "browser", src: "/media/sector-tiles/buitenstate-site.webp", url: "buitenstate.nl", scroll: true, label: "Buitenstate" },
+      "grafisch-ontwerp-print": { kind: "book", left: "/media/showcase/bernheze/im-p08.webp", right: "/media/showcase/bernheze/im-p09.webp", label: "Bernheze Makelaars" },
+      "seo-aeo-geo": { kind: "browser", src: "/media/sector-tiles/sandt-chatgpt.webp", url: "chatgpt.com", label: "The Sandt" },
+      "configurators-lead-tools-widgets": { kind: "browser", src: "/media/sector-tiles/steddion-configurator.webp", url: "tools.steddion.com/configurator", label: "Steddion" },
+    },
     faqs: [
       {
         q: { nl: "Maken jullie 3D-visualisaties van bouwprojecten?", en: "Do you create 3D visuals of construction projects?" },

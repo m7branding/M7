@@ -14,7 +14,6 @@ type V = Record<string, string | number>;
 const v = (o: V) => o as React.CSSProperties;
 
 function Img({ src, position }: { src: string; position?: string }) {
-  // eslint-disable-next-line @next/next/no-img-element
   return <img src={src} alt="" loading="lazy" decoding="async" draggable={false} style={position ? { objectPosition: position } : undefined} />;
 }
 
@@ -65,6 +64,13 @@ function Phone({ src }: { src: string }) {
   return (
     <div className="dv dv-phone">
       <div className="dv-phone__screen dv-glass">
+        <span className="dv-phone__status">
+          <span>9:41</span>
+          <span className="dv-phone__icons">
+            <i />
+            <i />
+          </span>
+        </span>
         <Img src={src} />
         <span className="dv-phone__island" />
       </div>
@@ -74,9 +80,11 @@ function Phone({ src }: { src: string }) {
 
 /* ---------- bestaande mockupfoto (case-cover) ---------- */
 function Photo({ src, position }: { src: string; position?: string }) {
+  // staande foto's in een brede tegel: het bovenste deel (kop, logo) in beeld
+  const pos = position ?? ((aspectOf(src) ?? 1) < 0.95 ? "50% 18%" : undefined);
   return (
     <div className="dv dv-photo">
-      <Img src={src} position={position} />
+      <Img src={src} position={pos} />
     </div>
   );
 }

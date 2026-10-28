@@ -152,12 +152,14 @@
 }
 .sb-tile__text {
   grid-column: 1 / -1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-width: 62ch;
   margin: 7px 0 0;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 0.92rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--muted);
 }
 .sb-tile__arrow {
@@ -180,8 +182,10 @@
 .sb-tile:hover .sb-tile__arrow,
 .sb-tile:focus-visible .sb-tile__arrow {
   color: #0b0c0f;
-  background: color-mix(in srgb, var(--accent) 88%, #fff);
-  box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 45%, transparent);
+  background: #f3f4f6;
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent),
+    0 0 26px color-mix(in srgb, var(--accent) 38%, transparent);
   rotate: 45deg;
 }
 
@@ -327,12 +331,8 @@
     inset 0 0 0 1px rgba(255, 255, 255, 0.08),
     var(--dv-shadow);
 }
-.sb-tile[data-flip] .dv-browser {
-  left: auto;
-  right: 7cqw;
-}
 .dv-browser.is-scroll {
-  width: 93cqw;
+  width: 99cqw;
   height: calc(100cqh - var(--top) + 2px);
 }
 .dv-browser__bar {
@@ -407,7 +407,7 @@
   height: auto;
   object-fit: initial;
   will-change: transform;
-  animation: sb-scroll 46s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation: sb-scroll 56s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 @keyframes sb-scroll {
   0%,
@@ -439,10 +439,6 @@
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.7),
     var(--dv-shadow);
-}
-.sb-tile[data-flip] .dv-tablet {
-  left: auto;
-  right: 8cqw;
 }
 .dv-tablet.is-portrait {
   left: 50%;
@@ -482,7 +478,7 @@
 .dv-phone {
   left: 50%;
   top: var(--top);
-  width: max(25cqw, calc((100cqh - var(--top)) * 0.62));
+  width: min(56cqw, max(34cqw, calc((100cqh - var(--top)) * 0.82)));
   aspect-ratio: 0.488;
   translate: -50% 0;
   container-type: inline-size;
@@ -520,12 +516,48 @@
   height: 14%;
 }
 .dv-phone__screen {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   border-radius: 12.4cqw;
   background: #000;
 }
+/* schermbreed, van boven af (de telefoon loopt onderaan uit beeld) */
 .dv-phone__screen img {
-  object-position: 50% 0;
+  flex: none;
+  height: auto;
+}
+/* statusbalk: de app begint onder het eiland */
+.dv-phone__status {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 13.5cqw;
+  padding: 1.2cqw 8.5cqw 0 10.5cqw;
+  font-size: 4.3cqw;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+.dv-phone__icons {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+}
+.dv-phone__icons i:first-child {
+  width: 5.2cqw;
+  height: 3.2cqw;
+  background: linear-gradient(90deg, #fff 0 18%, transparent 18% 27%, #fff 27% 45%, transparent 45% 54%, #fff 54% 72%, transparent 72% 82%, rgba(255, 255, 255, 0.4) 82%);
+  clip-path: polygon(0 75%, 18% 75%, 18% 55%, 27% 55%, 27% 38%, 45% 38%, 45% 20%, 54% 20%, 54% 0, 100% 0, 100% 100%, 0 100%);
+}
+.dv-phone__icons i:last-child {
+  position: relative;
+  width: 7cqw;
+  height: 3.4cqw;
+  border-radius: 1cqw;
+  box-shadow: inset 0 0 0 0.45cqw rgba(255, 255, 255, 0.45);
+  background: linear-gradient(90deg, #fff 0 72%, transparent 72%) 0.9cqw 50% / calc(100% - 1.8cqw) calc(100% - 1.8cqw) no-repeat;
 }
 .dv-phone__island {
   position: absolute;
@@ -571,12 +603,12 @@
   --edge: #cfccc4;
   left: 50%;
   top: 50%;
-  width: min(92cqw, calc(118cqh * var(--ar) * 2));
-  translate: -50% -46%;
+  width: min(86cqw, calc(108cqh * var(--ar) * 2));
+  translate: -50% -42%;
   perspective: 2200px;
 }
 .sb-tile:hover .dv-book {
-  translate: -50% calc(-46% - 6px);
+  translate: -50% calc(-42% - 6px);
 }
 /* contactschaduw op tafel */
 .dv-book::before {
@@ -644,21 +676,25 @@
 }
 /* liggende pagina's (brandbook): groter, de rug in het midden, de buitenkanten over de rand */
 .dv-book.is-landscape {
-  --edge: #6b6964;
-  width: max(104cqw, calc(64cqh * var(--ar) * 2));
-  translate: -50% -50%;
+  --edge: #8a8780;
+  width: min(135cqw, max(102cqw, calc(48cqh * var(--ar) * 2)));
+  translate: -46% -52%;
+  perspective: 1500px;
 }
 .sb-tile:hover .dv-book.is-landscape {
-  translate: -50% calc(-50% - 6px);
+  translate: -46% calc(-52% - 6px);
 }
 .dv-book.is-landscape .dv-book__spread {
-  transform: rotateX(24deg) rotateZ(-4deg);
+  transform: rotateX(42deg) rotateZ(-11deg);
+  transform-origin: 50% 50%;
 }
 
 /* ---------- drukwerk ---------- */
 .dv-print {
   inset: 0;
-  --h: min(96cqh, calc(56cqw / var(--ar)));
+  transform: perspective(1800px) rotateX(22deg);
+  transform-origin: 50% 70%;
+  --h: min(calc(70cqh + 7cqw), calc(44cqw / var(--ar)));
   --w: calc(var(--h) * var(--ar));
 }
 .dv-print__sheet,
@@ -668,7 +704,7 @@
   transition: translate 0.9s var(--ease-out);
 }
 .dv-print__sheet {
-  top: 8cqh;
+  top: 4cqh;
   width: var(--w);
   height: var(--h);
   border-radius: 2px;
@@ -680,7 +716,7 @@
 }
 .dv-print__sheet.is-back {
   left: calc(46cqw - var(--w) * 0.92);
-  top: 13cqh;
+  top: 9cqh;
   rotate: -8deg;
 }
 .dv-print__sheet.is-front {
@@ -692,9 +728,9 @@
   rotate: 3deg;
 }
 .dv-print__card {
-  --cw: min(calc(var(--h) * 0.6), 40cqw);
-  left: calc(50cqw - var(--cw) * 0.52);
-  top: calc(8cqh + var(--h) * 0.56);
+  --cw: min(calc(var(--h) * 0.54), 36cqw);
+  left: calc(52cqw - var(--cw) * 0.4);
+  top: calc(4cqh + var(--h) * 0.6);
   width: var(--cw);
   aspect-ratio: var(--car);
   border-radius: max(3px, calc(var(--cw) * 0.025));
@@ -720,9 +756,6 @@
   pointer-events: none;
   background: linear-gradient(128deg, rgba(255, 255, 255, 0.16), transparent 34%, transparent 70%, rgba(0, 0, 0, 0.12));
 }
-.dv-print {
-  translate: none;
-}
 .sb-tile:hover .dv-print {
   translate: none;
 }
@@ -738,19 +771,16 @@
 
 /* ---------- video ---------- */
 .dv-video {
-  --vh: min(80cqh, calc(84cqw * 9 / 16));
+  /* laag genoeg dat het projectlabel eronder past */
+  --vh: min(64cqh, calc(84cqw * 9 / 16));
   left: max(7cqw, calc(50cqw - var(--vh) * 8 / 9));
-  top: calc(var(--top) + 2cqh);
+  top: max(var(--top), calc((100cqh - var(--vh)) * 0.4));
   width: calc(var(--vh) * 16 / 9);
   container-type: inline-size;
 }
 .sb-tile--hero .dv-video,
 .sb-tile--full .dv-video {
   --vh: 76cqh;
-}
-.sb-tile[data-flip] .dv-video {
-  left: auto;
-  right: max(7cqw, calc(50cqw - var(--vh) * 8 / 9));
 }
 .dv-video__frame {
   position: relative;
@@ -897,6 +927,10 @@
   }
   .sb-tile--hero .sb-stage {
     aspect-ratio: 1.12;
+  }
+  /* losse tegel over de volle breedte (geen hero): liggend podium */
+  .sb-cell--m2:not(.sb-cell--hero) .sb-stage {
+    aspect-ratio: 2;
   }
   .sb-tile--full {
     flex-direction: column;

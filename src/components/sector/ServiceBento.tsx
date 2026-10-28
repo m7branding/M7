@@ -81,7 +81,6 @@ export function ServiceBento({ sector, locale }: { sector: Sector; locale: Local
             <TLink
               href={paths.service(s)}
               className={`sb-tile sb-tile--${sizes[i]} sb-kind--${visual.kind}`}
-              data-flip={i % 2 === 1 ? "" : undefined}
               data-play=""
               style={{ ["--accent" as string]: s.color }}
             >
@@ -91,7 +90,7 @@ export function ServiceBento({ sector, locale }: { sector: Sector; locale: Local
                   {apps} {nl ? (apps === 1 ? "toepassing" : "toepassingen") : apps === 1 ? "application" : "applications"}
                 </span>
                 <h3 className="sb-tile__title">{tr(s.title, locale)}</h3>
-                <p className="sb-tile__text">{tr(s.tagline, locale)}</p>
+                <p className="sb-tile__text">{tr(s.intro, locale)}</p>
                 <span className="sb-tile__arrow" aria-hidden="true">
                   <Icon name="arrowUpRight" size={18} stroke={1.8} />
                 </span>
