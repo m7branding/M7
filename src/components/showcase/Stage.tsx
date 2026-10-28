@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useScroll } from "@/components/motion/SmoothScroll";
 
-/** Klaar als de volgende kaart de helft van deze kaart bedekt. */
+/** Klaar als de volgende kaart de helft van deze kaart bedekt (na de tussenruimte). */
 const COVER = 0.5;
 /** Waar het "volledige" beeld staat: de kaart is net vastgezet (ook de stand bij reduced motion). */
 export const SHOW_KEY = 0.74;
@@ -13,8 +13,8 @@ const LAG = 160;
 /**
  * Podium voor een showcase-mockup in een peilerkaart.
  * --sp loopt van 0 → 1 over het hele leven van de kaart in beeld: vanaf het moment dat hij
- * onderin binnenkomt, via vastzetten bovenin (± SHOW_KEY), tot de volgende kaart hem half
- * bedekt. Zo blijft de animatie doorlopen zolang je de kaart ziet. --spe is dezelfde waarde,
+ * onderin binnenkomt, via vastzetten bovenin en de lucht tot de volgende kaart (± SHOW_KEY),
+ * tot de volgende kaart hem half bedekt. Zo blijft de animatie doorlopen zolang je de kaart ziet. --spe is dezelfde waarde,
  * ge-eased. De waarde ijlt licht na (LAG), dus ook een snelle scroll voelt kalm.
  * Mockups bouwen hun scroll-animatie op met calc(... var(--sp) ...); kleine "levende"
  * details lopen als CSS-loop en pauzeren buiten beeld. `sp` vastzetten kan voor screenshots (lab).
@@ -22,7 +22,7 @@ const LAG = 160;
 export function ShowcaseStage({ children, flip = false, sp, label }: { children: React.ReactNode; flip?: boolean; sp?: number; label?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const playing = useRef(false);
-  const geo = useRef({ sticky: false, pin: 0 });
+  const geo = useRef({ sticky: false, pin: 0, flow: 0 });
   const cur = useRef(-1);
   const target = useRef(0);
   const raf = useRef(0);
@@ -69,7 +69,7 @@ export function ShowcaseStage({ children, flip = false, sp, label }: { children:
   const measureGeo = useCallback(() => {
     const pillar = ref.current?.closest<HTMLElement>(".pillar");
     const cs = pillar ? getComputedStyle(pillar) : null;
-    geo.current = { sticky: cs?.position === "sticky", pin: cs ? parseFloat(cs.top) || 0 : 0 };
+    geo.current = { sticky: cs?.position === "sticky", pin: cs ? parseFloat(cs.top) || 0 : 0, flow: pillar?.offsetHeight || 0 };
   }, []);
 
   const update = useCallback(() => {
@@ -83,9 +83,11 @@ export function ShowcaseStage({ children, flip = false, sp, label }: { children:
 
     let p: number;
     if (geo.current.sticky) {
-      // binnenkomen (vh → vastzetpunt) + bedekt worden door de volgende kaart
-      const cover = Math.max(0, r.top + h - nextTop);
-      p = (vh - r.top + cover) / (vh - geo.current.pin + COVER * h);
+      // binnenkomen (vh → vastzetpunt) + de lucht tussen de kaarten + bedekt worden door de volgende kaart;
+      // flow = kaart + tussenruimte, zodat de animatie ook tijdens die tussenruimte gewoon doorloopt
+      const flow = geo.current.flow || h;
+      const moved = Math.max(0, r.top + flow - nextTop);
+      p = (vh - r.top + moved) / (vh - geo.current.pin + (flow - h) + COVER * h);
     } else {
       // mobiel: geen stapeling, de mockup scrollt gewoon door het beeld
       p = (vh - r.top) / (vh + 0.3 * h);

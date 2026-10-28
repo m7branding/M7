@@ -324,19 +324,34 @@
 .pillar {
   position: sticky;
   top: calc(var(--header-h) + 8px + var(--i) * 12px);
-  padding-bottom: clamp(18px, 2.4vw, 32px);
+  /* lucht tussen de kaarten: de volgende kaart komt pas na een stukje scroll in beeld */
+  padding-bottom: clamp(56px, 14vh, 160px);
 }
 .pillar__card {
+  /* alle kaarten even hoog en altijd binnen het scherm, ook de onderste van de stapel (--i = 4) */
+  --card-h: clamp(440px, calc(100svh - var(--header-h) - 8px - 4 * 12px - 28px), 720px);
+  --glow-x: 75%;
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: stretch;
-  min-height: clamp(460px, 39vw, 680px);
+  height: var(--card-h);
   border-radius: var(--r-xl);
-  background: #000;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 -30px 60px -30px rgba(0, 0, 0, 0.9);
+  /* grote, zachte gloed achter de mockup: geeft diepte, en schaduwen van devices worden zichtbaar */
+  background:
+    radial-gradient(ellipse 66% 98% at var(--glow-x) 54%, rgba(134, 148, 176, 0.2), rgba(134, 148, 176, 0.07) 46%, transparent 76%),
+    #050506;
+  /* zwevende kaart: dun lichtrandje en een zachte schaduw op de kaart eronder */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 -24px 56px -16px rgba(0, 0, 0, 0.78),
+    0 40px 90px -30px rgba(0, 0, 0, 0.7);
   overflow: hidden;
   transform-origin: 50% 0;
+}
+.pillar--flip .pillar__card {
+  --glow-x: 25%;
 }
 /* alleen waar de kaarten echt stapelen (desktop); op mobiel zou het beeld dimmen terwijl je ernaar kijkt */
 @supports (animation-timeline: view()) {
@@ -376,15 +391,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(20px, 2.2vw, 34px);
-  padding: clamp(32px, 6vw, 120px) clamp(28px, 4vw, 70px) clamp(32px, 6vw, 120px) clamp(28px, 6vw, 120px);
+  gap: clamp(16px, 2.6vh, 34px);
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(28px, 7vh, 96px) clamp(28px, 4vw, 70px) clamp(28px, 7vh, 96px) clamp(28px, 6vw, 120px);
 }
 .pillar--flip .pillar__text {
   order: 2;
-  padding: clamp(32px, 6vw, 120px) clamp(28px, 6vw, 120px) clamp(32px, 6vw, 120px) clamp(28px, 4vw, 70px);
+  padding: clamp(28px, 7vh, 96px) clamp(28px, 6vw, 120px) clamp(28px, 7vh, 96px) clamp(28px, 4vw, 70px);
 }
 .pillar__title {
-  font-size: clamp(2.1rem, 3.9vw, 4.1rem);
+  /* ook op lage schermen passend in de vaste kaarthoogte */
+  font-size: min(clamp(2.1rem, 3.9vw, 4.1rem), 6.6vh);
   font-weight: 600;
   line-height: 1.14;
   letter-spacing: -0.02em;
@@ -398,11 +416,21 @@
   color: #fff;
 }
 .pillar__body {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
   color: #b9b9c0;
   line-height: 2.05;
   font-size: clamp(0.95rem, 1.05vw, 1.05rem);
   font-weight: 300;
   max-width: 560px;
+}
+@media (max-height: 820px) {
+  .pillar__body {
+    -webkit-line-clamp: 5;
+    line-height: 1.85;
+  }
 }
 .pillar__cta {
   display: flex;
@@ -436,10 +464,20 @@
   .pillar {
     position: relative;
     top: 0;
+    padding-bottom: 18px;
   }
-  .pillar__card {
+  .pillar__card,
+  .pillar--flip .pillar__card {
+    --glow-x: 50%;
     grid-template-columns: minmax(0, 1fr);
-    min-height: 0;
+    height: auto;
+    background:
+      radial-gradient(ellipse 90% 52% at 50% 72%, rgba(134, 148, 176, 0.16), rgba(134, 148, 176, 0.05) 50%, transparent 78%),
+      #050506;
+  }
+  .pillar__body {
+    -webkit-line-clamp: unset;
+    display: block;
   }
   .pillar--flip .pillar__text {
     order: 0;
