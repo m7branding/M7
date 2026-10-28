@@ -15,6 +15,8 @@ import {
   type IconKey,
   type Pkg,
 } from "@/lib/catalog";
+import { openOverlay } from "@/components/overlay/overlay-events";
+import { PathBlock } from "@/components/overlay/PathBlock";
 import { CategoryIcon } from "./CategoryIcon";
 import { Starfield } from "./Starfield";
 
@@ -56,6 +58,23 @@ function Sparkle() {
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden>
       <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z" />
     </svg>
+  );
+}
+
+// Paars CTA-blok (zelfde stijl als de catalogus-CTA op de site) → korte intake
+function IntakeCta({ variant }: { variant: "top" | "bottom" }) {
+  return (
+    <PathBlock
+      className={`pathblk--wide exp-intake-cta exp-intake-cta--${variant}`}
+      kicker="Korte intake"
+      title={variant === "top" ? "Liever eerst even sparren? Doe de korte intake." : "Twijfel je nog wat het beste past? Doe de korte intake."}
+      text="Vertel in een paar klikken wat je wilt bereiken. Wij denken mee over de slimste aanpak, geheel vrijblijvend."
+    >
+      <button type="button" className="exp-btn exp-btn-primary" onClick={() => openOverlay("intake")} aria-haspopup="dialog">
+        Start de intake
+        <CircleArrow />
+      </button>
+    </PathBlock>
   );
 }
 
@@ -591,6 +610,8 @@ export function Configurator() {
           </p>
         </header>
 
+        <IntakeCta variant="top" />
+
         {/* -------- RAIL -------- */}
         <nav className="exp-rail" aria-label="Categorieën">
           {CATALOG.map((cat) => {
@@ -631,6 +652,8 @@ export function Configurator() {
             registerSection={registerSection}
           />
         ))}
+
+        <IntakeCta variant="bottom" />
       </div>
 
       {/* -------- ONDERBALK -------- */}

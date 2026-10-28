@@ -4,6 +4,2053 @@ import type { Sector } from "./types";
    Nieuwe sectoren (deel C). Volledige entries, inclusief
    doelgroepen (segments) en soorten bedrijven (audiences).
    Wordt in content/index.ts samengevoegd met sectors.ts.
+
+   Echte M7-projecten die hier genoemd worden (alleen feitelijk):
+   Plenty Planet (website, 3D Green Eco Corridor), Steddion
+   (Energy Property Configurator), GRID (social ads publiek
+   laadpunt), Alpacafarm Vorstenbosch (content, social, website)
+   en BCTN (concept AI Customer Service Control Tower).
    ============================================================ */
 
-export const NEW_SECTORS_C: Sector[] = [];
+export const NEW_SECTORS_C: Sector[] = [
+  /* ---------- Energie & Duurzaamheid ---------- */
+  {
+    slug: "energie-duurzaamheid",
+    title: { nl: "Energie & Duurzaamheid", en: "Energy & Sustainability" },
+    short: { nl: "Energie", en: "Energy" },
+    icon: "leaf",
+    /* 3D-render van de Green Eco Corridor (Plenty Planet), 1600 × 893 */
+    image: "/media/showcase/plentyplanet/greenecocorridor.webp",
+    imagePosition: "50% 50%",
+    quote: { nl: "Clean energy deserves a story people actually get.", en: "Clean energy deserves a story people actually get." },
+    intro: {
+      nl: "Van zonneparken en batterijopslag tot installateurs, energieadviseurs en coöperaties: wij maken duurzame techniek begrijpelijk, vindbaar en aantrekkelijk.",
+      en: "From solar parks and battery storage to installers, energy advisors and cooperatives: we make sustainable technology understandable, findable and appealing.",
+    },
+    description: {
+      nl: "Duurzame energie zie je niet, maar je moet het wel uitleggen. Een klant wil weten wat het oplevert, wat het kost en of zijn dak, pand of parkeerterrein geschikt is. Ondertussen veranderen de regels, zoals het einde van de salderingsregeling, en zit het stroomnet op veel plekken vol. M7 helpt energiebedrijven, installateurs en adviseurs om dat verhaal helder te vertellen. Voor Plenty Planet bouwden we de website over solar car parks, zonneparken en batterijopslag, en maakten we een 3D-visualisatie van de Green Eco Corridor.\n\nDaarnaast bouwen we tools die het rekenwerk overnemen. In de Energy Property Configurator van Steddion vult een vastgoedeigenaar het verbruik en de laadbehoefte van een pand in en ziet hij een mogelijke oplossing met zonnepanelen en batterijopslag. Voor GRID maakten we social ads waarmee bewoners gratis een publiek laadpunt bij hun woning kunnen aanvragen. Met lokale SEO, een offertecalculator en gerichte campagnes zorgen we dat installateurs aanvragen krijgen die kloppen, in plaats van een inbox vol 'wat kost dat ongeveer?'.",
+      en: "You cannot see sustainable energy, but you do have to explain it. A customer wants to know what it delivers, what it costs and whether their roof, building or car park is suitable. Meanwhile the rules keep changing, such as the end of net metering in the Netherlands, and the power grid is full in many places. M7 helps energy companies, installers and advisors tell that story clearly. For Plenty Planet we built the website about solar car parks, solar parks and battery storage, and created a 3D visual of the Green Eco Corridor.\n\nWe also build tools that take over the maths. In Steddion's Energy Property Configurator, a property owner enters a building's consumption and charging needs and sees a possible solution with solar panels and battery storage. For GRID we created social ads that let residents request a free public charging point near their home. With local SEO, a quote calculator and targeted campaigns we make sure installers get enquiries that are complete, instead of an inbox full of 'roughly how much would that cost?'.",
+    },
+    challenges: [
+      {
+        title: { nl: "Techniek die lastig uit te leggen is", en: "Technology that is hard to explain" },
+        text: {
+          nl: "kWp, BESS, terugleverkosten: jij snapt het, je klant vaak niet. Met heldere pagina's, een animatie of een keuzehulp maak je van techniek een beslissing die iemand durft te nemen.",
+          en: "kWp, BESS, feed-in charges: you get it, your customer often does not. With clear pages, an animation or a product finder you turn technology into a decision someone dares to make.",
+        },
+      },
+      {
+        title: { nl: "Offertes die veel tijd kosten", en: "Quotes that take a lot of time" },
+        text: {
+          nl: "Elke aanvraag begint met vijf vragen terug. Een offertecalculator of quickscan vraagt dak, verbruik en wensen vooraf uit, zodat je aanvragen krijgt waar je meteen mee verder kunt.",
+          en: "Every enquiry starts with five questions back. A quote calculator or quick scan asks about the roof, consumption and wishes up front, so you receive enquiries you can work with straight away.",
+        },
+      },
+      {
+        title: { nl: "Opvallen in een drukke markt", en: "Standing out in a crowded market" },
+        text: {
+          nl: "Er zijn veel installateurs en de meeste websites lijken op elkaar. Een eigen merk, echte projectfoto's en lokale SEO maken het verschil tussen een prijsvergelijking en een klant die voor jou kiest.",
+          en: "There are a lot of installers and most websites look alike. A distinct brand, real project photos and local SEO make the difference between a price comparison and a customer who chooses you.",
+        },
+      },
+      {
+        title: { nl: "Projecten laten zien voordat ze er staan", en: "Showing projects before they exist" },
+        text: {
+          nl: "Een zonnepark of batterijsysteem bestaat eerst alleen op tekening. Met 3D-visualisaties en dronebeelden laat je gemeenten, investeerders en omwonenden zien wat er komt en hoe het in de omgeving past.",
+          en: "A solar park or battery system starts out on paper only. With 3D visuals and drone footage you show municipalities, investors and local residents what is coming and how it fits into its surroundings.",
+        },
+      },
+    ],
+    services: ["websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie", "content-marketing-online-ads", "seo-aeo-geo", "branding-rebranding"],
+    applications: ["offerte-calculator", "check-tools", "productconfigurator", "keuzehulp-quiz", "webflow-website", "landingspaginas", "3d-visualisatie", "dronevideo", "meta-ads", "lokale-seo"],
+    /* Mockups in de dienstentegels: eigen werk uit energie (overige diensten: standaard) */
+    visuals: {
+      "websites-webshops": { kind: "browser", src: "/media/sector-tiles/plenty-planet-site.webp", url: "plentyplanet.com", scroll: true, label: "Plenty Planet" },
+      "configurators-lead-tools-widgets": { kind: "browser", src: "/media/sector-tiles/steddion-configurator.webp", url: "tools.steddion.com/configurator", label: "Steddion" },
+      "foto-video-3d-animatie": { kind: "video", src: "/media/showcase/plentyplanet/greenecocorridor.webp", label: "Plenty Planet" },
+      "content-marketing-online-ads": { kind: "phone", src: "/media/showcase/ads/grid-laadpaal.webp", label: "GRID" },
+    },
+    faqs: [
+      {
+        q: { nl: "Bouwen jullie websites voor installateurs van zonnepanelen en warmtepompen?", en: "Do you build websites for solar panel and heat pump installers?" },
+        a: {
+          nl: "Ja. We bouwen websites die laten zien wat je doet, in welke regio je werkt en wat klanten van je kunnen verwachten, met echte projectfoto's en reviews. Een offertecalculator of quickscan zorgt dat aanvragen compleet binnenkomen.",
+          en: "Yes. We build websites that show what you do, which region you work in and what customers can expect, with real project photos and reviews. A quote calculator or quick scan makes sure enquiries come in complete.",
+        },
+      },
+      {
+        q: { nl: "Kunnen jullie een configurator voor energieoplossingen bouwen?", en: "Can you build a configurator for energy solutions?" },
+        a: {
+          nl: "Ja. Voor Steddion bouwden we de Energy Property Configurator, waarin vastgoedeigenaren het verbruik en de laadbehoefte van een pand invullen en een mogelijke oplossing met zon-PV en batterijopslag zien. Zo'n tool stemmen we af op jouw producten en rekenregels.",
+          en: "Yes. For Steddion we built the Energy Property Configurator, where property owners enter a building's consumption and charging needs and see a possible solution with solar PV and battery storage. We tailor a tool like that to your products and calculation rules.",
+        },
+      },
+      {
+        q: { nl: "Maken jullie 3D-visualisaties van zonneparken en energieprojecten?", en: "Do you create 3D visuals of solar parks and energy projects?" },
+        a: {
+          nl: "Ja. Voor Plenty Planet maakten we een 3D-visualisatie van de Green Eco Corridor. Op basis van tekeningen of modellen maken we renders en animaties voor vergunningstrajecten, investeerders en informatieavonden.",
+          en: "Yes. For Plenty Planet we created a 3D visual of the Green Eco Corridor. Based on drawings or models we create renders and animations for permit procedures, investors and information evenings.",
+        },
+      },
+      {
+        q: { nl: "Werken jullie ook voor energiecoöperaties en lokale initiatieven?", en: "Do you also work for energy cooperatives and local initiatives?" },
+        a: {
+          nl: "Zeker. We helpen coöperaties met een heldere website, ledenwerving en communicatie over projecten, met een aanpak en budget die passen bij een organisatie die vaak op vrijwilligers draait.",
+          en: "Definitely. We help cooperatives with a clear website, member recruitment and project communication, with an approach and budget that suit an organisation that often runs on volunteers.",
+        },
+      },
+      {
+        q: { nl: "Hoe voorkom je greenwashing in je communicatie?", en: "How do you avoid greenwashing in your communication?" },
+        a: {
+          nl: "Door concreet te blijven. We schrijven geen vage claims als 'klimaatneutraal' zonder onderbouwing, maar laten zien wat je echt doet, met feiten die je kunt aantonen. Dat is eerlijker, en het overtuigt ook beter.",
+          en: "By staying concrete. We do not write vague claims like 'climate neutral' without evidence, but show what you actually do, with facts you can back up. That is more honest, and it is more convincing too.",
+        },
+      },
+    ],
+    metaTitle: {
+      nl: "Websites & leadtools voor energie en duurzaamheid | M7",
+      en: "Websites & lead tools for energy and sustainability | M7",
+    },
+    metaDescription: {
+      nl: "M7 bouwt websites, configurators, 3D-visualisaties en campagnes voor zonneparken, batterijopslag, installateurs, energieadviseurs en coöperaties.",
+      en: "M7 builds websites, configurators, 3D visuals and campaigns for solar parks, battery storage, installers, energy advisors and cooperatives.",
+    },
+    segments: [
+      {
+        name: { nl: "Zon & opslag", en: "Solar & storage" },
+        intro: {
+          nl: "Voor ontwikkelaars van zonneparken en solar carports, aanbieders van batterijopslag en bedrijven die grote daken, parkeerterreinen en bedrijventerreinen verduurzamen.",
+          en: "For developers of solar parks and solar carports, battery storage providers and companies that make large roofs, car parks and business parks more sustainable.",
+        },
+        types: [
+          { nl: "Zonneparkontwikkelaars", en: "Solar park developers" },
+          { nl: "Solar carport-specialisten", en: "Solar carport specialists" },
+          { nl: "Batterijopslagbedrijven", en: "Battery storage companies" },
+          { nl: "Zakelijke zonne-energiebedrijven", en: "Commercial solar companies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Website voor investeerders en grondeigenaren", en: "A website for investors and landowners" },
+            text: {
+              nl: "Een website die in één keer uitlegt wat je ontwikkelt, waar en voor wie, met projecten en een duidelijke contactroute. Zoals de website die we voor Plenty Planet bouwden over solar car parks en batterijopslag.",
+              en: "A website that explains in one go what you develop, where and for whom, with projects and a clear route to contact. Like the website we built for Plenty Planet about solar car parks and battery storage.",
+            },
+            service: "websites-webshops",
+            application: "ux-ui-webdesign",
+          },
+          {
+            title: { nl: "3D-visualisatie van een park of carport", en: "3D visual of a park or carport" },
+            text: {
+              nl: "Laat zien hoe een zonnepark of solar carport eruit komt te zien, nog voordat de eerste paal de grond in gaat. Handig voor vergunningen, draagvlak en verkoop.",
+              en: "Show what a solar park or solar carport will look like before the first post goes into the ground. Useful for permits, public support and sales.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "3d-visualisatie",
+          },
+          {
+            title: { nl: "Quickscan: is mijn terrein geschikt?", en: "Quick scan: is my site suitable?" },
+            text: {
+              nl: "Een bedrijf vult locatie, oppervlak en verbruik in en krijgt een eerste indicatie. Jij krijgt een warme lead met de gegevens die je nodig hebt.",
+              en: "A company enters location, surface area and consumption and gets a first indication. You get a warm lead with the details you need.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "check-tools",
+          },
+          {
+            title: { nl: "LinkedIn-campagne richting vastgoed en industrie", en: "LinkedIn campaign aimed at property and industry" },
+            text: {
+              nl: "Bereik vastgoedeigenaren, facilitair managers en directeuren van bedrijven met een groot dak of parkeerterrein, met content die uitlegt wat zon en opslag voor hen doen.",
+              en: "Reach property owners, facility managers and directors of companies with a large roof or car park, with content that explains what solar and storage can do for them.",
+            },
+            service: "content-marketing-online-ads",
+            application: "linkedin-ads",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe leg je batterijopslag uit aan een zakelijke klant?", en: "How do you explain battery storage to a business customer?" },
+            a: {
+              nl: "Begin bij zijn probleem, niet bij de batterij. Het ene bedrijf wil uitbreiden, maar krijgt door netcongestie geen zwaardere aansluiting. Het andere betaalt veel voor pieken in zijn verbruik. Leg uit hoe opslag dat oplost, met een eenvoudige animatie van stroom die overdag wordt opgeslagen en later wordt gebruikt. Een [[check-tools|quickscan]] op basis van verbruik en aansluiting maakt het daarna concreet. Zo praat je eerst over de situatie van de klant, en pas daarna over kilowatturen.",
+              en: "Start with their problem, not the battery. One company wants to expand but cannot get a bigger grid connection because of congestion. Another pays a lot for peaks in its consumption. Explain how storage solves that, with a simple animation of power being stored during the day and used later. A [[check-tools|quick scan]] based on consumption and connection then makes it concrete. That way you talk about the customer's situation first, and about kilowatt-hours later.",
+            },
+          },
+          {
+            q: { nl: "Wat moet er op de website van een zonneparkontwikkelaar staan?", en: "What should be on a solar park developer's website?" },
+            a: {
+              nl: "Vooral antwoorden voor drie groepen: grondeigenaren, gemeenten en investeerders. Grondeigenaren willen weten wat het oplevert en hoe lang een contract loopt. Gemeenten en omwonenden willen weten hoe je met de omgeving omgaat. Investeerders zoeken ervaring en lopende projecten. Geef elke groep een eigen route, met projectpagina's, een kaart en een vaste contactpersoon. Voor Plenty Planet bouwden we een [[websites-webshops|website]] over solar car parks, zonneparken en batterijopslag.",
+              en: "Mainly answers for three groups: landowners, municipalities and investors. Landowners want to know what it pays and how long a contract runs. Municipalities and local residents want to know how you treat the surroundings. Investors look for experience and current projects. Give each group its own route, with project pages, a map and a fixed contact person. For Plenty Planet we built a [[websites-webshops|website]] about solar car parks, solar parks and battery storage.",
+            },
+          },
+          {
+            q: { nl: "Helpt een 3D-visualisatie bij vergunning en draagvlak?", en: "Does a 3D visual help with permits and public support?" },
+            a: {
+              nl: "Vaak wel. Omwonenden reageren op wat ze zich voorstellen, en dat is meestal erger dan de werkelijkheid. Een realistische [[3d-visualisatie]] vanaf de weg, het fietspad of de achtertuin laat zien hoe een park of carport echt in het landschap ligt, inclusief groen en afscherming. Dat maakt een informatieavond een stuk rustiger. Voor Plenty Planet maakten we bijvoorbeeld een 3D-visualisatie van de Green Eco Corridor. Een vergunning regelt het niet voor je, maar het gesprek wordt wel eerlijker.",
+              en: "Often, yes. Residents react to what they imagine, and that is usually worse than reality. A realistic [[3d-visualisatie|3D visual]] from the road, the cycle path or a back garden shows how a park or carport really sits in the landscape, including greenery and screening. That makes an information evening a lot calmer. For Plenty Planet, for example, we created a 3D visual of the Green Eco Corridor. It will not get you the permit by itself, but it does make the conversation more honest.",
+            },
+          },
+          {
+            q: { nl: "Hoe vinden bedrijven met een groot dak of parkeerterrein ons?", en: "How do companies with a large roof or car park find us?" },
+            a: {
+              nl: "Via de zoektermen die ze zelf gebruiken, zoals 'zonnepanelen op parkeerplaats', 'solar carport bedrijf' of 'batterij bij netcongestie'. Schrijf per toepassing een pagina die de vraag echt beantwoordt, met voorbeelden en een eerlijke uitleg van de aanpak. Steeds vaker stellen beslissers die vraag ook aan ChatGPT of Perplexity. Met [[seo]] en [[geo|GEO]] zorgen we dat je in Google en in AI-antwoorden opduikt. LinkedIn werkt daarnaast goed om facilitair managers en vastgoedeigenaren direct te bereiken.",
+              en: "Through the search terms they use themselves, such as 'solar panels on car park', 'solar carport company' or 'battery for grid congestion'. Write a page per application that really answers the question, with examples and an honest explanation of the approach. Decision-makers increasingly ask ChatGPT or Perplexity the same thing. With [[seo|SEO]] and [[geo|GEO]] we make sure you show up in Google and in AI answers. LinkedIn also works well to reach facility managers and property owners directly.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Installateurs", en: "Installers" },
+        intro: {
+          nl: "Voor installateurs van zonnepanelen, warmtepompen, thuisbatterijen en laadpalen, installatiebedrijven en isolatiespecialisten die meer en betere aanvragen willen uit hun eigen regio.",
+          en: "For installers of solar panels, heat pumps, home batteries and EV chargers, installation companies and insulation specialists who want more and better enquiries from their own region.",
+        },
+        types: [
+          { nl: "Zonnepaneleninstallateurs", en: "Solar panel installers" },
+          { nl: "Warmtepompinstallateurs", en: "Heat pump installers" },
+          { nl: "Laadpaalinstallateurs", en: "EV charger installers" },
+          { nl: "Installatiebedrijven", en: "Installation companies" },
+          { nl: "Isolatiebedrijven", en: "Insulation companies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Offertecalculator voor zonnepanelen en thuisbatterij", en: "Quote calculator for solar panels and home batteries" },
+            text: {
+              nl: "De klant kiest daktype, ligging en verbruik en ziet direct een indicatie. Jij krijgt een aanvraag met alles erin, zonder eerst drie keer te bellen.",
+              en: "The customer chooses roof type, orientation and consumption and sees an estimate straight away. You get an enquiry with everything in it, without three phone calls first.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Lokale SEO per werkgebied", en: "Local SEO per service area" },
+            text: {
+              nl: "Gevonden worden op 'zonnepanelen installateur' of 'warmtepomp laten plaatsen' met je plaatsnaam erbij, dankzij een sterk Google Bedrijfsprofiel en pagina's per regio.",
+              en: "Get found for 'solar panel installer' or 'heat pump installation' plus your town, thanks to a strong Google Business Profile and pages per region.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+          {
+            title: { nl: "Een website die vertrouwen wekt", en: "A website that builds trust" },
+            text: {
+              nl: "Eigen projecten, je team, reviews en een helder stappenplan van schouw tot oplevering. Zo ziet een bezoeker dat je een vakman bent en geen callcenter.",
+              en: "Your own projects, your team, reviews and a clear step-by-step plan from site survey to completion. That way a visitor sees you are a craftsman, not a call centre.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Offertes automatisch opvolgen", en: "Following up quotes automatically" },
+            text: {
+              nl: "Niet iedereen tekent meteen. Een paar nuttige mails over subsidie, planning en ervaringen van andere klanten houden je in beeld tot de klant er klaar voor is.",
+              en: "Not everyone signs straight away. A few useful emails about subsidies, planning and other customers' experiences keep you in view until the customer is ready.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "lead-nurturing",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Wat maakt een goede website voor een zonnepaneleninstallateur?", en: "What makes a good website for a solar panel installer?" },
+            a: {
+              nl: "Vertrouwen en snelheid. Bezoekers willen zien dat je echt bestaat: foto's van eigen installaties, je team, je werkgebied en reviews. Daarna willen ze snel weten wat het ongeveer kost, dus een [[offerte-calculator|offertecalculator]] met een indicatie werkt beter dan alleen 'neem contact op'. Leg ook uit wat er na de aanvraag gebeurt: schouw, offerte, installatie en aanmelding. Wie weet wat er komt, haakt minder snel af. En zorg dat alles soepel werkt op een telefoon.",
+              en: "Trust and speed. Visitors want to see that you really exist: photos of your own installations, your team, your service area and reviews. Then they want to know quickly what it roughly costs, so a [[offerte-calculator|quote calculator]] with an estimate works better than just 'get in touch'. Also explain what happens after the enquiry: site survey, quote, installation and registration. People who know what is coming are less likely to drop out. And make sure everything works smoothly on a phone.",
+            },
+          },
+          {
+            q: { nl: "Hoe krijg ik als installateur meer aanvragen voor warmtepompen?", en: "How do I get more heat pump enquiries as an installer?" },
+            a: {
+              nl: "Neem eerst de twijfels weg. Is mijn huis geschikt? Hybride of volledig elektrisch? Kom ik in aanmerking voor de ISDE-subsidie? Een [[keuzehulp-quiz|keuzehulp]] met een paar vragen over bouwjaar, isolatie en verwarming geeft een eerlijk advies en levert een aanvraag op met de juiste gegevens. Schrijf daarnaast pagina's die die vragen beantwoorden, dan vinden mensen je al terwijl ze nog oriënteren. Advertenties in het najaar, als iedereen aan de stookkosten denkt, doen de rest.",
+              en: "First take away the doubts. Is my house suitable? Hybrid or fully electric? Am I eligible for the Dutch ISDE subsidy? A [[keuzehulp-quiz|product finder]] with a few questions about construction year, insulation and heating gives honest advice and produces an enquiry with the right details. Also write pages that answer those questions, so people find you while they are still exploring. Ads in autumn, when everyone is thinking about heating costs, do the rest.",
+            },
+          },
+          {
+            q: { nl: "Hoe ga ik in mijn communicatie om met het einde van de salderingsregeling?", en: "How should I handle the end of net metering in my communication?" },
+            a: {
+              nl: "Eerlijk en zonder paniek. Klanten lezen koppen als 'zonnepanelen niet meer rendabel' en gaan twijfelen. Leg rustig uit wat er verandert, wat dat betekent voor iemand die nu panelen neemt en waar een thuisbatterij of slim verbruik wel en niet helpt. Een rekenvoorbeeld zegt meer dan een slogan. Wij schrijven die [[seo-content|content]] zo dat hij ook gevonden wordt op de vragen die mensen nu in Google en ChatGPT typen. Zo word je de installateur die uitlegt in plaats van verkoopt.",
+              en: "Honestly and without panic. Customers read headlines like 'solar panels no longer worth it' and start to doubt. Calmly explain what is changing, what it means for someone getting panels now, and where a home battery or smart usage does and does not help. A worked example says more than a slogan. We write that [[seo-content|content]] so it also gets found for the questions people are typing into Google and ChatGPT right now. That makes you the installer who explains rather than sells.",
+            },
+          },
+          {
+            q: { nl: "Is adverteren zinvol voor laadpalen en thuisbatterijen?", en: "Is advertising worthwhile for EV chargers and home batteries?" },
+            a: {
+              nl: "Ja, als je het product koppelt aan een moment. Iemand die net een elektrische auto heeft besteld, zoekt een laadpaal. Iemand die schrikt van zijn terugleverkosten, kijkt naar een batterij. Met [[google-ads|Google Ads]] vang je die zoekvragen op, met [[meta-ads|Meta Ads]] bereik je mensen in je werkgebied die er nog niet actief naar zoeken. Voor GRID maakten we social ads waarmee bewoners gratis een publiek laadpunt bij hun woning kunnen aanvragen. Eén duidelijke actie in de advertentie doet het meeste werk.",
+              en: "Yes, if you link the product to a moment. Someone who has just ordered an electric car is looking for a charger. Someone shocked by their feed-in charges is looking at a battery. With [[google-ads|Google Ads]] you catch those searches, with [[meta-ads|Meta Ads]] you reach people in your area who are not actively searching yet. For GRID we created social ads that let residents request a free public charging point near their home. One clear action in the ad does most of the work.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Energieadvies & vastgoed", en: "Energy advice & property" },
+        intro: {
+          nl: "Voor energieadviseurs, energielabel-adviseurs, verduurzamingsadviseurs en bedrijven die woningen, bedrijfspanden en vastgoedportefeuilles helpen verduurzamen.",
+          en: "For energy advisors, energy label assessors, sustainability advisors and companies that help make homes, commercial buildings and property portfolios more sustainable.",
+        },
+        types: [
+          { nl: "Energieadviseurs", en: "Energy advisors" },
+          { nl: "Energielabel-adviseurs", en: "Energy label assessors" },
+          { nl: "Verduurzamingsadviesbureaus", en: "Building sustainability consultancies" },
+          { nl: "Energiemanagementbedrijven", en: "Energy management companies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Energieconfigurator voor panden", en: "Energy configurator for buildings" },
+            text: {
+              nl: "Een vastgoedeigenaar vult verbruik en laadbehoefte in en ziet een mogelijke oplossing, zoals in de Energy Property Configurator die we voor Steddion bouwden.",
+              en: "A property owner enters consumption and charging needs and sees a possible solution, like in the Energy Property Configurator we built for Steddion.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "productconfigurator",
+          },
+          {
+            title: { nl: "Quickscan verduurzaming", en: "Sustainability quick scan" },
+            text: {
+              nl: "Een paar vragen over bouwjaar, installaties en verbruik, en de bezoeker ziet waar de grootste winst zit. Jij krijgt een aanvraag waar je iets mee kunt.",
+              en: "A few questions about construction year, installations and consumption, and the visitor sees where the biggest gains are. You get an enquiry you can actually work with.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "check-tools",
+          },
+          {
+            title: { nl: "Klantomgeving met rapporten en advies", en: "Client area with reports and advice" },
+            text: {
+              nl: "Klanten vinden hun energielabel, adviesrapport en maatregelen terug in één omgeving, in plaats van in een mailbox vol bijlagen.",
+              en: "Clients find their energy label, advice report and measures in one place, instead of in an inbox full of attachments.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "Vindbaar op adviesvragen", en: "Findable for advice questions" },
+            text: {
+              nl: "Pagina's die vragen als 'energielabel aanvragen' of 'bedrijfspand verduurzamen' echt beantwoorden, zodat mensen die een adviseur zoeken bij jou uitkomen.",
+              en: "Pages that properly answer questions like 'request an energy label' or 'make a commercial building sustainable', so people looking for an advisor end up with you.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe werkt een energieconfigurator voor vastgoed?", en: "How does an energy configurator for property work?" },
+            a: {
+              nl: "De eigenaar vult stap voor stap de gegevens van zijn pand in, zoals het verbruiksprofiel, de laadbehoefte voor auto's en zijn wensen. De configurator rekent daarmee een mogelijke oplossing uit, bijvoorbeeld met zonnepanelen en batterijopslag, en laat zien wat dat doet met afname en teruglevering. Voor Steddion bouwden we zo'n [[productconfigurator|configurator]]: de Energy Property Configurator. De eigenaar heeft een eerste beeld, de adviseur een aanvraag met de juiste gegevens. Dat is een beter begin dan een leeg contactformulier.",
+              en: "The owner enters the details of their building step by step, such as the consumption profile, the charging needs for cars and their wishes. The configurator uses that to calculate a possible solution, for example with solar panels and battery storage, and shows what it does to grid consumption and feed-in. For Steddion we built a [[productconfigurator|configurator]] like that: the Energy Property Configurator. The owner gets a first picture, the advisor an enquiry with the right details. That is a better start than an empty contact form.",
+            },
+          },
+          {
+            q: { nl: "Hoe word ik als energieadviseur gevonden op 'energielabel aanvragen'?", en: "How do I get found as an energy advisor for 'request an energy label'?" },
+            a: {
+              nl: "Met een pagina per dienst en per regio, want mensen zoeken lokaal en concreet: 'energielabel aanvragen Eindhoven' of 'maatwerkadvies woning'. Zet op die pagina's hoe de prijs tot stand komt, hoe snel je kunt komen en wat de klant moet voorbereiden. Een compleet Google Bedrijfsprofiel met reviews helpt enorm. Met [[lokale-seo|lokale SEO]] bouwen we dat stap voor stap op. En met een [[boekingswidget|afsprakenwidget]] staat de opname direct in je agenda.",
+              en: "With a page per service and per region, because people search locally and specifically: 'energy label Eindhoven' or 'tailored home energy advice'. Put on those pages how the price is set, how soon you can come and what the customer needs to prepare. A complete Google Business Profile with reviews helps a lot. With [[lokale-seo|local SEO]] we build that up step by step. And with an [[boekingswidget|appointment widget]] the assessment lands straight in your calendar.",
+            },
+          },
+          {
+            q: { nl: "Kunnen onze klanten hun adviezen en rapporten online terugvinden?", en: "Can our clients find their advice and reports online?" },
+            a: {
+              nl: "Ja. In een [[klantportaal]] staan het energielabel, het adviesrapport en de voorgestelde maatregelen per pand bij elkaar. Voor vastgoedeigenaren met meerdere panden is dat extra handig: één overzicht met de status per gebouw. Klanten kunnen er ook vragen stellen of een vervolgopdracht aanvragen. Dat scheelt jou zoekwerk en mailtjes met 'kun je dat rapport nog eens sturen?'. We koppelen het portaal waar mogelijk aan de software waarmee je nu al werkt.",
+              en: "Yes. In a [[klantportaal|client portal]] the energy label, the advice report and the proposed measures are kept together per building. For property owners with several buildings that is extra handy: one overview with the status per building. Clients can also ask questions there or request a follow-up job. That saves you searching and emails saying 'could you send that report again?'. Where possible we connect the portal to the software you already use.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Coöperaties & infrastructuur", en: "Cooperatives & infrastructure" },
+        intro: {
+          nl: "Voor energiecoöperaties, lokale energie-initiatieven, laadpuntexploitanten, warmtenetten en andere partijen die energie dichter bij bewoners en bedrijven brengen.",
+          en: "For energy cooperatives, local energy initiatives, charge point operators, district heating networks and others that bring energy closer to residents and businesses.",
+        },
+        types: [
+          { nl: "Energiecoöperaties", en: "Energy cooperatives" },
+          { nl: "Lokale energie-initiatieven", en: "Local energy initiatives" },
+          { nl: "Laadpuntexploitanten", en: "Charge point operators" },
+          { nl: "Warmtenetbedrijven", en: "District heating companies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Campagne voor laadpuntaanvragen", en: "Campaign for charging point requests" },
+            text: {
+              nl: "Een heldere advertentie met één actie: vraag een laadpunt aan. Zoals de social ads die we voor GRID maakten, voor het gratis aanvragen van een publiek laadpunt bij je woning.",
+              en: "A clear ad with one action: request a charging point. Like the social ads we created for GRID, for requesting a free public charging point near your home.",
+            },
+            service: "content-marketing-online-ads",
+            application: "meta-ads",
+          },
+          {
+            title: { nl: "Leden en participanten werven", en: "Recruiting members and participants" },
+            text: {
+              nl: "Een landingspagina per project die uitlegt wat er gebeurt, wat meedoen oplevert en hoe je je aanmeldt.",
+              en: "A landing page per project that explains what is happening, what taking part brings and how to sign up.",
+            },
+            service: "websites-webshops",
+            application: "landingspaginas",
+          },
+          {
+            title: { nl: "Ledenomgeving", en: "Member area" },
+            text: {
+              nl: "Leden zien hun participaties, berichten en de stukken voor de ledenvergadering op één plek, en wijzigen zelf hun gegevens.",
+              en: "Members see their shares, updates and the documents for the general meeting in one place, and update their own details.",
+            },
+            service: "web-apps-portals-apps",
+            application: "ledenportaal-loyaliteit",
+          },
+          {
+            title: { nl: "Uitleganimatie", en: "Explainer animation" },
+            text: {
+              nl: "Hoe werkt een warmtenet of een buurtbatterij? Een korte animatie legt het uit zonder dat iemand een folder hoeft te lezen.",
+              en: "How does a district heating network or a neighbourhood battery work? A short animation explains it without anyone having to read a leaflet.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "motion-design",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe werf je leden of participanten voor een energiecoöperatie?", en: "How do you recruit members or participants for an energy cooperative?" },
+            a: {
+              nl: "Door het lokaal en concreet te maken. Mensen doen mee aan 'het zonnedak op de sporthal' of 'de molen bij het dorp', niet aan 'de energietransitie'. Geef elk project een eigen [[landingspaginas|landingspagina]] met beeld, uitleg in gewone taal en een eenvoudige manier om je aan te melden. Vertel wie erachter zitten, want vertrouwen in de buren werkt beter dan elke slogan. Met lokale social campagnes en een nieuwsbrief houd je geïnteresseerden betrokken tot de inschrijving opent.",
+              en: "By making it local and concrete. People join 'the solar roof on the sports hall' or 'the wind turbine by the village', not 'the energy transition'. Give each project its own [[landingspaginas|landing page]] with visuals, plain-language explanation and a simple way to sign up. Tell people who is behind it, because trust in your neighbours works better than any slogan. With local social campaigns and a newsletter you keep interested people engaged until registration opens.",
+            },
+          },
+          {
+            q: { nl: "Hoe krijg je bewoners zover dat ze een laadpunt aanvragen?", en: "How do you get residents to request a charging point?" },
+            a: {
+              nl: "Maak de stap zo klein mogelijk. Eén duidelijke boodschap, één knop en een formulier dat in een minuut is ingevuld. Voor GRID maakten we social ads met precies die insteek: geheel gratis en vrijblijvend een publiek laadpunt bij je woning aanvragen. Richt de campagne op de straten en wijken waar je wilt plaatsen en laat zien hoe zo'n laadpunt eruitziet. Met [[meta-ads|Meta Ads]] kun je een campagne nauwkeurig op een gebied richten.",
+              en: "Make the step as small as possible. One clear message, one button and a form that takes a minute to fill in. For GRID we created social ads with exactly that approach: request a public charging point near your home, completely free and without obligation. Aim the campaign at the streets and neighbourhoods where you want to install, and show what a charging point looks like. With [[meta-ads|Meta Ads]] you can target a campaign precisely at an area.",
+            },
+          },
+          {
+            q: { nl: "Hoe communiceer je over netcongestie zonder mensen af te schrikken?", en: "How do you communicate about grid congestion without scaring people off?" },
+            a: {
+              nl: "Door uit te leggen wat het is en wat iemand er zelf aan kan doen. Netcongestie klinkt als een probleem waar je niets aan kunt veranderen. Maar slim laden, opslag en samenwerking op een bedrijventerrein helpen wel. Een korte [[motion-design|animatie]] van een vol stroomnet op een drukke dag maakt het in een halve minuut duidelijk. Daarna volgt een pagina met concrete opties per situatie. Zo voelt het niet als slecht nieuws, maar als een vraagstuk waar je samen aan werkt.",
+              en: "By explaining what it is and what people can do about it themselves. Grid congestion sounds like a problem you cannot change. But smart charging, storage and cooperation on a business park do help. A short [[motion-design|animation]] of a full grid on a busy day makes it clear in half a minute. Then follow up with a page of concrete options per situation. That way it does not feel like bad news, but like a challenge you tackle together.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Circulair & duurzaam ondernemen", en: "Circular & sustainable business" },
+        intro: {
+          nl: "Voor duurzaamheidsconsultancies, CSRD- en ESG-adviseurs, circulaire bedrijven, recyclers en refurbishers die laten zien wat ze echt doen, zonder groene praatjes.",
+          en: "For sustainability consultancies, CSRD and ESG advisors, circular businesses, recyclers and refurbishers who want to show what they really do, without green waffle.",
+        },
+        types: [
+          { nl: "Duurzaamheidsconsultancies", en: "Sustainability consultancies" },
+          { nl: "CSRD- en ESG-adviseurs", en: "CSRD and ESG advisors" },
+          { nl: "Circulaire bedrijven", en: "Circular businesses" },
+          { nl: "Recycling- en refurbishbedrijven", en: "Recycling and refurbishment companies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Een merk zonder groene praatjes", en: "A brand without green waffle" },
+            text: {
+              nl: "Een positionering die vertelt wat je doet en kunt aantonen, in plaats van 'groen' en 'duurzaam' op elke pagina.",
+              en: "A positioning that says what you do and can prove, instead of 'green' and 'sustainable' on every page.",
+            },
+            service: "branding-rebranding",
+            application: "merkstrategie",
+          },
+          {
+            title: { nl: "Impact in infographics", en: "Impact in infographics" },
+            text: {
+              nl: "Cijfers uit je impactrapport of CO2-footprint helder in beeld, voor je website, rapportage en LinkedIn.",
+              en: "Figures from your impact report or carbon footprint shown clearly, for your website, reporting and LinkedIn.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "infographics",
+          },
+          {
+            title: { nl: "Webshop voor circulaire producten", en: "Web shop for circular products" },
+            text: {
+              nl: "Refurbished, gerecycled of als dienst: een webshop die herkomst, staat en garantie per product helder maakt.",
+              en: "Refurbished, recycled or as a service: a web shop that makes origin, condition and warranty clear for each product.",
+            },
+            service: "websites-webshops",
+            application: "webshop",
+          },
+          {
+            title: { nl: "Kennis delen op LinkedIn", en: "Sharing expertise on LinkedIn" },
+            text: {
+              nl: "Als adviseur win je klanten met kennis. Artikelen en campagnes op LinkedIn bereiken de beslissers die met rapportage-eisen en klantvragen over CO2 zitten.",
+              en: "As an advisor you win clients with expertise. Articles and campaigns on LinkedIn reach the decision-makers dealing with reporting requirements and customer questions about carbon.",
+            },
+            service: "content-marketing-online-ads",
+            application: "linkedin-ads",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe communiceer je duurzaamheid zonder aan greenwashing te doen?", en: "How do you communicate sustainability without greenwashing?" },
+            a: {
+              nl: "Wees concreet en houd het bij wat je kunt aantonen. Claims als 'klimaatneutraal' of 'groen' zonder onderbouwing kunnen je in de problemen brengen: de regels voor duurzaamheidsclaims zijn strenger geworden en de ACM let erop. Zeg liever wat je precies doet, bijvoorbeeld welk materiaal je hergebruikt en hoe je dat controleert. Laat ook zien waar je nog niet bent. Dat is eerlijker en het overtuigt beter. We helpen je met een [[merkstrategie]] en [[tone-of-voice]] die daarop gebouwd zijn.",
+              en: "Be concrete and stick to what you can prove. Claims like 'climate neutral' or 'green' without evidence can get you into trouble: the rules on sustainability claims have become stricter and regulators are watching. Instead, say exactly what you do, for example which material you reuse and how you check it. Also show where you are not there yet. That is more honest and more convincing. We help you with a [[merkstrategie|brand strategy]] and [[tone-of-voice|tone of voice]] built on that.",
+            },
+          },
+          {
+            q: { nl: "Hoe vindt een duurzaamheidsadviseur klanten met vragen over CSRD en CO2?", en: "How does a sustainability advisor find clients with questions about CSRD and carbon?" },
+            a: {
+              nl: "Door de vragen te beantwoorden die bedrijven nu hebben. Veel ondernemers krijgen van grote klanten of de bank vragen over hun CO2-uitstoot, of weten niet zeker of rapportage-eisen zoals de CSRD voor hen gelden. Schrijf daar heldere artikelen en handleidingen over en zorg dat ze gevonden worden in Google en AI-zoekmachines. Met [[seo-content|SEO-content]] en [[linkedin-ads|LinkedIn Ads]] bereik je de financieel directeur of duurzaamheidsmanager die iemand zoekt die het overzicht houdt. Kennis delen levert hier gewoon klanten op.",
+              en: "By answering the questions companies have right now. Many business owners get questions about their carbon emissions from large customers or the bank, or are unsure whether reporting requirements such as the CSRD apply to them. Write clear articles and guides about that and make sure they are found in Google and AI search. With [[seo-content|SEO content]] and [[linkedin-ads|LinkedIn Ads]] you reach the finance director or sustainability manager looking for someone to keep track of it all. Sharing knowledge simply brings in clients here.",
+            },
+          },
+          {
+            q: { nl: "Hoe verkoop je refurbished of circulaire producten online?", en: "How do you sell refurbished or circular products online?" },
+            a: {
+              nl: "Door twijfel weg te nemen. Een koper van refurbished wil weten in welke staat het product is, wat er is vervangen en hoe lang de garantie loopt. Werk met duidelijke kwaliteitsklassen, echte foto's van het product en een eerlijke uitleg van het proces. Bij product-als-dienst of een terugnameregeling helpt een korte uitleg in stappen. We bouwen een [[webshop]] die dat allemaal overzichtelijk maakt, met de koppelingen naar je voorraad en logistiek die je nodig hebt.",
+              en: "By removing doubt. A buyer of refurbished goods wants to know what condition the product is in, what has been replaced and how long the warranty runs. Work with clear quality grades, real photos of the product and an honest explanation of the process. For product-as-a-service or a take-back scheme, a short step-by-step explanation helps. We build a [[webshop|web shop]] that makes all of that clear, with the links to your stock and logistics that you need.",
+            },
+          },
+        ],
+      },
+    ],
+    audiences: [
+      { nl: "Zonneparkontwikkelaars", en: "Solar park developers" },
+      { nl: "Solar carport-specialisten", en: "Solar carport specialists" },
+      { nl: "Batterijopslagbedrijven", en: "Battery storage companies" },
+      { nl: "Zakelijke zonne-energiebedrijven", en: "Commercial solar companies" },
+      { nl: "Ontwikkelaars van energiehubs", en: "Energy hub developers" },
+      { nl: "Zonnepaneleninstallateurs", en: "Solar panel installers" },
+      { nl: "Warmtepompinstallateurs", en: "Heat pump installers" },
+      { nl: "Laadpaalinstallateurs", en: "EV charger installers" },
+      { nl: "Thuisbatterij-specialisten", en: "Home battery specialists" },
+      { nl: "Installatiebedrijven", en: "Installation companies" },
+      { nl: "Isolatiebedrijven", en: "Insulation companies" },
+      { nl: "Energieadviseurs", en: "Energy advisors" },
+      { nl: "Energielabel-adviseurs", en: "Energy label assessors" },
+      { nl: "Verduurzamingsadviesbureaus", en: "Building sustainability consultancies" },
+      { nl: "Energiemanagementbedrijven", en: "Energy management companies" },
+      { nl: "Energiecoöperaties", en: "Energy cooperatives" },
+      { nl: "Lokale energie-initiatieven", en: "Local energy initiatives" },
+      { nl: "Laadpuntexploitanten", en: "Charge point operators" },
+      { nl: "Warmtenetbedrijven", en: "District heating companies" },
+      { nl: "Groene energieleveranciers", en: "Green energy suppliers" },
+      { nl: "Duurzaamheidsconsultancies", en: "Sustainability consultancies" },
+      { nl: "CSRD- en ESG-adviseurs", en: "CSRD and ESG advisors" },
+      { nl: "Circulaire bedrijven", en: "Circular businesses" },
+      { nl: "Recycling- en refurbishbedrijven", en: "Recycling and refurbishment companies" },
+    ],
+  },
+  /* ---------- Educatie & Scholen ---------- */
+  {
+    slug: "educatie-scholen",
+    title: { nl: "Educatie & Scholen", en: "Education & Schools" },
+    short: { nl: "Educatie", en: "Education" },
+    icon: "cap",
+    quote: { nl: "Every good lesson starts with being understood.", en: "Every good lesson starts with being understood." },
+    intro: {
+      nl: "Basisscholen, middelbare scholen, mbo en hbo, opleiders, kinderopvang en lesscholen: wij bouwen websites, leerplatformen en campagnes die ouders, leerlingen en cursisten helpen kiezen.",
+      en: "Primary and secondary schools, vocational and higher education, training providers, childcare and lesson schools: we build websites, learning platforms and campaigns that help parents, students and learners choose.",
+    },
+    description: {
+      nl: "Kiezen voor een school, opleiding of cursus is een grote beslissing, en die begint bijna altijd online. Ouders vergelijken scholen op de website, scholieren scrollen op hun telefoon door opleidingen en professionals zoeken op 'cursus projectmanagement' of 'online opleiding'. Tegelijk heb je te maken met veel doelgroepen, beperkte budgetten en regels rond privacy en beeldgebruik. M7 helpt onderwijsinstellingen en opleiders om helder te communiceren en gevonden te worden, zonder dat het een reclamefolder wordt.\n\nWe bouwen schoolwebsites die het team zelf bijhoudt, opleidingssites met een duidelijk aanbod en inschrijving, en e-learning platformen en digitale leeromgevingen op maat. Met video, social campagnes rond open dagen en SEO zorgen we dat de juiste leerlingen, studenten en cursisten je vinden. En met een frisse huisstijl voelen website, schoolgids en open dag weer als één geheel.",
+      en: "Choosing a school, programme or course is a big decision, and it almost always starts online. Parents compare schools on their websites, teenagers scroll through programmes on their phones and professionals search for 'project management course' or 'online training'. At the same time you deal with many audiences, tight budgets and rules on privacy and the use of images. M7 helps schools and training providers communicate clearly and get found, without turning it into an advertising brochure.\n\nWe build school websites the team updates itself, course sites with a clear offer and enrolment, and custom e-learning platforms and digital learning environments. With video, social campaigns around open days and SEO we make sure the right pupils, students and learners find you. And with a fresh visual identity, website, prospectus and open day feel like one whole again.",
+    },
+    challenges: [
+      {
+        title: { nl: "Veel doelgroepen tegelijk", en: "Many audiences at once" },
+        text: {
+          nl: "Ouders, leerlingen, personeel, nieuwe collega's en partners zoeken allemaal iets anders op je website. Een heldere structuur met een eigen route per doelgroep voorkomt dat iedereen verdwaalt.",
+          en: "Parents, pupils, staff, new colleagues and partners are all looking for something different on your website. A clear structure with a separate route per audience stops everyone getting lost.",
+        },
+      },
+      {
+        title: { nl: "Werven in een krappe markt", en: "Recruiting in a tight market" },
+        text: {
+          nl: "In veel regio's is het knokken om elke aanmelding, en om goed personeel. Met campagnes rond open dagen, social video en employer branding val je op bij de juiste mensen.",
+          en: "In many regions every enrolment is hard-won, and so is good staff. With campaigns around open days, social video and employer branding you stand out to the right people.",
+        },
+      },
+      {
+        title: { nl: "Leren gaat steeds vaker online", en: "Learning moves online" },
+        text: {
+          nl: "Cursisten willen leren wanneer het hun uitkomt. Een e-learning platform of digitale leeromgeving moet net zo makkelijk werken als de apps die ze dagelijks gebruiken.",
+          en: "Learners want to study when it suits them. An e-learning platform or digital learning environment has to be as easy to use as the apps they use every day.",
+        },
+      },
+      {
+        title: { nl: "Privacy en toegankelijkheid", en: "Privacy and accessibility" },
+        text: {
+          nl: "Je werkt met gegevens en foto's van kinderen en jongeren, en je site moet voor iedereen bruikbaar zijn. We bouwen met privacy als uitgangspunt en volgen de toegankelijkheidsrichtlijnen (WCAG).",
+          en: "You work with data and photos of children and young people, and your site has to be usable for everyone. We build with privacy as a starting point and follow the accessibility guidelines (WCAG).",
+        },
+      },
+    ],
+    services: ["websites-webshops", "web-apps-portals-apps", "branding-rebranding", "content-marketing-online-ads", "seo-aeo-geo", "foto-video-3d-animatie"],
+    applications: ["wordpress-website", "webflow-website", "landingspaginas", "saas-platform", "ux-ui-app-design", "huisstijl", "social-media-marketing", "tiktok-ads", "seo", "bedrijfsfilm"],
+    faqs: [
+      {
+        q: { nl: "Kunnen leraren en medewerkers de schoolwebsite zelf bijhouden?", en: "Can teachers and staff update the school website themselves?" },
+        a: {
+          nl: "Ja. We bouwen in WordPress of Webflow met een overzichtelijk beheer, zodat nieuws, agenda en documenten zonder technische kennis te plaatsen zijn. We leggen het ook even uit, met koffie.",
+          en: "Yes. We build in WordPress or Webflow with a clear back end, so news, calendar items and documents can be posted without technical knowledge. We also walk you through it, over coffee.",
+        },
+      },
+      {
+        q: { nl: "Bouwen jullie ook e-learning platformen?", en: "Do you also build e-learning platforms?" },
+        a: {
+          nl: "Ja. Van een leeromgeving met modules, voortgang en certificaten tot een platform waarop je cursussen verkoopt. We kijken eerst of een bestaand systeem volstaat. Zo niet, dan bouwen we maatwerk.",
+          en: "Yes. From a learning environment with modules, progress tracking and certificates to a platform where you sell courses. We first check whether an existing system will do. If not, we build it custom.",
+        },
+      },
+      {
+        q: { nl: "Hoe gaan jullie om met privacy en foto's van leerlingen?", en: "How do you handle privacy and photos of pupils?" },
+        a: {
+          nl: "Zorgvuldig. We gebruiken alleen beeld waarvoor toestemming is, bouwen formulieren en platformen volgens de AVG en verzamelen niet meer gegevens dan nodig.",
+          en: "Carefully. We only use images for which consent has been given, build forms and platforms in line with the GDPR and collect no more data than necessary.",
+        },
+      },
+      {
+        q: { nl: "Helpen jullie met werving voor open dagen?", en: "Do you help with recruitment for open days?" },
+        a: {
+          nl: "Ja. We maken campagnes, landingspagina's en social video rond open dagen en meeloopdagen, met een aanmeldformulier en automatische herinneringen.",
+          en: "Yes. We create campaigns, landing pages and social video around open days and taster days, with a sign-up form and automatic reminders.",
+        },
+      },
+      {
+        q: { nl: "Werken jullie ook voor kinderopvang, muziekscholen en rijscholen?", en: "Do you also work for childcare, music schools and driving schools?" },
+        a: {
+          nl: "Zeker. Voor kleinere lesscholen en opvanglocaties ligt de nadruk vaak op lokaal gevonden worden en makkelijk een proefles of rondleiding boeken.",
+          en: "Definitely. For smaller lesson schools and childcare locations the focus is often on getting found locally and making it easy to book a trial lesson or tour.",
+        },
+      },
+    ],
+    metaTitle: {
+      nl: "Websites & e-learning voor scholen en opleiders | M7",
+      en: "Websites & e-learning for schools and training providers | M7",
+    },
+    metaDescription: {
+      nl: "M7 bouwt schoolwebsites, e-learning platformen, campagnes en video voor scholen, mbo en hbo, opleiders, kinderopvang en muziek-, dans- en rijscholen.",
+      en: "M7 builds school websites, e-learning platforms, campaigns and video for schools, colleges, training providers, childcare and music, dance and driving schools.",
+    },
+    segments: [
+      {
+        name: { nl: "Scholen & schoolbesturen", en: "Schools & school boards" },
+        intro: {
+          nl: "Voor basisscholen, middelbare scholen, scholen voor speciaal onderwijs en schoolbesturen of onderwijsstichtingen met meerdere scholen onder één dak.",
+          en: "For primary schools, secondary schools, special education schools and school boards or education foundations with several schools under one roof.",
+        },
+        types: [
+          { nl: "Basisscholen", en: "Primary schools" },
+          { nl: "Middelbare scholen", en: "Secondary schools" },
+          { nl: "Scholen voor speciaal onderwijs", en: "Special education schools" },
+          { nl: "Schoolbesturen en onderwijsstichtingen", en: "School boards and education foundations" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Schoolwebsite die het team zelf bijhoudt", en: "A school website the team updates itself" },
+            text: {
+              nl: "Nieuws, agenda, vakanties en documenten op één plek, makkelijk te beheren door de administratie of de directie.",
+              en: "News, calendar, holidays and documents in one place, easy for the office or the head to manage.",
+            },
+            service: "websites-webshops",
+            application: "wordpress-website",
+          },
+          {
+            title: { nl: "Eén huisstijl voor het hele bestuur", en: "One identity for the whole board" },
+            text: {
+              nl: "Herkenbaar als stichting, met ruimte voor het eigen karakter van elke school.",
+              en: "Recognisable as one foundation, with room for each school's own character.",
+            },
+            service: "branding-rebranding",
+            application: "huisstijl",
+          },
+          {
+            title: { nl: "Een schoolgids die je wél leest", en: "A prospectus people actually read" },
+            text: {
+              nl: "Een schoolgids met rust, structuur en beeld, als toegankelijke pdf en op papier.",
+              en: "A school prospectus with calm, structure and imagery, as an accessible PDF and on paper.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "brochures-magazines",
+          },
+          {
+            title: { nl: "Sfeerfilm voor nieuwe ouders", en: "A film for new parents" },
+            text: {
+              nl: "Een korte film die laat zien hoe een dag op school voelt. Dat zegt ouders meer dan een missie op de homepage.",
+              en: "A short film that shows what a day at school feels like. That tells parents more than a mission statement on the homepage.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "bedrijfsfilm",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Wat moet er op een goede schoolwebsite staan?", en: "What should a good school website include?" },
+            a: {
+              nl: "Kijk door de ogen van een ouder die twijfelt tussen drie scholen. Die wil zien hoe het voelt op je school, wat je anders doet, hoe schooltijden en opvang geregeld zijn en hoe hij een rondleiding plant. Huidige ouders zoeken vooral de agenda, de vakanties en het ziekmeldformulier. Geef beide groepen een eigen route. Wij bouwen een [[wordpress-website|schoolwebsite]] die het team zelf bijhoudt, met een agenda en nieuws die niet na drie maanden stilvallen.",
+              en: "Look through the eyes of a parent choosing between three schools. They want to see what your school feels like, what you do differently, how school hours and childcare are arranged and how to book a tour. Current parents mainly look for the calendar, the holidays and the sick-note form. Give both groups their own route. We build a [[wordpress-website|school website]] the team updates itself, with a calendar and news that do not grind to a halt after three months.",
+            },
+          },
+          {
+            q: { nl: "Hoe zorg je dat een schoolwebsite toegankelijk is?", en: "How do you make a school website accessible?" },
+            a: {
+              nl: "Door het vanaf het begin mee te nemen in ontwerp en bouw. Denk aan voldoende kleurcontrast, teksten in begrijpelijke taal, knoppen die met het toetsenbord werken en alt-teksten bij foto's. Ook pdf's zoals de schoolgids moeten leesbaar zijn voor een screenreader. Veel ouders lezen je site op een telefoon of in een tweede taal, dus eenvoud helpt iedereen. We werken volgens de WCAG-richtlijnen en leveren een [[ux-ui-webdesign|ontwerp]] waar je later nog op kunt bouwen.",
+              en: "By including it in design and build from the start. Think of enough colour contrast, texts in plain language, buttons that work with a keyboard and alt texts on photos. PDFs such as the prospectus also need to be readable by a screen reader. Many parents read your site on a phone or in a second language, so simplicity helps everyone. We work to the WCAG guidelines and deliver a [[ux-ui-webdesign|design]] you can keep building on later.",
+            },
+          },
+          {
+            q: { nl: "Hoe pak je een huisstijl aan voor een schoolbestuur met meerdere scholen?", en: "How do you approach a visual identity for a school board with several schools?" },
+            a: {
+              nl: "Vaak met een familie: één herkenbare basis voor het bestuur, en ruimte voor kleur, naam en beeld per school. Zo blijft elke school zichzelf, terwijl ouders en medewerkers zien dat ze bij dezelfde stichting horen. Dat scheelt ook kosten, want sjablonen voor brieven, presentaties en social media maak je maar één keer. In een [[brandbook]] leggen we vast hoe het werkt, zodat het over een paar jaar nog steeds klopt.",
+              en: "Often with a family approach: one recognisable base for the board, with room for colour, name and imagery per school. Each school stays itself, while parents and staff see they belong to the same foundation. It also saves money, because templates for letters, presentations and social media only need to be made once. In a [[brandbook|brand book]] we record how it all works, so it still holds up in a few years.",
+            },
+          },
+          {
+            q: { nl: "Hoe trek je meer aanmeldingen voor groep 1 of de brugklas?", en: "How do you attract more enrolments for reception or first year?" },
+            a: {
+              nl: "Begin op tijd en ga waar ouders zijn. Ouders van peuters oriënteren zich vaak ruim van tevoren, ouders van groep 8 vooral rond de open dagen in de winter. Een korte sfeerfilm, social posts met echte momenten uit de klas en lokale advertenties rond het open huis werken goed. Stuur alles naar één [[landingspaginas|landingspagina]] waar ouders direct een rondleiding plannen. Met de toestemming voor beeldgebruik netjes geregeld, uiteraard.",
+              en: "Start early and go where parents are. Parents of toddlers often look around well in advance, parents of children in their final primary year mainly around the winter open days. A short film, social posts with real classroom moments and local ads around the open day work well. Send everything to one [[landingspaginas|landing page]] where parents can book a tour straight away. With consent for using images properly arranged, of course.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Mbo & hoger onderwijs", en: "Vocational & higher education" },
+        intro: {
+          nl: "Voor mbo-instellingen, hogescholen, vakscholen en private academies die studenten werven, opleidingen helder presenteren en in hun regio zichtbaar willen zijn.",
+          en: "For vocational colleges, universities of applied sciences, trade schools and private academies that recruit students, present programmes clearly and want to be visible in their region.",
+        },
+        types: [
+          { nl: "Mbo-instellingen", en: "Vocational colleges (MBO)" },
+          { nl: "Hogescholen", en: "Universities of applied sciences" },
+          { nl: "Vakscholen", en: "Trade schools" },
+          { nl: "Private hogescholen en academies", en: "Private colleges and academies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Opleidingspagina's die gevonden worden", en: "Programme pages that get found" },
+            text: {
+              nl: "Per opleiding een pagina die vertelt wat je leert, wat je ermee kunt en hoe je je aanmeldt, vindbaar in Google en AI-zoekmachines.",
+              en: "A page per programme that says what you learn, what you can do with it and how to apply, findable in Google and AI search.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+          {
+            title: { nl: "Campagnes op TikTok en Instagram", en: "Campaigns on TikTok and Instagram" },
+            text: {
+              nl: "Scholieren bereik je waar ze zijn, met korte video's van echte studenten en docenten.",
+              en: "Reach school leavers where they are, with short videos of real students and teachers.",
+            },
+            service: "content-marketing-online-ads",
+            application: "tiktok-ads",
+          },
+          {
+            title: { nl: "Studiekeuzetest", en: "Study choice quiz" },
+            text: {
+              nl: "Een paar vragen over interesses en talenten, en de scholier ziet welke opleidingen passen, met een link naar de open dag.",
+              en: "A few questions about interests and talents, and the student sees which programmes fit, with a link to the open day.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "keuzehulp-quiz",
+          },
+          {
+            title: { nl: "Aanmeldflow met herinneringen", en: "Sign-up flow with reminders" },
+            text: {
+              nl: "Na aanmelding voor de open dag automatisch een bevestiging, een herinnering en een bedankmail met de volgende stap.",
+              en: "After signing up for the open day, an automatic confirmation, a reminder and a thank-you email with the next step.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "e-mailmarketing",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe bereik je scholieren die een opleiding zoeken?", en: "How do you reach school leavers looking for a programme?" },
+            a: {
+              nl: "Niet met een folder, wel via hun eigen kanalen. Scholieren oriënteren zich op TikTok, Instagram en YouTube, en vragen het steeds vaker aan ChatGPT. Korte video's waarin echte studenten vertellen wat ze doen, werken beter dan een gepolijste reclame. Zet campagnes op rond open dagen en de aanmeldperiode, en stuur naar een pagina per opleiding. Met [[tiktok-ads|TikTok Ads]] en [[social-video|social video]] maken we content die scholieren niet meteen wegswipen.",
+              en: "Not with a brochure, but through their own channels. School leavers look around on TikTok, Instagram and YouTube, and increasingly ask ChatGPT. Short videos in which real students talk about what they do work better than polished advertising. Run campaigns around open days and the application period, and link to a page per programme. With [[tiktok-ads|TikTok Ads]] and [[social-video|social video]] we create content students do not swipe away straight away.",
+            },
+          },
+          {
+            q: { nl: "Hoe maak je opleidingspagina's die goed scoren in Google?", en: "How do you create programme pages that rank well in Google?" },
+            a: {
+              nl: "Schrijf vanuit de vragen van de scholier en zijn ouders: wat leer je, hoe ziet een week eruit, welk werk kun je ermee en wat zijn de toelatingseisen? Gebruik de woorden die zij gebruiken, zoals 'opleiding verpleegkunde mbo', in plaats van een interne opleidingsnaam. Zorg dat elke pagina technisch klopt, met gestructureerde gegevens over de opleiding. Met [[seo-content|SEO-content]] en [[structured-data|structured data]] word je gevonden in Google en in de antwoorden van AI-assistenten.",
+              en: "Write from the questions of the student and their parents: what do you learn, what does a week look like, what jobs can it lead to and what are the entry requirements? Use the words they use, such as 'vocational nursing course', instead of an internal programme name. Make sure each page is technically sound, with structured data about the programme. With [[seo-content|SEO content]] and [[structured-data|structured data]] you get found in Google and in the answers of AI assistants.",
+            },
+          },
+          {
+            q: { nl: "Kan een studiekeuzetest helpen bij werving?", en: "Can a study choice quiz help with recruitment?" },
+            a: {
+              nl: "Ja, als hij eerlijk is. Een [[keuzehulp-quiz|studiekeuzetest]] met vragen over interesses, sterke punten en hoe iemand graag leert, helpt twijfelaars op weg en laat de opleidingen zien die echt passen. De uitkomst linkt direct naar de opleidingspagina en de open dag. Scholieren delen zo'n test ook met vrienden, wat extra bereik oplevert. En jij leert welke opleidingen leven en met welke vragen scholieren zitten.",
+              en: "Yes, if it is honest. A [[keuzehulp-quiz|study choice quiz]] with questions about interests, strengths and how someone likes to learn helps people who are unsure and shows the programmes that genuinely fit. The result links straight to the programme page and the open day. Students also share a quiz like that with friends, which adds reach. And you learn which programmes are popular and what questions students have.",
+            },
+          },
+          {
+            q: { nl: "Hoe houd je aanmelders vast tussen open dag en start?", en: "How do you keep applicants engaged between open day and the start?" },
+            a: {
+              nl: "Met contact op de juiste momenten. Na de open dag een bedankmail met de volgende stap, voor de intake een herinnering met praktische info, en in de zomer een paar berichten die laten voelen dat ze welkom zijn. Zo verklein je de kans dat iemand op het laatste moment afhaakt. Die flows zetten we op met [[e-mailmarketing]] en koppelen we waar mogelijk aan je aanmeldsysteem. Persoonlijk, zonder dat iemand alles met de hand hoeft te sturen.",
+              en: "With contact at the right moments. After the open day a thank-you email with the next step, before the intake a reminder with practical info, and in summer a few messages that make them feel welcome. That reduces the chance of someone dropping out at the last minute. We set up those flows with [[e-mailmarketing|email marketing]] and, where possible, connect them to your enrolment system. Personal, without anyone having to send it all by hand.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Opleiders & e-learning", en: "Training & e-learning" },
+        intro: {
+          nl: "Voor trainingsinstituten, bedrijfsopleiders, e-learningaanbieders, taalscholen en sportbonden die trainers en kaderleden opleiden, online of in een mix van klas en scherm.",
+          en: "For training institutes, corporate trainers, e-learning providers, language schools and sports federations that train coaches and officials, online or in a mix of classroom and screen.",
+        },
+        types: [
+          { nl: "Trainingsinstituten", en: "Training institutes" },
+          { nl: "E-learningaanbieders", en: "E-learning providers" },
+          { nl: "Bedrijfsopleiders", en: "Corporate training providers" },
+          { nl: "Taalscholen", en: "Language schools" },
+          { nl: "Sportbonden (opleidingen)", en: "Sports federations (education)" },
+        ],
+        useCases: [
+          {
+            title: { nl: "E-learning platform op maat", en: "Custom e-learning platform" },
+            text: {
+              nl: "Modules, voortgang, toetsen en certificaten in één platform, in je eigen huisstijl en met een betaalmodule als je cursussen verkoopt.",
+              en: "Modules, progress, tests and certificates in one platform, in your own branding and with payments if you sell courses.",
+            },
+            service: "web-apps-portals-apps",
+            application: "saas-platform",
+          },
+          {
+            title: { nl: "Digitale leeromgeving voor een sportbond", en: "Digital learning environment for a sports federation" },
+            text: {
+              nl: "Trainers en scheidsrechters volgen hun opleiding online, met video, opdrachten en een overzicht van hun licenties en bijscholingen.",
+              en: "Coaches and referees follow their training online, with video, assignments and an overview of their licences and refresher courses.",
+            },
+            service: "web-apps-portals-apps",
+            application: "ledenportaal-loyaliteit",
+          },
+          {
+            title: { nl: "Cursusaanbod met inschrijving en betaling", en: "Course listings with enrolment and payment" },
+            text: {
+              nl: "Een overzicht van data, locaties en beschikbare plekken, met direct inschrijven en betalen via iDEAL.",
+              en: "An overview of dates, locations and available places, with direct enrolment and payment.",
+            },
+            service: "websites-webshops",
+            application: "webshop",
+          },
+          {
+            title: { nl: "Incompany-leads opvolgen", en: "Following up in-company leads" },
+            text: {
+              nl: "Een HR-manager die een brochure downloadt, krijgt nuttige mails tot hij een incompany-traject wil bespreken.",
+              en: "An HR manager who downloads a brochure receives useful emails until they want to discuss an in-company programme.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "lead-nurturing",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Moet ik een e-learning platform laten bouwen of een bestaand systeem gebruiken?", en: "Should I have an e-learning platform built or use an existing system?" },
+            a: {
+              nl: "Dat hangt af van wat je wilt. Voor een paar cursussen met video en een toets is een bestaand leerplatform vaak prima, en sneller live. Wil je cursussen onder je eigen merk verkopen, met abonnementen, koppelingen met je CRM of een leerroute die echt anders werkt, dan wordt maatwerk interessant. We zetten de opties eerlijk naast elkaar. Kiezen we voor bouwen, dan begint het met een [[mvp-ontwikkeling|MVP]] waarmee je snel van echte cursisten leert.",
+              en: "That depends on what you want. For a few courses with video and a test, an existing learning platform is often fine, and quicker to launch. If you want to sell courses under your own brand, with subscriptions, links to your CRM or a learning path that genuinely works differently, custom development becomes interesting. We compare the options honestly. If we decide to build, we start with an [[mvp-ontwikkeling|MVP]] so you learn from real learners quickly.",
+            },
+          },
+          {
+            q: { nl: "Hoe zorg je dat cursisten een online opleiding ook afmaken?", en: "How do you make sure learners actually finish an online course?" },
+            a: {
+              nl: "Met korte lessen, duidelijke voortgang en af en toe een duwtje. Niemand kijkt graag een uur naar een webinar-opname. Werk met blokken van een paar minuten, een voortgangsbalk en een certificaat aan het eind. Herinneringen per mail of pushbericht als iemand een week niets heeft gedaan, helpen ook. In de [[ux-ui-app-design|UX/UI]] van het platform zit vaak het verschil tussen een cursus die wordt afgemaakt en een login die wordt vergeten.",
+              en: "With short lessons, clear progress and the occasional nudge. Nobody enjoys watching an hour-long webinar recording. Work with blocks of a few minutes, a progress bar and a certificate at the end. Reminders by email or push notification when someone has done nothing for a week also help. The [[ux-ui-app-design|UX/UI]] of the platform is often the difference between a course that gets finished and a login that gets forgotten.",
+            },
+          },
+          {
+            q: { nl: "Kan een sportbond trainers en scheidsrechters online opleiden?", en: "Can a sports federation train coaches and referees online?" },
+            a: {
+              nl: "Ja, en dat werkt goed omdat veel kaderleden het naast hun werk doen. In een digitale leeromgeving volgen ze de theorie met video en opdrachten, en houden ze bij welke praktijkonderdelen en bijscholingen ze hebben gedaan. De bond ziet per lid de voortgang en welke licenties bijna verlopen. We bouwen zo'n omgeving als [[ledenportaal-loyaliteit|ledenportaal]] en koppelen hem waar mogelijk aan de ledenadministratie. Zo hoeft een trainer niet met drie logins te jongleren.",
+              en: "Yes, and it works well because many volunteers do it alongside their jobs. In a digital learning environment they follow the theory with video and assignments, and keep track of the practical parts and refresher courses they have done. The federation sees each member's progress and which licences are about to expire. We build that kind of environment as a [[ledenportaal-loyaliteit|member portal]] and connect it to the membership database where possible. That way a coach does not have to juggle three logins.",
+            },
+          },
+          {
+            q: { nl: "Hoe word je als opleider gevonden op 'cursus' plus je vakgebied?", en: "How do you get found as a training provider for 'course' plus your field?" },
+            a: {
+              nl: "Met een pagina per cursus die meer is dan een datum en een prijs. Zoekers willen weten wat ze leren, voor wie het is, hoe lang het duurt, of het erkend is en wat eerdere deelnemers ervan vonden. Schrijf dat uit en zorg dat de pagina technisch goed in elkaar zit. Met [[seo]] word je gevonden op zoekopdrachten als 'cursus leidinggeven' of 'opleiding HR online'. [[google-ads|Google Ads]] helpt om in drukke periodes, zoals rond september en januari, extra zichtbaar te zijn.",
+              en: "With a page per course that is more than a date and a price. Searchers want to know what they will learn, who it is for, how long it takes, whether it is accredited and what previous participants thought. Write that out and make sure the page is technically sound. With [[seo|SEO]] you get found for searches like 'leadership course' or 'online HR training'. [[google-ads|Google Ads]] helps you stay extra visible in busy periods, such as around September and January.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Kinderopvang", en: "Childcare" },
+        intro: {
+          nl: "Voor kinderdagverblijven, buitenschoolse opvang, peuteropvang en gastouderbureaus die ouders willen laten zien hoe hun kind de dag doorbrengt, en die pedagogisch medewerkers zoeken.",
+          en: "For day nurseries, out-of-school care, preschool playgroups and childminding agencies that want to show parents how their child spends the day, and that are looking for childcare staff.",
+        },
+        types: [
+          { nl: "Kinderdagverblijven", en: "Day nurseries" },
+          { nl: "Buitenschoolse opvang (BSO)", en: "Out-of-school care" },
+          { nl: "Peuteropvang", en: "Preschool playgroups" },
+          { nl: "Gastouderbureaus", en: "Childminding agencies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Rondleiding online plannen", en: "Booking a tour online" },
+            text: {
+              nl: "Ouders kiezen zelf een moment voor een rondleiding, met een bevestiging en een herinnering.",
+              en: "Parents choose a time for a tour themselves, with a confirmation and a reminder.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "boekingswidget",
+          },
+          {
+            title: { nl: "Vindbaar per locatie", en: "Findable per location" },
+            text: {
+              nl: "Een pagina en een Google Bedrijfsprofiel per locatie, voor zoekopdrachten als 'kinderopvang' plus de wijk of plaats.",
+              en: "A page and a Google Business Profile per location, for searches like 'childcare' plus the neighbourhood or town.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+          {
+            title: { nl: "Werken-bij voor pedagogisch medewerkers", en: "Careers site for childcare staff" },
+            text: {
+              nl: "Laat zien hoe het is om bij jullie te werken, met echte collega's en een vacaturepagina waarop solliciteren makkelijk gaat.",
+              en: "Show what it is like to work with you, with real colleagues and a vacancy page that makes applying easy.",
+            },
+            service: "branding-rebranding",
+            application: "employer-branding",
+          },
+          {
+            title: { nl: "Social content met toestemming", en: "Social content with consent" },
+            text: {
+              nl: "Sfeervolle posts zonder herkenbare kinderen, of alleen met toestemming van de ouders.",
+              en: "Atmospheric posts without recognisable children, or only with parents' consent.",
+            },
+            service: "content-marketing-online-ads",
+            application: "social-media-marketing",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe kiezen ouders een kinderopvang, en wat betekent dat voor je website?", en: "How do parents choose childcare, and what does that mean for your website?" },
+            a: {
+              nl: "Ouders kiezen met hun buikgevoel, onderbouwd met praktische zaken. Ze willen zien hoe een groep eruitziet, wie de medewerkers zijn, wat de openingstijden en kosten zijn en of er plek is. Zet die info overzichtelijk per locatie op de site, met sfeerfoto's en een duidelijke knop voor een rondleiding. Met een [[boekingswidget]] kiezen ouders zelf een moment. En vergeet de uitleg over kinderopvangtoeslag niet, want daar vraagt bijna iedereen naar.",
+              en: "Parents choose with their gut, backed by practical matters. They want to see what a group looks like, who the staff are, what the opening hours and costs are and whether there is a place. Put that information clearly on the site per location, with atmospheric photos and an obvious button to book a tour. With a [[boekingswidget|booking widget]] parents choose a time themselves. And do not forget to explain the childcare allowance, because nearly everyone asks about it.",
+            },
+          },
+          {
+            q: { nl: "Hoe vind je pedagogisch medewerkers via je website en social media?", en: "How do you find childcare staff through your website and social media?" },
+            a: {
+              nl: "Door te laten zien hoe het werk echt is. Een vacaturetekst vol 'enthousiaste teamplayer' zegt weinig. Korte video's of foto's van collega's, een eerlijke beschrijving van een werkdag, roosters en doorgroeimogelijkheden zeggen veel meer. Bouw een werken-bij pagina waar solliciteren in een paar minuten kan, zonder verplicht cv als dat niet nodig is. Met [[employer-branding|employer branding]] en gerichte [[meta-ads|Meta Ads]] rond je locaties bereik je ook mensen die niet actief zoeken.",
+              en: "By showing what the job is really like. A vacancy text full of 'enthusiastic team player' says little. Short videos or photos of colleagues, an honest description of a working day, schedules and growth opportunities say far more. Build a careers page where applying takes a few minutes, without a mandatory CV if you do not need one. With [[employer-branding|employer branding]] and targeted [[meta-ads|Meta Ads]] around your locations you also reach people who are not actively looking.",
+            },
+          },
+          {
+            q: { nl: "Mag je foto's van kinderen op je website en social media zetten?", en: "Can you put photos of children on your website and social media?" },
+            a: {
+              nl: "Alleen met toestemming van de ouders, en die vraag je vooraf en per doel. Veel opvangorganisaties werken daarom met beeld waarop kinderen niet herkenbaar zijn: handjes in de verf, een rugje bij de zandbak, de ruimte zelf. Dat kan heel sfeervol zijn. Voor campagnes kun je een fotoshoot doen met kinderen van wie de ouders uitdrukkelijk meedoen. We denken mee over een [[contentstrategie]] die werkt zonder dat de privacy in het gedrang komt.",
+              en: "Only with the parents' consent, which you ask for in advance and per purpose. That is why many childcare organisations use images in which children cannot be recognised: little hands in paint, a back by the sandpit, the room itself. That can be very atmospheric. For campaigns you can do a photo shoot with children whose parents explicitly agree to take part. We help you with a [[contentstrategie|content strategy]] that works without compromising privacy.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Muziek, dans & rijles", en: "Music, dance & driving" },
+        intro: {
+          nl: "Voor muziekscholen, dansscholen, rijscholen, bijlesinstituten en zwemscholen die vooral lokaal werken en willen dat nieuwe leerlingen makkelijk een proefles boeken.",
+          en: "For music schools, dance schools, driving schools, tutoring centres and swimming schools that mainly work locally and want new pupils to book a trial lesson easily.",
+        },
+        types: [
+          { nl: "Muziekscholen", en: "Music schools" },
+          { nl: "Dansscholen", en: "Dance schools" },
+          { nl: "Rijscholen", en: "Driving schools" },
+          { nl: "Bijlesinstituten", en: "Tutoring centres" },
+          { nl: "Zwemscholen", en: "Swimming schools" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Proefles online boeken", en: "Booking a trial lesson online" },
+            text: {
+              nl: "Leerlingen kiezen zelf een tijd voor een proefles of intake, zonder heen-en-weer appen.",
+              en: "Pupils choose a time for a trial lesson or intake themselves, without back-and-forth messaging.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "boekingswidget",
+          },
+          {
+            title: { nl: "Lespakketten vergelijken", en: "Comparing lesson packages" },
+            text: {
+              nl: "Een leerling kiest een pakket, ziet wat erin zit en wat het kost, en vraagt het direct aan.",
+              en: "A pupil chooses a package, sees what is included and what it costs, and requests it straight away.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Lokaal gevonden worden", en: "Getting found locally" },
+            text: {
+              nl: "'Rijschool Oss' of 'gitaarles Den Bosch': met lokale SEO en reviews kom je in beeld als iemand in de buurt zoekt.",
+              en: "'Driving school near me' or 'guitar lessons' plus a town: with local SEO and reviews you show up when someone nearby is searching.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+          {
+            title: { nl: "Korte video van een les", en: "Short video of a lesson" },
+            text: {
+              nl: "Een dansles, een eerste rijles of een optreden in vijftien seconden: zo laat je zien hoe het voelt.",
+              en: "A dance class, a first driving lesson or a performance in fifteen seconds: that is how you show what it feels like.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "social-video",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe krijgt een rijschool meer leerlingen via internet?", en: "How does a driving school get more pupils online?" },
+            a: {
+              nl: "Door te laten zien wat een leerling wil weten: wat kost het in totaal, hoe snel kan ik beginnen en hoe gaat het examen? Zet pakketten overzichtelijk op je site, met een eerlijke uitleg over hoeveel lessen de meeste leerlingen nodig hebben. Reviews van geslaagde leerlingen doen veel. En omdat iedereen zoekt op 'rijschool' plus zijn woonplaats, is [[lokale-seo|lokale SEO]] onmisbaar. Een [[boekingswidget|knop voor een proefles]] maakt de eerste stap klein.",
+              en: "By showing what a pupil wants to know: what does it cost in total, how soon can I start and how does the test work? Put packages clearly on your site, with an honest explanation of how many lessons most pupils need. Reviews from pupils who passed do a lot. And because everyone searches for 'driving school' plus their town, [[lokale-seo|local SEO]] is essential. A [[boekingswidget|trial lesson button]] keeps the first step small.",
+            },
+          },
+          {
+            q: { nl: "Hoe vul je de lessen van een muziek- of dansschool?", en: "How do you fill the classes of a music or dance school?" },
+            a: {
+              nl: "Met een proefles die makkelijk te boeken is en content die laat zien hoe leuk het is. Ouders en volwassen leerlingen willen weten welke lessen er zijn, op welke dagen, voor welke leeftijd en wat het kost. Een overzichtelijk lesrooster met een knop voor een proefles doet meer dan een lange tekst. Korte video's van lessen en optredens werken goed op Instagram en TikTok. Rond de start van het seizoen en in januari helpen lokale [[meta-ads|advertenties]] om de laatste plekken te vullen.",
+              en: "With a trial lesson that is easy to book and content that shows how much fun it is. Parents and adult pupils want to know which classes there are, on which days, for which age and what it costs. A clear timetable with a trial lesson button does more than a long text. Short videos of classes and performances work well on Instagram and TikTok. Around the start of the season and in January, local [[meta-ads|ads]] help fill the last places.",
+            },
+          },
+          {
+            q: { nl: "Kan ik inschrijvingen en betalingen voor lessen online regelen?", en: "Can I handle enrolments and payments for lessons online?" },
+            a: {
+              nl: "Ja. Leerlingen kiezen een lesvorm, dag en tijd, schrijven zich in en betalen direct, per maand via automatische incasso of met een lessenkaart. Jij krijgt een overzicht per groep en hoeft geen Excel-lijstjes meer bij te houden. Vaak kan dat met een bestaand systeem dat we netjes in je website inbouwen. Soms is een eigen [[boekingswidget]] of een [[api-koppelingen|koppeling]] handiger. We kiezen wat past bij de grootte van je school.",
+              en: "Yes. Pupils choose a type of lesson, day and time, enrol and pay straight away, monthly by direct debit or with a lesson card. You get an overview per group and no longer have to keep spreadsheets. Often this works with an existing system that we neatly build into your website. Sometimes a custom [[boekingswidget|booking widget]] or an [[api-koppelingen|integration]] is more practical. We choose what suits the size of your school.",
+            },
+          },
+        ],
+      },
+    ],
+    audiences: [
+      { nl: "Basisscholen", en: "Primary schools" },
+      { nl: "Middelbare scholen", en: "Secondary schools" },
+      { nl: "Scholen voor speciaal onderwijs", en: "Special education schools" },
+      { nl: "Schoolbesturen en onderwijsstichtingen", en: "School boards and education foundations" },
+      { nl: "Internationale scholen", en: "International schools" },
+      { nl: "Mbo-instellingen", en: "Vocational colleges (MBO)" },
+      { nl: "Hogescholen", en: "Universities of applied sciences" },
+      { nl: "Vakscholen", en: "Trade schools" },
+      { nl: "Private hogescholen en academies", en: "Private colleges and academies" },
+      { nl: "Trainingsinstituten", en: "Training institutes" },
+      { nl: "E-learningaanbieders", en: "E-learning providers" },
+      { nl: "Bedrijfsopleiders", en: "Corporate training providers" },
+      { nl: "Taalscholen", en: "Language schools" },
+      { nl: "Sportbonden (opleidingen)", en: "Sports federations (education)" },
+      { nl: "Kinderdagverblijven", en: "Day nurseries" },
+      { nl: "Buitenschoolse opvang (BSO)", en: "Out-of-school care" },
+      { nl: "Peuteropvang", en: "Preschool playgroups" },
+      { nl: "Gastouderbureaus", en: "Childminding agencies" },
+      { nl: "Muziekscholen", en: "Music schools" },
+      { nl: "Dansscholen", en: "Dance schools" },
+      { nl: "Rijscholen", en: "Driving schools" },
+      { nl: "Bijlesinstituten", en: "Tutoring centres" },
+      { nl: "Huiswerkbegeleiding", en: "Homework support centres" },
+      { nl: "Zwemscholen", en: "Swimming schools" },
+    ],
+  },
+  /* ---------- Gemeentes & Overheden ---------- */
+  {
+    slug: "gemeentes-overheden",
+    title: { nl: "Gemeentes & Overheden", en: "Municipalities & Government" },
+    short: { nl: "Overheid", en: "Government" },
+    icon: "landmark",
+    quote: { nl: "Clear for everyone. That is the whole point.", en: "Clear for everyone. That is the whole point." },
+    intro: {
+      nl: "Gemeenten, provincies, waterschappen en publieke organisaties: wij maken websites, campagnes en beeld die voor iedere inwoner helder, toegankelijk en vindbaar zijn.",
+      en: "Municipalities, provinces, water boards and public organisations: we create websites, campaigns and visuals that are clear, accessible and findable for every resident.",
+    },
+    description: {
+      nl: "Bij de overheid is communicatie geen marketing, maar dienstverlening. Een inwoner wil snel weten hoe hij iets aanvraagt, wat er in zijn wijk verandert of waar hij met een vraag terechtkan. En dat moet werken voor iedereen: op een oude telefoon, met een screenreader of voor wie moeite heeft met lezen. M7 helpt gemeenten en publieke organisaties met toegankelijke websites, heldere campagnes en beeld dat ingewikkelde plannen begrijpelijk maakt.\n\nWe bouwen websites en campagnesites volgens de toegankelijkheidsrichtlijnen (WCAG) waar overheden aan moeten voldoen, schrijven in begrijpelijke taal en gaan zorgvuldig om met privacy. Voor participatie en ruimtelijke plannen maken we 3D-visualisaties, uitlegvideo's en infographics, zodat inwoners kunnen meepraten over iets wat er nog niet staat. En we denken mee over AI, bijvoorbeeld een assistent die vragen van inwoners beantwoordt, binnen de kaders van privacy en informatiebeveiliging. Loopt een opdracht via een aanbesteding of offerteaanvraag? Dan sluiten we aan op de procedure en de eisen die daarbij horen.",
+      en: "In government, communication is not marketing but public service. A resident wants to know quickly how to apply for something, what is changing in their neighbourhood or where to go with a question. And it has to work for everyone: on an old phone, with a screen reader or for people who struggle with reading. M7 helps municipalities and public organisations with accessible websites, clear campaigns and visuals that make complex plans understandable.\n\nWe build websites and campaign sites to the accessibility guidelines (WCAG) that public bodies must meet, write in plain language and handle privacy with care. For public participation and spatial plans we create 3D visuals, explainer videos and infographics, so residents can have their say about something that does not exist yet. And we help you think about AI, for example an assistant that answers residents' questions, within the boundaries of privacy and information security. Does a project run through a public tender or request for quotation? Then we follow the procedure and the requirements that come with it.",
+    },
+    challenges: [
+      {
+        title: { nl: "Toegankelijk voor iedereen", en: "Accessible for everyone" },
+        text: {
+          nl: "Overheidswebsites moeten voldoen aan de WCAG-richtlijnen en een toegankelijkheidsverklaring hebben. Wij nemen toegankelijkheid mee vanaf het eerste ontwerp, niet als controle achteraf.",
+          en: "Government websites must meet the WCAG guidelines and have an accessibility statement. We include accessibility from the very first design, not as a check afterwards.",
+        },
+      },
+      {
+        title: { nl: "Ingewikkelde plannen uitleggen", en: "Explaining complex plans" },
+        text: {
+          nl: "Woningbouw, energietransitie, een nieuwe weg: plannen zijn abstract tot je ze ziet. Met 3D, animatie en infographics maak je ze begrijpelijk, ook voor wie geen bouwtekeningen leest.",
+          en: "Housing, the energy transition, a new road: plans are abstract until you see them. With 3D, animation and infographics you make them understandable, also for people who do not read technical drawings.",
+        },
+      },
+      {
+        title: { nl: "Iedere inwoner bereiken", en: "Reaching every resident" },
+        text: {
+          nl: "Jongeren, ouderen, nieuwkomers en ondernemers lezen niet allemaal dezelfde krant. Met campagnes op de juiste kanalen en in begrijpelijke taal bereik je ook wie de gemeentelijke website nooit bezoekt.",
+          en: "Young people, older residents, newcomers and business owners do not all read the same paper. With campaigns on the right channels and in plain language you also reach people who never visit the council website.",
+        },
+      },
+      {
+        title: { nl: "Privacy en informatiebeveiliging", en: "Privacy and information security" },
+        text: {
+          nl: "Inwoners moeten erop kunnen vertrouwen dat hun gegevens veilig zijn. We bouwen volgens de AVG, meten waar het kan zonder trackingcookies en werken binnen jullie kaders voor informatiebeveiliging.",
+          en: "Residents need to be able to trust that their data is safe. We build in line with the GDPR, measure without tracking cookies where possible and work within your information security framework.",
+        },
+      },
+    ],
+    services: ["websites-webshops", "content-marketing-online-ads", "foto-video-3d-animatie", "grafisch-ontwerp-print", "branding-rebranding", "ai-consultancy"],
+    applications: ["wordpress-website", "landingspaginas", "ux-ui-webdesign", "website-migratie", "social-media-marketing", "3d-visualisatie", "motion-design", "infographics", "huisstijl", "ai-chatbots"],
+    faqs: [
+      {
+        q: { nl: "Voldoen jullie websites aan de toegankelijkheidseisen voor overheden?", en: "Do your websites meet the accessibility requirements for public bodies?" },
+        a: {
+          nl: "We ontwerpen en bouwen volgens WCAG 2.1 niveau AA, de norm waar overheidswebsites aan moeten voldoen, en testen tussentijds met toetsenbord, screenreader en contrastcontroles. Voor de toegankelijkheidsverklaring laat je de site doorgaans onderzoeken door een onafhankelijke partij. Wij zorgen dat hij daar klaar voor is en lossen eventuele bevindingen op.",
+          en: "We design and build to WCAG 2.1 level AA, the standard government websites must meet, and test along the way with keyboard, screen reader and contrast checks. For the accessibility statement the site is usually audited by an independent party. We make sure it is ready for that audit and fix any findings.",
+        },
+      },
+      {
+        q: { nl: "Doen jullie mee aan aanbestedingen?", en: "Do you take part in public tenders?" },
+        a: {
+          nl: "Ja, waar het past. Bij een aanbesteding of meervoudig onderhandse offerteaanvraag leveren we een plan van aanpak en offerte volgens de gevraagde eisen. Kleinere opdrachten kunnen ook direct, binnen de inkoopregels van jullie organisatie.",
+          en: "Yes, where it fits. For a public tender or a multiple-quote procedure we deliver a plan of approach and a quote that follow the stated requirements. Smaller assignments can also be awarded directly, within your organisation's procurement rules.",
+        },
+      },
+      {
+        q: { nl: "Maken jullie ook campagnes en uitlegvideo's voor inwoners?", en: "Do you also create campaigns and explainer videos for residents?" },
+        a: {
+          nl: "Ja. Van een campagne over afval scheiden of een nieuwe regeling tot een animatie bij een omgevingsvisie. We schrijven in begrijpelijke taal en kiezen de kanalen die je doelgroep echt gebruikt.",
+          en: "Yes. From a campaign about recycling or a new scheme to an animation for a spatial vision. We write in plain language and choose the channels your audience actually uses.",
+        },
+      },
+      {
+        q: { nl: "Hoe gaan jullie om met privacy en cookies?", en: "How do you handle privacy and cookies?" },
+        a: {
+          nl: "We verzamelen niet meer dan nodig, werken volgens de AVG en kiezen waar het kan voor statistieken zonder trackingcookies. Zo heb je inzicht in het gebruik van je site, zonder inwoners te volgen.",
+          en: "We collect no more than necessary, work in line with the GDPR and, where possible, choose analytics without tracking cookies. That gives you insight into how your site is used, without following residents around.",
+        },
+      },
+      {
+        q: { nl: "Kunnen jullie ruimtelijke plannen visualiseren voor participatie?", en: "Can you visualise spatial plans for public participation?" },
+        a: {
+          nl: "Ja. Op basis van tekeningen en modellen maken we 3D-visualisaties en animaties van woningbouw, openbare ruimte of infrastructuur, voor informatieavonden, websites en social media.",
+          en: "Yes. Based on drawings and models we create 3D visuals and animations of housing, public space or infrastructure, for information evenings, websites and social media.",
+        },
+      },
+    ],
+    metaTitle: {
+      nl: "Toegankelijke websites & campagnes voor overheden | M7",
+      en: "Accessible websites & campaigns for government | M7",
+    },
+    metaDescription: {
+      nl: "M7 maakt toegankelijke websites (WCAG), campagnes, 3D-visualisaties en uitlegvideo's voor gemeenten, provincies, waterschappen en publieke organisaties.",
+      en: "M7 creates accessible websites (WCAG), campaigns, 3D visuals and explainer videos for municipalities, provinces, water boards and public organisations.",
+    },
+    segments: [
+      {
+        name: { nl: "Gemeenten", en: "Municipalities" },
+        intro: {
+          nl: "Voor gemeenten, gemeentelijke samenwerkingsverbanden, citymarketing en afdelingen communicatie, ruimte en economie die inwoners en ondernemers helder en toegankelijk willen informeren.",
+          en: "For municipalities, inter-municipal partnerships, city marketing and communication, planning and economic departments that want to inform residents and businesses clearly and accessibly.",
+        },
+        types: [
+          { nl: "Gemeenten", en: "Municipalities" },
+          { nl: "Gemeentelijke samenwerkingsverbanden", en: "Inter-municipal partnerships" },
+          { nl: "Citymarketingorganisaties", en: "City marketing organisations" },
+          { nl: "Centrummanagementorganisaties", en: "Town centre management organisations" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Toegankelijke project- of campagnesite", en: "Accessible project or campaign site" },
+            text: {
+              nl: "Een eigen site voor een gebiedsontwikkeling of campagne, toegankelijk gebouwd en makkelijk bij te houden door de afdeling communicatie.",
+              en: "A dedicated site for an area development or campaign, built to be accessible and easy for the communications team to update.",
+            },
+            service: "websites-webshops",
+            application: "landingspaginas",
+          },
+          {
+            title: { nl: "Campagne voor inwoners", en: "Campaign for residents" },
+            text: {
+              nl: "Van afval scheiden tot een nieuwe regeling: korte, heldere berichten op de kanalen die inwoners echt gebruiken.",
+              en: "From recycling to a new scheme: short, clear messages on the channels residents actually use.",
+            },
+            service: "content-marketing-online-ads",
+            application: "social-media-marketing",
+          },
+          {
+            title: { nl: "Citymarketing en gebiedsmerk", en: "City marketing and place brand" },
+            text: {
+              nl: "Een verhaal en beeldtaal voor je stad of dorp, waarin inwoners, ondernemers en bezoekers zich herkennen.",
+              en: "A story and visual language for your town or village that residents, businesses and visitors recognise themselves in.",
+            },
+            service: "branding-rebranding",
+            application: "merkstrategie",
+          },
+          {
+            title: { nl: "Uitlegvideo bij nieuw beleid", en: "Explainer video for new policy" },
+            text: {
+              nl: "Een korte animatie die in een minuut uitlegt wat er verandert en wat een inwoner moet doen.",
+              en: "A short animation that explains in a minute what is changing and what a resident needs to do.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "motion-design",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe maak je een website voor een gemeente toegankelijk?", en: "How do you make a municipal website accessible?" },
+            a: {
+              nl: "Door toegankelijkheid in elke stap mee te nemen: ontwerp, techniek en tekst. Denk aan voldoende contrast, koppen in de juiste volgorde, formulieren die met het toetsenbord werken, ondertiteling bij video en teksten op B1-niveau. Gemeenten moeten voldoen aan WCAG 2.1 niveau AA en een toegankelijkheidsverklaring publiceren in het register van DigiToegankelijk. We bouwen een [[wordpress-website|website]] die daarop is ingericht en testen tussentijds, zodat het onafhankelijke onderzoek achteraf geen verrassingen oplevert.",
+              en: "By including accessibility in every step: design, technology and copy. Think of sufficient contrast, headings in the right order, forms that work with a keyboard, captions on video and texts at B1 reading level. Dutch municipalities must meet WCAG 2.1 level AA and publish an accessibility statement in the DigiToegankelijk register. We build a [[wordpress-website|website]] set up for that and test along the way, so the independent audit afterwards brings no surprises.",
+            },
+          },
+          {
+            q: { nl: "Hoe bereik je inwoners die de gemeentelijke website nooit bezoeken?", en: "How do you reach residents who never visit the council website?" },
+            a: {
+              nl: "Door naar hen toe te gaan. Jongeren zitten op Instagram en TikTok, veel ouderen lezen nog het huis-aan-huisblad en ondernemers zie je op LinkedIn en bij de ondernemersvereniging. Kies per doelgroep het kanaal en pas de boodschap daarop aan, in plaats van één persbericht overal neer te zetten. Korte video's en beeld doen het beter dan lappen tekst. Met [[social-media-marketing|social media]] en een doordachte [[contentstrategie]] bereik je inwoners in een specifieke wijk of leeftijdsgroep, netjes binnen de privacyregels.",
+              en: "By going to them. Young people are on Instagram and TikTok, many older residents still read the free local paper and business owners can be found on LinkedIn and at the business association. Choose the channel per audience and adapt the message to it, instead of putting one press release everywhere. Short videos and visuals work better than walls of text. With [[social-media-marketing|social media]] and a well-thought-out [[contentstrategie|content strategy]] you reach residents in a specific neighbourhood or age group, neatly within the privacy rules.",
+            },
+          },
+          {
+            q: { nl: "Hoe pak je citymarketing aan voor een gemeente of kern?", en: "How do you approach city marketing for a municipality or village?" },
+            a: {
+              nl: "Begin bij wat er al is, niet bij een nieuw logo. Wat maakt je stad of dorp anders, waar zijn inwoners trots op en wat zoeken bezoekers, nieuwe bewoners en bedrijven? Daarop bouw je een verhaal en een beeldtaal die ondernemers en organisaties zelf ook kunnen gebruiken. Zo wordt het een merk van de hele plaats, niet alleen van het gemeentehuis. Met een [[merkstrategie]] en een flexibele [[huisstijl]] maken we dat concreet, met sjablonen die partners zonder ontwerper kunnen inzetten.",
+              en: "Start with what is already there, not with a new logo. What makes your town or village different, what are residents proud of and what are visitors, new residents and businesses looking for? On that you build a story and a visual language that businesses and organisations can use themselves. That way it becomes a brand of the whole place, not just of the town hall. With a [[merkstrategie|brand strategy]] and a flexible [[huisstijl|visual identity]] we make it concrete, with templates partners can use without a designer.",
+            },
+          },
+          {
+            q: { nl: "Hoe leg je nieuw beleid of een regeling uit zonder ambtelijke taal?", en: "How do you explain new policy or a scheme without official jargon?" },
+            a: {
+              nl: "Door vanuit de inwoner te schrijven. Wat verandert er voor mij, wat moet ik doen en wanneer? Zet dat bovenaan, in korte zinnen, en bewaar de juridische details voor wie verder leest. Een korte [[motion-design|animatie]] of infographic helpt mensen die liever kijken dan lezen. Toets teksten op B1-niveau en, als het kan, bij een paar inwoners. Dat voelt als extra werk, maar het scheelt een hoop telefoontjes bij het klantcontactcentrum.",
+              en: "By writing from the resident's point of view. What changes for me, what do I need to do and when? Put that at the top, in short sentences, and save the legal details for those who read on. A short [[motion-design|animation]] or infographic helps people who prefer watching to reading. Check texts against B1 reading level and, if possible, with a few residents. It feels like extra work, but it saves a lot of calls to the contact centre.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Provincies & waterschappen", en: "Provinces & water boards" },
+        intro: {
+          nl: "Voor provincies, waterschappen, omgevingsdiensten en veiligheidsregio's met grote projecten, veel belanghebbenden en een verhaal dat verder gaat dan één gemeente.",
+          en: "For provinces, water boards, environmental agencies and safety regions with large projects, many stakeholders and a story that goes beyond a single municipality.",
+        },
+        types: [
+          { nl: "Provincies", en: "Provinces" },
+          { nl: "Waterschappen", en: "Water boards" },
+          { nl: "Omgevingsdiensten", en: "Environmental agencies" },
+          { nl: "Veiligheidsregio's", en: "Safety regions" },
+        ],
+        useCases: [
+          {
+            title: { nl: "3D-visualisatie van een infra- of dijkproject", en: "3D visual of an infrastructure or dyke project" },
+            text: {
+              nl: "Laat omwonenden zien hoe een dijk, fietsroute of natuurgebied eruit komt te zien, gezien vanuit hun eigen straat.",
+              en: "Show local residents what a dyke, cycle route or nature area will look like, seen from their own street.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "3d-visualisatie",
+          },
+          {
+            title: { nl: "Dronebeelden van een projectgebied", en: "Drone footage of a project area" },
+            text: {
+              nl: "Overzicht van een gebied voor en tijdens de uitvoering, voor projectsites, informatieavonden en social media.",
+              en: "An overview of an area before and during the works, for project sites, information evenings and social media.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "dronevideo",
+          },
+          {
+            title: { nl: "Begroting of jaarverslag in infographics", en: "Budget or annual report in infographics" },
+            text: {
+              nl: "Cijfers over waterkwaliteit, investeringen of veiligheid in één oogopslag te begrijpen.",
+              en: "Figures on water quality, investments or safety understandable at a glance.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "infographics",
+          },
+          {
+            title: { nl: "Projectwebsite met actuele updates", en: "Project website with current updates" },
+            text: {
+              nl: "Een site waarop planning, hinder en contactpersonen altijd actueel zijn, zodat omwonenden weten waar ze aan toe zijn.",
+              en: "A site where planning, disruption and contact persons are always up to date, so residents know where they stand.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe leg je een infrastructuur- of dijkproject uit aan omwonenden?", en: "How do you explain an infrastructure or dyke project to local residents?" },
+            a: {
+              nl: "Laat zien wat er verandert vanuit hun eigen perspectief. Een kaart met bouwtekeningen is voor de meeste mensen lastig te lezen. Een [[3d-visualisatie]] vanaf de straat, de dijk of de fietsroute laat in één beeld zien wat er komt. Combineer dat met een projectpagina die planning, verwachte hinder en een vast aanspreekpunt geeft, en houd die actueel. Dat neemt niet alle zorgen weg, maar mensen weten wel waar ze aan toe zijn.",
+              en: "Show what changes from their own perspective. A map with technical drawings is hard for most people to read. A [[3d-visualisatie|3D visual]] from the street, the dyke or the cycle route shows in one image what is coming. Combine that with a project page that gives the planning, expected disruption and a fixed point of contact, and keep it up to date. It will not take away every concern, but people do know where they stand.",
+            },
+          },
+          {
+            q: { nl: "Hoe maak je een begroting of jaarverslag leesbaar voor inwoners?", en: "How do you make a budget or annual report readable for residents?" },
+            a: {
+              nl: "Door de hoofdlijnen eruit te lichten en in beeld te brengen. Waar komt het geld vandaan, waar gaat het naartoe en wat merkt een inwoner daarvan? Een paar duidelijke [[infographics]] en een korte samenvatting in begrijpelijke taal doen meer dan honderd pagina's tabellen. Het volledige document blijft beschikbaar voor wie wil, liefst als toegankelijke webpagina in plaats van alleen een pdf. Zo leg je verantwoording af en wordt het ook nog gelezen.",
+              en: "By picking out the main points and visualising them. Where does the money come from, where does it go and what does a resident notice of it? A few clear [[infographics]] and a short summary in plain language do more than a hundred pages of tables. The full document stays available for those who want it, ideally as an accessible web page rather than only a PDF. That way you account for your choices and people actually read it.",
+            },
+          },
+          {
+            q: { nl: "Kunnen jullie dronebeelden maken van een projectgebied?", en: "Can you shoot drone footage of a project area?" },
+            a: {
+              nl: "Ja. Met [[dronevideo|dronebeelden]] laat je de schaal en samenhang van een gebied zien: een dijktraject, een natuurgebied of een nieuwe wijk in aanbouw. Door op vaste momenten te filmen, ontstaat een tijdlijn van de uitvoering die je op je projectsite en social media kunt delen. We houden rekening met de regels voor dronevluchten en de privacy van omwonenden, en stemmen locaties en momenten vooraf met je af.",
+              en: "Yes. With [[dronevideo|drone footage]] you show the scale and coherence of an area: a stretch of dyke, a nature area or a new neighbourhood under construction. By filming at set moments you build a timeline of the works that you can share on your project site and social media. We take the rules for drone flights and the privacy of local residents into account, and agree locations and timing with you in advance.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Publieke organisaties", en: "Public organisations" },
+        intro: {
+          nl: "Voor uitvoeringsorganisaties, zelfstandige bestuursorganen, woningcorporaties, bibliotheken en andere publieke instellingen die een grote en diverse groep mensen goed willen bedienen.",
+          en: "For government agencies, independent public bodies, housing associations, libraries and other public institutions that want to serve a large and diverse group of people well.",
+        },
+        types: [
+          { nl: "Uitvoeringsorganisaties", en: "Government agencies" },
+          { nl: "Zelfstandige bestuursorganen", en: "Independent public bodies" },
+          { nl: "Woningcorporaties", en: "Housing associations" },
+          { nl: "Bibliotheken", en: "Libraries" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Rebranding van een publieke organisatie", en: "Rebranding a public organisation" },
+            text: {
+              nl: "Een nieuwe naam of huisstijl na een fusie of koerswijziging, ingevoerd zonder verwarring bij klanten en medewerkers.",
+              en: "A new name or identity after a merger or change of course, introduced without confusing customers or staff.",
+            },
+            service: "branding-rebranding",
+            application: "rebranding",
+          },
+          {
+            title: { nl: "Eigen omgeving voor huurders of klanten", en: "Personal area for tenants or customers" },
+            text: {
+              nl: "Zaken online regelen, van een reparatieverzoek tot het wijzigen van gegevens, in een toegankelijke en veilige omgeving.",
+              en: "Arranging things online, from a repair request to updating details, in an accessible and secure environment.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "Website migreren zonder dat iemand verdwaalt", en: "Migrating a website without anyone getting lost" },
+            text: {
+              nl: "Honderden pagina's en documenten overzetten, met redirects en een structuur die klopt.",
+              en: "Moving hundreds of pages and documents, with redirects and a structure that makes sense.",
+            },
+            service: "websites-webshops",
+            application: "website-migratie",
+          },
+          {
+            title: { nl: "Een jaarverslag dat gelezen wordt", en: "An annual report people read" },
+            text: {
+              nl: "Een jaarverslag als toegankelijke webpagina én als verzorgde pdf.",
+              en: "An annual report as an accessible web page and as a polished PDF.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "brochures-magazines",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe pak je een rebranding aan bij een publieke organisatie?", en: "How do you approach a rebrand at a public organisation?" },
+            a: {
+              nl: "Zorgvuldig en in fases. Bij een fusie of nieuwe koers wil je duidelijkheid, maar inwoners en klanten moeten je nog steeds herkennen en vinden. Begin met een heldere [[merkstrategie]], betrek medewerkers op tijd en maak een plan voor alles wat moet veranderen: website, formulieren, brieven en bebording. Een [[rebranding]] hoeft niet alles in één keer om te gooien. Soms past een evolutie van wat er is beter bij een organisatie die vertrouwen moet uitstralen.",
+              en: "Carefully and in phases. After a merger or change of course you want clarity, but residents and customers still need to recognise and find you. Start with a clear [[merkstrategie|brand strategy]], involve staff early and plan everything that has to change: website, forms, letters and signage. A [[rebranding]] does not have to turn everything upside down at once. Sometimes an evolution of what is already there suits an organisation that needs to inspire trust better.",
+            },
+          },
+          {
+            q: { nl: "Kunnen huurders of klanten hun zaken online regelen in een eigen omgeving?", en: "Can tenants or customers arrange things online in their own area?" },
+            a: {
+              nl: "Ja. In een [[klantportaal]] doet een huurder een reparatieverzoek met foto, wijzigt hij zijn gegevens of bekijkt hij zijn betalingen, wanneer het hem uitkomt. Dat scheelt je klantenservice telefoontjes en mails. We bouwen zo'n omgeving toegankelijk, met een veilige inlog, en koppelen hem via [[api-koppelingen|API's]] aan de systemen die je al gebruikt. Belangrijk: wie liever belt of langskomt, moet dat gewoon kunnen blijven doen.",
+              en: "Yes. In a [[klantportaal|customer portal]] a tenant submits a repair request with a photo, updates their details or checks their payments, whenever it suits them. That saves your customer service calls and emails. We build that kind of environment to be accessible, with a secure login, and connect it through [[api-koppelingen|APIs]] to the systems you already use. Important: people who prefer to call or visit should simply be able to keep doing so.",
+            },
+          },
+          {
+            q: { nl: "Hoe migreer je een grote website zonder dat bezoekers verdwalen?", en: "How do you migrate a large website without visitors getting lost?" },
+            a: {
+              nl: "Door eerst op te ruimen en dan pas te verhuizen. Veel publieke websites hebben honderden pagina's en pdf's, waarvan een deel verouderd is. We brengen in kaart wat bezocht wordt, wat weg kan en wat beter kan, en zetten voor elke oude URL een redirect naar de nieuwe plek. Zo blijven links in brieven, zoekmachines en bladwijzers werken. Met een zorgvuldige [[website-migratie]] verhuis je zonder dat inwoners op een foutpagina belanden, en word je meteen een stuk toegankelijker.",
+              en: "By tidying up first and only then moving. Many public websites have hundreds of pages and PDFs, some of them outdated. We map what is visited, what can go and what can be improved, and set up a redirect from every old URL to its new place. That keeps links in letters, search engines and bookmarks working. With a careful [[website-migratie|website migration]] you move without residents landing on an error page, and become a lot more accessible at the same time.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Regio & economie", en: "Region & economy" },
+        intro: {
+          nl: "Voor regionale ontwikkelingsmaatschappijen, economic boards, regiomarketing, VVV's en ondernemersfondsen die bedrijven, talent en bezoekers naar hun regio willen halen.",
+          en: "For regional development agencies, economic boards, regional marketing, tourist offices and business improvement funds that want to attract companies, talent and visitors to their region.",
+        },
+        types: [
+          { nl: "Regionale ontwikkelingsmaatschappijen", en: "Regional development agencies" },
+          { nl: "Economic boards", en: "Economic boards" },
+          { nl: "Regiomarketingorganisaties", en: "Regional marketing organisations" },
+          { nl: "VVV's en toeristische organisaties", en: "Tourist offices and tourism organisations" },
+          { nl: "Ondernemersfondsen", en: "Business improvement funds" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Een regiomerk", en: "A regional brand" },
+            text: {
+              nl: "Een verhaal over de regio dat bedrijven, kennisinstellingen en overheden samen kunnen vertellen.",
+              en: "A story about the region that businesses, knowledge institutions and government can tell together.",
+            },
+            service: "branding-rebranding",
+            application: "merkstrategie",
+          },
+          {
+            title: { nl: "Meertalige site voor investeerders en talent", en: "Multilingual site for investors and talent" },
+            text: {
+              nl: "Informatie over vestigen, werken en wonen in de regio, in het Nederlands en het Engels.",
+              en: "Information about setting up, working and living in the region, in Dutch and English.",
+            },
+            service: "websites-webshops",
+            application: "meertalige-website",
+          },
+          {
+            title: { nl: "LinkedIn-campagne richting bedrijven en talent", en: "LinkedIn campaign aimed at companies and talent" },
+            text: {
+              nl: "Bereik beslissers en specialisten buiten je regio met verhalen van bedrijven die er al zitten.",
+              en: "Reach decision-makers and specialists outside your region with stories from companies already based there.",
+            },
+            service: "content-marketing-online-ads",
+            application: "linkedin-ads",
+          },
+          {
+            title: { nl: "Regiofilm met dronebeelden", en: "Regional film with drone footage" },
+            text: {
+              nl: "De regio vanuit de lucht en van dichtbij, voor beurzen, websites en social media.",
+              en: "The region from the air and up close, for trade fairs, websites and social media.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "dronevideo",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe bouw je een sterk regiomerk?", en: "How do you build a strong regional brand?" },
+            a: {
+              nl: "Samen met de mensen die het moeten dragen. Een regiomerk werkt pas als bedrijven, onderwijs, overheden en inwoners het herkennen en gebruiken. Begin met gesprekken en onderzoek naar wat de regio echt onderscheidt, en kies daarna een paar heldere verhaallijnen. De beeldtaal moet flexibel zijn, zodat een techbedrijf en een VVV hem allebei kunnen inzetten. Met een [[merkstrategie]] en een praktisch [[brandbook]] zorgen we dat het merk niet in een la verdwijnt.",
+              en: "Together with the people who have to carry it. A regional brand only works when businesses, education, government and residents recognise and use it. Start with conversations and research into what really sets the region apart, then choose a few clear storylines. The visual language has to be flexible, so a tech company and a tourist office can both use it. With a [[merkstrategie|brand strategy]] and a practical [[brandbook|brand book]] we make sure the brand does not end up in a drawer.",
+            },
+          },
+          {
+            q: { nl: "Hoe trek je bedrijven en talent naar je regio?", en: "How do you attract companies and talent to your region?" },
+            a: {
+              nl: "Met verhalen die laten zien hoe het is om er te werken en te wonen, verteld door mensen die het al doen. Een ondernemer die vertelt waarom hij juist hier zit, overtuigt meer dan een lijst met vestigingsvoordelen. Zet die verhalen op een [[meertalige-website|meertalige website]] met praktische info over vestigen, wonen en vacatures. Verspreid ze via [[linkedin-ads|LinkedIn]], beurzen en partners. Zo bouw je stap voor stap een beeld op dat blijft hangen.",
+              en: "With stories that show what it is like to work and live there, told by people who already do. An entrepreneur explaining why they chose this region convinces more than a list of location benefits. Put those stories on a [[meertalige-website|multilingual website]] with practical info about setting up, housing and vacancies. Share them through [[linkedin-ads|LinkedIn]], trade fairs and partners. That way you build, step by step, an image that sticks.",
+            },
+          },
+          {
+            q: { nl: "Hoe laat je zien wat een regionaal programma of fonds doet?", en: "How do you show what a regional programme or fund does?" },
+            a: {
+              nl: "Door projecten en mensen centraal te zetten in plaats van vergaderingen en budgetten. Een korte film of fotoserie per project, een overzichtspagina met wat er is gebeurd en wie er meedoet, en een nieuwsbrief voor partners. Cijfers horen erbij, maar alleen als ze kloppen en iets betekenen. Met een heldere [[contentstrategie]] en [[bedrijfsfilm|video]] zie je als partner of inwoner waar het geld en de energie naartoe gaan.",
+              en: "By putting projects and people at the centre instead of meetings and budgets. A short film or photo series per project, an overview page of what has happened and who is involved, and a newsletter for partners. Figures belong in it, but only if they are correct and mean something. With a clear [[contentstrategie|content strategy]] and [[bedrijfsfilm|video]], partners and residents can see where the money and the energy go.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Sociaal domein & participatie", en: "Social domain & participation" },
+        intro: {
+          nl: "Voor sociale wijkteams, sociale werkbedrijven, schuldhulpverlening, jongerenwerk en participatietrajecten waarin inwoners hulp zoeken of willen meepraten.",
+          en: "For community social teams, sheltered employment companies, debt counselling, youth work and participation processes in which residents seek help or want to have their say.",
+        },
+        types: [
+          { nl: "Sociale wijkteams", en: "Community social teams" },
+          { nl: "Sociale werkbedrijven", en: "Sheltered employment companies" },
+          { nl: "Schuldhulpverlening", en: "Debt counselling services" },
+          { nl: "Jongerenwerk", en: "Youth work organisations" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Online participatie", en: "Online participation" },
+            text: {
+              nl: "Een projectpagina waarop inwoners plannen bekijken, reageren en zich aanmelden voor een bijeenkomst.",
+              en: "A project page where residents view plans, respond and sign up for a meeting.",
+            },
+            service: "websites-webshops",
+            application: "landingspaginas",
+          },
+          {
+            title: { nl: "Wegwijzer: waar kan ik terecht?", en: "Signpost: where can I go?" },
+            text: {
+              nl: "Een paar eenvoudige vragen, en een inwoner ziet welke hulp of regeling bij zijn situatie past, met het juiste loket erbij.",
+              en: "A few simple questions, and a resident sees which help or scheme fits their situation, with the right contact point.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "keuzehulp-quiz",
+          },
+          {
+            title: { nl: "AI-assistent voor vragen van inwoners", en: "AI assistant for residents' questions" },
+            text: {
+              nl: "Een assistent die veelgestelde vragen beantwoordt op basis van je eigen informatie, met een duidelijke route naar een mens.",
+              en: "An assistant that answers frequently asked questions based on your own information, with a clear route to a person.",
+            },
+            service: "ai-consultancy",
+            application: "ai-chatbots",
+          },
+          {
+            title: { nl: "Campagne in begrijpelijke taal", en: "Campaign in plain language" },
+            text: {
+              nl: "Boodschappen die aankomen bij mensen die het moeilijk hebben, zonder oordeel en zonder jargon.",
+              en: "Messages that reach people who are struggling, without judgement and without jargon.",
+            },
+            service: "content-marketing-online-ads",
+            application: "contentstrategie",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe organiseer je online participatie die inwoners echt gebruiken?", en: "How do you organise online participation that residents actually use?" },
+            a: {
+              nl: "Maak het concreet en klein. Een vraag als 'wat vindt u van de omgevingsvisie?' levert weinig op. 'Waar wilt u meer groen in deze straat?', met een kaart en een paar beelden, wel. Laat zien wat er met reacties gebeurt, ook als niet alles wordt overgenomen. Combineer online met een inloopavond, want niet iedereen doet het digitaal. Met een [[landingspaginas|projectpagina]] en een [[3d-visualisatie]] van de opties weten mensen waar ze over meepraten.",
+              en: "Make it concrete and small. A question like 'what do you think of the spatial vision?' yields little. 'Where would you like more greenery in this street?', with a map and a few images, does. Show what happens with the responses, even if not everything is adopted. Combine online with a drop-in evening, because not everyone does it digitally. With a [[landingspaginas|project page]] and a [[3d-visualisatie|3D visual]] of the options, people know what they are giving their views on.",
+            },
+          },
+          {
+            q: { nl: "Hoe help je inwoners de weg te vinden in hulp en regelingen?", en: "How do you help residents find their way through support and schemes?" },
+            a: {
+              nl: "Door vanuit hun situatie te beginnen en niet vanuit de organisatie. Een inwoner weet niet of hij bij het wijkteam, de schuldhulp of het werkplein moet zijn. Een [[keuzehulp-quiz|keuzehulp]] met een paar eenvoudige vragen wijst de weg naar de juiste hulp, met contactgegevens erbij. Het is een wegwijzer, geen formele beslissing, en dat zeg je er ook duidelijk bij. Schrijf alles op B1-niveau en test het met mensen die er echt gebruik van maken.",
+              en: "By starting from their situation, not from the organisation. A resident does not know whether to go to the community team, debt counselling or the employment office. A [[keuzehulp-quiz|signposting tool]] with a few simple questions points the way to the right help, with contact details included. It is a signpost, not a formal decision, and you say so clearly. Write everything at B1 reading level and test it with people who will actually use it.",
+            },
+          },
+          {
+            q: { nl: "Kan AI vragen van inwoners beantwoorden zonder privacyrisico's?", en: "Can AI answer residents' questions without privacy risks?" },
+            a: {
+              nl: "Dat kan, als je het goed afbakent. Een [[ai-chatbots|AI-assistent]] die alleen antwoordt op basis van je eigen, openbare informatie, geen persoonsgegevens vraagt of opslaat en bij twijfel doorverwijst naar een medewerker, is een verantwoorde eerste stap. Kies een oplossing die binnen de EU draait en leg vast hoe je de antwoorden controleert. Begin met één onderwerp, zoals afval of parkeren, en breid uit als het werkt. Met een [[ai-strategie|AI-strategie]] bepalen we samen waar het zinvol is en waar niet.",
+              en: "It can, if you scope it well. An [[ai-chatbots|AI assistant]] that only answers from your own public information, does not ask for or store personal data and refers to a staff member when in doubt is a responsible first step. Choose a solution that runs within the EU and document how you check the answers. Start with one topic, such as waste collection or parking, and expand if it works. With an [[ai-strategie|AI strategy]] we decide together where it makes sense and where it does not.",
+            },
+          },
+          {
+            q: { nl: "Hoe bereik je mensen met geldzorgen zonder ze af te schrikken?", en: "How do you reach people with money worries without scaring them off?" },
+            a: {
+              nl: "Met een toon zonder oordeel en een eerste stap die klein voelt. Mensen met geldzorgen schamen zich vaak en stellen hulp uit. Een campagne die herkenning biedt, met gewone situaties en een rustige boodschap als 'je bent niet de enige', werkt beter dan waarschuwingen. Laat zien wat er gebeurt als je contact opneemt en maak het mogelijk om anoniem een vraag te stellen. Een doordachte [[contentstrategie]] en [[copywriting-blogs|teksten]] in begrijpelijke taal maken hier het verschil.",
+              en: "With a non-judgemental tone and a first step that feels small. People with money worries are often ashamed and put off getting help. A campaign that offers recognition, with everyday situations and a calm message like 'you are not the only one', works better than warnings. Show what happens when you get in touch and make it possible to ask a question anonymously. A well-thought-out [[contentstrategie|content strategy]] and [[copywriting-blogs|copy]] in plain language make the difference here.",
+            },
+          },
+        ],
+      },
+    ],
+    audiences: [
+      { nl: "Gemeenten", en: "Municipalities" },
+      { nl: "Gemeentelijke samenwerkingsverbanden", en: "Inter-municipal partnerships" },
+      { nl: "Citymarketingorganisaties", en: "City marketing organisations" },
+      { nl: "Centrummanagementorganisaties", en: "Town centre management organisations" },
+      { nl: "Provincies", en: "Provinces" },
+      { nl: "Waterschappen", en: "Water boards" },
+      { nl: "Omgevingsdiensten", en: "Environmental agencies" },
+      { nl: "Veiligheidsregio's", en: "Safety regions" },
+      { nl: "Rijksdiensten", en: "Central government agencies" },
+      { nl: "Uitvoeringsorganisaties", en: "Government agencies" },
+      { nl: "Zelfstandige bestuursorganen", en: "Independent public bodies" },
+      { nl: "Woningcorporaties", en: "Housing associations" },
+      { nl: "Bibliotheken", en: "Libraries" },
+      { nl: "Culturele instellingen", en: "Cultural institutions" },
+      { nl: "Regionale ontwikkelingsmaatschappijen", en: "Regional development agencies" },
+      { nl: "Economic boards", en: "Economic boards" },
+      { nl: "Regiomarketingorganisaties", en: "Regional marketing organisations" },
+      { nl: "VVV's en toeristische organisaties", en: "Tourist offices and tourism organisations" },
+      { nl: "Ondernemersfondsen", en: "Business improvement funds" },
+      { nl: "Ondernemersverenigingen", en: "Business associations" },
+      { nl: "Sociale wijkteams", en: "Community social teams" },
+      { nl: "Sociale werkbedrijven", en: "Sheltered employment companies" },
+      { nl: "Schuldhulpverlening", en: "Debt counselling services" },
+      { nl: "Jongerenwerk", en: "Youth work organisations" },
+    ],
+  },
+  /* ---------- Agrarisch & Natuur ---------- */
+  {
+    slug: "agrarisch-natuur",
+    title: { nl: "Agrarisch & Natuur", en: "Agriculture & Nature" },
+    short: { nl: "Agrarisch", en: "Agriculture" },
+    icon: "sprout",
+    quote: { nl: "Real products from real land. Let's show it.", en: "Real products from real land. Let's show it." },
+    intro: {
+      nl: "Boerderijen, tuinbouw, agritech, recreatieboerderijen en natuurorganisaties: wij laten zien wat er op het land gebeurt en zorgen dat klanten de weg naar je erf, webshop of showroom vinden.",
+      en: "Farms, horticulture, agri-tech, recreational farms and nature organisations: we show what happens on the land and make sure customers find their way to your farmyard, web shop or showroom.",
+    },
+    description: {
+      nl: "In de agrarische sector werk je met echte producten, echte dieren en echt land. Dat is precies wat consumenten, zakelijke afnemers en bezoekers willen zien. Toch is de website vaak het laatste waar tijd voor is, want de dieren en de oogst gaan voor. M7 helpt boeren, tuinders, agribedrijven en natuurorganisaties om hun verhaal goed te vertellen: van een boerderijwinkel met een webshop tot een agritechbedrijf dat over de grens wil groeien.\n\nVoor Alpacafarm Vorstenbosch maakten we content voor social media en werkten we aan de website, zodat bezoekers zien wat ze er kunnen beleven. We maken dronevideo's van land en kassen, productfotografie en verpakkingen voor streekproducten, en bouwen boekingswidgets voor rondleidingen, workshops of een verblijf op de boerderij. Met lokale SEO word je gevonden op zoekopdrachten als 'boerderijwinkel in de buurt' of 'uitje op de boerderij'.",
+      en: "In agriculture you work with real products, real animals and real land. That is exactly what consumers, business buyers and visitors want to see. Yet the website is often the last thing anyone has time for, because the animals and the harvest come first. M7 helps farmers, growers, agri-businesses and nature organisations tell their story well: from a farm shop with a web shop to an agri-tech company that wants to grow across borders.\n\nFor Alpacafarm Vorstenbosch we created social media content and worked on the website, so visitors can see what there is to experience. We shoot drone videos of land and greenhouses, product photography and packaging for local produce, and build booking widgets for tours, workshops or a stay on the farm. With local SEO you get found for searches like 'farm shop near me' or 'farm day out'.",
+    },
+    challenges: [
+      {
+        title: { nl: "Weinig tijd voor marketing", en: "Little time for marketing" },
+        text: {
+          nl: "Het werk op het land gaat altijd voor. Daarom maken we het makkelijk: een website die je in een paar minuten bijwerkt en een contentplanning die past bij het seizoen.",
+          en: "The work on the land always comes first. So we keep it easy: a website you can update in a few minutes and a content plan that follows the seasons.",
+        },
+      },
+      {
+        title: { nl: "Van erf naar online verkoop", en: "From farmyard to online sales" },
+        text: {
+          nl: "Klanten willen ook buiten openingstijden bestellen. Een webshop met ophaalmomenten, bezorging in de regio of een abonnement op een groente- of vleespakket maakt dat mogelijk.",
+          en: "Customers want to order outside opening hours too. A web shop with pick-up slots, local delivery or a subscription to a vegetable or meat box makes that possible.",
+        },
+      },
+      {
+        title: { nl: "Laten zien waar het vandaan komt", en: "Showing where it comes from" },
+        text: {
+          nl: "Consumenten en afnemers willen weten hoe er wordt geteeld en voor dieren wordt gezorgd. Echte foto's, video en verhalen van het erf bouwen dat vertrouwen op.",
+          en: "Consumers and buyers want to know how crops are grown and animals are cared for. Real photos, video and stories from the farm build that trust.",
+        },
+      },
+      {
+        title: { nl: "Innovatie uitleggen", en: "Explaining innovation" },
+        text: {
+          nl: "Agritech en nieuwe teeltmethoden zijn lastig te vatten. Met 3D, animatie en een heldere website begrijpen boeren, investeerders en buitenlandse kopers wat je doet.",
+          en: "Agri-tech and new growing methods are hard to grasp. With 3D, animation and a clear website, farmers, investors and foreign buyers understand what you do.",
+        },
+      },
+    ],
+    services: ["websites-webshops", "content-marketing-online-ads", "foto-video-3d-animatie", "branding-rebranding", "grafisch-ontwerp-print", "configurators-lead-tools-widgets"],
+    applications: ["webshop", "webflow-website", "meertalige-website", "social-media-marketing", "meta-ads", "dronevideo", "productfotografie", "verpakkingsontwerp", "huisstijl", "boekingswidget"],
+    /* Mockup in de dienstentegels: eigen werk uit agrarisch (overige diensten: standaard) */
+    visuals: {
+      "content-marketing-online-ads": { kind: "phone", src: "/media/showcase/alpacafarm/profile-head.webp", label: "Alpacafarm Vorstenbosch" },
+    },
+    faqs: [
+      {
+        q: { nl: "Kunnen jullie een webshop bouwen voor onze boerderijwinkel?", en: "Can you build a web shop for our farm shop?" },
+        a: {
+          nl: "Ja. Met ophaalmomenten, bezorging in de regio, wisselend seizoensaanbod en betalen via iDEAL. We houden het beheer simpel, zodat je het aanbod tussen het werk door bijwerkt.",
+          en: "Yes. With pick-up slots, local delivery, a changing seasonal range and online payment. We keep the back end simple, so you can update the range in between jobs.",
+        },
+      },
+      {
+        q: { nl: "Maken jullie dronevideo's van boerderijen, kassen en natuurgebieden?", en: "Do you shoot drone videos of farms, greenhouses and nature areas?" },
+        a: {
+          nl: "Ja. Dronebeelden laten de schaal en de omgeving van je bedrijf zien, voor je website, social media of een bedrijfsfilm. We plannen de opnames rond het seizoen en het weer.",
+          en: "Yes. Drone footage shows the scale and surroundings of your business, for your website, social media or a corporate film. We plan the shoots around the season and the weather.",
+        },
+      },
+      {
+        q: { nl: "Werken jullie voor agritechbedrijven die internationaal verkopen?", en: "Do you work for agri-tech companies that sell internationally?" },
+        a: {
+          nl: "Zeker. We bouwen meertalige websites, maken 3D-visualisaties en animaties van machines en systemen, en ontwerpen beursstands en presentaties.",
+          en: "Definitely. We build multilingual websites, create 3D visuals and animations of machines and systems, and design trade-show stands and presentations.",
+        },
+      },
+      {
+        q: { nl: "Kunnen bezoekers online een activiteit op de boerderij boeken?", en: "Can visitors book an activity on the farm online?" },
+        a: {
+          nl: "Ja. Met een boekingswidget kiezen bezoekers een activiteit, datum en aantal personen en betalen ze direct. Jij houdt overzicht over de planning en de capaciteit.",
+          en: "Yes. With a booking widget visitors choose an activity, date and group size and pay straight away. You keep track of the schedule and capacity.",
+        },
+      },
+      {
+        q: { nl: "Hoeveel tijd kost social media ons?", en: "How much time will social media take us?" },
+        a: {
+          nl: "Minder dan je denkt, als je het slim aanpakt. We maken een planning per seizoen, jij deelt de momenten van het erf en wij maken er content van die bij je merk past. Voor Alpacafarm Vorstenbosch maakten we bijvoorbeeld content voor social media.",
+          en: "Less than you think, if you are smart about it. We make a plan per season, you share the moments from the farm and we turn them into content that fits your brand. For Alpacafarm Vorstenbosch, for example, we created social media content.",
+        },
+      },
+    ],
+    metaTitle: {
+      nl: "Websites, webshops & content voor agrarisch en natuur | M7",
+      en: "Websites, web shops & content for agriculture and nature | M7",
+    },
+    metaDescription: {
+      nl: "M7 bouwt websites, webshops, boekingswidgets en content voor boerderijen, boerderijwinkels, tuinbouw, agritech, recreatieboerderijen en natuurorganisaties.",
+      en: "M7 builds websites, web shops, booking widgets and content for farms, farm shops, horticulture, agri-tech, recreational farms and nature organisations.",
+    },
+    segments: [
+      {
+        name: { nl: "Boerderijwinkels & streekproducten", en: "Farm shops & local produce" },
+        intro: {
+          nl: "Voor boerderijwinkels, streekproducenten, fruittelers, zuivelboerderijen en veehouders die rechtstreeks verkopen aan consumenten, restaurants of winkels in de regio.",
+          en: "For farm shops, local food producers, fruit growers, dairy farms and livestock farmers who sell directly to consumers, restaurants or shops in the region.",
+        },
+        types: [
+          { nl: "Boerderijwinkels", en: "Farm shops" },
+          { nl: "Streekproducenten", en: "Local food producers" },
+          { nl: "Fruittelers", en: "Fruit growers" },
+          { nl: "Zuivelboerderijen", en: "Dairy farms" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Webshop voor de boerderijwinkel", en: "Web shop for the farm shop" },
+            text: {
+              nl: "Bestellen met ophaalmomenten of bezorging in de regio, met seizoensaanbod dat je zelf bijwerkt.",
+              en: "Ordering with pick-up slots or local delivery, with a seasonal range you update yourself.",
+            },
+            service: "websites-webshops",
+            application: "webshop",
+          },
+          {
+            title: { nl: "Verpakking en etiket voor streekproducten", en: "Packaging and labels for local produce" },
+            text: {
+              nl: "Een etiket dat opvalt in het schap van de supermarkt of delicatessenzaak, met alle verplichte informatie netjes verwerkt.",
+              en: "A label that stands out on the shelf of a supermarket or deli, with all the required information neatly included.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "verpakkingsontwerp",
+          },
+          {
+            title: { nl: "Gevonden worden in de buurt", en: "Getting found nearby" },
+            text: {
+              nl: "Een sterk Google Bedrijfsprofiel met openingstijden, foto's en reviews, voor zoekopdrachten als 'boerderijwinkel in de buurt'.",
+              en: "A strong Google Business Profile with opening hours, photos and reviews, for searches like 'farm shop near me'.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+          {
+            title: { nl: "Productfotografie die trek geeft", en: "Product photography that makes you hungry" },
+            text: {
+              nl: "Kaas, fruit, vlees of sap in beeld zoals het is: vers en eerlijk.",
+              en: "Cheese, fruit, meat or juice shown as it is: fresh and honest.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "productfotografie",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe zet ik een webshop op voor mijn boerderijwinkel?", en: "How do I set up a web shop for my farm shop?" },
+            a: {
+              nl: "Begin klein, met wat je al verkoopt en hoe klanten het willen ophalen. De meeste boerderijwinkels starten met vaste ophaalmomenten en bezorging in de directe omgeving. Een [[webshop]] met een beperkt, wisselend assortiment, voorraad per product en betalen via iDEAL is daarvoor genoeg. Belangrijk is dat jij het zelf snel kunt bijwerken, want de oogst wacht niet op een webbouwer. Later kun je uitbreiden met pakketten, abonnementen of verkoop aan restaurants.",
+              en: "Start small, with what you already sell and how customers want to collect it. Most farm shops start with fixed pick-up slots and delivery in the immediate area. A [[webshop|web shop]] with a limited, changing range, stock per product and online payment is enough for that. What matters is that you can update it quickly yourself, because the harvest does not wait for a web developer. Later you can expand with boxes, subscriptions or sales to restaurants.",
+            },
+          },
+          {
+            q: { nl: "Hoe word ik gevonden op 'boerderijwinkel in de buurt'?", en: "How do I get found for 'farm shop near me'?" },
+            a: {
+              nl: "Vooral via Google Maps. Een compleet Google Bedrijfsprofiel met de juiste categorie, openingstijden, foto's van je winkel en producten, en reviews die je beantwoordt, is de basis. Houd de openingstijden actueel, ook in het seizoen en rond feestdagen. Op je website helpt een pagina per productgroep of seizoen, met de plaatsen in de buurt erbij. Met [[lokale-seo|lokale SEO]] bouwen we dat goed op. Zet ook je eierautomaat of honingkastje erop, want ook daar zoeken mensen naar.",
+              en: "Mainly through Google Maps. A complete Google Business Profile with the right category, opening hours, photos of your shop and products, and reviews you reply to is the foundation. Keep opening hours up to date, also during the season and around holidays. On your website a page per product group or season helps, mentioning the nearby towns. With [[lokale-seo|local SEO]] we build that up properly. Add your egg vending machine or honesty box too, because people search for those as well.",
+            },
+          },
+          {
+            q: { nl: "Wat maakt een goed etiket voor een streekproduct?", en: "What makes a good label for a local product?" },
+            a: {
+              nl: "Het moet in één oogopslag vertellen wat het is en waar het vandaan komt, en tegelijk alle verplichte informatie bevatten, zoals ingrediënten, allergenen, houdbaarheid en gewicht. Gebruik je eigen verhaal: de naam van het erf, een herkenbare kleur, een illustratie van het landschap. Dat onderscheidt je van het huismerk ernaast. We ontwerpen het [[verpakkingsontwerp|etiket]] zo dat het werkt op potten, flessen en dozen, en dat je drukker er zonder vragen mee aan de slag kan.",
+              en: "It has to say at a glance what it is and where it comes from, while including all the required information, such as ingredients, allergens, best-before date and weight. Use your own story: the name of the farm, a recognisable colour, an illustration of the landscape. That sets you apart from the own-brand product next to it. We design the [[verpakkingsontwerp|label]] so it works on jars, bottles and boxes, and so your printer can get started without questions.",
+            },
+          },
+          {
+            q: { nl: "Kan ik groente- of vleespakketten als abonnement verkopen?", en: "Can I sell vegetable or meat boxes as a subscription?" },
+            a: {
+              nl: "Ja, en dat geeft rust in je planning. Klanten kiezen een pakket en een frequentie, betalen automatisch en halen op of krijgen het bezorgd. Jij weet vooraf hoeveel je nodig hebt. Een [[webshop]] met abonnementen regelt de betalingen, pauzes tijdens de vakantie en wijzigingen zonder dat jij lijstjes bijhoudt. Met een korte [[e-mailmarketing|mail]] over wat er deze week in het pakket zit, blijven klanten betrokken en nieuwsgierig.",
+              en: "Yes, and it brings calm to your planning. Customers choose a box and a frequency, pay automatically and collect or have it delivered. You know in advance how much you need. A [[webshop|web shop]] with subscriptions handles payments, holiday pauses and changes without you keeping lists. With a short [[e-mailmarketing|email]] about what is in the box this week, customers stay engaged and curious.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Tuinbouw & tuincentra", en: "Horticulture & garden centres" },
+        intro: {
+          nl: "Voor glastuinbouwbedrijven, boomkwekerijen, sierteeltbedrijven en tuincentra, van de teler die exporteert tot het tuincentrum om de hoek.",
+          en: "For greenhouse growers, tree nurseries, ornamental plant growers and garden centres, from the grower who exports to the garden centre around the corner.",
+        },
+        types: [
+          { nl: "Glastuinbouwbedrijven", en: "Greenhouse growers" },
+          { nl: "Boomkwekerijen", en: "Tree nurseries" },
+          { nl: "Sierteeltbedrijven", en: "Ornamental plant growers" },
+          { nl: "Tuincentra", en: "Garden centres" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Meertalige website voor export", en: "Multilingual website for export" },
+            text: {
+              nl: "Je assortiment en werkwijze helder in het Engels, Duits of andere talen, voor kopers over de grens.",
+              en: "Your range and way of working clearly presented in English, German or other languages, for buyers abroad.",
+            },
+            service: "websites-webshops",
+            application: "meertalige-website",
+          },
+          {
+            title: { nl: "Dronevideo van de kassen", en: "Drone video of the greenhouses" },
+            text: {
+              nl: "De schaal en de techniek van je bedrijf in één beeld, voor website, beurs en werving.",
+              en: "The scale and technology of your business in one shot, for your website, trade shows and recruitment.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "dronevideo",
+          },
+          {
+            title: { nl: "Bestelportaal met actueel aanbod", en: "Ordering portal with current stock" },
+            text: {
+              nl: "Zakelijke klanten zien je actuele aanbod en bestellen online, gekoppeld aan je bedrijfssysteem.",
+              en: "Business customers see your current availability and order online, linked to your business system.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "Seizoenscampagnes voor het tuincentrum", en: "Seasonal campaigns for the garden centre" },
+            text: {
+              nl: "Voorjaar, moestuin, kerst: campagnes in de buurt van je winkel op het moment dat mensen eraan denken.",
+              en: "Spring, vegetable gardens, Christmas: campaigns around your store at the moment people start thinking about it.",
+            },
+            service: "content-marketing-online-ads",
+            application: "meta-ads",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe presenteer je een kwekerij of glastuinbouwbedrijf aan buitenlandse kopers?", en: "How do you present a nursery or greenhouse business to foreign buyers?" },
+            a: {
+              nl: "Met een website die in hun taal laat zien wat je teelt, hoe je werkt en wat je levert. Kopers willen assortiment, beschikbaarheid, kwaliteit en certificeringen snel kunnen vinden. Goede foto's en een dronevideo van je bedrijf geven een eerste indruk van schaal en professionaliteit. Een [[meertalige-website|meertalige website]] die per land gevonden wordt, plus een verzorgde [[presentaties-pitchdecks|presentatie]] voor beurzen en gesprekken, houdt je verhaal overeind als je zelf niet aan tafel zit.",
+              en: "With a website that shows, in their language, what you grow, how you work and what you supply. Buyers want to find range, availability, quality and certifications quickly. Good photos and a drone video of your business give a first impression of scale and professionalism. A [[meertalige-website|multilingual website]] that gets found in each country, plus a polished [[presentaties-pitchdecks|presentation]] for trade shows and meetings, keeps your story standing when you are not at the table yourself.",
+            },
+          },
+          {
+            q: { nl: "Kunnen zakelijke klanten online bestellen uit ons actuele aanbod?", en: "Can business customers order online from our current stock?" },
+            a: {
+              nl: "Ja. In een [[klantportaal]] zien vaste afnemers het actuele aanbod met hun eigen prijzen, plaatsen ze bestellingen en zien ze eerdere orders terug. Het aanbod komt via een [[api-koppelingen|koppeling]] uit je bedrijfssysteem, zodat je niets dubbel bijhoudt. Dat scheelt telefoontjes, mailtjes en fouten bij het overtypen. We beginnen met de belangrijkste functies en bouwen verder op basis van wat je klanten echt gebruiken.",
+              en: "Yes. In a [[klantportaal|customer portal]] regular buyers see your current availability with their own prices, place orders and look back at previous orders. The availability comes from your business system through an [[api-koppelingen|integration]], so you do not keep anything twice. That saves calls, emails and typing errors. We start with the most important features and build on based on what your customers actually use.",
+            },
+          },
+          {
+            q: { nl: "Hoe trekt een tuincentrum meer bezoekers?", en: "How does a garden centre attract more visitors?" },
+            a: {
+              nl: "Door in te spelen op het seizoen en het moment. In het voorjaar denken mensen aan de moestuin, in het najaar aan bollen en rond december aan kerst. Laat met korte video's en social posts zien wat er nu te beleven valt, en zet rond die pieken lokale advertenties in. Een website met actuele workshops, evenementen en openingstijden doet de rest. Met [[social-media-marketing|social media]] en [[meta-ads|Meta Ads]] bereik je mensen in je regio op het moment dat ze zin krijgen in de tuin.",
+              en: "By responding to the season and the moment. In spring people think about vegetable gardens, in autumn about bulbs and around December about Christmas. Use short videos and social posts to show what there is to see and do right now, and run local ads around those peaks. A website with current workshops, events and opening hours does the rest. With [[social-media-marketing|social media]] and [[meta-ads|Meta Ads]] you reach people in your area at the moment they feel like gardening.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Recreatie & beleving", en: "Recreation & farm experiences" },
+        intro: {
+          nl: "Voor recreatieboerderijen, dierenboerderijen, pluktuinen, boerencampings en zorgboerderijen waar bezoekers iets willen beleven, van een rondleiding tot een kinderfeestje.",
+          en: "For recreational farms, animal farms, pick-your-own gardens, farm campsites and care farms where visitors want to experience something, from a guided tour to a children's party.",
+        },
+        types: [
+          { nl: "Recreatieboerderijen", en: "Recreational farms" },
+          { nl: "Alpaca- en dierenboerderijen", en: "Alpaca and animal farms" },
+          { nl: "Pluktuinen", en: "Pick-your-own gardens" },
+          { nl: "Boerencampings", en: "Farm campsites" },
+          { nl: "Zorgboerderijen", en: "Care farms" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Activiteiten online boeken", en: "Booking activities online" },
+            text: {
+              nl: "Bezoekers kiezen een rondleiding, workshop of arrangement, met datum, aantal personen en directe betaling.",
+              en: "Visitors choose a tour, workshop or package, with date, group size and direct payment.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "boekingswidget",
+          },
+          {
+            title: { nl: "Social media uit het dagelijks leven", en: "Social media from everyday farm life" },
+            text: {
+              nl: "Het erf, de dieren en de seizoenen als content, zoals de social media content die we voor Alpacafarm Vorstenbosch maakten.",
+              en: "The farmyard, the animals and the seasons as content, like the social media content we created for Alpacafarm Vorstenbosch.",
+            },
+            service: "content-marketing-online-ads",
+            application: "social-media-marketing",
+          },
+          {
+            title: { nl: "Korte video's van de beleving", en: "Short videos of the experience" },
+            text: {
+              nl: "Een wandeling, een kinderfeestje of een workshop in een paar seconden, zodat mensen zien wat ze kunnen verwachten.",
+              en: "A walk, a children's party or a workshop in a few seconds, so people see what to expect.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "social-video",
+          },
+          {
+            title: { nl: "Website met alle activiteiten", en: "A website with all activities" },
+            text: {
+              nl: "Arrangementen, openingstijden en route overzichtelijk bij elkaar, met een duidelijke knop om te boeken.",
+              en: "Packages, opening hours and directions clearly together, with an obvious button to book.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe vul je activiteiten en arrangementen via de website?", en: "How do you fill activities and packages through the website?" },
+            a: {
+              nl: "Maak boeken net zo makkelijk als kijken. Bezoekers zien wat er te doen is, wanneer, voor wie en wat het kost, en boeken met een paar klikken. Een [[boekingswidget]] met beschikbaarheid per activiteit, groepsgrootte en betalen via iDEAL voorkomt dubbele boekingen en appjes met 'is er zaterdag nog plek?'. Automatische bevestigingen met route en praktische info maken het compleet. Zo houd jij je handen vrij voor de dieren en de gasten.",
+              en: "Make booking as easy as browsing. Visitors see what there is to do, when, for whom and what it costs, and book in a few clicks. A [[boekingswidget|booking widget]] with availability per activity, group size and online payment prevents double bookings and messages asking 'any room left on Saturday?'. Automatic confirmations with directions and practical info complete the picture. That keeps your hands free for the animals and the guests.",
+            },
+          },
+          {
+            q: { nl: "Werkt social media voor een recreatie- of dierenboerderij?", en: "Does social media work for a recreational or animal farm?" },
+            a: {
+              nl: "Ja, juist voor jou. Dieren, seizoenen en het leven op het erf zijn content waar mensen graag naar kijken. Het gaat niet om perfecte plaatjes, maar om echte momenten: een pasgeboren lammetje, de eerste wandeling van het jaar, het erf in kerstsfeer. Voor Alpacafarm Vorstenbosch maakten we content voor social media rond de alpaca's en de activiteiten op de farm. Met [[social-media-marketing|social media marketing]] en af en toe een advertentie in de regio vul je je agenda.",
+              en: "Yes, especially for you. Animals, seasons and life on the farm are content people love to watch. It is not about perfect pictures, but about real moments: a newborn lamb, the first walk of the year, the farmyard in Christmas spirit. For Alpacafarm Vorstenbosch we created social media content around the alpacas and the activities on the farm. With [[social-media-marketing|social media marketing]] and the occasional local ad you fill your calendar.",
+            },
+          },
+          {
+            q: { nl: "Hoe word je gevonden op 'uitje op de boerderij' of 'kinderfeestje boerderij'?", en: "How do you get found for 'farm day out' or 'farm children's party'?" },
+            a: {
+              nl: "Met een pagina per activiteit die precies beantwoordt wat mensen zoeken: wat doe je, voor welke leeftijd, hoe lang duurt het, wat kost het en waar is het. Combineer dat met een compleet Google Bedrijfsprofiel en reviews van bezoekers. Veel mensen zoeken met hun regio erbij, dus noem de plaatsen in de buurt. Met [[lokale-seo|lokale SEO]] en [[seo-content|SEO-content]] kom je in beeld bij ouders, bedrijven en groepen die een uitje zoeken.",
+              en: "With a page per activity that answers exactly what people are looking for: what do you do, for which age, how long does it take, what does it cost and where is it. Combine that with a complete Google Business Profile and reviews from visitors. Many people search with their region included, so mention the nearby towns. With [[lokale-seo|local SEO]] and [[seo-content|SEO content]] you show up for parents, companies and groups looking for a day out.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Agritech & toelevering", en: "Agri-tech & suppliers" },
+        intro: {
+          nl: "Voor agritechbedrijven, landbouwmechanisatie, stalinrichters, veevoer- en toeleveranciers en loonwerkers die boeren en tuinders verder helpen met techniek, producten en diensten.",
+          en: "For agri-tech companies, agricultural machinery dealers, livestock housing suppliers, feed and input suppliers and agricultural contractors that help farmers and growers with technology, products and services.",
+        },
+        types: [
+          { nl: "Agritechbedrijven", en: "Agri-tech companies" },
+          { nl: "Landbouwmechanisatiebedrijven", en: "Agricultural machinery dealers" },
+          { nl: "Stalinrichters", en: "Livestock housing suppliers" },
+          { nl: "Loonwerkbedrijven", en: "Agricultural contractors" },
+        ],
+        useCases: [
+          {
+            title: { nl: "3D-visualisatie van machines en systemen", en: "3D visuals of machines and systems" },
+            text: {
+              nl: "Laat zien hoe een machine, robot of stalsysteem werkt, ook als het nog in ontwikkeling is.",
+              en: "Show how a machine, robot or housing system works, even while it is still in development.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "3d-visualisatie",
+          },
+          {
+            title: { nl: "Configurator voor stalinrichting of machines", en: "Configurator for livestock housing or machinery" },
+            text: {
+              nl: "Boeren stellen zelf hun opstelling samen en jij krijgt een aanvraag met de juiste maten en opties.",
+              en: "Farmers put together their own set-up and you receive an enquiry with the right dimensions and options.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "productconfigurator",
+          },
+          {
+            title: { nl: "Dashboard of app voor bedrijfsdata", en: "Dashboard or app for farm data" },
+            text: {
+              nl: "Sensordata, opbrengsten of diergegevens overzichtelijk voor de boer, op kantoor en in de stal.",
+              en: "Sensor data, yields or animal data clearly presented for the farmer, in the office and in the barn.",
+            },
+            service: "web-apps-portals-apps",
+            application: "dashboards",
+          },
+          {
+            title: { nl: "Beursstand voor landbouwbeurzen", en: "Stand for agricultural trade shows" },
+            text: {
+              nl: "Een stand die opvalt op een drukke beurs, met beeld en boodschap die van een afstand te lezen zijn.",
+              en: "A stand that stands out at a busy show, with imagery and a message that can be read from a distance.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "beurs-signing",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe leg je een agritechproduct uit aan boeren?", en: "How do you explain an agri-tech product to farmers?" },
+            a: {
+              nl: "Praktisch en zonder hype. Een boer wil weten wat het oplevert in tijd, werk of opbrengst, hoe betrouwbaar het is en wat er gebeurt als het stuk gaat. Laat het product in actie zien op een echt bedrijf, met een boer die vertelt hoe het werkt. Een [[3d-visualisatie]] of [[motion-design|animatie]] helpt om de techniek binnenin te laten zien. Houd teksten nuchter en concreet. Boeren zijn kritische kopers, en dat is maar goed ook.",
+              en: "Practically and without hype. A farmer wants to know what it saves in time, labour or yield, how reliable it is and what happens when it breaks down. Show the product in action on a real farm, with a farmer explaining how it works. A [[3d-visualisatie|3D visual]] or [[motion-design|animation]] helps show the technology inside. Keep the copy down-to-earth and concrete. Farmers are critical buyers, and rightly so.",
+            },
+          },
+          {
+            q: { nl: "Is een configurator handig voor stalinrichting of landbouwmachines?", en: "Is a configurator useful for livestock housing or farm machinery?" },
+            a: {
+              nl: "Ja, als je product veel varianten en opties heeft. In een [[productconfigurator]] kiest een boer zijn situatie, zoals het aantal dieren, de afmetingen van de stal of het type werktuig, en ziet hij welke opstelling past. Jij krijgt een aanvraag met de juiste gegevens, en je adviseur begint het gesprek waar het interessant wordt. Een [[3d-configurator]] maakt het nog duidelijker als het eindresultaat lastig voor te stellen is.",
+              en: "Yes, if your product has many variants and options. In a [[productconfigurator|product configurator]] a farmer enters their situation, such as the number of animals, the dimensions of the barn or the type of implement, and sees which set-up fits. You get an enquiry with the right details, and your advisor starts the conversation where it gets interesting. A [[3d-configurator|3D configurator]] makes it even clearer when the end result is hard to picture.",
+            },
+          },
+          {
+            q: { nl: "Hoe vindt een loonwerker personeel en nieuwe klanten?", en: "How does an agricultural contractor find staff and new customers?" },
+            a: {
+              nl: "Met een website en social media die laten zien hoe het werk echt is: grote machines, vroeg op pad en werken in elk seizoen. Dat trekt precies het soort mensen dat je zoekt. Een werken-bij pagina met korte video's van collega's en een simpel sollicitatieformulier verlaagt de drempel. Voor klanten helpt een overzicht van je diensten per seizoen en een snelle manier om een klus aan te vragen. Met [[employer-branding|employer branding]] en [[social-video|social video]] laat je beide groepen zien wie je bent.",
+              en: "With a website and social media that show what the work is really like: big machines, early starts and working in every season. That attracts exactly the kind of people you are looking for. A careers page with short videos of colleagues and a simple application form lowers the barrier. For customers, an overview of your services per season and a quick way to request a job helps. With [[employer-branding|employer branding]] and [[social-video|social video]] you show both groups who you are.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Natuur & landschap", en: "Nature & landscape" },
+        intro: {
+          nl: "Voor natuurorganisaties, landschapsbeheerders, agrarische natuurcollectieven, hoveniers en groenvoorzieners die natuur en groen beheren, aanleggen of beschermen.",
+          en: "For nature organisations, landscape managers, agricultural nature collectives, landscape gardeners and green space contractors that manage, create or protect nature and green spaces.",
+        },
+        types: [
+          { nl: "Natuur- en landschapsorganisaties", en: "Nature and landscape organisations" },
+          { nl: "Agrarische natuurcollectieven", en: "Agricultural nature collectives" },
+          { nl: "Hoveniers", en: "Landscape gardeners" },
+          { nl: "Groenvoorzieners", en: "Green space contractors" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Donateurs en vrijwilligers werven", en: "Recruiting donors and volunteers" },
+            text: {
+              nl: "Een welkomstreeks voor nieuwe donateurs en vrijwilligers die laat zien wat hun steun doet.",
+              en: "A welcome series for new donors and volunteers that shows what their support achieves.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "e-mailmarketing",
+          },
+          {
+            title: { nl: "Dronevideo van een natuurgebied", en: "Drone video of a nature area" },
+            text: {
+              nl: "Beheer en herstel van een gebied zichtbaar maken, door de seizoenen heen.",
+              en: "Making the management and restoration of an area visible, through the seasons.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "dronevideo",
+          },
+          {
+            title: { nl: "Infographics over natuur en beheer", en: "Infographics on nature and management" },
+            text: {
+              nl: "Wat er groeit, bloeit en terugkomt helder in beeld, voor jaarverslagen, subsidieverantwoording en social media.",
+              en: "What grows, blooms and returns, shown clearly for annual reports, grant reporting and social media.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "infographics",
+          },
+          {
+            title: { nl: "Prijsindicatie voor tuinaanleg", en: "Price estimate for garden landscaping" },
+            text: {
+              nl: "Een hovenier geeft een eerste indicatie op basis van oppervlak en wensen, en krijgt complete aanvragen binnen.",
+              en: "A landscape gardener gives a first estimate based on surface area and wishes, and receives complete enquiries.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+        ],
+        faqs: [
+          {
+            q: { nl: "Hoe werf je donateurs of vrijwilligers voor een natuurorganisatie?", en: "How do you recruit donors or volunteers for a nature organisation?" },
+            a: {
+              nl: "Laat zien wat hun bijdrage concreet doet: een stuk heide dat terugkomt, een poel waar weer kikkers zitten, een wandelpad dat open blijft. Mensen geven aan iets wat ze kunnen zien en bezoeken. Beeld uit het gebied, korte verhalen van vrijwilligers en een makkelijke manier om je aan te melden doen de rest. Na de aanmelding houdt een paar goede [[e-mailmarketing|mails]] mensen betrokken. Met [[social-media-marketing|social media]] bereik je ook de wandelaars die al van het gebied houden.",
+              en: "Show what their contribution concretely does: a patch of heathland coming back, a pond with frogs in it again, a footpath that stays open. People give to something they can see and visit. Images from the area, short stories from volunteers and an easy way to sign up do the rest. After signing up, a few good [[e-mailmarketing|emails]] keep people engaged. With [[social-media-marketing|social media]] you also reach the walkers who already love the area.",
+            },
+          },
+          {
+            q: { nl: "Hoe krijgt een hovenier meer aanvragen voor tuinontwerp en tuinaanleg?", en: "How does a landscape gardener get more enquiries for garden design and landscaping?" },
+            a: {
+              nl: "Met beeld van eigen werk en een makkelijke eerste stap. Een portfolio met voor-en-na foto's per project, liefst met de plaats erbij, overtuigt meer dan tekst. Een [[offerte-calculator|prijsindicatie]] op basis van oppervlak, type bestrating en beplanting helpt klanten zien of ze in de buurt zitten. Met [[lokale-seo|lokale SEO]] word je gevonden op 'hovenier' plus de woonplaats. Plan campagnes in de late winter, als mensen hun tuin voor het voorjaar willen regelen.",
+              en: "With images of your own work and an easy first step. A portfolio with before-and-after photos per project, ideally with the location, convinces more than text. A [[offerte-calculator|price estimate]] based on surface area, type of paving and planting helps customers see whether they are in the right ballpark. With [[lokale-seo|local SEO]] you get found for 'landscape gardener' plus their town. Plan campaigns in late winter, when people want to sort out their garden before spring.",
+            },
+          },
+          {
+            q: { nl: "Hoe laat je natuurbeheer zien zonder dat het een saai verslag wordt?", en: "How do you show nature management without it becoming a dull report?" },
+            a: {
+              nl: "Door het te vertellen als een verhaal over seizoenen en resultaten. Een dronevideo van hetzelfde gebied in voorjaar en najaar, een fotoserie van wat er terugkomt, een korte infographic over wat er is gedaan. Dat werkt voor donateurs, subsidiegevers en inwoners. Cijfers horen erbij, zolang ze kloppen. Met [[dronevideo|dronebeelden]] en [[infographics]] maak je zichtbaar wat er in het veld gebeurt, ook voor wie er zelf nooit komt.",
+              en: "By telling it as a story of seasons and results. A drone video of the same area in spring and autumn, a photo series of what is coming back, a short infographic about what has been done. That works for donors, funders and residents. Figures belong in it, as long as they are correct. With [[dronevideo|drone footage]] and [[infographics]] you make visible what happens in the field, even for people who never go there themselves.",
+            },
+          },
+        ],
+      },
+    ],
+    audiences: [
+      { nl: "Boerderijwinkels", en: "Farm shops" },
+      { nl: "Streekproducenten", en: "Local food producers" },
+      { nl: "Fruittelers", en: "Fruit growers" },
+      { nl: "Zuivelboerderijen", en: "Dairy farms" },
+      { nl: "Veehouderijen", en: "Livestock farms" },
+      { nl: "Akkerbouwbedrijven", en: "Arable farms" },
+      { nl: "Glastuinbouwbedrijven", en: "Greenhouse growers" },
+      { nl: "Boomkwekerijen", en: "Tree nurseries" },
+      { nl: "Sierteeltbedrijven", en: "Ornamental plant growers" },
+      { nl: "Tuincentra", en: "Garden centres" },
+      { nl: "Recreatieboerderijen", en: "Recreational farms" },
+      { nl: "Alpaca- en dierenboerderijen", en: "Alpaca and animal farms" },
+      { nl: "Pluktuinen", en: "Pick-your-own gardens" },
+      { nl: "Boerencampings", en: "Farm campsites" },
+      { nl: "Zorgboerderijen", en: "Care farms" },
+      { nl: "Agritechbedrijven", en: "Agri-tech companies" },
+      { nl: "Landbouwmechanisatiebedrijven", en: "Agricultural machinery dealers" },
+      { nl: "Stalinrichters", en: "Livestock housing suppliers" },
+      { nl: "Veevoerbedrijven", en: "Animal feed companies" },
+      { nl: "Loonwerkbedrijven", en: "Agricultural contractors" },
+      { nl: "Natuur- en landschapsorganisaties", en: "Nature and landscape organisations" },
+      { nl: "Agrarische natuurcollectieven", en: "Agricultural nature collectives" },
+      { nl: "Hoveniers", en: "Landscape gardeners" },
+      { nl: "Groenvoorzieners", en: "Green space contractors" },
+    ],
+  },
+  /*__NEXT__*/
+];

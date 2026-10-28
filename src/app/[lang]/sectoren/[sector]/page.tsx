@@ -5,17 +5,21 @@ import { TLink } from "@/components/motion/TLink";
 import { LevelUp, LogoMarquee } from "@/components/sections/Home";
 import { PageHero } from "@/components/sections/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { SectorAudience } from "@/components/audience/SectorAudience";
+import { audCopy, lcFirst } from "@/components/audience/copy";
 import { Btn } from "@/components/ui/Button";
 import { ServiceBento } from "@/components/sector/ServiceBento";
 import { SectionHead } from "@/components/ui/Cards";
 import { CasesMasonry } from "@/components/ui/CaseCard";
 import { Faq } from "@/components/ui/Faq";
 import { FaqTabs } from "@/components/ui/FaqTabs";
+import { Icon } from "@/components/ui/Icon";
 import { Marquee } from "@/components/ui/Marquee";
 import { RichText } from "@/components/ui/RichText";
 import { site } from "@/content/site";
 import { LOCALES, type Locale } from "@/content/types";
 import { allSectors, applicationsBySlugs, casesForSector, getSector, getService } from "@/lib/content";
+import { audienceHash, audiencesOf, segHash } from "@/lib/audience";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
@@ -48,6 +52,9 @@ export default function SectorPage({ params }: P) {
   const segments = s.segments ?? [];
   const audiences = s.audiences ?? [];
   const allFaqs = [...s.faqs, ...segments.flatMap((g) => g.faqs)];
+  // doelgroepen als modal (#voor-…): links vanuit de FAQ-tabs en het raster "Voor wie we werken"
+  const audSegs = audiencesOf(s.slug);
+  const ac = audCopy(locale);
 
   return (
     <article className="sector">
@@ -63,6 +70,7 @@ export default function SectorPage({ params }: P) {
         title={title}
         lead={tr(s.intro, locale)}
       >
+        <SectorAudience sector={s} locale={locale} />
         <Btn href={site.letsgo}>{d.cta.launch}</Btn>
       </PageHero>
 
@@ -153,13 +161,31 @@ export default function SectorPage({ params }: P) {
                   count: s.faqs.length,
                   content: <Faq faqs={s.faqs} locale={locale} moreLabel={d.cta.moreAnswers} withLd={false} />,
                 },
-                ...segments.map((g, i) => ({
-                  id: `doelgroep-${i + 1}`,
-                  name: tr(g.name, locale),
-                  count: g.faqs.length,
-                  intro: tr(g.intro, locale),
-                  content: <Faq faqs={g.faqs} locale={locale} withLd={false} />,
-                })),
+                ...segments.map((g, i) => {
+                  const ag = audSegs.find((x) => x.index === i);
+                  return {
+                    id: `doelgroep-${i + 1}`,
+                    name: tr(g.name, locale),
+                    count: g.faqs.length,
+                    content: (
+                      <>
+                        <p className="ftabs__intro">
+                          {tr(g.intro, locale)}
+                          {ag ? (
+                            <>
+                              {" "}
+                              <a href={`#${segHash(ag, locale)}`} className="aud-more">
+                                {ac.readMoreFor(lcFirst(tr(g.name, locale)))}
+                                <Icon name="arrowRight" size={14} stroke={2} />
+                              </a>
+                            </>
+                          ) : null}
+                        </p>
+                        <Faq faqs={g.faqs} locale={locale} withLd={false} />
+                      </>
+                    ),
+                  };
+                }),
               ]}
             />
           ) : (
@@ -173,9 +199,21 @@ export default function SectorPage({ params }: P) {
           <div className="container">
             <SectionHead kicker={d.service.audiences} title={d.service.audiencesTitle} id="aud-title" />
             <ul className="aud" data-stagger="">
-              {audiences.map((a, i) => (
-                <li key={i}>{tr(a, locale)}</li>
-              ))}
+              {audiences.map((a, i) => {
+                const hash = audienceHash(s.slug, a, locale);
+                return (
+                  <li key={i}>
+                    {hash ? (
+                      <a href={`#${hash}`}>
+                        {tr(a, locale)}
+                        <Icon name="arrowRight" size={16} stroke={2} />
+                      </a>
+                    ) : (
+                      tr(a, locale)
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>

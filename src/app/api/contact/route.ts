@@ -2,9 +2,10 @@ import { NextResponse } from "next/server";
 import { site } from "@/content/site";
 
 /**
- * Contactformulier. Stuurt de aanvraag door naar CONTACT_WEBHOOK_URL
- * (bv. een Make-, n8n- of Odoo-webhook). Zonder webhook geeft de API
- * 503 terug en toont het formulier een mailto-fallback.
+ * Contactformulier én de korte intake (`type: "intake"`, met `answers`).
+ * Stuurt de aanvraag door naar CONTACT_WEBHOOK_URL (bv. een Make-, n8n- of
+ * Odoo-webhook). Zonder webhook geeft de API 503 terug en tonen formulier
+ * en intake een mailto-fallback.
  */
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
@@ -15,7 +16,11 @@ export async function POST(req: Request) {
   }
   if (body.website) return NextResponse.json({ ok: true }); // honeypot
   const email = String(body.email || "");
-  if (!body.name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !body.message) {
+  const validEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+  // Terugbelverzoek uit de intake: naam + telefoon volstaat (e-mail optioneel)
+  const callback = body.type === "intake" && body.callback === true;
+  const reachable = callback ? String(body.phone || "").replace(/[^\d]/g, "").length >= 8 : validEmail;
+  if (!body.name || !reachable || !body.message) {
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 422 });
   }
   if (!site.forms.contactWebhook) {

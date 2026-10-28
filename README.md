@@ -48,6 +48,7 @@ bestaat (een tikfout in een dienst, toepassing, sector of tool), dan faalt de bu
 | `reviews.ts` | Reviews per dienst (concept-reviews hebben `draft: true`) |
 | `tools.ts` | Alle tools/platformen met iconen (simple-icons) of monogram |
 | `team.ts` | Teamleden + foto's |
+| `support.ts` | Supportteam in de supportmodal (namen, rollen, foto's) + support-e-mail |
 | `site.ts` | Bedrijfsgegevens, socials, cijfers, klantlogo's, integraties |
 | `legal.ts` | Privacybeleid, algemene voorwaarden, cookies |
 | `src/lib/dict.ts` | Vaste UI-teksten (NL + EN) |
@@ -258,6 +259,14 @@ Tip: ±3–5 seconden op 24–30 fps, 16:9, product gecentreerd op een zwarte ac
   zetten voor een deeplink. Een eventueel AnswerLink embed-script laad je via `NEXT_PUBLIC_ANSWERLINK_SCRIPT`.
 - **Formulieren** (contact + nieuwsbrief) posten naar `CONTACT_WEBHOOK_URL` / `NEWSLETTER_WEBHOOK_URL`
   (bv. Make → Odoo/HubSpot/Mailchimp). Zonder webhook tonen ze een mailto-fallback.
+- **Korte intake** (`#intake`, op de contactpagina, in de footer en op `/letsgo`) post naar `/api/contact`
+  met `type: "intake"`, `answers` (doel, situatie, diensten, keuzes, planning, budget) en `callback: true`
+  bij een terugbelverzoek. WhatsApp- en belknoppen verschijnen zodra `NEXT_PUBLIC_WHATSAPP` /
+  `NEXT_PUBLIC_PHONE` gevuld zijn.
+- **Supportticket** (`#support`, "Support" met live-dot in de footer en op de contactpagina) post naar
+  `/api/support` → `SUPPORT_WEBHOOK_URL` (valt terug op `CONTACT_WEBHOOK_URL`), met `type: "support"` en
+  `to: "support@m7branding.com"`. Zonder webhook: mailto-fallback naar support@m7branding.com.
+  Team, rollen en foto's staan in `src/content/support.ts`.
 
 ---
 
@@ -301,6 +310,7 @@ scripts/sequence.mjs     zet een render (video of movie-to-lottie JSON) om naar 
 - GA4-ID, Search Console-verificatie, telefoonnummer, KvK en webhooks (`.env.example`).
 - Socials in `site.ts` (Instagram is geverifieerd, controleer de rest).
 - Teamnamen en -rollen in `team.ts`.
+- Foto's (en rollen) van Martijn, Alexander en Finn in `support.ts` (nu initialen-avatars).
 - Echte reviews in `reviews.ts` (concepten zijn gemarkeerd en verborgen in productie).
 - Case-teksten met `concept: true` aanvullen met echte projectinfo, en beelden voor cases zonder cover.
 - Juridische teksten in `legal.ts`.

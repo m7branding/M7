@@ -284,99 +284,97 @@ export const sectors: Sector[] = [
     },
   },
 
-  /* ---------- E-commerce & Retail ---------- */
+  /* ---------- Food & Retail ---------- */
   {
     slug: "food-retail",
     title: { nl: "Food & Retail", en: "Food & Retail" },
     short: { nl: "Food & retail", en: "Food & retail" },
-    icon: "cart",
-    image: "/media/cases/repairlab.webp",
-    imagePosition: "50% 50%",
-    quote: { nl: "A shop that keeps selling while you sleep.", en: "A shop that keeps selling while you sleep." },
+    icon: "basket",
+    quote: { nl: "Made with love. Sold with a plan.", en: "Made with love. Sold with a plan." },
     intro: {
-      nl: "Webshops en retailers die willen groeien: wij bouwen online winkels, tools en campagnes die bezoekers omzetten in kopers.",
-      en: "Web shops and retailers that want to grow: we build online stores, tools and campaigns that turn visitors into buyers.",
+      nl: "Van bakker, slager en foodproducent tot winkelketen, concept store en webshop: wij zorgen dat je product er online net zo goed uitziet als in de vitrine, en dat bestellen een paar klikken is.",
+      en: "From baker, butcher and food producer to retail chain, concept store and web shop: we make sure your product looks as good online as it does in the display case, and that ordering takes just a few clicks.",
     },
     description: {
-      nl: "In e-commerce telt elke klik. Je webshop moet snel zijn, vertrouwen wekken en kopen zo makkelijk mogelijk maken, terwijl de concurrent maar één zoekopdracht verwijderd is. M7 bouwt webshops op Shopify, WooCommerce en Webflow die er goed uitzien en converteren, van reparatiewinkels met online afspraken tot webshops voor glas op maat.\n\nWe kijken verder dan de shop zelf. Met productfotografie laat je zien wat je verkoopt, met configurators en calculators maak je maatwerk online bestelbaar en met Google Ads, Meta Ads en e-mailmarketing breng je de juiste bezoekers binnen én terug. Conversie-optimalisatie en een AI-assistent voor klantvragen maken het plaatje compleet.",
-      en: "In e-commerce every click counts. Your web shop has to be fast, build trust and make buying as easy as possible, while the competition is just one search away. M7 builds web shops on Shopify, WooCommerce and Webflow that look great and convert, from repair shops with online appointments to web shops for made-to-measure glass.\n\nWe look beyond the shop itself. With product photography you show what you sell, with configurators and calculators you make custom products orderable online, and with Google Ads, Meta Ads and email marketing you bring the right visitors in and back again. Conversion optimisation and an AI assistant for customer questions complete the picture.",
+      nl: "In food en retail kopen mensen met hun ogen, en vaak ook met hun buik. Een foto van een verse taart, een verpakking die opvalt of een etalage met karakter: in een paar seconden is de keuze gemaakt. M7 bouwt merken, verpakkingen, websites en webshops die dat moment pakken, van een huisstijl voor een ambachtelijke bakkerij en een etiket voor een nieuwe foodstartup tot een webshop voor glas op maat en een reparatiezaak met online afspraken.\n\nWe kijken verder dan mooi. Met vooraf bestellen en afhalen, een offertecalculator voor catering of een configurator voor maatwerk maak je kopen makkelijk. Productfotografie en korte video laten zien wat je verkoopt, lokale SEO zorgt dat de buurt je vindt en met Google Ads, Meta Ads en e-mailmarketing breng je klanten binnen én terug. Van één winkel tot een keten met filialen, en van foodtruck tot groothandel.",
+      en: "In food and retail, people buy with their eyes, and often with their stomach too. A photo of a fresh cake, packaging that stands out or a shop window with character: the choice is made in seconds. M7 builds brands, packaging, websites and web shops that seize that moment, from a visual identity for an artisan bakery and a label for a new food startup to a web shop for made-to-measure glass and a repair shop with online appointments.\n\nWe look beyond pretty. With ordering ahead and collection, a quote calculator for catering or a configurator for custom work, you make buying easy. Product photography and short video show what you sell, local SEO makes sure the neighbourhood finds you, and with Google Ads, Meta Ads and email marketing you bring customers in and back again. From one shop to a chain with branches, and from food truck to wholesaler.",
     },
     challenges: [
       {
-        title: { nl: "Opvallen in een volle markt", en: "Standing out in a crowded market" },
+        title: { nl: "Opvallen in schap en scherm", en: "Standing out on shelf and screen" },
         text: {
-          nl: "Klanten vergelijken in seconden. Een sterk merk, goede productbeelden en een soepele shopervaring maken het verschil tussen wegklikken en afrekenen.",
-          en: "Customers compare in seconds. A strong brand, good product images and a smooth shopping experience make the difference between bouncing and checking out.",
+          nl: "Klanten vergelijken in seconden, in de winkel en online. Een herkenbaar merk, een verpakking die opvalt en goede productbeelden maken het verschil tussen doorlopen en kopen.",
+          en: "Customers compare in seconds, in store and online. A recognisable brand, packaging that stands out and good product images make the difference between walking on and buying.",
         },
       },
       {
-        title: { nl: "Maatwerk online verkopen", en: "Selling custom products online" },
+        title: { nl: "Bestellen moet simpel", en: "Ordering should be simple" },
         text: {
-          nl: "Producten op maat, zoals glas, onderdelen of reparaties, passen slecht in een standaard webshop. Met een configurator of offertecalculator wordt maatwerk eenvoudig online bestelbaar.",
-          en: "Made-to-measure products, such as glass, parts or repairs, fit poorly in a standard web shop. With a configurator or quote calculator, custom work becomes easy to order online.",
+          nl: "Vooraf bestellen, afhalen, bezorgen of maatwerk: als het online ingewikkeld is, pakt de klant de telefoon of haakt hij af. Met een slimme webshop, calculator of configurator is bestellen een paar klikken.",
+          en: "Ordering ahead, collection, delivery or custom work: if it is complicated online, customers pick up the phone or give up. With a smart web shop, calculator or configurator, ordering takes a few clicks.",
         },
       },
       {
-        title: { nl: "Rendabel adverteren", en: "Profitable advertising" },
+        title: { nl: "Gevonden worden in de buurt", en: "Getting found nearby" },
         text: {
-          nl: "Advertentiekosten stijgen. Met slimme campagnes, goede tracking en conversie-optimalisatie haal je meer uit elke euro.",
-          en: "Advertising costs keep rising. With smart campaigns, solid tracking and conversion optimisation you get more out of every euro.",
+          nl: "Veel foodzaken en winkels draaien op de buurt. Met lokale SEO en een verzorgd Google Bedrijfsprofiel ben je zichtbaar als iemand zoekt naar 'bakker in de buurt' of 'cadeauwinkel in Oss'.",
+          en: "Many food businesses and shops run on their neighbourhood. With local SEO and a well-kept Google Business Profile you are visible when someone searches for 'bakery near me' or 'gift shop in Oss'.",
         },
       },
       {
-        title: { nl: "Klantenservice op schaal", en: "Customer service at scale" },
+        title: { nl: "Klanten laten terugkomen", en: "Bringing customers back" },
         text: {
-          nl: "Vragen over levering, retouren en producten kosten veel tijd. Een AI-chatbot en geautomatiseerde e-mails beantwoorden veel vragen direct.",
-          en: "Questions about delivery, returns and products take a lot of time. An AI chatbot and automated emails answer many of them instantly.",
+          nl: "Een eerste aankoop is mooi, een vaste klant is beter. Met e-mail, social en slimme acties blijf je in beeld tussen twee bezoeken of bestellingen door.",
+          en: "A first purchase is nice, a regular customer is better. With email, social and smart offers you stay top of mind between visits or orders.",
         },
       },
     ],
-    services: ["websites-webshops", "content-marketing-online-ads", "seo-aeo-geo", "marketing-automatisering-funnels", "foto-video-3d-animatie", "configurators-lead-tools-widgets"],
-    applications: ["webshop", "productconfigurator", "offerte-calculator", "boekingswidget", "productfotografie", "google-ads", "meta-ads", "e-mailmarketing", "conversie-optimalisatie", "ai-chatbots"],
+    services: ["branding-rebranding", "websites-webshops", "grafisch-ontwerp-print", "foto-video-3d-animatie", "seo-aeo-geo", "content-marketing-online-ads"],
+    applications: ["webshop", "huisstijl", "verpakkingsontwerp", "productfotografie", "lokale-seo", "social-media-marketing", "google-ads", "e-mailmarketing", "offerte-calculator", "boekingswidget"],
     faqs: [
+      {
+        q: { nl: "Werken jullie voor kleine foodzaken én grotere retailers?", en: "Do you work for small food businesses as well as larger retailers?" },
+        a: {
+          nl: "Ja. Van een ambachtelijke bakker of slager met één winkel tot foodproducenten, winkelketens en webshops met duizenden producten. Voor een zelfstandige zaak beginnen we vaak klein, met een [[huisstijl|huisstijl]], een heldere website en een goed [[lokale-seo|Google Bedrijfsprofiel]]. Grotere retailers helpen we met webshops, koppelingen, campagnes en merkrichtlijnen voor alle vestigingen. We stemmen de aanpak en het budget af op waar je nu staat, en bouwen zo dat je later makkelijk kunt uitbreiden.",
+          en: "Yes. From an artisan baker or butcher with one shop to food producers, retail chains and web shops with thousands of products. For an independent shop we often start small, with a [[huisstijl|visual identity]], a clear website and a solid [[lokale-seo|Google Business Profile]]. Larger retailers we help with web shops, integrations, campaigns and brand guidelines for every location. We tailor the approach and budget to where you are now, and build it so you can easily expand later.",
+        },
+      },
       {
         q: { nl: "Welk platform is het beste voor mijn webshop?", en: "Which platform is best for my web shop?" },
         a: {
-          nl: "Dat hangt af van je assortiment, groeiplannen en bestaande systemen. Shopify is sterk in gebruiksgemak en snelle groei, WooCommerce biedt veel flexibiliteit en Webflow is ideaal voor een compact assortiment met een premium merkbeleving. We adviseren eerlijk wat bij je past.",
-          en: "It depends on your product range, growth plans and existing systems. Shopify is strong on ease of use and rapid growth, WooCommerce offers a lot of flexibility and Webflow is ideal for a compact range with a premium brand experience. We give honest advice on what suits you.",
+          nl: "Dat hangt af van je assortiment, groeiplannen en bestaande systemen. Shopify is sterk in gebruiksgemak en snelle groei, WooCommerce biedt veel flexibiliteit en Webflow is ideaal voor een compact assortiment met een premium merkbeleving. Verkoop je ook in een fysieke winkel, dan kijken we hoe goed je kassasysteem koppelt. We adviseren eerlijk wat bij je past, ook als dat betekent dat je huidige [[webshop|webshop]] nog prima voldoet.",
+          en: "It depends on your product range, growth plans and existing systems. Shopify is strong on ease of use and rapid growth, WooCommerce offers a lot of flexibility and Webflow is ideal for a compact range with a premium brand experience. If you also sell in a physical shop, we check how well your till system connects. We give honest advice on what suits you, even if that means your current [[webshop|web shop]] is still perfectly fine.",
         },
       },
       {
         q: { nl: "Kunnen jullie mijn webshop migreren zonder vindbaarheid te verliezen?", en: "Can you migrate my web shop without losing search visibility?" },
         a: {
-          nl: "We migreren zorgvuldig, met redirects, behoud van de URL-structuur waar mogelijk en technische SEO-checks voor en na livegang. Zo blijft je opgebouwde vindbaarheid zo goed mogelijk behouden.",
-          en: "We migrate carefully, with redirects, keeping the URL structure where possible and technical SEO checks before and after launch. That way your search visibility is preserved as well as possible.",
-        },
-      },
-      {
-        q: { nl: "Kunnen klanten producten op maat samenstellen en bestellen?", en: "Can customers configure and order made-to-measure products?" },
-        a: {
-          nl: "Zeker. We bouwen productconfigurators en calculators waarmee klanten bijvoorbeeld afmetingen, materialen en opties kiezen, met een live prijs en directe bestelling of offerteaanvraag.",
-          en: "Definitely. We build product configurators and calculators that let customers choose, for example, dimensions, materials and options, with a live price and a direct order or quote request.",
+          nl: "We migreren zorgvuldig, met redirects, behoud van de URL-structuur waar mogelijk en technische SEO-checks voor en na livegang. Productdata, klantaccounts en reviews nemen we mee waar het platform dat toelaat. Na de overstap houden we Search Console en je verkeer een paar weken goed in de gaten, zodat we snel kunnen bijsturen. Zo blijft je opgebouwde vindbaarheid zo goed mogelijk behouden. Meer daarover lees je bij [[website-migratie|website migratie]].",
+          en: "We migrate carefully, with redirects, keeping the URL structure where possible and technical SEO checks before and after launch. Product data, customer accounts and reviews come along wherever the platform allows it. After the switch we keep a close eye on Search Console and your traffic for a few weeks, so we can adjust quickly. That way your search visibility is preserved as well as possible. Read more under [[website-migratie|website migration]].",
         },
       },
       {
         q: { nl: "Moet mijn webshop voldoen aan de European Accessibility Act?", en: "Does my web shop need to comply with the European Accessibility Act?" },
         a: {
-          nl: "Voor veel webshops gelden sinds juni 2025 de toegankelijkheidseisen van de European Accessibility Act; micro-ondernemingen zijn grotendeels uitgezonderd. We bouwen en verbeteren webshops met toegankelijkheid als uitgangspunt, zoals voldoende contrast, toetsenbordnavigatie en duidelijke formulieren.",
-          en: "Since June 2025 the accessibility requirements of the European Accessibility Act apply to many web shops; microenterprises are largely exempt. We build and improve web shops with accessibility as a starting point, such as sufficient contrast, keyboard navigation and clear forms.",
+          nl: "Voor veel webshops gelden sinds juni 2025 de toegankelijkheidseisen van de European Accessibility Act; micro-ondernemingen zijn grotendeels uitgezonderd. Twijfel je of het voor jou geldt, check dat dan even bij je branchevereniging of een jurist. Wij bouwen en verbeteren [[webshop|webshops]] met toegankelijkheid als uitgangspunt, zoals voldoende contrast, toetsenbordnavigatie, duidelijke formulieren en alt-teksten bij productfoto's. Los van de regels maakt dat bestellen voor iedereen makkelijker.",
+          en: "Since June 2025 the accessibility requirements of the European Accessibility Act apply to many web shops; microenterprises are largely exempt. If you are unsure whether it applies to you, check with your trade association or a legal adviser. We build and improve [[webshop|web shops]] with accessibility as a starting point, such as sufficient contrast, keyboard navigation, clear forms and alt text on product photos. Rules aside, it makes ordering easier for everyone.",
         },
       },
       {
-        q: { nl: "Verzorgen jullie ook de marketing van mijn webshop?", en: "Do you also handle marketing for my web shop?" },
+        q: { nl: "Verzorgen jullie ook de marketing van mijn winkel of webshop?", en: "Do you also handle marketing for my shop or web shop?" },
         a: {
-          nl: "Ja. Van Google Shopping en Meta Ads tot e-mailflows en SEO: we zorgen voor een stroom bezoekers en houden klanten betrokken na hun eerste aankoop.",
-          en: "Yes. From Google Shopping and Meta Ads to email flows and SEO: we drive a flow of visitors and keep customers engaged after their first purchase.",
+          nl: "Ja. Van Google Shopping en Meta Ads tot e-mailflows, social media en lokale SEO: we zorgen voor een stroom bezoekers en houden klanten betrokken na hun eerste aankoop. Voor een foodzaak of winkel ligt de nadruk vaak op de buurt en op terugkerende klanten, voor een webshop op het rendement per campagne. We beginnen met goede tracking, zodat je ziet wat elke euro oplevert. Daarna schuiven we budget naar wat werkt, met [[google-ads|Google Ads]] en [[e-mailmarketing|e-mailmarketing]].",
+          en: "Yes. From Google Shopping and Meta Ads to email flows, social media and local SEO: we drive a flow of visitors and keep customers engaged after their first purchase. For a food business or shop the focus is often on the neighbourhood and returning customers, for a web shop on the return per campaign. We start with proper tracking, so you can see what every euro delivers. Then we shift budget to what works, with [[google-ads|Google Ads]] and [[e-mailmarketing|email marketing]].",
         },
       },
     ],
     metaTitle: {
-      nl: "Webshops & online marketing voor e-commerce | M7",
-      en: "Web shops & online marketing for e-commerce | M7",
+      nl: "Branding, webshops & marketing voor food en retail | M7",
+      en: "Branding, web shops & marketing for food and retail | M7",
     },
     metaDescription: {
-      nl: "M7 bouwt webshops, configurators en campagnes voor e-commerce en retail: Shopify, WooCommerce of Webflow, met fotografie, ads en e-mailmarketing.",
-      en: "M7 builds web shops, configurators and campaigns for e-commerce and retail: Shopify, WooCommerce or Webflow, with photography, ads and email marketing.",
+      nl: "M7 helpt bakkers, slagers, foodproducenten, cateraars, winkels en webshops met huisstijl, verpakking, webshops, lokale SEO, fotografie en campagnes.",
+      en: "M7 helps bakers, butchers, food producers, caterers, shops and web shops with visual identity, packaging, web shops, local SEO, photography and campaigns.",
     },
   },
 

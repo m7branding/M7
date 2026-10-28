@@ -919,3 +919,19 @@
   color: var(--exp-faint);
   line-height: 1.5;
 }
+
+/* ---------- Korte intake: paars CTA-blok (zelfde stijl als de catalogus-CTA op de site) ---------- */
+.exp-intake-cta {
+  margin: 6px 0 56px;
+  text-align: left;
+}
+.exp-intake-cta--bottom {
+  margin: 80px 0 0;
+}
+.exp-intake-cta .pathblk__title {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.exp-intake-cta .exp-btn {
+  white-space: nowrap;
+}
