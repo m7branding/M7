@@ -139,6 +139,14 @@ de review en de toepassingen. Zie de case `teamtv` in `cases.ts` voor een comple
 
 ### Sectorpagina's
 
+- **Diensten als bento** (`components/sector/ServiceBento.tsx`): elke dienst krijgt een tegel met een
+  strakke mockup (browser, tablet, telefoon, boek, drukwerk, video). Volgorde: `visuals` in de sector
+  (`sectors.ts`), dan een project uit `cases.ts` in die sector met die dienst en een `cover`, dan de
+  standaard in `content/visuals.ts`. Nieuwe projecten met beeld vullen de tegels dus vanzelf.
+- **FAQ per doelgroep**: `segments` (tabnaam, korte intro, eigen FAQ's) en `audiences` (soorten
+  bedrijven) staan in `content/sector-segments-a.ts` en `-b.ts`. Alle vragen komen in de HTML en in
+  één FAQPage JSON-LD, ook die in verborgen tabs.
+
 `image`, `imagePosition` en `quote` per sector: het brede beeld na de hero dat bij het scrollen
 openvouwt, met de quote erop. Voor Zorg en Travel staan tijdelijke beelden, vervang ze door eigen werk.
 
