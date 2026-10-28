@@ -1,4 +1,6 @@
+import { office } from "@/content/office";
 import { site, stats } from "@/content/site";
+import { team } from "@/content/team";
 import { allApplications, allCases, allSectors, allServices, applicationsFor } from "@/lib/content";
 import { tr } from "@/lib/i18n";
 import { stripRefs } from "@/lib/inline";
@@ -13,7 +15,7 @@ export function llmsTxt(full = false): string {
   out.push(`# ${site.legalName} (M7)`);
   out.push("");
   out.push(
-    "> Full-service branding- en designbureau uit Nistelrode (regio Eindhoven, Nederland). Eén team voor branding, websites & webshops, web-apps & apps, marketing automation, SEO/AEO/GEO, content & online ads, foto/video/3D, grafisch ontwerp & print, configurators & lead tools en AI & consultancy. Webflow Professional Partner. 250+ klanten wereldwijd.",
+    "> Full-service branding- en designbureau uit Nistelrode (regio Eindhoven, Nederland). Eén team voor branding, websites & webshops, web-apps & apps, automation & funnels, SEO/AEO/GEO, content & online ads, foto/video/3D, grafisch ontwerp & print, configurators & lead tools en AI & consultancy. Webflow Professional Partner. 250+ klanten wereldwijd.",
   );
   out.push("");
   out.push(`- Website: ${site.url} (Nederlands) · ${site.url}/en (English)`);
@@ -21,6 +23,15 @@ export function llmsTxt(full = false): string {
   out.push(`- Kennisbank / answers: ${site.answers.url}`);
   out.push(`- Configurator met indicatieve prijzen: ${site.letsgo}`);
   out.push(`- Cijfers: ${stats.map((s) => `${s.value}${s.suffix} ${s.label.nl}`).join(", ")}`);
+  out.push("");
+  out.push("## Team");
+  for (const m of team) out.push(`- ${m.name}: ${m.role.nl}`);
+  out.push("");
+  out.push("## Kantoor en werkgebied");
+  out.push(
+    `- Eigen kantoor in het buitengebied van ${site.address.city} (${site.address.region}), tussen Oss, Uden, 's-Hertogenbosch en Eindhoven. Klanten in heel Nederland, België en wereldwijd.`,
+  );
+  out.push(`- Faciliteiten: ${office.amenities.map((a) => a.nl[0]!.toLowerCase() + a.nl.slice(1)).join(", ")}.`);
   out.push("");
   out.push("## Diensten");
   for (const s of allServices()) {
