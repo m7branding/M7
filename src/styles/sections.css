@@ -1667,3 +1667,8 @@
   break-inside: avoid;
   margin-bottom: clamp(16px, 2vw, 28px);
 }
+
+.juices__more {
+  position: relative;
+  margin-top: clamp(28px, 4vw, 44px);
+}

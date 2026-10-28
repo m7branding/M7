@@ -70,8 +70,9 @@ export function wordScore(t: string, st: string, w: string, sw: string): number 
   // samenstellingen: in het Nederlands zit de kern achteraan ("autodealers", "aankoopmakelaars")
   if (st.length >= 4 && (sw.endsWith(st) || w.endsWith(t))) return 0.86;
   if (st.length >= 4 && w.includes(st)) return 0.72;
-  if (t.length >= 4) {
-    const k = t.length >= 7 ? 2 : 1;
+  // typfouten (niet in de eerste letter): 1 bij korte woorden, 2 vanaf 8 letters
+  if (t.length >= 4 && t[0] === w[0]) {
+    const k = t.length >= 8 ? 2 : 1;
     if (osa(t, w.slice(0, t.length), k) <= k || osa(t, w.slice(0, t.length + 1), k) <= k) return 0.62;
   }
   return 0;

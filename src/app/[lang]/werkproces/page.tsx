@@ -270,7 +270,6 @@ export default function ProcessPage({ params }: P) {
                     <h2 className="pw-head__title" id={`${s.slug}-title`} tabIndex={-1}>
                       {title}
                     </h2>
-                    <p className="pw-head__tagline">{tr(s.tagline, locale)}</p>
                   </div>
                   <p className="lead pw-head__lead">{tr(s.intro, locale)}</p>
                 </header>

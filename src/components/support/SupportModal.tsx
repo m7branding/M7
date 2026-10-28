@@ -389,6 +389,7 @@ export function SupportModal({
           requestTypes: t.kind === "request" ? t.types : undefined,
           url: t.kind !== "question" && t.url ? normalizeUrl(t.url) : undefined,
           message: detailText.trim(),
+          summary: ref ? summaryText : `${L(C.ref)}: ${r}\n${summaryText}`,
           name: t.name.trim(),
           company: t.company.trim(),
           email: t.email.trim(),

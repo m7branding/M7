@@ -331,6 +331,11 @@ export function Juices({ locale }: { locale: Locale }) {
       <div className="juices__grid-bg" aria-hidden="true" />
       <div className="container">
         <ProcessTabs title={d.home.juices} tabs={tabs} prev={d.cta.prev} next={d.cta.next} />
+        <p className="juices__more" data-reveal="up">
+          <TLink href={paths.process} className="link-dash">
+            {locale === "nl" ? "Bekijk het werkproces per dienst" : "See the process per service"}
+          </TLink>
+        </p>
       </div>
     </section>
   );

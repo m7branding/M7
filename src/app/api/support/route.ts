@@ -35,6 +35,8 @@ export async function POST(req: Request) {
     requestTypes: Array.isArray(body.requestTypes) ? body.requestTypes.map((x) => str(x, 40)).filter(Boolean).slice(0, 10) : undefined,
     url: str(body.url, 500) || undefined,
     message: str(body.message, 5000),
+    /** Leesbare samenvatting van het hele ticket (handig als mailtekst in Make/n8n). */
+    summary: str(body.summary, 8000) || undefined,
     name: str(body.name, 120),
     company: str(body.company, 160),
     email,
