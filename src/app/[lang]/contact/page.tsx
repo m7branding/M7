@@ -17,7 +17,7 @@ import { allServices } from "@/lib/content";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
-import { abs, buildMetadata, orgId } from "@/lib/seo";
+import { buildMetadata, contactPageLd } from "@/lib/seo";
 
 type P = { params: { lang: Locale } };
 
@@ -143,14 +143,7 @@ export default function ContactPage({ params }: P) {
         </div>
       </section>
 
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          url: abs(paths.contact),
-          about: { "@id": orgId },
-        }}
-      />
+      <JsonLd data={contactPageLd(locale)} />
     </>
   );
 }

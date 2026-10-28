@@ -71,7 +71,10 @@ export function Aurora({
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const cv = canvas.current!;
+    const cv = canvas.current! as HTMLCanvasElement & { __lose?: number };
+    // React StrictMode (dev) draait dit effect twee keer op hetzelfde canvas:
+    // het vrijgeven van de context gebeurt pas een tick later en wordt hier geannuleerd.
+    window.clearTimeout(cv.__lose);
     const gl = cv.getContext("webgl", { antialias: false, alpha: false, powerPreference: "low-power" });
     if (!gl) {
       setFailed(true);
@@ -166,7 +169,7 @@ export function Aurora({
       io.disconnect();
       ro.disconnect();
       window.removeEventListener("pointermove", onMove);
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      cv.__lose = window.setTimeout(() => gl.getExtension("WEBGL_lose_context")?.loseContext(), 0);
     };
   }, [palette, intensity]);
 

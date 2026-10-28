@@ -8,6 +8,7 @@ import { GlowField } from "@/components/motion/GlowField";
 import { useLocale } from "@/components/motion/LocaleProvider";
 import { useLenis, useScroll } from "@/components/motion/SmoothScroll";
 import { TLink } from "@/components/motion/TLink";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { Btn } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { SocialIcon } from "@/components/ui/Social";
@@ -52,7 +53,8 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
   // Menu: scroll lock + sluiten bij navigatie / ESC
   useEffect(() => {
     if (open) lenis?.stop();
-    else lenis?.start();
+    // een overlay (intake/support) die vanuit het menu opent, houdt de scroll zelf vast
+    else if (!document.documentElement.classList.contains("ov-open")) lenis?.start();
     document.documentElement.classList.toggle("menu-open", open);
   }, [open, lenis]);
   useEffect(() => {
@@ -62,9 +64,11 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
     };
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && close();
     window.addEventListener("m7:navigate", close);
+    window.addEventListener("m7:overlay", close);
     window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("m7:navigate", close);
+      window.removeEventListener("m7:overlay", close);
       window.removeEventListener("keydown", onKey);
     };
   }, []);
@@ -425,7 +429,7 @@ function FullMenu({
             EN
           </a>
         </div>
-        <Btn href={nav.contact.letsgo}>{dict.cta.launch}</Btn>
+        <IntakeCta>{dict.cta.launch}</IntakeCta>
       </div>
       <button type="button" className="fm__scrim" aria-hidden="true" tabIndex={-1} onClick={onClose} />
     </div>
