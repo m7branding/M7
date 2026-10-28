@@ -1,9 +1,8 @@
 import { TLink } from "@/components/motion/TLink";
-import { Btn } from "@/components/ui/Button";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { Faq } from "@/components/ui/Faq";
 import { Icon } from "@/components/ui/Icon";
 import { RichText } from "@/components/ui/RichText";
-import { site } from "@/content/site";
 import type { Locale } from "@/content/types";
 import { type AudSegment, type UseCaseView, useCaseId, useCaseLink } from "@/lib/audience";
 import { getDict } from "@/lib/dict";
@@ -100,7 +99,7 @@ export function AudiencePanel({ g, locale }: { g: AudSegment; locale: Locale }) 
           <p className="aud-p__cta-x">{c.ctaText}</p>
         </div>
         <div className="aud-p__cta-row">
-          <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+          <IntakeCta>{d.cta.launch}</IntakeCta>
           <TLink href={paths.contact} className="link-dash">
             {d.cta.call}
           </TLink>

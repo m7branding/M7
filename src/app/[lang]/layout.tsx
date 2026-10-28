@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { Analytics } from "@/components/analytics/Analytics";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { PageViews } from "@/components/analytics/PageViews";
+import { FloatDock } from "@/components/chrome/FloatDock";
 import { Footer } from "@/components/chrome/Footer";
 import { SiteChrome } from "@/components/chrome/SiteChrome";
 import type { NavData } from "@/components/chrome/types";
@@ -134,6 +135,7 @@ export default function LangLayout({ children, params }: { children: React.React
             <RevealObserver />
             <Cursor />
             <CookieConsent labels={dict.cookie} enabled={Boolean(site.analytics.ga4 || site.analytics.gtm)} />
+            <FloatDock whatsapp={site.whatsapp} email={site.email} />
           </SmoothScroll>
         </LocaleProvider>
         <JsonLd data={[organizationLd(locale), websiteLd(locale)]} />

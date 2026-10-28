@@ -6,6 +6,7 @@ import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
 import { Mockup } from "@/components/mockups";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { LevelUp } from "@/components/sections/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -98,7 +99,7 @@ export default function ApplicationPage({ params }: P) {
               {tr(a.intro, locale)}
             </p>
             <div className="row svc-hero__cta" data-reveal="up" style={{ ["--d" as string]: "0.5s" }}>
-              <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+              <IntakeCta>{d.cta.launch}</IntakeCta>
               <TLink href={paths.contact} className="link-dash">
                 {d.cta.call}
               </TLink>

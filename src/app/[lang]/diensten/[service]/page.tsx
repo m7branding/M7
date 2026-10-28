@@ -5,6 +5,7 @@ import { PixelGrid } from "@/components/motion/PixelGrid";
 import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
 import { Mockup } from "@/components/mockups";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { Showcase, hasShowcase } from "@/components/showcase";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
 import { ServiceSectors } from "@/components/audience/ServiceSectors";
@@ -12,6 +13,7 @@ import { LevelUp } from "@/components/sections/Home";
 import { RelatedServices } from "@/components/sections/RelatedServices";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { TeamLine } from "@/components/support/TeamLine";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Btn } from "@/components/ui/Button";
 import { AppCard, SectionHead } from "@/components/ui/Cards";
@@ -23,7 +25,6 @@ import { Icon } from "@/components/ui/Icon";
 import { Marquee } from "@/components/ui/Marquee";
 import { RichText } from "@/components/ui/RichText";
 import { ToolGroups } from "@/components/ui/ToolBadge";
-import { site } from "@/content/site";
 import { LOCALES, type Locale } from "@/content/types";
 import { allServices, applicationsFor, casesForService, getService, sectorsForService } from "@/lib/content";
 import { getDict } from "@/lib/dict";
@@ -93,7 +94,7 @@ export default function ServicePage({ params }: P) {
               {tr(s.intro, locale)}
             </p>
             <div className="row svc-hero__cta" data-reveal="up" style={{ ["--d" as string]: "0.5s" }}>
-              <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+              <IntakeCta>{d.cta.launch}</IntakeCta>
               {cases.length ? (
                 <TLink href="#projecten" className="link-dash">
                   {d.service.projects} <span className="count-badge">{cases.length}</span>
@@ -268,6 +269,9 @@ export default function ServicePage({ params }: P) {
             <p className="lead" data-reveal="up">
               {title}: {s.faqs.length} {locale === "nl" ? "antwoorden op de vragen die we het vaakst krijgen." : "answers to the questions we get most."}
             </p>
+            <div data-reveal="up">
+              <TeamLine locale={locale} kind="ask" show={4} size={36} className="faq-team" />
+            </div>
             <div data-reveal="up">
               <Btn href={paths.contact} size="sm">
                 {d.cta.call}

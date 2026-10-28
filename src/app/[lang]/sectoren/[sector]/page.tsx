@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ScrollShowcase } from "@/components/motion/ScrollShowcase";
 import { TLink } from "@/components/motion/TLink";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { LevelUp, LogoMarquee } from "@/components/sections/Home";
 import { PageHero } from "@/components/sections/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SectorAudience } from "@/components/audience/SectorAudience";
 import { audCopy, lcFirst } from "@/components/audience/copy";
-import { Btn } from "@/components/ui/Button";
 import { ServiceBento } from "@/components/sector/ServiceBento";
+import { TeamLine } from "@/components/support/TeamLine";
 import { SectionHead } from "@/components/ui/Cards";
 import { CasesMasonry } from "@/components/ui/CaseCard";
 import { Faq } from "@/components/ui/Faq";
@@ -16,7 +17,6 @@ import { FaqTabs } from "@/components/ui/FaqTabs";
 import { Icon } from "@/components/ui/Icon";
 import { Marquee } from "@/components/ui/Marquee";
 import { RichText } from "@/components/ui/RichText";
-import { site } from "@/content/site";
 import { LOCALES, type Locale } from "@/content/types";
 import { allSectors, applicationsBySlugs, casesForSector, getSector, getService } from "@/lib/content";
 import { audienceHash, audiencesOf, segHash } from "@/lib/audience";
@@ -71,7 +71,7 @@ export default function SectorPage({ params }: P) {
         lead={tr(s.intro, locale)}
       >
         <SectorAudience sector={s} locale={locale} />
-        <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+        <IntakeCta>{d.cta.launch}</IntakeCta>
       </PageHero>
 
       {/* klantlogo's, zoals op home */}
@@ -150,6 +150,9 @@ export default function SectorPage({ params }: P) {
             <h2 className="h2" data-reveal="up">
               {d.service.faqTitle}
             </h2>
+            <div data-reveal="up">
+              <TeamLine locale={locale} kind="ask" show={4} size={36} href={paths.contact} className="faq-team" />
+            </div>
           </div>
           {segments.length ? (
             <FaqTabs

@@ -8,6 +8,7 @@ import { OverlayShell } from "@/components/overlay/OverlayShell";
 import { clearDraft, EMAIL_RE, isValidPhone, loadDraft, saveDraft, useOverlayHost } from "@/components/overlay/overlay-events";
 import { Icon, type IconKey } from "@/components/ui/Icon";
 import { SocialIcon } from "@/components/ui/Social";
+import { Avatars } from "@/components/support/Avatars";
 import type { ServiceSlug } from "@/content/registry";
 import type { T } from "@/content/types";
 import { tr } from "@/lib/i18n";
@@ -88,6 +89,7 @@ const C = {
   submit: { nl: "Verstuur intake", en: "Send intake" },
   sending: { nl: "Versturen…", en: "Sending…" },
   direct: { nl: "Liever direct?", en: "Rather go direct?" },
+  team: { nl: "Je intake komt direct bij ons team terecht.", en: "Your intake goes straight to our team." },
   wa: { nl: "WhatsApp {name}", en: "WhatsApp {name}" },
   waD: { nl: "Met je keuzes al ingevuld", en: "With your choices filled in" },
   call: { nl: "Bel {name}", en: "Call {name}" },
@@ -193,6 +195,10 @@ export interface IntakeModalProps {
   privacyHref: string;
   /** Link naar de configurator in de succes-stap (weglaten op /letsgo zelf). */
   catalogHref?: string;
+  /** Echte gezichten van het team (avatar-rij bij de contactstap en de bevestiging). */
+  team?: { name: string; photo?: string }[];
+  /** Totaal aantal mensen in het team (voor "+N"). */
+  teamSize?: number;
 }
 
 export function IntakeModal({
@@ -203,6 +209,8 @@ export function IntakeModal({
   contactName,
   privacyHref,
   catalogHref,
+  team = [],
+  teamSize = 0,
   initialOpen,
 }: IntakeModalProps & { initialOpen?: boolean }) {
   const locale = useLocale();
@@ -528,6 +536,13 @@ export function IntakeModal({
     </p>
   );
 
+  const teamRow = team.length ? (
+    <p className="itk__team">
+      <Avatars people={team} size={34} more={Math.max(0, teamSize - team.length)} ring="#0c0c0f" />
+      <span>{L(C.team)}</span>
+    </p>
+  ) : null;
+
   let body: React.ReactNode = null;
 
   if (status === "done") {
@@ -551,6 +566,7 @@ export function IntakeModal({
               })
             : L(C.doneSub)}
         </p>
+        {teamRow}
         <div className="itk__recap">
           {goalObj ? (
             <div>
@@ -806,6 +822,7 @@ export function IntakeModal({
   } else if (current === "contact") {
     const quick = (
       <aside className="itk__quick" aria-label={L(C.direct)}>
+        {teamRow}
         <p className="itk__label">{L(C.direct)}</p>
         {wa ? (
           <a className="itk__qa itk__qa--wa" href={waHref} target="_blank" rel="noopener">

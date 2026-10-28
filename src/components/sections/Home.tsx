@@ -12,13 +12,14 @@ import { SplitText } from "@/components/motion/SplitText";
 import { Starfield } from "@/components/motion/Starfield";
 import { TLink } from "@/components/motion/TLink";
 import { Mockup } from "@/components/mockups";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
 import { Showcase, hasShowcase } from "@/components/showcase";
-import { Btn } from "@/components/ui/Button";
 import { CaseCover } from "@/components/ui/CaseCard";
 import { Icon } from "@/components/ui/Icon";
 import { Marquee } from "@/components/ui/Marquee";
 import { SocialIcon } from "@/components/ui/Social";
+import { TeamLine } from "@/components/support/TeamLine";
 import { clients, site, stats } from "@/content/site";
 import type { Case, Locale } from "@/content/types";
 import { allApplications, allCases, allServices, applicationsFor, featuredCases } from "@/lib/content";
@@ -66,7 +67,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </p>
         <span className="hero__line" aria-hidden="true" data-reveal="fade" style={{ ["--d" as string]: "0.8s" }} />
         <div className="hero__cta" data-reveal="up" style={{ ["--d" as string]: "0.9s" }}>
-          <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+          <IntakeCta>{d.cta.launch}</IntakeCta>
         </div>
         <div className="hero__visual" data-reveal="fade" style={{ ["--d" as string]: "0.3s" }}>
           <HeroScene>
@@ -202,7 +203,7 @@ export function PillarStack({ locale, from = 0, to }: { locale: Locale; from?: n
                   </h2>
                   <p className="pillar__body">{tr(s.description, locale).split("\n\n")[0]}</p>
                   <div className="pillar__cta">
-                    <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+                    <IntakeCta>{d.cta.launch}</IntakeCta>
                     <TLink href={paths.service(s)} className="link-dash">
                       {d.cta.discover} {tr(s.short, locale)}
                     </TLink>
@@ -367,7 +368,7 @@ export function Bento({ locale }: { locale: Locale }) {
             <h3 className="bento__ai-title">
               {d.home.aiA} <span className="c-ai">AI</span>.
             </h3>
-            <Btn href={paths.service("ai-consultancy")}>{d.cta.launch}</Btn>
+            <IntakeCta>{d.cta.launch}</IntakeCta>
           </div>
         </div>
 
@@ -451,7 +452,8 @@ export function LevelUp({ locale }: { locale: Locale }) {
           ))}
         </div>
         <div className="levelup__cta" data-reveal="up">
-          <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+          <IntakeCta>{d.cta.launch}</IntakeCta>
+          <TeamLine locale={locale} className="levelup__team" />
         </div>
       </div>
     </section>

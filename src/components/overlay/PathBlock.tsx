@@ -1,8 +1,8 @@
-import { Aurora } from "@/components/motion/Aurora";
+import { Aurora, type AuroraPalette } from "@/components/motion/Aurora";
 import "./overlay.css";
 
 /**
- * CTA-blok met de rustige paarse Aurora (zoals op de home): titel,
+ * CTA-blok met de rustige Aurora (standaard paars, zoals op de home): titel,
  * één korte regel en een inline knop. Gebruikt voor de Diensten & Tarieven
  * Catalogus en de korte intake (contactpagina én /letsgo).
  */
@@ -14,6 +14,7 @@ export function PathBlock({
   className,
   style,
   reveal,
+  palette = "violet",
 }: {
   kicker?: React.ReactNode;
   title: React.ReactNode;
@@ -23,10 +24,17 @@ export function PathBlock({
   className?: string;
   style?: React.CSSProperties;
   reveal?: boolean;
+  /** Kleur van de Aurora; elke andere dan violet krijgt een eigen accent (data-palette). */
+  palette?: AuroraPalette;
 }) {
   return (
-    <div className={`pathblk${className ? ` ${className}` : ""}`} style={style} {...(reveal ? { "data-reveal": "up" } : {})}>
-      <Aurora palette="violet" fallback="/media/bg/ai-waves.webp" />
+    <div
+      className={`pathblk${className ? ` ${className}` : ""}`}
+      style={style}
+      data-palette={palette}
+      {...(reveal ? { "data-reveal": "up" } : {})}
+    >
+      <Aurora palette={palette} fallback={palette === "violet" ? "/media/bg/ai-waves.webp" : undefined} />
       <div className="pathblk__inner">
         <div className="pathblk__copy">
           {kicker ? <p className="pathblk__kicker">{kicker}</p> : null}

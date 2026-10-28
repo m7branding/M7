@@ -5,18 +5,18 @@ import { PixelGrid } from "@/components/motion/PixelGrid";
 import { SplitText } from "@/components/motion/SplitText";
 import { Starfield } from "@/components/motion/Starfield";
 import { TLink } from "@/components/motion/TLink";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { DeliverablesTabs } from "@/components/process/DeliverablesTabs";
 import { ProcessLink, ProcessPanel, ProcessProvider } from "@/components/process/ProcessContext";
 import { ProcessPicker, type PickApp, type PickLabels, type PickService } from "@/components/process/ProcessPicker";
 import { StepStage, type StageLabels } from "@/components/process/StepStage";
 import { LevelUp } from "@/components/sections/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { TeamLine } from "@/components/support/TeamLine";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Btn } from "@/components/ui/Button";
 import { Faq } from "@/components/ui/Faq";
 import { Icon } from "@/components/ui/Icon";
 import { ToolBadge } from "@/components/ui/ToolBadge";
-import { site } from "@/content/site";
 import { LOCALES, type FAQ, type Locale, type Service } from "@/content/types";
 import { allApplications, allServices, applicationsFor } from "@/lib/content";
 import { getDict } from "@/lib/dict";
@@ -327,7 +327,8 @@ export default function ProcessPage({ params }: P) {
                         ))}
                       </div>
                       <div className="pw-facts__cta">
-                        <Btn href={site.letsgo}>{d.cta.launch}</Btn>
+                        <TeamLine locale={locale} kind="process" show={3} size={34} ring="#0b0b0e" className="pw-facts__team" />
+                        <IntakeCta>{d.cta.launch}</IntakeCta>
                         <TLink href={paths.service(s)} className="link-dash">
                           {c.service} {title}
                         </TLink>

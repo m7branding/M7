@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { ContactHero, routeUrl } from "@/components/contact/ContactHero";
 import { TLink } from "@/components/motion/TLink";
 import { LiveDot } from "@/components/overlay/LiveDot";
-import { OverlayButton } from "@/components/overlay/OverlayButton";
+import { IntakeCta, OverlayButton } from "@/components/overlay/OverlayButton";
 import { PathBlock } from "@/components/overlay/PathBlock";
 import { ContactForm } from "@/components/sections/ContactForm";
-import { PageHero } from "@/components/sections/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Btn } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -39,21 +39,11 @@ export default function ContactPage({ params }: P) {
   const nl = locale === "nl";
   return (
     <>
-      <PageHero
-        locale={locale}
-        crumbs={[
-          { name: d.nav.home, path: "/" },
-          { name: d.nav.contact, path: paths.contact },
-        ]}
-        crumbsLabel={d.misc.breadcrumbs}
-        kicker={d.contact.title}
-        title={[{ t: "Let's build something " }, { t: "great.", c: "g-level" }]}
-        lead={d.contact.intro}
-      />
+      <ContactHero locale={locale} />
 
       <section className="section section--tight contact">
         <div className="container contact__grid">
-          <div className="contact__form card card--pad" data-reveal="up">
+          <div className="contact__form card card--pad" id="bericht" data-reveal="up">
             <ContactForm
               services={allServices().map((s) => ({ value: s.slug, label: tr(s.title, locale) }))}
               labels={d.contact}
@@ -68,7 +58,7 @@ export default function ContactPage({ params }: P) {
                   <span className="live-pill__sep" aria-hidden="true" />
                   <span>Support</span>
                 </p>
-                <Avatars people={support.people} size={40} />
+                <Avatars people={support.people} size={40} ring="#0d0f0e" />
               </div>
               <h2 className="csup__title">{nl ? "Al klant en loopt er iets vast?" : "Already a client and something's stuck?"}</h2>
               <p className="csup__text">
@@ -101,6 +91,11 @@ export default function ContactPage({ params }: P) {
                   {site.address.street}, {site.address.postalCode} {site.address.city}
                   <br />
                   {site.address.area}
+                  <br />
+                  <TLink href={routeUrl()} className="contact__route">
+                    {nl ? "Plan je route" : "Get directions"}
+                    <Icon name="arrowUpRight" size={14} stroke={2.2} />
+                  </TLink>
                 </span>
               </address>
               <div className="contact__socials">
@@ -133,6 +128,7 @@ export default function ContactPage({ params }: P) {
           </PathBlock>
           <PathBlock
             reveal
+            palette="brand"
             style={{ ["--d" as string]: "0.1s" }}
             kicker={nl ? "Korte intake" : "Quick intake"}
             title={nl ? "Liever eerst even sparren? Doe de korte intake." : "Rather talk it through first? Do the quick intake."}
@@ -142,9 +138,7 @@ export default function ContactPage({ params }: P) {
                 : "Tell us in a few clicks what you want to achieve. We'll think along about the smartest approach."
             }
           >
-            <OverlayButton target="intake" look="btn">
-              {nl ? "Start de intake" : "Start the intake"}
-            </OverlayButton>
+            <IntakeCta>{nl ? "Start de intake" : "Start the intake"}</IntakeCta>
           </PathBlock>
         </div>
       </section>

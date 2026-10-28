@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { AboutHero } from "@/components/about/AboutHero";
+import { AboutIcon, AMENITY_ICONS } from "@/components/about/AboutIcon";
+import { ClientMap } from "@/components/about/ClientMap";
+import { Gallery, type GalleryPhoto } from "@/components/about/Gallery";
+import { masonryLayout, masonryOrder, masonrySpan } from "@/components/about/masonry";
 import { M7Badge } from "@/components/brand/M7Logo";
 import { Aurora } from "@/components/motion/Aurora";
 import { Counter } from "@/components/motion/Counter";
-import { TLink } from "@/components/motion/TLink";
 import { FolderGrid, Juices, LevelUp, LogoMarquee } from "@/components/sections/Home";
-import { PageHero } from "@/components/sections/PageHero";
-import { Btn } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/Cards";
 import { Icon } from "@/components/ui/Icon";
+import { aboutCopy, fill } from "@/content/about";
+import { office, officePhoto, officePhotos } from "@/content/office";
 import { site, stats } from "@/content/site";
 import { team } from "@/content/team";
 import type { Locale } from "@/content/types";
@@ -15,6 +19,7 @@ import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 import { buildMetadata } from "@/lib/seo";
+import "@/styles/about.css";
 
 type P = { params: { lang: Locale } };
 
@@ -23,91 +28,156 @@ export function generateMetadata({ params }: P): Metadata {
   return buildMetadata({
     locale: params.lang,
     path: paths.about,
-    title: nl ? "Over M7 | Full-service branding & design bureau | Regio Eindhoven" : "About M7 | Full-service branding & design agency | Eindhoven region",
+    title: nl ? "Over M7 | Branding- & designbureau in Nistelrode, Noord-Brabant" : "About M7 | Branding & design agency in Nistelrode, the Netherlands",
     description: nl
-      ? "M7 Branding & Design B.V. is een compact team van creatieve en technische specialisten uit Nistelrode (regio Eindhoven). Webflow Professional Partner, 250+ klanten wereldwijd."
-      : "M7 Branding & Design B.V. is a compact team of creative and technical specialists from Nistelrode (Eindhoven region). Webflow Professional Partner, 250+ clients worldwide.",
+      ? "Maak kennis met M7: een full-service branding- en designbureau met een eigen kantoor in het buitengebied van Nistelrode, tussen Oss, Uden, Den Bosch en Eindhoven. Webflow Professional Partner, 250+ klanten wereldwijd."
+      : "Meet M7: a full-service branding and design agency with its own office in the countryside of Nistelrode, between Oss, Uden, 's-Hertogenbosch and Eindhoven. Webflow Professional Partner, 250+ clients worldwide.",
   });
 }
 
 const VALUES = [
-  { icon: "sparkle", nl: ["Next level, altijd", "We leggen de lat hoog: in strategie, design, techniek en service."], en: ["Next level, always", "We set the bar high: in strategy, design, technology and service."] },
-  { icon: "users", nl: ["Eén team, één aanspreekpunt", "Strategie, design en development aan één tafel. Geen vertaalverlies."], en: ["One team, one contact", "Strategy, design and development at one table. No loss in translation."] },
-  { icon: "bolt", nl: ["Snel én zorgvuldig", "Een compact team schakelt snel, zonder concessies aan kwaliteit."], en: ["Fast and careful", "A compact team moves fast, without compromising on quality."] },
-  { icon: "shield", nl: ["Partner voor de lange termijn", "Hosting, onderhoud en doorontwikkeling: we blijven betrokken."], en: ["Long-term partner", "Hosting, maintenance and ongoing development: we stay involved."] },
+  {
+    icon: "sparkle",
+    nl: ["Next level, altijd", "We leggen de lat hoog: in strategie, design, techniek en service."],
+    en: ["Next level, always", "We set the bar high: in strategy, design, technology and service."],
+  },
+  {
+    icon: "users",
+    nl: ["Eén team, één aanspreekpunt", "Strategie, design en development aan één tafel. Geen vertaalverlies."],
+    en: ["One team, one contact", "Strategy, design and development at one table. No loss in translation."],
+  },
+  {
+    icon: "bolt",
+    nl: ["Snel én zorgvuldig", "Een compact team schakelt snel, zonder concessies aan kwaliteit."],
+    en: ["Fast and careful", "A compact team moves fast, without compromising on quality."],
+  },
+  {
+    icon: "shield",
+    nl: ["Partner voor de lange termijn", "Hosting, onderhoud en doorontwikkeling: we blijven betrokken."],
+    en: ["Long-term partner", "Hosting, maintenance and ongoing development: we stay involved."],
+  },
 ] as const;
+
+/** Masonry-gat onder elke foto, in procenten van de kolombreedte (zie .agal in about.css). */
+const GAP = 5;
+
+/** Foto's voor de masonry: gebalanceerde volgorde + vaste plek per breakpoint (4 / 3 / 2 kolommen). */
+const photos = (kind: "office" | "culture", locale: Locale): GalleryPhoto[] => {
+  const list = masonryOrder(
+    officePhotos.filter((p) => p.kind === kind),
+    (p) => masonrySpan(p.w, p.h, GAP),
+    1,
+  );
+  const spans = list.map((p) => masonrySpan(p.w, p.h, GAP));
+  const [l, m, sm] = [4, 3, 2].map((k) => masonryLayout(spans, k, GAP));
+  return list.map((p, i) => {
+    const k = 720 / Math.max(p.w, p.h);
+    return {
+      sm: officePhoto(p, "sm"),
+      lg: officePhoto(p, "lg"),
+      w: Math.round(p.w * k),
+      h: Math.round(p.h * k),
+      alt: tr(p.alt, locale),
+      at: { l: [l[i].col, l[i].span], m: [m[i].col, m[i].span], s: [sm[i].col, sm[i].span] },
+    };
+  });
+};
 
 export default function AboutPage({ params }: P) {
   const locale = params.lang;
   const d = getDict(locale);
+  const a = aboutCopy;
+  const clients = stats.find((s) => s.label.en === "Clients worldwide");
+  const clientsTxt = clients ? `${clients.value}${clients.suffix}` : "250+";
+  const gt = { open: tr(a.gallery.open, locale), close: tr(a.gallery.close, locale), prev: tr(a.gallery.prev, locale), next: tr(a.gallery.next, locale) };
+  const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${site.legalName}, ${site.address.street}, ${site.address.postalCode} ${site.address.city}`)}`;
+
   return (
     <>
-      <PageHero
-        locale={locale}
-        crumbs={[
-          { name: d.nav.home, path: "/" },
-          { name: d.nav.about, path: paths.about },
-        ]}
-        crumbsLabel={d.misc.breadcrumbs}
-        kicker={d.about.title}
-        title={[{ t: "We are " }, { t: "M7.", c: "g-pixels" }]}
-        lead={d.home.oneStopText}
-      >
-        <Btn href={paths.contact}>{d.cta.call}</Btn>
-      </PageHero>
+      <AboutHero locale={locale} />
 
       <LogoMarquee />
 
-      <section className="section about-story">
+      {/* ---------- Ons verhaal + cijfers ---------- */}
+      <section className="section about-story" aria-labelledby="about-story-title">
         <div className="container about-story__grid">
           <div className="about-story__badge" data-reveal="scale">
             <div className="about-story__aurora">
               <Aurora palette="brand" />
             </div>
             <M7Badge className="about-story__logo" id="about" />
+            <span className="about-story__stamp" aria-hidden="true">
+              Est. {site.foundingYear} · Nistelrode
+            </span>
           </div>
-          <div className="stack">
+          <div className="about-story__text">
             <p className="kicker" data-reveal="fade">
-              {locale === "nl" ? "Ons verhaal" : "Our story"}
+              {tr(a.story.kicker, locale)}
             </p>
-            <h2 className="h2" data-reveal="up">
+            <h2 className="h2" id="about-story-title" data-reveal="up">
               From pixels to stars.
             </h2>
             <p className="body" data-reveal="up">
-              {locale === "nl"
-                ? `Sinds ${site.foundingYear} bouwt M7 merken en digitale oplossingen voor ambitieuze bedrijven. Vanuit Nistelrode, in de regio Eindhoven, werken we voor klanten in Nederland, België en ver daarbuiten. Wat begon met design groeide uit tot een full-service bureau: van branding en websites tot web-apps, marketing automation, AI en video.`
-                : `Since ${site.foundingYear}, M7 has been building brands and digital solutions for ambitious companies. From Nistelrode, in the Eindhoven region, we work for clients in the Netherlands, Belgium and far beyond. What started with design grew into a full-service agency: from branding and websites to web apps, marketing automation, AI and video.`}
+              {fill(tr(a.story.p1, locale), { year: site.foundingYear })}
             </p>
             <p className="body" data-reveal="up">
-              {locale === "nl"
-                ? "Als Webflow Professional Partner bouwen we razendsnelle websites die je zelf kunt beheren, en met ons eigen hosting- en supportteam houden we alles in de lucht."
-                : "As a Webflow Professional Partner we build lightning-fast websites you can manage yourself, and with our own hosting and support team we keep everything running."}
+              {tr(a.story.p2, locale)}
             </p>
+            <ul className="about-facts" data-stagger="">
+              <li>
+                <span className="about-facts__icon">
+                  <Icon name="calendar" size={20} stroke={1.6} />
+                </span>
+                <span>
+                  <small>{tr(a.story.since, locale)}</small>
+                  <strong>{site.foundingYear}</strong>
+                </span>
+              </li>
+              <li>
+                <span className="about-facts__icon">
+                  <Icon name="star" size={20} stroke={1.6} />
+                </span>
+                <a href={site.partner.url} target="_blank" rel="noopener">
+                  <small>{site.partner.platform}</small>
+                  <strong>{site.partner.label}</strong>
+                </a>
+              </li>
+              <li>
+                <span className="about-facts__icon">
+                  <Icon name="globe" size={20} stroke={1.6} />
+                </span>
+                <span>
+                  <small>{tr(a.story.clients, locale)}</small>
+                  <strong>{clientsTxt}</strong>
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
-
-      <section className="section section--tight about-stats">
         <div className="container">
-          <dl className="about-stats__grid" data-stagger="">
+          <dl className="about-stats" aria-label={tr(a.story.statsLabel, locale)} data-stagger="">
             {stats.map((s) => (
               <div key={s.label.nl}>
-                <dt>
+                <dt>{s.label[locale]}</dt>
+                <dd>
                   <Counter value={s.value} suffix={s.suffix} locale={locale} />
-                </dt>
-                <dd>{s.label[locale]}</dd>
+                </dd>
               </div>
             ))}
           </dl>
         </div>
       </section>
 
-      <section className="section about-values">
+      {/* ---------- Waarden ---------- */}
+      <section className="section section--tight about-values">
         <div className="container">
           <SectionHead kicker={d.about.values} title="What drives us." />
-          <div className="cards-2" data-stagger="">
-            {VALUES.map((v) => (
+          <div className="about-values__grid" data-stagger="">
+            {VALUES.map((v, i) => (
               <div key={v.icon} className="benefit">
+                <span className="about-values__num" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <span className="benefit__icon">
                   <Icon name={v.icon} size={26} stroke={1.5} />
                 </span>
@@ -119,78 +189,137 @@ export default function AboutPage({ params }: P) {
         </div>
       </section>
 
-      <section className="section about-team" id="team">
+      {/* ---------- Team ---------- */}
+      <section className="section about-team" id="team" aria-labelledby="about-team-title">
         <div className="container">
-          <SectionHead kicker={d.about.team} title={d.about.teamTitle} />
-          <div className="team-grid" data-stagger="">
-            {team.map((m, i) => (
-              <figure key={i} className="team-card">
-                <span className="team-card__img">
-                  <img src={m.photo} alt={m.name} loading="lazy" />
-                </span>
-                <figcaption>
-                  <strong>{m.name}</strong>
-                  <span>{tr(m.role, locale)}</span>
-                  {m.fun ? <em>{tr(m.fun, locale)}</em> : null}
-                </figcaption>
-              </figure>
+          <SectionHead kicker={d.about.team} title={d.about.teamTitle} id="about-team-title" text={tr(a.team.text, locale)} />
+          <ul className="about-team__grid" data-stagger="">
+            {team.map((m) => (
+              <li key={m.slug} className={`tcard${m.dog ? " tcard--dog" : ""}`}>
+                <figure>
+                  <span className="tcard__img">
+                    <img src={m.photo} alt={m.name} width={800} height={999} loading="lazy" decoding="async" />
+                  </span>
+                  {m.founder ? <span className="tcard__tag">{tr(a.team.founder, locale)}</span> : null}
+                  <figcaption className="tcard__cap">
+                    <strong>{m.name}</strong>
+                    <span>{tr(m.role, locale)}</span>
+                    {m.fun ? <em>{tr(m.fun, locale)}</em> : null}
+                  </figcaption>
+                </figure>
+              </li>
             ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ---------- Kantoor & werkgebied (SEO) ---------- */}
+      <section className="section about-office" id="kantoor" aria-labelledby="about-office-title">
+        <div className="container">
+          <div className="about-office__head">
+            <div className="stack-sm">
+              <p className="kicker" data-reveal="fade">
+                {tr(a.office.kicker, locale)}
+              </p>
+              <h2 className="h2" id="about-office-title" data-reveal="up">
+                {tr(a.office.title, locale)}
+              </h2>
+              <p className="lead about-office__intro" data-reveal="up" style={{ ["--d" as string]: "0.1s" }}>
+                {tr(a.office.intro, locale)}
+              </p>
+            </div>
+            <div className="visit" data-reveal="up" style={{ ["--d" as string]: "0.2s" }}>
+              <span className="visit__icon">
+                <AboutIcon name="pin" size={22} />
+              </span>
+              <div className="visit__body">
+                <p className="visit__kicker">{tr(a.office.visit, locale)}</p>
+                <address>
+                  {site.legalName}
+                  <br />
+                  {site.address.street}, {site.address.postalCode} {site.address.city}
+                  <br />
+                  {site.address.region}, {tr(a.office.country, locale)}
+                </address>
+                <a className="link-dash" href={mapsUrl} target="_blank" rel="noopener">
+                  {tr(a.office.route, locale)}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <Gallery photos={photos("office", locale)} label={tr(a.office.gallery, locale)} t={gt} />
+
+          <div className="about-office__info">
+            <div className="about-office__block" data-reveal="up">
+              <h3>{tr(a.office.regionH, locale)}</h3>
+              <p className="body">{tr(a.office.region, locale)}</p>
+            </div>
+            <div className="about-office__block" data-reveal="up" style={{ ["--d" as string]: "0.08s" }}>
+              <h3>{tr(a.office.reachH, locale)}</h3>
+              <p className="body">{fill(tr(a.office.reach, locale), { clients: clientsTxt })}</p>
+            </div>
+            <div className="about-office__block" data-reveal="up" style={{ ["--d" as string]: "0.16s" }}>
+              <h3>{tr(a.office.amenitiesH, locale)}</h3>
+              <ul className="amen">
+                {office.amenities.map((am, i) => (
+                  <li key={am.nl}>
+                    <span className="amen__icon">
+                      <AboutIcon name={AMENITY_ICONS[i] || "check"} size={18} />
+                    </span>
+                    {tr(am, locale)}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <div id="werkwijze" style={{ position: "relative" }}>
+      {/* ---------- Cultuur ---------- */}
+      <section className="section about-culture" id="cultuur" aria-labelledby="about-culture-title">
+        <div className="container">
+          <div className="about-culture__head">
+            <div className="stack-sm">
+              <p className="kicker" data-reveal="fade">
+                {tr(a.culture.kicker, locale)}
+              </p>
+              <h2 className="h2" id="about-culture-title" data-reveal="up">
+                {tr(a.culture.title, locale)}
+              </h2>
+            </div>
+            <p className="lead" data-reveal="up" style={{ ["--d" as string]: "0.1s" }}>
+              {tr(a.culture.intro, locale)}
+            </p>
+          </div>
+          <ul className="rituals" data-stagger="">
+            {a.culture.rituals.map((r) => (
+              <li key={r.h.nl} className="ritual">
+                <span className="ritual__icon">
+                  <AboutIcon name={r.icon} size={22} />
+                </span>
+                <h3>{tr(r.h, locale)}</h3>
+                <p>{tr(r.p, locale)}</p>
+              </li>
+            ))}
+          </ul>
+          <Gallery photos={photos("culture", locale)} label={tr(a.culture.gallery, locale)} className="about-culture__gallery" t={gt} />
+        </div>
+      </section>
+
+      {/* ---------- Werkwijze + diensten ---------- */}
+      <div id="werkwijze">
         <Juices locale={locale} />
-        {/* naar alle tien werkprocessen (de slider hierboven toont er vier) */}
-        <p
-          className="center"
-          data-reveal="fade"
-          style={{ position: "absolute", insetInline: 0, bottom: "calc(var(--section) * 0.42)", margin: 0, paddingInline: "var(--gutter)" }}
-        >
-          <TLink href={paths.process} className="link-dash">
-            {locale === "nl" ? "Bekijk het werkproces per dienst" : "See the process per service"}
-          </TLink>
-        </p>
       </div>
 
-      <section className="section section--tight">
+      <section className="section section--tight about-services">
         <div className="container">
           <SectionHead kicker={d.nav.services} title="Everything under one roof." center />
           <FolderGrid locale={locale} />
         </div>
       </section>
 
-      <section className="section about-location">
-        <div className="container about-location__grid">
-          <div className="stack">
-            <p className="kicker" data-reveal="fade">
-              {d.about.location}
-            </p>
-            <h2 className="h2" data-reveal="up">
-              Nistelrode, NL.
-            </h2>
-            <address className="body about-location__addr" data-reveal="up">
-              {site.legalName}
-              <br />
-              {site.address.street}
-              <br />
-              {site.address.postalCode} {site.address.city}
-              <br />
-              {site.address.area}, {locale === "nl" ? "Nederland" : "The Netherlands"}
-            </address>
-            <div className="row" data-reveal="up">
-              <Btn href={paths.contact}>{d.cta.call}</Btn>
-              <TLink href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.address.street} ${site.address.city}`)}`} className="link-dash">
-                Google Maps
-              </TLink>
-            </div>
-          </div>
-          <div className="about-location__map" data-reveal="scale" aria-hidden="true">
-            <img src="/media/bg/world-dots.webp" alt="" loading="lazy" />
-            <span className="experience__ping" style={{ left: "49.6%", top: "31.5%" }} />
-          </div>
-        </div>
-      </section>
+      <ClientMap locale={locale} />
 
       <LevelUp locale={locale} />
     </>

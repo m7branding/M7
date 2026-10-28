@@ -14,9 +14,10 @@ import { SocialIcon } from "@/components/ui/Social";
 import type { Dict } from "@/lib/dict";
 import { localize, parsePublicPath } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
+import { MegaPanels, type MegaPanel } from "./Mega";
 import type { NavData } from "./types";
 
-type Panel = "sectors" | "services" | "cases" | null;
+type Panel = MegaPanel | null;
 type MenuKey = "sectors" | "services" | "cases" | "about" | "contact";
 
 export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
@@ -70,11 +71,61 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
 
   const openPanel = (p: Panel) => {
     window.clearTimeout(closeTimer.current);
+    if (quietFocus.current) return;
     setPanel(p);
   };
   const scheduleClose = () => {
     window.clearTimeout(closeTimer.current);
     closeTimer.current = window.setTimeout(() => setPanel(null), 160);
+  };
+
+  /* ---- Toetsenbord: Tab / ↓ vanaf een menu-item gaat het open paneel in,
+     Tab na het laatste item naar het volgende menu-item, Shift+Tab terug, Esc sluit. ---- */
+  const megaRef = useRef<HTMLDivElement>(null);
+  const quietFocus = useRef(false);
+  const navLinks = () => Array.from(document.querySelectorAll<HTMLElement>(".hdr__nav .hdr__link"));
+  const triggerOf = (p: Panel) => document.querySelector<HTMLElement>(`.hdr__nav [data-panel="${p}"]`);
+  const megaFocusables = () =>
+    Array.from(megaRef.current?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") ?? []).filter(
+      (n) => n.tabIndex >= 0 && !n.closest("[aria-hidden='true']") && n.getClientRects().length > 0,
+    );
+  const focusQuietly = (el: HTMLElement | null | undefined) => {
+    quietFocus.current = true;
+    el?.focus({ preventScroll: true });
+    quietFocus.current = false;
+  };
+  const enterPanel = (p: Panel) => {
+    openPanel(p);
+    // twee frames: het paneel moet eerst gerenderd zijn
+    requestAnimationFrame(() => requestAnimationFrame(() => megaFocusables()[0]?.focus({ preventScroll: true })));
+  };
+  const onTriggerKey = (p: Panel) => (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey && panel === p)) {
+      e.preventDefault();
+      enterPanel(p);
+    }
+  };
+  const onMegaKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!panel) return;
+    const trigger = triggerOf(panel);
+    if (e.key === "Escape") {
+      focusQuietly(trigger);
+      setPanel(null);
+      return;
+    }
+    if (e.key !== "Tab") return;
+    const f = megaFocusables();
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) {
+      e.preventDefault();
+      trigger?.focus({ preventScroll: true });
+    } else if (!e.shiftKey && document.activeElement === f[f.length - 1]) {
+      e.preventDefault();
+      const links = navLinks();
+      const next = links[links.indexOf(trigger!) + 1];
+      if (next) next.focus({ preventScroll: true });
+      else setPanel(null);
+    }
   };
 
   const navItems: { key: Panel; label: string; href: string; count?: number }[] = [
@@ -91,6 +142,11 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
       <header
         className={`hdr${hidden ? " is-hidden" : ""}${scrolled || panel ? " is-solid" : ""}${open ? " is-menu" : ""}`}
         onMouseLeave={scheduleClose}
+        onBlur={(e) => {
+          // focus verlaat de header (bv. Tab verder de pagina in): paneel dicht
+          const to = e.relatedTarget as Node | null;
+          if (to && !e.currentTarget.contains(to)) setPanel(null);
+        }}
       >
         <div className="hdr__bar container">
           <TLink href="/" className="hdr__logo" aria-label="M7 home">
@@ -104,7 +160,10 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
                   href={it.href}
                   className={`hdr__link${panel === it.key ? " is-active" : ""}`}
                   aria-expanded={panel === it.key}
+                  aria-controls="mega"
+                  data-panel={it.key}
                   onFocus={() => openPanel(it.key)}
+                  onKeyDown={onTriggerKey(it.key)}
                 >
                   {it.label}
                   {it.count ? <span className="count-pill hdr__count">{it.count}</span> : null}
@@ -113,7 +172,7 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
               </div>
             ))}
             <div className="hdr__item" onMouseEnter={() => openPanel(null)}>
-              <TLink href={paths.about} className="hdr__link">
+              <TLink href={paths.about} className="hdr__link" onFocus={() => openPanel(null)}>
                 {dict.nav.about}
               </TLink>
             </div>
@@ -150,95 +209,19 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
           </div>
         </div>
 
-        <MegaPanels panel={panel} nav={nav} dict={dict} onEnter={() => window.clearTimeout(closeTimer.current)} />
+        <MegaPanels
+          panel={panel}
+          nav={nav}
+          dict={dict}
+          rootRef={megaRef}
+          onEnter={() => window.clearTimeout(closeTimer.current)}
+          onKeyDown={onMegaKey}
+          onClose={() => setPanel(null)}
+        />
       </header>
 
       <FullMenu open={open} nav={nav} dict={dict} alt={alt} onClose={() => setOpen(false)} />
     </>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-
-function MegaPanels({ panel, nav, dict, onEnter }: { panel: Panel; nav: NavData; dict: Dict; onEnter: () => void }) {
-  return (
-    <div className={`mega${panel ? " is-open" : ""}`} onMouseEnter={onEnter} aria-hidden={!panel}>
-      <div className="mega__inner container">
-        {panel === "services" && (
-          <div className="mega__grid mega__grid--services" key="services">
-            <div className="mega__list mega__list--2">
-              {nav.services.map((s, i) => (
-                <TLink
-                  key={s.slug}
-                  href={paths.service(s.slug)}
-                  className="mega__svc"
-                  style={{ ["--accent" as string]: s.color, ["--i" as string]: i }}
-                >
-                  <span className="mega__icon">
-                    <Icon name={s.icon} size={22} />
-                  </span>
-                  <span>
-                    <strong>{s.title}</strong>
-                    <small>{s.apps.slice(0, 3).map((a) => a.title).join(" · ")}</small>
-                  </span>
-                </TLink>
-              ))}
-            </div>
-            <div className="mega__aside">
-              <p className="kicker">{dict.nav.applications}</p>
-              <p className="mega__big">
-                {nav.services.reduce((n, s) => n + s.apps.length, 0)}
-                <span>{dict.nav.applications.toLowerCase()}</span>
-              </p>
-              <TLink href={paths.applications} className="link-dash">
-                {dict.nav.allApplications}
-              </TLink>
-              <div className="mega__cta">
-                <Btn href={nav.contact.letsgo} size="sm">
-                  {dict.cta.configurator}
-                </Btn>
-              </div>
-            </div>
-          </div>
-        )}
-        {panel === "sectors" && (
-          <div className="mega__grid" key="sectors">
-            <div className="mega__list mega__list--sectors">
-              {nav.sectors.map((s, i) => (
-                <TLink key={s.slug} href={paths.sector(s.slug)} className="mega__sector" style={{ ["--i" as string]: i }}>
-                  <Icon name={s.icon} size={22} />
-                  <span>{s.title}</span>
-                </TLink>
-              ))}
-            </div>
-            <div className="mega__aside">
-              <TLink href={paths.sectors} className="link-dash">
-                {dict.nav.allSectors}
-              </TLink>
-            </div>
-          </div>
-        )}
-        {panel === "cases" && (
-          <div className="mega__grid" key="cases">
-            <div className="mega__cases">
-              {nav.cases.slice(0, 4).map((c, i) => (
-                <TLink key={c.slug} href={paths.case(c.slug)} className="mega__case" style={{ ["--i" as string]: i }}>
-                  <span className="mega__case-img" style={{ background: c.color }}>
-                    {c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}
-                  </span>
-                  <strong>{c.client}</strong>
-                </TLink>
-              ))}
-            </div>
-            <div className="mega__aside">
-              <TLink href={paths.cases} className="link-dash">
-                {dict.nav.allCases} <span className="count-badge">{nav.caseCount}</span>
-              </TLink>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
   );
 }
 

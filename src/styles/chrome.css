@@ -254,7 +254,9 @@ html.js:not([data-loading="1"]) .hdr {
   transform: rotate(-45deg);
 }
 
-/* ---------------- Mega dropdown ---------------- */
+/* ---------------- Mega dropdown ----------------
+   Container hier; de panelen zelf (lijsten, mockup-slider, Aurora-blok,
+   uitgelichte case) staan in src/components/chrome/mega.css. */
 .mega {
   position: absolute;
   left: 0;
@@ -264,14 +266,15 @@ html.js:not([data-loading="1"]) .hdr {
   clip-path: inset(0 0 100% 0);
   transition: clip-path 0.6s var(--ease-out);
 }
+/* dicht vlak: er staat nu beeld in het paneel, en een (half)doorzichtige laag onder de clip-path
+   liet in Chromium de hero-tekst erdoorheen schemeren */
 .mega::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(7, 7, 10, 0.94);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: #07070a;
   border-bottom: 1px solid var(--line);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
 }
 .mega.is-open {
   pointer-events: auto;
@@ -279,167 +282,13 @@ html.js:not([data-loading="1"]) .hdr {
 }
 .mega__inner {
   position: relative;
-  padding-block: 28px 40px;
-}
-.mega__grid {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 48px;
-}
-.mega__grid > * > * {
-  animation: mega-in 0.7s var(--ease-out) both;
-  animation-delay: calc(var(--i, 0) * 0.03s);
+  padding-block: 26px 32px;
 }
 @keyframes mega-in {
   from {
     opacity: 0;
     transform: translate3d(0, 14px, 0);
   }
-}
-.mega__list--2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px 20px;
-}
-.mega__svc {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 14px;
-  border-radius: 16px;
-  transition: background 0.3s;
-}
-.mega__svc:hover {
-  background: rgba(255, 255, 255, 0.04);
-}
-.mega__svc strong {
-  display: block;
-  font-weight: 700;
-  font-size: 0.98rem;
-}
-.mega__svc small {
-  display: block;
-  color: var(--faint);
-  font-size: 0.78rem;
-  margin-top: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 340px;
-}
-.mega__icon {
-  position: relative;
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  flex: none;
-  background: var(--surface-2);
-  color: #fff;
-  box-shadow: inset 0 0 0 1px var(--line);
-  transition:
-    color 0.3s,
-    box-shadow 0.3s;
-}
-.mega__icon::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 10px;
-  right: 10px;
-  height: 3px;
-  border-radius: 0 0 3px 3px;
-  background: var(--accent);
-}
-.mega__svc:hover .mega__icon {
-  color: var(--accent);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent), 0 0 24px -6px var(--accent);
-}
-.mega__aside {
-  border-left: 1px solid var(--line);
-  padding-left: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  justify-content: center;
-}
-.mega__big {
-  font-size: 3.4rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-.mega__big span {
-  display: block;
-  margin-top: 6px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: var(--muted);
-}
-.mega__cta {
-  margin-top: 8px;
-}
-.mega__list--sectors {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2px 20px;
-}
-/* sectornamen altijd op één regel */
-.mega__sector span,
-.fm__sectors a {
-  white-space: nowrap;
-}
-.mega__sector span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.mega__sector {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-  padding: 14px;
-  border-radius: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  transition:
-    background 0.3s,
-    color 0.3s;
-}
-.mega__sector svg {
-  color: var(--teal);
-}
-.mega__sector:hover {
-  background: rgba(255, 255, 255, 0.04);
-  color: #fff;
-}
-.mega__cases {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-.mega__case strong {
-  display: block;
-  margin-top: 12px;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-.mega__case-img {
-  display: block;
-  aspect-ratio: 4 / 3;
-  border-radius: 16px;
-  overflow: hidden;
-}
-.mega__case-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 1s var(--ease-out);
-}
-.mega__case:hover img {
-  transform: scale(1.06);
 }
 
 @media (max-width: 1100px) {
@@ -722,6 +571,7 @@ html.js:not([data-loading="1"]) .hdr {
   display: flex;
   align-items: center;
   gap: 12px;
+  white-space: nowrap; /* sectornamen altijd op één regel */
   padding: 11px 0;
   border-bottom: 1px solid var(--line);
   font-weight: 600;

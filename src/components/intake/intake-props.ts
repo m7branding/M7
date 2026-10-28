@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
 import { support } from "@/content/support";
+import { people } from "@/content/team";
 import { allServices } from "@/lib/content";
 import type { IntakeService } from "./IntakeModal";
 
@@ -18,5 +19,8 @@ export function intakeProps() {
     phone: site.phone,
     whatsapp: site.whatsapp,
     contactName: { full: support.phoneOwnerFull, first: support.phoneOwner },
+    /** Echte gezichten voor de avatar-rij (eerste vier + "+N"). */
+    team: people.slice(0, 4).map((m) => ({ name: m.name, photo: m.avatar })),
+    teamSize: people.length,
   };
 }
