@@ -1190,3 +1190,10 @@ html.agal-open {
     width: min(100%, calc(62svh * var(--ar, 1)));
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .ah__slide img {
+    animation: none !important;
+    transform: none;
+  }
+}
