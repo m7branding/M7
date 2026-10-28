@@ -7,23 +7,25 @@ import { TLink } from "@/components/motion/TLink";
 import { Mockup } from "@/components/mockups";
 import { Showcase, hasShowcase } from "@/components/showcase";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
+import { ServiceSectors } from "@/components/audience/ServiceSectors";
 import { LevelUp } from "@/components/sections/Home";
+import { RelatedServices } from "@/components/sections/RelatedServices";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Btn } from "@/components/ui/Button";
-import { AppCard, SectionHead, ServiceCard } from "@/components/ui/Cards";
+import { AppCard, SectionHead } from "@/components/ui/Cards";
 import { CasesMasonry } from "@/components/ui/CaseCard";
 import { ChapterBlock } from "@/components/ui/Chapter";
 import { Collapse } from "@/components/ui/Collapse";
 import { Faq } from "@/components/ui/Faq";
 import { Icon } from "@/components/ui/Icon";
 import { Marquee } from "@/components/ui/Marquee";
-import { ReviewCard } from "@/components/ui/ReviewCard";
 import { RichText } from "@/components/ui/RichText";
 import { ToolGroups } from "@/components/ui/ToolBadge";
 import { site } from "@/content/site";
 import { LOCALES, type Locale } from "@/content/types";
-import { allServices, applicationsFor, casesForService, getService, reviewsForService, sectorsForService } from "@/lib/content";
+import { allServices, applicationsFor, casesForService, getService, sectorsForService } from "@/lib/content";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
@@ -54,9 +56,7 @@ export default function ServicePage({ params }: P) {
   const d = getDict(locale);
   const apps = applicationsFor(s.slug);
   const cases = casesForService(s.slug);
-  const reviews = reviewsForService(s.slug);
   const sectors = sectorsForService(s.slug);
-  const related = s.related.map((r) => getService(r)!).filter(Boolean);
   const title = tr(s.title, locale);
   const chapters = s.chapters ?? [];
   const chapter = (i: number) => (chapters[i] ? <ChapterBlock c={chapters[i]} locale={locale} id={`chapter-${i}`} /> : null);
@@ -218,50 +218,21 @@ export default function ServicePage({ params }: P) {
         </section>
       ) : null}
 
-      {/* ---------- Reviews over deze dienst ---------- */}
-      {reviews.length ? (
-        <section className="section svc-reviews" aria-labelledby="reviews-title">
-          <div className="container">
-            <SectionHead kicker={d.service.reviews} title={d.service.reviewsTitle} id="reviews-title" />
-            <div className="reviews-grid">
-              {reviews.map((r) => (
-                <ReviewCard key={r.id} r={r} locale={locale} draftLabel={d.misc.showDrafts} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
+      {/* ---------- Reviews: eerst over deze dienst, aangevuld met andere echte reviews ---------- */}
+      <section className="section svc-reviews" aria-labelledby="reviews-title">
+        <div className="container">
+          <SectionHead kicker={d.service.reviews} title={d.service.reviewsTitle} id="reviews-title" />
+        </div>
+        <Testimonials locale={locale} service={s.slug} />
+      </section>
 
       {chapter(2)}
 
-      {/* ---------- Sectoren & gerelateerd ---------- */}
-      <section className="section section--tight svc-cross" aria-label={d.service.related}>
-        <div className="container">
-          {sectors.length ? (
-            <div className="svc-cross__sectors" data-reveal="up">
-              <p className="kicker">{d.service.sectorsTitle}</p>
-              <div className="chips">
-                {sectors.map((x) => (
-                  <TLink key={x.slug} href={paths.sector(x)} className="chip chip--lg">
-                    <Icon name={x.icon} size={20} />
-                    {tr(x.title, locale)}
-                  </TLink>
-                ))}
-              </div>
-            </div>
-          ) : null}
-          <div className="svc-cross__related">
-            <p className="kicker" data-reveal="fade">
-              {d.service.related}
-            </p>
-            <div className="cards-3" data-stagger="">
-              {related.map((r, i) => (
-                <ServiceCard key={r.slug} s={r} locale={locale} index={i} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ---------- Voor welke sectoren: zoekbalk + sector → doelgroep → wat deze dienst doet ---------- */}
+      <ServiceSectors service={s} sectors={sectors} locale={locale} />
+
+      {/* ---------- Combineert goed met: slider met de showcases van de andere diensten ---------- */}
+      <RelatedServices service={s} locale={locale} />
 
       {chapters.slice(3).map((c, i) => (
         <ChapterBlock key={i} c={c} locale={locale} id={`chapter-${i + 3}`} />

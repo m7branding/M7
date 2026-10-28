@@ -13,7 +13,7 @@ export function ReviewCard({ r, locale, draftLabel }: { r: Review; locale: Local
         <span>
           <strong>{r.author}</strong>
           <small>
-            {tr(r.role, locale)} · {r.company}
+            {[r.role ? tr(r.role, locale) : "", r.company].filter(Boolean).join(" · ")}
           </small>
         </span>
         {r.rating ? (

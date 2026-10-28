@@ -1,4 +1,4 @@
-import type { Case, StoryBlock } from "@/content/types";
+import type { Case, Review, StoryBlock, T } from "@/content/types";
 import { applicationsBySlugs, getReview } from "./content";
 import { getDict } from "./dict";
 
@@ -23,11 +23,18 @@ export function storyFor(c: Case): StoryBlock[] {
       type: "quote",
       text: review.quote,
       cite: review.author,
-      role: { nl: `${review.role.nl}, ${review.company}`, en: `${review.role.en}, ${review.company}` },
+      role: reviewRole(review),
       avatar: review.avatar,
     });
   out.push({ type: "text", kicker: { nl: "What it brought.", en: "What it brought." }, h: { nl: nl.result, en: en.result }, body: c.result });
   if (c.results?.length) out.push({ type: "results" });
   if (apps.length) out.push({ type: "timeline", style: "checklist", title: { nl: nl.delivered, en: en.delivered }, items: apps.map((a) => ({ label: a.title })) });
   return out;
+}
+
+/** "CEO, TeamTV", alleen het bedrijf, of niets (Google-reviews hebben geen functie). */
+function reviewRole(r: Review): T | undefined {
+  const part = (role?: string) => [role, r.company].filter(Boolean).join(", ");
+  const nl = part(r.role?.nl);
+  return nl ? { nl, en: part(r.role?.en) } : undefined;
 }

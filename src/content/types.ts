@@ -261,14 +261,26 @@ export interface Case {
 /* ---------- Review ---------- */
 export interface Review {
   id: string;
+  /** Naam zoals de reviewer die zelf gebruikt (persoon of bedrijf). */
   author: string;
-  role: T;
-  company: string;
+  /** Functie; Google-reviews hebben er geen. */
+  role?: T;
+  company?: string;
   avatar?: string;
   quote: T;
+  /** Taal van de tekst als die maar in één taal bestaat (dan staat hij in nl én en). */
+  lang?: Locale;
   services: ServiceSlug[];
   case?: string;
   rating?: number;
+  /** Waar de review gepubliceerd is (toont het logo van de bron). */
+  source?: "google";
+  /** Wanneer geplaatst, zoals de bron het toonde, bv. "2 jaar geleden". */
+  when?: T;
+  /** Tekst is een automatische vertaling door de bron (Google), niet het origineel. */
+  translated?: boolean;
+  /** Alleen een fragment beschikbaar (eindigt op […]). */
+  fragment?: boolean;
   /** Concept-review: alleen zichtbaar in development of met NEXT_PUBLIC_SHOW_DRAFTS=1. */
   draft?: boolean;
 }
