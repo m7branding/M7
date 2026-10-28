@@ -1,11 +1,10 @@
 import { M7BadgeReveal } from "@/components/brand/M7BadgeReveal";
-import { IntakeModal } from "@/components/intake/IntakeModal";
 import { intakeProps } from "@/components/intake/intake-props";
 import { PixelGrid } from "@/components/motion/PixelGrid";
 import { TLink } from "@/components/motion/TLink";
 import { LiveDot } from "@/components/overlay/LiveDot";
 import { OverlayButton } from "@/components/overlay/OverlayButton";
-import { SupportModal } from "@/components/support/SupportModal";
+import { IntakeGate, SupportGate } from "@/components/overlay/OverlayGates";
 import { SocialIcon } from "@/components/ui/Social";
 import { site } from "@/content/site";
 import { support } from "@/content/support";
@@ -136,8 +135,8 @@ export function Footer({ locale }: { locale: Locale }) {
       </div>
 
       {/* Site-brede modals: openen via de knoppen hierboven, overal via #support / #intake */}
-      <SupportModal email={support.email} phone={support.phone} phoneOwner={support.phoneOwner} people={support.people} />
-      <IntakeModal {...intakeProps()} privacyHref={localize(paths.privacy, locale)} catalogHref={site.letsgo} />
+      <SupportGate email={support.email} phone={support.phone} phoneOwner={support.phoneOwner} people={support.people} />
+      <IntakeGate {...intakeProps()} privacyHref={localize(paths.privacy, locale)} catalogHref={site.letsgo} />
     </footer>
   );
 }

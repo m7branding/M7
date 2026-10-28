@@ -6,6 +6,7 @@
 /* ---------------- Zoekbalk ---------------- */
 .af {
   position: relative;
+  min-width: 0;
   width: min(100%, 760px);
   margin-inline: auto;
   display: grid;
@@ -25,8 +26,6 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.07),
     0 24px 70px -24px rgba(0, 0, 0, 0.9);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
   transition: box-shadow 0.5s var(--ease-out);
 }
 /* hairline met merkverloop + zachte gloed eromheen */
@@ -94,6 +93,8 @@
 }
 .af__input {
   flex: 1;
+  /* geen intrinsieke breedte: anders duwt het veld de hero breder dan het scherm */
+  width: 0;
   min-width: 0;
   height: 100%;
   padding: 0;
@@ -186,7 +187,9 @@
 /* hero van de sectorpagina: balk over de volle breedte van de kolom */
 .page-hero__extra:has(> .af) {
   justify-self: stretch;
+  min-width: 0;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   justify-items: center;
   gap: 26px;
   margin-top: 16px;
@@ -384,6 +387,9 @@ html.aud-lock {
   background: linear-gradient(90deg, transparent, rgba(58, 255, 255, 0.7), rgba(0, 255, 25, 0.5), rgba(139, 61, 255, 0.6), transparent);
   pointer-events: none;
 }
+.aud-dlg__scroll:focus {
+  outline: 0;
+}
 .aud-dlg__scroll {
   flex: 1;
   min-height: 0;
@@ -489,6 +495,7 @@ html.aud-lock {
 /* ---------------- Paneel (één doelgroep) ---------------- */
 .aud-p {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(36px, 4.4vw, 54px);
 }
 .aud-p__head {
@@ -569,6 +576,7 @@ html.aud-lock {
 }
 .aud-p__sec {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
 }
 .aud-p__h {
@@ -620,6 +628,21 @@ html.aud-lock {
   flex-wrap: wrap;
   align-items: center;
   gap: 16px 26px;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .aud-p__cta {
+    padding: 22px 18px;
+  }
+  .aud-p__cta .btn {
+    max-width: 100%;
+    white-space: normal;
+    padding-left: 22px;
+    gap: 12px;
+  }
+  .aud-p__head {
+    padding-right: 0;
+  }
 }
 
 /* ---------------- Use cases ---------------- */
@@ -724,7 +747,7 @@ html.aud-lock {
   box-shadow: 0 0 10px var(--accent);
 }
 .aud-uc--compact {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 12px;
 }
 .aud-uc--compact .aud-uc__item {
@@ -732,8 +755,9 @@ html.aud-lock {
   border-radius: 18px;
 }
 @media (max-width: 760px) {
-  .aud-uc {
-    grid-template-columns: 1fr;
+  .aud-uc,
+  .aud-uc--compact {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

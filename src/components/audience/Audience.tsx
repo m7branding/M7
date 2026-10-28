@@ -268,6 +268,8 @@ export function Audience({
       if (!d.open) {
         d.showModal();
         lock(true);
+        // focus op de inhoud (bovenaan), niet op de sluitknop: pijltjes/spatie scrollen meteen
+        scrollRef.current?.focus({ preventScroll: true });
       }
       const raf = requestAnimationFrame(() => requestAnimationFrame(() => d.classList.add("is-in")));
       return () => cancelAnimationFrame(raf);
@@ -335,6 +337,19 @@ export function Audience({
     }
     head.after(clone);
   };
+
+  // Dienstpagina: sectorpagina alvast ophalen zodra iemand een sector openklapt
+  useEffect(() => {
+    if (!remote) return;
+    const onToggle = (e: Event) => {
+      const el = e.target as HTMLDetailsElement;
+      if (!el.open || !el.id?.startsWith("aud-sec-")) return;
+      const sec = index.sectors.find((x) => x.slug === el.id.slice(8));
+      if (sec) loadDoc(sec.href).catch(() => {});
+    };
+    document.addEventListener("toggle", onToggle, true);
+    return () => document.removeEventListener("toggle", onToggle, true);
+  }, [remote, index]);
 
   // Gekozen soort bedrijf oplichten in de chips
   useEffect(() => {
@@ -712,7 +727,7 @@ export function Audience({
           <button type="button" className="aud-dlg__close" onClick={close} aria-label={c.close}>
             <Icon name="close" size={20} stroke={2} />
           </button>
-          <div className="aud-dlg__scroll" ref={scrollRef} data-lenis-prevent="">
+          <div className="aud-dlg__scroll" ref={scrollRef} tabIndex={-1} data-lenis-prevent="">
             {panels?.map((p) => (
               <div key={p.key} className="aud-dlg__pane" data-aud-panel={p.key} hidden={!shownG || shownG.k !== p.key}>
                 {p.node}

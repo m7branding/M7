@@ -183,15 +183,7 @@ const DRAFT_KEY = "m7-intake-draft";
 type ErrKey = keyof typeof C.err;
 
 /* ============================================================ */
-export function IntakeModal({
-  services,
-  email,
-  phone,
-  whatsapp,
-  contactName,
-  privacyHref,
-  catalogHref,
-}: {
+export interface IntakeModalProps {
   services: IntakeService[];
   email: string;
   phone: string;
@@ -201,10 +193,21 @@ export function IntakeModal({
   privacyHref: string;
   /** Link naar de configurator in de succes-stap (weglaten op /letsgo zelf). */
   catalogHref?: string;
-}) {
+}
+
+export function IntakeModal({
+  services,
+  email,
+  phone,
+  whatsapp,
+  contactName,
+  privacyHref,
+  catalogHref,
+  initialOpen,
+}: IntakeModalProps & { initialOpen?: boolean }) {
   const locale = useLocale();
   const L = (v: T) => tr(v, locale);
-  const { open, close } = useOverlayHost("intake");
+  const { open, close } = useOverlayHost("intake", initialOpen);
 
   const [a, setA] = useState<Answers>(EMPTY);
   const [stepId, setStepId] = useState<StepId>("goal");
@@ -512,7 +515,8 @@ export function IntakeModal({
     }
   };
 
-  const total = steps.length;
+  // Vóór de dienstkeuze rekenen we alvast één verdiepingsstap mee, zodat het totaal niet verspringt
+  const total = steps.length + (idx < 2 && !a.unsure && a.services.length === 0 && a.goal !== "other" ? 1 : 0);
   const pct = status === "done" ? 1 : (idx + (current === "contact" && status === "busy" ? 1 : 0.5)) / total;
   const shortcutKeys = current === "goal" ? `1–${GOALS.length}` : current === "challenge" && challenges.length ? `1–${challenges.length}` : "";
 
@@ -963,10 +967,13 @@ export function IntakeModal({
               ) : null}
             </div>
             <p className="itk__privacy">
-              <Icon name="lock" size={14} /> {L(C.privacy)}{" "}
-              <a href={privacyHref} target="_blank" rel="noopener">
-                {locale === "nl" ? "Privacybeleid" : "Privacy policy"}
-              </a>
+              <Icon name="lock" size={14} />
+              <span>
+                {L(C.privacy)}{" "}
+                <a href={privacyHref} target="_blank" rel="noopener">
+                  {locale === "nl" ? "Privacybeleid" : "Privacy policy"}
+                </a>
+              </span>
             </p>
           </form>
           {quick}

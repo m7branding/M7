@@ -26,9 +26,35 @@ function clearHash(name: OverlayName) {
   }
 }
 
+/**
+ * Lichte 'poortwachter': true zodra een overlay voor het eerst gevraagd wordt
+ * (knop of hash). Daarna pas laden we de (zwaardere) modal-code.
+ */
+export function useOverlayRequested(name: OverlayName) {
+  const [requested, setRequested] = useState(false);
+  const pathname = usePathname();
+  useEffect(() => {
+    if (requested) return;
+    const check = () => {
+      if (window.location.hash === `#${name}`) setRequested(true);
+    };
+    const onOpen = (e: Event) => {
+      if ((e as CustomEvent<OverlayName>).detail === name) setRequested(true);
+    };
+    check();
+    window.addEventListener(EVENT, onOpen);
+    window.addEventListener("hashchange", check);
+    return () => {
+      window.removeEventListener(EVENT, onOpen);
+      window.removeEventListener("hashchange", check);
+    };
+  }, [requested, name, pathname]);
+  return requested;
+}
+
 /** Host-kant: open/dicht-state die luistert naar events, hash en navigatie. */
-export function useOverlayHost(name: OverlayName) {
-  const [open, setOpen] = useState(false);
+export function useOverlayHost(name: OverlayName, initialOpen = false) {
+  const [open, setOpen] = useState(initialOpen);
   const pathname = usePathname();
 
   useEffect(() => {

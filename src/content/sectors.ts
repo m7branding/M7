@@ -467,7 +467,7 @@ export const sectors: Sector[] = [
     },
   },
 
-  /* ---------- Bouw, Vastgoed & Architectuur ---------- */
+  /* ---------- Bouw & Architectuur ---------- */
   {
     slug: "bouw-architectuur",
     title: { nl: "Bouw & Architectuur", en: "Construction & Architecture" },
@@ -477,96 +477,126 @@ export const sectors: Sector[] = [
     imagePosition: "50% 50%",
     quote: { nl: "Built on detail, from blueprint to browser.", en: "Built on detail, from blueprint to browser." },
     intro: {
-      nl: "Architecten, bouwbedrijven, projectontwikkelaars en makelaars: wij laten je projecten zien zoals ze bedoeld zijn, nog voordat de eerste paal de grond in gaat.",
-      en: "Architects, builders, developers and estate agents: we show your projects as they are meant to be, before the first pile is even driven.",
+      nl: "Aannemers, afbouwers, installateurs, architecten en prefab-bouwers: wij laten zien wat je bouwt en hoe je werkt, van de eerste schets tot de laatste kitnaad.",
+      en: "Contractors, finishing trades, installers, architects and prefab builders: we show what you build and how you work, from the first sketch to the final sealant joint.",
     },
     description: {
-      nl: "In bouw, vastgoed en architectuur draait alles om beeld. Opdrachtgevers en kopers willen zien hoe een ontwerp eruit gaat zien, hoe een woning in de omgeving ligt en welke kwaliteit ze kunnen verwachten. M7 helpt architecten, bouwbedrijven en vastgoedpartijen, van stedelijke projecten tot landelijk vastgoed, aan een uitstraling die die kwaliteit uitdraagt.\n\nWe maken 3D-visualisaties en animaties van ontwerpen, drone-opnames van locaties en bedrijfsfilms die je vakmanschap laten zien. Daaromheen bouwen we websites met projectportfolio's en ontwerpen we verkoopbrochures, bouwborden en beursmaterialen in een consistente huisstijl. Met lokale SEO en offertecalculators zorgen we dat de juiste opdrachtgevers je vinden en contact opnemen.",
-      en: "In construction, real estate and architecture everything revolves around visuals. Clients and buyers want to see what a design will look like, how a home sits in its surroundings and what quality they can expect. M7 helps architects, builders and real estate firms, from urban projects to rural properties, with a presence that conveys that quality.\n\nWe create 3D visuals and animations of designs, drone footage of locations and corporate films that show your craftsmanship. Around that we build websites with project portfolios and design sales brochures, site hoardings and trade-show materials in a consistent identity. With local SEO and quote calculators we make sure the right clients find you and get in touch.",
+      nl: "In de bouw verkoop je vertrouwen. Een opdrachtgever wil zien dat je dit soort werk eerder deed, dat je op tijd oplevert en dat je ploeg netjes werkt. Toch laten veel bouwbedrijven, installateurs en architecten online maar een fractie zien van wat ze kunnen. M7 helpt bouwers, afbouwers, installateurs, architecten en prefab-bouwers aan een uitstraling die net zo degelijk is als hun werk.\n\nWe maken websites met projectportfolio's, 3D-visualisaties en animaties van ontwerpen, drone-opnames van de bouwplaats en video's die vakmanschap laten zien. Daaromheen ontwerpen we huisstijlen die werken op steigerdoek, bouwbord en bus, en bouwen we offertecalculators en configurators die complete aanvragen opleveren. Met lokale SEO en employer branding vinden opdrachtgevers én vakmensen je makkelijker.",
+      en: "In construction you sell trust. A client wants to see that you have done this kind of work before, that you deliver on time and that your crew works tidily. Yet many builders, installers and architects show only a fraction of what they can do online. M7 helps builders, finishing trades, installers, architects and prefab builders with a presence as solid as their work.\n\nWe create websites with project portfolios, 3D visuals and animations of designs, drone footage of the building site and videos that show craftsmanship. Around that we design identities that work on scaffold banners, site boards and vans, and build quote calculators and configurators that deliver complete enquiries. With local SEO and employer branding, both clients and tradespeople find you more easily.",
     },
     challenges: [
       {
-        title: { nl: "Verkopen wat er nog niet is", en: "Selling what does not exist yet" },
+        title: { nl: "Laten zien wat er nog niet staat", en: "Showing what is not there yet" },
         text: {
-          nl: "Een project op tekening is lastig voor te stellen. Met 3D-visualisaties en animaties laat je kopers en opdrachtgevers het eindresultaat zien.",
-          en: "A project on paper is hard to imagine. With 3D visuals and animations you show buyers and clients the end result.",
+          nl: "Een ontwerp op tekening is lastig voor te stellen. Met 3D-visualisaties en animaties zien opdrachtgevers, omwonenden en de gemeente het eindresultaat.",
+          en: "A design on paper is hard to imagine. With 3D visuals and animations clients, neighbours and the municipality see the end result.",
         },
       },
       {
-        title: { nl: "Een portfolio dat overtuigt", en: "A portfolio that convinces" },
+        title: { nl: "Vakmanschap dat online verdwijnt", en: "Craftsmanship that disappears online" },
         text: {
-          nl: "Je beste werk verdient een podium. Een website met een sterk projectportfolio, fotografie en drone-beelden laat je vakmanschap spreken.",
-          en: "Your best work deserves a stage. A website with a strong project portfolio, photography and drone footage lets your craftsmanship speak.",
+          nl: "Je beste werk zit in een map op de telefoon van de uitvoerder. Een sterk projectportfolio met goede foto's en drone-beelden laat het spreken.",
+          en: "Your best work sits in a folder on the site manager's phone. A strong project portfolio with good photos and drone footage lets it speak.",
         },
       },
       {
-        title: { nl: "Consistente communicatie", en: "Consistent communication" },
+        title: { nl: "Aanvragen die niet compleet zijn", en: "Enquiries that are incomplete" },
         text: {
-          nl: "Van bouwbord tot brochure en van website tot beursstand: met één huisstijl kom je overal professioneel en herkenbaar over.",
-          en: "From site hoarding to brochure and from website to trade-show booth: with one identity you look professional and recognisable everywhere.",
+          nl: "Nabellen voor maten, foto's en wensen kost tijd. Met een offertecalculator of configurator krijg je aanvragen met alles erin.",
+          en: "Calling back for measurements, photos and wishes takes time. With a quote calculator or configurator you receive enquiries with everything included.",
         },
       },
       {
-        title: { nl: "De juiste opdrachtgevers aantrekken", en: "Attracting the right clients" },
+        title: { nl: "Vakmensen vinden", en: "Finding tradespeople" },
         text: {
-          nl: "Met lokale SEO, gerichte content en een offertecalculator trek je aanvragen aan die passen bij je specialisme en regio.",
-          en: "With local SEO, targeted content and a quote calculator you attract enquiries that match your specialism and region.",
+          nl: "Timmerlieden, monteurs en uitvoerders zijn schaars. Employer branding en korte video's van het echte werk laten zien waarom het bij jou goed werken is.",
+          en: "Carpenters, engineers and site managers are scarce. Employer branding and short videos of the real work show why your company is a good place to work.",
         },
       },
     ],
-    services: ["branding-rebranding", "websites-webshops", "foto-video-3d-animatie", "grafisch-ontwerp-print", "seo-aeo-geo", "configurators-lead-tools-widgets"],
-    applications: ["3d-visualisatie", "dronevideo", "bedrijfsfilm", "webflow-website", "huisstijl", "brochures-magazines", "beurs-signing", "lokale-seo", "offerte-calculator"],
-    /* Mockups in de dienstentegels: eigen werk uit vastgoed (foto/video: automatisch / standaard) */
+    services: [
+      "websites-webshops",
+      "foto-video-3d-animatie",
+      "configurators-lead-tools-widgets",
+      "branding-rebranding",
+      "grafisch-ontwerp-print",
+      "seo-aeo-geo",
+    ],
+    applications: [
+      "3d-visualisatie",
+      "dronevideo",
+      "bedrijfsfilm",
+      "motion-design",
+      "webflow-website",
+      "huisstijl",
+      "employer-branding",
+      "offerte-calculator",
+      "3d-configurator",
+      "beurs-signing",
+      "presentaties-pitchdecks",
+      "lokale-seo",
+    ],
+    /* Mockups in de dienstentegels: eigen werk dat bij bouw past (vastgoedwerk staat bij Vastgoed & Makelaardij) */
     visuals: {
-      "branding-rebranding": {
-        kind: "print",
-        front: "/media/showcase/bernheze/cover-front.webp",
-        back: "/media/showcase/bernheze/cover-back.webp",
-        card: "/media/showcase/bernheze/card-front.webp",
-        label: "Bernheze Makelaars",
+      "websites-webshops": {
+        kind: "browser",
+        src: "/media/sector-tiles/plenty-planet-site.webp",
+        url: "plentyplanet.com",
+        scroll: true,
+        label: "Plenty Planet",
       },
-      "websites-webshops": { kind: "browser", src: "/media/sector-tiles/buitenstate-site.webp", url: "buitenstate.nl", scroll: true, label: "Buitenstate" },
-      "grafisch-ontwerp-print": { kind: "book", left: "/media/showcase/bernheze/im-p08.webp", right: "/media/showcase/bernheze/im-p09.webp", label: "Bernheze Makelaars" },
-      "seo-aeo-geo": { kind: "browser", src: "/media/sector-tiles/sandt-chatgpt.webp", url: "chatgpt.com", label: "The Sandt" },
+      /* Luchtbeeld van een bedrijventerrein met zon op het dak */
+      "foto-video-3d-animatie": { kind: "video", src: "/media/showcase/plentyplanet/greencorridor3.webp", label: "Plenty Planet" },
+      /* Energy Property Configurator: energieontwerp voor een pand */
       "configurators-lead-tools-widgets": { kind: "browser", src: "/media/sector-tiles/steddion-configurator.webp", url: "tools.steddion.com/configurator", label: "Steddion" },
+      /* Brandbook: logoconcept en logovarianten */
+      "branding-rebranding": {
+        kind: "book",
+        left: "/media/showcase/designershouse/brandbook-05.webp",
+        right: "/media/showcase/designershouse/brandbook-16.webp",
+        label: "DesignersHouse",
+      },
+      /* Gevelsigning op het gebouw (mock-up uit het brandbook) */
+      "grafisch-ontwerp-print": { kind: "photo", src: "/media/showcase/designershouse/brandbook-24.webp", label: "DesignersHouse" },
+      "seo-aeo-geo": { kind: "photo", src: "/media/cases/koppens.webp", label: "Architectenbureau Koppens" },
     },
     faqs: [
       {
         q: { nl: "Maken jullie 3D-visualisaties van bouwprojecten?", en: "Do you create 3D visuals of construction projects?" },
         a: {
-          nl: "Ja. Op basis van tekeningen of CAD- en BIM-modellen maken we realistische renders en animaties van exterieurs en interieurs, voor verkoop, presentaties of participatietrajecten.",
-          en: "Yes. Based on drawings or CAD and BIM models we create realistic renders and animations of exteriors and interiors, for sales, presentations or public consultation.",
+          nl: "Ja. Op basis van tekeningen of CAD- en BIM-modellen maken we realistische renders en animaties van exterieurs en interieurs. Die gebruik je voor de verkoop, in presentaties voor opdrachtgevers en welstand, of bij participatietrajecten met de buurt. We werken in fases: eerst het grote beeld, later de details. Zo betaal je niet voor beelden van een ontwerp dat nog verandert. Meer over de aanpak lees je bij [[3d-visualisatie|3D-visualisatie]].",
+          en: "Yes. Based on drawings or CAD and BIM models we create realistic renders and animations of exteriors and interiors. You use them for sales, in presentations to clients and design review panels, or in public consultation with the neighbourhood. We work in phases: the big picture first, details later. That way you do not pay for images of a design that is still changing. Read more about the approach under [[3d-visualisatie|3D visualisation]].",
         },
       },
       {
-        q: { nl: "Kunnen jullie drone-opnames maken van een locatie?", en: "Can you shoot drone footage of a location?" },
+        q: { nl: "Kunnen jullie drone-opnames maken van een bouwlocatie?", en: "Can you shoot drone footage of a building site?" },
         a: {
-          nl: "Ja. We maken drone-foto's en -video's van bouwlocaties, projecten en vastgoed, binnen de geldende regels voor dronevluchten.",
-          en: "Yes. We shoot drone photos and videos of building sites, projects and properties, within the applicable drone regulations.",
+          nl: "Ja. We maken drone-foto's en -video's van bouwlocaties, lopende projecten en opgeleverde gebouwen, binnen de geldende regels voor dronevluchten. Rond bebouwd gebied en in gecontroleerd luchtruim vraagt dat soms extra voorbereiding of toestemming, en dat regelen we vooraf. Een vaste reeks opnames vanaf hetzelfde punt levert bovendien een mooie timelapse op, van eerste paal tot oplevering. Meer daarover lees je bij [[dronevideo|dronevideo]].",
+          en: "Yes. We shoot drone photos and videos of building sites, ongoing projects and completed buildings, within the applicable drone regulations. Near built-up areas and in controlled airspace that sometimes requires extra preparation or permission, which we arrange beforehand. A fixed series of shots from the same spot also makes a great timelapse, from first pile to handover. Read more under [[dronevideo|drone video]].",
         },
       },
       {
-        q: { nl: "Hoe presenteer ik landelijk vastgoed online?", en: "How do I present rural real estate online?" },
+        q: { nl: "Verzorgen jullie ook bouwborden, steigerdoeken en belettering?", en: "Do you also design site boards, scaffold banners and vehicle graphics?" },
         a: {
-          nl: "Met sfeervolle fotografie, drone-beelden van de omgeving en een website of projectpagina die het verhaal van de plek vertelt. Zo spreek je kopers aan die op zoek zijn naar rust, ruimte en karakter.",
-          en: "With atmospheric photography, drone footage of the surroundings and a website or project page that tells the story of the place. That way you appeal to buyers looking for peace, space and character.",
+          nl: "Zeker. We ontwerpen bouwborden, steigerdoeken, belettering voor bussen, werkkleding en beursmaterialen in je huisstijl, en regelen desgewenst ook de productie. Het belangrijkste is dat het van afstand leesbaar is en in één oogopslag herkenbaar. Een bouwbord heeft een paar seconden, dus we houden het simpel: wie bouwt hier, wat komt er en waar vind je meer. Meer over [[beurs-signing|signing]] lees je hier.",
+          en: "Definitely. We design site boards, scaffold banners, van graphics, workwear and trade-show materials in your identity, and can take care of production too. What matters most is that it is legible from a distance and recognisable at a glance. A site board gets a few seconds, so we keep it simple: who is building here, what is coming and where to find out more. Read more about [[beurs-signing|signage]] here.",
         },
       },
       {
-        q: { nl: "Verzorgen jullie ook bouwborden en verkoopbrochures?", en: "Do you also design site hoardings and sales brochures?" },
+        q: { nl: "Werken jullie voor bouwbedrijven van elke omvang?", en: "Do you work for construction companies of every size?" },
         a: {
-          nl: "Zeker. We ontwerpen bouwborden, brochures, banners en beursmaterialen in je huisstijl en verzorgen desgewenst ook het drukwerk.",
-          en: "Definitely. We design site hoardings, brochures, banners and trade-show materials in your identity and can take care of the printing as well.",
+          nl: "Ja. We werken voor zelfstandige vakmensen en kleine afbouwbedrijven, voor familiebedrijven met een vaste ploeg en voor bouwers en installateurs met meerdere vestigingen. De aanpak en het budget stemmen we af op wat je nodig hebt. Voor de één is een strakke website met lokale vindbaarheid genoeg, de ander wil een configurator, een employer-brandingcampagne en een complete huisstijl. We beginnen altijd met een eerlijk gesprek over wat het moet opleveren.",
+          en: "Yes. We work for independent tradespeople and small finishing companies, for family businesses with a steady crew and for builders and installers with several branches. We tailor the approach and budget to what you need. For one company a sharp website with local visibility is enough, another wants a configurator, an employer branding campaign and a complete identity. We always start with an honest conversation about what it needs to deliver.",
         },
       },
     ],
     metaTitle: {
-      nl: "Branding, 3D & websites voor bouw en vastgoed | M7",
-      en: "Branding, 3D & websites for construction & real estate | M7",
+      nl: "Branding, 3D & websites voor bouw en architectuur | M7",
+      en: "Branding, 3D & websites for construction & architecture | M7",
     },
     metaDescription: {
-      nl: "M7 helpt architecten, bouwbedrijven en vastgoedpartijen met branding, 3D-visualisaties, drone-video, websites en drukwerk die projecten laten spreken.",
-      en: "M7 helps architects, builders and real estate firms with branding, 3D visuals, drone video, websites and print that let projects speak for themselves.",
+      nl: "M7 helpt aannemers, installateurs, architecten en prefab-bouwers met websites, 3D-visualisaties, drone-video, configurators en een sterke huisstijl.",
+      en: "M7 helps contractors, installers, architects and prefab builders with websites, 3D visuals, drone video, configurators and a strong visual identity.",
     },
   },
 

@@ -125,12 +125,15 @@ export function ProcessPicker({
   labels,
   variant = "hero",
   suggestions = [],
+  hints = true,
 }: {
   services: PickService[];
   apps: PickApp[];
   labels: PickLabels;
   variant?: "hero" | "compact";
   suggestions?: string[];
+  /** Toon de gevonden term (bv. "Shopify") bij een dienst; de termen zijn Nederlandstalig. */
+  hints?: boolean;
 }) {
   const { active, select } = useProcess();
   const [open, setOpen] = useState(false);
@@ -341,7 +344,7 @@ export function ProcessPicker({
                     </span>
                     <span className="pw-opt__text">
                       <span className="pw-opt__title">{o.kind === "service" ? o.s.title : o.a.title}</span>
-                      {o.kind === "service" && o.hint ? <span className="pw-opt__hint">{o.hint}</span> : null}
+                      {hints && o.kind === "service" && o.hint ? <span className="pw-opt__hint">{o.hint}</span> : null}
                     </span>
                     {q ? <span className="pw-opt__meta">{o.kind === "app" ? o.s.short : labels.service}</span> : null}
                     {isCur ? (

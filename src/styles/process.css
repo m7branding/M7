@@ -23,7 +23,7 @@
   /* de kiezer mag uit de hero vallen; de achtergrond blijft geclipt */
   overflow: visible;
   z-index: 3;
-  padding-bottom: clamp(64px, 8vw, 110px);
+  padding-bottom: clamp(48px, 6vw, 84px);
 }
 .pw-hero .page-hero__bg {
   overflow: hidden;
@@ -381,6 +381,7 @@ html.js .pw-hero__pick[data-reveal].is-in {
   position: relative;
   /* eigen stapelcontext: de balk (z 20) mag niet boven de uitklaplijst van de hero komen */
   z-index: 1;
+  padding-top: calc(var(--section) * 0.55);
   background: linear-gradient(180deg, #040405 0%, #0a0c14 14%, #0c0e18 82%, var(--bg) 100%);
 }
 .pw__grid-bg {
@@ -746,6 +747,7 @@ html.js .pw-hero__pick[data-reveal].is-in {
 }
 .pw-info__main {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(40px, 4vw, 56px);
 }
 .pw-info__aside {
@@ -848,11 +850,15 @@ html.js .pw-hero__pick[data-reveal].is-in {
   gap: 18px;
 }
 .pw-facts__stats {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
   margin-bottom: 14px;
 }
+/* één gedeelde kolom voor de cijfers, zodat de labels netjes uitlijnen */
 .pw-facts__stats > div {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: minmax(3.6ch, auto) minmax(0, 1fr);
+  grid-template-columns: subgrid;
   align-items: baseline;
   gap: 18px;
   padding: 16px 0;

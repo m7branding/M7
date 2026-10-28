@@ -238,7 +238,7 @@ export default function ProcessPage({ params }: P) {
             {c.lead}
           </p>
           <div className="pw-hero__pick" data-reveal="up" style={{ ["--d" as string]: "0.5s" }}>
-            <ProcessPicker services={pickServices} apps={pickApps} labels={pickLabels} suggestions={c.suggestions} />
+            <ProcessPicker hints={locale === "nl"} services={pickServices} apps={pickApps} labels={pickLabels} suggestions={c.suggestions} />
           </div>
         </div>
       </section>
@@ -250,7 +250,7 @@ export default function ProcessPage({ params }: P) {
         <div className="container">
           <div className="pw-bar" id="proces-view">
             <p className="kicker">{c.viewLabel}</p>
-            <ProcessPicker services={pickServices} apps={pickApps} labels={{ ...pickLabels, lead: c.switchLead }} variant="compact" />
+            <ProcessPicker hints={locale === "nl"} services={pickServices} apps={pickApps} labels={{ ...pickLabels, lead: c.switchLead }} variant="compact" />
           </div>
 
           {services.map((s) => {

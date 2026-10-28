@@ -244,20 +244,23 @@ function validate(step: number, t: Ticket): Errors {
 }
 
 /* ============================================================ */
+export interface SupportModalProps {
+  email: string;
+  phone: string;
+  phoneOwner: string;
+  people: SupportPerson[];
+}
+
 export function SupportModal({
   email,
   phone,
   phoneOwner,
   people,
-}: {
-  email: string;
-  phone: string;
-  phoneOwner: string;
-  people: SupportPerson[];
-}) {
+  initialOpen,
+}: SupportModalProps & { initialOpen?: boolean }) {
   const locale = useLocale();
   const L = (v: T) => tr(v, locale);
-  const { open, close } = useOverlayHost("support");
+  const { open, close } = useOverlayHost("support", initialOpen);
 
   const [step, setStep] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
@@ -846,10 +849,13 @@ export function SupportModal({
                     </SumRow>
                   </div>
                   <p className="sup__privacy">
-                    <Icon name="lock" size={14} /> {L(C.privacy)}{" "}
-                    <TLink href={paths.privacy} onClick={onClose}>
-                      {L(C.privacyLink)}
-                    </TLink>
+                    <Icon name="lock" size={14} />
+                    <span>
+                      {L(C.privacy)}{" "}
+                      <TLink href={paths.privacy} onClick={onClose}>
+                        {L(C.privacyLink)}
+                      </TLink>
+                    </span>
                   </p>
                 </>
               )}

@@ -28,7 +28,7 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
         ],
         useCases: [
           {
-            title: { nl: "Projectpagina's per plaats en type werk", en: "Project pages by town and type of work" },
+            title: { nl: "Projectpagina's per plaats en type werk", en: "Project pages by town and job type" },
             text: {
               nl: "Een aanbouw in Uden, een renovatie in Schijndel: elk project een eigen pagina met foto's en een korte toelichting. Zo vinden opdrachtgevers je precies waar ze zoeken.",
               en: "An extension in Uden, a renovation in Schijndel: every project gets its own page with photos and a short write-up. That way clients find you exactly where they are searching.",
