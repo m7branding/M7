@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ScrollShowcase } from "@/components/motion/ScrollShowcase";
 import { TLink } from "@/components/motion/TLink";
-import { LevelUp } from "@/components/sections/Home";
+import { LevelUp, LogoMarquee } from "@/components/sections/Home";
 import { PageHero } from "@/components/sections/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Btn } from "@/components/ui/Button";
@@ -65,6 +65,9 @@ export default function SectorPage({ params }: P) {
       >
         <Btn href={site.letsgo}>{d.cta.launch}</Btn>
       </PageHero>
+
+      {/* klantlogo's, zoals op home */}
+      <LogoMarquee />
 
       {s.image ? (
         <section className="sector-showcase" aria-label={title}>
