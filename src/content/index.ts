@@ -17,12 +17,18 @@ const modules = [branding, websites, webapps, marketing, seo, content, media, pr
 export const services: Service[] = modules.map((m) => m.service).sort((a, b) => a.order - b.order);
 export const applications: Application[] = modules.flatMap((m) => m.applications);
 
+import { SECTOR_SLUGS } from "./registry";
 import { sectors as baseSectors } from "./sectors";
+import { NEW_SECTORS_A } from "./sectors-new-a";
+import { NEW_SECTORS_B } from "./sectors-new-b";
+import { NEW_SECTORS_C } from "./sectors-new-c";
 import { SEGMENTS_A } from "./sector-segments-a";
 import { SEGMENTS_B } from "./sector-segments-b";
 
-/** Sectoren inclusief doelgroepen en hun FAQ's (die staan in aparte bestanden). */
-export const sectors = baseSectors.map((s) => ({ ...s, ...SEGMENTS_A[s.slug], ...SEGMENTS_B[s.slug] }));
+/** Sectoren inclusief doelgroepen en hun FAQ's (die staan in aparte bestanden), in de volgorde van het register. */
+export const sectors = [...baseSectors, ...NEW_SECTORS_A, ...NEW_SECTORS_B, ...NEW_SECTORS_C]
+  .map((s) => ({ ...s, ...SEGMENTS_A[s.slug], ...SEGMENTS_B[s.slug] }))
+  .sort((a, b) => SECTOR_SLUGS.indexOf(a.slug) - SECTOR_SLUGS.indexOf(b.slug));
 export { cases } from "./cases";
 export { reviews } from "./reviews";
 export { team } from "./team";
