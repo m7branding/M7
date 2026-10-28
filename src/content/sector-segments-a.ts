@@ -616,7 +616,7 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
   },
 
   /* ---------- E-commerce & Retail ---------- */
-  "e-commerce-retail": {
+  "food-retail": {
     segments: [
       {
         name: { nl: "Webshops", en: "Online stores" },

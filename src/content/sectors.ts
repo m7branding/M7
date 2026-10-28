@@ -286,9 +286,9 @@ export const sectors: Sector[] = [
 
   /* ---------- E-commerce & Retail ---------- */
   {
-    slug: "e-commerce-retail",
-    title: { nl: "E-commerce & Retail", en: "E-commerce & Retail" },
-    short: { nl: "E-commerce", en: "E-commerce" },
+    slug: "food-retail",
+    title: { nl: "Food & Retail", en: "Food & Retail" },
+    short: { nl: "Food & retail", en: "Food & retail" },
     icon: "cart",
     image: "/media/cases/repairlab.webp",
     imagePosition: "50% 50%",
@@ -471,9 +471,9 @@ export const sectors: Sector[] = [
 
   /* ---------- Bouw, Vastgoed & Architectuur ---------- */
   {
-    slug: "bouw-vastgoed-architectuur",
-    title: { nl: "Bouw, Vastgoed & Architectuur", en: "Construction, Real Estate & Architecture" },
-    short: { nl: "Bouw & vastgoed", en: "Real estate" },
+    slug: "bouw-architectuur",
+    title: { nl: "Bouw & Architectuur", en: "Construction & Architecture" },
+    short: { nl: "Bouw", en: "Construction" },
     icon: "building",
     image: "/media/cases/koppens.webp",
     imagePosition: "50% 50%",

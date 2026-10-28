@@ -9,7 +9,7 @@ import type { SectorSegment, T } from "./types";
 
 export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[]; audiences: T[] }>> = {
   /* ---------- Bouw, Vastgoed & Architectuur ---------- */
-  "bouw-vastgoed-architectuur": {
+  "bouw-architectuur": {
     segments: [
       {
         name: { nl: "Makelaardij", en: "Estate agents" },

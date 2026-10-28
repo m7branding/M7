@@ -12,6 +12,7 @@ export const paths = {
   cases: "/cases",
   case: (c: Pick<Case, "slug"> | string) => `/cases/${typeof c === "string" ? c : c.slug}`,
   about: "/over-m7",
+  process: "/werkproces",
   contact: "/contact",
   privacy: "/privacybeleid",
   terms: "/algemene-voorwaarden",

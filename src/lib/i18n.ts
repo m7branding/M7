@@ -13,6 +13,7 @@ export const SEGMENTS_EN: Record<string, string> = {
   sectoren: "sectors",
   cases: "cases",
   "over-m7": "about",
+  werkproces: "process",
   contact: "contact",
   privacybeleid: "privacy-policy",
   "algemene-voorwaarden": "terms-and-conditions",

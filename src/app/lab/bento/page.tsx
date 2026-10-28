@@ -19,7 +19,7 @@ export default function BentoLab({ searchParams }: { searchParams: { s?: string;
   const n = searchParams.n ? Math.max(1, Math.min(10, Number(searchParams.n) || 6)) : 0;
   const pick = (s: Sector): Sector =>
     n ? { ...s, services: [...s.services, ...SERVICE_SLUGS.filter((x) => !s.services.includes(x))].slice(0, n) } : s;
-  const list = (searchParams.s === "all" ? allSectors() : [getSector(searchParams.s ?? "bouw-vastgoed-architectuur")].filter(Boolean)).map((s) => pick(s!));
+  const list = (searchParams.s === "all" ? allSectors() : [getSector(searchParams.s ?? "bouw-architectuur")].filter(Boolean)).map((s) => pick(s!));
   if (!list.length) notFound();
 
   return (

@@ -135,14 +135,22 @@ export const APPLICATION_SLUGS = SERVICE_SLUGS.flatMap(
 
 export const SECTOR_SLUGS = [
   "automotive-mobiliteit",
-  "sport-media",
-  "tech-saas-startups",
-  "e-commerce-retail",
-  "zakelijke-dienstverlening",
-  "bouw-vastgoed-architectuur",
+  "transport-logistiek",
+  "vastgoed-makelaardij",
+  "bouw-architectuur",
+  "interieur-architectuur",
+  "energie-duurzaamheid",
   "industrie-techniek",
+  "agrarisch-natuur",
+  "food-retail",
+  "fashion-beauty",
   "zorg-welzijn",
+  "educatie-scholen",
+  "gemeentes-overheden",
+  "zakelijke-dienstverlening",
   "finance-fintech",
+  "tech-saas-startups",
+  "sport-media",
   "travel-leisure",
 ] as const;
 export type SectorSlug = (typeof SECTOR_SLUGS)[number];

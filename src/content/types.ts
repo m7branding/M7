@@ -152,7 +152,18 @@ export interface SectorSegment {
   name: T;
   /** Eén of twee zinnen met de brede doelgroep in eigen woorden. */
   intro: T;
+  /** Soorten bedrijven binnen deze doelgroep (zoekbaar via de zoekbalk), bv. "Makelaarskantoren". */
+  types?: T[];
+  /** Concrete toepassingen voor deze doelgroep, elk gekoppeld aan een dienst (en optioneel een toepassing). */
+  useCases?: SegmentUseCase[];
   faqs: FAQ[];
+}
+
+export interface SegmentUseCase {
+  title: T;
+  text: T;
+  service: ServiceSlug;
+  application?: ApplicationSlug;
 }
 
 /* ---------- Sector ---------- */
