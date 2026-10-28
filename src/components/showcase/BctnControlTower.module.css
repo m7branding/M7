@@ -79,8 +79,9 @@
   background: var(--bg1);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 0 1px rgba(148, 178, 220, 0.16),
-    0 3cqw 8cqw rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(148, 178, 220, 0.18),
+    0 1.5cqw 3.5cqw rgba(0, 0, 0, 0.5),
+    0 6cqw 13cqw -1cqw rgba(0, 0, 0, 0.8),
     0 0 2.6cqw rgba(45, 212, 191, 0.09);
   transform-origin: calc(50% + var(--dir) * 50%) 0;
   /* klein beetje kleiner dan de halve kaart: vrij van de binnenrand, leest als los object */
@@ -813,7 +814,8 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 0 0 1px rgba(45, 212, 191, 0.3),
-    0 3cqw 7cqw rgba(0, 0, 0, 0.6),
+    0 -1.5cqw 4cqw rgba(0, 0, 0, 0.5),
+    0 5cqw 11cqw -1cqw rgba(0, 0, 0, 0.8),
     0 0 5cqw rgba(45, 212, 191, 0.12);
   opacity: min(1, calc(var(--km0) * 3));
   transform:

@@ -104,8 +104,9 @@
   border-radius: 99px;
   background: #303134;
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 1.2cqw 3cqw rgba(0, 0, 0, 0.45);
+    0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 1.2cqw 3cqw rgba(0, 0, 0, 0.55),
+    0 3.5cqw 8cqw -1cqw rgba(0, 0, 0, 0.6);
   opacity: calc(0.3 + var(--eIn) * 0.7);
   /* eerst groter en lager (zoekpagina), schuift omhoog als het AI-overzicht binnenkomt;
      de schaal groeit naar de buitenkant (binnenrand blijft vrij) */
@@ -174,9 +175,10 @@
   overflow: hidden;
   background: var(--g-bg);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.07),
-    0 1.5cqw 3cqw rgba(0, 0, 0, 0.35),
-    0 4cqw 8cqw rgba(0, 0, 0, 0.45);
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 1.5cqw 3cqw rgba(0, 0, 0, 0.45),
+    0 5cqw 11cqw -1cqw rgba(0, 0, 0, 0.75);
   opacity: clamp(0, var(--kOv) * 2.5, 1);
   transform: translate3d(0, calc((1 - var(--eOv)) * 34cqh), 0) scaleX(var(--dir));
 }
@@ -381,9 +383,10 @@
   background: var(--c-bg);
   color: var(--c-ink);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 -1cqw 3cqw rgba(0, 0, 0, 0.3),
-    0 4cqw 8cqw rgba(0, 0, 0, 0.55);
+    0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 -1.5cqw 4cqw rgba(0, 0, 0, 0.45),
+    0 5cqw 11cqw -1cqw rgba(0, 0, 0, 0.75);
   opacity: clamp(0, var(--kChat) * 2.5, 1);
   transform:
     translate3d(calc((1 - var(--eChat)) * 6cqw), calc((1 - var(--eChat)) * 34cqh), 0)
