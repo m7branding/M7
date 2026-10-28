@@ -6,9 +6,12 @@ import { LevelUp } from "@/components/sections/Home";
 import { PageHero } from "@/components/sections/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Btn } from "@/components/ui/Button";
-import { SectionHead, ServiceCard } from "@/components/ui/Cards";
+import { ServiceBento } from "@/components/sector/ServiceBento";
+import { SectionHead } from "@/components/ui/Cards";
 import { CasesMasonry } from "@/components/ui/CaseCard";
 import { Faq } from "@/components/ui/Faq";
+import { FaqTabs } from "@/components/ui/FaqTabs";
+import { Marquee } from "@/components/ui/Marquee";
 import { RichText } from "@/components/ui/RichText";
 import { site } from "@/content/site";
 import { LOCALES, type Locale } from "@/content/types";
@@ -16,7 +19,7 @@ import { allSectors, applicationsBySlugs, casesForSector, getSector, getService 
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
-import { buildMetadata, serviceLd } from "@/lib/seo";
+import { buildMetadata, faqLd, serviceLd } from "@/lib/seo";
 
 type P = { params: { lang: Locale; sector: string } };
 
@@ -40,6 +43,11 @@ export default function SectorPage({ params }: P) {
   const services = s.services.map((x) => getService(x)!).filter(Boolean);
   const apps = applicationsBySlugs(s.applications);
   const cases = casesForSector(s.slug);
+  const half = Math.ceil(apps.length / 2);
+  const appRows = [apps.slice(0, half), apps.slice(half)].filter((r) => r.length);
+  const segments = s.segments ?? [];
+  const audiences = s.audiences ?? [];
+  const allFaqs = [...s.faqs, ...segments.flatMap((g) => g.faqs)];
 
   return (
     <article className="sector">
@@ -85,30 +93,8 @@ export default function SectorPage({ params }: P) {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <SectionHead kicker={d.service.relevantServices} title={d.service.howWeHelp} />
-          <div className="cards-3" data-stagger="">
-            {services.map((x, i) => (
-              <ServiceCard key={x.slug} s={x} locale={locale} index={i} />
-            ))}
-          </div>
-          <div className="sector-apps" data-reveal="up">
-            <p className="kicker">{d.service.relevantApplications}</p>
-            <div className="chips">
-              {apps.map((a) => (
-                <TLink key={a.slug} href={paths.application(a)} className="chip chip--lg" style={{ ["--accent" as string]: getService(a.service)!.color }}>
-                  <span className="chip__dot" />
-                  {tr(a.title, locale)}
-                </TLink>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {cases.length ? (
-        <section className="section">
+        <section className="section section--tight">
           <div className="container">
             <SectionHead kicker={d.service.projects} title={d.service.projectsTitle} />
             <div className="svc-cases__grid">
@@ -118,9 +104,35 @@ export default function SectorPage({ params }: P) {
         </section>
       ) : null}
 
-      <section className="section svc-faq" id="faq">
-        <div className="container faq-layout">
-          <div className="faq-layout__head">
+      <section className="section sector-help">
+        <div className="container">
+          <SectionHead kicker={d.service.relevantServices} title={d.service.howWeHelp} />
+          <ServiceBento sector={s} locale={locale} />
+        </div>
+        {appRows.length ? (
+          <div className="sector-ticker" data-reveal="fade">
+            <div className="container">
+              <p className="kicker">{d.service.relevantApplications}</p>
+            </div>
+            <div className="sector-ticker__rows">
+              {appRows.map((row, ri) => (
+                <Marquee key={ri} speed={Math.max(36, row.length * (12 + ri * 2))} reverse={ri === 1}>
+                  {row.map((a) => (
+                    <TLink key={a.slug} href={paths.application(a)} className="chip chip--lg" style={{ ["--accent" as string]: getService(a.service)!.color }}>
+                      <span className="chip__dot" />
+                      {tr(a.title, locale)}
+                    </TLink>
+                  ))}
+                </Marquee>
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </section>
+
+      <section className="section svc-faq sector-faq" id="faq">
+        <div className="container">
+          <div className="sector-faq__head">
             <p className="kicker" data-reveal="fade">
               {d.service.faq}
             </p>
@@ -128,9 +140,43 @@ export default function SectorPage({ params }: P) {
               {d.service.faqTitle}
             </h2>
           </div>
-          <Faq faqs={s.faqs} locale={locale} moreLabel={d.cta.moreAnswers} />
+          {segments.length ? (
+            <FaqTabs
+              label={d.service.faqBySegment}
+              tabs={[
+                {
+                  id: "algemeen",
+                  name: d.service.faqGeneral,
+                  count: s.faqs.length,
+                  content: <Faq faqs={s.faqs} locale={locale} moreLabel={d.cta.moreAnswers} withLd={false} />,
+                },
+                ...segments.map((g, i) => ({
+                  id: `doelgroep-${i + 1}`,
+                  name: tr(g.name, locale),
+                  count: g.faqs.length,
+                  intro: tr(g.intro, locale),
+                  content: <Faq faqs={g.faqs} locale={locale} withLd={false} />,
+                })),
+              ]}
+            />
+          ) : (
+            <Faq faqs={s.faqs} locale={locale} moreLabel={d.cta.moreAnswers} withLd={false} />
+          )}
         </div>
       </section>
+
+      {audiences.length ? (
+        <section className="section section--tight sector-aud" aria-labelledby="aud-title">
+          <div className="container">
+            <SectionHead kicker={d.service.audiences} title={d.service.audiencesTitle} id="aud-title" />
+            <ul className="aud" data-stagger="">
+              {audiences.map((a, i) => (
+                <li key={i}>{tr(a, locale)}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
       <LevelUp locale={locale} />
       <JsonLd
@@ -143,6 +189,7 @@ export default function SectorPage({ params }: P) {
           offers: services.map((x) => tr(x.title, locale)),
         })}
       />
+      <JsonLd data={faqLd(allFaqs, locale)} />
     </article>
   );
 }

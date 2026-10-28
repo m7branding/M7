@@ -91,6 +91,10 @@ const nl = {
     relevantServices: "Relevante diensten",
     relevantApplications: "Populaire toepassingen",
     noCases: "Binnenkort meer cases in deze categorie.",
+    faqGeneral: "Algemeen",
+    faqBySegment: "Veelgestelde vragen per doelgroep",
+    audiences: "Voor wie we werken",
+    audiencesTitle: "Van zelfstandige tot marktleider",
   },
   cases: {
     title: "Cases",
@@ -272,6 +276,10 @@ const en: Dict = {
     relevantServices: "Relevant services",
     relevantApplications: "Popular applications",
     noCases: "More cases in this category coming soon.",
+    faqGeneral: "General",
+    faqBySegment: "Frequently asked questions by audience",
+    audiences: "Who we work for",
+    audiencesTitle: "From independents to market leaders",
   },
   cases: {
     title: "Cases",

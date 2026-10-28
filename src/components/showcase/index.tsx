@@ -52,10 +52,10 @@ export function hasAnyShowcase(slug: string): slug is ServiceSlug {
   return slug in SHOWCASES;
 }
 
-export function Showcase({ slug, flip, sp }: { slug: ServiceSlug; flip?: boolean; sp?: number }) {
+export function Showcase({ slug, flip, sp, hero }: { slug: ServiceSlug; flip?: boolean; sp?: number; hero?: boolean }) {
   const { C, label } = SHOWCASES[slug];
   return (
-    <ShowcaseStage flip={flip} sp={sp} label={label}>
+    <ShowcaseStage flip={flip} sp={sp} label={label} hero={hero}>
       <C />
     </ShowcaseStage>
   );

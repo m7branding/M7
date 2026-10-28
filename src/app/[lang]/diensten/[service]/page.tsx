@@ -5,6 +5,7 @@ import { PixelGrid } from "@/components/motion/PixelGrid";
 import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
 import { Mockup } from "@/components/mockups";
+import { Showcase, hasShowcase } from "@/components/showcase";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
 import { LevelUp } from "@/components/sections/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -63,7 +64,7 @@ export default function ServicePage({ params }: P) {
   return (
     <article className="svc" style={{ ["--accent" as string]: s.color }}>
       {/* ---------- Hero ---------- */}
-      <section className="page-hero svc-hero">
+      <section className={`page-hero svc-hero${hasShowcase(s.slug) ? " svc-hero--show" : ""}`}>
         <div className="page-hero__bg">
           <GlowField
             blobs={[
@@ -108,10 +109,18 @@ export default function ServicePage({ params }: P) {
               ))}
             </dl>
           </div>
-          <div className="svc-hero__visual" data-reveal="scale" style={{ ["--d" as string]: "0.2s" }}>
-            {s.media ? <ServiceMedia media={s.media} alt={title} placement="hero" /> : <Mockup kind={s.mockup} accent={s.color} />}
-          </div>
+          {hasShowcase(s.slug) ? null : (
+            <div className="svc-hero__visual" data-reveal="scale" style={{ ["--d" as string]: "0.2s" }}>
+              {s.media ? <ServiceMedia media={s.media} alt={title} placement="hero" /> : <Mockup kind={s.mockup} accent={s.color} />}
+            </div>
+          )}
         </div>
+        {/* dezelfde showcase als op home: komt onderin uit de vouw van de hero omhoog */}
+        {hasShowcase(s.slug) ? (
+          <div className="svc-hero__show">
+            <Showcase slug={s.slug} hero />
+          </div>
+        ) : null}
       </section>
 
       {/* ---------- Toepassingen (sliding) + keywords ---------- */}

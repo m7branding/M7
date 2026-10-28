@@ -9,6 +9,9 @@ const COVER = 0.5;
 export const SHOW_KEY = 0.74;
 /** Naijlen van de scroll (ms): grote, snelle scrollbewegingen worden rustig uitgespeeld. */
 const LAG = 160;
+/** Hero (dienstpagina): het beeld bouwt bij het laden rustig op tot SHOW_KEY, daarna loopt het verder op de scroll. */
+const INTRO_DELAY = 450;
+const INTRO_MS = 2800;
 
 /**
  * Podium voor een showcase-mockup in een peilerkaart.
@@ -19,8 +22,22 @@ const LAG = 160;
  * Mockups bouwen hun scroll-animatie op met calc(... var(--sp) ...); kleine "levende"
  * details lopen als CSS-loop en pauzeren buiten beeld. `sp` vastzetten kan voor screenshots (lab).
  */
-export function ShowcaseStage({ children, flip = false, sp, label }: { children: React.ReactNode; flip?: boolean; sp?: number; label?: string }) {
+export function ShowcaseStage({
+  children,
+  flip = false,
+  sp,
+  label,
+  hero = false,
+}: {
+  children: React.ReactNode;
+  flip?: boolean;
+  sp?: number;
+  label?: string;
+  /** In de hero van een dienstpagina: intro bij het laden + doorlopen op de scroll. */
+  hero?: boolean;
+}) {
   const ref = useRef<HTMLDivElement>(null);
+  const intro = useRef(0);
   const playing = useRef(false);
   const geo = useRef({ sticky: false, pin: 0, flow: 0 });
   const cur = useRef(-1);
@@ -82,7 +99,12 @@ export function ShowcaseStage({ children, flip = false, sp, label }: { children:
     const nextTop = next?.classList.contains("pillar") ? next.getBoundingClientRect().top : Infinity;
 
     let p: number;
-    if (geo.current.sticky) {
+    if (hero) {
+      // eerst de intro (tijd) tot SHOW_KEY, daarna de rest van het verhaal terwijl je de hero uit scrollt
+      const box = el.closest<HTMLElement>(".svc-hero") ?? el;
+      const frac = Math.min(1, Math.max(0, -box.getBoundingClientRect().top / (box.offsetHeight * 0.85)));
+      p = intro.current * SHOW_KEY + frac * (1 - SHOW_KEY);
+    } else if (geo.current.sticky) {
       // binnenkomen (vh → vastzetpunt) + de lucht tussen de kaarten + bedekt worden door de volgende kaart;
       // flow = kaart + tussenruimte, zodat de animatie ook tijdens die tussenruimte gewoon doorloopt
       const flow = geo.current.flow || h;
@@ -106,9 +128,25 @@ export function ShowcaseStage({ children, flip = false, sp, label }: { children:
     const covered = nextTop - r.top < 64;
     el.classList.toggle("is-covered", covered);
     video(!covered && r.top < vh && r.bottom > 0);
-  }, [set, sp, tick, video]);
+  }, [set, sp, tick, video, hero]);
 
   useScroll(update);
+  // intro van de hero: tijdgestuurd, smoothstep, met de gewone naijl-demping erachter
+  useEffect(() => {
+    if (!hero || sp !== undefined || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    cur.current = 0;
+    set(0);
+    let id = 0;
+    const t0 = performance.now() + INTRO_DELAY;
+    const step = (t: number) => {
+      const k = Math.min(1, Math.max(0, (t - t0) / INTRO_MS));
+      intro.current = k * k * (3 - 2 * k);
+      update();
+      if (k < 1) id = requestAnimationFrame(step);
+    };
+    id = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(id);
+  }, [hero, sp, set, update]);
   useEffect(() => {
     if (sp !== undefined) return set(sp);
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return set(SHOW_KEY);

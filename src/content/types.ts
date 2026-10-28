@@ -130,6 +130,31 @@ export interface Application {
   media?: Media;
 }
 
+/* ---------- Mockup in een dienst-tegel (sectorpagina) ---------- */
+/** `label` = projectnaam die als bijschrift bij de mockup staat. */
+export type TileVisual =
+  /** Platte screenshot in een strak browservenster; een lange screenshot scrollt langzaam. */
+  | { kind: "browser"; src: string; url?: string; scroll?: boolean; label?: string }
+  | { kind: "tablet"; src: string; label?: string }
+  | { kind: "phone"; src: string; label?: string }
+  /** Bestaande mockup-foto van een project (staat zelf al in een device). */
+  | { kind: "photo"; src: string; position?: string; label?: string }
+  /** Opengeslagen boek of rapport: linker- en rechterpagina. */
+  | { kind: "book"; left: string; right: string; label?: string }
+  /** Drukwerk: brochure voor- en achterkant, met optioneel een visitekaartje. */
+  | { kind: "print"; front: string; back?: string; card?: string; cardBack?: string; label?: string }
+  /** Videoframe (16:9) met een render of still. */
+  | { kind: "video"; src: string; label?: string };
+
+/** Een doelgroep binnen een sector (bv. makelaardij binnen vastgoed), met eigen vragen voor SEO. */
+export interface SectorSegment {
+  /** Korte naam voor de tab, bv. "Makelaardij". */
+  name: T;
+  /** Eén of twee zinnen met de brede doelgroep in eigen woorden. */
+  intro: T;
+  faqs: FAQ[];
+}
+
 /* ---------- Sector ---------- */
 export interface Sector {
   slug: SectorSlug;
@@ -150,6 +175,12 @@ export interface Sector {
   faqs: FAQ[];
   metaTitle: T;
   metaDescription: T;
+  /** Mockup per dienst in de dienstentegels; zonder: automatisch uit een project in deze sector of de standaard. */
+  visuals?: Partial<Record<ServiceSlug, TileVisual>>;
+  /** Doelgroepen binnen deze sector met eigen FAQ's (tabs onder "Veelgestelde vragen"). */
+  segments?: SectorSegment[];
+  /** Soorten bedrijven die we in deze sector helpen (SEO-raster onder de FAQ). */
+  audiences?: T[];
 }
 
 /* ---------- Case-verhaal (vrij op te bouwen blokken) ---------- */

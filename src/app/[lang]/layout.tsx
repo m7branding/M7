@@ -31,6 +31,7 @@ import "@/styles/consent.css";
 import "@/styles/sections.css";
 import "@/styles/mockups.css";
 import "@/styles/pages.css";
+import "@/styles/tiles.css";
 
 // Lettertype zit in de repo (src/fonts), dus geen download bij het starten of bouwen
 const montserrat = localFont({
