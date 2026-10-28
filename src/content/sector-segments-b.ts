@@ -8,55 +8,62 @@ import type { SectorSegment, T } from "./types";
    ============================================================ */
 
 export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[]; audiences: T[] }>> = {
-  /* ---------- Bouw, Vastgoed & Architectuur ---------- */
+  /* ---------- Bouw & Architectuur ---------- */
   "bouw-architectuur": {
     segments: [
       {
-        name: { nl: "Makelaardij", en: "Estate agents" },
-        intro: {
-          nl: "Voor makelaars, taxateurs, aankoopmakelaars en vastgoedadviseurs, van zelfstandig kantoor tot regionale keten, in wonen, bedrijfs- en agrarisch vastgoed.",
-          en: "For estate agents, valuers, buying agents and property advisors, from independent office to regional chain, in residential, commercial and agricultural property.",
-        },
-        faqs: [
-          {
-            q: { nl: "Wat maakt een goede website voor een makelaar?", en: "What makes a good website for an estate agent?" },
-            a: {
-              nl: "Een makelaarswebsite heeft twee soorten bezoekers: kopers die door het aanbod willen bladeren en verkopers die een makelaar zoeken. Die tweede groep vergeten veel sites. Wij zorgen voor snel, mooi aanbod én een duidelijke route voor verkopers: wie zijn jullie, wat kost het, wat hebben jullie verkocht en hoe vraag ik een waardebepaling aan. Met een eigen [[huisstijl|huisstijl]] en echte foto's van je team voelt het als jouw kantoor, niet als de zoveelste template.",
-              en: "An estate agent's website has two kinds of visitors: buyers browsing listings and sellers looking for an agent. Many sites forget the second group. We make sure listings load fast and look good, and we build a clear route for sellers: who you are, what it costs, what you have sold and how to request a valuation. With your own [[huisstijl|visual identity]] and real photos of your team, it feels like your office, not yet another template.",
-            },
-          },
-          {
-            q: {
-              nl: "Kan ons woningaanbod automatisch op de website komen, bijvoorbeeld via Realworks?",
-              en: "Can our listings appear on the website automatically, for example via Realworks?",
-            },
-            a: {
-              nl: "Vaak wel. Veel makelaarssystemen, waaronder Realworks, bieden mogelijkheden om aanbod via een koppeling of datafeed te delen. Een makelaarswebsite met een Realworks-koppeling is dus zeker een optie. Welke route bij jouw pakket en abonnement past, zoeken we vooraf uit, zodat je niet voor verrassingen komt te staan. Daarna bouwen we [[api-koppelingen|de koppeling]] zo dat nieuwe woningen, prijswijzigingen en 'verkocht onder voorbehoud' vanzelf op de site verschijnen. Dubbel invoeren is dan verleden tijd.",
-              en: "Often, yes. Many estate agency systems, including Realworks, offer ways to share listings through an integration or data feed, so a website with a Realworks connection is certainly an option. We check upfront which route fits your package and subscription, so there are no surprises. Then we build [[api-koppelingen|the integration]] so new homes, price changes and 'sold subject to contract' appear on the site by themselves. No more entering everything twice.",
-            },
-          },
-          {
-            q: { nl: "Hoe krijg ik meer verkopers en aanvragen voor een waardebepaling?", en: "How do I get more sellers and valuation requests?" },
-            a: {
-              nl: "Verkopers zijn de leads waar een makelaarskantoor op draait, en ze nemen de tijd voor hun keuze. Geef ze dus iets om mee te beginnen. Een online [[check-tools|waardecheck]] geeft een eerste indicatie en eindigt bij de aanvraag van een waardebepaling aan huis. Daarnaast helpen pagina's per wijk of dorp, verkoopverhalen van echte klanten en campagnes gericht op eigenaren in je werkgebied. Wie nog niet klaar is, houd je met een korte e-mailreeks warm tot het wél zover is.",
-              en: "Sellers are the leads an agency runs on, and they take their time deciding. So give them something to start with. An online [[check-tools|valuation check]] gives a first indication and ends with a request for a valuation at home. Pages per neighbourhood or village, sales stories from real clients and campaigns aimed at homeowners in your area help too. Anyone who is not ready yet stays warm with a short email series until they are.",
-            },
-          },
-          {
-            q: { nl: "Hoe word ik als makelaar beter vindbaar in mijn eigen regio?", en: "How do I become easier to find as an estate agent in my own region?" },
-            a: {
-              nl: "Begin bij de basis: een volledig en actief Google Bedrijfsprofiel, reviews waar je op reageert en een website die per plaats laat zien dat je de markt kent. Zoekopdrachten als 'makelaar Uden' of 'huis verkopen in Veghel' beantwoord je met eigen pagina's en lokale content, geen dunne kopieën. Met [[lokale-seo|lokale SEO]] en heldere antwoorden op veelgestelde vragen maak je bovendien meer kans om opgepikt te worden door AI-assistenten, die mensen steeds vaker om advies vragen.",
-              en: "Start with the basics: a complete, active Google Business Profile, reviews you respond to and a website that shows per town that you know the market. Searches like 'estate agent Uden' or 'selling a house in Veghel' deserve their own pages with local content, not thin copies. With [[lokale-seo|local SEO]] and clear answers to common questions, you are also more likely to be picked up by the AI assistants people increasingly ask for advice.",
-            },
-          },
-        ],
-      },
-      {
         name: { nl: "Bouwbedrijven", en: "Construction firms" },
         intro: {
-          nl: "Voor aannemers, bouwbedrijven, renovatie- en onderhoudsbedrijven en bouwgroepen, van familiebedrijf met een vaste ploeg tot bouwer met meerdere vestigingen.",
-          en: "For contractors, builders, renovation and maintenance firms and construction groups, from a family business with a steady crew to a builder with several branches.",
+          nl: "Voor aannemers, bouwbedrijven, renovatie-, onderhouds- en restauratiebedrijven, GWW-bedrijven en bouwgroepen, van familiebedrijf met een vaste ploeg tot bouwer met meerdere vestigingen.",
+          en: "For contractors, builders, renovation, maintenance and restoration firms, civil engineering contractors and construction groups, from a family business with a steady crew to a builder with several branches.",
         },
+        types: [
+          { nl: "Aannemers", en: "Contractors" },
+          { nl: "Bouwbedrijven", en: "Construction companies" },
+          { nl: "Renovatiebedrijven", en: "Renovation companies" },
+          { nl: "Onderhoudsbedrijven", en: "Maintenance companies" },
+          { nl: "Restauratiebedrijven", en: "Restoration companies" },
+          { nl: "GWW-bedrijven", en: "Civil engineering contractors" },
+          { nl: "Bouwgroepen", en: "Construction groups" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Projectpagina's per plaats en type werk", en: "Project pages by town and type of work" },
+            text: {
+              nl: "Een aanbouw in Uden, een renovatie in Schijndel: elk project een eigen pagina met foto's en een korte toelichting. Zo vinden opdrachtgevers je precies waar ze zoeken.",
+              en: "An extension in Uden, a renovation in Schijndel: every project gets its own page with photos and a short write-up. That way clients find you exactly where they are searching.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+          {
+            title: { nl: "Huisstijl van bouwbord tot bus", en: "Identity from site board to van" },
+            text: {
+              nl: "Eén herkenbare stijl die werkt op steigerdoek, bouwbord, bus, werkkleding en offerte. Leesbaar van afstand en robuust op de bouwplaats.",
+              en: "One recognisable style that works on scaffold banners, site boards, vans, workwear and quotes. Legible from a distance and sturdy on site.",
+            },
+            service: "branding-rebranding",
+            application: "huisstijl",
+          },
+          {
+            title: { nl: "Dronevideo van ruwbouw tot oplevering", en: "Drone video from shell to handover" },
+            text: {
+              nl: "Een drone-shot of timelapse van paal tot pannen laat zien hoe je werkt. Sterk voor je website, LinkedIn en de buurt rond het project.",
+              en: "A drone shot or timelapse from foundations to roof tiles shows how you work. Strong for your website, LinkedIn and the neighbours around the project.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "dronevideo",
+          },
+          {
+            title: { nl: "Vakmensen werven via social media", en: "Recruiting tradespeople through social media" },
+            text: {
+              nl: "Korte, eerlijke vacatures met echte collega's in beeld, daar waar timmerlieden en uitvoerders 's avonds scrollen. Solliciteren kan in een paar minuten, cv optioneel.",
+              en: "Short, honest vacancies featuring real colleagues, right where carpenters and site managers scroll in the evening. Applying takes a few minutes, CV optional.",
+            },
+            service: "content-marketing-online-ads",
+            application: "social-media-marketing",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Wat hoort er bij een goede huisstijl voor een bouwbedrijf?", en: "What belongs in a good visual identity for a construction company?" },
@@ -94,6 +101,53 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor afbouwbedrijven zoals stukadoors, schilders, tegelzetters, vloerenleggers, plafond- en wandmonteurs en kozijnspecialisten, voor particulieren én aannemers.",
           en: "For finishing contractors such as plasterers, painters, tilers, floor layers, ceiling and partition installers and window frame specialists, working for homeowners and contractors alike.",
         },
+        types: [
+          { nl: "Afbouwbedrijven", en: "Finishing contractors" },
+          { nl: "Stukadoorsbedrijven", en: "Plastering companies" },
+          { nl: "Schildersbedrijven", en: "Painting companies" },
+          { nl: "Tegelzetbedrijven", en: "Tiling companies" },
+          { nl: "Vloerenspecialisten", en: "Flooring specialists" },
+          { nl: "Plafond- en wandmonteurs", en: "Ceiling and partition installers" },
+          { nl: "Kozijnspecialisten", en: "Window frame specialists" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Offertecalculator per vierkante meter", en: "Quote calculator per square metre" },
+            text: {
+              nl: "Bezoekers vullen oppervlakte, afwerking en ondergrond in en zien direct een prijsindicatie. Jij krijgt een aanvraag met de gegevens die je nodig hebt.",
+              en: "Visitors enter the surface area, finish and substrate and see a price indication straight away. You receive an enquiry with the details you need.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Voor-en-na portfolio per type werk", en: "Before-and-after portfolio per type of work" },
+            text: {
+              nl: "Een strakke stucmuur in strijklicht of een naadloze tegelvloer verkoopt zichzelf, mits goed gefotografeerd. Gebundeld per type werk op je site en Instagram.",
+              en: "A flawless plastered wall in raking light or a seamless tiled floor sells itself, provided it is photographed well. Bundled per type of work on your site and Instagram.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "productfotografie",
+          },
+          {
+            title: { nl: "Een eigen pagina per dienst", en: "A dedicated page per service" },
+            text: {
+              nl: "Spachtelputz, buitenschilderwerk of een gietvloer: elke dienst een eigen pagina met eigen foto's en een duidelijke vervolgstap. Zo word je gevonden op de klussen die je echt wilt doen.",
+              en: "Microcement, exterior painting or a poured floor: every service gets its own page with your own photos and a clear next step. That way you are found for the jobs you actually want.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+          {
+            title: { nl: "Google Ads voor rustige weken", en: "Google Ads for quieter weeks" },
+            text: {
+              nl: "Gericht adverteren op de klussen die je wilt doen, precies in de periodes dat de planning wat leger is. Aan of uit wanneer het jou uitkomt.",
+              en: "Targeted ads for the jobs you want, exactly when your schedule has gaps. On or off whenever it suits you.",
+            },
+            service: "content-marketing-online-ads",
+            application: "google-ads",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Wat levert een offertecalculator op voor een afbouwbedrijf?", en: "What does a quote calculator do for a finishing company?" },
@@ -132,48 +186,146 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
         ],
       },
       {
-        name: { nl: "Vastgoed & projectontwikkeling", en: "Property & development" },
+        name: { nl: "Installatie & techniek", en: "Building services" },
         intro: {
-          nl: "Voor projectontwikkelaars, vastgoedbeleggers, vastgoedbeheerders en woningcorporaties, van een handvol nieuwbouwwoningen tot een complete gebiedsontwikkeling.",
-          en: "For property developers, real estate investors, property managers and housing associations, from a handful of new homes to a complete area development.",
+          nl: "Voor installatiebedrijven, elektrotechnische installateurs, loodgieters, dakdekkers en specialisten in klimaat, ventilatie en zonne-energie, in woningbouw, utiliteitsbouw en renovatie.",
+          en: "For installation companies, electrical installers, plumbers, roofers and specialists in HVAC, ventilation and solar energy, in housing, commercial construction and renovation.",
         },
+        types: [
+          { nl: "Installatiebedrijven", en: "Installation companies" },
+          { nl: "Elektrotechnische installateurs", en: "Electrical installers" },
+          { nl: "Loodgietersbedrijven", en: "Plumbing companies" },
+          { nl: "Dakdekkersbedrijven", en: "Roofing companies" },
+          { nl: "Klimaat- en ventilatiebedrijven", en: "HVAC and ventilation companies" },
+          { nl: "Zonnepaneleninstallateurs", en: "Solar panel installers" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Energieconfigurator voor woning of pand", en: "Energy configurator for home or building" },
+            text: {
+              nl: "Klanten vullen hun situatie in en zien welke combinatie van zonnepanelen, batterij of warmtepomp past. Jij krijgt een aanvraag met verbruik en wensen erbij.",
+              en: "Customers enter their situation and see which combination of solar panels, battery or heat pump fits. You receive an enquiry with usage and wishes included.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "productconfigurator",
+          },
+          {
+            title: { nl: "Referentiepresentatie voor hoofdaannemers", en: "Reference presentation for main contractors" },
+            text: {
+              nl: "Referentieprojecten, certificeringen en capaciteit in een strakke presentatie. Handig bij aanbestedingen en bij het eerste gesprek met een aannemer of corporatie.",
+              en: "Reference projects, certifications and capacity in a sharp presentation. Useful for tenders and for the first meeting with a contractor or housing association.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "presentaties-pitchdecks",
+          },
+          {
+            title: { nl: "Animatie die een installatie uitlegt", en: "Animation that explains an installation" },
+            text: {
+              nl: "Hoe werkt een warmtepomp met boilervat, of ventilatie met warmteterugwinning? Een korte animatie legt het uit zonder vakjargon.",
+              en: "How does a heat pump with a hot water tank work, or ventilation with heat recovery? A short animation explains it without jargon.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "motion-design",
+          },
+          {
+            title: { nl: "Monteurs en leerlingen werven", en: "Recruiting engineers and apprentices" },
+            text: {
+              nl: "Laat zien hoe een werkdag eruitziet, wat je leert en met wie je werkt. Met een werkenbij-pagina die net zo nuchter is als je ploeg.",
+              en: "Show what a working day looks like, what people learn and who they work with. With a careers page as down-to-earth as your crew.",
+            },
+            service: "branding-rebranding",
+            application: "employer-branding",
+          },
+        ],
         faqs: [
           {
-            q: { nl: "Wat zet je op een projectwebsite voor nieuwbouw?", en: "What goes on a project website for a new-build development?" },
+            q: {
+              nl: "Hoe laat ik als installateur zien dat we ook grote bouwprojecten aankunnen?",
+              en: "How do I show as an installer that we can handle large construction projects?",
+            },
             a: {
-              nl: "Alles wat een koper wil weten voordat hij een makelaar belt. Woningtypes met plattegronden en prijzen, de beschikbaarheid per bouwnummer, de omgeving, de planning en een duidelijke knop om je in te schrijven. Een goede projectwebsite voor nieuwbouw is snel aan te passen, want prijzen en status veranderen constant. Vaak bouwen we er een interactieve situatiekaart bij, zodat geïnteresseerden zelf door het plan klikken. Met een nieuwsbrief houd je ze tot de verkoopstart op de hoogte.",
-              en: "Everything a buyer wants to know before calling an agent. Home types with floor plans and prices, availability per plot, the surroundings, the timeline and a clear button to register interest. A good new-build project website is easy to update, because prices and status change all the time. We often add an interactive site plan, so prospects can click through the scheme themselves. A newsletter keeps them informed right up to the sales launch.",
+              nl: "Een hoofdaannemer of woningcorporatie kijkt anders dan een particulier. Die wil weten of je capaciteit hebt, of je certificeringen op orde zijn en hoe je samenwerkt op de bouwplaats. Laat dat zien met referentieprojecten per type werk, een overzicht van je erkenningen en een korte uitleg van je werkwijze, van werkvoorbereiding tot oplevering. Een strakke [[presentaties-pitchdecks|bedrijfspresentatie]] voor aanbestedingen en een zakelijke route op je website maken het af.",
+              en: "A main contractor or housing association looks at you differently than a homeowner. They want to know whether you have capacity, whether your certifications are in order and how you work together on site. Show that with reference projects per type of work, an overview of your accreditations and a short explanation of how you work, from preparation to handover. A sharp [[presentaties-pitchdecks|company presentation]] for tenders and a business route on your website finish it off.",
             },
           },
           {
-            q: { nl: "Wanneer loont een 3D-visualisatie van een nieuwbouwproject?", en: "When is a 3D visualisation of a new-build project worth it?" },
+            q: { nl: "Wat heb ik aan een energieconfigurator op mijn website?", en: "What does an energy configurator on my website do for me?" },
             a: {
-              nl: "Eigenlijk vanaf het moment dat je het project naar buiten brengt. Een sterk vogelvluchtbeeld helpt bij de gemeente en omwonenden, een sfeervol straatbeeld trekt inschrijvers en een interieurrender laat kopers voelen hoe de woonkamer het licht vangt. Een [[3d-visualisatie|3D-visualisatie]] van een nieuwbouwproject laat je dus het liefst in fases maken: eerst het grote beeld, later de details. Zo betaal je niet voor renders van een ontwerp dat nog drie keer verandert.",
-              en: "Really from the moment you take the project public. A strong aerial view helps with the municipality and local residents, an atmospheric street view attracts registrations and an interior render lets buyers feel how the living room catches the light. So ideally you commission a [[3d-visualisatie|3D visualisation]] in phases: the big picture first, details later. That way you do not pay for renders of a design that will change three more times.",
+              nl: "Veel klanten weten niet of zonnepanelen, een thuisbatterij of een warmtepomp bij hun woning of pand past, en wat dat ongeveer oplevert. Met een [[productconfigurator|configurator]] vullen ze hun situatie in en zien ze een eerste voorstel, met de aannames erbij. Jij krijgt een aanvraag met verbruik, dakoppervlak en wensen, in plaats van een vage vraag om 'informatie'. Voor Steddion maakten we zo'n Energy Property Configurator voor zakelijke panden.",
+              en: "Many customers do not know whether solar panels, a home battery or a heat pump suits their home or building, and roughly what it delivers. With a [[productconfigurator|configurator]] they enter their situation and see an initial proposal, with the assumptions shown. You receive an enquiry with usage, roof area and wishes, instead of a vague request for 'information'. We built an Energy Property Configurator like this for Steddion, aimed at commercial buildings.",
             },
           },
           {
-            q: { nl: "Ontwerpen jullie ook een investment memorandum?", en: "Do you also design investment memoranda?" },
+            q: { nl: "Hoe vind ik monteurs en leerlingen voor mijn installatiebedrijf?", en: "How do I find engineers and apprentices for my installation company?" },
             a: {
-              nl: "Ja. Een investment memorandum moet veel informatie kwijt, van huurstromen en kaarten tot plattegronden en planning, en toch prettig leesbaar blijven voor een belegger met weinig tijd. Wij zorgen voor een heldere opbouw, [[infographics|infographics]] die cijfers snel duidelijk maken en beeld dat het object eer aandoet. Je krijgt een strak document als pdf of in print, plus een sjabloon waarmee je volgende objecten in dezelfde stijl presenteert. De cijfers zelf leveren jullie aan.",
-              en: "Yes. An investment memorandum has to hold a lot of information, from rental income and maps to floor plans and timelines, and still read easily for an investor who is short on time. We take care of a clear structure, [[infographics|infographics]] that make figures quick to grasp and imagery that does the asset justice. You get a sharp document as a PDF or in print, plus a template so future properties are presented in the same style. The figures themselves come from you.",
+              nl: "Goede monteurs hebben werk genoeg, dus je moet laten zien waarom het bij jou beter is. Denk aan eerlijke verhalen van collega's, duidelijkheid over opleiding en doorgroeien, en beelden van echte klussen in plaats van stockfoto's met een helm. Met [[employer-branding|employer branding]] en [[social-video|korte video's]] op social media bereik je ook mensen die nu nog bij een ander werken, of scholieren die twijfelen over een BBL-traject. Solliciteren moet daarna in een paar minuten kunnen.",
+              en: "Good engineers have plenty of work, so you need to show why your company is better. Think honest stories from colleagues, clarity about training and progression, and footage of real jobs instead of stock photos with a hard hat. With [[employer-branding|employer branding]] and [[social-video|short videos]] on social media you also reach people who currently work elsewhere, or students unsure about an apprenticeship. After that, applying should take just a few minutes.",
             },
           },
           {
-            q: { nl: "Hoe houd ik geïnteresseerden warm tot de verkoopstart?", en: "How do I keep prospects interested until the sales launch?" },
+            q: {
+              nl: "Hoe word ik gevonden als iemand een dakdekker of installateur in de buurt zoekt?",
+              en: "How do I get found when someone searches for a roofer or installer nearby?",
+            },
             a: {
-              nl: "Tussen de eerste inschrijving en de verkoopstart zitten soms maanden. Blijft het stil, dan verlies je mensen aan een ander project. Met [[marketing-automation|marketing automation]] stuur je op vaste momenten een update: nieuwe beelden, de definitieve prijslijst, een uitnodiging voor de informatieavond. Inschrijvers geven vooraf aan welk woningtype ze zoeken, zodat de mails relevant blijven. En op de dag van de verkoopstart weet je precies wie je als eerste moet bellen.",
-              en: "There can be months between the first registration and the sales launch. Stay silent and you lose people to another project. With [[marketing-automation|marketing automation]] you send updates at set moments: new visuals, the final price list, an invitation to the information evening. Registrants say upfront which home type they are after, so the emails stay relevant. And on launch day you know exactly who to call first.",
+              nl: "Die zoekopdrachten zijn vaak urgent: een lekkage, een kapotte cv-ketel, een groep die eruit blijft springen. Dan kiest iemand het bedrijf dat dichtbij zit, snel bereikbaar is en goede reviews heeft. Zorg voor een compleet Google Bedrijfsprofiel, een pagina per dienst en per plaats in je werkgebied en een telefoonnummer dat op mobiel direct belt. Met [[lokale-seo|lokale SEO]] bouwen we dat stap voor stap op, zonder dunne kopieerpagina's.",
+              en: "Those searches are often urgent: a leak, a broken boiler, a circuit that keeps tripping. Then people pick the company that is close by, easy to reach and well reviewed. Make sure you have a complete Google Business Profile, a page per service and per town in your area and a phone number that dials straight from a mobile. With [[lokale-seo|local SEO]] we build that up step by step, without thin copy-paste pages.",
             },
           },
         ],
       },
       {
-        name: { nl: "Architectuur & interieur", en: "Architecture & interiors" },
+        name: { nl: "Architectenbureaus", en: "Architecture firms" },
         intro: {
-          nl: "Voor architectenbureaus, interieurarchitecten, landschapsarchitecten, ontwerpstudio's en interieurbouwers die hun ontwerpen het podium willen geven dat ze verdienen.",
-          en: "For architecture firms, interior architects, landscape architects, design studios and interior builders who want to give their designs the stage they deserve.",
+          nl: "Voor architectenbureaus, landschapsarchitecten, stedenbouwkundigen, bouwkundige tekenbureaus en constructie- en bouwadviesbureaus die hun ontwerpen en kennis het podium willen geven dat ze verdienen.",
+          en: "For architecture firms, landscape architects, urban planners, architectural drafting offices and structural and building consultancies who want to give their designs and expertise the stage they deserve.",
         },
+        types: [
+          { nl: "Architectenbureaus", en: "Architecture firms" },
+          { nl: "Landschapsarchitecten", en: "Landscape architects" },
+          { nl: "Stedenbouwkundige bureaus", en: "Urban planning firms" },
+          { nl: "Bouwkundige tekenbureaus", en: "Architectural drafting offices" },
+          { nl: "Constructiebureaus", en: "Structural engineering firms" },
+          { nl: "Bouwadviesbureaus", en: "Building consultancies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Een beeldgedreven website met projecten", en: "An image-led website with projects" },
+            text: {
+              nl: "Grote projectbeelden, een korte toelichting op opgave en keuzes, en een rustige structuur. Zo spreekt je architectuur, en ziet een opdrachtgever snel hoe je werkt.",
+              en: "Large project images, a short note on the brief and the choices, and a calm structure. Your architecture does the talking, and a client quickly sees how you work.",
+            },
+            service: "websites-webshops",
+            application: "ux-ui-webdesign",
+          },
+          {
+            title: { nl: "Renders en animaties van je ontwerp", en: "Renders and animations of your design" },
+            text: {
+              nl: "Op basis van je eigen modellen maken we beelden voor de opdrachtgever, de welstandscommissie of een informatieavond. Zo ziet iedereen hetzelfde gebouw voor zich.",
+              en: "Based on your own models we create visuals for the client, the design review panel or an information evening. That way everyone pictures the same building.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "3d-visualisatie",
+          },
+          {
+            title: { nl: "Presentatie voor welstand en buurt", en: "Presentation for review panel and neighbours" },
+            text: {
+              nl: "Plek, opgave, keuzes en resultaat in een verhaal dat ook een leek kan volgen. Werkt bij een pitch net zo goed als op de buurtavond.",
+              en: "Site, brief, choices and result in a story a layperson can follow. It works as well in a pitch as at the neighbourhood evening.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "presentaties-pitchdecks",
+          },
+          {
+            title: { nl: "Antwoorden op vragen van particulieren", en: "Answers to private clients' questions" },
+            text: {
+              nl: "'Wat kost een architect?' of 'Heb ik een vergunning nodig?': heldere antwoorden in jouw woorden. Dat maakt je vindbaar in Google en AI-assistenten.",
+              en: "'What does an architect cost?' or 'Do I need a permit?': clear answers in your own words. That makes you findable on Google and in AI assistants.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe ziet een goede website voor een architectenbureau eruit?", en: "What does a good website for an architecture firm look like?" },
@@ -200,43 +352,136 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
             },
           },
           {
+            q: { nl: "Hoe leg ik opgeleverde projecten goed vast?", en: "How do I capture completed projects properly?" },
+            a: {
+              nl: "Plan de fotografie bewust, en niet pas als de bewoners er al een jaar wonen. Kies het juiste licht en seizoen, en een moment waarop het gebouw schoon en leeg is of juist net in gebruik. Architectuurfotografie vraagt om rechte lijnen en rust in beeld, aangevuld met [[dronevideo|drone-opnames]] die laten zien hoe het gebouw in zijn omgeving staat. Spreek vooraf met de opdrachtgever af wat je mag publiceren, dan kun je het beeld daarna overal gebruiken.",
+              en: "Plan the photography deliberately, not once the residents have lived there for a year. Choose the right light and season, and a moment when the building is clean and empty or just coming into use. Architectural photography calls for straight lines and calm images, complemented by [[dronevideo|drone footage]] that shows how the building sits in its surroundings. Agree upfront with the client what you may publish, so you can use the images everywhere afterwards.",
+            },
+          },
+        ],
+      },
+      {
+        name: { nl: "Prefab & modulair bouwen", en: "Prefab & modular building" },
+        intro: {
+          nl: "Voor prefab-woningbouwers, modulaire en systeembouwers, houtskeletbouwers en makers van tiny houses, mantelzorgwoningen en tijdelijke huisvesting.",
+          en: "For prefab home builders, modular and system builders, timber frame builders and makers of tiny houses, granny annexes and temporary housing.",
+        },
+        types: [
+          { nl: "Prefab-woningbouwers", en: "Prefab home builders" },
+          { nl: "Modulaire bouwers", en: "Modular builders" },
+          { nl: "Systeembouwers", en: "System builders" },
+          { nl: "Houtskeletbouwers", en: "Timber frame builders" },
+          { nl: "Tiny house-bouwers", en: "Tiny house builders" },
+          { nl: "Bouwers van mantelzorgwoningen", en: "Granny annexe builders" },
+          { nl: "Leveranciers van tijdelijke huisvesting", en: "Temporary housing suppliers" },
+        ],
+        useCases: [
+          {
+            title: { nl: "3D-configurator voor woningtypes", en: "3D configurator for home types" },
+            text: {
+              nl: "Kopers kiezen een model, indeling, gevel en opties en zien het resultaat direct in 3D. Jij krijgt een aanvraag met de complete configuratie.",
+              en: "Buyers choose a model, layout, facade and options and see the result in 3D straight away. You receive an enquiry with the complete configuration.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "3d-configurator",
+          },
+          {
+            title: { nl: "Een landingspagina per doelgroep", en: "A landing page per audience" },
+            text: {
+              nl: "Een particulier met een kavel, een gemeente met een woningopgave of een corporatie die snel wil bouwen: elk een eigen pagina met hun vragen en voorbeeldprojecten.",
+              en: "A homeowner with a plot, a municipality with a housing target or a housing association that wants to build fast: each gets a page with their questions and example projects.",
+            },
+            service: "websites-webshops",
+            application: "landingspaginas",
+          },
+          {
+            title: { nl: "Animatie van fabriek tot fundering", en: "Animation from factory to foundation" },
+            text: {
+              nl: "Laat zien hoe een woning in de fabriek ontstaat en daarna in korte tijd op de bouwplaats staat. Dat neemt twijfel over kwaliteit weg.",
+              en: "Show how a home takes shape in the factory and then goes up on site in a short time. That removes doubts about quality.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "motion-design",
+          },
+          {
+            title: { nl: "Beursstand en woningbrochure in één lijn", en: "Trade-show stand and home brochure aligned" },
+            text: {
+              nl: "Op woonbeurzen en vakbeurzen val je op met een stand en brochure in dezelfde stijl. Met een QR-code die meteen naar de configurator leidt.",
+              en: "At home shows and trade fairs you stand out with a stand and brochure in the same style. With a QR code that leads straight to the configurator.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "beurs-signing",
+          },
+        ],
+        faqs: [
+          {
             q: {
-              nl: "Hoe laat ik als interieurbouwer of interieurarchitect mijn maatwerk goed zien?",
-              en: "How do I show my custom work as an interior builder or interior architect?",
+              nl: "Hoe overtuig ik kopers dat prefab net zo goed is als traditioneel bouwen?",
+              en: "How do I convince buyers that prefab is as good as traditional building?",
             },
             a: {
-              nl: "Maatwerk is lastig te vangen in één productfoto, want elk project is anders. Werk daarom met projectverhalen: de wens van de klant, het ontwerp, de materialen en het eindresultaat, in goed licht gefotografeerd. Details als een verborgen greep of een naadloze aansluiting verdienen een eigen close-up. Op je website en op Instagram of Pinterest bouw je zo een portfolio op dat inspireert én laat zien waarom vakwerk zijn prijs heeft.",
-              en: "Custom work is hard to capture in a single product shot, because every project is different. So work with project stories: the client's wish, the design, the materials and the end result, photographed in good light. Details like a hidden handle or a seamless joint deserve their own close-up. On your website and on Instagram or Pinterest you build a portfolio that inspires and shows why craftsmanship is worth its price.",
+              nl: "Door het niet te beweren, maar te laten zien. Neem mensen mee in het proces: de fabriek, de materialen, de controles en het moment dat de modules op de fundering worden gezet. Een korte [[bedrijfsfilm|bedrijfsfilm]] of timelapse zegt daarover meer dan een brochure vol superlatieven. Vertel eerlijk wat er wel en niet kan qua maatwerk, laat opgeleverde woningen en echte bewoners zien en verwijs naar je energielabels en garanties zoals ze werkelijk zijn.",
+              en: "By not claiming it, but showing it. Take people through the process: the factory, the materials, the checks and the moment the modules are placed on the foundation. A short [[bedrijfsfilm|company film]] or timelapse says more about that than a brochure full of superlatives. Be honest about what is and is not possible in terms of customisation, show completed homes and real residents, and refer to your energy labels and warranties as they actually are.",
+            },
+          },
+          {
+            q: {
+              nl: "Wat levert een 3D-configurator op voor een prefab- of modulaire bouwer?",
+              en: "What does a 3D configurator offer a prefab or modular builder?",
+            },
+            a: {
+              nl: "Een woning met tientallen keuzes is lastig uit te leggen in een pdf. In een [[3d-configurator|3D-configurator]] kiest een koper zelf het model, de indeling, de gevel en de opties, en ziet hij meteen wat dat betekent. Koppel je er een prijsindicatie aan, dan weet hij ook waar hij financieel staat. Jij krijgt aanvragen met een complete configuratie, en je verkopers hebben een demo-tool die altijd actueel is, op een beurs of aan de keukentafel.",
+              en: "A home with dozens of choices is hard to explain in a PDF. In a [[3d-configurator|3D configurator]] buyers choose the model, layout, facade and options themselves, and see right away what that means. Add a price indication and they also know where they stand financially. You receive enquiries with a complete configuration, and your sales team has a demo tool that is always up to date, at a trade show or at the kitchen table.",
+            },
+          },
+          {
+            q: {
+              nl: "Hoe bereik ik gemeenten en woningcorporaties als modulaire bouwer?",
+              en: "How do I reach municipalities and housing associations as a modular builder?",
+            },
+            a: {
+              nl: "Beslissers bij gemeenten en corporaties zoeken oplossingen voor een woningopgave, vaak met weinig tijd en veel stakeholders. Geef ze een eigen route op je website met referentieprojecten, doorlooptijden zoals je ze echt haalt en antwoorden op vragen over vergunningen, plaatsing en herplaatsing. Een heldere [[presentaties-pitchdecks|presentatie]] helpt bij overleg en aanbestedingen. Met [[linkedin-ads|LinkedIn Ads]] zet je je projecten gericht onder de aandacht van wethouders, projectleiders en vastgoedmanagers.",
+              en: "Decision-makers at municipalities and housing associations are looking for answers to a housing challenge, often with little time and many stakeholders. Give them their own route on your website with reference projects, lead times as you actually achieve them and answers on permits, placement and relocation. A clear [[presentaties-pitchdecks|presentation]] helps in meetings and tenders. With [[linkedin-ads|LinkedIn Ads]] you put your projects in front of aldermen, project leaders and property managers.",
+            },
+          },
+          {
+            q: {
+              nl: "Hoe word ik gevonden op zoektermen als 'tiny house kopen' of 'mantelzorgwoning plaatsen'?",
+              en: "How do I get found for searches like 'buy a tiny house' or 'place a granny annexe'?",
+            },
+            a: {
+              nl: "Mensen die zo zoeken, zitten vaak nog vol vragen. Mag het op mijn grond, heb ik een vergunning nodig, wat kost het inclusief fundering en aansluitingen, en hoe lang duurt het? Beantwoord die vragen eerlijk op je eigen website, per onderwerp een pagina, met voorbeelden uit je eigen projecten. Die [[seo-content|content]] helpt in Google en maakt meer kans om door AI-assistenten genoemd te worden. Regels verschillen per gemeente, dus verwijs waar nodig naar het loket.",
+              en: "People searching like that usually still have plenty of questions. Is it allowed on my land, do I need a permit, what does it cost including foundation and connections, and how long does it take? Answer those questions honestly on your own website, one page per topic, with examples from your own projects. That [[seo-content|content]] helps on Google and is more likely to be mentioned by AI assistants. Rules differ per municipality, so refer people to the local council where needed.",
             },
           },
         ],
       },
     ],
     audiences: [
-      { nl: "Makelaarskantoren", en: "Estate agencies" },
-      { nl: "Bedrijfsmakelaars", en: "Commercial property agents" },
-      { nl: "Taxatiebureaus", en: "Valuation firms" },
-      { nl: "Aankoopmakelaars", en: "Buying agents" },
       { nl: "Aannemers", en: "Contractors" },
       { nl: "Bouwbedrijven", en: "Construction companies" },
       { nl: "Renovatiebedrijven", en: "Renovation companies" },
       { nl: "Onderhoudsbedrijven", en: "Maintenance companies" },
+      { nl: "Restauratiebedrijven", en: "Restoration companies" },
+      { nl: "GWW-bedrijven", en: "Civil engineering contractors" },
       { nl: "Afbouwbedrijven", en: "Finishing contractors" },
       { nl: "Stukadoorsbedrijven", en: "Plastering companies" },
       { nl: "Schildersbedrijven", en: "Painting companies" },
       { nl: "Tegelzetbedrijven", en: "Tiling companies" },
       { nl: "Vloerenspecialisten", en: "Flooring specialists" },
+      { nl: "Kozijnspecialisten", en: "Window frame specialists" },
       { nl: "Installatiebedrijven", en: "Installation companies" },
+      { nl: "Elektrotechnische installateurs", en: "Electrical installers" },
       { nl: "Dakdekkersbedrijven", en: "Roofing companies" },
-      { nl: "Prefab- en modulaire bouwers", en: "Prefab and modular builders" },
-      { nl: "Projectontwikkelaars", en: "Property developers" },
-      { nl: "Vastgoedbeleggers", en: "Real estate investors" },
-      { nl: "Vastgoedbeheerders", en: "Property managers" },
-      { nl: "Woningcorporaties", en: "Housing associations" },
+      { nl: "Klimaat- en ventilatiebedrijven", en: "HVAC and ventilation companies" },
       { nl: "Architectenbureaus", en: "Architecture firms" },
-      { nl: "Interieurarchitecten", en: "Interior architects" },
-      { nl: "Interieurbouwers", en: "Interior fit-out companies" },
       { nl: "Landschapsarchitecten", en: "Landscape architects" },
+      { nl: "Stedenbouwkundige bureaus", en: "Urban planning firms" },
+      { nl: "Constructiebureaus", en: "Structural engineering firms" },
+      { nl: "Bouwadviesbureaus", en: "Building consultancies" },
+      { nl: "Prefab-woningbouwers", en: "Prefab home builders" },
+      { nl: "Modulaire bouwers", en: "Modular builders" },
+      { nl: "Houtskeletbouwers", en: "Timber frame builders" },
     ],
   },
 
@@ -249,6 +494,52 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor maakbedrijven, metaal- en kunststofbewerkers, plaatwerkers, toeleveranciers en producenten van eigen producten, van job shop tot serieproductie.",
           en: "For manufacturers, metal and plastics processors, sheet metal shops, subcontractors and makers of their own products, from job shop to series production.",
         },
+        types: [
+          { nl: "Maakbedrijven", en: "Manufacturing companies" },
+          { nl: "Metaalbewerkingsbedrijven", en: "Metalworking companies" },
+          { nl: "Plaatbewerkers", en: "Sheet metal fabricators" },
+          { nl: "Staal- en constructiebedrijven", en: "Steel construction companies" },
+          { nl: "Kunststofverwerkers", en: "Plastics processors" },
+          { nl: "Toeleveranciers", en: "Subcontract manufacturers" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Offertetool met tekening-upload", en: "Quote tool with drawing upload" },
+            text: {
+              nl: "Klanten uploaden hun STEP-, DXF- of pdf-tekening, kiezen materiaal en aantallen en zien waar het kan een prijsindicatie. Je werkvoorbereiding krijgt een complete aanvraag in plaats van drie mailtjes.",
+              en: "Customers upload their STEP, DXF or PDF drawing, choose material and quantities and, where possible, see a price indication. Your work planners get a complete request instead of three follow-up emails.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Een pagina per bewerking", en: "A page for every process" },
+            text: {
+              nl: "Lasersnijden, kanten of CNC-frezen: elke techniek krijgt een eigen pagina met materialen, toleranties en voorbeelden. Zo vinden inkopers je op de specifieke term waar ze op zoeken.",
+              en: "Laser cutting, press braking or CNC milling: every technique gets its own page with materials, tolerances and examples. That way buyers find you on the exact term they search for.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+          {
+            title: { nl: "Fotosessie in je eigen werkplaats", en: "A photo shoot in your own workshop" },
+            text: {
+              nl: "Echte onderdelen, draaiende machines en vakmensen aan het werk, in goed licht. Bruikbaar op je website, in offertes, op LinkedIn en in vacatures.",
+              en: "Real parts, running machines and skilled people at work, in good light. Ready for your website, quotes, LinkedIn and job ads.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "productfotografie",
+          },
+          {
+            title: { nl: "Werkenbij-pagina voor operators en lassers", en: "Careers page for operators and welders" },
+            text: {
+              nl: "Goede vakmensen vind je zelden via een vacaturesite alleen. Een eerlijke werkenbij-pagina met collega's in beeld laat zien waarom het bij jou goed werken is.",
+              en: "You rarely find good tradespeople through a job board alone. An honest careers page featuring real colleagues shows why your company is a good place to work.",
+            },
+            service: "branding-rebranding",
+            application: "employer-branding",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe laat ik als toeleverancier zien wat we kunnen?", en: "How do I show what we can do as a subcontractor?" },
@@ -292,6 +583,53 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor machinebouwers, apparatenbouwers, OEM'ers en leveranciers van productielijnen, robotica en industriële automatisering.",
           en: "For machine builders, equipment manufacturers, OEMs and suppliers of production lines, robotics and industrial automation.",
         },
+        types: [
+          { nl: "Machinebouwers", en: "Machine builders" },
+          { nl: "Apparatenbouwers", en: "Equipment manufacturers" },
+          { nl: "OEM'ers", en: "OEMs" },
+          { nl: "Automatiseringsbedrijven", en: "Industrial automation companies" },
+          { nl: "Robotica-integrators", en: "Robotics integrators" },
+          { nl: "Food- en procestechniekbedrijven", en: "Food and process engineering companies" },
+          { nl: "Agritechbedrijven", en: "Agritech companies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "3D-configurator voor machine-opties", en: "3D configurator for machine options" },
+            text: {
+              nl: "Klanten en dealers stellen zelf uitvoering, afmetingen en opties samen en zien direct wat dat betekent. Jij krijgt een aanvraag met de complete configuratie.",
+              en: "Customers and dealers choose the version, dimensions and options themselves and see right away what that means. You receive an enquiry with the complete configuration.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "3d-configurator",
+          },
+          {
+            title: { nl: "Procesanimatie van één minuut", en: "A one-minute process animation" },
+            text: {
+              nl: "Een korte animatie laat zien wat de machine doet en welk probleem hij oplost. Werkt op je website, op het beursscherm en in het salesgesprek.",
+              en: "A short animation shows what the machine does and which problem it solves. It works on your website, on the trade-show screen and in sales meetings.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "motion-design",
+          },
+          {
+            title: { nl: "Serviceportaal met onderdelen en handleidingen", en: "Service portal with parts and manuals" },
+            text: {
+              nl: "Per machine de handleidingen, onderhoudshistorie en reserveonderdelen op één plek. Storingen melden klanten met foto en serienummer erbij.",
+              en: "Manuals, service history and spare parts per machine, all in one place. Customers report faults with a photo and serial number attached.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "Beursstand met opvolging achteraf", en: "Trade-show stand with follow-up" },
+            text: {
+              nl: "Een stand die van ver opvalt, een QR-code naar de juiste productpagina en een bedankmail na afloop. Zo levert de beurs meer op dan een stapel visitekaartjes.",
+              en: "A stand that stands out from afar, a QR code to the right product page and a thank-you email afterwards. That way the show delivers more than a pile of business cards.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "beurs-signing",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe leg ik een complexe machine uit aan iemand die geen engineer is?", en: "How do I explain a complex machine to someone who is not an engineer?" },
@@ -329,6 +667,53 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor installatiebedrijven, elektrotechnische bedrijven, klimaat- en warmtepompspecialisten en installateurs van zonnepanelen en laadpalen, voor particulier en zakelijk.",
           en: "For installation companies, electrical contractors, HVAC and heat pump specialists, and installers of solar panels and EV chargers, serving homes and businesses.",
         },
+        types: [
+          { nl: "Installatiebedrijven", en: "Installation companies" },
+          { nl: "Elektrotechnische bedrijven", en: "Electrical contractors" },
+          { nl: "Klimaattechniekbedrijven", en: "HVAC companies" },
+          { nl: "Warmtepompspecialisten", en: "Heat pump specialists" },
+          { nl: "Zonne-energiebedrijven", en: "Solar energy companies" },
+          { nl: "Laadpaalinstallateurs", en: "EV charger installers" },
+          { nl: "Industriële onderhoudsbedrijven", en: "Industrial maintenance companies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Keuzehulp voor warmtepomp of zonnepanelen", en: "Product finder for heat pumps or solar" },
+            text: {
+              nl: "Een paar vragen over bouwjaar, isolatie en verbruik leveren een eerste advies op. Jij krijgt een aanvraag die al half gekwalificeerd is.",
+              en: "A few questions about build year, insulation and usage lead to initial advice. You receive an enquiry that is already half-qualified.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "keuzehulp-quiz",
+          },
+          {
+            title: { nl: "Storingsmelding die direct ingepland wordt", en: "Fault reports that go straight into planning" },
+            text: {
+              nl: "Klanten melden een storing met foto's en het type installatie, en via een automatisering staat het meteen in je planning. De klant krijgt een bevestiging, je monteur weet wat hij mee moet nemen.",
+              en: "Customers report a fault with photos and the type of installation, and an automation puts it straight into your schedule. The customer gets a confirmation, your engineer knows what to bring.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "workflow-automatisering",
+          },
+          {
+            title: { nl: "Bedrijfsbussen als rijdende reclame", en: "Company vans as moving advertising" },
+            text: {
+              nl: "Belettering in je huisstijl die op elk type bus klopt. Simpel, leesbaar en herkenbaar, ook op de oprit van de klant.",
+              en: "Vehicle graphics in your identity that fit every van model. Simple, legible and recognisable, on the customer's driveway too.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "beurs-signing",
+          },
+          {
+            title: { nl: "Lokaal gevonden in je werkgebied", en: "Found locally in your service area" },
+            text: {
+              nl: "Pagina's per plaats en dienst, een verzorgd Google Bedrijfsprofiel en reviews. Zo vindt iemand die 'airco installateur Oss' zoekt jou, en niet een landelijke prijsvechter.",
+              en: "Pages per town and service, a well-kept Google Business Profile and reviews. That way someone searching for 'air conditioning installer Oss' finds you, not a national discounter.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+        ],
         faqs: [
           {
             q: {
@@ -362,6 +747,51 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor ingenieursbureaus, engineeringbedrijven, technische adviesbureaus, inspectie- en testbedrijven en technische detacheerders.",
           en: "For engineering firms, design engineering companies, technical consultancies, inspection and testing companies and technical staffing agencies.",
         },
+        types: [
+          { nl: "Ingenieursbureaus", en: "Engineering firms" },
+          { nl: "Engineeringbedrijven", en: "Design engineering companies" },
+          { nl: "Technische adviesbureaus", en: "Technical consultancies" },
+          { nl: "Inspectie- en testbedrijven", en: "Inspection and testing companies" },
+          { nl: "Technische detacheerders", en: "Technical staffing agencies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Kennis vertaald naar sterke content", en: "Expertise turned into strong content" },
+            text: {
+              nl: "Eén project of technisch inzicht, uitgewerkt tot artikel, LinkedIn-post en whitepaper. Zo wordt je kennis zichtbaar voor opdrachtgevers én zoekmachines.",
+              en: "One project or technical insight, turned into an article, a LinkedIn post and a white paper. That makes your expertise visible to clients and search engines alike.",
+            },
+            service: "content-marketing-online-ads",
+            application: "contentstrategie",
+          },
+          {
+            title: { nl: "Twee routes: opdrachtgever en engineer", en: "Two routes: client and engineer" },
+            text: {
+              nl: "Eén website met een eigen route voor opdrachtgevers en voor kandidaten, elk in hun eigen taal. Niemand hoeft door het verhaal van de ander heen te lezen.",
+              en: "One website with a separate route for clients and for candidates, each in their own language. Nobody has to read through the other group's story.",
+            },
+            service: "websites-webshops",
+            application: "ux-ui-webdesign",
+          },
+          {
+            title: { nl: "LinkedIn-campagnes op functie en branche", en: "LinkedIn campaigns by role and industry" },
+            text: {
+              nl: "Je projectverhalen gericht bij technisch managers en inkopers in je niche. Met inzicht in wat elke campagne oplevert.",
+              en: "Your project stories in front of technical managers and buyers in your niche. With clear insight into what each campaign brings in.",
+            },
+            service: "content-marketing-online-ads",
+            application: "linkedin-ads",
+          },
+          {
+            title: { nl: "Rapporten die prettig leesbaar zijn", en: "Reports that are easy to read" },
+            text: {
+              nl: "Inspectie- of adviesrapporten met een heldere opbouw en grafieken die de kern laten zien. Je team werkt vanuit een vast sjabloon.",
+              en: "Inspection or advisory reports with a clear structure and charts that show the key points. Your team works from a fixed template.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "infographics",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe verkoop je kennis als je geen tastbaar product hebt?", en: "How do you sell expertise when you have no tangible product?" },
@@ -395,6 +825,52 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor technische groothandels, distributeurs, importeurs en leveranciers van onderdelen, gereedschap, bevestigingsmaterialen en industriële benodigdheden.",
           en: "For technical wholesalers, distributors, importers and suppliers of components, tools, fasteners and industrial supplies.",
         },
+        types: [
+          { nl: "Technische groothandels", en: "Technical wholesalers" },
+          { nl: "Distributeurs en importeurs", en: "Distributors and importers" },
+          { nl: "Onderdelenleveranciers", en: "Component suppliers" },
+          { nl: "Gereedschapsleveranciers", en: "Tool suppliers" },
+          { nl: "Leveranciers van bevestigingsmaterialen", en: "Fastener suppliers" },
+          { nl: "Leveranciers van industriële benodigdheden", en: "Industrial supply companies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "B2B-webshop met klantprijzen", en: "B2B web shop with customer pricing" },
+            text: {
+              nl: "Klantspecifieke prijzen, staffelkortingen en bestellen op rekening, gekoppeld aan je ERP waar dat kan. Vaste klanten bestellen zelf en je binnendienst houdt tijd over.",
+              en: "Customer-specific prices, volume discounts and ordering on account, connected to your ERP where possible. Regular customers order themselves and your inside sales team gains time.",
+            },
+            service: "websites-webshops",
+            application: "webshop",
+          },
+          {
+            title: { nl: "Bestelportaal met facturen en nabestellen", en: "Ordering portal with invoices and reorders" },
+            text: {
+              nl: "Klanten zien hun bestelhistorie, bestellen met één klik opnieuw en downloaden zelf facturen en pakbonnen. Met eigen logins en rechten per collega.",
+              en: "Customers see their order history, reorder in one click and download invoices and delivery notes themselves. With personal logins and permissions per colleague.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "Productdata die zoekmachines begrijpen", en: "Product data search engines understand" },
+            text: {
+              nl: "Specificaties, normen en maten als gestructureerde data. Zo vinden monteurs en inkopers het juiste artikel, ook via AI-assistenten.",
+              en: "Specifications, standards and sizes as structured data. That way engineers and buyers find the right item, including through AI assistants.",
+            },
+            service: "seo-aeo-geo",
+            application: "structured-data",
+          },
+          {
+            title: { nl: "Koppeling met ERP of PIM", en: "Integration with ERP or PIM" },
+            text: {
+              nl: "Voorraad, prijzen en productinformatie komen uit één bron en staan automatisch op de site. Geen dubbel werk, en geen artikel dat online op voorraad lijkt terwijl het schap leeg is.",
+              en: "Stock, prices and product information come from one source and appear on the site automatically. No double work, and no item that looks in stock online while the shelf is empty.",
+            },
+            service: "web-apps-portals-apps",
+            application: "api-koppelingen",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Heb ik een B2B-webshop nodig of is een online catalogus genoeg?", en: "Do I need a B2B web shop or is an online catalogue enough?" },
@@ -459,6 +935,54 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor fysiotherapeuten, oefentherapeuten, diëtisten, logopedisten, podotherapeuten, tandartsen en andere eerstelijnspraktijken, van solopraktijk tot gezondheidscentrum.",
           en: "For physiotherapists, exercise therapists, dietitians, speech therapists, podiatrists, dentists and other primary care practices, from solo practice to health centre.",
         },
+        types: [
+          { nl: "Fysiotherapiepraktijken", en: "Physiotherapy practices" },
+          { nl: "Oefentherapiepraktijken", en: "Exercise therapy practices" },
+          { nl: "Huisartsenpraktijken", en: "GP practices" },
+          { nl: "Tandartspraktijken", en: "Dental practices" },
+          { nl: "Diëtistenpraktijken", en: "Dietitian practices" },
+          { nl: "Logopediepraktijken", en: "Speech therapy practices" },
+          { nl: "Podotherapeuten", en: "Podiatrists" },
+          { nl: "Verloskundigenpraktijken", en: "Midwifery practices" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Praktijkwebsite die vragen vooraf beantwoordt", en: "A practice website that answers questions upfront" },
+            text: {
+              nl: "Klachten, vergoedingen, verwijzing, parkeren en wachttijd: wat nu aan de balie gevraagd wordt, staat helder online. Met een afspraakknop op elke pagina.",
+              en: "Complaints, insurance cover, referrals, parking and waiting times: what people now ask at the desk is clearly online. With a booking button on every page.",
+            },
+            service: "websites-webshops",
+            application: "wordpress-website",
+          },
+          {
+            title: { nl: "Gevonden in je eigen wijk", en: "Found in your own neighbourhood" },
+            text: {
+              nl: "Een compleet Google Bedrijfsprofiel, reviews en een pagina per locatie. Zo vindt iemand die 'fysio in de buurt' zoekt jouw praktijk.",
+              en: "A complete Google Business Profile, reviews and a page per location. That way someone searching for 'physio near me' finds your practice.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+          {
+            title: { nl: "Landingspagina voor een nieuwe specialisatie", en: "Landing page for a new specialisation" },
+            text: {
+              nl: "Bekkenfysiotherapie, sportfysio of implantologie krijgt een eigen pagina in gewone taal. Voor patiënten én voor verwijzers zoals huisartsen.",
+              en: "Pelvic floor physio, sports physio or implantology gets its own page in plain language. For patients and for referrers such as GPs.",
+            },
+            service: "websites-webshops",
+            application: "landingspaginas",
+          },
+          {
+            title: { nl: "Korte video van praktijk en team", en: "Short video of practice and team" },
+            text: {
+              nl: "Een rustige video waarin je laat zien wie er achter de balie en aan de behandeltafel staat. Nieuwe patiënten weten zo bij wie ze terechtkomen.",
+              en: "A calm video showing who is behind the desk and at the treatment table. New patients know who they will be seeing.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "bedrijfsfilm",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Wat moet er op de website van een fysiotherapiepraktijk staan?", en: "What should be on a physiotherapy practice's website?" },
@@ -499,6 +1023,54 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor privéklinieken, zelfstandige behandelcentra, cosmetische en esthetische klinieken, oogklinieken, haarklinieken en tandheelkundige centra.",
           en: "For private clinics, independent treatment centres, cosmetic and aesthetic clinics, eye clinics, hair clinics and dental centres.",
         },
+        types: [
+          { nl: "Privéklinieken", en: "Private clinics" },
+          { nl: "Cosmetische klinieken", en: "Cosmetic clinics" },
+          { nl: "Zelfstandige behandelcentra", en: "Independent treatment centres" },
+          { nl: "Oogklinieken", en: "Eye clinics" },
+          { nl: "Haarklinieken", en: "Hair clinics" },
+          { nl: "Tandheelkundige centra", en: "Dental centres" },
+          { nl: "Orthodontiepraktijken", en: "Orthodontic practices" },
+          { nl: "Mondhygiënisten", en: "Dental hygienists" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Behandelpagina's met eerlijke informatie", en: "Treatment pages with honest information" },
+            text: {
+              nl: "Per behandeling het traject, de herstelperiode, de risico's en een kostenindicatie. Rustig vormgegeven, zodat vertrouwen ontstaat voordat iemand een consult boekt.",
+              en: "For every treatment the process, recovery time, risks and a cost indication. Calmly designed, so trust builds before anyone books a consultation.",
+            },
+            service: "websites-webshops",
+            application: "ux-ui-webdesign",
+          },
+          {
+            title: { nl: "Intake en opvolging via een CRM", en: "Intake and follow-up through a CRM" },
+            text: {
+              nl: "Elke aanvraag krijgt direct een bevestiging en je team een taak. Wie na een consult twijfelt, krijgt een vriendelijke herinnering.",
+              en: "Every enquiry gets an instant confirmation and your team gets a task. Anyone hesitating after a consultation gets a friendly reminder.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "crm-implementatie",
+          },
+          {
+            title: { nl: "Feitelijke campagnes binnen de regels", en: "Factual campaigns within the rules" },
+            text: {
+              nl: "Advertenties die uitleggen wat een behandeling is, zonder beloftes over het resultaat. Afgestemd op de voorwaarden van Google en Meta.",
+              en: "Ads that explain what a treatment is, without promises about results. Aligned with Google and Meta's policies.",
+            },
+            service: "content-marketing-online-ads",
+            application: "google-ads",
+          },
+          {
+            title: { nl: "Online een consult inplannen", en: "Book a consultation online" },
+            text: {
+              nl: "Een kennismakingsconsult boeken zonder te bellen, gekoppeld aan de agenda van je kliniek waar dat kan. Met automatische bevestiging en herinnering.",
+              en: "Book an introductory consultation without calling, linked to your clinic's calendar where possible. With automatic confirmation and reminder.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "boekingswidget",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Mag ik als kliniek online adverteren voor behandelingen?", en: "Can my clinic advertise treatments online?" },
@@ -532,6 +1104,52 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor psychologen, psychotherapeuten, GGZ-praktijken, jeugdhulpaanbieders, relatietherapeuten en coaches, van vrijgevestigd tot multidisciplinair team.",
           en: "For psychologists, psychotherapists, mental health practices, youth care providers, relationship therapists and coaches, from independent practitioner to multidisciplinary team.",
         },
+        types: [
+          { nl: "Psychologenpraktijken", en: "Psychology practices" },
+          { nl: "GGZ-instellingen", en: "Mental health organisations" },
+          { nl: "Psychotherapeuten", en: "Psychotherapists" },
+          { nl: "Jeugdzorgorganisaties", en: "Youth care organisations" },
+          { nl: "Relatietherapeuten", en: "Relationship therapists" },
+          { nl: "Coaches en therapeuten", en: "Coaches and therapists" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Laagdrempelige keuzehulp voor hulpvragers", en: "A low-threshold guide for people seeking help" },
+            text: {
+              nl: "Een paar rustige vragen die helpen bij 'past deze hulp bij mij?'. Zonder diagnose, wel met een duidelijke volgende stap.",
+              en: "A few calm questions that help with 'is this the right help for me?'. No diagnosis, but a clear next step.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "keuzehulp-quiz",
+          },
+          {
+            title: { nl: "Wachttijd zelf actueel houden", en: "Keep your waiting time up to date" },
+            text: {
+              nl: "Je past de wachttijd per behandelsoort of locatie in een paar seconden zelf aan. Met een alternatief erbij als het even duurt.",
+              en: "You update the waiting time per treatment type or location yourself in seconds. With an alternative alongside when the wait is long.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Artikelen over je eigen specialisme", en: "Articles about your own specialism" },
+            text: {
+              nl: "Over burn-out, angst of rouw, in warme en gewone taal. Dat helpt cliënten op weg en maakt je vindbaar in Google en AI-assistenten.",
+              en: "On burnout, anxiety or grief, in warm and everyday language. It helps clients along and makes you findable on Google and in AI assistants.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+          {
+            title: { nl: "Verwijzerspagina voor huisartsen", en: "Referrer page for GPs" },
+            text: {
+              nl: "Eén heldere pagina voor huisartsen en praktijkondersteuners met je aanbod, doelgroep en wachttijd. Zo verwijzen ze makkelijker door.",
+              en: "One clear page for GPs and practice nurses with your services, target group and waiting time. That makes referring easier.",
+            },
+            service: "websites-webshops",
+            application: "landingspaginas",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe maak ik de drempel lager voor mensen die hulp zoeken?", en: "How do I lower the threshold for people looking for help?" },
@@ -569,6 +1187,53 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor thuiszorgorganisaties, verpleeg- en verzorgingshuizen, gehandicaptenzorg, zorgboerderijen, beschermd wonen en welzijnsstichtingen, van kleinschalig initiatief tot regionale zorggroep.",
           en: "For home care organisations, nursing and care homes, disability care, care farms, supported living and wellbeing foundations, from small-scale initiative to regional care group.",
         },
+        types: [
+          { nl: "Thuiszorgorganisaties", en: "Home care organisations" },
+          { nl: "Verpleeg- en verzorgingshuizen", en: "Nursing and care homes" },
+          { nl: "Gehandicaptenzorg", en: "Disability care providers" },
+          { nl: "Aanbieders van beschermd wonen", en: "Supported living providers" },
+          { nl: "Zorgboerderijen", en: "Care farms" },
+          { nl: "Welzijnsstichtingen", en: "Wellbeing foundations" },
+          { nl: "Gezondheidscentra", en: "Health centres" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Een pagina per locatie", en: "A page per location" },
+            text: {
+              nl: "Elke locatie een eigen pagina met aanbod, foto's en contactpersoon, in een vaste opzet. Locatiemanagers werken hun eigen pagina bij, zonder dat de rest van de site in gevaar komt.",
+              en: "Every location gets its own page with services, photos and a contact person, in a fixed layout. Location managers update their own page without putting the rest of the site at risk.",
+            },
+            service: "websites-webshops",
+            application: "wordpress-website",
+          },
+          {
+            title: { nl: "Keuzehulp voor cliënt en familie", en: "Decision aid for clients and families" },
+            text: {
+              nl: "Een paar vragen leiden naar wonen, thuiszorg of dagbesteding, in begrijpelijke taal. Ook voor de familie die het namens iemand uitzoekt.",
+              en: "A few questions lead to housing, home care or day activities, in plain language. Also for family members looking into it on someone's behalf.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "keuzehulp-quiz",
+          },
+          {
+            title: { nl: "Eerlijke video van een gewone dag", en: "An honest video of an ordinary day" },
+            text: {
+              nl: "Een rustige film over het leven op de locatie, gemaakt met toestemming en met respect voor het ritme van de bewoners.",
+              en: "A calm film about life at the location, made with consent and with respect for the residents' daily rhythm.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "bedrijfsfilm",
+          },
+          {
+            title: { nl: "Campagnes voor zij-instromers", en: "Campaigns for career changers" },
+            text: {
+              nl: "Verhalen van collega's die dezelfde overstap maakten, verspreid via social media. Zo bereik je mensen die nog niet aan de zorg dachten.",
+              en: "Stories from colleagues who made the same switch, shared on social media. That way you reach people who had not yet considered care work.",
+            },
+            service: "content-marketing-online-ads",
+            application: "social-media-marketing",
+          },
+        ],
         faqs: [
           {
             q: {
@@ -609,6 +1274,51 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor e-healthbedrijven, healthtech-startups, makers van zorgapps en zorgsoftware, en zorgorganisaties die zelf een digitaal product ontwikkelen.",
           en: "For e-health companies, healthtech startups, makers of care apps and care software, and care organisations developing their own digital product.",
         },
+        types: [
+          { nl: "E-healthbedrijven", en: "E-health companies" },
+          { nl: "Healthtech-startups", en: "Healthtech startups" },
+          { nl: "Makers van zorgapps", en: "Care app developers" },
+          { nl: "Leveranciers van zorgsoftware", en: "Healthcare software vendors" },
+          { nl: "Zorginnovatieteams", en: "Healthcare innovation teams" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Van prototype naar MVP", en: "From prototype to MVP" },
+            text: {
+              nl: "Eerst een klikbaar prototype, dan een MVP die je test met patiënten en zorgverleners. Zo bouw je wat echt gebruikt wordt.",
+              en: "First a clickable prototype, then an MVP you test with patients and care professionals. That way you build what actually gets used.",
+            },
+            service: "web-apps-portals-apps",
+            application: "mvp-ontwikkeling",
+          },
+          {
+            title: { nl: "Koppelingen met bestaande zorgsystemen", en: "Integrations with existing care systems" },
+            text: {
+              nl: "Via API's en, waar beschikbaar, standaarden als FHIR praat je platform met de dossier- en planningssystemen die zorgorganisaties al gebruiken.",
+              en: "Through APIs and, where available, standards such as FHIR, your platform talks to the record and scheduling systems care organisations already use.",
+            },
+            service: "web-apps-portals-apps",
+            application: "api-koppelingen",
+          },
+          {
+            title: { nl: "Eén verhaal voor zorg en investeerder", en: "One story for care and investors" },
+            text: {
+              nl: "Eén kernverhaal, vertaald naar wat zorgverleners, verzekeraars en investeerders willen horen. Zonder wonderclaims.",
+              en: "One core story, translated into what care professionals, insurers and investors want to hear. No miracle claims.",
+            },
+            service: "branding-rebranding",
+            application: "merkstrategie",
+          },
+          {
+            title: { nl: "Pitchdeck voor je volgende ronde", en: "Pitch deck for your next round" },
+            text: {
+              nl: "Probleem, oplossing, markt en team in een handvol heldere slides. Ook bruikbaar richting zorginkopers en partners.",
+              en: "Problem, solution, market and team in a handful of clear slides. Also useful for healthcare purchasers and partners.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "presentaties-pitchdecks",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Wat komt er kijken bij het bouwen van een zorgapp of e-healthplatform?", en: "What is involved in building a care app or e-health platform?" },
@@ -674,6 +1384,51 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor hypotheekadviseurs, financieel planners, pensioenadviseurs en onafhankelijke adviespraktijken, zelfstandig of aangesloten bij een formule.",
           en: "For mortgage advisors, financial planners, pension advisors and independent advisory practices, whether independent or part of a franchise.",
         },
+        types: [
+          { nl: "Hypotheekadviseurs", en: "Mortgage advisors" },
+          { nl: "Financieel planners", en: "Financial planners" },
+          { nl: "Pensioenadviseurs", en: "Pension advisors" },
+          { nl: "Onafhankelijke adviespraktijken", en: "Independent advisory practices" },
+          { nl: "Franchisekantoren van adviesformules", en: "Advisory franchise offices" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Indicatieve rekentool met afspraakknop", en: "Indicative calculator with booking button" },
+            text: {
+              nl: "Bezoekers rekenen een eerste indicatie uit met duidelijke aannames en plannen daarna een kennismaking. Geen advies, wel een goede start van het gesprek.",
+              en: "Visitors calculate an initial indication with clear assumptions and then book an introductory meeting. Not advice, but a good start to the conversation.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "check-tools",
+          },
+          {
+            title: { nl: "Een pagina per klantsituatie", en: "A page for every client situation" },
+            text: {
+              nl: "Starters, scheiden, ondernemers met wisselend inkomen of oversluiten: elke situatie een eigen pagina. Zo vindt iemand precies het antwoord op zijn vraag.",
+              en: "First-time buyers, divorce, self-employed with variable income or remortgaging: every situation gets its own page. That way people find exactly the answer to their question.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+          {
+            title: { nl: "Een eigen merk naast de ketens", en: "Your own brand next to the chains" },
+            text: {
+              nl: "Een eigen toon en echte foto's van jou en je team. Zo voelt je kantoor als een adviseur die je kent, niet als een formule.",
+              en: "Your own tone and real photos of you and your team. Your office feels like an advisor people know, not like a franchise.",
+            },
+            service: "branding-rebranding",
+            application: "tone-of-voice",
+          },
+          {
+            title: { nl: "Warme opvolging van twijfelaars", en: "Warm follow-up for those still deciding" },
+            text: {
+              nl: "Wie nog niet klaar is voor een gesprek, krijgt een paar nuttige mails over zijn situatie. Op het juiste moment volgt de afspraak vanzelf.",
+              en: "Anyone not ready for a meeting yet gets a few useful emails about their situation. At the right moment, the appointment follows naturally.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "lead-nurturing",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe krijg ik als hypotheekadviseur meer aanvragen via mijn website?", en: "How do I get more enquiries through my website as a mortgage advisor?" },
@@ -704,6 +1459,51 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor verzekeraars, volmachtbedrijven, assurantiekantoren en gespecialiseerde intermediairs, voor particuliere en zakelijke verzekeringen.",
           en: "For insurers, managing general agents, insurance brokers and specialist intermediaries, for personal and commercial insurance.",
         },
+        types: [
+          { nl: "Verzekeraars", en: "Insurers" },
+          { nl: "Volmachtbedrijven", en: "Managing general agents" },
+          { nl: "Assurantiekantoren", en: "Insurance brokers" },
+          { nl: "Verzekeringsadviseurs", en: "Insurance advisors" },
+          { nl: "Gespecialiseerde intermediairs", en: "Specialist intermediaries" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Premie berekenen en direct aanvragen", en: "Calculate a premium and apply" },
+            text: {
+              nl: "In een paar stappen een premie-indicatie, gevolgd door een aanvraag die de gegevens al heeft. Complexe zakelijke risico's gaan naar een adviseur.",
+              en: "A premium indication in a few steps, followed by an application that already holds the details. Complex commercial risks go to an advisor.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Dekking uitgelegd in één oogopslag", en: "Cover explained at a glance" },
+            text: {
+              nl: "Infographics en vergelijkingstabellen laten zien wat wel en niet gedekt is. Met voorbeelden uit het echte leven in plaats van polistaal.",
+              en: "Infographics and comparison tables show what is and is not covered. With real-life examples instead of policy jargon.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "infographics",
+          },
+          {
+            title: { nl: "Mails op natuurlijke momenten", en: "Emails at natural moments" },
+            text: {
+              nl: "Een verhuizing, een nieuwe auto of de start van een bedrijf: dan stuur je een relevante check. Niet iedereen dezelfde nieuwsbrief.",
+              en: "A house move, a new car or starting a business: that is when you send a relevant check. Not the same newsletter to everyone.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "marketing-automation",
+          },
+          {
+            title: { nl: "Een route per doelgroep", en: "A route for every audience" },
+            text: {
+              nl: "Particulier, zzp of mkb: elke doelgroep krijgt een eigen route met uitleg in gewone taal. Zo hoeft niemand door polissen te bladeren die niet voor hem bedoeld zijn.",
+              en: "Consumers, freelancers or SMEs: every audience gets its own route with plain-language explanations. Nobody has to wade through policies not meant for them.",
+            },
+            service: "websites-webshops",
+            application: "ux-ui-webdesign",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe maak je verzekeringen online begrijpelijk?", en: "How do you make insurance understandable online?" },
@@ -737,6 +1537,53 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor fintech-startups en scale-ups, betaal- en lendingplatforms, beleggings- en spaarapps, insurtech, regtech en makers van financiële software.",
           en: "For fintech startups and scale-ups, payment and lending platforms, investing and savings apps, insurtech, regtech and makers of financial software.",
         },
+        types: [
+          { nl: "Fintech-startups", en: "Fintech startups" },
+          { nl: "Fintech-scale-ups", en: "Fintech scale-ups" },
+          { nl: "Betaalplatforms", en: "Payment platforms" },
+          { nl: "Beleggings- en spaarapps", en: "Investing and savings apps" },
+          { nl: "Insurtechbedrijven", en: "Insurtech companies" },
+          { nl: "Regtechbedrijven", en: "Regtech companies" },
+          { nl: "Leveranciers van financiële software", en: "Financial software vendors" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Onboarding die veilig voelt", en: "Onboarding that feels secure" },
+            text: {
+              nl: "Uitleggen waarom je iets vraagt, laten zien hoeveel stappen er nog komen en de voortgang bewaren. Elke overbodige stap kost aanmeldingen.",
+              en: "Explain why you ask for something, show how many steps are left and save progress. Every unnecessary step costs sign-ups.",
+            },
+            service: "web-apps-portals-apps",
+            application: "ux-ui-app-design",
+          },
+          {
+            title: { nl: "Pitchdeck voor je investeringsronde", en: "Pitch deck for your funding round" },
+            text: {
+              nl: "Een helder verhaal in een handvol slides, met een uitstraling die professioneel oogt. De inhoud overtuigt, het ontwerp zorgt dat hij gelezen wordt.",
+              en: "A clear story in a handful of slides, with a look that feels professional. The substance convinces, the design makes sure it gets read.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "presentaties-pitchdecks",
+          },
+          {
+            title: { nl: "Antwoorden die AI-assistenten oppikken", en: "Answers AI assistants pick up" },
+            text: {
+              nl: "Feitelijke uitleg over hoe je product werkt en wat het kost, zo opgebouwd dat Google en AI-assistenten het begrijpen.",
+              en: "Factual explanations of how your product works and what it costs, structured so Google and AI assistants understand them.",
+            },
+            service: "seo-aeo-geo",
+            application: "aeo",
+          },
+          {
+            title: { nl: "Productwebsite met heldere prijzen", en: "Product website with clear pricing" },
+            text: {
+              nl: "Een snelle site met uitleg per functie, eerlijke prijzen en een duidelijke aanmeldroute. Je team past hem zelf aan als het product verandert.",
+              en: "A fast site with explanations per feature, honest pricing and a clear sign-up route. Your team updates it themselves when the product changes.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe ontwerp je een onboarding die veilig voelt én snel gaat?", en: "How do you design onboarding that feels secure and is quick?" },
@@ -767,6 +1614,51 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor vermogensbeheerders, private banks, family offices, beleggingsfondsen en beleggingsadviseurs, voor particuliere en institutionele beleggers.",
           en: "For wealth managers, private banks, family offices, investment funds and investment advisors, serving private and institutional investors.",
         },
+        types: [
+          { nl: "Vermogensbeheerders", en: "Wealth managers" },
+          { nl: "Private banks", en: "Private banks" },
+          { nl: "Family offices", en: "Family offices" },
+          { nl: "Beleggingsfondsen", en: "Investment funds" },
+          { nl: "Beleggingsadviseurs", en: "Investment advisors" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Klantportaal met portefeuille-overzicht", en: "Client portal with portfolio overview" },
+            text: {
+              nl: "Beveiligd inloggen met tweestapsverificatie, met portefeuille, rapportages en documenten op één plek.",
+              en: "Secure login with two-factor authentication, with portfolio, reports and documents in one place.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "Factsheet en kwartaalrapportage als sjabloon", en: "Factsheet and quarterly report template" },
+            text: {
+              nl: "Een vaste opbouw met heldere grafieken en ruimte voor de verplichte informatie. Je team vult elk kwartaal alleen de cijfers aan.",
+              en: "A fixed structure with clear charts and room for the mandatory information. Your team only fills in the figures each quarter.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "brochures-magazines",
+          },
+          {
+            title: { nl: "Positionering zonder rendementsbeloftes", en: "Positioning without promising returns" },
+            text: {
+              nl: "Je filosofie, je mensen en je manier van werken centraal. Rustig en zelfverzekerd, met de disclaimers van je compliance-team op de juiste plek.",
+              en: "Your philosophy, your people and your way of working at the centre. Calm and confident, with your compliance team's disclaimers in the right place.",
+            },
+            service: "branding-rebranding",
+            application: "merkstrategie",
+          },
+          {
+            title: { nl: "LinkedIn-content voor vermogende ondernemers", en: "LinkedIn content for wealthy entrepreneurs" },
+            text: {
+              nl: "Gerichte campagnes voor ondernemers en family offices, met inhoud in plaats van beloftes. Een marktvisie of uitleg over vermogensoverdracht doet meer dan een glimmende advertentie.",
+              en: "Targeted campaigns for entrepreneurs and family offices, with substance instead of promises. A market view or an explanation of wealth transfer does more than a glossy ad.",
+            },
+            service: "content-marketing-online-ads",
+            application: "linkedin-ads",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe positioneer je een vermogensbeheerder zonder rendement te beloven?", en: "How do you position a wealth manager without promising returns?" },
@@ -797,6 +1689,53 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor kredietverstrekkers, leasemaatschappijen, crowdfundingplatforms, factoringbedrijven en financieringsadviseurs voor het mkb.",
           en: "For lenders, leasing companies, crowdfunding platforms, factoring companies and SME financing advisors.",
         },
+        types: [
+          { nl: "Kredietverstrekkers", en: "Lenders" },
+          { nl: "Banken", en: "Banks" },
+          { nl: "Leasemaatschappijen", en: "Leasing companies" },
+          { nl: "Crowdfundingplatforms", en: "Crowdfunding platforms" },
+          { nl: "Factoringbedrijven", en: "Factoring companies" },
+          { nl: "Financieringsadviseurs", en: "Financing advisors" },
+          { nl: "Incasso- en creditmanagementbureaus", en: "Debt collection and credit management agencies" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Aanvraagportaal in behapbare stappen", en: "Application portal in manageable steps" },
+            text: {
+              nl: "Cijfers en documenten uploaden in een portaal, voortgang opslaan en de status van de aanvraag volgen. Je team hoeft niet achter ontbrekende stukken aan te bellen.",
+              en: "Upload figures and documents in a portal, save progress and follow the status of the application. Your team no longer has to chase missing paperwork.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "Quickscan voor financieringskans", en: "Quick scan for financing prospects" },
+            text: {
+              nl: "Een paar vragen geven een eerste indicatie of financiering kansrijk is. De stap naar een echte aanvraag wordt kleiner.",
+              en: "A few questions give an initial indication of whether financing is likely. The step to a real application gets smaller.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "check-tools",
+          },
+          {
+            title: { nl: "Aanvragen automatisch in je CRM", en: "Applications straight into your CRM" },
+            text: {
+              nl: "Aanvragen, documenten en statusupdates gaan automatisch naar je CRM of acceptatieomgeving. Met logging, zodat je terugziet wie wat deed.",
+              en: "Applications, documents and status updates flow automatically into your CRM or credit environment. With logging, so you can trace who did what.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "workflow-automatisering",
+          },
+          {
+            title: { nl: "Zichtbaar als de vraag acuut is", en: "Visible when the need is urgent" },
+            text: {
+              nl: "Zoekt een ondernemer op 'machine financieren' of 'werkkapitaal voor groei', dan sta je erbij met Google Ads. Precies op het moment dat hij een oplossing zoekt.",
+              en: "When an entrepreneur searches for 'financing a machine' or 'working capital for growth', Google Ads puts you right there. At the exact moment they need a solution.",
+            },
+            service: "content-marketing-online-ads",
+            application: "google-ads",
+          },
+        ],
         faqs: [
           {
             q: {
@@ -863,6 +1802,52 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor hotels, boutique hotels, B&B's, hostels, pensions en gastenverblijven, van vijf kamers tot een kleine hotelgroep.",
           en: "For hotels, boutique hotels, B&Bs, hostels, guesthouses and holiday lodgings, from five rooms to a small hotel group.",
         },
+        types: [
+          { nl: "Hotels", en: "Hotels" },
+          { nl: "Boutique hotels", en: "Boutique hotels" },
+          { nl: "B&B's", en: "B&Bs" },
+          { nl: "Hostels", en: "Hostels" },
+          { nl: "Pensions", en: "Guesthouses" },
+          { nl: "Gastenverblijven", en: "Holiday lodgings" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Meertalige hotelwebsite die direct boekt", en: "Multilingual hotel website that books direct" },
+            text: {
+              nl: "Grote foto's per kamertype, eerlijke info en een boekknop die je nooit hoeft te zoeken. In de talen van je gasten.",
+              en: "Large photos per room type, honest information and a book button you never have to look for. In your guests' languages.",
+            },
+            service: "websites-webshops",
+            application: "meertalige-website",
+          },
+          {
+            title: { nl: "E-mailflows voor en na verblijf", en: "Email flows before and after the stay" },
+            text: {
+              nl: "Praktische info voor aankomst, een reviewverzoek na vertrek en later een seizoensaanbod. Automatisch op basis van de boeking.",
+              en: "Practical info before arrival, a review request after departure and a seasonal offer later on. Automatically, based on the booking.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "e-mailmarketing",
+          },
+          {
+            title: { nl: "Boekingswidget voor kamers en arrangementen", en: "Booking widget for rooms and packages" },
+            text: {
+              nl: "Een boekingsmodule op je eigen site, gekoppeld aan je reserveringssysteem waar dat kan. Zo boeken gasten vaker direct bij jou.",
+              en: "A booking module on your own site, connected to your reservation system where possible. That way more guests book directly with you.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "boekingswidget",
+          },
+          {
+            title: { nl: "Omgevingstips die gasten vinden", en: "Local tips guests can find" },
+            text: {
+              nl: "Wandelroutes, restaurants en uitjes in de buurt als artikelen op je eigen site. Goed voor Google, AI-assistenten en gasten die al aan het plannen zijn.",
+              en: "Walking routes, restaurants and outings nearby as articles on your own site. Good for Google, AI assistants and guests who are already planning.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Wat maakt een hotelwebsite echt goed?", en: "What makes a hotel website truly good?" },
@@ -893,6 +1878,53 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor campings, vakantieparken, glampings, groepsaccommodaties, minicampings en verhuurders van vakantiehuizen en chalets.",
           en: "For campsites, holiday parks, glamping sites, group accommodation, small farm campsites and rental companies for holiday homes and chalets.",
         },
+        types: [
+          { nl: "Vakantieparken", en: "Holiday parks" },
+          { nl: "Campings", en: "Campsites" },
+          { nl: "Glampings", en: "Glamping sites" },
+          { nl: "Minicampings", en: "Small farm campsites" },
+          { nl: "Groepsaccommodaties", en: "Group accommodation" },
+          { nl: "Vakantiehuisverhuurders", en: "Holiday home rental companies" },
+          { nl: "Jachthavens", en: "Marinas" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Interactieve parkplattegrond met beschikbaarheid", en: "Interactive park map with availability" },
+            text: {
+              nl: "Gasten klikken op een plek of chalet en zien ligging, foto's en beschikbaarheid. Gekoppeld aan je reserveringssysteem waar dat kan.",
+              en: "Guests click on a pitch or chalet and see its location, photos and availability. Linked to your reservation system where possible.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "website-widgets",
+          },
+          {
+            title: { nl: "Digitale gastengids zonder download", en: "Digital guest guide without a download" },
+            text: {
+              nl: "Openingstijden, activiteiten en broodjes bestellen in één gids, in meerdere talen. Als web-app, of als echte app als je verder wilt.",
+              en: "Opening hours, activities and ordering bread rolls in one guide, in several languages. As a web app, or a full app if you want to go further.",
+            },
+            service: "web-apps-portals-apps",
+            application: "mobiele-app",
+          },
+          {
+            title: { nl: "Campagnes voor voor- en naseizoen", en: "Campaigns for the shoulder seasons" },
+            text: {
+              nl: "Gericht op stellen, wandelaars en fietsers die juist dan op pad willen. Met beelden van je park in de lente en de herfst.",
+              en: "Aimed at couples, walkers and cyclists who like to travel precisely then. With images of your park in spring and autumn.",
+            },
+            service: "content-marketing-online-ads",
+            application: "meta-ads",
+          },
+          {
+            title: { nl: "Dronevideo van park en omgeving", en: "Drone video of park and surroundings" },
+            text: {
+              nl: "Bos, water, velden en voorzieningen in één vloeiend shot. Laat gasten zien waar ze terechtkomen, nog voor ze boeken.",
+              en: "Woods, water, fields and facilities in one smooth shot. Shows guests where they will be staying before they book.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "dronevideo",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe help ik gasten de juiste plek of accommodatie te kiezen?", en: "How do I help guests choose the right pitch or accommodation?" },
@@ -923,6 +1955,52 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor reisorganisaties, touroperators, reisbureaus, specialisten in groeps-, maatwerk- en avonturenreizen en zakelijke reisorganisaties.",
           en: "For travel companies, tour operators, travel agencies, specialists in group, tailor-made and adventure travel, and business travel organisers.",
         },
+        types: [
+          { nl: "Reisorganisaties", en: "Travel companies" },
+          { nl: "Touroperators", en: "Tour operators" },
+          { nl: "Reisbureaus", en: "Travel agencies" },
+          { nl: "Groepsreisorganisaties", en: "Group travel organisers" },
+          { nl: "Specialisten in maatwerkreizen", en: "Tailor-made travel specialists" },
+          { nl: "Zakelijke reisorganisaties", en: "Business travel organisers" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Reisplanner voor maatwerkreizen", en: "Trip planner for tailor-made travel" },
+            text: {
+              nl: "Klanten kiezen bestemmingen, accommodatieniveau en reisduur en zien een eerste prijsindicatie. Je reisadviseur krijgt een aanvraag met alle wensen erin.",
+              en: "Customers choose destinations, accommodation level and duration and see an initial price indication. Your travel advisor receives an enquiry with every wish included.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "productconfigurator",
+          },
+          {
+            title: { nl: "Reisverhalen die naar boekingen leiden", en: "Travel stories that lead to bookings" },
+            text: {
+              nl: "Blogs over de beste reistijd, de mooiste route of wat je moet inpakken, die eindigen bij jouw reis daarheen.",
+              en: "Blogs about the best time to go, the most beautiful route or what to pack, ending at your trip there.",
+            },
+            service: "content-marketing-online-ads",
+            application: "copywriting-blogs",
+          },
+          {
+            title: { nl: "Aanbod rechtstreeks uit je reserveringssysteem", en: "Offers straight from your reservation system" },
+            text: {
+              nl: "Reizen, prijzen en vertrekdata komen via een koppeling op de site, zodat alles altijd klopt. Geen handwerk bij elke prijswijziging.",
+              en: "Trips, prices and departure dates reach the site through an integration, so everything is always correct. No manual work with every price change.",
+            },
+            service: "web-apps-portals-apps",
+            application: "api-koppelingen",
+          },
+          {
+            title: { nl: "Technische SEO voor groot aanbod", en: "Technical SEO for a large offering" },
+            text: {
+              nl: "Honderden reispagina's die goed vindbaar blijven en elkaar niet in de weg zitten. Met filters waarin Google niet verdwaalt.",
+              en: "Hundreds of trip pages that stay findable without competing with each other. With filters Google does not get lost in.",
+            },
+            service: "seo-aeo-geo",
+            application: "technische-seo",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe maak je een reiswebsite met veel aanbod overzichtelijk?", en: "How do you keep a travel website with a large offering easy to navigate?" },
@@ -953,6 +2031,52 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor attractieparken, dierenparken, musea, escape rooms, outdoor- en activiteitenaanbieders, wellnesscentra en andere dagjes uit.",
           en: "For theme parks, zoos, museums, escape rooms, outdoor and activity providers, wellness centres and other days out.",
         },
+        types: [
+          { nl: "Attractieparken", en: "Theme parks" },
+          { nl: "Dierenparken", en: "Zoos and wildlife parks" },
+          { nl: "Musea", en: "Museums" },
+          { nl: "Escape rooms", en: "Escape rooms" },
+          { nl: "Outdoor- en activiteitenbedrijven", en: "Outdoor and activity companies" },
+          { nl: "Wellnesscentra", en: "Wellness centres" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Ticketflow zonder afhakers", en: "A ticket flow people finish" },
+            text: {
+              nl: "We meten waar bezoekers afhaken bij het kopen van een ticket of tijdslot en verbeteren dat stap voor stap.",
+              en: "We measure where visitors drop out when buying a ticket or time slot and improve it step by step.",
+            },
+            service: "marketing-automatisering-funnels",
+            application: "conversie-optimalisatie",
+          },
+          {
+            title: { nl: "Korte video's voor TikTok en Instagram", en: "Short videos for TikTok and Instagram" },
+            text: {
+              nl: "Een gil in de achtbaan, een giraf die om de hoek kijkt: korte beelden die laten zien hoe leuk het is.",
+              en: "A scream on the rollercoaster, a giraffe peeking round the corner: short clips that show how much fun it is.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "social-video",
+          },
+          {
+            title: { nl: "Groepscalculator voor scholen en bedrijven", en: "Group calculator for schools and companies" },
+            text: {
+              nl: "Schoolreisjes, bedrijfsuitjes en verenigingen kiezen zelf programma en aantal en zien direct een prijsindicatie. Jij krijgt complete aanvragen voor de rustige dagen.",
+              en: "School trips, company outings and clubs choose a programme and group size and see a price indication straight away. You receive complete enquiries for the quieter days.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Meer bereik rond schoolvakanties", en: "More reach around school holidays" },
+            text: {
+              nl: "TikTok- en Meta-campagnes in de weken dat gezinnen een dagje uit plannen. Met een budget dat je per periode op- en afschaalt.",
+              en: "TikTok and Meta campaigns in the weeks families plan a day out. With a budget you scale up or down per period.",
+            },
+            service: "content-marketing-online-ads",
+            application: "tiktok-ads",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Hoe verkoop ik meer tickets via mijn eigen website?", en: "How do I sell more tickets through my own website?" },
@@ -983,6 +2107,52 @@ export const SEGMENTS_B: Partial<Record<SectorSlug, { segments: SectorSegment[];
           nl: "Voor restaurants, cafés, strandpaviljoens, partycentra, cateraars en vergader- en eventlocaties, van dorpsrestaurant tot grote evenementenlocatie.",
           en: "For restaurants, cafés, beach clubs, party venues, caterers and meeting and event venues, from village restaurant to large event location.",
         },
+        types: [
+          { nl: "Restaurants", en: "Restaurants" },
+          { nl: "Cafés", en: "Cafés" },
+          { nl: "Strandpaviljoens", en: "Beach clubs" },
+          { nl: "Partycentra", en: "Party venues" },
+          { nl: "Vergader- en eventlocaties", en: "Meeting and event venues" },
+          { nl: "Cateraars", en: "Caterers" },
+        ],
+        useCases: [
+          {
+            title: { nl: "Menukaart als tekst, niet als pdf", en: "Your menu as text, not a PDF" },
+            text: {
+              nl: "Een menu dat je zelf in een minuut aanpast, met allergeneninformatie erbij. Goed leesbaar op de telefoon en voor Google.",
+              en: "A menu you update yourself in a minute, with allergen information included. Easy to read on a phone and for Google.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Offertecalculator voor zalen en feesten", en: "Quote calculator for rooms and parties" },
+            text: {
+              nl: "Organisatoren kiezen zelf aantal gasten, datum en arrangement. Jij krijgt een complete aanvraag in plaats van een mailwisseling.",
+              en: "Organisers choose the number of guests, date and package themselves. You receive a complete enquiry instead of an email exchange.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Google Bedrijfsprofiel dat klopt", en: "A Google Business Profile that's right" },
+            text: {
+              nl: "Openingstijden, menu, foto's en reserveringslink op orde, en een reactie op elke review. Daar kijken gasten als eerste naar.",
+              en: "Opening hours, menu, photos and booking link in order, and a response to every review. That is where guests look first.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+          {
+            title: { nl: "Digitale brochure voor zakelijke events", en: "Digital brochure for corporate events" },
+            text: {
+              nl: "Zalen, opstellingen en arrangementen in een strakke brochure die intern rondgestuurd kan worden. Handig voor zakelijke klanten die eerst moeten overleggen.",
+              en: "Rooms, layouts and packages in a sharp brochure that can be passed around internally. Handy for corporate clients who need to consult first.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "brochures-magazines",
+          },
+        ],
         faqs: [
           {
             q: { nl: "Moet mijn menukaart echt geen pdf meer zijn?", en: "Should my menu really not be a PDF any more?" },

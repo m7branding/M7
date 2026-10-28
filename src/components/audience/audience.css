@@ -781,6 +781,8 @@ html.aud-lock {
 /* ---------------- Dienstpagina: sectoren ---------------- */
 .svc-aud {
   background: #050506;
+  /* de gloed rond de zoekbalk mag niet buiten de pagina vallen (mobiel) */
+  overflow-x: clip;
 }
 .svc-aud__finder {
   margin-top: clamp(28px, 3.6vw, 44px);

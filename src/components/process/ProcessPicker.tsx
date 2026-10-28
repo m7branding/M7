@@ -76,7 +76,9 @@ export function searchProcess(query: string, services: PickService[], apps: Pick
     let term = 0;
     let hint: string | undefined;
     for (const t of s.terms) {
-      const m = match(q, t) * 0.7;
+      // termen alleen op (begin van een) woord: "app" mag niet "rapportages" vinden
+      const raw = match(q, t);
+      const m = raw >= 80 ? raw * 0.7 : 0;
       if (m > term) {
         term = m;
         hint = t;
