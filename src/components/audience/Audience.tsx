@@ -168,6 +168,8 @@ export function Audience({
   const remoteRef = useRef<HTMLDivElement>(null);
   const started = useRef(false);
   const leaving = useRef(false);
+  /** Scrollpositie bij openen: terug-navigatie in de geschiedenis mag de pagina niet laten verspringen. */
+  const openY = useRef(0);
 
   const sync = useCallback(() => {
     if (!started.current) return;
@@ -210,6 +212,12 @@ export function Audience({
     const html = document.documentElement;
     if (html.dataset.loading === "1") window.addEventListener("m7:ready", start, { once: true });
     else start();
+    // na een page transition (ook als deze component blijft staan): opnieuw de hash lezen
+    const onReady = () => {
+      leaving.current = false;
+      sync();
+    };
+    window.addEventListener("m7:ready", onReady);
 
     const onPop = () => {
       // terug-knop: wat er nu in de URL staat is leidend
@@ -244,6 +252,7 @@ export function Audience({
     document.addEventListener("click", onClick, true);
     return () => {
       window.removeEventListener("m7:ready", start);
+      window.removeEventListener("m7:ready", onReady);
       window.removeEventListener("popstate", onPop);
       window.removeEventListener("hashchange", onPop);
       window.removeEventListener("m7:navigate", onNavigate);
@@ -266,6 +275,7 @@ export function Audience({
     if (active) {
       setShown(active);
       if (!d.open) {
+        openY.current = window.scrollY;
         d.showModal();
         lock(true);
         // focus op de inhoud (bovenaan), niet op de sluitknop: pijltjes/spatie scrollen meteen
@@ -279,6 +289,10 @@ export function Audience({
       const t = window.setTimeout(
         () => {
           d.close();
+          if (Math.abs(window.scrollY - openY.current) > 2) {
+            window.scrollTo(0, openY.current);
+            lenisRef.current?.scrollTo(openY.current, { immediate: true, force: true });
+          }
           lock(false);
           setShown(null);
         },
@@ -286,6 +300,9 @@ export function Audience({
       );
       return () => window.clearTimeout(t);
     }
+    // al dicht (bv. door de browser gesloten): zeker weten dat de pagina weer scrollt
+    if (document.documentElement.classList.contains("aud-lock")) lock(false);
+    setShown(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
