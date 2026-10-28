@@ -20,7 +20,7 @@ export const NEW_SECTORS_C: Sector[] = [
     short: { nl: "Energie", en: "Energy" },
     icon: "leaf",
     /* 3D-render van de Green Eco Corridor (Plenty Planet), 1600 × 893 */
-    image: "/media/showcase/plentyplanet/greenecocorridor.webp",
+    image: "/media/showcase/plentyplanet/greencorridor3.webp",
     imagePosition: "50% 50%",
     quote: { nl: "Clean energy deserves a story people actually get.", en: "Clean energy deserves a story people actually get." },
     intro: {
