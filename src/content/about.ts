@@ -64,7 +64,8 @@ export const aboutCopy = {
     },
     since: { nl: "Sinds", en: "Since" },
     partner: { nl: "Webflow Professional Partner", en: "Webflow Professional Partner" },
-    clients: { nl: "klanten wereldwijd", en: "clients worldwide" },
+    clients: { nl: "Klanten", en: "Clients" },
+    worldwide: { nl: "wereldwijd", en: "worldwide" },
     statsLabel: { nl: "M7 in cijfers", en: "M7 in numbers" },
   },
   team: {

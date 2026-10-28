@@ -452,6 +452,28 @@
     font-size: 0.92rem;
   }
 }
+@media (max-width: 380px) {
+  .ah__inner {
+    padding-inline: 14px;
+  }
+  .ah__lead {
+    font-size: 0.94rem;
+  }
+  .ah__cta .btn {
+    gap: 10px;
+    padding-left: 18px;
+    font-size: 0.88rem;
+  }
+  .ah__team .av {
+    --av: 26px;
+  }
+  .ah__team .avs .av + .av {
+    margin-left: calc(var(--av) * -0.38);
+  }
+  .ah__team-txt strong {
+    font-size: 0.76rem;
+  }
+}
 @media (max-width: 760px) and (orientation: portrait) {
   .ah__slide img,
   .ah__slide video {

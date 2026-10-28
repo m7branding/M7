@@ -18,21 +18,27 @@ import type { Locale } from "@/content/types";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
-import { buildMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { aboutPageLd, buildMetadata } from "@/lib/seo";
 import "@/styles/about.css";
 
 type P = { params: { lang: Locale } };
 
+const meta = (locale: Locale) =>
+  locale === "nl"
+    ? {
+        title: "Over M7 | Branding- & designbureau in Nistelrode, Noord-Brabant",
+        description:
+          "Maak kennis met M7: een full-service branding- en designbureau met een eigen kantoor in het buitengebied van Nistelrode, tussen Oss, Uden, Den Bosch en Eindhoven. Webflow Professional Partner, 250+ klanten wereldwijd.",
+      }
+    : {
+        title: "About M7 | Branding & design agency in Nistelrode, the Netherlands",
+        description:
+          "Meet M7: a full-service branding and design agency with its own office in the countryside of Nistelrode, between Oss, Uden, 's-Hertogenbosch and Eindhoven. Webflow Professional Partner, 250+ clients worldwide.",
+      };
+
 export function generateMetadata({ params }: P): Metadata {
-  const nl = params.lang === "nl";
-  return buildMetadata({
-    locale: params.lang,
-    path: paths.about,
-    title: nl ? "Over M7 | Branding- & designbureau in Nistelrode, Noord-Brabant" : "About M7 | Branding & design agency in Nistelrode, the Netherlands",
-    description: nl
-      ? "Maak kennis met M7: een full-service branding- en designbureau met een eigen kantoor in het buitengebied van Nistelrode, tussen Oss, Uden, Den Bosch en Eindhoven. Webflow Professional Partner, 250+ klanten wereldwijd."
-      : "Meet M7: a full-service branding and design agency with its own office in the countryside of Nistelrode, between Oss, Uden, 's-Hertogenbosch and Eindhoven. Webflow Professional Partner, 250+ clients worldwide.",
-  });
+  return buildMetadata({ locale: params.lang, path: paths.about, ...meta(params.lang) });
 }
 
 const VALUES = [
@@ -148,7 +154,9 @@ export default function AboutPage({ params }: P) {
                 </span>
                 <span>
                   <small>{tr(a.story.clients, locale)}</small>
-                  <strong>{clientsTxt}</strong>
+                  <strong>
+                    {clientsTxt} {tr(a.story.worldwide, locale)}
+                  </strong>
                 </span>
               </li>
             </ul>
@@ -322,6 +330,8 @@ export default function AboutPage({ params }: P) {
       <ClientMap locale={locale} />
 
       <LevelUp locale={locale} />
+
+      <JsonLd data={aboutPageLd(locale, meta(locale))} />
     </>
   );
 }
