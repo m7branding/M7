@@ -548,6 +548,12 @@ html.js [data-reveal="clip"].is-in {
   display: inline-block;
   will-change: transform;
 }
+/* gradient-woorden: één doorlopend verloop over het hele segment (zie SplitText + GradientFlow) */
+.split [data-g] {
+  background-size: var(--gbs, 100%) 100%;
+  background-position: var(--gbp, 0%) 0;
+  background-repeat: no-repeat;
+}
 html.js .split[data-reveal] {
   opacity: 1;
   transform: none;

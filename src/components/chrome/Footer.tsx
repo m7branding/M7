@@ -120,17 +120,25 @@ export function Footer({ locale }: { locale: Locale }) {
       </div>
 
       <div className="ftr__legal">
-        <OverlayButton target="support" className="ftr-sup ftr-sup--pill">
-          <LiveDot size={7} />
-          Support
-          <span className="ftr-sup__live">Live</span>
-        </OverlayButton>
-        <TLink href={paths.terms}>{d.footer.terms}</TLink>
-        <TLink href={paths.privacy}>{d.footer.privacy}</TLink>
-        <TLink href={paths.cookies}>{d.footer.cookies}</TLink>
+        <nav className="ftr__legal-nav" aria-label={locale === "nl" ? "Juridisch en support" : "Legal and support"}>
+          <OverlayButton target="support" className="ftr-sup ftr-sup--pill">
+            <LiveDot size={7} />
+            Support
+            <span className="ftr-sup__live">Live</span>
+          </OverlayButton>
+          <TLink href={paths.terms}>{d.footer.terms}</TLink>
+          <TLink href={paths.privacy}>{d.footer.privacy}</TLink>
+          <TLink href={paths.cookies}>{d.footer.cookies}</TLink>
+        </nav>
         <p className="ftr__copy">
-          © {year} {site.legalName} · {site.address.street}, {site.address.postalCode} {site.address.city}
-          {site.kvk ? ` · KvK ${site.kvk}` : ""} · {d.footer.rights}
+          <span>
+            © {year} {site.legalName}
+          </span>
+          <span>
+            {site.address.street}, {site.address.postalCode} {site.address.city}
+          </span>
+          {site.kvk ? <span>KvK {site.kvk}</span> : null}
+          <span>{d.footer.rights}</span>
         </p>
       </div>
 

@@ -10,6 +10,7 @@ import { Footer } from "@/components/chrome/Footer";
 import { SiteChrome } from "@/components/chrome/SiteChrome";
 import type { NavData } from "@/components/chrome/types";
 import { Cursor } from "@/components/motion/Cursor";
+import { GradientFlow } from "@/components/motion/GradientFlow";
 import { LocaleProvider } from "@/components/motion/LocaleProvider";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { Preloader } from "@/components/motion/Preloader";
@@ -133,6 +134,7 @@ export default function LangLayout({ children, params }: { children: React.React
             </div>
             <PageTransition />
             <RevealObserver />
+            <GradientFlow />
             <Cursor />
             <CookieConsent labels={dict.cookie} enabled={Boolean(site.analytics.ga4 || site.analytics.gtm)} />
             <FloatDock whatsapp={site.whatsapp} email={site.email} />
