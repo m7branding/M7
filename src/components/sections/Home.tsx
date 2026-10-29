@@ -232,10 +232,13 @@ export function PillarStack({ locale, from = 0, to, anchors }: { locale: Locale;
 export function Masterpieces({ locale }: { locale: Locale }) {
   const d = getDict(locale);
   const all = allCases();
-  // Wall met echte projectbeelden (covers + galerij), zoals in het design
-  const tiles: { c: Case; img: string }[] = all.flatMap((c) =>
-    [c.cover, ...(c.gallery || [])].filter((x): x is string => !!x && !x.includes("titanium")).map((img) => ({ c, img })),
-  );
+  // Wall met echte projectbeelden zoals in het design: elke case één cover, de uitgelichte cases
+  // ook hun eerste galerijbeeld. Begrensd, zodat de lus licht blijft nu er veel cases zijn.
+  const ok = (x?: string): x is string => !!x && !x.includes("titanium");
+  const tiles: { c: Case; img: string }[] = [
+    ...all.flatMap((c) => (ok(c.cover) ? [{ c, img: c.cover }] : [])),
+    ...all.flatMap((c) => (c.featured && ok(c.gallery?.[0]) ? [{ c, img: c.gallery[0] }] : [])),
+  ].slice(0, 48);
   const cols: { c: Case; img: string }[][] = [[], [], [], []];
   tiles.forEach((t, i) => cols[i % 4].push(t));
   return (
