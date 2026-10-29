@@ -1046,6 +1046,19 @@
 }
 .bento__ai .btn {
   align-self: flex-start;
+  max-width: 100%;
+}
+/* smalle schermen: knop past binnen het blok (tekst mag desnoods over twee regels) */
+@media (max-width: 480px) {
+  .bento__ai .btn {
+    padding-left: 20px;
+    font-size: 0.9rem;
+  }
+  .bento__ai .btn > span:first-child {
+    white-space: normal;
+    text-align: left;
+    line-height: 1.25;
+  }
 }
 .bento__small {
   position: relative;
