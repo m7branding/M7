@@ -15,6 +15,8 @@ export type MapPin = {
   hq?: boolean;
   /** Nederlandse plaats (licht op via de legenda-chip 'Nederland'). */
   nl?: boolean;
+  /** Kleinere plaats: kleinere stip, geen ping. */
+  minor?: boolean;
   /** Staat voor alle plaatsen in de close-up (HQ op de wereldkaart). */
   proxy?: boolean;
   /** Vertraging van de reveal (s), loopt op met de afstand tot Nistelrode. */
@@ -285,7 +287,7 @@ function DotMap({
         {map.pins.map((p) => (
           <span
             key={p.id}
-            className={`${st.pin}${p.hq ? ` ${st.pinHq}` : ""}${p.nl ? ` ${st.pinNl}` : ""}${lit.has(p.id) ? ` ${st.pinOn}` : ""}`}
+            className={`${st.pin}${p.hq ? ` ${st.pinHq}` : ""}${p.nl ? ` ${st.pinNl}` : ""}${p.minor ? ` ${st.pinMinor}` : ""}${lit.has(p.id) ? ` ${st.pinOn}` : ""}`}
             style={{ left: pct(p.x, map.w), top: pct(p.y, map.h), ["--d" as string]: `${p.delay}s`, ["--p" as string]: `${p.ping}s` }}
           />
         ))}

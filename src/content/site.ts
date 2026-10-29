@@ -12,7 +12,8 @@ export const site = {
   email: "hello@m7branding.com",
   /** Vul aan met het juiste nummer (wordt dan ook in JSON-LD gebruikt). */
   phone: process.env.NEXT_PUBLIC_PHONE || "",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "",
+  /** WhatsApp van Martijn Roefs (internationaal, zonder +). Te overschrijven met NEXT_PUBLIC_WHATSAPP. */
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "31657564847",
   address: {
     street: "Loosbroekseweg 45",
     postalCode: "5388 VM",

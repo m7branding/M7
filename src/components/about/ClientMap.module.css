@@ -244,6 +244,18 @@
   --c: #2bffc0;
   --s: 5px;
 }
+/* kleinere plaats: kleinere stip, geen ping (rustig in drukke regio's) */
+.pinMinor {
+  --s: 4px;
+}
+.pinMinor::after {
+  animation: none;
+}
+.pinMinor::before {
+  box-shadow:
+    0 0 0 1px rgba(4, 4, 5, 0.85),
+    0 0 8px 1px color-mix(in srgb, var(--c) 55%, transparent);
+}
 .pinOn::before {
   transform: scale(1.7);
   background: #fff;
@@ -528,6 +540,9 @@
   }
   .pinNl {
     --s: 4.5px;
+  }
+  .pinMinor {
+    --s: 3.5px;
   }
   .pinHq {
     --s: 9px;

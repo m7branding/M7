@@ -144,10 +144,12 @@ export function ClientMap({ locale }: { locale: Locale }) {
     sub: p.id === HQ_ID ? `${site.address.street}, ${site.address.city}` : sub(p),
     hq: p.id === HQ_ID,
     nl: p.country === "NL",
+    minor: !!p.minor,
     delay: p.id === HQ_ID ? 0.15 : r2(0.45 + (Math.hypot(x - nx0, y - ny0) / maxN) * 1.4),
     ping: ping(i),
   }));
-  const nlHeat: MapHeat[] = nlPins.map((p) => ({ x: p.x, y: p.y, r: p.hq ? 40 : 30, a: p.nl ? 0.85 : 0.6 }));
+  // kleine plaatsen liggen dicht op elkaar: kleinere, zachtere gloed zodat Brabant niet overstraalt
+  const nlHeat: MapHeat[] = nlPins.map((p) => ({ x: p.x, y: p.y, r: p.hq ? 40 : p.minor ? 18 : 30, a: p.minor ? 0.45 : p.nl ? 0.85 : 0.6 }));
 
   const world: StageMap = {
     key: "world",
