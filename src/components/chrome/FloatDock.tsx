@@ -97,7 +97,9 @@ export function FloatDock({ whatsapp, email }: { whatsapp: string; email: string
   }, [armed]);
 
   const wa = whatsapp.replace(/[^\d]/g, "");
-  const onContact = pathname === localize("/contact", locale);
+  // tijdens het prerenderen is het NL-pad intern /nl/contact, in de browser /contact: eerst gelijktrekken
+  const publicPath = pathname.replace(/^\/nl(?=\/|$)/, "") || "/";
+  const onContact = publicPath === localize("/contact", locale);
   const intakeHref = localize("/contact#intake", locale);
   const shown = armed && !covered;
 
