@@ -379,9 +379,17 @@
   .mh__seg {
     width: 11px;
   }
-  /* rechtsonder zweeft de dock (intake / contact): het bijschrift stopt ervoor */
+  /* twee regels: bijschrift boven de voortgang; rechtsonder zweeft de dock (intake / contact),
+     dus het bijschrift stopt ervoor */
   .mh__bar {
-    padding-right: 104px;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    padding-top: 10px;
+  }
+  .mh__caption {
+    order: -1;
+    flex: 1 1 100%;
+    max-width: calc(100% - 96px);
   }
   .mh__segs {
     gap: 4px;
@@ -416,13 +424,15 @@
 }
 
 /* ---------------- Inhoud onder de hero ---------------- */
-/* ankersprongen (#alle-sectoren …) landen net onder de header. Lenis (html.lenis) telt de
-   scroll-margin op bij zijn eigen offset van -100px (SmoothScroll), vandaar de correctie. */
+/* ankersprongen (#alle-sectoren …) landen met de bovenrand van de sectie tegen de viewport:
+   de sectie heeft zelf genoeg lucht (en de header schuift weg bij omlaag scrollen).
+   Lenis (html.lenis) telt de scroll-margin op bij zijn eigen offset van -100px (SmoothScroll),
+   vandaar de correctie. */
 .ov-body {
-  scroll-margin-top: var(--header-h);
+  scroll-margin-top: 0;
 }
 html.lenis .ov-body {
-  scroll-margin-top: calc(var(--header-h) - 100px);
+  scroll-margin-top: -100px;
 }
 
 /* ---------------- /diensten: inhoudsopgave ---------------- */
@@ -779,6 +789,10 @@ html.lenis .pillar[id] {
   }
   .apps-band__chips {
     padding-top: 18px;
+  }
+  /* mobiel: een greep van zes is genoeg, de rest staat op /toepassingen */
+  .apps-band__chips li:nth-child(n + 7) {
+    display: none;
   }
   .apps-band__chip {
     font-size: 0.78rem;
