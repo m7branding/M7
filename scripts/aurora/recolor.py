@@ -1,5 +1,8 @@
 """Recolour ai-waves.webp per Aurora palette (luminance -> palette ramp in OKLab, keeps local hue/chroma nuance).
-usage: python3 -I recolor.py <src.webp> <outdir> [--sheet sheet.png]"""
+The results are the textures + static fallbacks of src/components/motion/Aurora.tsx (AURORA_IMAGES).
+usage (from the repo root):
+  python3 -I scripts/aurora/recolor.py public/media/bg/ai-waves.webp public/media/bg [--only brand,teal] [--sheet sheet.png] [--blur 1.6]
+needs numpy + Pillow (only for this generator, not at runtime)."""
 import sys, os
 import numpy as np
 from PIL import Image

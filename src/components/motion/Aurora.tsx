@@ -150,7 +150,7 @@ export function Aurora({
       last = 0,
       settleT = 0;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const resize = () => {
       if (!wrap.current) return;
       // layout-maat (geen transform/scale-animatie van een ouder meegerekend)
@@ -164,7 +164,7 @@ export function Aurora({
       cv.height = Math.max(2, Math.round(r.height * s));
       gl.viewport(0, 0, cv.width, cv.height);
       gl.uniform2f(uRes, cv.width, cv.height);
-      if (ready && !visible) draw(lastT);
+      if (ready) draw(lastT); // een nieuw formaat wist het canvas: meteen opnieuw tekenen
     };
 
     let mx = 0.5,
