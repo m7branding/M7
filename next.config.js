@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Aparte map voor een dev-server naast een productie-build (NEXT_DIST_DIR=.next-dev npx next dev)
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   // Zet dit aan voor een volledig statische export (handig om te embedden
   // op WordPress/Webflow of te hosten op een CDN):
   // output: "export",
