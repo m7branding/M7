@@ -178,8 +178,9 @@ ol {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  /* slice: over meerdere regels loopt één verloop door (niet per regel opnieuw) */
+  -webkit-box-decoration-break: slice;
+  box-decoration-break: slice;
 }
 .g-pixels {
   background-image: var(--g-pixels);
