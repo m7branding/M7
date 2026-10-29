@@ -34,7 +34,7 @@ export function PathBlock({
       data-palette={palette}
       {...(reveal ? { "data-reveal": "up" } : {})}
     >
-      <Aurora palette={palette} fallback={palette === "violet" ? "/media/bg/ai-waves.webp" : undefined} />
+      <Aurora palette={palette} fallback={`/media/bg/${palette === "violet" ? "ai-waves" : `ai-waves-${palette}`}.webp`} />
       <div className="pathblk__inner">
         <div className="pathblk__copy">
           {kicker ? <p className="pathblk__kicker">{kicker}</p> : null}
