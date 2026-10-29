@@ -225,13 +225,19 @@ export interface Case {
   client: string;
   title: T;
   summary: T;
-  year: number;
+  /** Jaar van oplevering; weglaten als het (nog) niet bekend is. */
+  year?: number;
   sector: SectorSlug;
   services: ServiceSlug[];
   applications: ApplicationSlug[];
   tools: ToolSlug[];
   /** Hoofdbeeld. Zonder beeld genereert de site een cover in `color`. */
   cover?: string;
+  /**
+   * Schermafbeeldingen voor de bewegende device-hero op de casepagina (lange screenshots die in
+   * een MacBook/iPhone/iPad rustig doorscrollen). Zonder screens: de gewone hero met `hero`/cover.
+   */
+  screens?: { desktop?: string; mobile?: string; tablet?: string };
   gallery?: string[];
   color: string;
   challenge: T;

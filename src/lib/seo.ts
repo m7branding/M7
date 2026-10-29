@@ -296,7 +296,7 @@ export function creativeWorkLd({
   image?: string;
   locale: Locale;
   client: string;
-  year: number;
+  year?: number;
 }) {
   return {
     "@context": "https://schema.org",
@@ -305,7 +305,7 @@ export function creativeWorkLd({
     description,
     url: abs(localize(path, locale)),
     ...(image ? { image: abs(image) } : {}),
-    dateCreated: String(year),
+    ...(year ? { dateCreated: String(year) } : {}),
     creator: { "@id": orgId },
     sourceOrganization: { "@type": "Organization", name: client },
     inLanguage: locale === "nl" ? "nl-NL" : "en-US",

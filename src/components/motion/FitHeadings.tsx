@@ -20,20 +20,20 @@ export function FitHeadings() {
         h.style.fontSize = "";
         const cs = getComputedStyle(h);
         const fs = parseFloat(cs.fontSize) || 16;
-        const lh = cs.lineHeight === "normal" ? fs * 1.2 : parseFloat(cs.lineHeight) || fs * 1.2;
         const avail = h.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
         if (avail <= 0) return;
         let widest = 0;
         h.querySelectorAll<HTMLElement>(".w > span").forEach((s) => {
-          // afgebroken woord = hoger dan één regel; de natuurlijke breedte is de som van de stukken
-          if (s.getBoundingClientRect().height < lh * 1.4) return;
+          // afgebroken woord = tekst over meer dan één regel; de natuurlijke breedte is de som van de stukken
           const r = document.createRange();
           r.selectNodeContents(s);
-          const w = [...r.getClientRects()].reduce((n, b) => n + b.width, 0);
-          widest = Math.max(widest, w);
+          const rects = [...r.getClientRects()].filter((b) => b.width > 0);
+          if (new Set(rects.map((b) => Math.round(b.top))).size < 2) return;
+          widest = Math.max(widest, rects.reduce((n, b) => n + b.width, 0));
         });
-        if (!widest) return;
-        const scale = Math.max(MIN_SCALE, Math.floor((avail / widest) * 100) / 100 - 0.01);
+        // alleen verkleinen, nooit vergroten
+        if (!widest || widest <= avail) return;
+        const scale = Math.min(1, Math.max(MIN_SCALE, Math.floor((avail / widest) * 100) / 100 - 0.01));
         h.style.fontSize = `${(fs * scale).toFixed(2)}px`;
       });
     };

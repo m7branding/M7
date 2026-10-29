@@ -66,7 +66,12 @@ function office(name: string, label: T, pos?: string, posM?: string, href?: stri
 export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroStill[] }> = {
   /* /diensten: van merk tot software, plus de studio waar het gebeurt */
   services: {
-    clips: [],
+    clips: [
+      { src: "/media/hero/clips/code-ui.mp4", poster: "/media/hero/clips/code-ui.webp", label: { nl: "Code en interfaces", en: "Code and interfaces" } },
+      { src: "/media/hero/clips/schets-motion.mp4", poster: "/media/hero/clips/schets-motion.webp", label: { nl: "Schetsen en motion design", en: "Sketching and motion design" } },
+      { src: "/media/hero/clips/foto-web.mp4", poster: "/media/hero/clips/foto-web.webp", label: { nl: "Fotografie en webdesign", en: "Photography and web design" } },
+      { src: "/media/hero/clips/studio.mp4", poster: "/media/hero/clips/studio.webp", label: { nl: "In de studio", en: "In the studio" } },
+    ],
     stills: [
       office("kantoor-werkplekken", { nl: "Onze studio in Nistelrode", en: "Our studio in Nistelrode" }, "50% 45%", "62% 50%", paths.about),
       { src: `${C}/teamtv-tablet-dark.webp`, w: 1800, h: 1350, label: { nl: "TeamTV · web-app", en: "TeamTV · web app" }, pos: "50% 45%", posM: "45% 50%", href: paths.case("teamtv") },
@@ -77,7 +82,11 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
   },
   /* /toepassingen: concrete tools en schermen */
   applications: {
-    clips: [],
+    clips: [
+      { src: "/media/hero/clips/wireframe.mp4", poster: "/media/hero/clips/wireframe.webp", label: { nl: "Van schets tot website", en: "From sketch to website" } },
+      { src: "/media/hero/clips/code-ui.mp4", poster: "/media/hero/clips/code-ui.webp", label: { nl: "Code en interfaces", en: "Code and interfaces" } },
+      { src: "/media/hero/clips/foto-web.mp4", poster: "/media/hero/clips/foto-web.webp", label: { nl: "Fotografie en webdesign", en: "Photography and web design" } },
+    ],
     stills: [
       { src: `${S}/bctn-control-tower.webp`, w: 1600, h: 1075, label: { nl: "BCTN · AI Control Tower (concept)", en: "BCTN · AI Control Tower (concept)" }, pos: "50% 35%", posM: "40% 40%", href: paths.service("ai-consultancy") },
       { src: `${S}/steddion-configurator.webp`, w: 1440, h: 900, label: { nl: "Steddion · Energy Property Configurator", en: "Steddion · Energy Property Configurator" }, pos: "60% 40%", posM: "58% 40%", tone: "light", href: paths.service("configurators-lead-tools-widgets") },
@@ -88,7 +97,11 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
   },
   /* /sectoren: per beeld een andere branche */
   sectors: {
-    clips: [],
+    clips: [
+      { src: "/media/hero/clips/studio.mp4", poster: "/media/hero/clips/studio.webp", label: { nl: "In de studio", en: "In the studio" } },
+      { src: "/media/hero/clips/foto-web.mp4", poster: "/media/hero/clips/foto-web.webp", label: { nl: "Fotografie en webdesign", en: "Photography and web design" } },
+      { src: "/media/hero/clips/wireframe.mp4", poster: "/media/hero/clips/wireframe.webp", label: { nl: "Van schets tot website", en: "From sketch to website" } },
+    ],
     stills: [
       { src: `${C}/jurgh-porsche.webp`, w: 2048, h: 1366, label: { nl: "Automotive · JURGH Detailing", en: "Automotive · JURGH Detailing" }, pos: "50% 45%", posM: "52% 50%", href: paths.sector("automotive-mobiliteit") },
       { src: `${PP}/greenecocorridor.webp`, w: 1600, h: 893, label: { nl: "Energie & duurzaamheid · Plenty Planet", en: "Energy & sustainability · Plenty Planet" }, pos: "50% 50%", posM: "60% 50%", href: paths.sector("energie-duurzaamheid") },
@@ -101,7 +114,11 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
   },
   /* /cases: de hero-beelden van de cases zelf */
   cases: {
-    clips: [],
+    clips: [
+      { src: "/media/hero/clips/foto-web.mp4", poster: "/media/hero/clips/foto-web.webp", label: { nl: "Fotografie en webdesign", en: "Photography and web design" } },
+      { src: "/media/hero/clips/wireframe.mp4", poster: "/media/hero/clips/wireframe.webp", label: { nl: "Van schets tot website", en: "From sketch to website" } },
+      { src: "/media/hero/clips/schets-motion.mp4", poster: "/media/hero/clips/schets-motion.webp", label: { nl: "Schetsen en motion design", en: "Sketching and motion design" } },
+    ],
     stills: [
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "TeamTV", en: "TeamTV" }, pos: "50% 45%", posM: "58% 45%", href: paths.case("teamtv") },
       { src: `${C}/jurgh-porsche.webp`, w: 2048, h: 1366, label: { nl: "JURGH Detailing", en: "JURGH Detailing" }, pos: "50% 45%", posM: "52% 50%", href: paths.case("jurgh-detailing") },

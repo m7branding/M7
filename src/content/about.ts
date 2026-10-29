@@ -11,7 +11,12 @@ import type { T } from "./types";
  * Tip: 6 tot 12 seconden per clip, zonder geluid, 1920px breed, H.264 (mp4) of VP9 (webm), liefst < 4 MB.
  * Zolang de lijst leeg is, rouleren de kantoorfoto's hieronder met een langzame Ken Burns-beweging.
  */
-export const heroClips: { src: string; poster?: string; label?: T }[] = [];
+export const heroClips: { src: string; poster?: string; label?: T }[] = [
+  { src: "/media/about/clips/kantoor.mp4", poster: "/media/about/clips/kantoor.webp", label: { nl: "Ons kantoor in Nistelrode", en: "Our office in Nistelrode" } },
+  { src: "/media/about/clips/team.mp4", poster: "/media/about/clips/team.webp", label: { nl: "Het team aan het werk", en: "The team at work" } },
+  { src: "/media/about/clips/pauze.mp4", poster: "/media/about/clips/pauze.webp", label: { nl: "Pauze: pool en FIFA", en: "Breaks: pool and FIFA" } },
+  { src: "/media/about/clips/uitje.mp4", poster: "/media/about/clips/uitje.webp", label: { nl: "Darts, fotoshoots en teamuitjes", en: "Darts, photo shoots and team outings" } },
+];
 
 /** Maximale speelduur per clip (seconden); langere clips worden na deze tijd overgevloeid. */
 export const heroClipMaxSeconds = 10;

@@ -50,7 +50,7 @@ export function CaseCard({
       </span>
       <span className="case-card__body">
         <span className="case-card__meta">
-          {c.client} · {c.year}
+          {c.year ? `${c.client} · ${c.year}` : c.client}
         </span>
         <span className="case-card__title">{tr(c.title, locale)}</span>
         <span className="case-card__tags">

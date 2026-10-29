@@ -84,7 +84,7 @@ export default function CasePage({ params }: P) {
             />
             <div className="case-hero__text">
               <p className="kicker case-hero__kicker" data-reveal="fade">
-                {c.client} · {c.year}
+                {c.year ? `${c.client} · ${c.year}` : c.client}
                 {c.concept ? <span className="case-hero__concept">{d.cases.concept}</span> : null}
               </p>
               <SplitText as="h1" className="h1 case-hero__title" parts={title} delay={0.15} />
@@ -116,10 +116,12 @@ export default function CasePage({ params }: P) {
               <dt>{d.cases.client}</dt>
               <dd>{c.client}</dd>
             </div>
-            <div>
-              <dt>{d.cases.year}</dt>
-              <dd>{c.year}</dd>
-            </div>
+            {c.year ? (
+              <div>
+                <dt>{d.cases.year}</dt>
+                <dd>{c.year}</dd>
+              </div>
+            ) : null}
             {sector ? (
               <div>
                 <dt>{d.cases.sector}</dt>
