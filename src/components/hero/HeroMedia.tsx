@@ -1,11 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { TLink } from "@/components/motion/TLink";
 
 export type HeroSlide =
-  | { kind: "video"; src: string; poster?: string; label: string }
+  | { kind: "video"; src: string; poster?: string; label: string; href?: string }
   | {
       kind: "still";
+      /** Optionele link achter het bijschrift (intern NL-pad, bv. de case). */
+      href?: string;
       src: string;
       /** Kleinere variant (≤ 720px) voor smalle schermen; zonder deze alleen `src`. */
       srcSm?: string;
@@ -269,9 +272,21 @@ export function HeroMedia({
             </div>
             <p className={c("caption")} aria-live="off">
               <span className={c("num")}>{String(cur + 1).padStart(2, "0")}</span>
-              <span className={c("label")} key={cur}>
-                {slides[cur].label}
-              </span>
+              {slides[cur].href ? (
+                // vaste link (alleen href en tekst wisselen), zodat de focus niet wegvalt bij een nieuw beeld
+                <TLink href={slides[cur].href!} className={c("link")}>
+                  <span className={c("label")} key={cur}>
+                    {slides[cur].label}
+                  </span>
+                  <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                    <path d="M2.5 7.5 7.5 2.5M3.5 2.5h4v4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </TLink>
+              ) : (
+                <span className={c("label")} key={cur}>
+                  {slides[cur].label}
+                </span>
+              )}
             </p>
           </div>
         ) : null}

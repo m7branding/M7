@@ -781,3 +781,41 @@ html.lenis .pillar[id] {
     padding: 7px 12px 7px 10px;
   }
 }
+
+/* bijschrift als link (naar de case, sector of dienst achter het beeld) */
+.mh__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  color: inherit;
+  transition: color 0.3s;
+}
+.mh__link svg {
+  flex: none;
+  opacity: 0;
+  transform: translate3d(-3px, 3px, 0);
+  transition:
+    opacity 0.3s,
+    transform 0.4s var(--ease-out);
+}
+.mh__link:hover,
+.mh__link:focus-visible {
+  color: #fff;
+}
+.mh__link:hover svg,
+.mh__link:focus-visible svg {
+  opacity: 1;
+  transform: none;
+}
+.mh__link:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+@media (max-width: 760px) {
+  .mh__link svg {
+    opacity: 0.7;
+    transform: none;
+  }
+}

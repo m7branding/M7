@@ -1004,6 +1004,22 @@ html.aud-lock {
     margin-top: 28px;
   }
 }
+/* tablet: CTA onder de FAQ's, tekst en knoppen naast elkaar */
+@media (min-width: 641px) and (max-width: 900px) {
+  .aud-cta__in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 22px 36px;
+    padding: 28px 30px 30px;
+  }
+  .aud-cta__team {
+    grid-column: 1 / -1;
+  }
+  .aud-cta__body {
+    margin-top: 18px;
+  }
+}
 @media (max-width: 640px) {
   .aud-uc__item {
     padding: 22px 20px 24px;
@@ -1063,13 +1079,16 @@ html.aud-lock {
   border-radius: 26px;
 }
 .aud-svc--modal .aud-svc__h {
+  align-items: flex-start;
   font-size: clamp(1.3rem, 2.1vw, 1.75rem);
+  line-height: 1.2;
   letter-spacing: -0.015em;
   gap: 14px;
 }
 .aud-svc--modal .aud-svc__dot {
   width: 11px;
   height: 11px;
+  margin-top: calc(0.6em - 5.5px);
 }
 
 /* ---------------- Dienstpagina: sectoren ---------------- */

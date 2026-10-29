@@ -165,6 +165,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "content-marketing-online-ads",
             application: "linkedin-ads",
           },
+          {
+            title: { nl: "Een merk dat vertrouwen geeft", en: "A brand that earns trust" },
+            text: {
+              nl: "Investeerders, gemeenten en grondeigenaren moeten je serieus nemen voordat er één paneel ligt. Een helder merk en een strakke huisstijl geven dat vertrouwen, van pitchdeck tot bouwbord.",
+              en: "Investors, municipalities and landowners need to take you seriously before a single panel is installed. A clear brand and a consistent visual identity give that trust, from pitch deck to site hoarding.",
+            },
+            service: "branding-rebranding",
+            application: "huisstijl",
+          },
+          {
+            title: { nl: "Pitchdeck voor een energieproject", en: "Pitch deck for an energy project" },
+            text: {
+              nl: "Locatie, netaansluiting, vergunningen, planning en business case van een zonnepark of batterijproject in een presentatie die rustig opbouwt. Bruikbaar bij investeerders, banken en de gemeenteraad.",
+              en: "Location, grid connection, permits, planning and business case of a solar park or battery project in a presentation that builds up calmly. Ready for investors, banks and the council.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "presentaties-pitchdecks",
+          },
+          {
+            title: { nl: "Projectpagina voor omwonenden", en: "Project page for local residents" },
+            text: {
+              nl: "Per project een pagina met wat er komt, de planning, de datum van de informatieavond en een vast aanspreekpunt. Zo lopen vragen niet via de buurtapp of de lokale krant.",
+              en: "A page per project with what is coming, the planning, the date of the information evening and a fixed point of contact. That way questions do not end up in the neighbourhood group chat or the local paper.",
+            },
+            service: "websites-webshops",
+            application: "landingspaginas",
+          },
+          {
+            title: { nl: "Zichtbaar in AI-antwoorden", en: "Visible in AI answers" },
+            text: {
+              nl: "Beslissers vragen ChatGPT of Perplexity steeds vaker wat een solar carport kost of hoe opslag helpt bij netcongestie. Met heldere kennispagina's vergroot je de kans dat jij daar als bron verschijnt.",
+              en: "Decision-makers increasingly ask ChatGPT or Perplexity what a solar carport costs or how storage helps with grid congestion. With clear knowledge pages you increase the chance that you appear there as a source.",
+            },
+            service: "seo-aeo-geo",
+            application: "geo",
+          },
         ],
         faqs: [
           {
@@ -193,6 +229,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Via de zoektermen die ze zelf gebruiken, zoals 'zonnepanelen op parkeerplaats', 'solar carport bedrijf' of 'batterij bij netcongestie'. Schrijf per toepassing een pagina die de vraag echt beantwoordt, met voorbeelden en een eerlijke uitleg van de aanpak. Steeds vaker stellen beslissers die vraag ook aan ChatGPT of Perplexity. Met [[seo]] en [[geo|GEO]] zorgen we dat je in Google en in AI-antwoorden opduikt. LinkedIn werkt daarnaast goed om facilitair managers en vastgoedeigenaren direct te bereiken.",
               en: "Through the search terms they use themselves, such as 'solar panels on car park', 'solar carport company' or 'battery for grid congestion'. Write a page per application that really answers the question, with examples and an honest explanation of the approach. Decision-makers increasingly ask ChatGPT or Perplexity the same thing. With [[seo|SEO]] and [[geo|GEO]] we make sure you show up in Google and in AI answers. LinkedIn also works well to reach facility managers and property owners directly.",
+            },
+          },
+          {
+            q: { nl: "Hoe vind je grondeigenaren voor een zonnepark of batterijproject?", en: "How do you find landowners for a solar park or battery project?" },
+            a: {
+              nl: "Door hun vragen eerder te beantwoorden dan de concurrent. Een agrariër of bedrijf met restgrond wil weten wat het ongeveer oplevert, hoe lang een contract loopt en wat er na afloop met de grond gebeurt. Zet dat eerlijk op een eigen [[landingspaginas|landingspagina]], met een eenvoudig formulier om een perceel aan te melden. Met gerichte [[meta-ads|Meta Ads]] en [[linkedin-ads|LinkedIn Ads]] in de zoekgebieden bereik je eigenaren voordat iemand anders ze belt.",
+              en: "By answering their questions before your competitors do. A farmer or company with spare land wants to know roughly what it pays, how long a contract runs and what happens to the land afterwards. Put that honestly on a dedicated [[landingspaginas|landing page]], with a simple form to register a plot. With targeted [[meta-ads|Meta Ads]] and [[linkedin-ads|LinkedIn Ads]] in your search areas you reach owners before someone else calls them.",
+            },
+          },
+          {
+            q: { nl: "Wat hoort er in een pitchdeck voor een energieproject?", en: "What belongs in a pitch deck for an energy project?" },
+            a: {
+              nl: "Het verhaal in de volgorde waarin een investeerder denkt: de locatie, de status van netaansluiting en vergunning, de techniek, de planning, het team en de business case, met de risico's eerlijk erbij. Laat zoveel mogelijk zien in plaats van vertellen, met een kaart, een render en een paar duidelijke grafieken. Een goed [[presentaties-pitchdecks|pitchdeck]] werkt ook als je er zelf niet bij bent, want het wordt na het gesprek doorgestuurd. Wij ontwerpen het zo dat je het per project snel aanpast.",
+              en: "The story in the order an investor thinks: the location, the status of grid connection and permit, the technology, the planning, the team and the business case, with the risks honestly included. Show rather than tell as much as possible, with a map, a render and a few clear charts. A good [[presentaties-pitchdecks|pitch deck]] also works when you are not in the room, because it gets forwarded after the meeting. We design it so you can quickly adapt it per project.",
+            },
+          },
+          {
+            q: { nl: "Hoe houd je omwonenden op de hoogte tijdens de bouw?", en: "How do you keep local residents informed during construction?" },
+            a: {
+              nl: "Met één vaste plek waar alles klopt. Een [[landingspaginas|projectpagina]] met de planning, de werkzaamheden van deze week, verwachte hinder en een aanspreekpunt voorkomt veel ergernis. Stuur geïnteresseerden een korte update per mail als er iets verandert. [[dronevideo|Dronebeelden]] van de voortgang laten zien dat het werk opschiet en hoe het park in het landschap komt te liggen. Zo blijft het gesprek met de buren rustig, ook als er een keer iets tegenzit.",
+              en: "With one fixed place where everything is correct. A [[landingspaginas|project page]] with the planning, this week's works, expected disruption and a point of contact prevents a lot of irritation. Send interested people a short email update when something changes. [[dronevideo|Drone footage]] of the progress shows the work is moving and how the park will sit in the landscape. That keeps the conversation with the neighbours calm, even when something does not go to plan.",
             },
           },
         ],
@@ -247,6 +304,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "automation-funnels",
             application: "lead-nurturing",
           },
+          {
+            title: { nl: "Google Ads in het stookseizoen", en: "Google Ads in the heating season" },
+            text: {
+              nl: "Wie in oktober 'warmtepomp laten plaatsen' zoekt, wil een installateur in de buurt. Met Google Ads op je eigen werkgebied sta je in beeld op het moment dat de vraag er is.",
+              en: "Someone searching for 'heat pump installation' in October wants an installer nearby. With Google Ads targeted at your own service area you are visible at the moment the need is there.",
+            },
+            service: "content-marketing-online-ads",
+            application: "google-ads",
+          },
+          {
+            title: { nl: "Video's van echte klussen", en: "Videos of real jobs" },
+            text: {
+              nl: "Een warmtepomp die in één dag wordt geplaatst of panelen op een lastig dak: korte video's van je eigen klussen laten zien hoe netjes je team werkt. Dat overtuigt meer dan een stockfoto.",
+              en: "A heat pump installed in a single day or panels on a tricky roof: short videos of your own jobs show how neatly your team works. That convinces more than a stock photo.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "social-video",
+          },
+          {
+            title: { nl: "Werken-bij voor monteurs", en: "Careers page for technicians" },
+            text: {
+              nl: "Goede monteurs zijn schaars. Een werken-bij pagina met echte collega's, de bus, het gereedschap en de opleiding laat zien waarom het bij jou goed werken is. Solliciteren kan in een paar minuten.",
+              en: "Good technicians are scarce. A careers page with real colleagues, the van, the tools and the training shows why yours is a good place to work. Applying takes a few minutes.",
+            },
+            service: "branding-rebranding",
+            application: "employer-branding",
+          },
+          {
+            title: { nl: "AI-assistent voor klantvragen", en: "AI assistant for customer questions" },
+            text: {
+              nl: "Vragen over subsidie, het geluid van een warmtepomp of de planning beantwoord op basis van je eigen informatie, ook 's avonds. Lastige of persoonlijke vragen gaan door naar je adviseur.",
+              en: "Questions about subsidies, heat pump noise or scheduling answered from your own information, in the evening too. Tricky or personal questions go straight to your advisor.",
+            },
+            service: "ai-consultancy",
+            application: "ai-chatbots",
+          },
         ],
         faqs: [
           {
@@ -275,6 +368,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Ja, als je het product koppelt aan een moment. Iemand die net een elektrische auto heeft besteld, zoekt een laadpaal. Iemand die schrikt van zijn terugleverkosten, kijkt naar een batterij. Met [[google-ads|Google Ads]] vang je die zoekvragen op, met [[meta-ads|Meta Ads]] bereik je mensen in je werkgebied die er nog niet actief naar zoeken. Voor GRID maakten we social ads waarmee bewoners gratis een publiek laadpunt bij hun woning kunnen aanvragen. Eén duidelijke actie in de advertentie doet het meeste werk.",
               en: "Yes, if you link the product to a moment. Someone who has just ordered an electric car is looking for a charger. Someone shocked by their feed-in charges is looking at a battery. With [[google-ads|Google Ads]] you catch those searches, with [[meta-ads|Meta Ads]] you reach people in your area who are not actively searching yet. For GRID we created social ads that let residents request a free public charging point near their home. One clear action in the ad does most of the work.",
+            },
+          },
+          {
+            q: { nl: "Hoe vind ik als installatiebedrijf goede monteurs?", en: "How do I find good technicians as an installation company?" },
+            a: {
+              nl: "Door te laten zien hoe het werk bij jou echt is, want vakmensen kiezen een werkgever en geen vacaturetekst. Laat collega's vertellen over hun klussen, de bus, de opleiding en de sfeer in het team. Maak solliciteren kort, zonder verplicht cv, en reageer snel. Met [[employer-branding|employer branding]], een paar [[social-video|korte video's]] en gerichte [[meta-ads|Meta Ads]] in je regio bereik je ook monteurs die niet actief zoeken, maar wel openstaan voor iets nieuws.",
+              en: "By showing what the work with you is really like, because skilled people choose an employer, not a job ad. Let colleagues talk about their jobs, the van, the training and the team spirit. Keep applying short, without a mandatory CV, and respond quickly. With [[employer-branding|employer branding]], a few [[social-video|short videos]] and targeted [[meta-ads|Meta Ads]] in your region you also reach technicians who are not actively looking but are open to something new.",
+            },
+          },
+          {
+            q: { nl: "Hoe belangrijk zijn Google-reviews voor een installateur?", en: "How important are Google reviews for an installer?" },
+            a: {
+              nl: "Erg belangrijk. Bij een investering in zonnepanelen of een warmtepomp kijkt bijna iedereen eerst naar ervaringen van anderen, en reviews tellen mee voor je zichtbaarheid in Google Maps. Vraag erom op het moment dat de klant tevreden is, bijvoorbeeld een paar dagen na de oplevering, met een directe link. Met een [[workflow-automatisering|automatische flow]] gebeurt dat bij elke klus zonder dat iemand eraan hoeft te denken. Reageer op elke review, ook op de kritische, rustig en concreet.",
+              en: "Very important. When investing in solar panels or a heat pump, nearly everyone first looks at other people's experiences, and reviews count towards your visibility in Google Maps. Ask for them when the customer is happy, for example a few days after completion, with a direct link. With an [[workflow-automatisering|automated flow]] that happens on every job without anyone having to remember. Reply to every review, including the critical ones, calmly and concretely.",
+            },
+          },
+          {
+            q: { nl: "Kan een chatbot vragen over subsidie en terugverdientijd beantwoorden?", en: "Can a chatbot answer questions about subsidies and payback time?" },
+            a: {
+              nl: "Ja, als je hem goed afbakent. Een [[ai-chatbots|AI-chatbot]] die alleen antwoordt op basis van je eigen pagina's en actuele subsidie-informatie, helpt bezoekers ook buiten kantoortijd op weg. Laat hem geen harde beloftes doen over opbrengst of terugverdientijd, maar laat hem verwijzen naar je calculator of een adviseur. Subsidieregels veranderen regelmatig, dus houd de bron actueel. Zo beantwoordt de bot de standaardvragen en houdt je adviseur tijd voor de echte gesprekken.",
+              en: "Yes, if you scope it well. An [[ai-chatbots|AI chatbot]] that only answers from your own pages and up-to-date subsidy information helps visitors outside office hours too. Do not let it make firm promises about yield or payback time; have it refer to your calculator or an advisor instead. Subsidy rules change regularly, so keep the source up to date. That way the bot handles the standard questions and your advisor has time for the real conversations.",
             },
           },
         ],
@@ -328,6 +442,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "seo-aeo-geo",
             application: "seo-content",
           },
+          {
+            title: { nl: "Website die advies begrijpelijk maakt", en: "A website that makes advice clear" },
+            text: {
+              nl: "Wat is maatwerkadvies, wanneer heb je een energielabel nodig en hoe gaat een opname? Een website die dat in gewone taal uitlegt, met op elke pagina een knop om direct een afspraak te plannen.",
+              en: "What is tailored energy advice, when do you need an energy label and how does an assessment work? A website that explains it in plain language, with a button on every page to book an appointment straight away.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Adviesrapport dat klanten wél lezen", en: "An advice report clients actually read" },
+            text: {
+              nl: "Een rapport met een heldere samenvatting, infographics en een stappenplan per maatregel. Zo weet een eigenaar wat hij eerst moet doen, in plaats van een pdf van veertig pagina's weg te klikken.",
+              en: "A report with a clear summary, infographics and a step-by-step plan per measure. That way an owner knows what to do first, instead of closing a forty-page PDF.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "infographics",
+          },
+          {
+            title: { nl: "Van aanvraag tot rapport in één CRM", en: "From enquiry to report in one CRM" },
+            text: {
+              nl: "Aanvragen, opnames, rapporten en vervolgopdrachten in één systeem, met automatische bevestigingen en herinneringen. Handig als je met meerdere adviseurs werkt en er niets tussen wal en schip mag vallen.",
+              en: "Enquiries, assessments, reports and follow-up jobs in one system, with automatic confirmations and reminders. Handy when you work with several advisors and nothing should slip through the cracks.",
+            },
+            service: "automation-funnels",
+            application: "crm-implementatie",
+          },
+          {
+            title: { nl: "AI die rapportteksten voorbereidt", en: "AI that drafts report texts" },
+            text: {
+              nl: "AI zet de notities en gegevens van een opname om in een eerste concepttekst die de adviseur controleert en aanvult. Minder typwerk, meer tijd voor het advies zelf en het gesprek met de klant.",
+              en: "AI turns the notes and data from an assessment into a first draft that the advisor checks and completes. Less typing, more time for the advice itself and the conversation with the client.",
+            },
+            service: "ai-consultancy",
+            application: "ai-integraties",
+          },
         ],
         faqs: [
           {
@@ -349,6 +499,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Ja. In een [[klantportaal]] staan het energielabel, het adviesrapport en de voorgestelde maatregelen per pand bij elkaar. Voor vastgoedeigenaren met meerdere panden is dat extra handig: één overzicht met de status per gebouw. Klanten kunnen er ook vragen stellen of een vervolgopdracht aanvragen. Dat scheelt jou zoekwerk en mailtjes met 'kun je dat rapport nog eens sturen?'. We koppelen het portaal waar mogelijk aan de software waarmee je nu al werkt.",
               en: "Yes. In a [[klantportaal|client portal]] the energy label, the advice report and the proposed measures are kept together per building. For property owners with several buildings that is extra handy: one overview with the status per building. Clients can also ask questions there or request a follow-up job. That saves you searching and emails saying 'could you send that report again?'. Where possible we connect the portal to the software you already use.",
+            },
+          },
+          {
+            q: { nl: "Hoe maak je een adviesrapport dat klanten echt lezen?", en: "How do you make an advice report clients actually read?" },
+            a: {
+              nl: "Zet het belangrijkste vooraan: een samenvatting van één pagina met de huidige situatie, de drie maatregelen met de meeste winst en een logische volgorde. Daarna volgt de onderbouwing voor wie verder wil lezen. Met [[infographics]] en een vast sjabloon ziet de klant in één oogopslag waar hij staat. Zet het rapport ook in een [[klantportaal]], zodat een eigenaar met meerdere panden alles op één plek terugvindt.",
+              en: "Put the most important part first: a one-page summary with the current situation, the three measures with the biggest gains and a logical order. Then the reasoning follows for those who want to read on. With [[infographics]] and a fixed template, the client sees at a glance where they stand. Put the report in a [[klantportaal|client portal]] too, so an owner with several buildings finds everything in one place.",
+            },
+          },
+          {
+            q: { nl: "Kan AI helpen bij het opstellen van energieadviezen?", en: "Can AI help with writing energy advice reports?" },
+            a: {
+              nl: "Ja, als voorbereiding. AI kan opnamegegevens en notities omzetten in een eerste concepttekst, of een technisch rapport samenvatten in gewone taal voor de klant. De berekeningen blijven in de software waarmee je erkend werkt, en de adviseur controleert en tekent altijd zelf. Begin met één type rapport en meet hoeveel tijd het scheelt. Met [[ai-integraties|AI-integraties]] en een heldere [[ai-strategie|AI-strategie]] past het in je bestaande werkwijze.",
+              en: "Yes, as preparation. AI can turn assessment data and notes into a first draft, or summarise a technical report in plain language for the client. The calculations stay in the certified software you already use, and the advisor always checks and signs off personally. Start with one type of report and measure how much time it saves. With [[ai-integraties|AI integrations]] and a clear [[ai-strategie|AI strategy]] it fits into your existing way of working.",
+            },
+          },
+          {
+            q: { nl: "Hoe bereik je vastgoedeigenaren en VvE's met verduurzamingsvragen?", en: "How do you reach property owners and owners' associations with sustainability questions?" },
+            a: {
+              nl: "Door in te spelen op wat nu op hun bord ligt, zoals de labelplicht voor kantoren, een meerjarenonderhoudsplan of een bank die naar het energielabel vraagt. Schrijf daar praktische artikelen en checklists over, zodat ze je vinden zodra ze gaan zoeken. Professionele eigenaren en beheerders bereik je goed via LinkedIn, VvE-besturen vaker via Google. Met [[seo-content|SEO-content]] en [[linkedin-ads|LinkedIn Ads]] word je de adviseur die ze bellen als het concreet wordt.",
+              en: "By responding to what is currently on their desk, such as the energy label requirement for offices, a long-term maintenance plan or a bank asking about the energy label. Write practical articles and checklists about that, so they find you as soon as they start searching. Professional owners and managers are easy to reach through LinkedIn, owners' association boards more often through Google. With [[seo-content|SEO content]] and [[linkedin-ads|LinkedIn Ads]] you become the advisor they call when things get concrete.",
             },
           },
         ],
@@ -402,6 +573,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "foto-video-3d-animatie",
             application: "motion-design",
           },
+          {
+            title: { nl: "Naam en huisstijl voor een coöperatie", en: "Name and identity for a cooperative" },
+            text: {
+              nl: "Een naam en beeld waar het dorp zich in herkent, die werken op de website, een bouwbord en een flyer in de bus. Lokaal en betrouwbaar, zonder dat het voelt als een groot energiebedrijf.",
+              en: "A name and look the village recognises itself in, that work on the website, a site sign and a leaflet through the door. Local and trustworthy, without feeling like a big energy company.",
+            },
+            service: "branding-rebranding",
+            application: "naamgeving",
+          },
+          {
+            title: { nl: "Flyer en uitnodiging huis-aan-huis", en: "Door-to-door leaflet and invitation" },
+            text: {
+              nl: "Niet iedereen leest je website. Een flyer met een heldere uitnodiging voor de informatieavond, een QR-code naar de projectpagina en een poster in het dorpshuis bereiken ook de buren die nooit online zoeken.",
+              en: "Not everyone reads your website. A leaflet with a clear invitation to the information evening, a QR code to the project page and a poster in the community centre also reach the neighbours who never search online.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "flyers-posters",
+          },
+          {
+            title: { nl: "Nieuwsbrief tot de inschrijving opent", en: "Newsletter until registration opens" },
+            text: {
+              nl: "Geïnteresseerden krijgen automatisch een bevestiging, af en toe een update over vergunning en bouw, en een seintje zodra de inschrijving voor participaties of een laadpunt opengaat.",
+              en: "Interested people automatically receive a confirmation, the occasional update on permit and construction, and a heads-up as soon as registration for shares or a charging point opens.",
+            },
+            service: "automation-funnels",
+            application: "e-mailmarketing",
+          },
+          {
+            title: { nl: "Adrescheck: kan ik meedoen?", en: "Address check: can I join?" },
+            text: {
+              nl: "Een bewoner vult zijn postcode in en ziet of zijn straat in het plangebied van het warmtenet of de laadpunten ligt, wat de volgende stap is en wanneer er een informatieavond is. Jij ziet waar de interesse zit.",
+              en: "A resident enters their postcode and sees whether their street is in the plan area for the heat network or charging points, what the next step is and when there is an information evening. You see where the interest is.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "check-tools",
+          },
         ],
         faqs: [
           {
@@ -423,6 +630,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Door uit te leggen wat het is en wat iemand er zelf aan kan doen. Netcongestie klinkt als een probleem waar je niets aan kunt veranderen. Maar slim laden, opslag en samenwerking op een bedrijventerrein helpen wel. Een korte [[motion-design|animatie]] van een vol stroomnet op een drukke dag maakt het in een halve minuut duidelijk. Daarna volgt een pagina met concrete opties per situatie. Zo voelt het niet als slecht nieuws, maar als een vraagstuk waar je samen aan werkt.",
               en: "By explaining what it is and what people can do about it themselves. Grid congestion sounds like a problem you cannot change. But smart charging, storage and cooperation on a business park do help. A short [[motion-design|animation]] of a full grid on a busy day makes it clear in half a minute. Then follow up with a page of concrete options per situation. That way it does not feel like bad news, but like a challenge you tackle together.",
+            },
+          },
+          {
+            q: { nl: "Hoe organiseer je een goede informatieavond over een energieproject?", en: "How do you organise a good information evening about an energy project?" },
+            a: {
+              nl: "Nodig breed uit en maak het concreet. Gebruik een [[flyers-posters|flyer]] in de bus, lokale social posts en een aanmeldpagina, zodat je weet hoeveel mensen er komen. Laat op de avond zien wat er echt komt, bijvoorbeeld met een [[3d-visualisatie]] vanaf een bekende plek in het dorp, en vertel wat er met vragen en zorgen gebeurt. Zet de presentatie en de antwoorden achteraf online, voor wie er niet bij kon zijn.",
+              en: "Invite widely and make it concrete. Use a [[flyers-posters|leaflet]] through the door, local social posts and a sign-up page, so you know how many people are coming. On the evening, show what is really coming, for example with a [[3d-visualisatie|3D visual]] from a familiar spot in the village, and explain what happens with questions and concerns. Put the presentation and the answers online afterwards, for those who could not make it.",
+            },
+          },
+          {
+            q: { nl: "Hoe communiceer je over een warmtenet zonder dat bewoners afhaken?", en: "How do you communicate about a heat network without residents dropping out?" },
+            a: {
+              nl: "Door de vragen te beantwoorden die bewoners echt hebben: wat kost het mij, wat merk ik ervan in huis, hoe lang duurt de aanleg en wat als ik niet meedoe? Wees eerlijk over wat nog niet vaststaat. Een korte [[motion-design|animatie]] legt uit hoe een warmtenet werkt, een [[check-tools|adrescheck]] laat zien wat het voor jouw straat betekent. Een vaste pagina met vragen en antwoorden, die je na elke bijeenkomst bijwerkt, voorkomt dat geruchten het verhaal overnemen.",
+              en: "By answering the questions residents actually have: what will it cost me, what will I notice at home, how long will installation take and what if I do not take part? Be honest about what has not been decided yet. A short [[motion-design|animation]] explains how a heat network works, an [[check-tools|address check]] shows what it means for your street. A fixed questions-and-answers page that you update after every meeting keeps rumours from taking over the story.",
+            },
+          },
+          {
+            q: { nl: "Kan een coöperatie met vrijwilligers de website zelf bijhouden?", en: "Can a cooperative run by volunteers keep the website up to date itself?" },
+            a: {
+              nl: "Ja, als je het simpel houdt. We bouwen een [[webflow-website|website]] met een overzichtelijk beheer, waarin vrijwilligers nieuws, projecten en agenda-items plaatsen zonder technische kennis. Met vaste sjablonen ziet elke pagina er goed uit, wie hem ook maakt. We leggen het uit in een korte sessie. Hosting, updates en beveiliging regelen we met [[hosting-onderhoud|hosting en onderhoud]], zodat niemand in het bestuur daar wakker van hoeft te liggen.",
+              en: "Yes, if you keep it simple. We build a [[webflow-website|website]] with a clear back end, where volunteers post news, projects and calendar items without technical knowledge. With fixed templates every page looks good, whoever makes it. We explain it in a short session. Hosting, updates and security are covered with [[hosting-onderhoud|hosting and maintenance]], so nobody on the board has to lose sleep over it.",
             },
           },
         ],
@@ -476,6 +704,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "content-marketing-online-ads",
             application: "linkedin-ads",
           },
+          {
+            title: { nl: "Kennisbank over CSRD en CO2", en: "Knowledge base on CSRD and carbon" },
+            text: {
+              nl: "Heldere antwoorden op vragen als 'moet ik CSRD-rapporteren?' of 'hoe breng ik mijn CO2-uitstoot in kaart?', zo opgebouwd dat Google en AI-assistenten ze makkelijk als antwoord kunnen gebruiken.",
+              en: "Clear answers to questions like 'do I have to report under the CSRD?' or 'how do I map my carbon emissions?', structured so Google and AI assistants can easily use them as an answer.",
+            },
+            service: "seo-aeo-geo",
+            application: "aeo",
+          },
+          {
+            title: { nl: "Dashboard met impactdata", en: "Dashboard with impact data" },
+            text: {
+              nl: "Ingezameld materiaal, hergebruikte producten of bespaarde CO2 per klant in één dashboard. Handig voor je eigen rapportage, en klanten zien wat hun bijdrage oplevert.",
+              en: "Collected material, reused products or carbon saved per customer in one dashboard. Useful for your own reporting, and customers see what their contribution delivers.",
+            },
+            service: "web-apps-portals-apps",
+            application: "dashboards",
+          },
+          {
+            title: { nl: "Calculator voor terugname of inruil", en: "Take-back or trade-in calculator" },
+            text: {
+              nl: "Een bedrijf geeft aantallen en type apparatuur, meubilair of materiaal op en ziet wat terugname of inruil ongeveer oplevert. Jij krijgt een aanvraag met de gegevens die je nodig hebt.",
+              en: "A company enters the quantities and type of equipment, furniture or material and sees roughly what take-back or trade-in delivers. You get an enquiry with the details you need.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Film van je werkplaats", en: "A film of your workshop" },
+            text: {
+              nl: "Laat zien wat er gebeurt met een ingeleverd product: demonteren, testen, opknappen en opnieuw verkopen. Een korte film van je eigen werkplaats maakt circulair concreet voor inkopers die twijfelen.",
+              en: "Show what happens to a returned product: dismantling, testing, refurbishing and selling it again. A short film of your own workshop makes circularity concrete for buyers who have doubts.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "bedrijfsfilm",
+          },
         ],
         faqs: [
           {
@@ -497,6 +761,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Door twijfel weg te nemen. Een koper van refurbished wil weten in welke staat het product is, wat er is vervangen en hoe lang de garantie loopt. Werk met duidelijke kwaliteitsklassen, echte foto's van het product en een eerlijke uitleg van het proces. Bij product-als-dienst of een terugnameregeling helpt een korte uitleg in stappen. We bouwen een [[webshop]] die dat allemaal overzichtelijk maakt, met de koppelingen naar je voorraad en logistiek die je nodig hebt.",
               en: "By removing doubt. A buyer of refurbished goods wants to know what condition the product is in, what has been replaced and how long the warranty runs. Work with clear quality grades, real photos of the product and an honest explanation of the process. For product-as-a-service or a take-back scheme, a short step-by-step explanation helps. We build a [[webshop|web shop]] that makes all of that clear, with the links to your stock and logistics that you need.",
+            },
+          },
+          {
+            q: { nl: "Hoe maak je een impact- of duurzaamheidsverslag dat gelezen wordt?", en: "How do you make an impact or sustainability report people read?" },
+            a: {
+              nl: "Begin met de kern op één of twee pagina's: wat je hebt gedaan, wat het heeft opgeleverd en waar je nog niet bent. Breng de belangrijkste cijfers in beeld met [[infographics]] en bewaar de volledige tabellen voor de bijlage. Maak er ook een webversie van, zodat je onderdelen kunt delen op LinkedIn en in offertes. Een verzorgd [[brochures-magazines|rapport]] laat zien dat je het serieus neemt, zonder het mooier te maken dan het is.",
+              en: "Start with the core on one or two pages: what you did, what it delivered and where you are not there yet. Visualise the key figures with [[infographics]] and keep the full tables for the appendix. Make a web version too, so you can share parts of it on LinkedIn and in proposals. A well-designed [[brochures-magazines|report]] shows you take it seriously, without making it look better than it is.",
+            },
+          },
+          {
+            q: { nl: "Hoe overtuig je zakelijke kopers dat refurbished betrouwbaar is?", en: "How do you convince business buyers that refurbished is reliable?" },
+            a: {
+              nl: "Door het proces te laten zien en de afspraken helder te maken. Een inkoper wil weten hoe je test, welke onderdelen je vervangt, welke garantie je geeft en hoe levering en service geregeld zijn. Leg dat vast op een duidelijke pagina, met kwaliteitsklassen en een korte [[bedrijfsfilm|film]] uit je werkplaats. Voor vaste klanten werkt een eigen bestelomgeving met hun prijzen goed. Zo wordt refurbished geen gok, maar een bewuste keuze.",
+              en: "By showing the process and making the agreements clear. A buyer wants to know how you test, which parts you replace, what warranty you give and how delivery and service work. Set that out on a clear page, with quality grades and a short [[bedrijfsfilm|film]] from your workshop. For regular customers, a dedicated ordering environment with their own prices works well. That way refurbished is not a gamble, but a conscious choice.",
+            },
+          },
+          {
+            q: { nl: "Kunnen klanten hun eigen impact of CO2-besparing online inzien?", en: "Can customers view their own impact or carbon savings online?" },
+            a: {
+              nl: "Ja. In een [[dashboards|dashboard]] of klantomgeving ziet een klant per periode wat er is ingezameld, hergebruikt of bespaard, met de bijbehorende certificaten of verwerkingsbewijzen. De data komt via [[api-koppelingen]] uit je eigen systemen, dus je houdt niets dubbel bij. Klanten gebruiken die cijfers vaak in hun eigen duurzaamheidsrapportage, en dat maakt jou een partner in plaats van een leverancier. Zorg wel dat de rekenmethode klopt en uitlegbaar is.",
+              en: "Yes. In a [[dashboards|dashboard]] or client area a customer sees per period what was collected, reused or saved, with the related certificates or proof of processing. The data comes from your own systems through [[api-koppelingen|API integrations]], so you do not keep anything twice. Customers often use those figures in their own sustainability reporting, which makes you a partner instead of a supplier. Do make sure the calculation method is correct and explainable.",
             },
           },
         ],
@@ -647,8 +932,8 @@ export const NEW_SECTORS_C: Sector[] = [
           {
             title: { nl: "Eén huisstijl voor het hele bestuur", en: "One identity for the whole board" },
             text: {
-              nl: "Herkenbaar als stichting, met ruimte voor het eigen karakter van elke school.",
-              en: "Recognisable as one foundation, with room for each school's own character.",
+              nl: "Herkenbaar als stichting, met ruimte voor de naam, de kleur en het eigen karakter van elke school. Met sjablonen voor brieven, presentaties en social media die iedereen kan gebruiken.",
+              en: "Recognisable as one foundation, with room for each school's name, colour and character. With templates for letters, presentations and social media that anyone can use.",
             },
             service: "branding-rebranding",
             application: "huisstijl",
@@ -670,6 +955,42 @@ export const NEW_SECTORS_C: Sector[] = [
             },
             service: "foto-video-3d-animatie",
             application: "bedrijfsfilm",
+          },
+          {
+            title: { nl: "Open dag-campagne in de wijk", en: "Open day campaign in the neighbourhood" },
+            text: {
+              nl: "Lokale advertenties en posts met echte momenten uit de klas, gericht op ouders in de buurt, met één link naar het aanmelden voor een rondleiding of de open dag.",
+              en: "Local ads and posts with real classroom moments, aimed at parents nearby, with one link to sign up for a tour or the open day.",
+            },
+            service: "content-marketing-online-ads",
+            application: "meta-ads",
+          },
+          {
+            title: { nl: "Werken-bij voor leerkrachten", en: "Careers page for teachers" },
+            text: {
+              nl: "Het lerarentekort voel je in bijna elke regio. Een werken-bij pagina met verhalen van collega's, de sfeer in het team en praktische info over begeleiding helpt nieuwe leerkrachten voor jouw school te kiezen.",
+              en: "The teacher shortage is felt in almost every region. A careers page with stories from colleagues, the team spirit and practical information about support helps new teachers choose your school.",
+            },
+            service: "branding-rebranding",
+            application: "employer-branding",
+          },
+          {
+            title: { nl: "Vindbaar voor ouders in de buurt", en: "Findable for parents nearby" },
+            text: {
+              nl: "Ouders die net verhuisd zijn, zoeken op 'basisschool' plus de wijk of plaats. Met een compleet Google Bedrijfsprofiel per school en heldere pagina's kom je bij hen in beeld.",
+              en: "Parents who have just moved search for 'primary school' plus the neighbourhood or town. With a complete Google Business Profile per school and clear pages you show up for them.",
+            },
+            service: "seo-aeo-geo",
+            application: "lokale-seo",
+          },
+          {
+            title: { nl: "Kennismaking zelf inplannen", en: "Booking an introduction online" },
+            text: {
+              nl: "Ouders kiezen zelf een moment voor een rondleiding of kennismakingsgesprek, met een bevestiging en een herinnering. De administratie hoeft geen afspraken meer heen en weer te mailen.",
+              en: "Parents choose a time for a tour or introductory meeting themselves, with a confirmation and a reminder. The school office no longer has to email back and forth about appointments.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "boekingswidget",
           },
         ],
         faqs: [
@@ -699,6 +1020,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Begin op tijd en ga waar ouders zijn. Ouders van peuters oriënteren zich vaak ruim van tevoren, ouders van groep 8 vooral rond de open dagen in de winter. Een korte sfeerfilm, social posts met echte momenten uit de klas en lokale advertenties rond het open huis werken goed. Stuur alles naar één [[landingspaginas|landingspagina]] waar ouders direct een rondleiding plannen. Met de toestemming voor beeldgebruik netjes geregeld, uiteraard.",
               en: "Start early and go where parents are. Parents of toddlers often look around well in advance, parents of children in their final primary year mainly around the winter open days. A short film, social posts with real classroom moments and local ads around the open day work well. Send everything to one [[landingspaginas|landing page]] where parents can book a tour straight away. With consent for using images properly arranged, of course.",
+            },
+          },
+          {
+            q: { nl: "Hoe vind je als school nieuwe leerkrachten via je website?", en: "How does a school find new teachers through its website?" },
+            a: {
+              nl: "Door te laten zien hoe het is om bij jullie te werken, niet alleen welke vacatures er zijn. Een leerkracht wil weten hoe het team is, hoe je nieuwe collega's begeleidt, hoe groot de klassen zijn en wat de school bijzonder maakt. Laat collega's daar zelf over vertellen, in tekst of een korte video. Met [[employer-branding|employer branding]] en een overzichtelijke werken-bij pagina op de site van het bestuur trek je ook zij-instromers en pas afgestudeerden aan.",
+              en: "By showing what it is like to work with you, not just which vacancies are open. A teacher wants to know what the team is like, how you support new colleagues, how big the classes are and what makes the school special. Let colleagues talk about that themselves, in text or a short video. With [[employer-branding|employer branding]] and a clear careers page on the board's website you also attract career changers and recent graduates.",
+            },
+          },
+          {
+            q: { nl: "Is WordPress of Webflow beter voor een schoolwebsite?", en: "Is WordPress or Webflow better for a school website?" },
+            a: {
+              nl: "Dat hangt af van wat je nodig hebt. [[wordpress-website|WordPress]] is bij veel medewerkers bekend en heeft veel uitbreidingen, bijvoorbeeld voor formulieren of een agenda, maar vraagt regelmatig onderhoud. [[webflow-website|Webflow]] is strak en snel, vraagt weinig technisch onderhoud en het beheer is ook voor niet-techneuten goed te doen. We kijken samen naar het aantal scholen, wie de site bijhoudt en welke koppelingen nodig zijn, en adviseren dan eerlijk.",
+              en: "That depends on what you need. [[wordpress-website|WordPress]] is familiar to many staff and has lots of extensions, for example for forms or a calendar, but needs regular maintenance. [[webflow-website|Webflow]] is clean and fast, needs little technical maintenance and the back end is easy for non-technical people too. We look together at the number of schools, who updates the site and which integrations are needed, and then give honest advice.",
+            },
+          },
+          {
+            q: { nl: "Hoe houd je een schoolwebsite actueel zonder extra werk?", en: "How do you keep a school website up to date without extra work?" },
+            a: {
+              nl: "Maak duidelijke afspraken en beperk het aantal plekken waar informatie staat. Wijs per onderdeel iemand aan, zoals nieuws, agenda en vacatures, en zet vaste gegevens als vakanties en schooltijden op één plek, zodat ze overal automatisch kloppen. Gebruik voor het dagelijkse nieuws aan ouders de ouderapp die je al hebt, en houd de website voor wat nieuwe ouders willen weten. Met [[hosting-onderhoud|hosting en onderhoud]] zorgen wij dat de techniek bijblijft.",
+              en: "Make clear agreements and limit the number of places where information lives. Appoint someone per section, such as news, calendar and vacancies, and keep fixed details like holidays and school hours in one place, so they are correct everywhere automatically. Use the parent app you already have for daily news to parents, and keep the website for what new parents want to know. With [[hosting-onderhoud|hosting and maintenance]] we make sure the technology keeps up.",
             },
           },
         ],
@@ -752,6 +1094,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "automation-funnels",
             application: "e-mailmarketing",
           },
+          {
+            title: { nl: "Een route per doelgroep", en: "A route per audience" },
+            text: {
+              nl: "Scholieren, ouders, werkenden die zich willen omscholen en bedrijven met stageplekken zoeken elk iets anders. Een website met een eigen route per groep brengt iedereen snel bij de juiste opleiding of informatie.",
+              en: "School leavers, parents, working people looking to retrain and companies offering placements all look for something different. A website with its own route per group gets everyone quickly to the right programme or information.",
+            },
+            service: "websites-webshops",
+            application: "ux-ui-webdesign",
+          },
+          {
+            title: { nl: "Video uit het praktijklokaal", en: "Video from the practical classroom" },
+            text: {
+              nl: "Laat zien waar studenten echt mee werken: de werkplaats, het skillslab of de keuken. Korte video's uit de praktijk maken een opleiding tastbaar, op de opleidingspagina en op social media.",
+              en: "Show what students really work with: the workshop, the skills lab or the kitchen. Short videos from practice make a programme tangible, on the programme page and on social media.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "social-video",
+          },
+          {
+            title: { nl: "Positionering voor een academie", en: "Positioning for an academy" },
+            text: {
+              nl: "Een private academie of nieuwe opleiding moet zich onderscheiden van de grote instellingen. Een scherpe positionering en huisstijl laten zien voor wie je bent en waarom iemand voor jou kiest.",
+              en: "A private academy or new programme has to stand out from the large institutions. Sharp positioning and a clear identity show who you are for and why someone should choose you.",
+            },
+            service: "branding-rebranding",
+            application: "merkstrategie",
+          },
+          {
+            title: { nl: "AI-assistent voor studievragen", en: "AI assistant for study questions" },
+            text: {
+              nl: "Vragen over toelatingseisen, aanmelddeadlines of de open dag beantwoord op basis van je eigen informatie, ook 's avonds. Persoonlijke vragen gaan door naar de studievoorlichter.",
+              en: "Questions about entry requirements, application deadlines or the open day answered from your own information, in the evening too. Personal questions go through to the student adviser.",
+            },
+            service: "ai-consultancy",
+            application: "ai-chatbots",
+          },
         ],
         faqs: [
           {
@@ -780,6 +1158,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Met contact op de juiste momenten. Na de open dag een bedankmail met de volgende stap, voor de intake een herinnering met praktische info, en in de zomer een paar berichten die laten voelen dat ze welkom zijn. Zo verklein je de kans dat iemand op het laatste moment afhaakt. Die flows zetten we op met [[e-mailmarketing]] en koppelen we waar mogelijk aan je aanmeldsysteem. Persoonlijk, zonder dat iemand alles met de hand hoeft te sturen.",
               en: "With contact at the right moments. After the open day a thank-you email with the next step, before the intake a reminder with practical info, and in summer a few messages that make them feel welcome. That reduces the chance of someone dropping out at the last minute. We set up those flows with [[e-mailmarketing|email marketing]] and, where possible, connect them to your enrolment system. Personal, without anyone having to send it all by hand.",
+            },
+          },
+          {
+            q: { nl: "Hoe bereik je werkenden die zich willen omscholen of bijscholen?", en: "How do you reach working people who want to retrain or upskill?" },
+            a: {
+              nl: "Anders dan scholieren. Werkenden zoeken gericht, vaak 's avonds, op termen als 'deeltijdopleiding' of 'omscholen naar de zorg', en willen snel weten hoeveel tijd het kost, wanneer de lessen zijn en of het te combineren is met werk. Geef deeltijd en korte trajecten eigen pagina's met die antwoorden. Met [[google-ads|Google Ads]] en [[seo-content|SEO-content]] vang je die zoekvragen op, met [[linkedin-ads|LinkedIn Ads]] bereik je professionals op functie en regio.",
+              en: "Differently from school leavers. Working people search in a targeted way, often in the evening, for terms like 'part-time course' or 'retrain for healthcare', and want to know quickly how much time it takes, when classes are and whether it can be combined with work. Give part-time and short programmes their own pages with those answers. With [[google-ads|Google Ads]] and [[seo-content|SEO content]] you catch those searches, with [[linkedin-ads|LinkedIn Ads]] you reach professionals by job title and region.",
+            },
+          },
+          {
+            q: { nl: "Kan een AI-chatbot vragen van aankomende studenten beantwoorden?", en: "Can an AI chatbot answer questions from prospective students?" },
+            a: {
+              nl: "Ja, voor de vragen die steeds terugkomen. Een [[ai-chatbots|AI-chatbot]] die antwoordt op basis van je eigen opleidingsinformatie, helpt scholieren en ouders op momenten dat de voorlichting dicht is. Baken goed af waar hij wel en niet over gaat, laat hem bij twijfel doorverwijzen en vraag geen persoonsgegevens die je niet nodig hebt. Controleer de antwoorden regelmatig, zeker rond aanmelddeadlines. Zo houden je voorlichters tijd voor de gesprekken die ertoe doen.",
+              en: "Yes, for the questions that keep coming back. An [[ai-chatbots|AI chatbot]] that answers from your own programme information helps students and parents when the information desk is closed. Scope clearly what it does and does not cover, have it refer on when in doubt and do not ask for personal data you do not need. Check the answers regularly, especially around application deadlines. That way your advisers keep time for the conversations that matter.",
+            },
+          },
+          {
+            q: { nl: "Hoe valt een private academie op naast grote hogescholen?", en: "How does a private academy stand out next to large universities?" },
+            a: {
+              nl: "Door specifiek te zijn over wat je anders doet. Kleine groepen, docenten uit de praktijk, een flexibel rooster of een opleiding die nergens anders zo bestaat: zeg het concreet en laat het zien. Ervaringen van oud-studenten en beelden van echte lessen overtuigen meer dan algemene beloftes. Met een heldere [[merkstrategie]] en [[seo-content|SEO-content]] per opleiding word je gevonden door precies de mensen die iets anders zoeken dan het standaardaanbod.",
+              en: "By being specific about what you do differently. Small groups, lecturers from the field, a flexible timetable or a programme that does not exist in this form anywhere else: say it concretely and show it. Experiences from alumni and images of real lessons convince more than general promises. With a clear [[merkstrategie|brand strategy]] and [[seo-content|SEO content]] per programme you get found by exactly the people looking for something other than the standard offer.",
             },
           },
         ],
@@ -834,6 +1233,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "automation-funnels",
             application: "lead-nurturing",
           },
+          {
+            title: { nl: "Lesvideo's en animaties", en: "Lesson videos and animations" },
+            text: {
+              nl: "Korte uitlegvideo's en animaties die een lastig onderwerp in een paar minuten helder maken. Ze vormen de basis van je online modules en werken ook als promotie voor de cursus.",
+              en: "Short explainer videos and animations that make a difficult topic clear in a few minutes. They form the basis of your online modules and also work as promotion for the course.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "motion-design",
+          },
+          {
+            title: { nl: "Vindbaar per cursus", en: "Findable per course" },
+            text: {
+              nl: "Een pagina per cursus met inhoud, duur, erkenning en startdata, technisch goed opgebouwd. Zo word je gevonden op 'cursus' plus je vakgebied of plaats, in Google en in AI-antwoorden.",
+              en: "A page per course with content, duration, accreditation and start dates, technically well built. That way you get found for 'course' plus your field or town, in Google and in AI answers.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo",
+          },
+          {
+            title: { nl: "Cursusmateriaal sneller met AI", en: "Course material faster with AI" },
+            text: {
+              nl: "AI helpt bij een eerste opzet van toetsvragen, samenvattingen, ondertitels of vertalingen van een module. Een trainer controleert en verbetert, zodat de kwaliteit blijft kloppen.",
+              en: "AI helps with a first draft of test questions, summaries, subtitles or translations of a module. A trainer checks and improves it, so the quality stays right.",
+            },
+            service: "ai-consultancy",
+            application: "ai-content",
+          },
+          {
+            title: { nl: "LinkedIn richting HR en L&D", en: "LinkedIn aimed at HR and L&D" },
+            text: {
+              nl: "Bereik HR-managers en L&D-adviseurs met praktische content over je trainingen en incompany-trajecten, gericht op functie, branche en regio. Met een download die leidt tot een gesprek.",
+              en: "Reach HR managers and L&D advisers with practical content about your training and in-company programmes, targeted by job title, industry and region. With a download that leads to a conversation.",
+            },
+            service: "content-marketing-online-ads",
+            application: "linkedin-ads",
+          },
         ],
         faqs: [
           {
@@ -862,6 +1297,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Met een pagina per cursus die meer is dan een datum en een prijs. Zoekers willen weten wat ze leren, voor wie het is, hoe lang het duurt, of het erkend is en wat eerdere deelnemers ervan vonden. Schrijf dat uit en zorg dat de pagina technisch goed in elkaar zit. Met [[seo]] word je gevonden op zoekopdrachten als 'cursus leidinggeven' of 'opleiding HR online'. [[google-ads|Google Ads]] helpt om in drukke periodes, zoals rond september en januari, extra zichtbaar te zijn.",
               en: "With a page per course that is more than a date and a price. Searchers want to know what they will learn, who it is for, how long it takes, whether it is accredited and what previous participants thought. Write that out and make sure the page is technically sound. With [[seo|SEO]] you get found for searches like 'leadership course' or 'online HR training'. [[google-ads|Google Ads]] helps you stay extra visible in busy periods, such as around September and January.",
+            },
+          },
+          {
+            q: { nl: "Hoe maak je van een klassikale training een goede online cursus?", en: "How do you turn a classroom training into a good online course?" },
+            a: {
+              nl: "Niet door de training op te nemen en online te zetten. Knip de stof op in korte blokken, wissel uitleg af met opdrachten en een korte toets, en bewaar het oefenen voor een live sessie of praktijkdag. Een [[motion-design|animatie]] maakt een lastig onderwerp vaak sneller duidelijk dan een uur praten. Test de eerste module met een paar cursisten en verbeter daarna. In een goed ontworpen [[ux-ui-app-design|leeromgeving]] weet een cursist altijd waar hij is en wat de volgende stap is.",
+              en: "Not by recording the training and putting it online. Cut the material into short blocks, alternate explanation with assignments and a short test, and save the practising for a live session or practical day. An [[motion-design|animation]] often makes a difficult topic clear faster than an hour of talking. Test the first module with a few learners and improve it afterwards. In a well-designed [[ux-ui-app-design|learning environment]] a learner always knows where they are and what the next step is.",
+            },
+          },
+          {
+            q: { nl: "Hoe verkoop je incompany-trainingen aan bedrijven?", en: "How do you sell in-company training to businesses?" },
+            a: {
+              nl: "Met vertrouwen en maatwerk. Een HR-manager wil weten hoe je een traject afstemt op de organisatie, wie de trainers zijn, hoe het praktisch werkt en hoe je meet of het iets heeft opgeleverd. Zet dat op een duidelijke pagina, met een brochure om te downloaden en een verzorgde [[presentaties-pitchdecks|presentatie]] voor het gesprek. Met [[linkedin-ads|LinkedIn Ads]] bereik je de juiste functies, met [[lead-nurturing]] blijf je in beeld tot het budget er is.",
+              en: "With trust and a tailored approach. An HR manager wants to know how you adapt a programme to the organisation, who the trainers are, how it works in practice and how you measure whether it delivered anything. Put that on a clear page, with a brochure to download and a polished [[presentaties-pitchdecks|presentation]] for the meeting. With [[linkedin-ads|LinkedIn Ads]] you reach the right job titles, with [[lead-nurturing|lead nurturing]] you stay in view until the budget is there.",
+            },
+          },
+          {
+            q: { nl: "Kan AI helpen bij het maken van cursusmateriaal?", en: "Can AI help with creating course material?" },
+            a: {
+              nl: "Ja, als hulpmiddel. AI kan een eerste versie maken van toetsvragen, samenvattingen, oefencasussen, ondertitels of een vertaling, waarna een trainer met kennis van zaken het controleert en aanscherpt. Let op auteursrecht en zet geen persoonsgegevens van cursisten in tools die je niet vertrouwt. Begin met één module en kijk hoeveel tijd het echt scheelt. In een [[ai-workshops|AI-workshop]] leert je team hoe ze [[ai-content|AI voor content]] verantwoord inzetten.",
+              en: "Yes, as a tool. AI can create a first version of test questions, summaries, practice cases, subtitles or a translation, after which a trainer who knows the subject checks and sharpens it. Watch out for copyright and do not put learners' personal data into tools you do not trust. Start with one module and see how much time it really saves. In an [[ai-workshops|AI workshop]] your team learns how to use [[ai-content|AI for content]] responsibly.",
             },
           },
         ],
@@ -909,11 +1365,47 @@ export const NEW_SECTORS_C: Sector[] = [
           {
             title: { nl: "Social content met toestemming", en: "Social content with consent" },
             text: {
-              nl: "Sfeervolle posts zonder herkenbare kinderen, of alleen met toestemming van de ouders.",
-              en: "Atmospheric posts without recognisable children, or only with parents' consent.",
+              nl: "Sfeervolle posts over spelen, buiten zijn en de seizoenen, zonder herkenbare kinderen of alleen met toestemming van de ouders. Zo blijft je feed warm en veilig.",
+              en: "Atmospheric posts about play, outdoor time and the seasons, without recognisable children or only with parents' consent. That keeps your feed warm and safe.",
             },
             service: "content-marketing-online-ads",
             application: "social-media-marketing",
+          },
+          {
+            title: { nl: "Website met info per locatie", en: "Website with info per location" },
+            text: {
+              nl: "Per locatie de groepen, openingstijden, foto's van de ruimtes en of er plek is, met een heldere uitleg over kinderopvangtoeslag. Ouders vinden in één keer wat ze zoeken.",
+              en: "Per location the groups, opening hours, photos of the rooms and whether there is a place, with a clear explanation of the childcare allowance. Parents find what they are looking for in one go.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Rekenhulp voor de netto kosten", en: "Calculator for the net costs" },
+            text: {
+              nl: "Ouders vullen opvangdagen en een paar gegevens in en zien een indicatie van wat opvang hen per maand kost na toeslag. Dat neemt een grote twijfel weg, nog voordat ze bellen.",
+              en: "Parents enter childcare days and a few details and see an estimate of what childcare costs them per month after the allowance. That removes a big doubt before they even call.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Van inschrijving tot plaatsing", en: "From registration to placement" },
+            text: {
+              nl: "Een inschrijving via de website komt direct in je planning, en ouders krijgen automatisch een bevestiging en updates over de plaatsing. Minder lijstjes, minder gemiste aanmeldingen.",
+              en: "A registration through the website goes straight into your planning, and parents automatically receive a confirmation and updates about the placement. Fewer lists, fewer missed registrations.",
+            },
+            service: "automation-funnels",
+            application: "workflow-automatisering",
+          },
+          {
+            title: { nl: "Sfeerfilm van een dag op de groep", en: "A film of a day in the group" },
+            text: {
+              nl: "De ruimtes, de pedagogisch medewerkers, het dagritme en de buitenspeelplaats in een korte film. Gefilmd met oog voor privacy, zodat je hem overal kunt gebruiken.",
+              en: "The rooms, the childcare staff, the daily rhythm and the outdoor play area in a short film. Filmed with privacy in mind, so you can use it everywhere.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "bedrijfsfilm",
           },
         ],
         faqs: [
@@ -936,6 +1428,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Alleen met toestemming van de ouders, en die vraag je vooraf en per doel. Veel opvangorganisaties werken daarom met beeld waarop kinderen niet herkenbaar zijn: handjes in de verf, een rugje bij de zandbak, de ruimte zelf. Dat kan heel sfeervol zijn. Voor campagnes kun je een fotoshoot doen met kinderen van wie de ouders uitdrukkelijk meedoen. We denken mee over een [[contentstrategie]] die werkt zonder dat de privacy in het gedrang komt.",
               en: "Only with the parents' consent, which you ask for in advance and per purpose. That is why many childcare organisations use images in which children cannot be recognised: little hands in paint, a back by the sandpit, the room itself. That can be very atmospheric. For campaigns you can do a photo shoot with children whose parents explicitly agree to take part. We help you with a [[contentstrategie|content strategy]] that works without compromising privacy.",
+            },
+          },
+          {
+            q: { nl: "Wat kost een website voor een kinderopvangorganisatie?", en: "What does a website for a childcare organisation cost?" },
+            a: {
+              nl: "Dat hangt vooral af van het aantal locaties, de functies en de koppelingen. Een compacte site voor één locatie is iets anders dan een site met tien locaties, een wachtlijst en een koppeling met je planningssysteem. Na een korte kennismaking krijg je een heldere offerte, zodat je vooraf weet waar je aan toe bent. Een compacte [[webflow-website|website]] staat gemiddeld in 4 tot 6 weken online, een uitgebreidere site met koppelingen duurt langer.",
+              en: "That mainly depends on the number of locations, the features and the integrations. A compact site for one location is different from a site with ten locations, a waiting list and a link to your planning system. After a short introduction you get a clear quote, so you know where you stand in advance. A compact [[webflow-website|website]] is typically online in 4 to 6 weeks, a more extensive site with integrations takes longer.",
+            },
+          },
+          {
+            q: { nl: "Hoe laat je ouders zien hoe het eraan toegaat op de groep?", en: "How do you show parents what a day in the group is like?" },
+            a: {
+              nl: "Met beeld en een paar eerlijke details. Een korte [[bedrijfsfilm|sfeerfilm]] van de ruimtes en het dagritme, foto's van de buitenspeelplaats en een voorstelrondje van het team zeggen meer dan een pedagogisch beleidsplan. Vertel in gewone taal hoe een dag verloopt, hoe het wennen gaat en hoe je ouders op de hoogte houdt. Het beleidsplan zet je er gewoon bij, voor wie het wil lezen.",
+              en: "With visuals and a few honest details. A short [[bedrijfsfilm|film]] of the rooms and the daily rhythm, photos of the outdoor play area and an introduction to the team say more than a pedagogical policy plan. Explain in plain language how a day goes, how settling in works and how you keep parents informed. The policy plan simply goes alongside, for those who want to read it.",
+            },
+          },
+          {
+            q: { nl: "Hoe ga je op je website om met een wachtlijst?", en: "How do you deal with a waiting list on your website?" },
+            a: {
+              nl: "Eerlijk en duidelijk. Laat per locatie en groep zien of er plek is, of hoe de wachtlijst ervoor staat, zodat ouders niet voor niets bellen. Houd inschrijven toch makkelijk en vertel wat er daarna gebeurt. Met een [[workflow-automatisering|automatische flow]] krijgen ouders een bevestiging en een bericht zodra er iets verandert. Wijs ook op andere locaties in de buurt, als je die hebt.",
+              en: "Honestly and clearly. Show per location and group whether there is a place, or how the waiting list looks, so parents do not call for nothing. Keep registering easy anyway and explain what happens next. With an [[workflow-automatisering|automated flow]] parents receive a confirmation and a message as soon as something changes. Point to other locations nearby too, if you have them.",
             },
           },
         ],
@@ -990,6 +1503,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "foto-video-3d-animatie",
             application: "social-video",
           },
+          {
+            title: { nl: "Website met lesrooster en tarieven", en: "Website with timetable and prices" },
+            text: {
+              nl: "Lessen, niveaus, leeftijden en tarieven overzichtelijk bij elkaar, met een rooster dat je zelf bijwerkt en een knop voor een proefles op elke pagina.",
+              en: "Classes, levels, ages and prices clearly together, with a timetable you update yourself and a trial lesson button on every page.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Logo en huisstijl met karakter", en: "A logo and identity with character" },
+            text: {
+              nl: "Een dansschool voelt anders dan een rijschool. Een eigen logo en huisstijl die klopt op de lesauto, het bord bij de deur, het rooster en Instagram, maakt je herkenbaar in de buurt.",
+              en: "A dance school feels different from a driving school. Your own logo and identity, consistent on the lesson car, the sign by the door, the timetable and Instagram, makes you recognisable locally.",
+            },
+            service: "branding-rebranding",
+            application: "logo-ontwerp",
+          },
+          {
+            title: { nl: "Campagne bij de start van het seizoen", en: "Campaign at the start of the season" },
+            text: {
+              nl: "Lokale advertenties in augustus en januari, als ouders en volwassenen een nieuwe hobby of cursus zoeken. Gericht op de buurt rond je school, met een proefles als eerste stap.",
+              en: "Local ads in August and January, when parents and adults look for a new hobby or course. Aimed at the area around your school, with a trial lesson as the first step.",
+            },
+            service: "content-marketing-online-ads",
+            application: "meta-ads",
+          },
+          {
+            title: { nl: "Herinneringen en lesupdates", en: "Reminders and lesson updates" },
+            text: {
+              nl: "Bevestigingen, een herinnering voor de proefles en een bericht als een les uitvalt gaan automatisch. Na de proefles volgt een vriendelijke mail met de volgende stap.",
+              en: "Confirmations, a reminder for the trial lesson and a message when a class is cancelled go out automatically. After the trial lesson a friendly email follows with the next step.",
+            },
+            service: "automation-funnels",
+            application: "workflow-automatisering",
+          },
         ],
         faqs: [
           {
@@ -1011,6 +1560,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Ja. Leerlingen kiezen een lesvorm, dag en tijd, schrijven zich in en betalen direct, per maand via automatische incasso of met een lessenkaart. Jij krijgt een overzicht per groep en hoeft geen Excel-lijstjes meer bij te houden. Vaak kan dat met een bestaand systeem dat we netjes in je website inbouwen. Soms is een eigen [[boekingswidget]] of een [[api-koppelingen|koppeling]] handiger. We kiezen wat past bij de grootte van je school.",
               en: "Yes. Pupils choose a type of lesson, day and time, enrol and pay straight away, monthly by direct debit or with a lesson card. You get an overview per group and no longer have to keep spreadsheets. Often this works with an existing system that we neatly build into your website. Sometimes a custom [[boekingswidget|booking widget]] or an [[api-koppelingen|integration]] is more practical. We choose what suits the size of your school.",
+            },
+          },
+          {
+            q: { nl: "Hoe zorg je dat een proefles ook een vaste leerling oplevert?", en: "How do you turn a trial lesson into a regular pupil?" },
+            a: {
+              nl: "Door direct na de proefles op te volgen. Stuur dezelfde dag een korte, persoonlijke mail met hoe het ging, welk lespakket of welke groep past en hoe je je inschrijft. Een herinnering een paar dagen later helpt wie nog twijfelt. Met [[e-mailmarketing]] en een [[boekingswidget]] die aan elkaar gekoppeld zijn, gaat dat automatisch, terwijl het persoonlijk blijft voelen. Vraag ook wat iemand tegenhoudt, daar leer je veel van.",
+              en: "By following up right after the trial lesson. Send a short, personal email the same day with how it went, which package or group fits and how to enrol. A reminder a few days later helps anyone still in doubt. With [[e-mailmarketing|email marketing]] and a [[boekingswidget|booking widget]] linked together, that happens automatically while it still feels personal. Also ask what is holding someone back; you learn a lot from that.",
+            },
+          },
+          {
+            q: { nl: "Wat moet er op de website van een zwemschool of bijlesinstituut?", en: "What should a swimming school or tutoring centre have on its website?" },
+            a: {
+              nl: "Antwoorden op de vragen waarvoor ouders anders bellen. Bij een zwemschool zijn dat de diploma's, de wachttijd, de lestijden per bad en wat het kost. Bij bijles gaat het om de vakken en niveaus, hoe begeleiding werkt, wie de begeleiders zijn en hoe je de voortgang bijhoudt. Zet dat overzichtelijk op een [[webflow-website|website]] met een duidelijke knop voor aanmelden of een intake. Reviews van ouders doen de rest.",
+              en: "Answers to the questions parents would otherwise call about. For a swimming school that means the certificates, the waiting time, lesson times per pool and what it costs. For tutoring it is about subjects and levels, how support works, who the tutors are and how you track progress. Put that clearly on a [[webflow-website|website]] with an obvious button to enrol or book an intake. Reviews from parents do the rest.",
+            },
+          },
+          {
+            q: { nl: "Heeft een kleine lesschool een eigen huisstijl nodig?", en: "Does a small lesson school need its own visual identity?" },
+            a: {
+              nl: "Je hebt geen dik merkboek nodig, wel een herkenbaar gezicht. Een goed [[logo-ontwerp|logo]], een paar vaste kleuren en lettertypes en sjablonen voor social posts en het lesrooster zijn vaak genoeg. Zorg dat het overal hetzelfde is: op de lesauto, het bord bij de deur, je website en Instagram. Zo onthouden mensen je, en dat is in een buurt met drie rijscholen of dansscholen precies wat je wilt. Een compacte [[huisstijl]] groeit later makkelijk mee.",
+              en: "You do not need a thick brand book, but you do need a recognisable face. A good [[logo-ontwerp|logo]], a few fixed colours and fonts and templates for social posts and the timetable are often enough. Make sure it is the same everywhere: on the lesson car, the sign by the door, your website and Instagram. That is how people remember you, which is exactly what you want in an area with three driving or dance schools. A compact [[huisstijl|visual identity]] easily grows with you later.",
             },
           },
         ],
