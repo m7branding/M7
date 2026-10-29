@@ -69,17 +69,38 @@ def sections(im, scale):
     gx = np.abs(np.diff(L, axis=1, prepend=L[:, :1]))
     gy = np.abs(np.diff(L, axis=0, prepend=L[:1, :]))
     row = np.minimum(gx + gy, 60.0).mean(axis=1)
+    # "tekstpixels": (bijna) wit of zwart direct naast een harde rand; vervaagde of half
+    # ingefadede tekst (animatie die nog niet af was) en foto-textuur tellen niet mee
+    # op volle resolutie: kleine tekst verdwijnt bij verkleinen
+    F = np.asarray(im.convert("L"), dtype=np.float32) / 255
+    fg = np.maximum(np.abs(np.diff(F, axis=1, prepend=F[:, :1])), np.abs(np.diff(F, axis=0, prepend=F[:1, :])))
+    tfull = (((F > 0.88) | (F < 0.08)) & (fg > 0.4)).mean(axis=1)
+    n0 = len(row)
+    tfull = tfull[: n0 * scale]
+    if len(tfull) < n0 * scale:
+        tfull = np.pad(tfull, (0, n0 * scale - len(tfull)))
+    trow = tfull.reshape(n0, scale).mean(axis=1)
     mean = a.mean(axis=1)
     std = a.std(axis=1).mean(axis=1)
     jump = np.abs(np.diff(mean, axis=0, prepend=mean[:1])).sum(axis=1)
     calm = std < 6
+    blank = std < 2.5
     starts = set()
     n = len(row)
     for y in range(2, n - 2):
         # harde kleurwissel tussen twee egale rijen: grens tussen secties
         if jump[y] > 24 and calm[y] and calm[y - 1]:
             starts.add(y)
-    return row, sorted(starts)
+    # of: inhoud begint na een lege band (sectie-padding); begin iets boven de inhoud
+    run = 0
+    for y in range(n):
+        if blank[y]:
+            run += 1
+            continue
+        if run * scale >= 48:
+            starts.add(max(0, y - max(2, int(28 / scale))))
+        run = 0
+    return row, sorted(starts), trow
 
 
 def window_rows(im, win_h, avoid_top, avoid_bottom, count, min_gap):
@@ -89,8 +110,9 @@ def window_rows(im, win_h, avoid_top, avoid_bottom, count, min_gap):
     if H < win_h + avoid_top * 0.5:
         return []
     scale = 4
-    row, starts = sections(im, scale)
+    row, starts, trow = sections(im, scale)
     flat = (row < 2.0).astype(np.float32)
+    c3 = np.concatenate([[0], np.cumsum(trow)])
     n = len(row)
     wh = max(1, win_h // scale)
     c1 = np.concatenate([[0], np.cumsum(row)])
@@ -106,7 +128,14 @@ def window_rows(im, win_h, avoid_top, avoid_bottom, count, min_gap):
             continue
         m = (c1[y + wh] - c1[y]) / wh
         f = (c2[y + wh] - c2[y]) / wh
-        sc = m * (1 - 0.85 * f) * (1.3 if y in sset else 1.0)
+        # inhoud over de hele hoogte verdeeld? (8 banden; lege vlakken, half geladen secties tellen niet)
+        nb = 8
+        bh = wh / nb
+        full = sum(1 for k in range(nb) if (c1[y + int((k + 1) * bh)] - c1[y + int(k * bh)]) / max(1, int(bh)) > 2.2)
+        texty = sum(1 for k in range(nb) if (c3[y + int((k + 1) * bh)] - c3[y + int(k * bh)]) / max(1, int(bh)) > 0.006)
+        # eerdere secties (direct na de hero) zijn meestal de sterkste en het best geladen
+        early = 1 / (1 + 1.2 * (y - lo) / max(1, hi - lo))
+        sc = m * (1 - 0.85 * f) * (full / nb) ** 1.5 * (0.35 + 0.65 * texty / nb) * (1.3 if y in sset else 1.0) * early
         cands.append((sc, y))
     cands.sort(reverse=True)
     out = []
@@ -137,16 +166,25 @@ def text_window(im, ww, wh):
     g = np.maximum(np.abs(np.diff(L, axis=1, prepend=L[:, :1])), np.abs(np.diff(L, axis=0, prepend=L[:1, :])))
     t = (((L > 0.86) | (L < 0.1)) & (g > 0.28)).astype(np.float32)
     H, W = t.shape
-    w, h = min(W, ww // scale), min(H, wh // scale)
     ii = np.pad(t.cumsum(0).cumsum(1), ((1, 0), (1, 0)))
-    best = (-1, 0, 0)
-    for y in range(0, max(1, H - h + 1), 4):
-        for x in range(0, max(1, W - w + 1), 4):
-            sc = ii[y + h, x + w] - ii[y, x + w] - ii[y + h, x] + ii[y, x]
-            sc *= 1 + 0.12 * (1 - y / max(1, H - h))
-            if sc > best[0]:
-                best = (sc, x, y)
-    return [best[1] * scale, best[2] * scale, w * scale, h * scale]
+
+    def box(x0, y0, x1, y1):
+        return ii[y1, x1] - ii[y0, x1] - ii[y1, x0] + ii[y0, x0]
+
+    best = (-1e9, 0, 0, 0, 0)
+    for k in (0.9, 1.0, 1.15):
+        w, h = min(W, int(ww * k) // scale), min(H, int(wh * k) // scale)
+        b = 3  # randband: hier liever geen tekst (niet door een woord heen snijden)
+        for y in range(0, max(1, H - h + 1), 4):
+            for x in range(0, max(1, W - w + 1), 4):
+                inside = box(x, y, x + w, y + h)
+                edge = box(max(0, x + w - b), y, min(W, x + w + b), y + h) + box(max(0, x - b), y, min(W, x + b), y + h) if x > 0 else box(max(0, x + w - b), y, min(W, x + w + b), y + h)
+                edge += box(x, max(0, y + h - b), x + w, min(H, y + h + b))
+                sc = inside / (w * h) ** 0.35 - 3.0 * edge
+                sc *= 1 + 0.12 * (1 - y / max(1, H - h))
+                if sc > best[0]:
+                    best = (sc, x, y, w, h)
+    return [best[1] * scale, best[2] * scale, best[3] * scale, best[4] * scale]
 
 
 def cmd_analyze(job):
@@ -157,6 +195,10 @@ def cmd_analyze(job):
             with Image.open(os.path.join(d, f)) as im:
                 out["files"][f[:-4]] = list(im.size)
     hd = os.path.join(d, "hero-desktop.png")
+    if not os.path.exists(hd):
+        pages = sorted(f for f in os.listdir(d) if f.startswith("page-") and f.endswith("-desktop.png"))
+        if pages:
+            hd = os.path.join(d, pages[0])
     if os.path.exists(hd):
         im = load(hd)
         a = np.asarray(im.resize((160, 100)), dtype=np.float32) / 255

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { DeviceHero } from "@/components/cases/DeviceHero";
 import { ScrollShowcase } from "@/components/motion/ScrollShowcase";
 import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
@@ -54,24 +55,30 @@ export default function CasePage({ params }: P) {
 
   const story = storyFor(c);
   const heroImg = c.hero?.image ?? c.cover;
+  // bewegende device-hero als er lange screenshots zijn (een eigen hero-beeld/video gaat voor)
+  const screens = !c.hero && (c.screens?.desktop || c.screens?.mobile) ? c.screens : undefined;
 
   return (
     <article className="case" style={{ ["--cc" as string]: c.color, ["--accent" as string]: services[0]?.color }}>
       {/* ---------- Hero: schermvullend beeld (ingesprongen, afgerond) met donkere overlay ---------- */}
-      <section className="case-hero">
+      <section className={`case-hero${screens ? " case-hero--devices" : ""}`}>
         <div className="case-hero__frame">
-          <HeroScene>
-            <div className="case-hero__media">
-              {c.hero?.video ? (
-                <video src={c.hero.video} poster={c.hero.poster} autoPlay muted loop playsInline style={{ objectPosition: c.hero.position }} />
-              ) : heroImg ? (
-                <img src={heroImg} alt={c.client} fetchPriority="high" style={{ objectPosition: c.hero?.position }} />
-              ) : (
-                <CaseCover c={c} sizes="100vw" />
-              )}
-            </div>
-          </HeroScene>
-          <div className="case-hero__shade" aria-hidden="true" />
+          {screens ? null : (
+            <>
+              <HeroScene>
+                <div className="case-hero__media">
+                  {c.hero?.video ? (
+                    <video src={c.hero.video} poster={c.hero.poster} autoPlay muted loop playsInline style={{ objectPosition: c.hero.position }} />
+                  ) : heroImg ? (
+                    <img src={heroImg} alt={c.client} fetchPriority="high" style={{ objectPosition: c.hero?.position }} />
+                  ) : (
+                    <CaseCover c={c} sizes="100vw" />
+                  )}
+                </div>
+              </HeroScene>
+              <div className="case-hero__shade" aria-hidden="true" />
+            </>
+          )}
           <div className="container case-hero__content">
             <Breadcrumbs
               locale={locale}
@@ -103,6 +110,17 @@ export default function CasePage({ params }: P) {
               </div>
             </div>
           </div>
+          {screens ? (
+            <DeviceHero
+              screens={screens}
+              color={c.color}
+              label={
+                locale === "nl"
+                  ? `De website van ${c.client} op ${[screens.desktop && "een MacBook", screens.mobile && "een iPhone"].filter(Boolean).join(" en ")}`
+                  : `The ${c.client} website on ${[screens.desktop && "a MacBook", screens.mobile && "an iPhone"].filter(Boolean).join(" and ")}`
+              }
+            />
+          ) : null}
           <span className="case-hero__scroll" aria-hidden="true">
             {d.cases.scroll}
           </span>

@@ -9,9 +9,10 @@
                        <captures>/sites.json of <captures>/../sites.json
      --slug a,b        alleen deze slugs (standaard: alles met captures)
      --only cover,ipad alleen deze composities
-     --all             alle varianten (anders 4 galerijbeelden per project, afwisselend)
+     --all             alle varianten (anders 5 galerijbeelden per project; display/mac afwisselend)
      --force           opnieuw renderen, ook als de uitvoer nieuwer is dan de bronnen
      --no-manifest     src/content/generated/case-media.ts niet herschrijven
+     --out <dir>       uitvoer naar een andere map (proefdraaien; schrijft geen manifest)
      --jobs <n>        projecten tegelijk (standaard 2)
 
    Per project in public/media/cases/<slug>/:
@@ -32,7 +33,7 @@ import { writeManifest } from "./write-manifest.mjs";
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "../..");
 const TPL = path.join(HERE, "templates");
-const OUT = path.join(ROOT, "public/media/cases");
+let OUT = path.join(ROOT, "public/media/cases");
 const DEVICE_CSS = path.join(ROOT, "src/components/cases/devices.css");
 
 /* ---------- opties ---------- */
@@ -52,13 +53,16 @@ const SLUGS = opt("--slug")?.split(",");
 const FORCE = flag("--force");
 const ALL = flag("--all");
 const JOBS = Number(opt("--jobs", 2));
+// --out <dir>: proefdraaien buiten public/ (dan ook geen manifest)
+if (opt("--out")) OUT = path.resolve(opt("--out"));
+const MANIFEST = !flag("--no-manifest") && !opt("--out");
 const TMP = path.join(os.tmpdir(), "m7-mockups");
 fs.mkdirSync(TMP, { recursive: true });
 
 /* ---------- composities ---------- */
 // bg: studio (licht), graphite (donker), tint (merkkleur, licht)
 const COMPS = {
-  cover: { w: 1200, h: 750, q: 80, needs: ["desk", "mob"], bg: (s) => (s.dark ? "studio" : "graphite") },
+  cover: { w: 1200, h: 750, q: 80, needs: ["desk"], bg: (s) => (s.dark ? "studio" : "graphite") },
   ipad: { w: 1200, h: 800, q: 80, needs: ["tab"], bg: () => "graphite" },
   phones: { w: 1200, h: 800, q: 80, needs: ["mob", "mob2", "mob3"], bg: () => "studio" },
   "phones-angle": { w: 1200, h: 800, q: 80, needs: ["mob", "mob2", "mob3"], bg: () => "tint" },
@@ -72,15 +76,15 @@ const ORDER = ["ipad", "phones", "detail", "display", "mac", "phones-angle", "ph
 
 const hash = (s) => parseInt(crypto.createHash("md5").update(s).digest("hex").slice(0, 8), 16);
 
-/* standaard 4 galerijbeelden; per project afwisselend (zelfde slug → zelfde keuze) */
+/* standaard 5 galerijbeelden; Studio Display of MacBook close-up wisselt per project (zelfde slug → zelfde keuze) */
 function pickComps(slug, shots) {
   const ok = (c) => COMPS[c].needs.every((n) => shots[n]);
   let list = ALL ? ORDER.filter((c) => ok(c) && (c !== "phone" || !ok("phones"))) : [];
   if (!ALL) {
     const h = hash(slug);
-    const phones = h % 2 ? ["phones", "phones-angle", "phone"] : ["phones-angle", "phones", "phone"];
     const desk = (h >> 3) % 2 ? ["display", "mac"] : ["mac", "display"];
-    for (const group of [["ipad"], phones, ["detail"], desk]) {
+    // iPad, iPhones recht en in perspectief (korte sites: één iPhone), detail, en Studio Display óf MacBook close-up
+    for (const group of [["ipad"], ["phones", "phone"], ["phones-angle"], ["detail"], desk]) {
       const c = group.find(ok);
       if (c) list.push(c);
     }
@@ -121,22 +125,29 @@ function planShots(dir, a) {
   const has = (n) => !!f[n];
   const p = (n) => path.join(dir, `${n}.png`);
   const pages = Object.keys(f).filter((n) => n.startsWith("page-"));
-  const pageDesk = pages.find((n) => n.endsWith("-desktop"));
-  const pageMob = pages.find((n) => n.endsWith("-mobile"));
+  const pageDesks = pages.filter((n) => n.endsWith("-desktop"));
+  const pageMobs = pages.filter((n) => n.endsWith("-mobile"));
+  // hoofdbeelden: de hero van de homepage, anders de eerste subpagina (bv. een tool zonder eigen site)
+  const deskName = has("hero-desktop") ? "hero-desktop" : pageDesks.shift();
+  const mobName = has("hero-mobile") ? "hero-mobile" : pageMobs.shift();
   const shots = {};
-  if (has("hero-desktop")) shots.desk = { src: p("hero-desktop") };
-  if (pageDesk) shots.desk2 = { src: p(pageDesk) };
-  else if (has("hero-desktop")) shots.desk2 = shots.desk;
+  if (deskName) shots.desk = { src: p(deskName) };
+  if (pageDesks[0]) shots.desk2 = { src: p(pageDesks[0]) };
+  else if (shots.desk) shots.desk2 = shots.desk;
+  // geen tablet-capture: de desktop-hero, midden uitgesneden op iPad-verhouding
   if (has("hero-tablet")) shots.tab = { src: p("hero-tablet") };
-  if (has("hero-mobile")) shots.mob = { src: p("hero-mobile") };
+  else if (shots.desk) shots.tab = shots.desk;
+  if (mobName) shots.mob = { src: p(mobName) };
   const ys = a.mobileY ?? [];
   const fm = has("full-mobile") ? p("full-mobile") : null;
+  const pageMob = pageMobs[0];
   if (pageMob) shots.mob2 = { src: p(pageMob) };
   else if (fm && ys[0] != null) shots.mob2 = { src: fm, y: ys[0] };
   const y3 = pageMob ? ys[0] : ys[1];
-  if (fm && y3 != null) shots.mob3 = { src: fm, y: y3 };
-  if (has("hero-desktop") && a.detail) shots.detail = { src: p("hero-desktop"), region: a.detail };
-  // Studio Display: een sectie verderop van de desktop-site (1x, past vrijwel 1-op-1); anders de hero
+  if (pageMobs[1]) shots.mob3 = { src: p(pageMobs[1]) };
+  else if (fm && y3 != null) shots.mob3 = { src: fm, y: y3 };
+  if (shots.desk && a.detail) shots.detail = { src: shots.desk.src, region: a.detail };
+  // Studio Display: een sectie verderop van de desktop-site (1x, past vrijwel 1-op-1); anders een subpagina of de hero
   const dy = (a.desktopY ?? [])[0];
   if (has("full-desktop") && dy != null) shots.deskSec = { src: p("full-desktop"), y: dy };
   else if (shots.desk2) shots.deskSec = shots.desk2;
@@ -147,12 +158,19 @@ function planShots(dir, a) {
 
 /* ---------- versheid (idempotent) ---------- */
 const mtime = (f) => (fs.existsSync(f) ? fs.statSync(f).mtimeMs : 0);
-const TPL_TIME = Math.max(mtime(DEVICE_CSS), mtime(path.join(HERE, "compose.mjs")), ...fs.readdirSync(TPL).map((f) => mtime(path.join(TPL, f))));
+const TPL_TIME = Math.max(mtime(DEVICE_CSS), mtime(path.join(HERE, "compose.mjs")), mtime(path.join(HERE, "img.py")), ...fs.readdirSync(TPL).map((f) => mtime(path.join(TPL, f))));
+/* per uitvoerbestand: van welke bronnen (pad, grootte, tijd) en welke pipeline-versie het komt */
+const STAMPS = path.join(TMP, "stamps.json");
+const stamps = fs.existsSync(STAMPS) ? JSON.parse(fs.readFileSync(STAMPS, "utf8")) : {};
+const sig = (inputs) =>
+  [TPL_TIME, ...inputs.map((i) => (fs.existsSync(i) ? `${path.resolve(i)}:${fs.statSync(i).size}:${Math.round(mtime(i))}` : `${i}:-`))].join("|");
 function fresh(out, inputs) {
-  if (FORCE || !fs.existsSync(out)) return false;
-  const t = mtime(out);
-  return t > TPL_TIME && inputs.every((i) => mtime(i) < t);
+  return !FORCE && fs.existsSync(out) && stamps[out] === sig(inputs);
 }
+function stamp(out, inputs) {
+  stamps[out] = sig(inputs);
+}
+const saveStamps = () => fs.writeFileSync(STAMPS, JSON.stringify(stamps));
 
 /* ---------- renderen ---------- */
 async function render(ctx, slug, comps, shots, site) {
@@ -234,7 +252,12 @@ async function doSlug(ctx, slug, sites) {
   fs.mkdirSync(outDir, { recursive: true });
   fs.mkdirSync(path.join(TMP, slug), { recursive: true });
 
-  const comps = pickComps(slug, shots).filter((c) => {
+  const picked = pickComps(slug, shots);
+  // oude mockups die niet meer gekozen worden opruimen (alleen bij een volledige run, niet met --only)
+  if (!ONLY)
+    for (const f of fs.readdirSync(outDir))
+      if (/^m-.+\.webp$/.test(f) && !picked.includes(f.slice(2, -5))) fs.rmSync(path.join(outDir, f));
+  const comps = picked.filter((c) => {
     const ins = COMPS[c].needs.map((n) => shots[n].src);
     return !fresh(path.join(outDir, `m-${c}.webp`), ins);
   });
@@ -243,6 +266,7 @@ async function doSlug(ctx, slug, sites) {
     const res = await render(ctx, slug, comps, shots, { brand, dark });
     const enc = py("webp", { items: res.map((r) => ({ src: r.png, out: path.join(outDir, `m-${r.name}.webp`), q: COMPS[r.name].q })) });
     for (const e of enc) log.push([path.basename(e.out), e.bytes]);
+    for (const c of comps) stamp(path.join(outDir, `m-${c}.webp`), COMPS[c].needs.map((n) => shots[n].src));
   }
   // lange screenshots voor de bewegende hero
   const longs = [];
@@ -253,6 +277,8 @@ async function doSlug(ctx, slug, sites) {
   if (a.files["full-mobile"] && !fresh(path.join(outDir, "screen-mobile.webp"), [fm]) && (!ONLY || ONLY.includes("screens")))
     longs.push({ src: fm, out: path.join(outDir, "screen-mobile.webp"), w: 780, maxh: 5000, q: 72 });
   if (longs.length) for (const e of py("long", { items: longs })) log.push([path.basename(e.out), e.bytes]);
+  for (const l of longs) stamp(l.out, [l.src]);
+  saveStamps();
   const kb = (b) => `${Math.round(b / 1024)} KB`;
   console.log(`${slug}  (brand ${brand}, ${dark ? "donker" : "licht"})  ${log.map(([n, b]) => `${n} ${kb(b)}`).join(" · ") || "up-to-date"}`);
 }
@@ -261,7 +287,7 @@ async function doSlug(ctx, slug, sites) {
 const sites = loadSites();
 let slugs = fs
   .readdirSync(CAPTURES, { withFileTypes: true })
-  .filter((d) => d.isDirectory() && fs.existsSync(path.join(CAPTURES, d.name, "hero-desktop.png")))
+  .filter((d) => d.isDirectory() && fs.readdirSync(path.join(CAPTURES, d.name)).some((f) => /^(hero|page-.+)-desktop\.png$/.test(f)))
   .map((d) => d.name);
 if (SLUGS) slugs = slugs.filter((s) => SLUGS.includes(s));
 const skip = new Set(Object.values(sites).filter((s) => s.verified === false || s.skip).map((s) => s.slug));
@@ -289,4 +315,4 @@ await Promise.all(
 await browser.close();
 console.log(`klaar: ${slugs.length} project(en) in ${Math.round((Date.now() - t0) / 1000)} s`);
 
-if (!flag("--no-manifest")) writeManifest({ log: true });
+if (MANIFEST) writeManifest({ log: true });

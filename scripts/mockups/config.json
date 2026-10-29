@@ -1,0 +1,6 @@
+{
+  "_doc": "Instellingen voor write-manifest.mjs. replaceCover: de mockup-cover vervangt de huidige (zwakkere/lage-resolutie) cover. noScreens: geen bewegende device-hero. exclude: niet in de manifest.",
+  "replaceCover": ["repairlab", "jurgh-detailing", "buitenstate", "kippenkar"],
+  "noScreens": [],
+  "exclude": []
+}
