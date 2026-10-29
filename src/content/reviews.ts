@@ -100,6 +100,7 @@ export const reviews: Review[] = [
     lang: "en",
     translated: true,
     services: ["web-apps-portals-apps", "branding-rebranding", "websites-webshops"],
+    case: "cryptocointalk",
     rating: 5,
     source: "google",
     when: ago(3, "jaar"),

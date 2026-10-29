@@ -462,51 +462,53 @@
   border-radius: 50%;
   background: radial-gradient(circle at 38% 34%, #4a5d7a 0 8%, #1a2130 26%, #07080a 62%);
 }
-/* voet: arm (half in de schaduw van het scherm) + plaat */
+/* voet: één gebogen plaat aluminium, rechtop (in de schaduw van het scherm) en dan naar voren */
 .dx-display__stand {
   position: relative;
-  height: 17.5cqw;
+  height: 15.5cqw;
 }
 .dx-display__arm {
   position: absolute;
   left: 50%;
-  top: -0.5cqw;
-  bottom: 1.4cqw;
-  width: 21cqw;
+  top: -0.4cqw;
+  bottom: 2.2cqw;
+  width: 20cqw;
   translate: -50% 0;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 4%, transparent 96%, rgba(0, 0, 0, 0.35)),
-    linear-gradient(180deg, #1e1f22 0%, #2f3134 22%, #55575b 70%, #6e7074 100%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.32), rgba(255, 255, 255, 0.05) 1.2%, transparent 5%, transparent 95%, rgba(255, 255, 255, 0.05) 98.8%, rgba(0, 0, 0, 0.32)),
+    linear-gradient(180deg, #121315 0%, #232427 14%, #3e4043 42%, #5d5f63 78%, #6f7175 100%);
 }
 .dx-display__foot {
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: 31cqw;
-  height: 1.9cqw;
+  width: 23cqw;
+  height: 2.75cqw;
   translate: -50% 0;
 }
 .dx-display__foot::before {
-  /* bovenvlak in perspectief */
+  /* bovenvlak in perspectief: smal achter, breder naar voren */
   content: "";
   position: absolute;
-  inset: 0 0 0.62cqw;
-  clip-path: polygon(6% 0, 94% 0, 100% 100%, 0 100%);
-  background: linear-gradient(180deg, #6a6c70, #a2a4a8 80%, #c5c7ca);
+  inset: 0 0 0.5cqw;
+  clip-path: polygon(6.5% 0, 93.5% 0, 100% 100%, 0 100%);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.18), transparent 12%, transparent 88%, rgba(0, 0, 0, 0.18)),
+    linear-gradient(180deg, #55575b 0%, #8d8f93 45%, #b9bbbe 100%);
 }
 .dx-display__foot::after {
   /* voorrand */
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 0.62cqw;
-  border-radius: 0 0 0.5cqw 0.5cqw;
-  background: linear-gradient(180deg, #6b6d71, #3f4144);
+  height: 0.5cqw;
+  border-radius: 0 0 0.35cqw 0.35cqw;
+  background: linear-gradient(180deg, #c9cbce 0, #6e7074 22%, #4a4c50);
 }
 .dx-display .dx-floor {
-  top: calc(100% - 1.1cqw);
-  width: 46cqw;
-  height: 4.5cqw;
+  top: calc(100% - 1.2cqw);
+  width: 40cqw;
+  height: 4.2cqw;
 }
 .dx-display .dx-floor::before {
   top: 0;
@@ -515,8 +517,8 @@
   background: radial-gradient(closest-side, rgba(var(--dx-shade), var(--dx-amb, 0.26)), rgba(var(--dx-shade), calc(var(--dx-amb, 0.26) * 0.35)) 55%, transparent);
 }
 .dx-display .dx-floor::after {
-  top: 0.7cqw;
-  width: 72%;
+  top: 0.75cqw;
+  width: 62%;
   height: 1.2cqw;
   background: rgba(var(--dx-shade), var(--dx-contact, 0.55));
   filter: blur(0.5cqw);
