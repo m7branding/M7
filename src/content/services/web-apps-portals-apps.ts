@@ -596,7 +596,7 @@ export const applications: Application[] = [
       { title: { nl: "Consistent", en: "Consistent" }, text: { nl: "Een design system dat meegroeit met je product.", en: "A design system that grows with your product." } },
     ],
     tools: ["figma", "miro", "hotjar", "lottie"],
-    related: ["ux-ui-webdesign", "mobiele-app", "mvp-ontwikkeling", "huisstijl"],
+    related: ["ux-ui-webdesign", "mobiele-app", "mvp-ontwikkeling", "huisstijl", "ux-research", "user-testing"],
     faqs: [
       {
         q: { nl: "Kan ik alleen het design laten maken en zelf laten bouwen?", en: "Can I order just the design and have it built elsewhere?" },
@@ -797,7 +797,7 @@ export const applications: Application[] = [
       { title: { nl: "Investeerdersklaar", en: "Investor-ready" }, text: { nl: "Een werkend product zegt meer dan een pitchdeck.", en: "A working product says more than a pitch deck." } },
     ],
     tools: ["figma", "nextjs", "supabase", "expo", "vercel", "clickup"],
-    related: ["saas-platform", "ux-ui-app-design", "mobiele-app", "ai-strategie"],
+    related: ["saas-platform", "ux-ui-app-design", "mobiele-app", "ai-strategie", "design-sprint", "user-stories"],
     faqs: [
       {
         q: { nl: "Hoe lang duurt het bouwen van een MVP?", en: "How long does it take to build an MVP?" },
@@ -824,6 +824,274 @@ export const applications: Application[] = [
     metaDescription: {
       nl: "MVP laten ontwikkelen door M7: scherpe scope, klikbaar prototype en een werkend product op een schaalbare stack. Snel valideren met echte gebruikers.",
       en: "MVP development by M7: sharp scope, clickable prototype and a working product on a scalable stack. Validate fast with real users.",
+    },
+  },
+  {
+    slug: "ux-research",
+    service: "web-apps-portals-apps",
+    title: { nl: "UX research", en: "UX research" },
+    summary: {
+      nl: "Ontdekken wat gebruikers echt nodig hebben, voordat je gaat bouwen.",
+      en: "Discover what users really need, before you start building.",
+    },
+    intro: {
+      nl: "Goede producten beginnen niet bij features, maar bij mensen. Met interviews, observaties en data ontdekken we hoe je gebruikers werken, waar ze vastlopen en wat ze nodig hebben. Zo bouw je iets waar mensen echt op zitten te wachten.",
+      en: "Good products do not start with features, but with people. With interviews, observation and data we discover how your users work, where they get stuck and what they need. So you build something people are actually waiting for.",
+    },
+    body: [
+      {
+        h: { nl: "Praten, kijken en meten", en: "Talking, watching and measuring" },
+        body: {
+          nl: "We combineren kwalitatief en kwantitatief onderzoek. In gesprekken en observaties op de werkplek horen we het verhaal achter het gedrag. Met analytics, heatmaps en sessie-opnames zien we wat mensen in de praktijk doen. Samen geven ze een eerlijk beeld, want wat mensen zeggen en wat ze doen is niet altijd hetzelfde.",
+          en: "We combine qualitative and quantitative research. In interviews and on-site observation we hear the story behind the behaviour. With analytics, heatmaps and session recordings we see what people do in practice. Together they give an honest picture, because what people say and what they do is not always the same.",
+        },
+      },
+      {
+        h: { nl: "Inzichten waar je team mee verder kan", en: "Insights your team can act on" },
+        body: {
+          nl: "De uitkomsten vertalen we naar bruikbare middelen: persona's of gebruikersprofielen, een customer journey met pijnpunten en kansen, en een lijst met aanbevelingen voor ontwerp en product. Die nemen we mee in het ontwerp, de user stories en de roadmap. Onderzoek is bij ons geen los rapport, maar het startpunt van het ontwerp.",
+          en: "We translate the results into practical assets: personas or user profiles, a customer journey with pain points and opportunities, and a list of design and product recommendations. We carry them into the design, the user stories and the roadmap. For us, research is not a standalone report, but the starting point of the design.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Onderzoeksplan en onderzoeksvragen", "Gebruikersinterviews en observaties", "Analyse van analytics en heatmaps", "Persona's en customer journey", "Overzicht van pijnpunten en kansen", "Aanbevelingen voor ontwerp en roadmap"],
+      en: ["Research plan and research questions", "User interviews and observation", "Analysis of analytics and heatmaps", "Personas and customer journey", "Overview of pain points and opportunities", "Recommendations for design and roadmap"],
+    },
+    benefits: [
+      { title: { nl: "Minder aannames", en: "Fewer assumptions" }, text: { nl: "Je bouwt op wat gebruikers echt doen.", en: "You build on what users actually do." } },
+      { title: { nl: "Minder verspilling", en: "Less waste" }, text: { nl: "Geen features die niemand gebruikt.", en: "No features nobody uses." } },
+      { title: { nl: "Gedeeld beeld", en: "Shared picture" }, text: { nl: "Team en stakeholders kijken naar dezelfde gebruiker.", en: "Team and stakeholders look at the same user." } },
+    ],
+    tools: ["hotjar", "ga4", "miro", "figma", "typeform", "notion"],
+    related: ["user-testing", "user-stories", "ux-ui-app-design", "ux-ui-webdesign"],
+    faqs: [
+      {
+        q: { nl: "Is UX research niet te duur voor een kleiner project?", en: "Isn't UX research too expensive for a smaller project?" },
+        a: {
+          nl: "Onderzoek schaalt mee. Soms is het een uitgebreid traject met veel gesprekken, soms een paar interviews en een middag in Hotjar. Ook een kleine dosis onderzoek voorkomt vaak dure aanpassingen achteraf.",
+          en: "Research scales with the project. Sometimes it is an extensive programme with many interviews, sometimes a few interviews and an afternoon in Hotjar. Even a small dose of research often prevents costly changes afterwards.",
+        },
+      },
+      {
+        q: { nl: "Met wie praten jullie?", en: "Who do you talk to?" },
+        a: {
+          nl: "Met je echte (of beoogde) gebruikers: klanten, medewerkers, leden of partners. Jij helpt ons vaak aan de eerste contacten; wij zorgen voor de planning, de gesprekken en de verwerking.",
+          en: "With your real (or intended) users: customers, employees, members or partners. You often help us with the first contacts; we take care of the planning, the interviews and the processing.",
+        },
+      },
+      {
+        q: { nl: "Wat is het verschil tussen UX research en user testing?", en: "What is the difference between UX research and user testing?" },
+        a: {
+          nl: "UX research gaat vooral over begrijpen: wie zijn je gebruikers en wat hebben ze nodig? User testing toetst een concreet ontwerp of product: lukt het mensen om hun taak uit te voeren? Research komt meestal eerst, testen volgt zodra er iets te testen valt.",
+          en: "UX research is mainly about understanding: who are your users and what do they need? User testing checks a concrete design or product: can people complete their task? Research usually comes first, testing follows as soon as there is something to test.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "UX research door M7: interviews, observaties en data-analyse die laten zien wat je gebruikers echt nodig hebben, vertaald naar persona's, journeys en ontwerpkeuzes.",
+      en: "UX research by M7: interviews, observation and data analysis that show what your users really need, translated into personas, journeys and design decisions.",
+    },
+  },
+  {
+    slug: "user-testing",
+    service: "web-apps-portals-apps",
+    title: { nl: "User testing & usability-tests", en: "User testing & usability tests" },
+    summary: {
+      nl: "Kijken hoe echte gebruikers je ontwerp gebruiken, en waar ze vastlopen.",
+      en: "Watch how real users use your design, and where they get stuck.",
+    },
+    intro: {
+      nl: "Je kunt lang vergaderen over welke knop beter werkt. Of je laat het gewoon een paar gebruikers proberen. Met usability-tests op prototypes of live producten ontdekken we snel wat werkt en wat niet, en verbeteren we het ontwerp op basis van echt gedrag.",
+      en: "You can spend ages debating which button works better. Or you simply let a few users try it. With usability tests on prototypes or live products we quickly discover what works and what does not, and improve the design based on real behaviour.",
+    },
+    body: [
+      {
+        h: { nl: "Testen voordat het duur wordt", en: "Test before it gets expensive" },
+        body: {
+          nl: "Het liefst testen we vroeg, op een klikbaar prototype in Figma. Een aanpassing in een ontwerp kost een paar uur, dezelfde aanpassing in een gebouwde app vaak dagen. We stellen realistische taken op, zoals 'vraag een offerte aan' of 'wijzig je abonnement', en kijken hoe deelnemers die uitvoeren. Hardop denkend, zodat we ook horen waaróm ze iets doen.",
+          en: "We prefer to test early, on a clickable prototype in Figma. A change in a design takes a few hours, the same change in a built app often takes days. We set realistic tasks, such as 'request a quote' or 'change your subscription', and watch how participants complete them. Thinking aloud, so we also hear why they do something.",
+        },
+      },
+      {
+        h: { nl: "Op locatie, online of ongemodereerd", en: "On site, remote or unmoderated" },
+        body: {
+          nl: "Afhankelijk van je doelgroep testen we bij ons op kantoor, bij jou op locatie of online via een videogesprek. Voor snelle checks gebruiken we ongemodereerde tests en korte vragenlijsten. Na elke testronde krijg je de belangrijkste bevindingen met fragmenten en concrete verbeteringen, die we direct in het ontwerp verwerken.",
+          en: "Depending on your audience we test at our office, at your location or remotely via a video call. For quick checks we use unmoderated tests and short questionnaires. After each round you get the key findings with clips and concrete improvements, which we work straight into the design.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Testplan met taken en scenario's", "Werving van deelnemers in overleg", "Gemodereerde of ongemodereerde tests", "Opnames en observatienotities", "Bevindingen op volgorde van ernst", "Aangepast ontwerp na de testronde"],
+      en: ["Test plan with tasks and scenarios", "Participant recruitment in consultation", "Moderated or unmoderated tests", "Recordings and observation notes", "Findings ranked by severity", "Updated design after the test round"],
+    },
+    benefits: [
+      { title: { nl: "Snel duidelijk", en: "Clarity, fast" }, text: { nl: "Een paar tests zeggen meer dan lange discussies.", en: "A few tests say more than long discussions." } },
+      { title: { nl: "Goedkoper verbeteren", en: "Cheaper improvements" }, text: { nl: "Problemen oplossen in het ontwerp, niet in de code.", en: "Fix problems in the design, not in the code." } },
+      { title: { nl: "Gebruiksvriendelijker", en: "More user-friendly" }, text: { nl: "Een product dat mensen zonder uitleg snappen.", en: "A product people understand without explanation." } },
+    ],
+    tools: ["figma", "hotjar", "miro", "typeform", "notion"],
+    related: ["ux-research", "ux-ui-app-design", "conversie-optimalisatie", "mvp-ontwikkeling"],
+    faqs: [
+      {
+        q: { nl: "Hoeveel testpersonen heb je nodig?", en: "How many test participants do you need?" },
+        a: {
+          nl: "Voor een usability-test vaak minder dan je denkt. Met een handvol deelnemers per doelgroep zie je de meeste terugkerende problemen al. Beter een paar kleine testrondes met verbeteringen ertussen dan één grote test aan het eind.",
+          en: "For a usability test, often fewer than you think. With a handful of participants per audience you already see most recurring problems. Better a few small test rounds with improvements in between than one big test at the end.",
+        },
+      },
+      {
+        q: { nl: "Kunnen jullie ook een bestaande website of app testen?", en: "Can you also test an existing website or app?" },
+        a: {
+          nl: "Ja. Dat is zelfs een goed startpunt voor een redesign of doorontwikkeling. Je ziet direct waar gebruikers nu afhaken, en dat geeft richting aan wat je als eerste aanpakt.",
+          en: "Yes. That is actually a good starting point for a redesign or further development. You immediately see where users drop off today, which shows what to tackle first.",
+        },
+      },
+      {
+        q: { nl: "Wie zoekt de testpersonen?", en: "Who finds the test participants?" },
+        a: {
+          nl: "Dat doen we samen. Bestaande klanten of leden zijn vaak de beste deelnemers, en jij kunt ze het makkelijkst benaderen. Wij stellen de selectiecriteria op, plannen de sessies en regelen de rest.",
+          en: "We do that together. Existing customers or members are often the best participants, and you can approach them most easily. We draw up the selection criteria, schedule the sessions and handle the rest.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "User testing door M7: usability-tests op prototypes en live producten met echte gebruikers, bevindingen op volgorde van ernst en verbeteringen die direct in het ontwerp landen.",
+      en: "User testing by M7: usability tests on prototypes and live products with real users, findings ranked by severity and improvements worked straight into the design.",
+    },
+  },
+  {
+    slug: "user-stories",
+    service: "web-apps-portals-apps",
+    title: { nl: "User stories & requirements", en: "User stories & requirements" },
+    summary: {
+      nl: "Van wensenlijst naar een heldere backlog waar developers mee kunnen bouwen.",
+      en: "From wish list to a clear backlog developers can build from.",
+    },
+    intro: {
+      nl: "'Het moet gewoon werken' is geen specificatie. We vertalen je wensen en de behoeften van je gebruikers naar user stories met duidelijke acceptatiecriteria. Zo weet iedereen wat er gebouwd wordt, waarom, en wanneer het af is.",
+      en: "'It should just work' is not a specification. We translate your wishes and your users' needs into user stories with clear acceptance criteria. So everyone knows what is being built, why, and when it is done.",
+    },
+    body: [
+      {
+        h: { nl: "Wie, wat en waarom", en: "Who, what and why" },
+        body: {
+          nl: "Een user story beschrijft een functie vanuit de gebruiker: 'Als klant wil ik mijn facturen downloaden, zodat ik mijn administratie snel rond heb.' Dat klinkt simpel, maar het dwingt tot de juiste vragen. Voor wie is dit? Wat is het doel? En wat gebeurt er als het misgaat? In workshops met jou en je team brengen we de gebruikersreis en de bijbehorende stories in kaart, bijvoorbeeld met een story map.",
+          en: "A user story describes a feature from the user's perspective: 'As a customer I want to download my invoices, so I can finish my bookkeeping quickly.' That sounds simple, but it forces the right questions. Who is this for? What is the goal? And what happens when it goes wrong? In workshops with you and your team we map the user journey and the related stories, for example with a story map.",
+        },
+      },
+      {
+        h: { nl: "Een backlog die klopt", en: "A backlog that adds up" },
+        body: {
+          nl: "Elke story krijgt acceptatiecriteria, waar nodig een schets of verwijzing naar het ontwerp, en een prioriteit. Ook niet-functionele eisen nemen we mee, zoals beveiliging, snelheid, toegankelijkheid en privacy. Het resultaat is een geordende backlog in Jira, ClickUp of Notion waarmee developers kunnen inschatten, plannen en bouwen. Of dat nu ons team is of een ander.",
+          en: "Every story gets acceptance criteria, a sketch or link to the design where needed, and a priority. We also include non-functional requirements, such as security, speed, accessibility and privacy. The result is an ordered backlog in Jira, ClickUp or Notion that developers can estimate, plan and build from. Whether that is our team or someone else's.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Workshops met stakeholders", "Story map van de gebruikersreis", "User stories met acceptatiecriteria", "Niet-functionele eisen", "Geprioriteerde backlog", "Afstemming met design en development"],
+      en: ["Workshops with stakeholders", "Story map of the user journey", "User stories with acceptance criteria", "Non-functional requirements", "Prioritised backlog", "Alignment with design and development"],
+    },
+    benefits: [
+      { title: { nl: "Duidelijkheid", en: "Clarity" }, text: { nl: "Iedereen weet wat er gebouwd wordt.", en: "Everyone knows what is being built." } },
+      { title: { nl: "Betere inschattingen", en: "Better estimates" }, text: { nl: "Heldere stories maken planning en begroting betrouwbaarder.", en: "Clear stories make planning and budgets more reliable." } },
+      { title: { nl: "Minder meerwerk", en: "Less rework" }, text: { nl: "Misverstanden vang je op papier, niet in de code.", en: "Catch misunderstandings on paper, not in the code." } },
+    ],
+    tools: ["jira", "clickup", "notion", "miro", "figma"],
+    related: ["ux-research", "agile-werken", "mvp-ontwikkeling", "it-projectmanagement"],
+    faqs: [
+      {
+        q: { nl: "Wat is het verschil tussen user stories en een functioneel ontwerp?", en: "What is the difference between user stories and a functional specification?" },
+        a: {
+          nl: "Een functioneel ontwerp beschrijft vaak het hele systeem in één groot document. User stories knippen het op in kleine, bouwbare stukjes vanuit het perspectief van de gebruiker. Dat past beter bij agile werken: je kiest per sprint wat het meeste oplevert.",
+          en: "A functional specification often describes the entire system in one large document. User stories break it into small, buildable pieces from the user's perspective. That suits agile working better: each sprint you choose what delivers the most.",
+        },
+      },
+      {
+        q: { nl: "Wat zijn acceptatiecriteria?", en: "What are acceptance criteria?" },
+        a: {
+          nl: "De voorwaarden waaraan een story moet voldoen om 'af' te zijn. Bijvoorbeeld: 'de factuur is als pdf te downloaden' en 'je ziet alleen je eigen facturen'. Ze voorkomen discussie achteraf en vormen de basis voor het testen.",
+          en: "The conditions a story must meet to be 'done'. For example: 'the invoice can be downloaded as a PDF' and 'you only see your own invoices'. They prevent discussion afterwards and form the basis for testing.",
+        },
+      },
+      {
+        q: { nl: "Kunnen jullie stories schrijven voor een ander ontwikkelteam?", en: "Can you write stories for another development team?" },
+        a: {
+          nl: "Ja. We schrijven de backlog zo dat elk team ermee aan de slag kan, en lichten hem desgewenst toe in een overdrachtssessie. We kunnen ook als product owner aanschuiven bij je eigen team of leverancier.",
+          en: "Yes. We write the backlog so any team can get started with it, and can explain it in a handover session if you like. We can also join your own team or vendor as product owner.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "User stories en requirements door M7: workshops, story mapping en een geprioriteerde backlog met acceptatiecriteria, klaar voor je developers.",
+      en: "User stories and requirements by M7: workshops, story mapping and a prioritised backlog with acceptance criteria, ready for your developers.",
+    },
+  },
+  {
+    slug: "devops",
+    service: "web-apps-portals-apps",
+    title: { nl: "DevOps, CI/CD & monitoring", en: "DevOps, CI/CD & monitoring" },
+    summary: {
+      nl: "Veilig en vaak releasen, op een platform dat in de gaten wordt gehouden.",
+      en: "Release safely and often, on a platform that is watched over.",
+    },
+    intro: {
+      nl: "Een app bouwen is één ding, hem stabiel en veilig in de lucht houden is iets anders. We richten je ontwikkelstraat en infrastructuur zo in dat nieuwe versies automatisch getest en uitgerold worden, en dat je merkt als er iets misgaat. Het liefst vóórdat je gebruikers het merken.",
+      en: "Building an app is one thing, keeping it stable and secure in production is another. We set up your development pipeline and infrastructure so new versions are tested and rolled out automatically, and so you notice when something goes wrong. Preferably before your users do.",
+    },
+    body: [
+      {
+        h: { nl: "Van commit tot livegang, automatisch", en: "From commit to go-live, automatically" },
+        body: {
+          nl: "Met CI/CD-pipelines in GitHub Actions worden codewijzigingen automatisch gecontroleerd, getest en uitgerold. Elke wijziging krijgt eerst een eigen previewomgeving, zodat jij kunt meekijken voordat iets live gaat. Dat maakt releasen saai, en dat is precies de bedoeling.",
+          en: "With CI/CD pipelines in GitHub Actions, code changes are automatically checked, tested and deployed. Every change first gets its own preview environment, so you can review it before anything goes live. That makes releasing boring, which is exactly the point.",
+        },
+      },
+      {
+        h: { nl: "Hosting, beveiliging en monitoring", en: "Hosting, security and monitoring" },
+        body: {
+          nl: "We kiezen de infrastructuur die bij je product past, zoals Vercel, Google Cloud, DigitalOcean of Supabase, met Docker waar dat zinvol is. We regelen back-ups, aparte omgevingen voor test, acceptatie en productie, het beheer van sleutels en wachtwoorden en updates van afhankelijkheden. Met monitoring en alerts zien we storingen, fouten en trage pagina's direct, zodat we snel kunnen ingrijpen.",
+          en: "We choose the infrastructure that suits your product, such as Vercel, Google Cloud, DigitalOcean or Supabase, with Docker where it makes sense. We take care of backups, separate environments for test, acceptance and production, management of keys and secrets, and dependency updates. With monitoring and alerts we see outages, errors and slow pages straight away, so we can step in quickly.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["CI/CD-pipeline met automatische tests", "Preview-, test- en productieomgevingen", "Infrastructuur en hostinginrichting", "Back-ups en herstelprocedure", "Monitoring, logging en alerts", "Beheer van updates en afhankelijkheden"],
+      en: ["CI/CD pipeline with automated tests", "Preview, test and production environments", "Infrastructure and hosting setup", "Backups and recovery procedure", "Monitoring, logging and alerts", "Management of updates and dependencies"],
+    },
+    benefits: [
+      { title: { nl: "Vaker releasen", en: "More frequent releases" }, text: { nl: "Kleine updates, vaak en zonder stress.", en: "Small updates, often and without stress." } },
+      { title: { nl: "Stabiel", en: "Stable" }, text: { nl: "Fouten vangen we af voordat ze live staan.", en: "Errors are caught before they go live." } },
+      { title: { nl: "Grip", en: "Control" }, text: { nl: "Je weet wat er draait en hoe het ervoor staat.", en: "You know what is running and how it is doing." } },
+    ],
+    tools: ["github", "vercel", "docker", "cloudflare", "googlecloud", "supabase"],
+    related: ["saas-platform", "hosting-onderhoud", "api-koppelingen", "agile-werken"],
+    faqs: [
+      {
+        q: { nl: "Wat is CI/CD?", en: "What is CI/CD?" },
+        a: {
+          nl: "CI staat voor continuous integration: elke codewijziging wordt automatisch samengevoegd en getest. CD staat voor continuous delivery of deployment: geteste wijzigingen worden automatisch klaargezet of uitgerold. Samen zorgen ze voor kleine, veilige en frequente releases.",
+          en: "CI stands for continuous integration: every code change is automatically merged and tested. CD stands for continuous delivery or deployment: tested changes are automatically prepared or rolled out. Together they enable small, safe and frequent releases.",
+        },
+      },
+      {
+        q: { nl: "Kunnen jullie de DevOps van een bestaand product overnemen?", en: "Can you take over DevOps for an existing product?" },
+        a: {
+          nl: "Ja. We beginnen met een inventarisatie van je huidige code, hosting en processen. Daarna maken we een plan om stap voor stap te verbeteren, zonder dat je product stil komt te liggen.",
+          en: "Yes. We start with an inventory of your current code, hosting and processes. Then we make a plan to improve step by step, without your product grinding to a halt.",
+        },
+      },
+      {
+        q: { nl: "Waar wordt mijn applicatie gehost?", en: "Where is my application hosted?" },
+        a: {
+          nl: "Dat bepalen we samen, op basis van je product, je gebruikers en je eisen rond privacy en beveiliging. Waar dat nodig of gewenst is, kiezen we voor servers en dataopslag binnen de EU.",
+          en: "We decide that together, based on your product, your users and your privacy and security requirements. Where needed or preferred, we choose servers and data storage within the EU.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "DevOps door M7: CI/CD-pipelines, test- en productieomgevingen, hosting, back-ups en monitoring, zodat je web-app of platform veilig en vaak kan releasen.",
+      en: "DevOps by M7: CI/CD pipelines, test and production environments, hosting, backups and monitoring, so your web app or platform can release safely and often.",
     },
   },
 ];

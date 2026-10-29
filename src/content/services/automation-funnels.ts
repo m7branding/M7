@@ -731,7 +731,7 @@ export const applications: Application[] = [
       { title: { nl: "Inzicht", en: "Insight" }, text: { nl: "Eén dashboard voor al je kanalen.", en: "One dashboard for all your channels." } },
     ],
     tools: ["ga4", "gtm", "lookerstudio", "cookiebot", "googlecloud", "meta"],
-    related: ["dashboards", "google-ads", "meta-ads", "conversie-optimalisatie"],
+    related: ["dashboards", "google-ads", "meta-ads", "conversie-optimalisatie", "cookie-compliance", "analytics-audit"],
     faqs: [
       {
         q: { nl: "Wat is Consent Mode v2?", en: "What is Consent Mode v2?" },
@@ -798,7 +798,7 @@ export const applications: Application[] = [
       { title: { nl: "Doorlopend", en: "Ongoing" }, text: { nl: "Elke test maakt je website slimmer.", en: "Every test makes your website smarter." } },
     ],
     tools: ["hotjar", "ga4", "gtm", "figma", "webflow"],
-    related: ["ux-ui-webdesign", "landingspaginas", "tracking-analytics", "salesfunnels"],
+    related: ["ux-ui-webdesign", "landingspaginas", "tracking-analytics", "salesfunnels", "user-testing"],
     faqs: [
       {
         q: { nl: "Hoeveel verkeer heb ik nodig voor A/B-testen?", en: "How much traffic do I need for A/B testing?" },
@@ -825,6 +825,73 @@ export const applications: Application[] = [
     metaDescription: {
       nl: "Conversie-optimalisatie door M7: CRO-audit, heatmaps, A/B-tests en UX-verbeteringen die meer klanten halen uit je bestaande verkeer.",
       en: "Conversion rate optimisation by M7: CRO audit, heatmaps, A/B tests and UX improvements that get more customers from your existing traffic.",
+    },
+  },
+  {
+    slug: "analytics-audit",
+    service: "automation-funnels",
+    title: { nl: "Analytics-audit & datacheck", en: "Analytics audit & data check" },
+    summary: {
+      nl: "Kloppen je cijfers eigenlijk wel? Een grondige check van je tracking.",
+      en: "Do your numbers actually add up? A thorough check of your tracking.",
+    },
+    intro: {
+      nl: "Dubbel getelde conversies, ontbrekende events of een cookiebanner die de helft van je meting wegfiltert: veel dashboards zien er strak uit, maar rekenen met rammelende data. In een analytics-audit lopen we je meting van begin tot eind na en vertellen we eerlijk wat je wel en niet kunt geloven.",
+      en: "Double-counted conversions, missing events or a cookie banner that filters out half your measurements: many dashboards look slick but calculate with shaky data. In an analytics audit we check your measurement end to end and tell you honestly what you can and cannot trust.",
+    },
+    body: [
+      {
+        h: { nl: "Van tag tot rapport", en: "From tag to report" },
+        body: {
+          nl: "We controleren je GA4-property, Google Tag Manager, consentinstellingen, conversies en koppelingen met Google Ads, Search Console en je CRM. De belangrijkste routes op je site testen we zelf: komt een aanvraag of aankoop correct en één keer binnen? En klopt wat in GA4 staat met wat er in je CRM of webshop terechtkomt?",
+          en: "We check your GA4 property, Google Tag Manager, consent settings, conversions and connections with Google Ads, Search Console and your CRM. We test the key routes on your site ourselves: does an enquiry or purchase come in correctly and only once? And does what GA4 shows match what ends up in your CRM or web shop?",
+        },
+      },
+      {
+        h: { nl: "Een helder herstelplan", en: "A clear repair plan" },
+        body: {
+          nl: "Je krijgt een overzicht van wat goed gaat, wat er mis is en wat ontbreekt, met per punt de impact en de oplossing. Wil je dat wij het oppakken, dan richten we de meting daarna opnieuw in, met een meetplan en een dashboard waar je op kunt bouwen.",
+          en: "You get an overview of what works, what is broken and what is missing, with the impact and the fix for each point. If you want us to pick it up, we then rebuild the measurement, with a measurement plan and a dashboard you can build on.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Check van GA4 en Tag Manager", "Controle van conversies en events", "Toets van consent en Consent Mode", "Vergelijking met CRM- of webshopdata", "Bevindingen met impact en oplossing", "Advies voor meetplan en dashboard"],
+      en: ["GA4 and Tag Manager check", "Review of conversions and events", "Consent and Consent Mode check", "Comparison with CRM or web shop data", "Findings with impact and fix", "Advice on measurement plan and dashboard"],
+    },
+    benefits: [
+      { title: { nl: "Betrouwbare cijfers", en: "Reliable numbers" }, text: { nl: "Weten welke data je kunt vertrouwen.", en: "Know which data you can trust." } },
+      { title: { nl: "Betere beslissingen", en: "Better decisions" }, text: { nl: "Budget sturen op feiten.", en: "Steer budget on facts." } },
+      { title: { nl: "Snel duidelijk", en: "Quick clarity" }, text: { nl: "Een compleet beeld zonder lang traject.", en: "A complete picture without a long project." } },
+    ],
+    tools: ["ga4", "gtm", "lookerstudio", "searchconsole", "cookiebot"],
+    related: ["tracking-analytics", "cookie-compliance", "conversie-optimalisatie", "dashboards"],
+    faqs: [
+      {
+        q: { nl: "Waarom wijken GA4 en mijn CRM of webshop van elkaar af?", en: "Why do GA4 and my CRM or web shop differ?" },
+        a: {
+          nl: "Een klein verschil is normaal, bijvoorbeeld door bezoekers die cookies weigeren of een adblocker gebruiken. Grote verschillen wijzen meestal op dubbele tags, verkeerd ingestelde conversies of ontbrekende events. Precies dat zoeken we uit in de audit.",
+          en: "A small difference is normal, for example due to visitors who refuse cookies or use an ad blocker. Large differences usually point to duplicate tags, misconfigured conversions or missing events. That is exactly what we figure out in the audit.",
+        },
+      },
+      {
+        q: { nl: "Hebben jullie toegang nodig tot mijn accounts?", en: "Do you need access to my accounts?" },
+        a: {
+          nl: "Ja, leestoegang tot GA4, Tag Manager en eventueel Google Ads en Search Console is genoeg voor de audit. Je houdt zelf het eigendom van al je accounts.",
+          en: "Yes, read access to GA4, Tag Manager and possibly Google Ads and Search Console is enough for the audit. You keep ownership of all your accounts.",
+        },
+      },
+      {
+        q: { nl: "Hoe vaak is een audit nodig?", en: "How often is an audit needed?" },
+        a: {
+          nl: "Bij een nieuwe website, een nieuwe cookiebanner of grote wijzigingen in je campagnes. En zodra je cijfers ziet die je niet vertrouwt. Daarnaast is een jaarlijkse check een goede gewoonte.",
+          en: "With a new website, a new cookie banner or major changes to your campaigns. And as soon as you see numbers you do not trust. On top of that, a yearly check is a good habit.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Analytics-audit door M7: je GA4, Tag Manager, conversies en consent grondig gecontroleerd, met een helder herstelplan voor data die je kunt vertrouwen.",
+      en: "Analytics audit by M7: your GA4, Tag Manager, conversions and consent thoroughly checked, with a clear repair plan for data you can trust.",
     },
   },
 ];

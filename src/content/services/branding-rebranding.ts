@@ -279,7 +279,7 @@ export const applications: Application[] = [
       { title: { nl: "Eenheid", en: "Alignment" }, text: { nl: "Je hele team vertelt hetzelfde verhaal.", en: "Your whole team tells the same story." } },
     ],
     tools: ["miro", "figma", "notion"],
-    related: ["tone-of-voice", "naamgeving", "rebranding", "digitale-strategie"],
+    related: ["tone-of-voice", "naamgeving", "rebranding", "digitale-strategie", "merkonderzoek", "concurrentieanalyse"],
     faqs: [
       {
         q: { nl: "Heb ik een merkstrategie nodig als ik alleen een logo wil?", en: "Do I need a brand strategy if I only want a logo?" },
@@ -775,6 +775,140 @@ export const applications: Application[] = [
     metaDescription: {
       nl: "Employer branding door M7: werkgeversmerk, werkenbij-website, recruitmentvideo en campagnes die het juiste talent aantrekken.",
       en: "Employer branding by M7: employer brand, careers website, recruitment video and campaigns that attract the right talent.",
+    },
+  },
+  {
+    slug: "merkonderzoek",
+    service: "branding-rebranding",
+    title: { nl: "Merkonderzoek", en: "Brand research" },
+    summary: {
+      nl: "Weten hoe je merk écht overkomt, bij klanten, medewerkers en de markt.",
+      en: "Know how your brand really comes across, with customers, staff and the market.",
+    },
+    intro: {
+      nl: "Wat denken klanten eigenlijk als ze jouw naam horen? Met merkonderzoek halen we die beelden boven tafel, via interviews, enquêtes en data. Zo bouw je je merk op feiten in plaats van op aannames.",
+      en: "What do customers actually think when they hear your name? Brand research brings those perceptions to the surface, through interviews, surveys and data. So you build your brand on facts instead of assumptions.",
+    },
+    body: [
+      {
+        h: { nl: "Luisteren voordat we ontwerpen", en: "Listening before we design" },
+        body: {
+          nl: "Vaak zit er een verschil tussen hoe je jezelf ziet en hoe de buitenwereld je ziet. We praten met klanten, oud-klanten, medewerkers en soms met mensen die juist niet voor je kozen. Daarnaast zetten we een korte enquête uit en kijken we naar reviews, zoekgedrag en wat er online over je gezegd wordt. Zo ontstaat een eerlijk beeld van je merk, inclusief de minder leuke kanten.",
+          en: "There is often a gap between how you see yourself and how the outside world sees you. We talk to customers, former customers, employees and sometimes to people who chose not to work with you. We also run a short survey and look at reviews, search behaviour and what is said about you online. That gives an honest picture of your brand, including the less flattering parts.",
+        },
+      },
+      {
+        h: { nl: "Van inzichten naar keuzes", en: "From insights to choices" },
+        body: {
+          nl: "Onderzoek is pas nuttig als je er iets mee doet. We vatten de uitkomsten samen in heldere inzichten: wat waarderen mensen, wat mist er en welke associaties wil je versterken of juist kwijt? Die inzichten vormen de basis voor je merkstrategie, een rebranding of gewoon een scherpere boodschap op je website.",
+          en: "Research is only useful if you act on it. We summarise the results in clear insights: what do people value, what is missing and which associations do you want to strengthen or lose? Those insights form the basis for your brand strategy, a rebrand or simply a sharper message on your website.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Interviews met klanten en medewerkers", "Online enquête en analyse", "Analyse van reviews en online vermeldingen", "Merkperceptie naast gewenste identiteit", "Rapport met kerninzichten", "Presentatie en advies voor vervolgstappen"],
+      en: ["Interviews with customers and employees", "Online survey and analysis", "Analysis of reviews and online mentions", "Brand perception next to desired identity", "Report with key insights", "Presentation and advice on next steps"],
+    },
+    benefits: [
+      { title: { nl: "Feiten", en: "Facts" }, text: { nl: "Keuzes op basis van wat klanten echt zeggen.", en: "Choices based on what customers actually say." } },
+      { title: { nl: "Eerlijk beeld", en: "An honest picture" }, text: { nl: "Je ziet ook de blinde vlekken van je merk.", en: "You also see your brand's blind spots." } },
+      { title: { nl: "Draagvlak", en: "Buy-in" }, text: { nl: "Inzichten waar je hele team in meegaat.", en: "Insights your whole team can get behind." } },
+    ],
+    tools: ["typeform", "miro", "notion", "googlesheets", "lookerstudio"],
+    related: ["merkstrategie", "concurrentieanalyse", "doelgroeponderzoek", "rebranding"],
+    faqs: [
+      {
+        q: { nl: "Wanneer is merkonderzoek zinvol?", en: "When does brand research make sense?" },
+        a: {
+          nl: "Vooral vóór een rebranding, bij een nieuwe positionering, na een fusie of als je merkt dat je boodschap niet meer aankomt. Ook als de meningen intern sterk uiteenlopen, helpt onderzoek om het gesprek op feiten te voeren.",
+          en: "Especially before a rebrand, for a new positioning, after a merger or when you notice your message no longer lands. And when opinions differ strongly internally, research helps base the conversation on facts.",
+        },
+      },
+      {
+        q: { nl: "Met hoeveel mensen praten jullie?", en: "How many people do you talk to?" },
+        a: {
+          nl: "Dat hangt af van je markt en je vraag. Voor kwalitatieve inzichten is een handvol goede gesprekken vaak al genoeg om terugkerende patronen te zien. Een enquête vult dat aan met bredere input. De opzet stemmen we vooraf met je af.",
+          en: "That depends on your market and your question. For qualitative insights a handful of good conversations is often enough to see recurring patterns. A survey adds broader input. We agree on the setup with you beforehand.",
+        },
+      },
+      {
+        q: { nl: "Zijn de antwoorden anoniem?", en: "Are the answers anonymous?" },
+        a: {
+          nl: "Als je dat wilt wel. Mensen zijn vaak eerlijker tegen een externe partij dan tegen jou als ondernemer. We rapporteren daarom op hoofdlijnen en citeren alleen met toestemming.",
+          en: "If you want, yes. People are often more honest with an outside party than with you as the business owner. That is why we report on main themes and only quote with permission.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Merkonderzoek door M7: interviews, enquêtes en online analyse die laten zien hoe je merk écht overkomt. De basis voor een sterke merkstrategie of rebranding.",
+      en: "Brand research by M7: interviews, surveys and online analysis that show how your brand really comes across. The basis for a strong brand strategy or rebrand.",
+    },
+  },
+  {
+    slug: "concurrentieanalyse",
+    service: "branding-rebranding",
+    title: { nl: "Concurrentieanalyse", en: "Competitor analysis" },
+    summary: {
+      nl: "Zien wat de concurrent doet, zodat jij bewust anders kunt zijn.",
+      en: "See what competitors do, so you can be different on purpose.",
+    },
+    intro: {
+      nl: "Hoe positioneren je concurrenten zich, hoe zien hun merk en website eruit en waar laten ze steken vallen? We brengen je speelveld in kaart en laten zien waar de ruimte zit voor jouw merk.",
+      en: "How do your competitors position themselves, what do their brand and website look like and where do they drop the ball? We map your playing field and show where the room is for your brand.",
+    },
+    body: [
+      {
+        h: { nl: "Het speelveld in één overzicht", en: "The playing field at a glance" },
+        body: {
+          nl: "We selecteren samen je belangrijkste concurrenten, ook de nieuwe spelers en de partijen waarmee klanten je vergelijken. Per concurrent kijken we naar positionering, boodschap, visuele identiteit, prijsbeleving, website, vindbaarheid en reviews. Alles komt samen in één overzicht, waarin je ziet wie wat claimt.",
+          en: "Together we select your main competitors, including new players and the companies customers compare you with. For each competitor we look at positioning, messaging, visual identity, price perception, website, search visibility and reviews. Everything comes together in one overview that shows who claims what.",
+        },
+      },
+      {
+        h: { nl: "Waar zit jouw ruimte?", en: "Where is your space?" },
+        body: {
+          nl: "Als iedereen zegt dat hij 'kwaliteit' en 'persoonlijk contact' biedt, valt niemand op. Met een positioneringskaart maken we zichtbaar welke plekken al bezet zijn en welke nog vrij liggen. Zo zie je waar je je kunt onderscheiden, en welke beloftes je beter niet nog een keer herhaalt.",
+          en: "When everyone says they offer 'quality' and 'a personal approach', nobody stands out. With a positioning map we show which spots are already taken and which are still free. That shows where you can stand out, and which promises are better left unrepeated.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Selectie van directe en indirecte concurrenten", "Analyse van positionering en boodschap", "Vergelijking van huisstijl en website", "Vindbaarheid en zichtbaarheid in Google", "Positioneringskaart met witte vlekken", "Kansen en aanbevelingen"],
+      en: ["Selection of direct and indirect competitors", "Analysis of positioning and messaging", "Comparison of visual identity and website", "Search visibility in Google", "Positioning map with white spaces", "Opportunities and recommendations"],
+    },
+    benefits: [
+      { title: { nl: "Overzicht", en: "Overview" }, text: { nl: "Je weet precies hoe je markt eruitziet.", en: "You know exactly what your market looks like." } },
+      { title: { nl: "Onderscheid", en: "Differentiation" }, text: { nl: "Je ziet waar je anders kunt zijn.", en: "You see where you can be different." } },
+      { title: { nl: "Scherpere keuzes", en: "Sharper choices" }, text: { nl: "Geen beloftes meer die iedereen al doet.", en: "No more promises everyone already makes." } },
+    ],
+    tools: ["semrush", "ahrefs", "miro", "notion", "figma"],
+    related: ["merkstrategie", "merkonderzoek", "seo-audit", "rebranding"],
+    faqs: [
+      {
+        q: { nl: "Welke concurrenten nemen jullie mee?", en: "Which competitors do you include?" },
+        a: {
+          nl: "Meestal vijf tot tien partijen: je directe concurrenten, een paar opvallende nieuwkomers en soms een merk uit een andere branche dat het goed doet bij jouw doelgroep. Jij kent je markt het best, dus de selectie maken we samen.",
+          en: "Usually five to ten companies: your direct competitors, a few notable newcomers and sometimes a brand from another industry that does well with your audience. You know your market best, so we make the selection together.",
+        },
+      },
+      {
+        q: { nl: "Kijken jullie ook naar de online marketing en SEO van concurrenten?", en: "Do you also look at competitors' online marketing and SEO?" },
+        a: {
+          nl: "Ja. Met tools als Semrush en Ahrefs zien we op welke zoekwoorden concurrenten gevonden worden, hoeveel verkeer dat ongeveer oplevert en welke advertenties ze draaien. Dat levert vaak verrassende kansen op voor je eigen content en campagnes.",
+          en: "Yes. With tools like Semrush and Ahrefs we see which keywords competitors rank for, roughly how much traffic that brings and which ads they run. That often reveals surprising opportunities for your own content and campaigns.",
+        },
+      },
+      {
+        q: { nl: "Kan ik een concurrentieanalyse ook los afnemen?", en: "Can I order a competitor analysis on its own?" },
+        a: {
+          nl: "Zeker. Veel klanten gebruiken hem als startpunt voor een merkstrategie of nieuwe website, maar hij staat ook prima op zichzelf, bijvoorbeeld voor een businessplan of een interne strategiesessie.",
+          en: "Certainly. Many clients use it as the starting point for a brand strategy or new website, but it also works fine on its own, for example for a business plan or an internal strategy session.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Concurrentieanalyse door M7: positionering, merk, website en vindbaarheid van je concurrenten in kaart, met een positioneringskaart en concrete kansen.",
+      en: "Competitor analysis by M7: your competitors' positioning, brand, website and search visibility mapped, with a positioning map and concrete opportunities.",
     },
   },
 ];

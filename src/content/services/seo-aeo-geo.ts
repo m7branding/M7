@@ -383,7 +383,7 @@ export const applications: Application[] = [
       { title: { nl: "Toekomstbestendig", en: "Future-proof" }, text: { nl: "Klaar voor klassieke en AI-crawlers.", en: "Ready for classic and AI crawlers." } },
     ],
     tools: ["screamingfrog", "searchconsole", "pagespeed", "bing", "cloudflare"],
-    related: ["seo-audit", "website-migratie", "hosting-onderhoud", "structured-data"],
+    related: ["seo-audit", "website-migratie", "hosting-onderhoud", "structured-data", "pagespeed-optimalisatie"],
     faqs: [
       {
         q: { nl: "Wat zijn Core Web Vitals?", en: "What are Core Web Vitals?" },
@@ -879,6 +879,73 @@ export const applications: Application[] = [
     metaDescription: {
       nl: "SEO-audit door M7: analyse van techniek, content, links en AI-zichtbaarheid, vertaald naar een helder en geprioriteerd actieplan.",
       en: "SEO audit by M7: analysis of technology, content, links and AI visibility, translated into a clear and prioritised action plan.",
+    },
+  },
+  {
+    slug: "contentstructuur",
+    service: "seo-aeo-geo",
+    title: { nl: "Contentstructuur & sitemap", en: "Content structure & sitemap" },
+    summary: {
+      nl: "Een logische opbouw van je website, voor bezoekers én zoekmachines.",
+      en: "A logical website structure, for visitors and search engines.",
+    },
+    intro: {
+      nl: "Hoe meer content, hoe belangrijker de structuur. We ontwerpen de informatiearchitectuur van je website: welke pagina's er zijn, hoe ze samenhangen, hoe de navigatie werkt en hoe URL's en interne links zijn opgebouwd. Zo vinden bezoekers, Google en AI-zoekmachines precies wat ze zoeken.",
+      en: "The more content you have, the more structure matters. We design your website's information architecture: which pages exist, how they connect, how navigation works and how URLs and internal links are built. So visitors, Google and AI search engines find exactly what they are looking for.",
+    },
+    body: [
+      {
+        h: { nl: "Van losse pagina's naar een heldere structuur", en: "From loose pages to a clear structure" },
+        body: {
+          nl: "We beginnen met een inventarisatie van je huidige content en een zoekwoordonderzoek: welke vragen stelt je doelgroep en hoe zoeken ze? Met card sorting en gesprekken toetsen we hoe gebruikers zelf je onderwerpen groeperen. Daarna bouwen we een sitemap met hoofd- en subonderwerpen, waarin elke pagina een duidelijke taak heeft en geen pagina's met elkaar concurreren.",
+          en: "We start with an inventory of your current content and keyword research: what questions does your audience ask and how do they search? With card sorting and interviews we test how users themselves group your topics. Then we build a sitemap with main and subtopics, where every page has a clear job and no pages compete with each other.",
+        },
+      },
+      {
+        h: { nl: "Topic clusters, navigatie en interne links", en: "Topic clusters, navigation and internal links" },
+        body: {
+          nl: "We ordenen je content in topic clusters: een sterke hoofdpagina per onderwerp met verdiepende pagina's eromheen, logisch aan elkaar gelinkt. Daarbij horen een navigatie die niet te diep gaat, een consistente URL-structuur, broodkruimels en een CMS-opzet waarmee je later makkelijk pagina's toevoegt. Zo groeit je website zonder rommelig te worden.",
+          en: "We organise your content into topic clusters: a strong main page per topic with in-depth pages around it, linked logically. That comes with navigation that does not go too deep, a consistent URL structure, breadcrumbs and a CMS setup that makes it easy to add pages later. So your website grows without getting messy.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Inventarisatie van je huidige content", "Zoekwoord- en vraagonderzoek", "Card sorting of boomtest", "Sitemap met topic clusters", "Navigatie, URL-structuur en broodkruimels", "Interne-linkstrategie en CMS-opzet"],
+      en: ["Inventory of your current content", "Keyword and question research", "Card sorting or tree test", "Sitemap with topic clusters", "Navigation, URL structure and breadcrumbs", "Internal linking strategy and CMS setup"],
+    },
+    benefits: [
+      { title: { nl: "Vindbaar", en: "Discoverable" }, text: { nl: "Zoekmachines begrijpen waar je over gaat.", en: "Search engines understand what you are about." } },
+      { title: { nl: "Overzichtelijk", en: "Clear" }, text: { nl: "Bezoekers vinden hun weg zonder te zoeken.", en: "Visitors find their way without searching." } },
+      { title: { nl: "Schaalbaar", en: "Scalable" }, text: { nl: "Nieuwe content heeft altijd een logische plek.", en: "New content always has a logical place." } },
+    ],
+    tools: ["miro", "figma", "semrush", "screamingfrog", "searchconsole", "notion"],
+    related: ["seo", "ux-ui-webdesign", "seo-content", "website-migratie"],
+    faqs: [
+      {
+        q: { nl: "Wat is informatiearchitectuur?", en: "What is information architecture?" },
+        a: {
+          nl: "De manier waarop de informatie op je website is georganiseerd: welke pagina's er zijn, hoe ze gegroepeerd zijn, hoe ze heten en hoe je ertussen navigeert. Een goede informatiearchitectuur valt niemand op. Een slechte wel.",
+          en: "The way information on your website is organised: which pages exist, how they are grouped, what they are called and how you navigate between them. Nobody notices good information architecture. Everybody notices bad.",
+        },
+      },
+      {
+        q: { nl: "Wat is een topic cluster?", en: "What is a topic cluster?" },
+        a: {
+          nl: "Een groep pagina's rond één onderwerp: een overzichtspagina die het onderwerp breed behandelt, met verdiepende pagina's die elk een deelvraag beantwoorden. Door ze goed aan elkaar te linken, laat je zien dat je echt verstand hebt van dat onderwerp.",
+          en: "A group of pages around one topic: an overview page that covers the topic broadly, with in-depth pages that each answer a sub-question. By linking them well, you show that you really know that topic.",
+        },
+      },
+      {
+        q: { nl: "Kan ik de structuur verbeteren zonder nieuwe website?", en: "Can I improve the structure without a new website?" },
+        a: {
+          nl: "Vaak wel. Navigatie, interne links en het samenvoegen of splitsen van pagina's kun je meestal in je huidige CMS doorvoeren. Veranderen er URL's, dan zorgen we voor de juiste redirects.",
+          en: "Often, yes. Navigation, internal links and merging or splitting pages can usually be done in your current CMS. If URLs change, we take care of the right redirects.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Contentstructuur en sitemap door M7: informatiearchitectuur, topic clusters, navigatie, URL-structuur en interne links voor een website die bezoekers en zoekmachines begrijpen.",
+      en: "Content structure and sitemap by M7: information architecture, topic clusters, navigation, URL structure and internal links for a website visitors and search engines understand.",
     },
   },
 ];

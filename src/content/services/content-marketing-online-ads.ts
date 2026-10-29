@@ -653,7 +653,7 @@ export const applications: Application[] = [
       { title: { nl: "Rust", en: "Peace of mind" }, text: { nl: "Geen last-minute stress over wat je moet posten.", en: "No last-minute stress about what to post." } },
     ],
     tools: ["notion", "miro", "semrush", "openai", "ga4"],
-    related: ["social-media-marketing", "copywriting-blogs", "seo-content", "tone-of-voice"],
+    related: ["social-media-marketing", "copywriting-blogs", "seo-content", "tone-of-voice", "communicatiestrategie", "doelgroeponderzoek"],
     faqs: [
       {
         q: { nl: "Wat is het verschil tussen een contentstrategie en een contentkalender?", en: "What is the difference between a content strategy and a content calendar?" },
@@ -747,6 +747,140 @@ export const applications: Application[] = [
     metaDescription: {
       nl: "Copywriting en blogs door M7: websiteteksten, landingspagina's, advertenties en SEO-blogs die converteren en gevonden worden in Google en AI.",
       en: "Copywriting and blogs by M7: website copy, landing pages, ads and SEO blogs that convert and get found in Google and AI search.",
+    },
+  },
+  {
+    slug: "communicatiestrategie",
+    service: "content-marketing-online-ads",
+    title: { nl: "Communicatiestrategie", en: "Communication strategy" },
+    summary: {
+      nl: "Wat je zegt, tegen wie, via welk kanaal en wanneer.",
+      en: "What you say, to whom, through which channel and when.",
+    },
+    intro: {
+      nl: "Een sterk merk verdient een boodschap die overal hetzelfde klinkt: op je website, in je socials, in de nieuwsbrief en aan de telefoon. We maken een communicatiestrategie die je kernboodschap, doelgroepen, kanalen en planning op één lijn brengt.",
+      en: "A strong brand deserves a message that sounds the same everywhere: on your website, in your socials, in the newsletter and on the phone. We create a communication strategy that aligns your key message, audiences, channels and planning.",
+    },
+    body: [
+      {
+        h: { nl: "Eén verhaal, afgestemd per doelgroep", en: "One story, tuned per audience" },
+        body: {
+          nl: "We beginnen bij je doelen en je doelgroepen: klanten, prospects, medewerkers, partners of de buurt. Per groep bepalen we wat ze moeten weten, voelen en doen. Dat vertalen we naar een message house: een centrale boodschap met onderbouwende argumenten en bewijs, die iedereen in je organisatie kan gebruiken.",
+          en: "We start with your goals and your audiences: customers, prospects, employees, partners or the local community. For each group we decide what they need to know, feel and do. We translate that into a message house: a central message with supporting arguments and proof that everyone in your organisation can use.",
+        },
+      },
+      {
+        h: { nl: "Kanalen, ritme en eigenaarschap", en: "Channels, rhythm and ownership" },
+        body: {
+          nl: "Daarna kiezen we de kanalen die bij je doelgroep passen, van LinkedIn en e-mail tot je website, pers of interne communicatie. We leggen vast wie wat doet, in welk ritme en hoe je meet of het werkt. Ook voor lastige momenten, zoals een reorganisatie, prijsverhoging of nieuwe naam, bereiden we de communicatie vooraf voor.",
+          en: "Then we choose the channels that suit your audience, from LinkedIn and email to your website, press or internal communication. We set out who does what, at what rhythm and how you measure whether it works. For tricky moments too, such as a reorganisation, a price increase or a new name, we prepare the communication in advance.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Communicatiedoelen en doelgroepen", "Message house met kernboodschap", "Kanaalkeuze en middelenmix", "Communicatiekalender", "Rollen, verantwoordelijkheden en KPI's", "Draaiboek voor belangrijke momenten"],
+      en: ["Communication goals and audiences", "Message house with key message", "Channel choice and media mix", "Communication calendar", "Roles, responsibilities and KPIs", "Playbook for key moments"],
+    },
+    benefits: [
+      { title: { nl: "Eén geluid", en: "One voice" }, text: { nl: "Iedereen vertelt hetzelfde verhaal.", en: "Everyone tells the same story." } },
+      { title: { nl: "Focus", en: "Focus" }, text: { nl: "Minder kanalen, meer effect.", en: "Fewer channels, more impact." } },
+      { title: { nl: "Voorbereid", en: "Prepared" }, text: { nl: "Geen paniek bij belangrijke momenten.", en: "No panic at key moments." } },
+    ],
+    tools: ["miro", "notion", "hubspot", "canva"],
+    related: ["contentstrategie", "merkstrategie", "tone-of-voice", "verandertrajecten"],
+    faqs: [
+      {
+        q: { nl: "Wat is het verschil tussen een communicatiestrategie en een contentstrategie?", en: "What is the difference between a communication strategy and a content strategy?" },
+        a: {
+          nl: "Een communicatiestrategie bepaalt de grote lijn: wat wil je bereiken, bij wie en met welke boodschap. Een contentstrategie werkt daarna uit welke content je maakt, in welke vorm en op welk moment. De communicatiestrategie is dus het kader, de contentstrategie de invulling.",
+          en: "A communication strategy sets the broad line: what you want to achieve, with whom and with what message. A content strategy then works out which content you create, in what form and when. So the communication strategy is the framework, the content strategy fills it in.",
+        },
+      },
+      {
+        q: { nl: "Helpen jullie ook met interne communicatie?", en: "Do you also help with internal communication?" },
+        a: {
+          nl: "Ja. Zeker bij veranderingen, zoals een nieuwe naam, een fusie of nieuwe systemen, is het belangrijk dat je eigen mensen het als eerste en goed horen. Daar maken we een apart plan voor, afgestemd op de externe communicatie.",
+          en: "Yes. Especially with changes such as a new name, a merger or new systems, it is important that your own people hear it first and properly. We make a separate plan for that, aligned with the external communication.",
+        },
+      },
+      {
+        q: { nl: "Voeren jullie de strategie ook uit?", en: "Do you also carry out the strategy?" },
+        a: {
+          nl: "Als je dat wilt wel. Van teksten, campagnes en social media tot e-mailflows en de website: we hebben het allemaal in huis. Maar de strategie is zo opgezet dat je eigen team er ook prima mee verder kan.",
+          en: "If you want, yes. From copy, campaigns and social media to email flows and the website: we have it all in house. But the strategy is set up so your own team can take it forward perfectly well too.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Communicatiestrategie door M7: kernboodschap, doelgroepen, kanalen en planning op één lijn, met een message house en een communicatiekalender.",
+      en: "Communication strategy by M7: key message, audiences, channels and planning aligned, with a message house and a communication calendar.",
+    },
+  },
+  {
+    slug: "doelgroeponderzoek",
+    service: "content-marketing-online-ads",
+    title: { nl: "Doelgroeponderzoek & persona's", en: "Audience research & personas" },
+    summary: {
+      nl: "Weten wie je klant is, wat die drijft en waar die zoekt.",
+      en: "Know who your customer is, what drives them and where they search.",
+    },
+    intro: {
+      nl: "Je doelgroep is niet 'iedereen tussen 25 en 65'. Met doelgroeponderzoek brengen we in kaart wie je klanten echt zijn, welke vragen en twijfels ze hebben en hoe ze tot een keuze komen. Dat leggen we vast in persona's en een klantreis waar marketing, sales en design op kunnen bouwen.",
+      en: "Your audience is not 'everyone between 25 and 65'. With audience research we map who your customers really are, which questions and doubts they have and how they reach a decision. We capture that in personas and a customer journey that marketing, sales and design can build on.",
+    },
+    body: [
+      {
+        h: { nl: "Data én verhalen", en: "Data and stories" },
+        body: {
+          nl: "We halen inzichten uit je eigen data, zoals je CRM, website-analytics en zoekgedrag, en vullen dat aan met interviews en een korte enquête onder klanten. Ook je verkopers en klantenservice weten vaak verrassend veel. Zo ontstaat een beeld dat verder gaat dan leeftijd en woonplaats: wat zijn de motieven, de drempels en de momenten waarop iemand op zoek gaat?",
+          en: "We draw insights from your own data, such as your CRM, website analytics and search behaviour, and add interviews and a short customer survey. Your sales people and customer service often know a surprising amount too. That creates a picture that goes beyond age and location: what are the motives, the barriers and the moments when someone starts looking?",
+        },
+      },
+      {
+        h: { nl: "Persona's die je echt gebruikt", en: "Personas you actually use" },
+        body: {
+          nl: "We maken liever een paar scherpe persona's dan tien vage. Per persona leggen we de belangrijkste vragen, bezwaren, kanalen en beslismomenten vast, en we tekenen de klantreis van eerste oriëntatie tot herhaalaankoop. Die gebruik je direct voor je content, advertenties, website en verkoopgesprekken.",
+          en: "We would rather make a few sharp personas than ten vague ones. For each persona we capture the key questions, objections, channels and decision moments, and we map the customer journey from first orientation to repeat purchase. You use them straight away for your content, ads, website and sales conversations.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Analyse van CRM-, web- en zoekdata", "Interviews met klanten en je team", "Korte klantenquête", "Persona's met vragen en bezwaren", "Klantreis met kanalen en contactmomenten", "Aanbevelingen voor content en campagnes"],
+      en: ["Analysis of CRM, web and search data", "Interviews with customers and your team", "Short customer survey", "Personas with questions and objections", "Customer journey with channels and touchpoints", "Recommendations for content and campaigns"],
+    },
+    benefits: [
+      { title: { nl: "Relevanter", en: "More relevant" }, text: { nl: "Content die aansluit op echte vragen.", en: "Content that answers real questions." } },
+      { title: { nl: "Gerichter adverteren", en: "Better-targeted ads" }, text: { nl: "Budget naar de mensen die ertoe doen.", en: "Budget goes to the people who matter." } },
+      { title: { nl: "Eén beeld", en: "One picture" }, text: { nl: "Marketing, sales en design praten over dezelfde klant.", en: "Marketing, sales and design talk about the same customer." } },
+    ],
+    tools: ["typeform", "ga4", "hotjar", "hubspot", "miro", "notion"],
+    related: ["contentstrategie", "merkonderzoek", "ux-research", "communicatiestrategie"],
+    faqs: [
+      {
+        q: { nl: "Wat is een persona?", en: "What is a persona?" },
+        a: {
+          nl: "Een herkenbare beschrijving van een type klant, gebaseerd op onderzoek. Met een naam, een situatie, doelen, vragen en bezwaren. Het helpt om bij elke tekst, advertentie of ontwerpkeuze te denken: zou dit voor haar of hem werken?",
+          en: "A recognisable description of a type of customer, based on research. With a name, a situation, goals, questions and objections. It helps you ask with every text, ad or design choice: would this work for her or him?",
+        },
+      },
+      {
+        q: { nl: "Hoeveel persona's heb ik nodig?", en: "How many personas do I need?" },
+        a: {
+          nl: "Meestal twee tot vier. Genoeg om de belangrijkste verschillen in je doelgroep te laten zien, maar niet zoveel dat niemand ze nog uit elkaar houdt.",
+          en: "Usually two to four. Enough to show the main differences in your audience, but not so many that nobody can tell them apart.",
+        },
+      },
+      {
+        q: { nl: "Werken persona's ook in B2B?", en: "Do personas work in B2B too?" },
+        a: {
+          nl: "Zeker. In B2B zijn vaak meerdere mensen betrokken bij een aankoop, zoals een gebruiker, een beslisser en iemand van inkoop. Die rollen en hun vragen brengen we apart in kaart.",
+          en: "Definitely. In B2B several people are often involved in a purchase, such as a user, a decision-maker and someone from procurement. We map those roles and their questions separately.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Doelgroeponderzoek en persona's door M7: data, interviews en een klantenquête vertaald naar scherpe persona's en een klantreis voor marketing, sales en design.",
+      en: "Audience research and personas by M7: data, interviews and a customer survey translated into sharp personas and a customer journey for marketing, sales and design.",
     },
   },
 ];

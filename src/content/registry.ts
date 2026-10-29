@@ -33,6 +33,8 @@ export const APPLICATIONS_BY_SERVICE = {
     "naamgeving",
     "tone-of-voice",
     "employer-branding",
+    "merkonderzoek",
+    "concurrentieanalyse",
   ],
   "websites-webshops": [
     "webflow-website",
@@ -44,6 +46,10 @@ export const APPLICATIONS_BY_SERVICE = {
     "hosting-onderhoud",
     "domeinbeheer",
     "meertalige-website",
+    "toegankelijkheid",
+    "wcag-audit",
+    "pagespeed-optimalisatie",
+    "cookie-compliance",
   ],
   "web-apps-portals-apps": [
     "klantportaal",
@@ -54,6 +60,10 @@ export const APPLICATIONS_BY_SERVICE = {
     "ledenportaal-loyaliteit",
     "api-koppelingen",
     "mvp-ontwikkeling",
+    "ux-research",
+    "user-testing",
+    "user-stories",
+    "devops",
   ],
   "automation-funnels": [
     "marketing-automation",
@@ -64,6 +74,7 @@ export const APPLICATIONS_BY_SERVICE = {
     "lead-nurturing",
     "tracking-analytics",
     "conversie-optimalisatie",
+    "analytics-audit",
   ],
   "seo-aeo-geo": [
     "seo",
@@ -75,6 +86,7 @@ export const APPLICATIONS_BY_SERVICE = {
     "seo-content",
     "structured-data",
     "seo-audit",
+    "contentstructuur",
   ],
   "content-marketing-online-ads": [
     "social-media-marketing",
@@ -84,6 +96,8 @@ export const APPLICATIONS_BY_SERVICE = {
     "tiktok-ads",
     "contentstrategie",
     "copywriting-blogs",
+    "communicatiestrategie",
+    "doelgroeponderzoek",
   ],
   "foto-video-3d-animatie": [
     "bedrijfsfilm",
@@ -123,6 +137,11 @@ export const APPLICATIONS_BY_SERVICE = {
     "ai-content",
     "digitale-strategie",
     "it-projectmanagement",
+    "agile-werken",
+    "verandertrajecten",
+    "roadmap-strategie",
+    "roadmap-management",
+    "design-sprint",
   ],
 } as const satisfies Record<ServiceSlug, readonly string[]>;
 

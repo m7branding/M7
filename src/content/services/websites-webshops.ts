@@ -598,7 +598,7 @@ export const applications: Application[] = [
       { title: { nl: "Toegankelijk", en: "Accessible" }, text: { nl: "Ontworpen met de WCAG-richtlijnen in gedachten.", en: "Designed with WCAG guidelines in mind." } },
     ],
     tools: ["figma", "miro", "hotjar", "lottie"],
-    related: ["huisstijl", "webflow-website", "ux-ui-app-design", "conversie-optimalisatie"],
+    related: ["huisstijl", "webflow-website", "ux-ui-app-design", "conversie-optimalisatie", "toegankelijkheid", "ux-research"],
     faqs: [
       {
         q: { nl: "Wat is het verschil tussen UX en UI?", en: "What is the difference between UX and UI?" },
@@ -732,7 +732,7 @@ export const applications: Application[] = [
       { title: { nl: "Eén aanspreekpunt", en: "One point of contact" }, text: { nl: "Hosting, domein, e-mail en web bij één team.", en: "Hosting, domain, email and web with one team." } },
     ],
     tools: ["cloudflare", "letsencrypt", "plesk", "vercel", "webflow", "wordpress"],
-    related: ["domeinbeheer", "wordpress-website", "webflow-website", "technische-seo"],
+    related: ["domeinbeheer", "wordpress-website", "webflow-website", "technische-seo", "devops"],
     faqs: [
       {
         q: { nl: "Is onderhoud voor mijn website echt nodig?", en: "Does my website really need maintenance?" },
@@ -893,6 +893,274 @@ export const applications: Application[] = [
     metaDescription: {
       nl: "Meertalige website laten maken in Webflow of WordPress: slimme taalstructuur, vertaling, hreflang en internationale SEO. Eén CMS voor alle talen.",
       en: "Multilingual website development in Webflow or WordPress: smart language structure, translation, hreflang and international SEO. One CMS for all languages.",
+    },
+  },
+  {
+    slug: "toegankelijkheid",
+    service: "websites-webshops",
+    title: { nl: "Toegankelijke website (accessibility)", en: "Web accessibility" },
+    summary: {
+      nl: "Een website die iedereen kan gebruiken, ook met een beperking.",
+      en: "A website everyone can use, including people with a disability.",
+    },
+    intro: {
+      nl: "Niet iedereen bekijkt je website met een muis en perfecte ogen. We ontwerpen en bouwen websites die ook werken met een toetsenbord, een schermlezer of een vergroting, volgens de WCAG-richtlijnen. Goed voor je bezoekers, je vindbaarheid en steeds vaker ook verplicht.",
+      en: "Not everyone views your website with a mouse and perfect eyesight. We design and build websites that also work with a keyboard, a screen reader or magnification, following the WCAG guidelines. Good for your visitors, your search visibility and increasingly a legal requirement too.",
+    },
+    body: [
+      {
+        h: { nl: "Toegankelijk vanaf het eerste ontwerp", en: "Accessible from the first design" },
+        body: {
+          nl: "Toegankelijkheid achteraf toevoegen is lastig en duur. Daarom nemen we het vanaf het begin mee: voldoende kleurcontrast, leesbare letters, duidelijke focus-states, knoppen die groot genoeg zijn en formulieren met heldere labels en foutmeldingen. In de build zorgen we voor een logische kopstructuur, semantische HTML, alt-teksten en bediening met alleen het toetsenbord.",
+          en: "Adding accessibility afterwards is difficult and expensive. That is why we include it from the start: sufficient colour contrast, legible type, clear focus states, buttons that are large enough and forms with clear labels and error messages. In the build we take care of a logical heading structure, semantic HTML, alt texts and keyboard-only navigation.",
+        },
+      },
+      {
+        h: { nl: "Wet- en regelgeving, nuchter uitgelegd", en: "Laws and regulations, plainly explained" },
+        body: {
+          nl: "Overheden moeten al langer voldoen aan de WCAG-richtlijnen. Sinds 28 juni 2025 geldt daarnaast de European Accessibility Act voor een groot deel van de digitale producten en diensten voor consumenten, zoals webshops en online boekingen. We helpen je inschatten wat dat voor jou betekent en zorgen dat je website technisch klopt. Voor juridische vragen schakel je een jurist in; wij regelen het ontwerp en de techniek.",
+          en: "Government bodies have had to comply with the WCAG guidelines for some time. Since 28 June 2025, the European Accessibility Act also applies to many digital products and services for consumers, such as web shops and online bookings. We help you assess what that means for you and make sure your website is technically sound. For legal questions you bring in a lawyer; we take care of the design and the technology.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Toegankelijk ontwerp volgens WCAG 2.2 AA", "Kleurcontrast en typografie gecontroleerd", "Bediening met toetsenbord en schermlezer", "Semantische HTML en heldere kopstructuur", "Toegankelijke formulieren en foutmeldingen", "Korte uitleg voor je redacteuren"],
+      en: ["Accessible design following WCAG 2.2 AA", "Colour contrast and typography checked", "Keyboard and screen reader support", "Semantic HTML and a clear heading structure", "Accessible forms and error messages", "Short guide for your content editors"],
+    },
+    benefits: [
+      { title: { nl: "Voor iedereen", en: "For everyone" }, text: { nl: "Ook bezoekers met een beperking komen er moeiteloos doorheen.", en: "Visitors with a disability get through it effortlessly too." } },
+      { title: { nl: "Beter vindbaar", en: "Easier to find" }, text: { nl: "Een heldere structuur helpt ook zoekmachines en AI.", en: "A clear structure also helps search engines and AI." } },
+      { title: { nl: "Klaar voor de regels", en: "Ready for the rules" }, text: { nl: "Een technische basis die aansluit op WCAG.", en: "A technical foundation aligned with WCAG." } },
+    ],
+    tools: ["figma", "webflow", "nextjs", "pagespeed"],
+    related: ["wcag-audit", "ux-ui-webdesign", "ux-research", "technische-seo"],
+    faqs: [
+      {
+        q: { nl: "Wat is WCAG?", en: "What is WCAG?" },
+        a: {
+          nl: "WCAG staat voor Web Content Accessibility Guidelines: de internationale richtlijnen voor toegankelijke websites en apps. Ze zijn opgebouwd rond vier principes: waarneembaar, bedienbaar, begrijpelijk en robuust. Niveau AA is in Europa de gangbare norm.",
+          en: "WCAG stands for Web Content Accessibility Guidelines: the international guidelines for accessible websites and apps. They are built around four principles: perceivable, operable, understandable and robust. Level AA is the common standard in Europe.",
+        },
+      },
+      {
+        q: { nl: "Moet mijn website toegankelijk zijn?", en: "Does my website have to be accessible?" },
+        a: {
+          nl: "Voor overheden en veel publieke organisaties is het verplicht. Door de European Accessibility Act geldt het ook voor veel bedrijven die producten of diensten online aan consumenten verkopen; voor de kleinste ondernemingen gelden uitzonderingen. En ook als het voor jou niet verplicht is, is het slim: je bereikt meer mensen en je site wordt er voor iedereen prettiger van.",
+          en: "For government bodies and many public organisations it is mandatory. Due to the European Accessibility Act it also applies to many businesses that sell products or services online to consumers; there are exemptions for the smallest companies. And even if it is not mandatory for you, it is smart: you reach more people and your site becomes more pleasant for everyone.",
+        },
+      },
+      {
+        q: { nl: "Wordt mijn website er saaier van?", en: "Will my website become boring?" },
+        a: {
+          nl: "Nee hoor. Toegankelijk betekent niet grijs en kaal. Het gaat om contrast, structuur en bediening, niet om het weglaten van mooi design of animaties. Bewegingen respecteren wel de instelling 'beperk beweging' van je bezoeker.",
+          en: "Not at all. Accessible does not mean grey and bare. It is about contrast, structure and operation, not about leaving out good design or animation. Animations do respect your visitor's 'reduce motion' setting.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Toegankelijke website laten maken door M7: ontwerp en bouw volgens WCAG 2.2 AA, met aandacht voor contrast, toetsenbord, schermlezers en de European Accessibility Act.",
+      en: "Accessible website design and build by M7: following WCAG 2.2 AA, with attention to contrast, keyboard, screen readers and the European Accessibility Act.",
+    },
+  },
+  {
+    slug: "wcag-audit",
+    service: "websites-webshops",
+    title: { nl: "WCAG-audit & toegankelijkheidsverklaring", en: "WCAG audit & accessibility statement" },
+    summary: {
+      nl: "Weten waar je website struikelt, met een helder verbeterplan.",
+      en: "Know where your website trips up, with a clear improvement plan.",
+    },
+    intro: {
+      nl: "Hoe toegankelijk is je huidige website of app echt? We toetsen hem aan de WCAG-richtlijnen, met tools én met de hand, en vertalen de bevindingen naar een praktische lijst met verbeterpunten. Als je wilt, lossen we ze ook meteen op.",
+      en: "How accessible is your current website or app really? We test it against the WCAG guidelines, with tools and by hand, and turn the findings into a practical list of improvements. If you like, we fix them straight away too.",
+    },
+    body: [
+      {
+        h: { nl: "Automatisch scannen is niet genoeg", en: "Automated scans are not enough" },
+        body: {
+          nl: "Geautomatiseerde tools vinden een deel van de problemen, zoals ontbrekende alt-teksten of te weinig contrast. Veel knelpunten zie je pas als je een website echt gebruikt: met alleen het toetsenbord, met een schermlezer of ingezoomd op 200 procent. Daarom combineren we een scan met handmatige tests van je belangrijkste pagina's en processen, zoals het contactformulier of de checkout.",
+          en: "Automated tools find some of the problems, such as missing alt texts or insufficient contrast. Many issues only show up when you actually use a website: keyboard only, with a screen reader or zoomed in to 200 percent. That is why we combine a scan with manual tests of your key pages and flows, such as the contact form or the checkout.",
+        },
+      },
+      {
+        h: { nl: "Van rapport naar verbetering", en: "From report to improvement" },
+        body: {
+          nl: "Je krijgt geen onleesbaar rapport vol codes, maar een overzicht per pagina: wat gaat er mis, voor wie is het een probleem en hoe los je het op? We zetten de punten op volgorde van impact, zodat je weet waar je begint. Voor overheden en andere organisaties die er een nodig hebben, helpen we bij het opstellen van een toegankelijkheidsverklaring.",
+          en: "You do not get an unreadable report full of codes, but an overview per page: what goes wrong, who is it a problem for and how do you fix it? We rank the issues by impact, so you know where to start. For government bodies and other organisations that need one, we help draw up an accessibility statement.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Automatische scan van je website", "Handmatige test van belangrijke pagina's en flows", "Test met toetsenbord, zoom en schermlezer", "Rapport per WCAG-succescriterium", "Geprioriteerd verbeterplan", "Hulp bij je toegankelijkheidsverklaring"],
+      en: ["Automated scan of your website", "Manual test of key pages and flows", "Keyboard, zoom and screen reader testing", "Report per WCAG success criterion", "Prioritised improvement plan", "Help with your accessibility statement"],
+    },
+    benefits: [
+      { title: { nl: "Helder beeld", en: "Clear picture" }, text: { nl: "Je weet precies waar je staat.", en: "You know exactly where you stand." } },
+      { title: { nl: "Prioriteiten", en: "Priorities" }, text: { nl: "Eerst de punten met de meeste impact.", en: "The highest-impact issues first." } },
+      { title: { nl: "Onderbouwd", en: "Documented" }, text: { nl: "Een basis voor je verklaring of aanbesteding.", en: "A basis for your statement or tender." } },
+    ],
+    tools: ["pagespeed", "screamingfrog", "figma", "notion"],
+    related: ["toegankelijkheid", "seo-audit", "ux-ui-webdesign", "user-testing"],
+    faqs: [
+      {
+        q: { nl: "Wat is een toegankelijkheidsverklaring?", en: "What is an accessibility statement?" },
+        a: {
+          nl: "Een verklaring waarin een organisatie aangeeft in hoeverre haar website of app voldoet aan de toegankelijkheidseisen, wat er nog niet goed is en wanneer dat wordt opgelost. Nederlandse overheidsorganisaties zijn verplicht zo'n verklaring te publiceren.",
+          en: "A statement in which an organisation declares to what extent its website or app meets the accessibility requirements, what is not yet right and when that will be fixed. Dutch government organisations are required to publish such a statement.",
+        },
+      },
+      {
+        q: { nl: "Kunnen jullie ook een website auditen die door een ander bureau is gebouwd?", en: "Can you audit a website built by another agency?" },
+        a: {
+          nl: "Ja. De audit is onafhankelijk van het platform. Of je site nu in WordPress, Webflow, Shopify of maatwerk is gebouwd: we testen wat de bezoeker te zien en te bedienen krijgt. De verbeterpunten pak je daarna zelf op, met je huidige bureau of met ons.",
+          en: "Yes. The audit is independent of the platform. Whether your site is built in WordPress, Webflow, Shopify or custom code: we test what the visitor sees and operates. You then pick up the improvements yourself, with your current agency or with us.",
+        },
+      },
+      {
+        q: { nl: "Hoe vaak moet je een audit doen?", en: "How often should you do an audit?" },
+        a: {
+          nl: "Bij een nieuwe website of een grote wijziging, en daarna bij voorkeur periodiek, bijvoorbeeld jaarlijks. Websites veranderen voortdurend, en met elke nieuwe pagina of plugin kan er weer iets insluipen.",
+          en: "With a new website or a major change, and preferably periodically after that, for example once a year. Websites change constantly, and with every new page or plugin something can creep back in.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "WCAG-audit door M7: je website of app getest op toegankelijkheid, met scan, handmatige tests, een geprioriteerd verbeterplan en hulp bij je toegankelijkheidsverklaring.",
+      en: "WCAG audit by M7: your website or app tested for accessibility, with a scan, manual tests, a prioritised improvement plan and help with your accessibility statement.",
+    },
+  },
+  {
+    slug: "pagespeed-optimalisatie",
+    service: "websites-webshops",
+    title: { nl: "Pagespeed & Core Web Vitals", en: "Page speed & Core Web Vitals" },
+    summary: {
+      nl: "Een website die vlot laadt, op elk apparaat en elke verbinding.",
+      en: "A website that loads quickly, on every device and every connection.",
+    },
+    intro: {
+      nl: "Niemand wacht graag op een trage website. We meten waar je site tijd verliest en pakken het aan: van zware afbeeldingen en overbodige scripts tot hosting en caching. Zo scoor je beter op de Core Web Vitals en haken minder bezoekers af.",
+      en: "Nobody likes waiting for a slow website. We measure where your site loses time and fix it: from heavy images and unnecessary scripts to hosting and caching. So you score better on the Core Web Vitals and fewer visitors drop off.",
+    },
+    body: [
+      {
+        h: { nl: "Eerst meten, dan sleutelen", en: "Measure first, then tune" },
+        body: {
+          nl: "We kijken naar labdata uit Lighthouse en PageSpeed Insights, maar vooral naar de velddata van echte bezoekers uit het Chrome UX Report en Search Console. Google noemt een pagina goed bij een Largest Contentful Paint van maximaal 2,5 seconde, een Interaction to Next Paint van maximaal 200 milliseconden en een Cumulative Layout Shift van maximaal 0,1. Per paginatype laten we zien waar je staat en wat de grootste remmen zijn.",
+          en: "We look at lab data from Lighthouse and PageSpeed Insights, but mainly at field data from real visitors via the Chrome UX Report and Search Console. Google rates a page as good with a Largest Contentful Paint of at most 2.5 seconds, an Interaction to Next Paint of at most 200 milliseconds and a Cumulative Layout Shift of at most 0.1. For each page type we show where you stand and what the biggest brakes are.",
+        },
+      },
+      {
+        h: { nl: "De winst zit in de details", en: "The gains are in the details" },
+        body: {
+          nl: "Afbeeldingen in moderne formaten en de juiste maten, lettertypes die slim laden, scripts van derden die pas starten als het nodig is, en code die niet meer doet dan nodig. Daarnaast kijken we naar caching, een CDN en je hosting. We werken in WordPress, Webflow, Shopify en maatwerk, en meten na elke verbetering opnieuw.",
+          en: "Images in modern formats and the right sizes, fonts that load smartly, third-party scripts that only start when needed, and code that does no more than necessary. We also look at caching, a CDN and your hosting. We work in WordPress, Webflow, Shopify and custom builds, and measure again after every improvement.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Nulmeting met lab- en velddata", "Analyse per paginatype", "Optimalisatie van afbeeldingen en lettertypes", "Opschonen en uitstellen van scripts", "Caching, CDN en hostingadvies", "Nameting en rapportage"],
+      en: ["Baseline with lab and field data", "Analysis per page type", "Image and font optimisation", "Cleaning up and deferring scripts", "Caching, CDN and hosting advice", "Follow-up measurement and report"],
+    },
+    benefits: [
+      { title: { nl: "Minder afhakers", en: "Fewer drop-offs" }, text: { nl: "Bezoekers blijven als je site meteen reageert.", en: "Visitors stay when your site responds instantly." } },
+      { title: { nl: "Goed voor SEO", en: "Good for SEO" }, text: { nl: "Core Web Vitals horen bij de signalen van Google.", en: "Core Web Vitals are part of Google's signals." } },
+      { title: { nl: "Fijner mobiel", en: "Smoother on mobile" }, text: { nl: "Ook op een trage verbinding onderweg.", en: "Even on a slow connection on the go." } },
+    ],
+    tools: ["pagespeed", "searchconsole", "cloudflare", "vercel", "webflow", "wordpress"],
+    related: ["technische-seo", "hosting-onderhoud", "conversie-optimalisatie", "website-migratie"],
+    faqs: [
+      {
+        q: { nl: "Waarom scoort mijn site laag in PageSpeed Insights, terwijl hij snel voelt?", en: "Why does my site score low in PageSpeed Insights even though it feels fast?" },
+        a: {
+          nl: "De score bovenaan is een labtest op een gesimuleerde, trage mobiele telefoon. Dat is strenger dan jouw laptop op de kantoor-wifi. Belangrijker is de velddata van echte bezoekers: die bepaalt of je de Core Web Vitals haalt. We kijken naar allebei, maar sturen op de velddata.",
+          en: "The score at the top is a lab test on a simulated, slow mobile phone. That is stricter than your laptop on the office wifi. More important is the field data from real visitors: that determines whether you pass the Core Web Vitals. We look at both, but steer on the field data.",
+        },
+      },
+      {
+        q: { nl: "Helpt een snellere website echt voor mijn Google-posities?", en: "Does a faster website really help my Google rankings?" },
+        a: {
+          nl: "Snelheid is één van de vele signalen, geen toverknop. Goede content blijft belangrijker. Maar tussen twee vergelijkbare pagina's helpt een snelle ervaring, en vooral je bezoekers merken het verschil meteen.",
+          en: "Speed is one of many signals, not a magic button. Good content remains more important. But between two comparable pages a fast experience helps, and above all your visitors notice the difference straight away.",
+        },
+      },
+      {
+        q: { nl: "Moet mijn website opnieuw gebouwd worden om sneller te worden?", en: "Does my website need rebuilding to become faster?" },
+        a: {
+          nl: "Meestal niet. Met afbeeldingen, scripts en caching is vaak al veel te winnen. Zit de vertraging in een verouderd thema of een stapel plugins, dan bespreken we eerlijk of een rebuild verstandiger is.",
+          en: "Usually not. Images, scripts and caching often offer plenty of gains. If the slowdown is in an outdated theme or a pile of plugins, we discuss honestly whether a rebuild is the wiser choice.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Pagespeed-optimalisatie door M7: een snellere website met betere Core Web Vitals (LCP, INP, CLS) door slimme afbeeldingen, scripts, caching en hosting.",
+      en: "Page speed optimisation by M7: a faster website with better Core Web Vitals (LCP, INP, CLS) through smart images, scripts, caching and hosting.",
+    },
+  },
+  {
+    slug: "cookie-compliance",
+    service: "websites-webshops",
+    title: { nl: "Cookie compliance & Consent Mode", en: "Cookie compliance & Consent Mode" },
+    summary: {
+      nl: "Een eerlijke cookiebanner en tracking die zich aan de regels houdt.",
+      en: "A fair cookie banner and tracking that plays by the rules.",
+    },
+    intro: {
+      nl: "Een cookiebanner die bezoekers richting 'akkoord' duwt, scripts die al laden voordat iemand iets gekozen heeft: het gebeurt vaker dan je denkt. We zorgen dat je cookies, consent en tracking kloppen met de AVG en de Telecommunicatiewet, zonder dat je onnodig marketingdata kwijtraakt.",
+      en: "A cookie banner that nudges visitors towards 'accept', scripts that load before anyone has chosen anything: it happens more often than you think. We make sure your cookies, consent and tracking comply with the GDPR and Dutch telecom law, without needlessly losing marketing data.",
+    },
+    body: [
+      {
+        h: { nl: "Eerst kijken wat er nu gebeurt", en: "First, see what happens today" },
+        body: {
+          nl: "We scannen je website op cookies en scripts van derden: wat wordt er geplaatst, door wie en vóór of ná toestemming? Vaak vinden we oude pixels, vergeten tags of embeds zoals YouTube en Google Maps die zonder toestemming gegevens doorsturen. Die bevindingen zetten we op een rij, met wat er moet veranderen.",
+          en: "We scan your website for cookies and third-party scripts: what is placed, by whom and before or after consent? We often find old pixels, forgotten tags or embeds such as YouTube and Google Maps that send data without consent. We list those findings, together with what needs to change.",
+        },
+      },
+      {
+        h: { nl: "Een banner die eerlijk is én werkt", en: "A banner that is fair and works" },
+        body: {
+          nl: "We richten een consentbanner in waarin weigeren net zo makkelijk is als accepteren, met heldere categorieën en een cookieverklaring die klopt. Via Google Tag Manager laden scripts pas na toestemming. Met Consent Mode v2 geef je de keuze van je bezoeker door aan Google, wat Google sinds 2024 verwacht voor advertentiefuncties in de EER. Zo blijf je netjes binnen de lijnen en houd je je metingen zo compleet mogelijk.",
+          en: "We set up a consent banner where refusing is as easy as accepting, with clear categories and an accurate cookie statement. Via Google Tag Manager, scripts only load after consent. With Consent Mode v2 you pass your visitor's choice on to Google, which Google has expected since 2024 for advertising features in the EEA. That keeps you within the lines while keeping your measurements as complete as possible.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Cookie- en scriptscan van je website", "Overzicht van knelpunten", "Consentbanner met eerlijke keuzes", "Tags in Tag Manager pas na toestemming", "Consent Mode v2 voor Google", "Cookieverklaring en periodieke controle"],
+      en: ["Cookie and script scan of your website", "Overview of issues", "Consent banner with fair choices", "Tags in Tag Manager only after consent", "Consent Mode v2 for Google", "Cookie statement and periodic check"],
+    },
+    benefits: [
+      { title: { nl: "Netjes geregeld", en: "Properly sorted" }, text: { nl: "Je cookies en tracking zijn op orde.", en: "Your cookies and tracking are in order." } },
+      { title: { nl: "Vertrouwen", en: "Trust" }, text: { nl: "Bezoekers zien dat je zorgvuldig met hun gegevens omgaat.", en: "Visitors see you handle their data with care." } },
+      { title: { nl: "Bruikbare data", en: "Usable data" }, text: { nl: "Meten waar het mag, met Consent Mode als vangnet.", en: "Measure where allowed, with Consent Mode as a safety net." } },
+    ],
+    tools: ["cookiebot", "gtm", "ga4", "googleads", "meta"],
+    related: ["tracking-analytics", "analytics-audit", "wcag-audit", "hosting-onderhoud"],
+    faqs: [
+      {
+        q: { nl: "Heb ik voor elke cookie toestemming nodig?", en: "Do I need consent for every cookie?" },
+        a: {
+          nl: "Nee. Voor functionele cookies die nodig zijn om je site te laten werken, heb je geen toestemming nodig. Voor analytische cookies met weinig impact op de privacy gelden in Nederland soepelere regels, mits je ze privacyvriendelijk instelt. Voor marketing- en trackingcookies heb je wel vooraf toestemming nodig.",
+          en: "No. Functional cookies needed to make your site work do not require consent. In the Netherlands, analytical cookies with little privacy impact are subject to more lenient rules, provided you configure them in a privacy-friendly way. Marketing and tracking cookies do require prior consent.",
+        },
+      },
+      {
+        q: { nl: "Wat is Consent Mode v2?", en: "What is Consent Mode v2?" },
+        a: {
+          nl: "Een manier om de cookiekeuze van je bezoeker door te geven aan Google-diensten zoals Analytics en Ads, die hun gedrag daarop aanpassen. Zonder Consent Mode v2 kun je in de EER minder gebruikmaken van functies als remarketing en gepersonaliseerde advertenties.",
+          en: "A way to pass your visitor's cookie choice on to Google services such as Analytics and Ads, which adjust their behaviour accordingly. Without Consent Mode v2 you can make less use of features such as remarketing and personalised ads in the EEA.",
+        },
+      },
+      {
+        q: { nl: "Geven jullie juridisch advies?", en: "Do you give legal advice?" },
+        a: {
+          nl: "Nee, we zijn geen juristen. We zorgen dat de techniek klopt en wijzen je op wat we tegenkomen. Voor je privacyverklaring of juridische vragen werken we graag samen met jouw jurist of privacyadviseur.",
+          en: "No, we are not lawyers. We make sure the technology is right and point out what we come across. For your privacy statement or legal questions we are happy to work with your lawyer or privacy adviser.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Cookie compliance door M7: cookiescan, een eerlijke consentbanner, tags pas na toestemming en Consent Mode v2, in lijn met de AVG en de Telecommunicatiewet.",
+      en: "Cookie compliance by M7: cookie scan, a fair consent banner, tags only after consent and Consent Mode v2, in line with the GDPR and Dutch telecom law.",
     },
   },
 ];

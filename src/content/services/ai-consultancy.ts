@@ -709,7 +709,7 @@ export const applications: Application[] = [
       { title: { nl: "Uitvoerbaar", en: "Actionable" }, text: { nl: "Een plan waar je morgen mee aan de slag kunt.", en: "A plan you can start on tomorrow." } },
     ],
     tools: ["miro", "notion", "ga4", "lookerstudio", "hubspot"],
-    related: ["ai-strategie", "merkstrategie", "contentstrategie", "tracking-analytics"],
+    related: ["ai-strategie", "merkstrategie", "contentstrategie", "tracking-analytics", "roadmap-strategie"],
     faqs: [
       {
         q: { nl: "Wat is het verschil tussen een digitale strategie en een marketingplan?", en: "What is the difference between a digital strategy and a marketing plan?" },
@@ -776,7 +776,7 @@ export const applications: Application[] = [
       { title: { nl: "Eén aanspreekpunt", en: "One point of contact" }, text: { nl: "Iemand die zowel de business als de techniek begrijpt.", en: "Someone who understands both the business and the technology." } },
     ],
     tools: ["jira", "clickup", "notion", "miro", "github", "slack"],
-    related: ["digitale-strategie", "crm-implementatie", "saas-platform", "website-migratie"],
+    related: ["digitale-strategie", "crm-implementatie", "saas-platform", "website-migratie", "agile-werken", "roadmap-management", "user-stories"],
     faqs: [
       {
         q: { nl: "Begeleiden jullie ook projecten die door een ander bureau worden gebouwd?", en: "Do you also manage projects built by another agency?" },
@@ -803,6 +803,341 @@ export const applications: Application[] = [
     metaDescription: {
       nl: "IT-projectmanagement en IT-consultancy door M7: softwareselectie, projectleiding en implementatie, met grip op planning, budget en kwaliteit.",
       en: "IT project management and IT consultancy by M7: software selection, project leadership and implementation, with control over planning, budget and quality.",
+    },
+  },
+  {
+    slug: "agile-werken",
+    service: "ai-consultancy",
+    title: { nl: "Agile werken & scrum", en: "Agile working & scrum" },
+    summary: {
+      nl: "In korte sprints bouwen, laten zien en bijsturen.",
+      en: "Build, show and adjust in short sprints.",
+    },
+    intro: {
+      nl: "Agile is geen modewoord, maar een nuchtere manier van werken: in korte rondes iets bouwen, het laten zien en bijsturen. We werken zelf zo in onze projecten en helpen je team om agile en scrum in de praktijk te brengen, zonder overbodige poespas.",
+      en: "Agile is not a buzzword, but a down-to-earth way of working: build something in short rounds, show it and adjust. We work this way in our own projects and help your team put agile and scrum into practice, without needless ceremony.",
+    },
+    body: [
+      {
+        h: { nl: "Zo werken wij in projecten", en: "How we work on projects" },
+        body: {
+          nl: "Bij digitale projecten werken we in sprints van één tot twee weken. Aan het begin kiezen we samen wat de sprint moet opleveren, aan het eind laten we het werkende resultaat zien in een demo. Jij ziet dus regelmatig voortgang en kunt bijsturen voordat er weken werk de verkeerde kant op gaat. Een geprioriteerde backlog houdt het overzicht over wat er nog komt.",
+          en: "On digital projects we work in sprints of one to two weeks. At the start we choose together what the sprint should deliver, at the end we show the working result in a demo. So you see progress regularly and can adjust before weeks of work head in the wrong direction. A prioritised backlog keeps track of what is still to come.",
+        },
+      },
+      {
+        h: { nl: "Agile in jouw team", en: "Agile in your team" },
+        body: {
+          nl: "Wil je zelf agile gaan werken, of loopt het niet lekker? Dan kijken we mee: hoe zijn de rollen verdeeld, hoe ziet je backlog eruit en leveren de sprints echt iets op? We richten je tooling in, zoals Jira, ClickUp of Notion, begeleiden de eerste sprints en trainen je team en product owner. Daarbij kiezen we wat bij je organisatie past. Niet elk team heeft elk scrumritueel nodig.",
+          en: "Do you want to start working agile yourself, or is it not running smoothly? Then we take a look: how are the roles divided, what does your backlog look like and do the sprints actually deliver? We set up your tooling, such as Jira, ClickUp or Notion, guide the first sprints and train your team and product owner. We choose what fits your organisation. Not every team needs every scrum ritual.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Scan van je huidige werkwijze", "Inrichting van rollen en ritme", "Backlog en sprintplanning", "Tooling in Jira, ClickUp of Notion", "Begeleiding van de eerste sprints", "Training voor team en product owner"],
+      en: ["Scan of your current way of working", "Setup of roles and rhythm", "Backlog and sprint planning", "Tooling in Jira, ClickUp or Notion", "Guidance for the first sprints", "Training for team and product owner"],
+    },
+    benefits: [
+      { title: { nl: "Sneller resultaat", en: "Faster results" }, text: { nl: "Elke sprint iets werkends.", en: "Something working every sprint." } },
+      { title: { nl: "Bijsturen", en: "Room to adjust" }, text: { nl: "Nieuwe inzichten krijgen meteen een plek.", en: "New insights get a place straight away." } },
+      { title: { nl: "Transparant", en: "Transparent" }, text: { nl: "Iedereen ziet wat er gebeurt en waarom.", en: "Everyone sees what is happening and why." } },
+    ],
+    tools: ["jira", "clickup", "notion", "miro", "slack"],
+    related: ["it-projectmanagement", "user-stories", "roadmap-management", "verandertrajecten"],
+    faqs: [
+      {
+        q: { nl: "Wat is het verschil tussen agile en scrum?", en: "What is the difference between agile and scrum?" },
+        a: {
+          nl: "Agile is een manier van denken en werken: in kleine stappen, met veel samenwerking en ruimte om bij te sturen. Scrum is een concrete werkwijze binnen agile, met vaste rollen zoals product owner en scrum master, sprints en vaste overleggen. Er zijn ook andere agile methodes, zoals kanban.",
+          en: "Agile is a way of thinking and working: in small steps, with lots of collaboration and room to adjust. Scrum is a concrete method within agile, with fixed roles such as product owner and scrum master, sprints and set meetings. There are other agile methods too, such as kanban.",
+        },
+      },
+      {
+        q: { nl: "Werkt agile ook met een vast budget?", en: "Does agile work with a fixed budget?" },
+        a: {
+          nl: "Ja. Dan staan budget en deadline vast en is de scope de knop waaraan je draait. Door steeds de belangrijkste dingen eerst te bouwen, krijg je binnen het budget het meest waardevolle product.",
+          en: "Yes. Then budget and deadline are fixed and scope is the dial you turn. By always building the most important things first, you get the most valuable product within the budget.",
+        },
+      },
+      {
+        q: { nl: "Moet mijn hele organisatie agile werken?", en: "Does my whole organisation have to work agile?" },
+        a: {
+          nl: "Nee. Vaak begin je met één team of één project. Werkt het, dan breid je het uit. We helpen je bepalen waar agile echt iets toevoegt en waar een andere aanpak beter past.",
+          en: "No. You often start with one team or one project. If it works, you expand. We help you decide where agile really adds value and where another approach suits better.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Agile werken en scrum met M7: sprints, backlog en tooling ingericht, de eerste sprints begeleid en je team getraind. Nuchter en zonder overbodige poespas.",
+      en: "Agile working and scrum with M7: sprints, backlog and tooling set up, the first sprints guided and your team trained. Down-to-earth, without needless ceremony.",
+    },
+  },
+  {
+    slug: "verandertrajecten",
+    service: "ai-consultancy",
+    title: { nl: "Verandertrajecten & adoptie", en: "Change management & adoption" },
+    summary: {
+      nl: "Nieuwe systemen, een nieuw merk of AI: zorgen dat mensen het ook echt gaan gebruiken.",
+      en: "New systems, a new brand or AI: making sure people actually start using it.",
+    },
+    intro: {
+      nl: "De mooiste software of het sterkste nieuwe merk werkt niet als niemand ermee aan de slag gaat. We begeleiden digitale verandertrajecten, van een nieuw CRM of klantportaal tot een rebranding of de inzet van AI, met aandacht voor de mensen die ermee moeten werken.",
+      en: "The best software or the strongest new brand does not work if nobody starts using it. We guide digital change programmes, from a new CRM or client portal to a rebrand or the introduction of AI, with attention to the people who have to work with it.",
+    },
+    body: [
+      {
+        h: { nl: "Verandering is mensenwerk", en: "Change is people work" },
+        body: {
+          nl: "Bij een verandering komen vragen en zorgen op. Wat betekent dit voor mijn werk? Waarom moet het anders? We betrekken medewerkers vroeg, met interviews, sessies en ambassadeurs uit de teams zelf. Zo hoor je op tijd waar de weerstand zit en wat er nodig is om mensen mee te krijgen.",
+          en: "Change raises questions and concerns. What does this mean for my work? Why does it have to change? We involve employees early, with interviews, sessions and ambassadors from the teams themselves. That way you hear in good time where the resistance is and what it takes to bring people along.",
+        },
+      },
+      {
+        h: { nl: "Plan, communicatie en training", en: "Plan, communication and training" },
+        body: {
+          nl: "We maken een veranderplan met fases, mijlpalen en duidelijke communicatie: wat verandert er, wanneer en waarom? Met trainingen, korte handleidingen en vaste aanspreekpunten helpen we teams op weg. Na de livegang meten we of het nieuwe systeem of de nieuwe werkwijze echt gebruikt wordt, en sturen we bij waar dat nodig is.",
+          en: "We create a change plan with phases, milestones and clear communication: what changes, when and why? With training sessions, short guides and fixed points of contact we help teams get going. After go-live we measure whether the new system or way of working is actually being used, and adjust where needed.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Impactanalyse per team of rol", "Aanpak voor stakeholders en ambassadeurs", "Veranderplan met fases en mijlpalen", "Interne communicatie en draaiboek", "Trainingen en handleidingen", "Adoptiemeting na livegang"],
+      en: ["Impact analysis per team or role", "Stakeholder and ambassador approach", "Change plan with phases and milestones", "Internal communication and playbook", "Training sessions and guides", "Adoption measurement after go-live"],
+    },
+    benefits: [
+      { title: { nl: "Draagvlak", en: "Buy-in" }, text: { nl: "Medewerkers denken mee in plaats van tegen.", en: "Employees think along instead of pushing back." } },
+      { title: { nl: "Echte adoptie", en: "Real adoption" }, text: { nl: "Nieuwe tools worden daadwerkelijk gebruikt.", en: "New tools actually get used." } },
+      { title: { nl: "Rendement", en: "Return" }, text: { nl: "Je investering doet wat je ervan verwachtte.", en: "Your investment does what you expected of it." } },
+    ],
+    tools: ["miro", "notion", "slack", "clickup"],
+    related: ["ai-workshops", "crm-implementatie", "communicatiestrategie", "rebranding"],
+    faqs: [
+      {
+        q: { nl: "Wanneer heb ik begeleiding bij een verandertraject nodig?", en: "When do I need support with a change programme?" },
+        a: {
+          nl: "Als een verandering veel mensen raakt of hun dagelijkse werk flink verandert. Denk aan een nieuw CRM of ERP, een klantportaal, een rebranding met een nieuwe naam of de invoering van AI-tools. Hoe groter de impact, hoe meer aandacht de mensenkant verdient.",
+          en: "When a change affects many people or significantly changes their daily work. Think of a new CRM or ERP, a client portal, a rebrand with a new name or the introduction of AI tools. The bigger the impact, the more attention the people side deserves.",
+        },
+      },
+      {
+        q: { nl: "Hoe gaan jullie om met weerstand?", en: "How do you deal with resistance?" },
+        a: {
+          nl: "Serieus. Weerstand is vaak een signaal dat iets niet duidelijk is of dat er een terechte zorg leeft. We gaan het gesprek aan, passen het plan aan waar dat kan en leggen helder uit waar dat niet kan.",
+          en: "Seriously. Resistance is often a sign that something is unclear or that there is a valid concern. We start the conversation, adjust the plan where possible and clearly explain where it is not.",
+        },
+      },
+      {
+        q: { nl: "Kunnen jullie dit combineren met de implementatie zelf?", en: "Can you combine this with the implementation itself?" },
+        a: {
+          nl: "Ja, en dat werkt vaak het best. Omdat we ook bouwen en implementeren, sluiten de techniek, de training en de communicatie naadloos op elkaar aan.",
+          en: "Yes, and that often works best. Because we also build and implement, the technology, the training and the communication fit together seamlessly.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Verandertrajecten door M7: begeleiding bij nieuwe systemen, een rebranding of AI, met impactanalyse, veranderplan, communicatie, training en adoptiemeting.",
+      en: "Change management by M7: guidance for new systems, a rebrand or AI, with impact analysis, change plan, communication, training and adoption measurement.",
+    },
+  },
+  {
+    slug: "roadmap-strategie",
+    service: "ai-consultancy",
+    title: { nl: "Roadmap strategie", en: "Roadmap strategy" },
+    summary: {
+      nl: "Van losse ideeën naar een heldere koers voor je digitale product.",
+      en: "From loose ideas to a clear course for your digital product.",
+    },
+    intro: {
+      nl: "Iedereen in je organisatie heeft ideeën voor de website, het platform of de app. Maar wat bouw je eerst, en waarom? We maken een productroadmap die je visie verbindt met concrete thema's, prioriteiten en een realistische volgorde.",
+      en: "Everyone in your organisation has ideas for the website, platform or app. But what do you build first, and why? We create a product roadmap that connects your vision to concrete themes, priorities and a realistic sequence.",
+    },
+    body: [
+      {
+        h: { nl: "Van visie naar thema's", en: "From vision to themes" },
+        body: {
+          nl: "We beginnen bij de vraag waar je product over twee à drie jaar moet staan, en wat dat oplevert voor je gebruikers en je bedrijf. Met stakeholderinterviews, data en gebruikersinzichten verzamelen we alle wensen en kansen. Die groeperen we in thema's en doelen, in plaats van een eindeloze lijst losse features.",
+          en: "We start with the question of where your product should be in two to three years, and what that delivers for your users and your business. With stakeholder interviews, data and user insights we gather all the wishes and opportunities. We group them into themes and goals, instead of an endless list of loose features.",
+        },
+      },
+      {
+        h: { nl: "Kiezen met een reden", en: "Choosing with a reason" },
+        body: {
+          nl: "Met een prioriteringsmodel wegen we waarde, impact, moeite en risico tegen elkaar af. Zo wordt helder waarom iets nu, straks of later komt. De roadmap presenteren we in een vorm die werkt voor directie, team en eventuele investeerders: compact, visueel en zonder schijnzekerheid over exacte datums ver in de toekomst.",
+          en: "With a prioritisation model we weigh value, impact, effort and risk against each other. That makes clear why something comes now, next or later. We present the roadmap in a form that works for management, team and any investors: compact, visual and without false certainty about exact dates far in the future.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Stakeholderinterviews en inventaris van wensen", "Productvisie en doelen", "Thema's en kansen", "Prioritering op waarde en moeite", "Roadmap in nu, straks en later", "Presentatie voor directie en team"],
+      en: ["Stakeholder interviews and wish inventory", "Product vision and goals", "Themes and opportunities", "Prioritisation by value and effort", "Roadmap in now, next and later", "Presentation for management and team"],
+    },
+    benefits: [
+      { title: { nl: "Focus", en: "Focus" }, text: { nl: "Je team weet waar het aan werkt en waarom.", en: "Your team knows what it is working on and why." } },
+      { title: { nl: "Onderbouwde keuzes", en: "Well-founded choices" }, text: { nl: "Prioriteiten die je kunt uitleggen.", en: "Priorities you can explain." } },
+      { title: { nl: "Draagvlak", en: "Buy-in" }, text: { nl: "Directie en team achter dezelfde koers.", en: "Management and team behind the same course." } },
+    ],
+    tools: ["miro", "notion", "figma", "jira", "lookerstudio"],
+    related: ["roadmap-management", "digitale-strategie", "ux-research", "design-sprint"],
+    faqs: [
+      {
+        q: { nl: "Wat is het verschil met een digitale strategie?", en: "How does this differ from a digital strategy?" },
+        a: {
+          nl: "Een digitale strategie kijkt naar je hele digitale landschap: merk, website, systemen en marketing. Een roadmap strategie zoomt in op één product, zoals je platform, portaal of app, en bepaalt wat je daaraan bouwt en in welke volgorde.",
+          en: "A digital strategy looks at your entire digital landscape: brand, website, systems and marketing. A roadmap strategy zooms in on one product, such as your platform, portal or app, and decides what you build on it and in what order.",
+        },
+      },
+      {
+        q: { nl: "Legt een roadmap vaste datums vast?", en: "Does a roadmap lock in fixed dates?" },
+        a: {
+          nl: "Voor de korte termijn vaak wel, voor de lange termijn liever niet. We werken met horizonten zoals nu, straks en later. Dat geeft richting zonder te doen alsof je nu al precies weet wat er over een jaar speelt.",
+          en: "For the short term often yes, for the long term preferably not. We work with horizons such as now, next and later. That gives direction without pretending you already know exactly what will be going on a year from now.",
+        },
+      },
+      {
+        q: { nl: "Voor wie is dit geschikt?", en: "Who is this for?" },
+        a: {
+          nl: "Voor bedrijven met een eigen digitaal product, zoals een SaaS-platform, klantportaal of app, en voor organisaties met een grote website die continu wordt doorontwikkeld. Ook bij de start van een nieuw product is het een goed vertrekpunt.",
+          en: "For companies with their own digital product, such as a SaaS platform, client portal or app, and for organisations with a large website that is continuously developed. It is also a good starting point when launching a new product.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Roadmap strategie door M7: een productroadmap voor je platform, portaal, app of website, met visie, thema's en onderbouwde prioriteiten in nu, straks en later.",
+      en: "Roadmap strategy by M7: a product roadmap for your platform, portal, app or website, with vision, themes and well-founded priorities in now, next and later.",
+    },
+  },
+  {
+    slug: "roadmap-management",
+    service: "ai-consultancy",
+    title: { nl: "Roadmap management", en: "Roadmap management" },
+    summary: {
+      nl: "Je roadmap levend houden: bijsturen, afstemmen en laten zien wat hij oplevert.",
+      en: "Keeping your roadmap alive: adjusting, aligning and showing what it delivers.",
+    },
+    intro: {
+      nl: "Een roadmap maken is één ding, hem bijhouden is het echte werk. Nieuwe wensen, veranderende prioriteiten en onverwachte kansen komen elke week langs. We beheren je roadmap als product owner of sparringpartner, zodat hij actueel blijft en iedereen weet waar je staat.",
+      en: "Making a roadmap is one thing, maintaining it is the real work. New requests, changing priorities and unexpected opportunities come along every week. We manage your roadmap as product owner or sparring partner, so it stays current and everyone knows where you stand.",
+    },
+    body: [
+      {
+        h: { nl: "Een vast ritme", en: "A fixed rhythm" },
+        body: {
+          nl: "We werken met een helder ritme: wekelijks de backlog verfijnen, per sprint of maand de voortgang bespreken en per kwartaal de roadmap herzien met de belangrijkste stakeholders. Nieuwe ideeën krijgen een vaste plek om binnen te komen en worden op dezelfde manier gewogen als de rest. Zo voorkom je dat de luidste stem bepaalt wat er gebouwd wordt.",
+          en: "We work with a clear rhythm: refining the backlog weekly, discussing progress per sprint or month and reviewing the roadmap with the key stakeholders every quarter. New ideas get a fixed place to come in and are weighed the same way as everything else. That prevents the loudest voice from deciding what gets built.",
+        },
+      },
+      {
+        h: { nl: "Laten zien wat het oplevert", en: "Showing what it delivers" },
+        body: {
+          nl: "Een roadmap is pas geloofwaardig als je laat zien wat hij oplevert. We koppelen thema's aan meetbare doelen en houden in een dashboard bij hoe het product presteert. In korte updates zien directie en team wat er is opgeleverd, wat eraan komt en waar keuzes nodig zijn.",
+          en: "A roadmap is only credible if you show what it delivers. We link themes to measurable goals and track how the product performs in a dashboard. In short updates, management and team see what has been delivered, what is coming and where choices are needed.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Beheer van roadmap en backlog", "Intake en weging van nieuwe wensen", "Kwartaalreview met stakeholders", "Afstemming met developers en leveranciers", "Voortgangsupdates en dashboard", "Product owner op afroep of op vaste basis"],
+      en: ["Management of roadmap and backlog", "Intake and weighing of new requests", "Quarterly review with stakeholders", "Alignment with developers and vendors", "Progress updates and dashboard", "Product owner on call or on a fixed basis"],
+    },
+    benefits: [
+      { title: { nl: "Actueel", en: "Up to date" }, text: { nl: "Een roadmap die klopt met de werkelijkheid.", en: "A roadmap that matches reality." } },
+      { title: { nl: "Rust", en: "Calm" }, text: { nl: "Nieuwe wensen hebben een vaste route.", en: "New requests have a fixed route." } },
+      { title: { nl: "Zichtbare voortgang", en: "Visible progress" }, text: { nl: "Iedereen ziet wat er bereikt is.", en: "Everyone sees what has been achieved." } },
+    ],
+    tools: ["jira", "clickup", "notion", "lookerstudio", "slack"],
+    related: ["roadmap-strategie", "it-projectmanagement", "agile-werken", "user-stories"],
+    faqs: [
+      {
+        q: { nl: "Wat doet een product owner?", en: "What does a product owner do?" },
+        a: {
+          nl: "Een product owner bepaalt wat er gebouwd wordt en in welke volgorde. Die beheert de backlog, vertaalt wensen naar user stories, beslist over prioriteiten en is het aanspreekpunt voor het ontwikkelteam. Kortom: de schakel tussen business en techniek.",
+          en: "A product owner decides what gets built and in what order. They manage the backlog, translate requests into user stories, decide on priorities and are the point of contact for the development team. In short: the link between business and technology.",
+        },
+      },
+      {
+        q: { nl: "Kunnen jullie dit tijdelijk overnemen?", en: "Can you take this over temporarily?" },
+        a: {
+          nl: "Ja. Bijvoorbeeld als je eigen product owner uitvalt, als je nog geen product owner hebt of als je team even extra capaciteit nodig heeft. Daarna dragen we het netjes over.",
+          en: "Yes. For example if your own product owner drops out, if you do not have a product owner yet or if your team needs some extra capacity for a while. We hand it over properly afterwards.",
+        },
+      },
+      {
+        q: { nl: "Werken jullie ook met andere ontwikkelteams?", en: "Do you also work with other development teams?" },
+        a: {
+          nl: "Zeker. Roadmap management werkt prima met je eigen developers of een externe leverancier. Wij zorgen dat de koers helder blijft en dat iedereen dezelfde prioriteiten aanhoudt.",
+          en: "Certainly. Roadmap management works fine with your own developers or an external vendor. We make sure the course stays clear and that everyone sticks to the same priorities.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Roadmap management door M7: je productroadmap en backlog actueel gehouden, nieuwe wensen gewogen en voortgang zichtbaar, als product owner of sparringpartner.",
+      en: "Roadmap management by M7: your product roadmap and backlog kept current, new requests weighed and progress made visible, as product owner or sparring partner.",
+    },
+  },
+  {
+    slug: "design-sprint",
+    service: "ai-consultancy",
+    title: { nl: "Design sprints & workshops", en: "Design sprints & workshops" },
+    summary: {
+      nl: "In een paar dagen van groot vraagstuk naar getest prototype.",
+      en: "From big question to tested prototype in a few days.",
+    },
+    intro: {
+      nl: "Soms wil je niet maandenlang plannen, maar snel weten of een idee werkt. In een design sprint gaan we met een klein team in een paar dagen van vraagstuk naar schetsen, keuzes, een realistisch prototype en feedback van echte gebruikers.",
+      en: "Sometimes you do not want to plan for months, but quickly find out whether an idea works. In a design sprint we go with a small team from question to sketches, decisions, a realistic prototype and feedback from real users in a few days.",
+    },
+    body: [
+      {
+        h: { nl: "Zo verloopt een sprint", en: "How a sprint works" },
+        body: {
+          nl: "Een sprint volgt een vast stramien. We brengen het vraagstuk en de doelen in kaart, verzamelen ideeën en schetsen oplossingen. Daarna kiezen we de sterkste richting en bouwen we een prototype in Figma dat echt aanvoelt. Op de laatste dag testen we het met een paar gebruikers. Aan het eind weet je of je moet doorpakken, bijsturen of stoppen.",
+          en: "A sprint follows a fixed format. We map the challenge and the goals, gather ideas and sketch solutions. Then we pick the strongest direction and build a prototype in Figma that feels real. On the last day we test it with a few users. At the end you know whether to push on, adjust or stop.",
+        },
+      },
+      {
+        h: { nl: "Workshops op maat", en: "Tailored workshops" },
+        body: {
+          nl: "Niet elk vraagstuk vraagt om een volledige sprint. Daarom geven we ook kortere workshops, zoals een kick-off, stakeholderworkshop, klantreissessie of prioriteringssessie. Bij ons op kantoor in Nistelrode, bij jou op locatie of online in Miro. Altijd met een duidelijke vraag vooraf en concrete uitkomsten achteraf.",
+          en: "Not every challenge needs a full sprint. That is why we also run shorter workshops, such as a kick-off, stakeholder workshop, customer journey session or prioritisation session. At our office in Nistelrode, at your location or online in Miro. Always with a clear question beforehand and concrete outcomes afterwards.",
+        },
+      },
+    ],
+    deliverables: {
+      nl: ["Voorbereiding en sprintvraag", "Begeleiding en facilitatie door M7", "Schetsen en gekozen oplossingsrichting", "Realistisch prototype in Figma", "Test met echte gebruikers", "Samenvatting met vervolgstappen"],
+      en: ["Preparation and sprint question", "Guidance and facilitation by M7", "Sketches and chosen direction", "Realistic prototype in Figma", "Test with real users", "Summary with next steps"],
+    },
+    benefits: [
+      { title: { nl: "Snel duidelijkheid", en: "Fast clarity" }, text: { nl: "In een paar dagen weet je of een idee werkt.", en: "In a few days you know whether an idea works." } },
+      { title: { nl: "Minder risico", en: "Less risk" }, text: { nl: "Testen voordat je investeert in bouwen.", en: "Test before you invest in building." } },
+      { title: { nl: "Samen", en: "Together" }, text: { nl: "Alle belangrijke mensen aan één tafel.", en: "All the key people at one table." } },
+    ],
+    tools: ["miro", "figma", "notion", "slack"],
+    related: ["roadmap-strategie", "user-testing", "mvp-ontwikkeling", "ai-workshops"],
+    faqs: [
+      {
+        q: { nl: "Hoe lang duurt een design sprint?", en: "How long does a design sprint take?" },
+        a: {
+          nl: "Een klassieke design sprint duurt vijf dagen, maar we werken ook met compactere varianten van drie à vier dagen. Vooraf is er wat voorbereiding nodig, zoals het inplannen van testgebruikers.",
+          en: "A classic design sprint takes five days, but we also work with more compact versions of three to four days. Some preparation is needed beforehand, such as scheduling test users.",
+        },
+      },
+      {
+        q: { nl: "Wie moeten er meedoen?", en: "Who should take part?" },
+        a: {
+          nl: "Een klein team van vijf tot zeven mensen met verschillende rollen, zoals een beslisser, iemand die de klant goed kent, iemand van techniek en iemand van marketing of sales. Wij zorgen voor de begeleiding, het ontwerp en het prototype.",
+          en: "A small team of five to seven people with different roles, such as a decision-maker, someone who knows the customer well, someone from tech and someone from marketing or sales. We take care of facilitation, design and the prototype.",
+        },
+      },
+      {
+        q: { nl: "Wat gebeurt er na de sprint?", en: "What happens after the sprint?" },
+        a: {
+          nl: "Dat hangt af van de uitkomst. Werkt het idee, dan gebruik je het prototype als basis voor de user stories en de bouw. Werkt het niet, dan heb je in een paar dagen geleerd wat je anders maanden had gekost.",
+          en: "That depends on the outcome. If the idea works, you use the prototype as the basis for the user stories and the build. If it does not, you have learned in a few days what would otherwise have cost you months.",
+        },
+      },
+    ],
+    metaDescription: {
+      nl: "Design sprints en workshops door M7: in een paar dagen van vraagstuk naar getest prototype, of een workshop op maat in Nistelrode, bij jou of online.",
+      en: "Design sprints and workshops by M7: from challenge to tested prototype in a few days, or a tailored workshop in Nistelrode, at your location or online.",
     },
   },
 ];
