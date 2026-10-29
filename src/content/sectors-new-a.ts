@@ -145,6 +145,42 @@ export const NEW_SECTORS_A: Sector[] = [
             service: "content-marketing-online-ads",
             application: "meta-ads",
           },
+          {
+            title: { nl: "Een eigen gezicht voor je label", en: "A distinct identity for your label" },
+            text: {
+              nl: "Naam, logo, kleuren en beeldstijl die passen bij je collectie, tot op de hangtag en de draagtas. Zo herkent een klant je label in de winkel, in de webshop en op Instagram.",
+              en: "Name, logo, colours and image style that suit your collection, right down to the swing tag and the carrier bag. That way customers recognise your label in store, in your web shop and on Instagram.",
+            },
+            service: "branding-rebranding",
+            application: "huisstijl",
+          },
+          {
+            title: { nl: "Sieraad zelf samenstellen", en: "Design your own piece of jewellery" },
+            text: {
+              nl: "Klanten kiezen metaal, steen, maat en gravure en zien direct hoe hun ring of hanger eruitziet, met een prijsindicatie erbij. Jij krijgt een aanvraag die je zo kunt uitwerken.",
+              en: "Customers choose metal, stone, size and engraving and instantly see how their ring or pendant looks, with a price indication. You receive an enquiry you can work out straight away.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "productconfigurator",
+          },
+          {
+            title: { nl: "Vindbaar op categorie en merk", en: "Found by category and brand" },
+            text: {
+              nl: "Eigen pagina's voor zoekopdrachten als 'trouwringen' of 'linnen jurken', en voor de merken die je verkoopt. Met goede teksten en een snelle site begrijpt Google je collectie, ook als die elk seizoen wisselt.",
+              en: "Dedicated pages for searches like 'wedding rings' or 'linen dresses', and for the brands you stock. With good copy and a fast site, Google understands your collection, even when it changes every season.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo",
+          },
+          {
+            title: { nl: "E-mails na de eerste bestelling", en: "Emails after the first order" },
+            text: {
+              nl: "Een welkomstreeks, een seintje bij een achtergelaten winkelmandje en een mail zodra de nieuwe collectie binnen is. Het loopt vanzelf, in de stijl van je merk.",
+              en: "A welcome series, a nudge about an abandoned basket and an email as soon as the new collection arrives. It runs by itself, in your brand's style.",
+            },
+            service: "automation-funnels",
+            application: "e-mailmarketing",
+          },
         ],
         faqs: [
           {
@@ -173,6 +209,27 @@ export const NEW_SECTORS_A: Sector[] = [
             a: {
               nl: "Bruiden oriënteren zich lang en vooral online, vaak maanden voor de grote dag. Laat je collectie zien met goede foto's per jurk of designer, en vertel hoe een pasafspraak bij jou verloopt en wie er mee mag. Daarna willen ze vooral snel een moment vastleggen. Een [[boekingswidget|boekingswidget]] met beschikbare tijden en een paar vragen vooraf, zoals trouwdatum, stijl en budget, geeft jou een goede voorbereiding. Met [[meta-ads|Meta Ads]] komt je collectie langs bij mensen in je regio, ook bij wie je site al bezocht.",
               en: "Brides research for a long time and mostly online, often months before the big day. Show your collection with good photos per dress or designer, and explain how a fitting at your shop works and who can come along. After that, they mainly want to lock in a moment quickly. A [[boekingswidget|booking widget]] with available times and a few questions upfront, such as wedding date, style and budget, gives you good preparation. With [[meta-ads|Meta Ads]] your collection shows up for people in your region, including those who already visited your site.",
+            },
+          },
+          {
+            q: { nl: "Hoe beperk je retouren in een kledingwebshop?", en: "How do you reduce returns in an online clothing store?" },
+            a: {
+              nl: "Retouren horen bij online mode, en klanten hebben bij een online aankoop in de regel veertien dagen bedenktijd. Je kunt wel zorgen dat minder mensen gokken op hun maat: vermeld per artikel de pasvorm, de lengte van het model en de maat die het draagt, en laat kleuren zien zoals ze echt zijn. Vraag bij elke retour naar de reden en kijk welke artikelen opvallen. Vaak zit de oplossing in een betere maattabel of [[productfotografie|eerlijkere foto's]].",
+              en: "Returns come with selling fashion online, and customers generally have fourteen days to change their mind after an online purchase. What you can do is make sure fewer people gamble on their size: state each item's fit, the model's height and the size they are wearing, and show colours as they really are. Ask for the reason with every return and look at which items stand out. The fix is often a better size chart or [[productfotografie|more honest photos]].",
+            },
+          },
+          {
+            q: { nl: "Hoe trek je meer mensen naar je boutique of juwelierszaak?", en: "How do you get more people into your boutique or jewellery shop?" },
+            a: {
+              nl: "Begin bij Google, want daar zoeken mensen op 'kledingwinkel' of 'juwelier' in Den Bosch, Oss of Eindhoven. Een compleet [[lokale-seo|Google Bedrijfsprofiel]] met actuele foto's, openingstijden en reviews brengt je in beeld op het moment dat iemand wil gaan winkelen. Laat online zien wat er nu in de winkel hangt of ligt, en geef mensen een reden om langs te komen, zoals een personal shopping-afspraak of een avond rond de nieuwe collectie. Met [[meta-ads|advertenties]] in een straal rond je winkel bereik je de buurt gericht.",
+              en: "Start with Google, because that is where people search for 'clothing store' or 'jeweller' in Den Bosch, Oss or Eindhoven. A complete [[lokale-seo|Google Business Profile]] with fresh photos, opening hours and reviews puts you in view at the moment someone wants to go shopping. Show online what is in store right now, and give people a reason to drop by, such as a personal shopping appointment or an evening around the new collection. With [[meta-ads|ads]] in a radius around your shop you reach the neighbourhood in a targeted way.",
+            },
+          },
+          {
+            q: { nl: "Hoe zet je een nieuw modelabel of sieradenmerk in de markt?", en: "How do you launch a new fashion label or jewellery brand?" },
+            a: {
+              nl: "Begin klein en scherp: voor wie maak je het, wat maakt jouw ontwerpen anders en waarom nu? Die keuzes leggen we vast in een [[merkstrategie|merkstrategie]] en vertalen we naar een naam, logo, webshop en beeldstijl die hetzelfde vertellen. Bouw voor de lancering alvast een wachtlijst op met een teaser op Instagram en TikTok, zodat er op dag één mensen klaarstaan. Daarna draait het om volhouden: per collectie een vast ritme van beeld, mails en posts.",
+              en: "Start small and sharp: who do you make it for, what makes your designs different and why now? We capture those choices in a [[merkstrategie|brand strategy]] and translate them into a name, logo, web shop and image style that tell the same story. Before launch, build a waiting list with a teaser on Instagram and TikTok, so people are ready on day one. After that it is about keeping it up: a steady rhythm of visuals, emails and posts for every collection.",
             },
           },
         ],
@@ -227,6 +284,42 @@ export const NEW_SECTORS_A: Sector[] = [
             service: "automation-funnels",
             application: "marketing-automation",
           },
+          {
+            title: { nl: "Huisstijl die bij je salon past", en: "An identity that fits your salon" },
+            text: {
+              nl: "Logo, kleuren en beeldstijl die terugkomen op je website, Instagram, prijslijst en cadeaubonnen. Rustig en luxe of juist vrolijk en vlot: als het maar klopt met hoe het bij jou voelt.",
+              en: "Logo, colours and image style that return on your website, Instagram, price list and gift vouchers. Calm and luxurious or bright and breezy: as long as it matches how your place feels.",
+            },
+            service: "branding-rebranding",
+            application: "huisstijl",
+          },
+          {
+            title: { nl: "Website met behandelingen en prijzen", en: "A website with treatments and prices" },
+            text: {
+              nl: "Per behandeling uitleg, duur en prijs, foto's van je eigen werk en overal een boekingsknop. Een nieuwe behandeling of prijs pas je zelf aan, zonder dat je iemand hoeft te bellen.",
+              en: "For each treatment an explanation, duration and price, photos of your own work and a booking button everywhere. You add a new treatment or change a price yourself, without having to call anyone.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Rustige dagen opvullen met ads", en: "Filling quiet days with ads" },
+            text: {
+              nl: "Een kalme dinsdag? Een korte campagne op Instagram en Facebook voor mensen in je buurt, met een directe boekingslink. Aan te zetten wanneer jij het nodig hebt, en weer uit als de agenda vol zit.",
+              en: "A quiet Tuesday? A short Instagram and Facebook campaign for people nearby, with a direct booking link. Switched on when you need it, and off again once the calendar is full.",
+            },
+            service: "content-marketing-online-ads",
+            application: "meta-ads",
+          },
+          {
+            title: { nl: "Prijslijst, cadeaubon en afsprakenkaartje", en: "Price list, gift voucher and appointment card" },
+            text: {
+              nl: "Een prijslijst aan de muur, cadeaubonnen en afsprakenkaartjes in dezelfde stijl als je website. Klein drukwerk, maar klanten nemen het mee naar huis en geven het door.",
+              en: "A price list on the wall, gift vouchers and appointment cards in the same style as your website. Small print items, but clients take them home and pass them on.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "visitekaartjes-drukwerk",
+          },
         ],
         faqs: [
           {
@@ -255,6 +348,27 @@ export const NEW_SECTORS_A: Sector[] = [
             a: {
               nl: "Door te kiezen voor wie je er bent. Een salon voor snelle, betaalbare behandelingen tussen het werk door vraagt een andere uitstraling dan een rustige plek voor een uur ontspanning. Dat vertalen we naar een [[huisstijl|huisstijl]] die je overal terugziet: logo, kleuren, website, Instagram, cadeaubonnen en de prijslijst aan de muur. Ook je [[tone-of-voice|tone of voice]] hoort erbij, van je bio tot je boekingsbevestiging. Zo herkennen klanten je meteen, ook als ze je naam even kwijt zijn.",
               en: "By choosing who you are there for. A salon for quick, affordable treatments between work calls for a different look than a calm place for an hour of relaxation. We translate that into a [[huisstijl|visual identity]] you see everywhere: logo, colours, website, Instagram, gift vouchers and the price list on the wall. Your [[tone-of-voice|tone of voice]] belongs to it too, from your bio to your booking confirmation. That way clients recognise you instantly, even if your name has slipped their mind.",
+            },
+          },
+          {
+            q: { nl: "Mag ik foto's van klanten op Instagram of mijn website zetten?", en: "Can I post photos of clients on Instagram or my website?" },
+            a: {
+              nl: "Alleen met toestemming, en die vraag je het liefst vooraf en duidelijk: waarvoor gebruik je de foto en waar komt hij te staan? Een herkenbare foto is een persoonsgegeven, dus leg vast dat iemand ja heeft gezegd, bijvoorbeeld in je boekingssysteem of met een kort formulier. Ook bij een close-up van nagels of wimpers is het netjes om het even te vragen. En trekt iemand later zijn toestemming in, haal de foto dan weg van je website en [[social-media-marketing|socials]].",
+              en: "Only with consent, and ideally you ask beforehand and clearly: what will the photo be used for and where will it appear? A recognisable photo counts as personal data, so record that someone said yes, for example in your booking system or with a short form. Even with a close-up of nails or lashes it is good manners to ask. And if someone withdraws their consent later, remove the photo from your website and [[social-media-marketing|socials]].",
+            },
+          },
+          {
+            q: { nl: "Hoe verkoop ik als salon meer producten en cadeaubonnen?", en: "How can my salon sell more products and gift vouchers?" },
+            a: {
+              nl: "Maak het makkelijk om na de behandeling verder te gaan. Een korte [[e-mailmarketing|mail]] met verzorgingstips en de producten die je gebruikte, werkt vaak beter dan alleen een volle schap bij de kassa. Cadeaubonnen verkoop je online, zodat iemand om tien uur 's avonds nog een last-minute cadeau kan versturen. En met een kleine [[webshop|webshop]] voor nazorgproducten verdien je ook op momenten dat de stoel leeg is.",
+              en: "Make it easy to carry on after the treatment. A short [[e-mailmarketing|email]] with aftercare tips and the products you used often works better than just a full shelf by the till. Sell gift vouchers online, so someone can still send a last-minute present at ten in the evening. And with a small [[webshop|web shop]] for aftercare products you earn money even when the chair is empty.",
+            },
+          },
+          {
+            q: { nl: "Wat kost een website voor een schoonheidssalon of nagelstudio?", en: "What does a website for a beauty salon or nail studio cost?" },
+            a: {
+              nl: "Dat hangt af van wat je nodig hebt. Een compacte [[webflow-website|website]] met behandelingen, prijzen en een koppeling met je boekingssysteem is een ander project dan een site met webshop, meerdere vestigingen en een fotoshoot. Na een korte kennismaking krijg je vooraf een heldere offerte, zodat je weet waar je aan toe bent. Reken daarnaast op vaste maandkosten voor [[hosting-onderhoud|hosting en onderhoud]] en eventueel je boekingssoftware.",
+              en: "That depends on what you need. A compact [[webflow-website|website]] with treatments, prices and a link to your booking system is a different project from a site with a web shop, several locations and a photo shoot. After a short introduction you receive a clear quote upfront, so you know where you stand. On top of that, expect fixed monthly costs for [[hosting-onderhoud|hosting and maintenance]] and possibly your booking software.",
             },
           },
         ],
@@ -308,6 +422,42 @@ export const NEW_SECTORS_A: Sector[] = [
             service: "content-marketing-online-ads",
             application: "meta-ads",
           },
+          {
+            title: { nl: "Seintje voor de volgende knipbeurt", en: "A nudge for the next haircut" },
+            text: {
+              nl: "Komt een vaste klant langer niet dan normaal, dan krijgt hij automatisch een berichtje met een directe boekingslink. Vriendelijk, op het juiste moment en zonder dat iemand lijstjes bijhoudt.",
+              en: "If a regular stays away longer than usual, they automatically get a message with a direct booking link. Friendly, well timed and without anyone keeping lists.",
+            },
+            service: "automation-funnels",
+            application: "marketing-automation",
+          },
+          {
+            title: { nl: "Video's van fades en kleurwerk", en: "Videos of fades and colour work" },
+            text: {
+              nl: "Korte video's van een strakke fade, een kleurbehandeling of een complete make-over, gefilmd in je eigen salon. Gemaakt voor TikTok en Instagram, en in een paar seconden zie je wat je kunt.",
+              en: "Short videos of a sharp fade, a colour treatment or a complete makeover, filmed in your own salon. Made for TikTok and Instagram, showing in a few seconds what you can do.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "social-video",
+          },
+          {
+            title: { nl: "Prijsindicatie voor kleur of bruidskapsel", en: "Price indication for colour or bridal hair" },
+            text: {
+              nl: "Kleurbehandelingen en bruidskapsels hangen af van lengte, dikte en wensen. Een korte calculator geeft vooraf een eerlijke indicatie, zodat er bij het afrekenen geen verrassingen zijn.",
+              en: "Colour treatments and bridal styling depend on length, thickness and wishes. A short calculator gives an honest indication upfront, so there are no surprises at the till.",
+            },
+            service: "configurators-lead-tools-widgets",
+            application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Gevel, raam en spiegel in stijl", en: "Shopfront, window and mirror in style" },
+            text: {
+              nl: "Een gevel die opvalt in de winkelstraat, belettering op het raam en stickers voor de spiegels. Zo maakt je barbershop al reclame voordat iemand binnenstapt.",
+              en: "A shopfront that stands out on the high street, lettering on the window and decals for the mirrors. That way your barbershop advertises itself before anyone walks in.",
+            },
+            service: "grafisch-ontwerp-print",
+            application: "beurs-signing",
+          },
         ],
         faqs: [
           {
@@ -336,6 +486,27 @@ export const NEW_SECTORS_A: Sector[] = [
             a: {
               nl: "Met één merk en een eigen plek per vestiging. Elke salon krijgt een pagina met adres, team, openingstijden en een boekingsknop die direct naar de agenda van die vestiging gaat. Met [[lokale-seo|lokale SEO]] en een apart Google Bedrijfsprofiel per salon vindt iemand in Veghel de salon in Veghel, en niet die in Den Bosch. Een [[brandbook|brandbook]] met templates voor social en posters houdt de uitstraling overal gelijk, terwijl elk team lokaal zijn eigen gezicht kan laten zien.",
               en: "With one brand and a dedicated place for each location. Every salon gets a page with address, team, opening hours and a booking button that goes straight to that location's calendar. With [[lokale-seo|local SEO]] and a separate Google Business Profile per salon, someone in Veghel finds the salon in Veghel, not the one in Den Bosch. A [[brandbook|brand book]] with templates for social and posters keeps the look consistent everywhere, while each team can still show its own local face.",
+            },
+          },
+          {
+            q: { nl: "Hoe krijg je als kapsalon meer Google-reviews?", en: "How does a hair salon get more Google reviews?" },
+            a: {
+              nl: "Door het op het juiste moment te vragen, en het makkelijk te maken. Stuur na de afspraak [[workflow-automatisering|automatisch]] een kort berichtje met een directe link naar je reviewpagina, als de klant nog blij is met zijn nieuwe kapsel. Reageer op elke review, ook op de kritische, want toekomstige klanten lezen mee. Beloningen voor reviews laat je weg: Google staat dat niet toe, en een eerlijk [[lokale-seo|Google Bedrijfsprofiel]] werkt op den duur het best.",
+              en: "By asking at the right moment, and making it easy. [[workflow-automatisering|Automatically]] send a short message after the appointment with a direct link to your review page, while the client is still happy with their new cut. Reply to every review, including the critical ones, because future clients read along. Skip rewards for reviews: Google does not allow them, and an honest [[lokale-seo|Google Business Profile]] works best in the long run.",
+            },
+          },
+          {
+            q: { nl: "Is TikTok of Instagram de moeite waard voor een kapper?", en: "Are TikTok and Instagram worth it for a hairdresser?" },
+            a: {
+              nl: "Vaak wel, want haar is visueel en een make-over in vijftien seconden is precies wat mensen daar zoeken. Instagram werkt als portfolio waar klanten je stijl bekijken, TikTok helpt om nieuwe mensen te bereiken. Het lukt alleen als je het volhoudt, dus film tijdens het werk een paar vaste formats en plan je posts vooruit met een eenvoudige [[contentstrategie|contentplanning]]. Met één shootdag voor [[social-video|korte video's]] heb je materiaal voor weken.",
+              en: "Often, yes, because hair is visual and a fifteen-second makeover is exactly what people look for there. Instagram works as a portfolio where clients check your style, TikTok helps you reach new people. It only works if you keep it up, so film a few fixed formats while you work and plan your posts ahead with a simple [[contentstrategie|content plan]]. With one shoot day for [[social-video|short videos]] you have material for weeks.",
+            },
+          },
+          {
+            q: { nl: "Hoe pak je een nieuwe naam of salonovername online aan?", en: "How do you handle a new name or salon takeover online?" },
+            a: {
+              nl: "Vertel je vaste klanten het op tijd, in de salon en per mail, zodat niemand denkt dat je zaak verdwenen is. Werk je bestaande Google Bedrijfsprofiel bij in plaats van een nieuw aan te maken, dan blijven je reviews meestal behouden. Gaat je website over naar een nieuwe naam of domein, zorg dan voor [[website-migratie|nette doorverwijzingen]], zodat je vindbaarheid niet opnieuw begint. En een [[rebranding|rebranding]] voer je het liefst in één keer door: gevel, website, socials en cadeaubonnen tegelijk.",
+              en: "Tell your regulars in good time, in the salon and by email, so nobody thinks your business has disappeared. Update your existing Google Business Profile instead of creating a new one, and your reviews will usually stay. If your website moves to a new name or domain, set up [[website-migratie|proper redirects]], so your visibility does not start from scratch. And ideally you roll out a [[rebranding|rebrand]] in one go: shopfront, website, socials and gift vouchers at the same time.",
             },
           },
         ],
@@ -389,6 +560,42 @@ export const NEW_SECTORS_A: Sector[] = [
             service: "content-marketing-online-ads",
             application: "tiktok-ads",
           },
+          {
+            title: { nl: "Merkstrategie voor een nieuw label", en: "Brand strategy for a new label" },
+            text: {
+              nl: "Voor wie is je merk, welk probleem los je op en waarom zou iemand je zijn huid toevertrouwen? Die keuzes leggen we vast voordat er ook maar één potje ontworpen wordt.",
+              en: "Who is your brand for, which problem do you solve and why would someone trust you with their skin? We pin those choices down before a single jar is designed.",
+            },
+            service: "branding-rebranding",
+            application: "merkstrategie",
+          },
+          {
+            title: { nl: "Webshop met routine per huidtype", en: "Web shop with skin-type routines" },
+            text: {
+              nl: "Productpagina's met ingrediënten, gebruiksadvies en een complete routine, plus bundels of abonnementen als dat bij je merk past. Rustig, overzichtelijk en snel op een telefoon.",
+              en: "Product pages with ingredients, usage advice and a complete routine, plus bundles or subscriptions if they suit your brand. Calm, clear and fast on a phone.",
+            },
+            service: "websites-webshops",
+            application: "webshop",
+          },
+          {
+            title: { nl: "Herhaalaankoop op het juiste moment", en: "Repeat purchases at the right moment" },
+            text: {
+              nl: "Een serum is na een paar weken op. Een automatische mail rond dat moment, met gebruikstips en een directe bestellink, helpt om van een eerste koper een vaste klant te maken.",
+              en: "A serum runs out after a few weeks. An automatic email around that time, with usage tips and a direct order link, helps turn a first-time buyer into a regular.",
+            },
+            service: "automation-funnels",
+            application: "e-mailmarketing",
+          },
+          {
+            title: { nl: "Antwoorden op ingrediëntvragen", en: "Answers to ingredient questions" },
+            text: {
+              nl: "Pagina's die vragen beantwoorden als 'wat doet niacinamide?' of 'in welke volgorde gebruik ik serum en crème?'. Heldere uitleg waarmee je gevonden wordt in Google en meer kans maakt om door AI-assistenten genoemd te worden.",
+              en: "Pages that answer questions like 'what does niacinamide do?' or 'in which order do I use serum and cream?'. Clear explanations that help you get found on Google and improve your chances of being mentioned by AI assistants.",
+            },
+            service: "seo-aeo-geo",
+            application: "aeo",
+          },
         ],
         faqs: [
           {
@@ -410,6 +617,34 @@ export const NEW_SECTORS_A: Sector[] = [
             a: {
               nl: "Salons en winkels kiezen merken die ze makkelijk kunnen verkopen. Help ze daarbij met een verzorgde presentatie of brochure, duidelijke marges en voorwaarden, en kant-en-klaar materiaal: displays, testers, posters en posts voor hun eigen socials. Een B2B-omgeving waarin ze online nabestellen tegen hun eigen prijzen maakt het nog makkelijker. We ontwerpen het [[brochures-magazines|verkoopmateriaal]] en bouwen de [[webshop|bestelomgeving]], zodat je merk in de salon net zo sterk staat als online. En een tevreden salon vertelt het door aan collega's.",
               en: "Salons and shops choose brands they can sell easily. Help them with a well-made presentation or brochure, clear margins and terms, and ready-made material: displays, testers, posters and posts for their own socials. A B2B environment where they reorder online at their own prices makes it even easier. We design the [[brochures-magazines|sales material]] and build the [[webshop|ordering platform]], so your brand stands as strong in the salon as it does online. And a happy salon tells its colleagues.",
+            },
+          },
+          {
+            q: { nl: "Wat moet er op het etiket van een cosmeticaproduct staan?", en: "What has to be on the label of a cosmetic product?" },
+            a: {
+              nl: "In de EU schrijft de cosmeticaverordening een vaste set gegevens voor, zoals de naam en het adres van de verantwoordelijke persoon, de inhoud, de houdbaarheid of de periode na openen, het batchnummer, waarschuwingen en de ingrediëntenlijst. Sommige teksten moeten in de taal van het land waar je verkoopt. Dat is veel informatie op een klein potje, dus daar ontwerpen we vanaf het begin ruimte voor in je [[verpakkingsontwerp|verpakking en etiket]]. De inhoud laat je controleren door de verantwoordelijke persoon voor je product.",
+              en: "In the EU, the Cosmetics Regulation prescribes a fixed set of details, such as the name and address of the responsible person, the contents, the durability or period after opening, the batch number, warnings and the ingredient list. Some texts have to be in the language of the country where you sell. That is a lot of information on a small jar, so we design room for it from the start in your [[verpakkingsontwerp|packaging and label]]. Have the content checked by the responsible person for your product.",
+            },
+          },
+          {
+            q: { nl: "Mag ik influencers inzetten voor mijn cosmeticamerk?", en: "Can I work with influencers for my cosmetics brand?" },
+            a: {
+              nl: "Ja, maar duidelijk als reclame. In Nederland geldt de Reclamecode Social Media & Influencer Marketing: een betaalde of gesponsorde post moet herkenbaar zijn als reclame, ook als de influencer het product gratis kreeg. Voor wat zij zeggen gelden bovendien dezelfde regels voor claims als voor je eigen teksten. Geef makers daarom een korte briefing met do's en don'ts, en kies voor je [[social-media-marketing|social media]] mensen bij wie je doelgroep echt meekijkt.",
+              en: "Yes, but clearly as advertising. In the Netherlands the Advertising Code for Social Media & Influencer Marketing applies: a paid or sponsored post must be recognisable as an ad, even if the influencer got the product for free. The same rules for claims also apply to what they say as to your own copy. So give creators a short brief with dos and don'ts, and for your [[social-media-marketing|social media]] choose people your audience actually follows.",
+            },
+          },
+          {
+            q: { nl: "Eigen webshop of verkopen via marktplaatsen en drogisterijen?", en: "Your own web shop, or selling via marketplaces and drugstores?" },
+            a: {
+              nl: "Meestal allebei, maar met een duidelijke rol per kanaal. Marktplaatsen en winkels geven bereik, je eigen [[webshop|webshop]] geeft je marge, klantgegevens en de ruimte om je verhaal te vertellen. Zorg dat je merk overal hetzelfde oogt, met dezelfde beelden en productteksten. En gebruik je webshop om klanten aan je te binden, bijvoorbeeld met [[e-mailmarketing|e-mailflows]] voor nabestellingen.",
+              en: "Usually both, but with a clear role for each channel. Marketplaces and shops bring reach, your own [[webshop|web shop]] gives you margin, customer data and room to tell your story. Make sure your brand looks the same everywhere, with the same images and product copy. And use your web shop to build loyalty, for example with [[e-mailmarketing|email flows]] for reorders.",
+            },
+          },
+          {
+            q: { nl: "Hoe maak je productfoto's van crèmes en serums die opvallen?", en: "How do you make product photos of creams and serums stand out?" },
+            a: {
+              nl: "Laat zien wat mensen online niet kunnen ruiken of voelen: textuur, kleur en hoe een product op de huid ligt. Combineer rustige packshots voor je webshop met swatches, close-ups en beelden met handen of ingrediënten voor social, allemaal in één vaste stijl. Met [[productfotografie|productfotografie]] op één shootdag heb je beeld voor webshop, ads en verkooppunten. Is je verpakking nog niet geproduceerd, dan geeft een [[3d-visualisatie|3D-render]] je alvast beeld voor de lancering.",
+              en: "Show what people cannot smell or touch online: texture, colour and how a product sits on the skin. Combine calm packshots for your web shop with swatches, close-ups and shots with hands or ingredients for social, all in one consistent style. With [[productfotografie|product photography]] on one shoot day you have visuals for your web shop, ads and stockists. If your packaging has not been produced yet, a [[3d-visualisatie|3D render]] already gives you visuals for the launch.",
             },
           },
         ],
@@ -463,6 +698,42 @@ export const NEW_SECTORS_A: Sector[] = [
             service: "automation-funnels",
             application: "crm-implementatie",
           },
+          {
+            title: { nl: "Website met je behandelaars voorop", en: "A website that puts practitioners first" },
+            text: {
+              nl: "Per behandeling staat wie hem uitvoert, met opleiding en registraties, en hoe een consult verloopt. Vertrouwen begint bij weten wie je behandelt, dus dat staat niet weggestopt onder 'over ons'.",
+              en: "Each treatment shows who performs it, with their training and registrations, and how a consultation works. Trust starts with knowing who treats you, so that is not tucked away under 'about us'.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Rustige film over kliniek en team", en: "A calm film about clinic and team" },
+            text: {
+              nl: "Een korte bedrijfsfilm die laat zien hoe je kliniek eruitziet en wie er werken. Feitelijk en persoonlijk, zonder voor-en-nabeloftes, en bruikbaar op je website en in de bevestiging van een consult.",
+              en: "A short corporate film that shows what your clinic looks like and who works there. Factual and personal, without before-and-after promises, and useful on your website and in a consultation confirmation.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "bedrijfsfilm",
+          },
+          {
+            title: { nl: "Chatbot voor praktische vragen", en: "Chatbot for practical questions" },
+            text: {
+              nl: "Een assistent op je site die vragen over openingstijden, voorbereiding en nazorg beantwoordt op basis van jouw eigen informatie. Medische vragen verwijst hij netjes door naar een behandelaar.",
+              en: "An assistant on your site that answers questions about opening hours, preparation and aftercare based on your own information. Medical questions are politely passed on to a practitioner.",
+            },
+            service: "ai-consultancy",
+            application: "ai-chatbots",
+          },
+          {
+            title: { nl: "Cliëntomgeving met veilige intake", en: "Client portal with secure intake" },
+            text: {
+              nl: "Cliënten vullen vooraf hun intake en medische voorgeschiedenis in en vinden daarna hun nazorginstructies terug. Veilig verwerkt en alleen zichtbaar voor wie het nodig heeft, niet in een gewone mailbox.",
+              en: "Clients complete their intake and medical history beforehand and find their aftercare instructions afterwards. Processed securely and only visible to those who need it, not sitting in an ordinary inbox.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
         ],
         faqs: [
           {
@@ -484,6 +755,34 @@ export const NEW_SECTORS_A: Sector[] = [
             a: {
               nl: "Met content die de vragen beantwoordt die mensen echt hebben, in plaats van beloftes. Wie 'pigmentvlekken laten behandelen' of 'laserontharing' zoekt, wil weten hoe het werkt, hoeveel sessies meestal nodig zijn, wat het kost en wat de risico's zijn. Een heldere pagina per behandeling met die antwoorden maakt meer kans om gevonden te worden in Google en geciteerd door AI-assistenten. Met [[seo-content|SEO-content]] en [[lokale-seo|lokale SEO]] voor je vestiging trek je bezoekers die goed geïnformeerd een consult boeken. Dat zijn vaak ook de prettigste gesprekken.",
               en: "With content that answers the questions people really have, instead of promises. Anyone searching for 'pigmentation treatment' or 'laser hair removal' wants to know how it works, how many sessions are usually needed, what it costs and what the risks are. A clear page per treatment with those answers stands a better chance of being found in Google and cited by AI assistants. With [[seo-content|SEO content]] and [[lokale-seo|local SEO]] for your location you attract visitors who book a consultation well informed. Those are often the most pleasant conversations too.",
+            },
+          },
+          {
+            q: { nl: "Mag ik voor-en-nafoto's gebruiken op mijn website of social media?", en: "Can I use before-and-after photos on my website or social media?" },
+            a: {
+              nl: "Wees daar heel voorzichtig mee. Voor medische en esthetische behandelingen gelden strenge reclameregels, en platforms als Meta en Google hebben eigen voorwaarden die zulke beelden in advertenties vaak niet toestaan. Gebruik je ze toch, bijvoorbeeld op je eigen site, dan alleen met schriftelijke toestemming, onbewerkt, met uitleg over het aantal behandelingen en de vermelding dat resultaten per persoon verschillen. Laat je aanpak toetsen door een jurist die thuis is in medische reclame, en kies bij twijfel voor [[seo-content|heldere uitleg]] in plaats van beeld.",
+              en: "Be very careful with them. Medical and aesthetic treatments come with strict advertising rules, and platforms such as Meta and Google have their own policies that often do not allow such images in ads. If you do use them, for example on your own site, then only with written consent, unedited, with an explanation of the number of treatments and a note that results vary from person to person. Have your approach checked by a lawyer who knows medical advertising, and when in doubt choose [[seo-content|clear explanation]] over images.",
+            },
+          },
+          {
+            q: { nl: "Mag ik medische gegevens uitvragen via een online formulier?", en: "Can I collect medical information through an online form?" },
+            a: {
+              nl: "Dat kan, maar gezondheidsgegevens zijn onder de AVG bijzondere persoonsgegevens, dus de lat ligt hoog. Vraag alleen wat je echt nodig hebt, zorg voor een beveiligde verbinding en opslag, en laat de gegevens niet in een gewone mailbox belanden. Met leveranciers die gegevens voor je verwerken sluit je een verwerkersovereenkomst. Een [[klantportaal|beveiligde cliëntomgeving]] of een formulier dat rechtstreeks in je dossiersysteem terechtkomt, is daarom een betere route dan een standaard contactformulier.",
+              en: "You can, but under the GDPR health data is a special category of personal data, so the bar is high. Only ask for what you really need, make sure connection and storage are secure, and do not let the data end up in an ordinary inbox. With suppliers who process data on your behalf you sign a data processing agreement. A [[klantportaal|secure client portal]] or a form that feeds straight into your records system is therefore a better route than a standard contact form.",
+            },
+          },
+          {
+            q: { nl: "Hoe vul je de agenda zonder kortingsacties op behandelingen?", en: "How do you fill your calendar without discounting treatments?" },
+            a: {
+              nl: "Door mensen goed te informeren en daarna netjes op te volgen. Wie een behandeling overweegt, wil eerst begrijpen wat er gebeurt, wat het kost en of het bij hem past: heldere pagina's en een laagdrempelig consult zeggen dan meer dan een actie. Na een consult houd je contact met een rustige [[lead-nurturing|opvolging]] per mail, als iemand daar toestemming voor gaf. Met [[google-ads|Google Ads]] binnen de voorwaarden voor zorgadvertenties sta je in beeld bij mensen die al actief zoeken.",
+              en: "By informing people well and following up properly. Anyone considering a treatment first wants to understand what happens, what it costs and whether it suits them: clear pages and an easy first consultation say more than a promotion. After a consultation you stay in touch with calm [[lead-nurturing|follow-up]] by email, if the person agreed to that. With [[google-ads|Google Ads]] within the policies for healthcare ads you show up for people who are already actively searching.",
+            },
+          },
+          {
+            q: { nl: "Kunnen we een AI-chatbot inzetten zonder medisch advies te geven?", en: "Can we use an AI chatbot without giving medical advice?" },
+            a: {
+              nl: "Ja, als je de grenzen vooraf scherp trekt. Een [[ai-chatbots|chatbot]] die alleen put uit jouw eigen informatie, beantwoordt praktische vragen over voorbereiding, nazorg, prijzen en openingstijden, en verwijst bij alles wat medisch is door naar een behandelaar. Laat hem geen gezondheidsgegevens opslaan zonder dat dat goed geregeld is, en vermeld duidelijk dat iemand met een AI-assistent praat. Zo ontlast hij je balie, zonder op de stoel van de arts te gaan zitten.",
+              en: "Yes, if you draw the boundaries sharply upfront. A [[ai-chatbots|chatbot]] that draws only on your own information answers practical questions about preparation, aftercare, prices and opening hours, and refers anything medical to a practitioner. Do not let it store health data unless that is properly arranged, and make it clear that people are talking to an AI assistant. That way it takes pressure off your front desk without taking the doctor's seat.",
             },
           },
         ],
