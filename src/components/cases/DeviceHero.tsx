@@ -154,7 +154,7 @@ export function DeviceHero({ screens, color, label }: { screens: Screens; color?
       }
     }
     // alleen bewegen zolang de hero in beeld is
-    const io = new IntersectionObserver(([e]) => el.toggleAttribute("data-play", e.isIntersecting), { threshold: 0.05 });
+    const io = new IntersectionObserver(([e]) => el.toggleAttribute("data-live", e.isIntersecting), { threshold: 0.05 });
     io.observe(el);
     return () => {
       io.disconnect();

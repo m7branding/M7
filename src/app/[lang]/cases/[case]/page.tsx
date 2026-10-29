@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DeviceHero } from "@/components/cases/DeviceHero";
+import { heroShowcase } from "@/components/cases/heroShowcase";
+import { ShowcaseHero } from "@/components/cases/ShowcaseHero";
 import { ScrollShowcase } from "@/components/motion/ScrollShowcase";
 import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
@@ -55,15 +57,17 @@ export default function CasePage({ params }: P) {
 
   const story = storyFor(c);
   const heroImg = c.hero?.image ?? c.cover;
-  // bewegende device-hero als er lange screenshots zijn (een eigen hero-beeld/video gaat voor)
-  const screens = !c.hero && (c.screens?.desktop || c.screens?.mobile) ? c.screens : undefined;
+  // bewegende hero: de bestaande showcase van deze klant, anders de device-hero als er lange
+  // screenshots zijn (een eigen hero-beeld/video gaat altijd voor)
+  const show = c.hero ? undefined : heroShowcase(c.slug);
+  const screens = !c.hero && !show && (c.screens?.desktop || c.screens?.mobile) ? c.screens : undefined;
 
   return (
     <article className="case" style={{ ["--cc" as string]: c.color, ["--accent" as string]: services[0]?.color }}>
       {/* ---------- Hero: schermvullend beeld (ingesprongen, afgerond) met donkere overlay ---------- */}
-      <section className={`case-hero${screens ? " case-hero--devices" : ""}`}>
+      <section className={`case-hero${screens || show ? " case-hero--devices" : ""}${show ? " case-hero--show" : ""}`}>
         <div className="case-hero__frame">
-          {screens ? null : (
+          {screens || show ? null : (
             <>
               <HeroScene>
                 <div className="case-hero__media">
@@ -110,7 +114,9 @@ export default function CasePage({ params }: P) {
               </div>
             </div>
           </div>
-          {screens ? (
+          {show ? (
+            <ShowcaseHero slug={show} />
+          ) : screens ? (
             <DeviceHero
               screens={screens}
               color={c.color}

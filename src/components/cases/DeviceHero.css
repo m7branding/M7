@@ -67,7 +67,7 @@
 .dh-phone .dx-scr img.is-long {
   animation-delay: -6s;
 }
-.dh[data-play] .dx-scr img.is-long {
+.dh[data-live] .dx-scr img.is-long {
   animation-play-state: running;
 }
 @keyframes dh-scroll {
@@ -172,5 +172,35 @@
   .case-hero--devices .dh {
     width: calc(100% - 44px);
     margin-bottom: 44px;
+  }
+}
+
+/* ---------- variant: bestaande showcase als hero (ShowcaseHero.tsx) ---------- */
+/* het beeld loopt tot in de rechter- en onderrand van het kader, net als op de dienstpagina */
+.case-hero--show .dh.dh--show {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  width: min(55%, 980px);
+  height: calc(100% - var(--header-h, 72px) - clamp(24px, 4vh, 56px));
+  margin: 0;
+}
+.dh--show .dh-glow {
+  inset: 0 -10% -20% -12%;
+  background: radial-gradient(ellipse 60% 70% at 58% 62%, color-mix(in srgb, var(--cc, #8694b0) 18%, transparent), color-mix(in srgb, var(--cc, #8694b0) 5%, transparent) 50%, transparent 75%);
+}
+.dh--show .show {
+  border-radius: 0;
+}
+@media (max-width: 1023px) {
+  .case-hero--show .dh.dh--show {
+    position: relative;
+    grid-area: 2 / 1;
+    align-self: end;
+    justify-self: stretch;
+    width: auto;
+    height: clamp(360px, 100vw, 600px);
+    margin: clamp(8px, 2vw, 20px) 0 0;
   }
 }
