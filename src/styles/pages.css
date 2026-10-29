@@ -409,12 +409,6 @@
 .svc-cases__grid {
   margin-top: clamp(40px, 5vw, 64px);
 }
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 22px;
-  margin-top: clamp(36px, 4vw, 56px);
-}
 .svc-cross {
   background: #050506;
 }
@@ -668,105 +662,6 @@
 }
 
 /* ---------------- Diensten-overzicht ---------------- */
-.svc-rows {
-  border-top: 1px solid var(--line);
-}
-.svc-rows > li {
-  border-bottom: 1px solid var(--line);
-}
-.svc-row {
-  position: relative;
-  display: grid;
-  grid-template-columns: 60px minmax(0, 1.2fr) minmax(0, 1fr) 40px;
-  gap: 24px;
-  align-items: center;
-  padding: clamp(24px, 3vw, 40px) 0;
-  transition: padding 0.6s var(--ease-out);
-}
-.svc-row:hover {
-  padding-left: 18px;
-}
-.svc-row__num {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 0.1em;
-}
-.svc-row__main {
-  display: grid;
-  gap: 6px;
-}
-.svc-row__title {
-  font-size: clamp(1.6rem, 3.2vw, 2.8rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
-  transition: color 0.4s;
-}
-.svc-row:hover .svc-row__title {
-  color: var(--accent);
-}
-.svc-row__tag {
-  color: var(--muted);
-  font-style: italic;
-  font-weight: 600;
-}
-.svc-row__apps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.svc-row__apps span {
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--muted);
-  box-shadow: inset 0 0 0 1px var(--line);
-}
-.svc-row__arrow {
-  color: var(--muted);
-  transition:
-    transform 0.5s var(--ease-out),
-    color 0.3s;
-}
-.svc-row:hover .svc-row__arrow {
-  color: var(--accent);
-  transform: rotate(45deg);
-}
-.svc-row__preview {
-  position: absolute;
-  right: 12%;
-  top: 50%;
-  width: 280px;
-  translate: 0 -50%;
-  pointer-events: none;
-  opacity: 0;
-  transform: scale(0.85) rotate(-4deg);
-  transition:
-    opacity 0.45s var(--ease-soft),
-    transform 0.7s var(--ease-out);
-  z-index: 2;
-}
-.svc-row__preview .mk * {
-  animation-play-state: paused !important;
-}
-.svc-row:hover .svc-row__preview {
-  opacity: 1;
-  transform: none;
-}
-.svc-row:hover .svc-row__preview .mk * {
-  animation-play-state: running !important;
-}
-@media (max-width: 900px) {
-  .svc-row {
-    grid-template-columns: 40px 1fr 30px;
-  }
-  .svc-row__apps,
-  .svc-row__preview {
-    display: none;
-  }
-}
 
 /* ---------------- Toepassingen-explorer ---------------- */
 .explorer__bar {
@@ -1576,61 +1471,6 @@
   color: var(--muted);
   margin-top: 8px;
 }
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 22px;
-  margin-top: clamp(36px, 4vw, 56px);
-}
-.team-card__img {
-  display: block;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  background: #111;
-}
-.team-card__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.35);
-  transition:
-    transform 1.2s var(--ease-out),
-    filter 0.6s;
-}
-.team-card:hover img {
-  transform: scale(1.05);
-  filter: none;
-}
-.team-card figcaption {
-  display: grid;
-  gap: 4px;
-  margin-top: 16px;
-}
-.team-card strong {
-  font-size: 1.1rem;
-}
-.team-card span {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-.team-card em {
-  color: var(--faint);
-  font-size: 0.85rem;
-}
-.about-location__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-  gap: clamp(32px, 6vw, 90px);
-  align-items: center;
-}
-.about-location__addr {
-  font-style: normal;
-}
-.about-location__map {
-  position: relative;
-  opacity: 0.7;
-}
 @media (max-width: 900px) {
   .about-story__grid,
   .about-location__grid {
@@ -1684,21 +1524,6 @@
 }
 .contact__socials a:hover {
   color: #fff;
-}
-.contact__letsgo {
-  position: relative;
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  min-height: 260px;
-  background: #001010;
-}
-.contact__letsgo-inner {
-  position: relative;
-  padding: 30px;
-  display: grid;
-  gap: 24px;
-  height: 100%;
-  align-content: space-between;
 }
 .contact__answers {
   display: grid;

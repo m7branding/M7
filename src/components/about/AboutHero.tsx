@@ -82,9 +82,6 @@ export function AboutHero({ locale }: { locale: Locale }) {
         </div>
         <div className="ah__main">
           <div className="ah__text">
-            <p className="kicker" data-reveal="fade">
-              {d.about.title}
-            </p>
             <SplitText as="h1" id="ah-title" className="h-hero ah__title" parts={[{ t: "We are " }, { t: "M7.", c: "g-pixels" }]} delay={0.1} />
             <p className="lead ah__lead" data-reveal="up" style={{ ["--d" as string]: "0.35s" }}>
               {tr(c.lead, locale)}
