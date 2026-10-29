@@ -62,7 +62,7 @@ export const NEW_SECTORS_C: Sector[] = [
       },
     ],
     services: ["websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie", "content-marketing-online-ads", "seo-aeo-geo", "branding-rebranding"],
-    applications: ["offerte-calculator", "check-tools", "productconfigurator", "keuzehulp-quiz", "webflow-website", "landingspaginas", "3d-visualisatie", "dronevideo", "meta-ads", "lokale-seo"],
+    applications: ["offerte-calculator", "check-tools", "productconfigurator", "keuzehulp-quiz", "webflow-website", "landingspaginas", "3d-visualisatie", "dronevideo", "meta-ads", "lokale-seo", "communicatiestrategie", "doelgroeponderzoek"],
     /* Mockups in de dienstentegels: eigen werk uit energie (overige diensten: standaard) */
     visuals: {
       "websites-webshops": { kind: "browser", src: "/media/sector-tiles/plenty-planet-site.webp", url: "plentyplanet.com", scroll: true, label: "Plenty Planet" },
@@ -860,7 +860,7 @@ export const NEW_SECTORS_C: Sector[] = [
       },
     ],
     services: ["websites-webshops", "web-apps-portals-apps", "branding-rebranding", "content-marketing-online-ads", "seo-aeo-geo", "foto-video-3d-animatie"],
-    applications: ["wordpress-website", "webflow-website", "landingspaginas", "saas-platform", "ux-ui-app-design", "huisstijl", "social-media-marketing", "tiktok-ads", "seo", "bedrijfsfilm"],
+    applications: ["wordpress-website", "webflow-website", "landingspaginas", "saas-platform", "ux-ui-app-design", "huisstijl", "social-media-marketing", "tiktok-ads", "seo", "bedrijfsfilm", "toegankelijkheid", "wcag-audit", "contentstructuur"],
     faqs: [
       {
         q: { nl: "Kunnen leraren en medewerkers de schoolwebsite zelf bijhouden?", en: "Can teachers and staff update the school website themselves?" },
@@ -1659,7 +1659,7 @@ export const NEW_SECTORS_C: Sector[] = [
       },
     ],
     services: ["websites-webshops", "content-marketing-online-ads", "foto-video-3d-animatie", "grafisch-ontwerp-print", "branding-rebranding", "ai-consultancy"],
-    applications: ["wordpress-website", "landingspaginas", "ux-ui-webdesign", "website-migratie", "social-media-marketing", "3d-visualisatie", "motion-design", "infographics", "huisstijl", "ai-chatbots"],
+    applications: ["wordpress-website", "landingspaginas", "ux-ui-webdesign", "website-migratie", "social-media-marketing", "3d-visualisatie", "motion-design", "infographics", "huisstijl", "ai-chatbots", "toegankelijkheid", "wcag-audit", "cookie-compliance", "contentstructuur", "verandertrajecten"],
     faqs: [
       {
         q: { nl: "Voldoen jullie websites aan de toegankelijkheidseisen voor overheden?", en: "Do your websites meet the accessibility requirements for public bodies?" },
@@ -3238,7 +3238,7 @@ export const NEW_SECTORS_C: Sector[] = [
       },
     ],
     services: ["ai-consultancy", "websites-webshops", "branding-rebranding", "web-apps-portals-apps", "content-marketing-online-ads", "configurators-lead-tools-widgets"],
-    applications: ["ai-agents", "ai-integraties", "klantportaal", "api-koppelingen", "dashboards", "employer-branding", "webflow-website", "meertalige-website", "meta-ads", "offerte-calculator"],
+    applications: ["ai-agents", "ai-integraties", "klantportaal", "api-koppelingen", "dashboards", "employer-branding", "webflow-website", "meertalige-website", "meta-ads", "offerte-calculator", "verandertrajecten", "agile-werken"],
     /* Mockup in de dienstentegels: eigen werk uit logistiek (overige diensten: standaard) */
     visuals: {
       "ai-consultancy": { kind: "browser", src: "/media/sector-tiles/bctn-control-tower.webp", label: "BCTN" },

@@ -81,6 +81,8 @@ export const NEW_SECTORS_B: Sector[] = [
       "api-koppelingen",
       "marketing-automation",
       "lokale-seo",
+      "pagespeed-optimalisatie",
+      "merkonderzoek",
     ],
     /* Mockups in de dienstentegels: eigen werk uit vastgoed (foto/video: standaard) */
     visuals: {

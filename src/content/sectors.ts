@@ -58,7 +58,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["branding-rebranding", "websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie", "seo-aeo-geo", "content-marketing-online-ads"],
-    applications: ["productconfigurator", "3d-configurator", "offerte-calculator", "boekingswidget", "webflow-website", "huisstijl", "productfotografie", "dronevideo", "3d-visualisatie", "lokale-seo"],
+    applications: ["productconfigurator", "3d-configurator", "offerte-calculator", "boekingswidget", "webflow-website", "huisstijl", "productfotografie", "dronevideo", "3d-visualisatie", "lokale-seo", "concurrentieanalyse"],
     faqs: [
       {
         q: { nl: "Werken jullie voor automotive bedrijven van elke omvang?", en: "Do you work for automotive companies of every size?" },
@@ -147,7 +147,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["web-apps-portals-apps", "branding-rebranding", "foto-video-3d-animatie", "content-marketing-online-ads", "websites-webshops", "automation-funnels"],
-    applications: ["saas-platform", "mobiele-app", "ledenportaal-loyaliteit", "webflow-website", "social-video", "bedrijfsfilm", "motion-design", "social-media-marketing", "e-mailmarketing"],
+    applications: ["saas-platform", "mobiele-app", "ledenportaal-loyaliteit", "webflow-website", "social-video", "bedrijfsfilm", "motion-design", "social-media-marketing", "e-mailmarketing", "doelgroeponderzoek", "ux-research"],
     faqs: [
       {
         q: { nl: "Kunnen jullie een videoplatform voor sportclubs bouwen?", en: "Can you build a video platform for sports clubs?" },
@@ -236,7 +236,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["branding-rebranding", "web-apps-portals-apps", "websites-webshops", "automation-funnels", "seo-aeo-geo", "ai-consultancy"],
-    applications: ["mvp-ontwikkeling", "saas-platform", "ux-ui-app-design", "naamgeving", "merkstrategie", "webflow-website", "presentaties-pitchdecks", "salesfunnels", "linkedin-ads", "ai-integraties"],
+    applications: ["mvp-ontwikkeling", "saas-platform", "ux-ui-app-design", "naamgeving", "merkstrategie", "webflow-website", "presentaties-pitchdecks", "salesfunnels", "linkedin-ads", "ai-integraties", "ux-research", "user-stories", "design-sprint", "roadmap-strategie", "devops"],
     faqs: [
       {
         q: { nl: "Kunnen jullie een MVP voor mijn startup bouwen?", en: "Can you build an MVP for my startup?" },
@@ -330,7 +330,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["branding-rebranding", "websites-webshops", "grafisch-ontwerp-print", "foto-video-3d-animatie", "seo-aeo-geo", "content-marketing-online-ads"],
-    applications: ["webshop", "huisstijl", "verpakkingsontwerp", "productfotografie", "lokale-seo", "social-media-marketing", "google-ads", "e-mailmarketing", "offerte-calculator", "boekingswidget"],
+    applications: ["webshop", "huisstijl", "verpakkingsontwerp", "productfotografie", "lokale-seo", "social-media-marketing", "google-ads", "e-mailmarketing", "offerte-calculator", "boekingswidget", "pagespeed-optimalisatie", "cookie-compliance"],
     faqs: [
       {
         q: { nl: "Werken jullie voor kleine foodzaken én grotere retailers?", en: "Do you work for small food businesses as well as larger retailers?" },
@@ -426,7 +426,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["branding-rebranding", "websites-webshops", "web-apps-portals-apps", "automation-funnels", "seo-aeo-geo", "ai-consultancy"],
-    applications: ["klantportaal", "dashboards", "crm-implementatie", "workflow-automatisering", "lead-nurturing", "ai-agents", "webflow-website", "huisstijl", "seo-content", "linkedin-ads"],
+    applications: ["klantportaal", "dashboards", "crm-implementatie", "workflow-automatisering", "lead-nurturing", "ai-agents", "webflow-website", "huisstijl", "seo-content", "linkedin-ads", "verandertrajecten", "merkonderzoek", "communicatiestrategie"],
     faqs: [
       {
         q: { nl: "Kunnen jullie een klantportaal bouwen voor onze dienstverlening?", en: "Can you build a client portal for our services?" },
@@ -648,7 +648,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["branding-rebranding", "websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie", "web-apps-portals-apps", "content-marketing-online-ads"],
-    applications: ["productconfigurator", "3d-configurator", "3d-visualisatie", "meertalige-website", "klantportaal", "api-koppelingen", "employer-branding", "beurs-signing", "infographics", "linkedin-ads"],
+    applications: ["productconfigurator", "3d-configurator", "3d-visualisatie", "meertalige-website", "klantportaal", "api-koppelingen", "employer-branding", "beurs-signing", "infographics", "linkedin-ads", "concurrentieanalyse", "roadmap-strategie"],
     faqs: [
       {
         q: { nl: "Kunnen jullie onze CAD-modellen gebruiken voor 3D-visualisaties?", en: "Can you use our CAD models for 3D visuals?" },
@@ -737,7 +737,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["branding-rebranding", "websites-webshops", "web-apps-portals-apps", "seo-aeo-geo", "content-marketing-online-ads", "ai-consultancy"],
-    applications: ["ux-ui-webdesign", "wordpress-website", "klantportaal", "mobiele-app", "boekingswidget", "keuzehulp-quiz", "lokale-seo", "employer-branding", "ai-chatbots"],
+    applications: ["ux-ui-webdesign", "wordpress-website", "klantportaal", "mobiele-app", "boekingswidget", "keuzehulp-quiz", "lokale-seo", "employer-branding", "ai-chatbots", "toegankelijkheid", "user-testing", "cookie-compliance"],
     faqs: [
       {
         q: { nl: "Bouwen jullie toegankelijke websites voor de zorg?", en: "Do you build accessible websites for healthcare?" },
@@ -826,7 +826,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["branding-rebranding", "web-apps-portals-apps", "websites-webshops", "configurators-lead-tools-widgets", "seo-aeo-geo", "automation-funnels"],
-    applications: ["klantportaal", "dashboards", "saas-platform", "ux-ui-app-design", "offerte-calculator", "check-tools", "api-koppelingen", "merkstrategie", "infographics", "aeo"],
+    applications: ["klantportaal", "dashboards", "saas-platform", "ux-ui-app-design", "offerte-calculator", "check-tools", "api-koppelingen", "merkstrategie", "infographics", "aeo", "ux-research", "user-testing", "devops"],
     faqs: [
       {
         q: { nl: "Kunnen jullie een rekentool voor onze website bouwen?", en: "Can you build a calculator for our website?" },
@@ -915,7 +915,7 @@ export const sectors: Sector[] = [
       },
     ],
     services: ["websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie", "content-marketing-online-ads", "seo-aeo-geo", "branding-rebranding"],
-    applications: ["boekingswidget", "meertalige-website", "webflow-website", "dronevideo", "social-video", "meta-ads", "tiktok-ads", "lokale-seo", "geo", "ai-chatbots"],
+    applications: ["boekingswidget", "meertalige-website", "webflow-website", "dronevideo", "social-video", "meta-ads", "tiktok-ads", "lokale-seo", "geo", "ai-chatbots", "pagespeed-optimalisatie", "doelgroeponderzoek"],
     faqs: [
       {
         q: { nl: "Kunnen jullie een boekingssysteem in mijn website integreren?", en: "Can you integrate a booking system into my website?" },
