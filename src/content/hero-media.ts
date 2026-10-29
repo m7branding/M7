@@ -49,6 +49,7 @@ export const heroMediaTiming = { stillSeconds: 6.5, clipMaxSeconds: 10 };
 const C = "/media/cases";
 const S = "/media/sector-tiles";
 const PP = "/media/showcase/plentyplanet";
+const DH = "/media/showcase/designershouse";
 
 /** Kantoorfoto uit office.ts (met kleine variant voor mobiel). */
 function office(name: string, label: T, pos?: string, posM?: string, href?: string): HeroStill {
@@ -91,6 +92,7 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${C}/jurgh-porsche.webp`, w: 2048, h: 1366, label: { nl: "Automotive · JURGH Detailing", en: "Automotive · JURGH Detailing" }, pos: "50% 45%", posM: "52% 50%", href: paths.sector("automotive-mobiliteit") },
       { src: `${PP}/greenecocorridor.webp`, w: 1600, h: 893, label: { nl: "Energie & duurzaamheid · Plenty Planet", en: "Energy & sustainability · Plenty Planet" }, pos: "50% 50%", posM: "60% 50%", href: paths.sector("energie-duurzaamheid") },
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "Sport & media · TeamTV", en: "Sports & media · TeamTV" }, pos: "50% 45%", posM: "58% 45%", href: paths.sector("sport-media") },
+      { src: `${DH}/brandbook-22.webp`, w: 1100, h: 618, label: { nl: "Interieur & architectuur · DesignersHouse", en: "Interiors & architecture · DesignersHouse" }, pos: "50% 55%", posM: "45% 55%", href: paths.sector("interieur-architectuur") },
       { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Zakelijke dienstverlening · Debiteurnet", en: "Business services · Debiteurnet" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.sector("zakelijke-dienstverlening") },
       { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Tech & SaaS · Sami", en: "Tech & SaaS · Sami" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.sector("tech-saas-startups") },
       { src: `${S}/bctn-control-tower.webp`, w: 1600, h: 1075, label: { nl: "Transport & logistiek · BCTN (concept)", en: "Transport & logistics · BCTN (concept)" }, pos: "50% 35%", posM: "40% 40%", href: paths.sector("transport-logistiek") },
@@ -103,7 +105,7 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "TeamTV", en: "TeamTV" }, pos: "50% 45%", posM: "58% 45%", href: paths.case("teamtv") },
       { src: `${C}/jurgh-porsche.webp`, w: 2048, h: 1366, label: { nl: "JURGH Detailing", en: "JURGH Detailing" }, pos: "50% 45%", posM: "52% 50%", href: paths.case("jurgh-detailing") },
       { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Sami", en: "Sami" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.case("sami") },
-      { src: `${C}/titanium-phone.webp`, w: 1632, h: 2024, label: { nl: "Titanium Exhaust", en: "Titanium Exhaust" }, pos: "50% 96%", posM: "50% 62%", href: paths.case("titanium-exhaust-configurator") },
+      { src: `${DH}/brandbook-17.webp`, w: 1100, h: 618, label: { nl: "DesignersHouse", en: "DesignersHouse" }, pos: "50% 55%", posM: "50% 55%", href: paths.case("designershouse") },
       { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Debiteurnet", en: "Debiteurnet" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.case("debiteurnet") },
     ],
   },

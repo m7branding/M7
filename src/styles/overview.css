@@ -377,7 +377,11 @@
     gap: 10px;
   }
   .mh__seg {
-    width: 14px;
+    width: 11px;
+  }
+  /* rechtsonder zweeft de dock (intake / contact): het bijschrift stopt ervoor */
+  .mh__bar {
+    padding-right: 104px;
   }
   .mh__segs {
     gap: 4px;
