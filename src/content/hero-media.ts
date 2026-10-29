@@ -70,7 +70,7 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${C}/teamtv-tablet-dark.webp`, w: 1800, h: 1350, label: { nl: "TeamTV · web-app", en: "TeamTV · web app" }, pos: "50% 45%", posM: "45% 50%", href: paths.case("teamtv") },
       { src: `${PP}/greencorridor3.webp`, w: 1600, h: 893, label: { nl: "Plenty Planet · 3D-visualisatie", en: "Plenty Planet · 3D visualisation" }, pos: "50% 50%", posM: "62% 50%", href: paths.service("foto-video-3d-animatie") },
       { src: `${S}/bctn-control-tower.webp`, w: 1600, h: 1075, label: { nl: "BCTN · AI Control Tower (concept)", en: "BCTN · AI Control Tower (concept)" }, pos: "50% 35%", posM: "40% 40%", href: paths.service("ai-consultancy") },
-      { src: `${C}/titanium-phone.webp`, w: 1632, h: 2024, label: { nl: "Titanium Exhaust · productconfigurator", en: "Titanium Exhaust · product configurator" }, pos: "50% 40%", posM: "50% 40%", href: paths.case("titanium-exhaust-configurator") },
+      { src: `${C}/jurgh-tablet.webp`, w: 1600, h: 1067, label: { nl: "JURGH Detailing · website", en: "JURGH Detailing · website" }, pos: "50% 45%", posM: "55% 50%", href: paths.case("jurgh-detailing") },
     ],
   },
   /* /toepassingen: concrete tools en schermen */
@@ -80,8 +80,8 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${S}/bctn-control-tower.webp`, w: 1600, h: 1075, label: { nl: "BCTN · AI Control Tower (concept)", en: "BCTN · AI Control Tower (concept)" }, pos: "50% 35%", posM: "40% 40%", href: paths.service("ai-consultancy") },
       { src: `${S}/steddion-configurator.webp`, w: 1440, h: 900, label: { nl: "Steddion · Energy Property Configurator", en: "Steddion · Energy Property Configurator" }, pos: "60% 40%", posM: "58% 40%", tone: "light", href: paths.service("configurators-lead-tools-widgets") },
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "TeamTV · web-app en website", en: "TeamTV · web app and website" }, pos: "50% 45%", posM: "58% 45%", href: paths.case("teamtv") },
-      { src: `${S}/monvy-dashboard.webp`, w: 1600, h: 1128, label: { nl: "Monvy · web-app", en: "Monvy · web app" }, pos: "60% 30%", posM: "62% 30%", tone: "light", href: paths.case("monvy") },
-      { src: `${S}/sandt-chatgpt.webp`, w: 1400, h: 913, label: { nl: "The Sandt · genoemd in AI-antwoorden", en: "The Sandt · cited in AI answers" }, pos: "50% 40%", posM: "45% 40%", tone: "light", href: paths.service("seo-aeo-geo") },
+      { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Debiteurnet · klantportaal", en: "Debiteurnet · client portal" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.case("debiteurnet") },
+      { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Sami · SaaS-platform", en: "Sami · SaaS platform" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.case("sami") },
     ],
   },
   /* /sectoren: per beeld een andere branche */
@@ -93,6 +93,7 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "Sport & media · TeamTV", en: "Sports & media · TeamTV" }, pos: "50% 45%", posM: "58% 45%", href: paths.sector("sport-media") },
       { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Zakelijke dienstverlening · Debiteurnet", en: "Business services · Debiteurnet" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.sector("zakelijke-dienstverlening") },
       { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Tech & SaaS · Sami", en: "Tech & SaaS · Sami" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.sector("tech-saas-startups") },
+      { src: `${S}/bctn-control-tower.webp`, w: 1600, h: 1075, label: { nl: "Transport & logistiek · BCTN (concept)", en: "Transport & logistics · BCTN (concept)" }, pos: "50% 35%", posM: "40% 40%", href: paths.sector("transport-logistiek") },
     ],
   },
   /* /cases: de hero-beelden van de cases zelf */
@@ -102,7 +103,7 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "TeamTV", en: "TeamTV" }, pos: "50% 45%", posM: "58% 45%", href: paths.case("teamtv") },
       { src: `${C}/jurgh-porsche.webp`, w: 2048, h: 1366, label: { nl: "JURGH Detailing", en: "JURGH Detailing" }, pos: "50% 45%", posM: "52% 50%", href: paths.case("jurgh-detailing") },
       { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Sami", en: "Sami" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.case("sami") },
-      { src: `${C}/titanium-phone.webp`, w: 1632, h: 2024, label: { nl: "Titanium Exhaust", en: "Titanium Exhaust" }, pos: "50% 38%", posM: "50% 40%", href: paths.case("titanium-exhaust-configurator") },
+      { src: `${C}/titanium-phone.webp`, w: 1632, h: 2024, label: { nl: "Titanium Exhaust", en: "Titanium Exhaust" }, pos: "50% 96%", posM: "50% 62%", href: paths.case("titanium-exhaust-configurator") },
       { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Debiteurnet", en: "Debiteurnet" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.case("debiteurnet") },
     ],
   },
