@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ClientMap } from "@/components/about/ClientMap";
 import { Bento, Experience, HomeHero, Juices, LevelUp, LogoMarquee, Masterpieces, OneStop, PillarStack, StatsBand } from "@/components/sections/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { Locale } from "@/content/types";
@@ -34,6 +35,7 @@ export default function HomePage({ params }: { params: { lang: Locale } }) {
       <Juices locale={locale} />
       <PillarStack locale={locale} from={5} />
       <Bento locale={locale} />
+      <ClientMap locale={locale} variant="home" />
       <LevelUp locale={locale} />
       <JsonLd data={itemListLd(allServices().map((s) => ({ name: tr(s.title, locale), path: paths.service(s) })), locale)} />
     </>

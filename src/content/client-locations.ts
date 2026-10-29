@@ -13,8 +13,8 @@
 
 import type { T } from "./types";
 
-export type CountryCode = "NL" | "BE" | "DE" | "GB" | "FR" | "ES" | "PT" | "AT" | "PL" | "DK" | "US" | "CA" | "BR" | "AE" | "SA";
-export type RegionKey = "europe" | "northAmerica" | "southAmerica" | "middleEast";
+export type CountryCode = "NL" | "BE" | "DE" | "GB" | "FR" | "ES" | "PT" | "AT" | "PL" | "DK" | "US" | "CA" | "BR" | "AE" | "SA" | "NA" | "ZM";
+export type RegionKey = "europe" | "northAmerica" | "southAmerica" | "middleEast" | "africa";
 
 export interface ClientPlace {
   id: string;
@@ -27,6 +27,8 @@ export interface ClientPlace {
   countryOnly?: boolean;
   /** Ter info: waar de stip staat bij `countryOnly`. Wordt niet getoond. */
   near?: string;
+  /** Close-up: plaatsnaam tonen naast de stip (grote steden), aan deze kant. */
+  label?: "l" | "r" | "t" | "b";
   /** Kleinere plaats: iets kleinere stip zonder ping, zodat een drukke regio rustig blijft. */
   minor?: boolean;
   /** NL: provincie (voor de telling "waarvan … in Noord-Brabant"). */
@@ -49,6 +51,8 @@ export const COUNTRIES: Record<CountryCode, { name: T; region: RegionKey }> = {
   BR: { name: { nl: "Brazilië", en: "Brazil" }, region: "southAmerica" },
   AE: { name: { nl: "Verenigde Arabische Emiraten", en: "United Arab Emirates" }, region: "middleEast" },
   SA: { name: { nl: "Saoedi-Arabië", en: "Saudi Arabia" }, region: "middleEast" },
+  NA: { name: { nl: "Namibië", en: "Namibia" }, region: "africa" },
+  ZM: { name: { nl: "Zambia", en: "Zambia" }, region: "africa" },
 };
 
 /** Volgorde in de legenda; `continent` telt mee in "… landen op … continenten". */
@@ -57,6 +61,7 @@ export const REGIONS: Record<RegionKey, { name: T; continent: string }> = {
   northAmerica: { name: { nl: "Noord-Amerika", en: "North America" }, continent: "north-america" },
   southAmerica: { name: { nl: "Zuid-Amerika", en: "South America" }, continent: "south-america" },
   middleEast: { name: { nl: "Midden-Oosten", en: "Middle East" }, continent: "asia" },
+  africa: { name: { nl: "Afrika", en: "Africa" }, continent: "africa" },
 };
 
 /** Ons kantoor (coördinaten uit site.address.geo). */
@@ -85,6 +90,8 @@ export const worldPlaces: ClientPlace[] = [
   { id: "poland", name: { nl: "Polen", en: "Poland" }, country: "PL", lat: 52.2297, lon: 21.0122, countryOnly: true, near: "Warschau" },
   { id: "dubai", name: { nl: "Dubai", en: "Dubai" }, country: "AE", lat: 25.2048, lon: 55.2708 },
   { id: "riyadh", name: { nl: "Riyad", en: "Riyadh" }, country: "SA", lat: 24.7136, lon: 46.6753 },
+  { id: "namibia", name: { nl: "Namibië", en: "Namibia" }, country: "NA", lat: -22.5609, lon: 17.0658, countryOnly: true, near: "Windhoek" },
+  { id: "zambia", name: { nl: "Zambia", en: "Zambia" }, country: "ZM", lat: -15.3875, lon: 28.3228, countryOnly: true, near: "Lusaka" },
 ];
 
 // TODO(M7): controleer deze lijst. Plaatsen in Nederland waar we klanten hebben, met de nadruk op
@@ -123,7 +130,7 @@ export const nlPlaces: ClientPlace[] = [
   { id: "deurne", name: { nl: "Deurne", en: "Deurne" }, country: "NL", lat: 51.4639, lon: 5.7944, province: "NB", minor: true },
   { id: "asten", name: { nl: "Asten", en: "Asten" }, country: "NL", lat: 51.4033, lon: 5.7472, province: "NB", minor: true },
   // 's-Hertogenbosch en omgeving
-  { id: "den-bosch", name: { nl: "'s-Hertogenbosch", en: "'s-Hertogenbosch" }, country: "NL", lat: 51.6978, lon: 5.3037, province: "NB" },
+  { id: "den-bosch", name: { nl: "'s-Hertogenbosch", en: "'s-Hertogenbosch" }, country: "NL", lat: 51.6978, lon: 5.3037, province: "NB", label: "l" },
   { id: "rosmalen", name: { nl: "Rosmalen", en: "Rosmalen" }, country: "NL", lat: 51.7164, lon: 5.365, province: "NB", minor: true },
   { id: "berlicum", name: { nl: "Berlicum", en: "Berlicum" }, country: "NL", lat: 51.6775, lon: 5.3986, province: "NB", minor: true },
   { id: "sint-michielsgestel", name: { nl: "Sint-Michielsgestel", en: "Sint-Michielsgestel" }, country: "NL", lat: 51.6417, lon: 5.3528, province: "NB", minor: true },
@@ -132,7 +139,7 @@ export const nlPlaces: ClientPlace[] = [
   { id: "heusden", name: { nl: "Heusden", en: "Heusden" }, country: "NL", lat: 51.7317, lon: 5.1386, province: "NB", minor: true },
   { id: "drunen", name: { nl: "Drunen", en: "Drunen" }, country: "NL", lat: 51.6858, lon: 5.1333, province: "NB", minor: true },
   // Eindhoven en omgeving
-  { id: "eindhoven", name: { nl: "Eindhoven", en: "Eindhoven" }, country: "NL", lat: 51.4416, lon: 5.4697, province: "NB" },
+  { id: "eindhoven", name: { nl: "Eindhoven", en: "Eindhoven" }, country: "NL", lat: 51.4416, lon: 5.4697, province: "NB", label: "b" },
   { id: "best", name: { nl: "Best", en: "Best" }, country: "NL", lat: 51.5075, lon: 5.3903, province: "NB", minor: true },
   { id: "son-en-breugel", name: { nl: "Son en Breugel", en: "Son en Breugel" }, country: "NL", lat: 51.5133, lon: 5.4914, province: "NB", minor: true },
   { id: "nuenen", name: { nl: "Nuenen", en: "Nuenen" }, country: "NL", lat: 51.47, lon: 5.5528, province: "NB", minor: true },
@@ -142,32 +149,77 @@ export const nlPlaces: ClientPlace[] = [
   { id: "valkenswaard", name: { nl: "Valkenswaard", en: "Valkenswaard" }, country: "NL", lat: 51.35, lon: 5.4597, province: "NB", minor: true },
   { id: "helmond", name: { nl: "Helmond", en: "Helmond" }, country: "NL", lat: 51.4793, lon: 5.657, province: "NB" },
   // Midden- en West-Brabant
-  { id: "tilburg", name: { nl: "Tilburg", en: "Tilburg" }, country: "NL", lat: 51.5555, lon: 5.0913, province: "NB" },
+  { id: "tilburg", name: { nl: "Tilburg", en: "Tilburg" }, country: "NL", lat: 51.5555, lon: 5.0913, province: "NB", label: "b" },
   { id: "oisterwijk", name: { nl: "Oisterwijk", en: "Oisterwijk" }, country: "NL", lat: 51.5794, lon: 5.1889, province: "NB", minor: true },
   { id: "waalwijk", name: { nl: "Waalwijk", en: "Waalwijk" }, country: "NL", lat: 51.6825, lon: 5.0708, province: "NB", minor: true },
   { id: "kaatsheuvel", name: { nl: "Kaatsheuvel", en: "Kaatsheuvel" }, country: "NL", lat: 51.6567, lon: 5.0408, province: "NB", minor: true },
   { id: "dongen", name: { nl: "Dongen", en: "Dongen" }, country: "NL", lat: 51.6267, lon: 4.9389, province: "NB", minor: true },
   { id: "oosterhout", name: { nl: "Oosterhout", en: "Oosterhout" }, country: "NL", lat: 51.645, lon: 4.8597, province: "NB", minor: true },
-  { id: "breda", name: { nl: "Breda", en: "Breda" }, country: "NL", lat: 51.5719, lon: 4.7683, province: "NB" },
+  { id: "breda", name: { nl: "Breda", en: "Breda" }, country: "NL", lat: 51.5719, lon: 4.7683, province: "NB", label: "l" },
   { id: "etten-leur", name: { nl: "Etten-Leur", en: "Etten-Leur" }, country: "NL", lat: 51.5706, lon: 4.6356, province: "NB", minor: true },
   { id: "roosendaal", name: { nl: "Roosendaal", en: "Roosendaal" }, country: "NL", lat: 51.5308, lon: 4.4653, province: "NB", minor: true },
   { id: "bergen-op-zoom", name: { nl: "Bergen op Zoom", en: "Bergen op Zoom" }, country: "NL", lat: 51.495, lon: 4.2917, province: "NB", minor: true },
+  // Brabant, dichter
+  { id: "empel", name: { nl: "Empel", en: "Empel" }, country: "NL", lat: 51.7306, lon: 5.3242, province: "NB", minor: true },
+  { id: "den-dungen", name: { nl: "Den Dungen", en: "Den Dungen" }, country: "NL", lat: 51.665, lon: 5.3717, province: "NB", minor: true },
+  { id: "esch", name: { nl: "Esch", en: "Esch" }, country: "NL", lat: 51.61, lon: 5.29, province: "NB", minor: true },
+  { id: "haaren", name: { nl: "Haaren", en: "Haaren" }, country: "NL", lat: 51.6017, lon: 5.2236, province: "NB", minor: true },
+  { id: "udenhout", name: { nl: "Udenhout", en: "Udenhout" }, country: "NL", lat: 51.61, lon: 5.1433, province: "NB", minor: true },
+  { id: "loon-op-zand", name: { nl: "Loon op Zand", en: "Loon op Zand" }, country: "NL", lat: 51.625, lon: 5.075, province: "NB", minor: true },
+  { id: "goirle", name: { nl: "Goirle", en: "Goirle" }, country: "NL", lat: 51.5208, lon: 5.0667, province: "NB", minor: true },
+  { id: "hilvarenbeek", name: { nl: "Hilvarenbeek", en: "Hilvarenbeek" }, country: "NL", lat: 51.4858, lon: 5.1375, province: "NB", minor: true },
+  { id: "reusel", name: { nl: "Reusel", en: "Reusel" }, country: "NL", lat: 51.3617, lon: 5.165, province: "NB", minor: true },
+  { id: "bladel", name: { nl: "Bladel", en: "Bladel" }, country: "NL", lat: 51.3683, lon: 5.2208, province: "NB", minor: true },
+  { id: "eersel", name: { nl: "Eersel", en: "Eersel" }, country: "NL", lat: 51.3567, lon: 5.3178, province: "NB", minor: true },
+  { id: "bergeijk", name: { nl: "Bergeijk", en: "Bergeijk" }, country: "NL", lat: 51.32, lon: 5.3583, province: "NB", minor: true },
+  { id: "waalre", name: { nl: "Waalre", en: "Waalre" }, country: "NL", lat: 51.3867, lon: 5.4447, province: "NB", minor: true },
+  { id: "heeze", name: { nl: "Heeze", en: "Heeze" }, country: "NL", lat: 51.3833, lon: 5.575, province: "NB", minor: true },
+  { id: "someren", name: { nl: "Someren", en: "Someren" }, country: "NL", lat: 51.385, lon: 5.7111, province: "NB", minor: true },
+  { id: "mierlo", name: { nl: "Mierlo", en: "Mierlo" }, country: "NL", lat: 51.44, lon: 5.6194, province: "NB", minor: true },
+  { id: "beek-en-donk", name: { nl: "Beek en Donk", en: "Beek en Donk" }, country: "NL", lat: 51.5342, lon: 5.6322, province: "NB", minor: true },
+  { id: "bakel", name: { nl: "Bakel", en: "Bakel" }, country: "NL", lat: 51.505, lon: 5.74, province: "NB", minor: true },
+  { id: "sint-anthonis", name: { nl: "Sint Anthonis", en: "Sint Anthonis" }, country: "NL", lat: 51.6267, lon: 5.8817, province: "NB", minor: true },
+  { id: "rijen", name: { nl: "Rijen", en: "Rijen" }, country: "NL", lat: 51.59, lon: 4.92, province: "NB", minor: true },
+  { id: "gilze", name: { nl: "Gilze", en: "Gilze" }, country: "NL", lat: 51.5433, lon: 4.9417, province: "NB", minor: true },
+  { id: "made", name: { nl: "Made", en: "Made" }, country: "NL", lat: 51.6767, lon: 4.7933, province: "NB", minor: true },
+  { id: "zevenbergen", name: { nl: "Zevenbergen", en: "Zevenbergen" }, country: "NL", lat: 51.645, lon: 4.605, province: "NB", minor: true },
+  { id: "steenbergen", name: { nl: "Steenbergen", en: "Steenbergen" }, country: "NL", lat: 51.585, lon: 4.32, province: "NB", minor: true },
+  { id: "hoogerheide", name: { nl: "Hoogerheide", en: "Hoogerheide" }, country: "NL", lat: 51.425, lon: 4.325, province: "NB", minor: true },
+  { id: "zundert", name: { nl: "Zundert", en: "Zundert" }, country: "NL", lat: 51.4717, lon: 4.6556, province: "NB", minor: true },
+  // Rond Brabant: Gelderland, Limburg, Zuid-Holland, Utrecht en Zeeland
+  { id: "zaltbommel", name: { nl: "Zaltbommel", en: "Zaltbommel" }, country: "NL", lat: 51.81, lon: 5.2483, province: "GE", minor: true },
+  { id: "kerkdriel", name: { nl: "Kerkdriel", en: "Kerkdriel" }, country: "NL", lat: 51.77, lon: 5.3367, province: "GE", minor: true },
+  { id: "druten", name: { nl: "Druten", en: "Druten" }, country: "NL", lat: 51.8889, lon: 5.6056, province: "GE", minor: true },
+  { id: "beuningen", name: { nl: "Beuningen", en: "Beuningen" }, country: "NL", lat: 51.8617, lon: 5.7667, province: "GE", minor: true },
+  { id: "elst", name: { nl: "Elst", en: "Elst" }, country: "NL", lat: 51.9192, lon: 5.8486, province: "GE", minor: true },
+  { id: "culemborg", name: { nl: "Culemborg", en: "Culemborg" }, country: "NL", lat: 51.955, lon: 5.2267, province: "GE", minor: true },
+  { id: "wageningen", name: { nl: "Wageningen", en: "Wageningen" }, country: "NL", lat: 51.9692, lon: 5.6653, province: "GE", minor: true },
+  { id: "groesbeek", name: { nl: "Groesbeek", en: "Groesbeek" }, country: "NL", lat: 51.7767, lon: 5.9361, province: "GE", minor: true },
+  { id: "gennep", name: { nl: "Gennep", en: "Gennep" }, country: "NL", lat: 51.6983, lon: 5.9744, province: "LI", minor: true },
+  { id: "horst", name: { nl: "Horst", en: "Horst" }, country: "NL", lat: 51.4542, lon: 6.0517, province: "LI", minor: true },
+  { id: "weert", name: { nl: "Weert", en: "Weert" }, country: "NL", lat: 51.2517, lon: 5.7069, province: "LI", minor: true },
+  { id: "gorinchem", name: { nl: "Gorinchem", en: "Gorinchem" }, country: "NL", lat: 51.83, lon: 4.9744, province: "ZH", minor: true },
+  { id: "delft", name: { nl: "Delft", en: "Delft" }, country: "NL", lat: 52.0116, lon: 4.3571, province: "ZH", minor: true },
+  { id: "nieuwegein", name: { nl: "Nieuwegein", en: "Nieuwegein" }, country: "NL", lat: 52.0292, lon: 5.0806, province: "UT", minor: true },
+  { id: "houten", name: { nl: "Houten", en: "Houten" }, country: "NL", lat: 52.0283, lon: 5.1683, province: "UT", minor: true },
+  { id: "zeist", name: { nl: "Zeist", en: "Zeist" }, country: "NL", lat: 52.09, lon: 5.2333, province: "UT", minor: true },
+  { id: "goes", name: { nl: "Goes", en: "Goes" }, country: "NL", lat: 51.5044, lon: 3.8889, province: "ZE", minor: true },
   // Rest van Nederland
-  { id: "nijmegen", name: { nl: "Nijmegen", en: "Nijmegen" }, country: "NL", lat: 51.8126, lon: 5.8372, province: "GE" },
+  { id: "nijmegen", name: { nl: "Nijmegen", en: "Nijmegen" }, country: "NL", lat: 51.8126, lon: 5.8372, province: "GE", label: "r" },
   { id: "wijchen", name: { nl: "Wijchen", en: "Wijchen" }, country: "NL", lat: 51.8092, lon: 5.725, province: "GE", minor: true },
   { id: "tiel", name: { nl: "Tiel", en: "Tiel" }, country: "NL", lat: 51.8867, lon: 5.4292, province: "GE", minor: true },
-  { id: "arnhem", name: { nl: "Arnhem", en: "Arnhem" }, country: "NL", lat: 51.9851, lon: 5.8987, province: "GE" },
+  { id: "arnhem", name: { nl: "Arnhem", en: "Arnhem" }, country: "NL", lat: 51.9851, lon: 5.8987, province: "GE", label: "r" },
   { id: "ede", name: { nl: "Ede", en: "Ede" }, country: "NL", lat: 52.0333, lon: 5.6583, province: "GE", minor: true },
   { id: "apeldoorn", name: { nl: "Apeldoorn", en: "Apeldoorn" }, country: "NL", lat: 52.2112, lon: 5.9699, province: "GE" },
   { id: "doetinchem", name: { nl: "Doetinchem", en: "Doetinchem" }, country: "NL", lat: 51.965, lon: 6.2889, province: "GE", minor: true },
-  { id: "utrecht", name: { nl: "Utrecht", en: "Utrecht" }, country: "NL", lat: 52.0907, lon: 5.1214, province: "UT" },
+  { id: "utrecht", name: { nl: "Utrecht", en: "Utrecht" }, country: "NL", lat: 52.0907, lon: 5.1214, province: "UT", label: "t" },
   { id: "amersfoort", name: { nl: "Amersfoort", en: "Amersfoort" }, country: "NL", lat: 52.1561, lon: 5.3878, province: "UT" },
   { id: "hilversum", name: { nl: "Hilversum", en: "Hilversum" }, country: "NL", lat: 52.2292, lon: 5.1669, province: "NH", minor: true },
-  { id: "amsterdam", name: { nl: "Amsterdam", en: "Amsterdam" }, country: "NL", lat: 52.3676, lon: 4.9041, province: "NH" },
+  { id: "amsterdam", name: { nl: "Amsterdam", en: "Amsterdam" }, country: "NL", lat: 52.3676, lon: 4.9041, province: "NH", label: "l" },
   { id: "haarlem", name: { nl: "Haarlem", en: "Haarlem" }, country: "NL", lat: 52.3874, lon: 4.6462, province: "NH" },
   { id: "almere", name: { nl: "Almere", en: "Almere" }, country: "NL", lat: 52.3508, lon: 5.2647, province: "FL" },
-  { id: "rotterdam", name: { nl: "Rotterdam", en: "Rotterdam" }, country: "NL", lat: 51.9244, lon: 4.4777, province: "ZH" },
-  { id: "den-haag", name: { nl: "Den Haag", en: "The Hague" }, country: "NL", lat: 52.0705, lon: 4.3007, province: "ZH" },
+  { id: "rotterdam", name: { nl: "Rotterdam", en: "Rotterdam" }, country: "NL", lat: 51.9244, lon: 4.4777, province: "ZH", label: "l" },
+  { id: "den-haag", name: { nl: "Den Haag", en: "The Hague" }, country: "NL", lat: 52.0705, lon: 4.3007, province: "ZH", label: "l" },
   { id: "leiden", name: { nl: "Leiden", en: "Leiden" }, country: "NL", lat: 52.1601, lon: 4.497, province: "ZH", minor: true },
   { id: "gouda", name: { nl: "Gouda", en: "Gouda" }, country: "NL", lat: 52.0115, lon: 4.7104, province: "ZH", minor: true },
   { id: "dordrecht", name: { nl: "Dordrecht", en: "Dordrecht" }, country: "NL", lat: 51.8133, lon: 4.6901, province: "ZH" },

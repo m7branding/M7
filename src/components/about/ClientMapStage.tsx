@@ -17,6 +17,8 @@ export type MapPin = {
   nl?: boolean;
   /** Kleinere plaats: kleinere stip, geen ping. */
   minor?: boolean;
+  /** Close-up: plaatsnaam naast de stip (grote steden). */
+  label?: { text: string; side: "l" | "r" | "t" | "b" };
   /** Staat voor alle plaatsen in de close-up (HQ op de wereldkaart). */
   proxy?: boolean;
   /** Vertraging van de reveal (s), loopt op met de afstand tot Nistelrode. */
@@ -291,6 +293,20 @@ function DotMap({
             style={{ left: pct(p.x, map.w), top: pct(p.y, map.h), ["--d" as string]: `${p.delay}s`, ["--p" as string]: `${p.ping}s` }}
           />
         ))}
+
+        {map.pins
+          .filter((p) => p.label)
+          .map((p) => (
+            <span
+              key={`l-${p.id}`}
+              className={`${st.cityLabel}${lit.has(p.id) ? ` ${st.cityLabelOn}` : ""}`}
+              data-side={p.label!.side}
+              style={{ left: pct(p.x, map.w), top: pct(p.y, map.h), ["--d" as string]: `${p.delay + 0.35}s` }}
+              aria-hidden="true"
+            >
+              {p.label!.text}
+            </span>
+          ))}
 
         <span className={st.hqLabel} data-side={map.hqSide} style={{ left: hq.x, top: hq.y }}>
           <span>{map.hqLabel}</span>

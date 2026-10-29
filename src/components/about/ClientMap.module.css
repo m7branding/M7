@@ -347,6 +347,46 @@
   translate: 0 6px;
 }
 
+/* ---------- plaatsnamen van de grote steden (close-up) ---------- */
+.cityLabel {
+  position: absolute;
+  z-index: 2;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  color: rgba(236, 255, 250, 0.8);
+  padding: 3px 7px 4px;
+  border-radius: 999px;
+  background: rgba(6, 7, 8, 0.72);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  opacity: 1;
+  transform: translate(7px, -50%);
+  transition:
+    opacity 0.9s var(--ease-out) var(--d, 0s),
+    color 0.3s;
+}
+.cityLabel[data-side="l"] {
+  transform: translate(calc(-100% - 7px), -50%);
+}
+.cityLabel[data-side="t"] {
+  transform: translate(-50%, calc(-100% - 6px));
+}
+.cityLabel[data-side="b"] {
+  transform: translate(-50%, 6px);
+}
+.cityLabelOn {
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(43, 255, 192, 0.45);
+}
+:global(html.js) .stage[data-in="0"] .cityLabel {
+  opacity: 0;
+}
+
 /* ---------- tooltip ---------- */
 .tip {
   position: absolute;
@@ -402,7 +442,8 @@
   grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr) minmax(0, 0.9fr);
   grid-template-areas:
     "eu na sa"
-    "eu na me";
+    "eu na me"
+    "eu na af";
   gap: 18px clamp(18px, 2.4vw, 32px);
   padding-top: clamp(16px, 2vw, 22px);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -415,6 +456,9 @@
 }
 .group[data-region="southAmerica"] {
   grid-area: sa;
+}
+.group[data-region="africa"] {
+  grid-area: af;
 }
 .group[data-region="middleEast"] {
   grid-area: me;
@@ -488,7 +532,8 @@
     grid-template-areas:
       "eu na"
       "eu sa"
-      "eu me";
+      "eu me"
+      "eu af";
   }
 }
 @media (max-width: 960px) {
@@ -530,7 +575,7 @@
   }
   .legend {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "eu" "na" "sa" "me";
+    grid-template-areas: "eu" "na" "sa" "me" "af";
   }
   .chip {
     font-size: 0.76rem;
@@ -543,6 +588,9 @@
   }
   .pinMinor {
     --s: 3.5px;
+  }
+  .cityLabel {
+    font-size: 0.6rem;
   }
   .pinHq {
     --s: 9px;

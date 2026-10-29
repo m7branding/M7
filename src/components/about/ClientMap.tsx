@@ -33,8 +33,14 @@ const COPY = {
   titleA: { nl: "Vanuit Nistelrode", en: "From Nistelrode" },
   titleB: { nl: "de wereld over.", en: "to the world." },
   lead: {
-    nl: "Ons kantoor staat tussen de weilanden van Nistelrode, maar ons werk reist verder. We werken voor klanten in Brabant, de rest van Nederland en ver daarbuiten: van Antwerpen tot New York en van München tot Dubai. Afstand is zelden een probleem. Een videocall werkt prima, al is de koffie hier wel beter.",
-    en: "Our office sits among the meadows of Nistelrode, but our work travels further. We work for clients in Brabant, the rest of the Netherlands and far beyond: from Antwerp to New York and from Munich to Dubai. Distance is rarely a problem. A video call works fine, although the coffee is better here.",
+    nl: "Ons kantoor staat tussen de weilanden van Nistelrode, maar ons werk reist verder. We werken voor klanten in Brabant, de rest van Nederland en ver daarbuiten: van Antwerpen tot New York, van München tot Dubai en zelfs in Namibië en Zambia. Afstand is zelden een probleem. Een videocall werkt prima, al is de koffie hier wel beter.",
+    en: "Our office sits among the meadows of Nistelrode, but our work travels further. We work for clients in Brabant, the rest of the Netherlands and far beyond: from Antwerp to New York, from Munich to Dubai and even in Namibia and Zambia. Distance is rarely a problem. A video call works fine, although the coffee is better here.",
+  },
+  homeTitleA: { nl: "Building Brands. Every Day.", en: "Building Brands. Every Day." },
+  homeTitleB: { nl: "Worldwide.", en: "Worldwide." },
+  homeLead: {
+    nl: "Vanuit ons kantoor in Nistelrode bouwen we elke dag aan merken, websites en software. Voor bedrijven om de hoek in Brabant, in de rest van Nederland en ver daarbuiten: van Antwerpen tot New York, van Dubai tot Namibië.",
+    en: "From our office in Nistelrode we build brands, websites and software every day. For companies around the corner in Brabant, in the rest of the Netherlands and far beyond: from Antwerp to New York, from Dubai to Namibia.",
   },
   countries: { nl: "Landen", en: "Countries" },
   places: { nl: "Plaatsen op de kaart", en: "Places on the map" },
@@ -61,7 +67,7 @@ const km = (a: ClientPlace, b: ClientPlace) => {
 };
 
 /** Gestippelde wereldkaart met klanten + close-up van Nederland. */
-export function ClientMap({ locale }: { locale: Locale }) {
+export function ClientMap({ locale, variant = "about" }: { locale: Locale; variant?: "about" | "home" }) {
   const L = (t: T) => tr(t, locale);
   const places = allClientPlaces;
   const hq = places.find((p) => p.id === HQ_ID)!;
@@ -145,6 +151,7 @@ export function ClientMap({ locale }: { locale: Locale }) {
     hq: p.id === HQ_ID,
     nl: p.country === "NL",
     minor: !!p.minor,
+    label: p.label ? { text: L(p.name), side: p.label } : undefined,
     delay: p.id === HQ_ID ? 0.15 : r2(0.45 + (Math.hypot(x - nx0, y - ny0) / maxN) * 1.4),
     ping: ping(i),
   }));
@@ -177,7 +184,7 @@ export function ClientMap({ locale }: { locale: Locale }) {
   };
 
   /* ---------- legenda: per regio; Nederland als één chip (de close-up toont de rest) ---------- */
-  const order: RegionKey[] = ["europe", "northAmerica", "southAmerica", "middleEast"];
+  const order: RegionKey[] = ["europe", "northAmerica", "southAmerica", "middleEast", "africa"];
   const legend: LegendGroup[] = order.map((key) => ({
     key,
     title: L(REGIONS[key].name),
@@ -214,10 +221,11 @@ export function ClientMap({ locale }: { locale: Locale }) {
               {L(COPY.kicker)}
             </p>
             <h2 className="h2" id="cmap-title" data-reveal="up">
-              {L(COPY.titleA)} <span className="g-pixels">{L(COPY.titleB)}</span>
+              {variant === "home" ? L(COPY.homeTitleA) : L(COPY.titleA)}{" "}
+              <span className="g-pixels">{variant === "home" ? L(COPY.homeTitleB) : L(COPY.titleB)}</span>
             </h2>
             <p className={`lead ${st.lead}`} data-reveal="up" style={{ ["--d" as string]: "0.1s" }}>
-              {L(COPY.lead)}
+              {variant === "home" ? L(COPY.homeLead) : L(COPY.lead)}
             </p>
           </div>
           <dl className={st.stats} data-stagger="">
