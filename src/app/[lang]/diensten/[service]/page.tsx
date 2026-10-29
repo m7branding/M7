@@ -10,6 +10,7 @@ import { Showcase, hasShowcase } from "@/components/showcase";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
 import { ServiceSectors } from "@/components/audience/ServiceSectors";
 import { LevelUp } from "@/components/sections/Home";
+import { LogoWall } from "@/components/sections/LogoWall";
 import { RelatedServices } from "@/components/sections/RelatedServices";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -218,6 +219,9 @@ export default function ServicePage({ params }: P) {
           </div>
         </section>
       ) : null}
+
+      {/* ---------- Logo's die we ontwierpen (alleen branding) ---------- */}
+      {s.slug === "branding-rebranding" ? <LogoWall locale={locale} /> : null}
 
       {/* ---------- Reviews: eerst over deze dienst, aangevuld met andere echte reviews ---------- */}
       <section className="section svc-reviews" aria-labelledby="reviews-title">

@@ -25,7 +25,18 @@ export const cases: Case[] = [
     applications: ["ux-ui-app-design", "saas-platform", "dashboards", "webflow-website"],
     tools: ["figma", "react", "webflow", "aftereffects"],
     cover: "/media/cases/teamtv-platform.webp",
-    gallery: ["/media/cases/teamtv-mobile.webp", "/media/cases/teamtv-tablet.webp"],
+    gallery: [
+      "/media/cases/teamtv-mobile.webp",
+      "/media/cases/teamtv-tablet.webp",
+      // + beelden van de vorige website (m7branding.com)
+      "/media/cases/teamtv/01.webp",
+      "/media/cases/teamtv/02.webp",
+      "/media/cases/teamtv/03.webp",
+      "/media/cases/teamtv/04.webp",
+      "/media/cases/teamtv/05.webp",
+      "/media/cases/teamtv/06.webp",
+      "/media/cases/teamtv/07.webp",
+    ],
     color: "#5B4BFF",
     hero: { image: "/media/cases/teamtv-devices.webp", position: "50% 45%" },
     story: [
@@ -126,6 +137,19 @@ export const cases: Case[] = [
     applications: ["naamgeving", "merkstrategie", "huisstijl", "webflow-website", "social-media-marketing"],
     tools: ["figma", "illustrator", "webflow", "meta", "linkedin"],
     cover: "/media/cases/monvy.webp",
+    // + beelden van de vorige website (m7branding.com)
+    gallery: [
+      "/media/cases/monvy/01.webp",
+      "/media/cases/monvy/02.webp",
+      "/media/cases/monvy/03.webp",
+      "/media/cases/monvy/04.webp",
+      "/media/cases/monvy/05.webp",
+      "/media/cases/monvy/06.webp",
+      "/media/cases/monvy/07.webp",
+      "/media/cases/monvy/08.webp",
+      "/media/cases/monvy/09.webp",
+      "/media/cases/monvy/10.webp",
+    ],
     color: "#2E7BF6",
     challenge: {
       nl: "Een nieuw product in een complexe markt: cyber security moest begrijpelijk, toegankelijk en betrouwbaar voelen voor een breed publiek.",
@@ -160,6 +184,18 @@ export const cases: Case[] = [
     applications: ["rebranding", "huisstijl", "webflow-website", "lokale-seo", "boekingswidget"],
     tools: ["figma", "webflow", "googlebusiness", "ga4"],
     cover: "/media/cases/repairlab.webp",
+    // + beelden van de vorige website (m7branding.com)
+    gallery: [
+      "/media/cases/repairlab/01.webp",
+      "/media/cases/repairlab/02.webp",
+      "/media/cases/repairlab/03.webp",
+      "/media/cases/repairlab/04.webp",
+      "/media/cases/repairlab/05.webp",
+      "/media/cases/repairlab/06.webp",
+      "/media/cases/repairlab/07.webp",
+      "/media/cases/repairlab/08.webp",
+      "/media/cases/repairlab/09.webp",
+    ],
     color: "#FF5A3D",
     challenge: {
       nl: "Repairlab wilde zich onderscheiden als premium reparatiepartner, met een website die klanten in een paar klikken naar de juiste reparatie leidt.",
@@ -191,6 +227,12 @@ export const cases: Case[] = [
     applications: ["webflow-website", "ux-ui-app-design", "saas-platform"],
     tools: ["figma", "webflow", "react"],
     cover: "/media/cases/sami.webp",
+    // + beelden van de vorige website (m7branding.com)
+    gallery: [
+      "/media/cases/sami/01.webp",
+      "/media/cases/sami/02.webp",
+      "/media/cases/sami/03.webp",
+    ],
     hero: { image: "/media/cases/sami-devices.webp", position: "50% 40%" },
     color: "#4F5BFF",
     challenge: {
@@ -225,7 +267,19 @@ export const cases: Case[] = [
     applications: ["webflow-website", "productfotografie", "bedrijfsfilm", "huisstijl"],
     tools: ["webflow", "figma", "lightroom", "premiere"],
     cover: "/media/cases/jurgh.webp",
-    gallery: ["/media/cases/jurgh-tablet.webp", "/media/cases/jurgh-porsche.webp"],
+    gallery: [
+      "/media/cases/jurgh-tablet.webp",
+      "/media/cases/jurgh-porsche.webp",
+      // + beelden van de vorige website (m7branding.com)
+      "/media/cases/jurgh-detailing/01.webp",
+      "/media/cases/jurgh-detailing/02.webp",
+      "/media/cases/jurgh-detailing/03.webp",
+      "/media/cases/jurgh-detailing/04.webp",
+      "/media/cases/jurgh-detailing/05.webp",
+      "/media/cases/jurgh-detailing/06.webp",
+      "/media/cases/jurgh-detailing/07.webp",
+      "/media/cases/jurgh-detailing/08.webp",
+    ],
     hero: { image: "/media/cases/jurgh-porsche.webp", position: "50% 40%" },
     color: "#3A4BFF",
     challenge: {
@@ -261,7 +315,20 @@ export const cases: Case[] = [
     applications: ["klantportaal", "dashboards", "ux-ui-app-design", "api-koppelingen"],
     tools: ["figma", "react", "nextjs", "postgresql"],
     cover: "/media/cases/debiteurnet.webp",
-    gallery: ["/media/cases/debiteurnet-imac.webp"],
+    gallery: [
+      "/media/cases/debiteurnet-imac.webp",
+      // + het Monvy-platform (de opvolger van Debiteurnet) van de vorige website
+      "/media/cases/debiteurnet/01.webp",
+      "/media/cases/debiteurnet/02.webp",
+      "/media/cases/debiteurnet/03.webp",
+      "/media/cases/debiteurnet/04.webp",
+      "/media/cases/debiteurnet/05.webp",
+      "/media/cases/debiteurnet/06.webp",
+      "/media/cases/debiteurnet/07.webp",
+      "/media/cases/debiteurnet/08.webp",
+      "/media/cases/debiteurnet/09.webp",
+      "/media/cases/debiteurnet/10.webp",
+    ],
     hero: { image: "/media/cases/debiteurnet-imac.webp", position: "50% 40%" },
     color: "#1C6FB8",
     challenge: {
@@ -331,6 +398,12 @@ export const cases: Case[] = [
     applications: ["wordpress-website", "ux-ui-webdesign", "lokale-seo"],
     tools: ["wordpress", "elementor", "figma"],
     cover: "/media/cases/koppens.webp",
+    // + beelden van de vorige website (m7branding.com)
+    gallery: [
+      "/media/cases/architectenbureau-koppens/01.webp",
+      "/media/cases/architectenbureau-koppens/02.webp",
+      "/media/cases/architectenbureau-koppens/03.webp",
+    ],
     color: "#0F3A40",
     challenge: {
       nl: "Het portfolio van het bureau verdiende een podium dat net zo doordacht is als de gebouwen zelf.",
@@ -364,6 +437,13 @@ export const cases: Case[] = [
     applications: ["webflow-website", "e-mailmarketing", "contentstrategie", "meertalige-website"],
     tools: ["webflow", "mailchimp", "ga4"],
     cover: "/media/cases/buitenstate.webp",
+    // + beelden van de vorige website (m7branding.com)
+    gallery: [
+      "/media/cases/buitenstate/01.webp",
+      "/media/cases/buitenstate/02.webp",
+      "/media/cases/buitenstate/03.webp",
+      "/media/cases/buitenstate/04.webp",
+    ],
     color: "#2A9BD6",
     challenge: {
       nl: "Aanbod en inspiratie moesten samenkomen op één plek die bezoekers terug laat komen.",

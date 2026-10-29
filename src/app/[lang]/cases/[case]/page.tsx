@@ -160,18 +160,20 @@ export default function CasePage({ params }: P) {
 
       <CaseStory blocks={story} c={c} locale={locale} />
 
-      <section className="section section--tight">
-        <div className="container">
-          <p className="kicker" data-reveal="fade">
-            {d.service.tools}
-          </p>
-          <div className="tool-group__list app-tools__list" data-stagger="">
-            {c.tools.map((t) => (
-              <ToolBadge key={t} slug={t} />
-            ))}
+      {c.tools.length ? (
+        <section className="section section--tight">
+          <div className="container">
+            <p className="kicker" data-reveal="fade">
+              {d.service.tools}
+            </p>
+            <div className="tool-group__list app-tools__list" data-stagger="">
+              {c.tools.map((t) => (
+                <ToolBadge key={t} slug={t} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       {more.length ? (
         <section className="section">

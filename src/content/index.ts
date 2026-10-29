@@ -29,7 +29,10 @@ import { SEGMENTS_B } from "./sector-segments-b";
 export const sectors = [...baseSectors, ...NEW_SECTORS_A, ...NEW_SECTORS_B, ...NEW_SECTORS_C]
   .map((s) => ({ ...s, ...SEGMENTS_A[s.slug], ...SEGMENTS_B[s.slug] }))
   .sort((a, b) => SECTOR_SLUGS.indexOf(a.slug) - SECTOR_SLUGS.indexOf(b.slug));
-export { cases } from "./cases";
+import { cases as curatedCases } from "./cases";
+import { archiveCases } from "./cases-archive";
+/** Uitgewerkte cases eerst, daarna de projecten van de vorige website. */
+export const cases = [...curatedCases, ...archiveCases];
 export { reviews } from "./reviews";
 export { team } from "./team";
 export { TOOLS } from "./tools";
