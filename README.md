@@ -309,8 +309,9 @@ scripts/sequence.mjs     zet een render (video of movie-to-lottie JSON) om naar 
 
 - GA4-ID, Search Console-verificatie, telefoonnummer, KvK en webhooks (`.env.example`).
 - Socials in `site.ts` (Instagram is geverifieerd, controleer de rest).
-- Teamnamen en -rollen in `team.ts`.
-- Foto's (en rollen) van Martijn, Alexander en Finn in `support.ts` (nu initialen-avatars).
+- Videoclips voor de hero's: `src/content/about.ts` (`heroClips`, Over M7) en `src/content/hero-media.ts` (diensten, toepassingen, sectoren, cases). Zolang de lijst leeg is, rouleren echte foto's met een Ken Burns-effect. Zet korte, stille loops (mp4/webm, ± 8–12 s, 1920 px breed) in `public/media/` en vul het pad + een poster in.
+- Nederlandse klantplaatsen op de kaart in `src/content/client-locations.ts` (gemarkeerd met `TODO(M7)`). Plaatsen toevoegen kan zonder de kaart opnieuw te genereren; alleen bij een andere stijl/uitsnede: `node scripts/dotmap/generate.mjs`.
+- WhatsApp-nummer van Martijn (`NEXT_PUBLIC_WHATSAPP`, internationaal, bv. 316…): dan verschijnt de WhatsApp-knop in de zwevende knop, de intake en de supportmodal.
 - Echte reviews in `reviews.ts` (concepten zijn gemarkeerd en verborgen in productie).
 - Case-teksten met `concept: true` aanvullen met echte projectinfo, en beelden voor cases zonder cover.
 - Juridische teksten in `legal.ts`.
