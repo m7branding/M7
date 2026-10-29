@@ -3332,11 +3332,47 @@ export const NEW_SECTORS_C: Sector[] = [
           {
             title: { nl: "Truckbelettering in je huisstijl", en: "Truck graphics in your identity" },
             text: {
-              nl: "Trucks en trailers als rijdend visitekaartje, herkenbaar op elke snelweg.",
-              en: "Trucks and trailers as a business card on wheels, recognisable on every motorway.",
+              nl: "Trucks, trailers en bedrijfsbussen als rijdend visitekaartje, herkenbaar op elke snelweg en passend bij je website en vacatures. Met drukklare bestanden voor je beletteraar.",
+              en: "Trucks, trailers and vans as a business card on wheels, recognisable on every motorway and in line with your website and vacancies. With print-ready files for your sign maker.",
             },
             service: "grafisch-ontwerp-print",
             application: "beurs-signing",
+          },
+          {
+            title: { nl: "Vindbaar per specialisme", en: "Findable per specialism" },
+            text: {
+              nl: "Een pagina per type transport, zoals koel- en vriestransport, ADR of bulk, met certificeringen en voorbeelden van ladingen. Zo vindt een verlader precies de transporteur die hij zoekt.",
+              en: "A page per type of transport, such as refrigerated, ADR or bulk, with certifications and examples of loads. That way a shipper finds exactly the haulier they are looking for.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+          {
+            title: { nl: "Track & trace voor verladers", en: "Track and trace for shippers" },
+            text: {
+              nl: "Verladers zien zelf de status van hun zendingen, laad- en lostijden en vrachtdocumenten, gekoppeld aan je TMS. Minder telefoontjes en meer vertrouwen.",
+              en: "Shippers see the status of their shipments, loading and unloading times and freight documents themselves, linked to your TMS. Fewer phone calls and more trust.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "AI die orders uit mails haalt", en: "AI that extracts orders from emails" },
+            text: {
+              nl: "Transportorders komen vaak binnen als mail of pdf. AI leest ze uit en zet ze klaar in je TMS, zodat een planner controleert in plaats van overtypt.",
+              en: "Transport orders often arrive as an email or PDF. AI reads them and prepares them in your TMS, so a planner checks instead of retyping.",
+            },
+            service: "ai-consultancy",
+            application: "ai-integraties",
+          },
+          {
+            title: { nl: "Een dag mee met een chauffeur", en: "A day with a driver" },
+            text: {
+              nl: "Van het laden in de vroege ochtend tot het laatste losadres: een film met echte beelden van je chauffeurs en materieel, voor je werken-bij site, social media en beurzen.",
+              en: "From loading in the early morning to the last drop: a film with real footage of your drivers and equipment, for your careers site, social media and trade shows.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "bedrijfsfilm",
           },
         ],
         faqs: [
@@ -3366,6 +3402,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Zeker. Je trucks rijden elke dag langs veel mensen, onder wie toekomstige chauffeurs en klanten. Een rustig, herkenbaar ontwerp met je naam en website valt meer op dan een trailer vol tekst. Zorg dat het aansluit op je website en vacatures, zodat wie je op de weg ziet je online herkent. We ontwerpen [[beurs-signing|belettering]] in je [[huisstijl]] voor trucks, trailers en bedrijfsbussen, en leveren de bestanden kant-en-klaar aan bij je beletteraar.",
               en: "Definitely. Your trucks pass a lot of people every day, including future drivers and customers. A calm, recognisable design with your name and website stands out more than a trailer full of text. Make sure it matches your website and vacancies, so people who see you on the road recognise you online. We design [[beurs-signing|vehicle graphics]] in your [[huisstijl|visual identity]] for trucks, trailers and vans, and deliver print-ready files to your sign maker.",
+            },
+          },
+          {
+            q: { nl: "Kan AI transportorders uit e-mails en pdf's verwerken?", en: "Can AI process transport orders from emails and PDFs?" },
+            a: {
+              nl: "Ja, als voorbereiding op het werk van je planners. AI herkent in een mail of pdf de laad- en losadressen, data, goederen en referenties, en zet die als conceptorder klaar in je TMS. Een planner controleert en bevestigt, zeker bij afwijkende opdrachten. Begin met de klanten die de meeste orders sturen en breid uit als het goed werkt. Met [[ai-integraties|AI-integraties]] en [[api-koppelingen]] past het in de systemen die je al hebt.",
+              en: "Yes, as preparation for your planners' work. AI recognises the loading and delivery addresses, dates, goods and references in an email or PDF, and prepares them as a draft order in your TMS. A planner checks and confirms, especially for unusual orders. Start with the customers who send the most orders and expand if it works well. With [[ai-integraties|AI integrations]] and [[api-koppelingen|API integrations]] it fits into the systems you already have.",
+            },
+          },
+          {
+            q: { nl: "Hoe laat je verladers hun zendingen volgen zonder dat ze bellen?", en: "How do you let shippers track their shipments without calling?" },
+            a: {
+              nl: "Geef ze zelf inzicht. In een [[klantportaal]] zien verladers de status per zending, de verwachte aankomsttijd en documenten zoals de vrachtbrief en de afleverbevestiging. Een automatische mail met een link bij vertrek en levering maakt het nog makkelijker. De gegevens komen uit je TMS en de boordcomputers, dus niemand hoeft iets met de hand bij te houden. Je planners worden minder vaak gestoord en je klanten weten waar ze aan toe zijn.",
+              en: "Give them insight themselves. In a [[klantportaal|customer portal]] shippers see the status per shipment, the expected arrival time and documents such as the consignment note and proof of delivery. An automatic email with a link at departure and delivery makes it even easier. The data comes from your TMS and the on-board computers, so nobody has to keep anything up to date by hand. Your planners are interrupted less often and your customers know where they stand.",
+            },
+          },
+          {
+            q: { nl: "Hoe maak je een goede bedrijfsfilm voor een transportbedrijf?", en: "How do you make a good corporate film for a transport company?" },
+            a: {
+              nl: "Met echte mensen, echt materieel en een planning die past bij de ritten. Een dag mee met een chauffeur, beelden van de werkplaats en de planning, en een eigenaar die in een paar zinnen vertelt waar het bedrijf voor staat. Maak er meerdere versies van: een langere [[bedrijfsfilm]] voor de website en korte, verticale [[social-video|social video's]] voor vacatures. Zo werkt één filmdag maandenlang voor werving en verkoop.",
+              en: "With real people, real equipment and a schedule that fits around the trips. A day with a driver, footage of the workshop and the planning office, and an owner explaining in a few sentences what the company stands for. Make several versions: a longer [[bedrijfsfilm|corporate film]] for the website and short, vertical [[social-video|social videos]] for vacancies. That way one day of filming works for months for recruitment and sales.",
             },
           },
         ],
@@ -3404,8 +3461,8 @@ export const NEW_SECTORS_C: Sector[] = [
           {
             title: { nl: "LinkedIn-campagne richting verladers", en: "LinkedIn campaign aimed at shippers" },
             text: {
-              nl: "Bereik logistiek managers en inkopers met content over je specialismen en capaciteit.",
-              en: "Reach logistics managers and buyers with content about your specialisms and capacity.",
+              nl: "Bereik logistiek managers en inkopers bij verladers met content over je specialismen, locaties en beschikbare capaciteit, gericht op functie, branche en regio.",
+              en: "Reach logistics managers and buyers at shippers with content about your specialisms, locations and available capacity, targeted by job title, industry and region.",
             },
             service: "content-marketing-online-ads",
             application: "linkedin-ads",
@@ -3418,6 +3475,42 @@ export const NEW_SECTORS_C: Sector[] = [
             },
             service: "configurators-lead-tools-widgets",
             application: "offerte-calculator",
+          },
+          {
+            title: { nl: "Website die je specialisme laat zien", en: "A website that shows your specialism" },
+            text: {
+              nl: "Opslag, value added logistics, douane of fulfilment: een site die per dienst en sector laat zien wat je doet, met locaties, certificeringen en een snelle route naar een offerte.",
+              en: "Storage, value-added logistics, customs or fulfilment: a site that shows what you do per service and sector, with locations, certifications and a quick route to a quote.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Film door je warehouse", en: "A film through your warehouse" },
+            text: {
+              nl: "Inslag, opslag, orderpicking en verzending in een korte film. Zo ziet een webshop die nog nooit bij je is geweest hoe georganiseerd je werkt.",
+              en: "Inbound, storage, order picking and shipping in a short film. That way a web shop that has never visited sees how organised your operation is.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "bedrijfsfilm",
+          },
+          {
+            title: { nl: "AI voor de customer service", en: "AI for customer service" },
+            text: {
+              nl: "Statusvragen, pre-alerts en wijzigingen worden door AI gelezen, aan de juiste order gekoppeld en als taak klaargezet, met een conceptantwoord dat je team controleert.",
+              en: "Status questions, pre-alerts and changes are read by AI, linked to the right order and lined up as tasks, with a draft reply your team checks.",
+            },
+            service: "ai-consultancy",
+            application: "ai-agents",
+          },
+          {
+            title: { nl: "Orderpickers en heftruckchauffeurs werven", en: "Recruiting order pickers and forklift drivers" },
+            text: {
+              nl: "Een werken-bij pagina en campagnes die laten zien hoe een dienst eruitziet, met roosters, reistijd en collega's. Solliciteren gaat in een paar minuten, ook in andere talen.",
+              en: "A careers page and campaigns that show what a shift looks like, with schedules, travel time and colleagues. Applying takes a few minutes, in other languages too.",
+            },
+            service: "branding-rebranding",
+            application: "employer-branding",
           },
         ],
         faqs: [
@@ -3440,6 +3533,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Verladers zoeken vaak heel specifiek, zoals 'warehousing gevaarlijke stoffen Brabant' of 'cross-docking Venlo'. Maak voor elke dienst en elk specialisme een pagina die die vraag beantwoordt, met capaciteit, certificeringen en locatie. Dat werkt in Google en steeds vaker ook in AI-assistenten. Daarnaast bereik je logistiek managers en inkopers goed via LinkedIn. Met [[seo]] en [[linkedin-ads|LinkedIn Ads]] bouw je zichtbaarheid op bij precies die mensen.",
               en: "Shippers often search very specifically, such as 'hazardous goods warehousing Brabant' or 'cross-docking Venlo'. Create a page for each service and specialism that answers that question, with capacity, certifications and location. That works in Google and increasingly in AI assistants too. You can also reach logistics managers and buyers well through LinkedIn. With [[seo|SEO]] and [[linkedin-ads|LinkedIn Ads]] you build visibility with exactly those people.",
+            },
+          },
+          {
+            q: { nl: "Hoe vind je orderpickers en ander logistiek personeel?", en: "How do you find order pickers and other logistics staff?" },
+            a: {
+              nl: "Door snel, duidelijk en dichtbij te zijn. Mensen willen weten welke diensten er zijn, hoe ver het reizen is, wat ze verdienen en hoe de sfeer op de vloer is. Zet dat op een korte vacaturepagina die op een telefoon werkt, in de talen van je medewerkers. Met [[employer-branding|employer branding]] en [[meta-ads|Meta Ads]] in de regio rond je warehouse bereik je ook mensen die niet op vacaturesites zoeken. Bel sollicitanten dezelfde dag terug, want ze solliciteren vaak op meerdere plekken.",
+              en: "By being quick, clear and close by. People want to know what shifts there are, how far the commute is, what they will earn and what the atmosphere on the floor is like. Put that on a short vacancy page that works on a phone, in your staff's languages. With [[employer-branding|employer branding]] and [[meta-ads|Meta Ads]] in the region around your warehouse you also reach people who do not search job sites. Call applicants back the same day, because they often apply in several places.",
+            },
+          },
+          {
+            q: { nl: "Welke administratieve taken kun je in de logistiek automatiseren?", en: "Which administrative tasks can you automate in logistics?" },
+            a: {
+              nl: "Meer dan je denkt. Denk aan het inlezen van orders en pre-alerts, statusmails naar klanten, het verzamelen van gegevens voor facturatie en vaste rapportages per klant. Vaak gaat het om werk waarbij iemand gegevens van het ene systeem in het andere zet. Met [[workflow-automatisering]] en [[ai-agents|AI-agents]] neem je dat over, terwijl je team de uitzonderingen afhandelt. Begin met het proces dat de meeste tijd kost en meet wat het oplevert.",
+              en: "More than you think. Think of reading in orders and pre-alerts, status emails to customers, gathering data for invoicing and standard reports per customer. Often it is work where someone moves data from one system to another. With [[workflow-automatisering|workflow automation]] and [[ai-agents|AI agents]] you take that over, while your team handles the exceptions. Start with the process that takes the most time and measure what it delivers.",
+            },
+          },
+          {
+            q: { nl: "Wat moet er op de website van een logistiek dienstverlener staan?", en: "What should a logistics service provider's website include?" },
+            a: {
+              nl: "Antwoorden voor een verlader of webshop die je nog niet kent. Welke diensten lever je, voor welke sectoren, vanaf welke locaties en met welke capaciteit? Welke certificeringen heb je en met welke systemen koppel je? Geef elke dienst een eigen pagina met die details en een vaste contactpersoon. Een [[webflow-website|website]] met een [[offerte-calculator|offertecalculator]] of een kort aanvraagformulier maakt de eerste stap klein.",
+              en: "Answers for a shipper or web shop that does not know you yet. Which services do you provide, for which sectors, from which locations and with what capacity? Which certifications do you hold and which systems do you integrate with? Give each service its own page with those details and a fixed contact person. A [[webflow-website|website]] with an [[offerte-calculator|quote calculator]] or a short request form makes the first step small.",
             },
           },
         ],
@@ -3478,8 +3592,8 @@ export const NEW_SECTORS_C: Sector[] = [
           {
             title: { nl: "Dashboard met terminal- en orderdata", en: "Dashboard with terminal and order data" },
             text: {
-              nl: "Containers, deadlines en uitzonderingen in één overzicht voor planning en klantenservice.",
-              en: "Containers, deadlines and exceptions in one overview for planning and customer service.",
+              nl: "Containers, deadlines, closing times en uitzonderingen in één overzicht, zodat planning en klantenservice dezelfde informatie zien en sneller kunnen schakelen.",
+              en: "Containers, deadlines, closing times and exceptions in one overview, so planning and customer service see the same information and can act faster.",
             },
             service: "web-apps-portals-apps",
             application: "dashboards",
@@ -3492,6 +3606,42 @@ export const NEW_SECTORS_C: Sector[] = [
             },
             service: "foto-video-3d-animatie",
             application: "dronevideo",
+          },
+          {
+            title: { nl: "Meertalige site voor verladers", en: "Multilingual site for shippers" },
+            text: {
+              nl: "Diensten, verbindingen, terminals en contactpersonen helder in het Nederlands, Engels en Duits, voor verladers en partners in het achterland.",
+              en: "Services, connections, terminals and contacts set out clearly in Dutch, English and German, for shippers and partners in the hinterland.",
+            },
+            service: "websites-webshops",
+            application: "meertalige-website",
+          },
+          {
+            title: { nl: "Werven voor de kade en aan boord", en: "Recruiting for the quay and on board" },
+            text: {
+              nl: "Kraanmachinisten, planners en schippers kies je niet uit een stapel cv's. Laat met verhalen van collega's zien hoe het werk op de terminal of aan boord echt is.",
+              en: "Crane operators, planners and skippers are not picked from a pile of CVs. Use stories from colleagues to show what the work at the terminal or on board is really like.",
+            },
+            service: "branding-rebranding",
+            application: "employer-branding",
+          },
+          {
+            title: { nl: "Zichtbaar bij verladers en expediteurs", en: "Visible to shippers and forwarders" },
+            text: {
+              nl: "Op LinkedIn bereik je logistiek managers en expediteurs met updates over nieuwe diensten, verbindingen en vervoer over water als alternatief voor de weg.",
+              en: "On LinkedIn you reach logistics managers and forwarders with updates about new services, connections and transport by water as an alternative to the road.",
+            },
+            service: "content-marketing-online-ads",
+            application: "linkedin-ads",
+          },
+          {
+            title: { nl: "Automatische statusberichten", en: "Automatic status messages" },
+            text: {
+              nl: "Klanten krijgen automatisch bericht bij aankomst, vertraging of vrijgave van een container, zonder dat iemand van de klantenservice hoeft te mailen.",
+              en: "Customers automatically get a message on arrival, delay or release of a container, without anyone in customer service having to send an email.",
+            },
+            service: "automation-funnels",
+            application: "workflow-automatisering",
           },
         ],
         faqs: [
@@ -3514,6 +3664,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Van boven en van dichtbij. Dronebeelden laten zien hoe groot een terminal is en hoe de stromen lopen. Beelden van de mensen op de kade, in de kraan of aan boord laten zien wie het werk doet. Die combinatie werkt voor klanten, voor nieuwe collega's en voor de omgeving. Met [[dronevideo]] en een [[bedrijfsfilm]] maken we beeld dat je jarenlang kunt gebruiken op je website, in presentaties en op beurzen.",
               en: "From above and up close. Drone footage shows how big a terminal is and how the flows run. Footage of the people on the quay, in the crane or on board shows who does the work. That combination works for customers, for new colleagues and for the local community. With [[dronevideo|drone video]] and a [[bedrijfsfilm|corporate film]] we create footage you can use for years on your website, in presentations and at trade shows.",
+            },
+          },
+          {
+            q: { nl: "Hoe vind je kraanmachinisten, planners en schippers?", en: "How do you find crane operators, planners and skippers?" },
+            a: {
+              nl: "Door het werk te laten zien zoals het is, inclusief de ploegendiensten en de weekenden. Mensen die voor dit vak kiezen, willen weten met welk materieel ze werken, hoe het rooster eruitziet, welke opleiding ze krijgen en wie hun collega's zijn. [[social-video|Korte video's]] vanaf de kade, in de kraan of aan boord doen hier meer dan een tekst. Met [[employer-branding|employer branding]] en gerichte campagnes in de regio rond de haven bereik je ook zij-instromers.",
+              en: "By showing the work as it is, including the shift work and the weekends. People who choose this trade want to know what equipment they will use, what the schedule looks like, what training they get and who their colleagues are. [[social-video|Short videos]] from the quay, in the crane or on board do more here than text. With [[employer-branding|employer branding]] and targeted campaigns in the region around the port you also reach career changers.",
+            },
+          },
+          {
+            q: { nl: "Kunnen klanten automatisch statusupdates over hun containers krijgen?", en: "Can customers automatically get status updates about their containers?" },
+            a: {
+              nl: "Ja, als de gegevens in je terminal- of ordersysteem beschikbaar zijn. Via [[api-koppelingen]] haal je de status op, en met [[workflow-automatisering|automatische flows]] stuur je op vaste momenten een bericht: aankomst, vertraging, vrijgave of klaar voor afhalen. De klant kiest zelf of hij dat per mail of in een portaal ziet. Zo daalt het aantal statusvragen en heeft je klantenservice tijd voor de uitzonderingen.",
+              en: "Yes, if the data is available in your terminal or order system. Through [[api-koppelingen|API integrations]] you retrieve the status, and with [[workflow-automatisering|automated flows]] you send a message at fixed moments: arrival, delay, release or ready for pick-up. Customers choose whether they see that by email or in a portal. That reduces the number of status questions and gives your customer service time for the exceptions.",
+            },
+          },
+          {
+            q: { nl: "Hoe vertel je verladers het verhaal van vervoer over water?", en: "How do you tell shippers the story of transport by water?" },
+            a: {
+              nl: "Concreet en zonder overdrijven. Een verlader wil weten welke verbindingen er zijn, hoe lang een container onderweg is, hoe voor- en natransport geregeld zijn en wat het betekent voor zijn uitstoot. Gebruik daarbij alleen cijfers die je kunt onderbouwen. Een kaart met verbindingen en een paar voorbeelden van ladingen maken het tastbaar. Met een heldere [[contentstrategie]] en [[linkedin-ads|LinkedIn Ads]] bereik je de logistiek managers die nu nog alles over de weg sturen.",
+              en: "Concretely and without exaggeration. A shipper wants to know which connections there are, how long a container is in transit, how pre- and on-carriage are arranged and what it means for their emissions. Only use figures you can back up. A map of connections and a few examples of loads make it tangible. With a clear [[contentstrategie|content strategy]] and [[linkedin-ads|LinkedIn Ads]] you reach the logistics managers who still send everything by road.",
             },
           },
         ],
@@ -3567,6 +3738,42 @@ export const NEW_SECTORS_C: Sector[] = [
             service: "content-marketing-online-ads",
             application: "google-ads",
           },
+          {
+            title: { nl: "Website met een snelle aanvraagroute", en: "Website with a quick request route" },
+            text: {
+              nl: "Diensten, werkgebied, reviews en foto's van je eigen team en bussen, met op elke pagina een knop naar de calculator of een terugbelverzoek.",
+              en: "Services, service area, reviews and photos of your own team and vans, with a button to the calculator or a call-back request on every page.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Herkenbare bussen en bedrijfskleding", en: "Recognisable vans and workwear" },
+            text: {
+              nl: "Een huisstijl die werkt op de bus, de verhuisdozen, de kleding van je team en de website. Klanten zien direct dat er een vakkundig bedrijf voor de deur staat.",
+              en: "An identity that works on the van, the moving boxes, your team's clothing and the website. Customers see straight away that a professional company is at the door.",
+            },
+            service: "branding-rebranding",
+            application: "huisstijl",
+          },
+          {
+            title: { nl: "Track & trace voor zakelijke klanten", en: "Track and trace for business customers" },
+            text: {
+              nl: "Zakelijke klanten zien waar hun zending is, wie hem heeft afgeleverd en de handtekening of foto bij aflevering. Minder telefoontjes met 'is het al aangekomen?'.",
+              en: "Business customers see where their shipment is, who delivered it and the signature or photo on delivery. Fewer calls asking 'has it arrived yet?'.",
+            },
+            service: "web-apps-portals-apps",
+            application: "klantportaal",
+          },
+          {
+            title: { nl: "Offertes en reviews automatisch opvolgen", en: "Following up quotes and reviews automatically" },
+            text: {
+              nl: "Na een offerte automatisch een vriendelijke herinnering, na de verhuizing of levering een bedankje met een vraag om een review. Zonder dat iemand eraan hoeft te denken.",
+              en: "After a quote, an automatic friendly reminder; after the move or delivery, a thank-you with a request for a review. Without anyone having to remember.",
+            },
+            service: "automation-funnels",
+            application: "workflow-automatisering",
+          },
         ],
         faqs: [
           {
@@ -3588,6 +3795,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Ja. Met een [[boekingswidget]] kiezen klanten een datum of tijdslot, geven ze adressen en details door en betalen ze eventueel direct een aanbetaling. Voor self-storage kan dat per boxformaat, met beschikbaarheid en huurperiode. Bevestigingen en herinneringen gaan automatisch, en de boeking komt in je planning terecht. Zo neem je de telefoon alleen nog op voor de vragen die echt een gesprek nodig hebben.",
               en: "Yes. With a [[boekingswidget|booking widget]] customers choose a date or time slot, enter addresses and details and, if you like, pay a deposit straight away. For self-storage that works per unit size, with availability and rental period. Confirmations and reminders go out automatically, and the booking lands in your planning. That way you only pick up the phone for the questions that really need a conversation.",
+            },
+          },
+          {
+            q: { nl: "Hoe trek je als koerier vaste zakelijke klanten aan?", en: "How does a courier attract regular business customers?" },
+            a: {
+              nl: "Door te laten zien dat je begrijpt wat zij nodig hebben. Een laboratorium, garage of webshop heeft andere eisen dan een particulier: vaste ophaalmomenten, spoed, zorgvuldig vervoer of een afleverbewijs. Geef die sectoren een eigen pagina en maak een zakelijk account aanvragen makkelijk. Een [[klantportaal]] met een overzicht van ritten en facturen maakt je een vaste partner. Met [[linkedin-ads|LinkedIn Ads]] en lokale [[seo|SEO]] bereik je ondernemers in je regio.",
+              en: "By showing you understand what they need. A laboratory, garage or web shop has different requirements from a private customer: fixed pick-up times, urgent runs, careful handling or proof of delivery. Give those sectors their own page and make requesting a business account easy. A [[klantportaal|customer portal]] with an overview of trips and invoices makes you a regular partner. With [[linkedin-ads|LinkedIn Ads]] and local [[seo|SEO]] you reach businesses in your region.",
+            },
+          },
+          {
+            q: { nl: "Hoe vul je self-storage units via de website?", en: "How do you fill self-storage units through the website?" },
+            a: {
+              nl: "Maak kiezen en reserveren makkelijk. Veel mensen weten niet hoeveel ruimte ze nodig hebben, dus een maatgids met voorbeelden als 'past de inboedel van een studio' helpt enorm. Toon per boxformaat de beschikbaarheid en de prijs, en laat klanten online reserveren met een [[boekingswidget]]. Met [[lokale-seo|lokale SEO]] word je gevonden op 'opslagruimte huren' plus je plaats, en [[google-ads|Google Ads]] vangt de mensen op die het morgen nodig hebben.",
+              en: "Make choosing and reserving easy. Many people do not know how much space they need, so a size guide with examples like 'fits the contents of a studio flat' helps a lot. Show availability and price per unit size, and let customers reserve online with a [[boekingswidget|booking widget]]. With [[lokale-seo|local SEO]] you get found for 'storage unit rental' plus your town, and [[google-ads|Google Ads]] catches the people who need it tomorrow.",
+            },
+          },
+          {
+            q: { nl: "Hoe laat een verhuisbedrijf zien dat het betrouwbaar is?", en: "How does a removal company show it is reliable?" },
+            a: {
+              nl: "Door transparant te zijn en je eigen mensen te laten zien. Foto's van je team, je bussen en je materiaal zeggen meer dan stockbeelden. Leg uit hoe een verhuizing verloopt, van de opname tot het uitpakken, en wat je doet als er iets beschadigd raakt. Ben je aangesloten bij een keurmerk of branchevereniging, laat dat dan zien. Een herkenbare [[huisstijl]] op bus en kleding en een heldere [[webflow-website|website]] maken het plaatje compleet.",
+              en: "By being transparent and showing your own people. Photos of your team, vans and equipment say more than stock images. Explain how a move goes, from the survey to the unpacking, and what you do if something gets damaged. If you are a member of a quality mark or trade association, show it. A recognisable [[huisstijl|visual identity]] on vans and clothing and a clear [[webflow-website|website]] complete the picture.",
             },
           },
         ],
@@ -3617,8 +3845,8 @@ export const NEW_SECTORS_C: Sector[] = [
           {
             title: { nl: "Fleetportaal voor klanten", en: "Fleet portal for customers" },
             text: {
-              nl: "Contracten, onderhoud, schades en documenten per voertuig in één overzicht.",
-              en: "Contracts, maintenance, damage and documents per vehicle in one overview.",
+              nl: "Contracten, onderhoudsplanning, schades, boetes en documenten per voertuig in één overzicht, zodat een fleetmanager niet meer door mails en mappen hoeft te zoeken.",
+              en: "Contracts, maintenance planning, damage, fines and documents per vehicle in one overview, so a fleet manager no longer has to dig through emails and folders.",
             },
             service: "web-apps-portals-apps",
             application: "klantportaal",
@@ -3635,11 +3863,47 @@ export const NEW_SECTORS_C: Sector[] = [
           {
             title: { nl: "LinkedIn Ads richting fleetmanagers", en: "LinkedIn Ads aimed at fleet managers" },
             text: {
-              nl: "Bereik inkopers en fleetmanagers bij transportbedrijven met content die hun vragen beantwoordt.",
-              en: "Reach buyers and fleet managers at transport companies with content that answers their questions.",
+              nl: "Bereik inkopers en fleetmanagers bij transportbedrijven met content die hun vragen beantwoordt, zoals lease of koop en de overstap naar elektrische trucks.",
+              en: "Reach buyers and fleet managers at transport companies with content that answers their questions, such as leasing versus buying and the switch to electric trucks.",
             },
             service: "content-marketing-online-ads",
             application: "linkedin-ads",
+          },
+          {
+            title: { nl: "Website met actueel verhuuraanbod", en: "Website with current rental fleet" },
+            text: {
+              nl: "Trucks, trailers en bussen met specificaties, foto's en beschikbaarheid, zodat een klant direct ziet wat er is en online kan reserveren of een offerte kan vragen.",
+              en: "Trucks, trailers and vans with specifications, photos and availability, so a customer sees straight away what is available and can reserve online or request a quote.",
+            },
+            service: "websites-webshops",
+            application: "webflow-website",
+          },
+          {
+            title: { nl: "Demovideo van je platform", en: "Demo video of your platform" },
+            text: {
+              nl: "Een korte animatie die in een minuut laat zien wat een fleetmanager met je platform doet: ritten volgen, onderhoud plannen en kosten per voertuig zien.",
+              en: "A short animation that shows in a minute what a fleet manager does with your platform: tracking trips, planning maintenance and seeing costs per vehicle.",
+            },
+            service: "foto-video-3d-animatie",
+            application: "motion-design",
+          },
+          {
+            title: { nl: "Kennispagina's over elektrische trucks", en: "Knowledge pages on electric trucks" },
+            text: {
+              nl: "Fleetmanagers zoeken antwoorden over laden, actieradius, zero-emissiezones en de kosten over de hele looptijd. Met heldere kennispagina's word je een partij die ze vinden en vertrouwen.",
+              en: "Fleet managers look for answers about charging, range, zero-emission zones and total cost of ownership. With clear knowledge pages you become a company they find and trust.",
+            },
+            service: "seo-aeo-geo",
+            application: "seo-content",
+          },
+          {
+            title: { nl: "CRM dat seint bij verlenging", en: "A CRM that flags renewals" },
+            text: {
+              nl: "Een CRM dat laat weten wanneer een leasecontract afloopt of een voertuig aan vervanging toe is, zodat je accountmanagers op tijd met een voorstel komen.",
+              en: "A CRM that tells you when a lease contract is ending or a vehicle is due for replacement, so your account managers come with a proposal in time.",
+            },
+            service: "automation-funnels",
+            application: "crm-implementatie",
           },
         ],
         faqs: [
@@ -3662,6 +3926,27 @@ export const NEW_SECTORS_C: Sector[] = [
             a: {
               nl: "Via de kanalen waar ze zakelijk actief zijn, met content die hun vragen beantwoordt. Op LinkedIn bereik je inkopers en fleetmanagers op functie en branche. Deel praktische kennis, zoals lease tegenover koop of de overstap naar elektrische trucks, in plaats van alleen aanbiedingen. Bied iets nuttigs aan, zoals een checklist, en volg geïnteresseerden op met relevante mails. Met [[linkedin-ads|LinkedIn Ads]] en [[lead-nurturing]] bouw je zo een stevige pijplijn op.",
               en: "Through the channels where they are active professionally, with content that answers their questions. On LinkedIn you reach buyers and fleet managers by job title and industry. Share practical knowledge, such as leasing versus buying or the switch to electric trucks, rather than only offers. Offer something useful, like a checklist, and follow up interested people with relevant emails. With [[linkedin-ads|LinkedIn Ads]] and [[lead-nurturing|lead nurturing]] you build a solid pipeline that way.",
+            },
+          },
+          {
+            q: { nl: "Hoe maak je een telematicaplatform of fleetdashboard gebruiksvriendelijk?", en: "How do you make a telematics platform or fleet dashboard user-friendly?" },
+            a: {
+              nl: "Begin bij de dagelijkse taken van de gebruiker, niet bij alle data die je hebt. Een planner wil zien welke voertuigen aandacht nodig hebben, een fleetmanager wil kosten en onderhoud per periode. Zet uitzonderingen bovenaan, houd de rest een klik verder en zorg dat het ook op een tablet of telefoon werkt. Test met echte gebruikers voordat je verder bouwt. Met goed [[ux-ui-app-design|UX/UI-design]] wordt een [[dashboards|dashboard]] iets wat mensen elke dag openen.",
+              en: "Start with the user's daily tasks, not with all the data you have. A planner wants to see which vehicles need attention, a fleet manager wants costs and maintenance per period. Put exceptions at the top, keep the rest one click away and make sure it works on a tablet or phone too. Test with real users before you build further. With good [[ux-ui-app-design|UX/UI design]] a [[dashboards|dashboard]] becomes something people open every day.",
+            },
+          },
+          {
+            q: { nl: "Hoe zorg je dat leaseklanten op tijd verlengen?", en: "How do you make sure leasing customers renew in time?" },
+            a: {
+              nl: "Door eerder in beeld te zijn dan de concurrent. Een [[crm-implementatie|CRM]] dat signaleert wanneer een contract over een paar maanden afloopt, geeft je accountmanager de tijd om een passend voorstel te maken. Met [[lead-nurturing]] stuur je klanten in de aanloop nuttige informatie, bijvoorbeeld over nieuwe modellen of de overstap naar elektrisch. In een klantportaal zien ze zelf hun looptijden. Zo wordt verlengen een logische stap, geen onderhandeling op het laatste moment.",
+              en: "By being in view before your competitor. A [[crm-implementatie|CRM]] that flags when a contract ends in a few months gives your account manager time to prepare a fitting proposal. With [[lead-nurturing|lead nurturing]] you send customers useful information in the run-up, for example about new models or the switch to electric. In a customer portal they see their own contract terms. That makes renewing a logical step, not a last-minute negotiation.",
+            },
+          },
+          {
+            q: { nl: "Wat moet er in content over elektrische bedrijfswagens staan?", en: "What should content about electric commercial vehicles cover?" },
+            a: {
+              nl: "De praktische vragen waar een fleetmanager echt mee zit. Hoe ver kom je in de praktijk, met lading en in de winter? Waar en hoe laad je, op de zaak en onderweg? Wat betekenen zero-emissiezones in steden voor je ritten, en hoe vergelijk je de kosten over de hele looptijd? Wees eerlijk over de beperkingen. Met [[seo-content|SEO-content]] en [[geo|GEO]] word je gevonden op die vragen, in Google en in AI-assistenten.",
+              en: "The practical questions a fleet manager actually has. How far do you get in practice, with a load and in winter? Where and how do you charge, at the depot and on the road? What do zero-emission zones in cities mean for your trips, and how do you compare costs over the full term? Be honest about the limitations. With [[seo-content|SEO content]] and [[geo|GEO]] you get found for those questions, in Google and in AI assistants.",
             },
           },
         ],
