@@ -31,9 +31,10 @@ export const sectors = [...baseSectors, ...NEW_SECTORS_A, ...NEW_SECTORS_B, ...N
   .sort((a, b) => SECTOR_SLUGS.indexOf(a.slug) - SECTOR_SLUGS.indexOf(b.slug));
 import { cases as curatedCases } from "./cases";
 import { archiveCases } from "./cases-archive";
+import { newCasesA } from "./cases-new-a";
 import { withMedia } from "./case-media";
-/** Uitgewerkte cases eerst, daarna de projecten van de vorige website; mockups uit de pipeline erbij. */
-export const cases = [...curatedCases, ...archiveCases].map(withMedia);
+/** Uitgewerkte cases eerst, dan de nieuwe projecten, dan die van de vorige website; mockups uit de pipeline erbij. */
+export const cases = [...curatedCases, ...newCasesA, ...archiveCases].map(withMedia);
 export { reviews } from "./reviews";
 export { team } from "./team";
 export { TOOLS } from "./tools";
