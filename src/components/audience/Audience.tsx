@@ -2,12 +2,16 @@
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { Aurora } from "@/components/motion/Aurora";
 import { useLenis } from "@/components/motion/SmoothScroll";
+import { launchOverlay } from "@/components/overlay/OverlayButton";
+import type { OverlayName } from "@/components/overlay/overlay-events";
 import { Icon } from "@/components/ui/Icon";
 import type { Locale } from "@/content/types";
 import type { AudIndex } from "@/lib/audience";
 import { audCopy, lcFirst } from "./copy";
 import { haystack, highlight, norm, scoreQuery, slugify, type Haystack } from "./match";
+import { mountSlider } from "./slider";
 import "./audience.css";
 
 /* ============================================================
@@ -368,6 +372,35 @@ export function Audience({
     return () => document.removeEventListener("toggle", onToggle, true);
   }, [remote, index]);
 
+  // Paneel dat open staat: slider-gedrag koppelen en één levende Aurora achter de CTA
+  // (één WebGL-context, alleen zolang de modal open is; ook voor geïmporteerde panelen)
+  const [auroraHost, setAuroraHost] = useState<HTMLElement | null>(null);
+  useEffect(() => {
+    const root = dlg.current;
+    const pane =
+      !root || shownSeg < 0 || (remote && status !== "ready")
+        ? null
+        : remote
+          ? remoteRef.current
+          : root.querySelector<HTMLElement>(`[data-aud-panel="${CSS.escape(index.segs[shownSeg].k)}"]`);
+    if (!pane) {
+      setAuroraHost(null);
+      return;
+    }
+    const undo = Array.from(pane.querySelectorAll<HTMLElement>("[data-aud-slider]")).map(mountSlider);
+    setAuroraHost(pane.querySelector<HTMLElement>("[data-aud-aurora]"));
+    return () => undo.forEach((f) => f());
+  }, [shownSeg, status, remote, index]);
+
+  /** Geïmporteerd paneel (dienstpagina): de intake-knop is daar losse HTML, dus hier de overlay openen. */
+  const onRemoteClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = (e.target as Element).closest<HTMLElement>("[data-overlay]");
+    if (!a) return;
+    e.preventDefault();
+    launchOverlay(a.dataset.overlay as OverlayName, a);
+  };
+
   // Gekozen soort bedrijf oplichten in de chips
   useEffect(() => {
     const root = dlg.current;
@@ -723,6 +756,7 @@ export function Audience({
         </nav>
       ) : null}
       {popupEl}
+      {auroraHost ? createPortal(<Aurora palette="violet" intensity={0.92} fallback="/media/bg/ai-waves.webp" />, auroraHost) : null}
 
       <dialog
         ref={dlg}
@@ -752,7 +786,7 @@ export function Audience({
             ))}
             {remote ? (
               <>
-                <div ref={remoteRef} className="aud-dlg__remote" />
+                <div ref={remoteRef} className="aud-dlg__remote" onClick={onRemoteClick} />
                 {status === "loading" ? (
                   <div className="aud-dlg__skel" aria-busy="true">
                     <p className="aud-p__kicker">{shownSector?.name}</p>

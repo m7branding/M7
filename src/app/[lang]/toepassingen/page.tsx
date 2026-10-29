@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { MediaHero } from "@/components/hero/MediaHero";
 import { TLink } from "@/components/motion/TLink";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { LevelUp } from "@/components/sections/Home";
-import { PageHero } from "@/components/sections/PageHero";
 import { ApplicationsExplorer } from "@/components/sections/ApplicationsExplorer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { Locale } from "@/content/types";
@@ -10,6 +11,7 @@ import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 import { buildMetadata, itemListLd } from "@/lib/seo";
+import "@/styles/overview.css";
 
 type P = { params: { lang: Locale } };
 
@@ -42,22 +44,31 @@ export default function ApplicationsPage({ params }: P) {
 
   return (
     <>
-      <PageHero
+      <MediaHero
         locale={locale}
+        page="applications"
         crumbs={[
           { name: d.nav.home, path: "/" },
           { name: d.nav.applications, path: paths.applications },
         ]}
         crumbsLabel={d.misc.breadcrumbs}
-        kicker={`${apps.length} ${d.nav.applications.toLowerCase()}`}
+        meta={[
+          { icon: "layers", text: `${apps.length} ${d.nav.applications.toLowerCase()}` },
+          { text: `${groups.length} ${d.nav.services.toLowerCase()}` },
+        ]}
         title={[{ t: "What can we " }, { t: "build", c: "g-stars" }, { t: " for you?" }]}
         lead={
           locale === "nl"
             ? "Elke toepassing hangt onder een dienst en is gekoppeld aan cases, tools en sectoren. Zoek, filter en ontdek."
             : "Every application belongs to a service and is linked to cases, tools and sectors. Search, filter and discover."
         }
-      />
-      <section className="section section--tight">
+      >
+        <IntakeCta>{d.cta.launch}</IntakeCta>
+        <a href="#alle-toepassingen" className="link-dash">
+          {locale === "nl" ? "Zoek een toepassing" : "Find an application"}
+        </a>
+      </MediaHero>
+      <section className="section section--tight ov-body" id="alle-toepassingen" aria-label={d.nav.allApplications}>
         <div className="container">
           <ApplicationsExplorer
             groups={groups}

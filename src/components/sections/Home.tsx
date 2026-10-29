@@ -180,7 +180,7 @@ export function FolderGrid({ locale }: { locale: Locale }) {
 }
 
 /* ---------------- Peiler-kaarten (zoals in het design: tekst | mockup, afwisselend) ---------------- */
-export function PillarStack({ locale, from = 0, to }: { locale: Locale; from?: number; to?: number }) {
+export function PillarStack({ locale, from = 0, to, anchors }: { locale: Locale; from?: number; to?: number; anchors?: boolean }) {
   const d = getDict(locale);
   const all = allServices();
   const list = all.slice(from, to ?? all.length);
@@ -193,6 +193,7 @@ export function PillarStack({ locale, from = 0, to }: { locale: Locale; from?: n
           return (
             <article
               key={s.slug}
+              id={anchors ? s.slug : undefined}
               className={`pillar${i % 2 ? " pillar--flip" : ""}`}
               style={{ ["--accent" as string]: s.color, ["--i" as string]: n }}
             >

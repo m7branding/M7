@@ -363,7 +363,7 @@ html.aud-lock {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: min(100%, 1040px);
+  width: min(100%, 1160px);
   max-height: 100%;
   border-radius: var(--r-xl);
   overflow: hidden;
@@ -397,11 +397,12 @@ html.aud-lock {
   outline: 0;
 }
 .aud-dlg__scroll {
+  --aud-pad: clamp(28px, 4.4vw, 60px);
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: clamp(28px, 4.4vw, 60px);
+  padding: var(--aud-pad);
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
 }
@@ -490,7 +491,8 @@ html.aud-lock {
     inset: 0 0 auto;
   }
   .aud-dlg__scroll {
-    padding: 72px 18px calc(28px + env(safe-area-inset-bottom));
+    --aud-pad: 18px;
+    padding: 72px var(--aud-pad) calc(28px + env(safe-area-inset-bottom));
   }
   .aud-dlg__close {
     top: 12px;
@@ -502,7 +504,7 @@ html.aud-lock {
 .aud-p {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(36px, 4.4vw, 54px);
+  gap: clamp(40px, 4.8vw, 60px);
 }
 .aud-p__head {
   display: grid;
@@ -584,6 +586,7 @@ html.aud-lock {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 20px;
+  min-width: 0;
 }
 .aud-p__h {
   font-size: clamp(1.3rem, 2.1vw, 1.75rem);
@@ -591,67 +594,13 @@ html.aud-lock {
   line-height: 1.15;
   letter-spacing: -0.015em;
 }
-.aud-p__faq .faq__list {
-  gap: 10px;
-}
-.aud-p__faq .faq__item summary {
-  padding: 18px 22px;
-  font-size: 1rem;
-}
-.aud-p__faq .faq__a {
-  padding: 0 22px 20px;
-}
-.aud-p__cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 22px 32px;
-  padding: clamp(24px, 3.2vw, 38px);
-  border-radius: 26px;
-  background:
-    radial-gradient(90% 140% at 0% 0%, rgba(58, 255, 255, 0.11), transparent 60%),
-    radial-gradient(90% 160% at 100% 100%, rgba(139, 61, 255, 0.2), transparent 60%),
-    #0d0d11;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-.aud-p__cta-txt {
-  flex: 1 1 320px;
-}
-.aud-p__cta-t {
-  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-}
-.aud-p__cta-x {
-  max-width: 50ch;
-  margin-top: 6px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.aud-p__cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px 26px;
-  min-width: 0;
-}
 @media (max-width: 640px) {
-  .aud-p__cta {
-    padding: 22px 18px;
-  }
-  .aud-p__cta .btn {
-    max-width: 100%;
-    white-space: normal;
-    padding-left: 22px;
-    gap: 12px;
-  }
   .aud-p__head {
     padding-right: 0;
   }
 }
 
-/* ---------------- Use cases ---------------- */
+/* ---------------- Use cases: rustige kaarten ---------------- */
 .aud-uc {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -662,108 +611,423 @@ html.aud-lock {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 22px 22px 20px;
+  padding: 24px 24px 26px;
   border-radius: 22px;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.042), rgba(255, 255, 255, 0.012));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
     0 0 0 1px var(--line);
   transition:
-    box-shadow 0.45s,
-    transform 0.5s var(--ease-out);
-}
-.aud-uc__item::before {
-  content: "";
-  position: absolute;
-  inset: -40% 40% 50% -30%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
-  opacity: 0.45;
-  pointer-events: none;
-  transition: opacity 0.5s;
-}
-.aud-uc__item:hover {
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.07),
-    0 0 0 1px color-mix(in srgb, var(--accent) 38%, transparent);
-  transform: translateY(-2px);
-}
-.aud-uc__item:hover::before {
-  opacity: 0.85;
-}
-.aud-uc__top {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    box-shadow 0.5s var(--ease-out),
+    background 0.5s var(--ease-out),
+    transform 0.6s var(--ease-out);
 }
 .aud-uc__ic {
   flex: none;
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
   border-radius: 12px;
-  background: color-mix(in srgb, var(--accent) 14%, #121215);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, #111114);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
   color: var(--accent);
+  transition: box-shadow 0.5s;
 }
 .aud-uc__t {
-  font-size: 1.05rem;
+  padding-right: 34px;
+  font-size: 1.06rem;
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+/* stretched link: de hele kaart is klikbaar, de linknaam blijft de titel */
+.aud-uc__a {
+  color: inherit;
+  outline: 0;
+}
+.aud-uc__a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
 }
 .aud-uc__x {
-  position: relative;
   color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.75;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  text-wrap: pretty;
 }
-.aud-uc__x p + p {
-  margin-top: 0.7em;
-}
-.aud-uc__link {
-  position: relative;
-  margin-top: auto;
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px 6px 11px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 9%, #141417);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #f1f1f4;
-  transition:
-    background 0.3s,
-    box-shadow 0.3s;
-}
-.aud-uc__link:hover {
-  background: color-mix(in srgb, var(--accent) 18%, #141417);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 60%, transparent);
-}
-.aud-uc__dot {
-  width: 7px;
-  height: 7px;
+.aud-uc__go {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  opacity: 0;
+  transform: translate3d(-4px, 4px, 0) scale(0.9);
+  transition:
+    opacity 0.4s,
+    transform 0.55s var(--ease-out),
+    background 0.4s,
+    color 0.4s;
+}
+.aud-uc__item:hover,
+.aud-uc__item:focus-within {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 0 0 1px color-mix(in srgb, var(--accent) 34%, rgba(255, 255, 255, 0.08)),
+    0 22px 50px -30px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.aud-uc__item:hover .aud-uc__ic {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.aud-uc__item:hover .aud-uc__go,
+.aud-uc__item:focus-within .aud-uc__go {
+  opacity: 1;
+  transform: none;
   background: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
+  color: #000;
+}
+.aud-uc__item:has(.aud-uc__a:focus-visible) {
+  box-shadow:
+    0 0 0 2px #050506,
+    0 0 0 4px var(--teal);
+}
+@media (hover: hover) and (pointer: fine) {
+  .aud-uc__item:hover {
+    transform: translate3d(0, -3px, 0);
+  }
 }
 .aud-uc--compact {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 12px;
 }
 .aud-uc--compact .aud-uc__item {
-  padding: 18px 18px 16px;
+  gap: 10px;
+  padding: 18px 18px 20px;
   border-radius: 18px;
+}
+.aud-uc--compact .aud-uc__go {
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
 }
 @media (max-width: 760px) {
   .aud-uc,
   .aud-uc--compact {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------------- Use cases: horizontale slider ---------------- */
+.aud-sl {
+  gap: 18px;
+}
+.aud-sl .aud-sl__track {
+  display: flex;
+  gap: 14px;
+  /* tot aan de rand van de modal, kaarten snappen op de inhoudslijn */
+  margin-inline: calc(-1 * var(--aud-pad, 0px));
+  padding: 6px var(--aud-pad, 0px) 14px;
+  scroll-padding-inline: var(--aud-pad, 0px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 var(--aud-pad, 0px), #000 calc(100% - var(--aud-pad, 0px)), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 var(--aud-pad, 0px), #000 calc(100% - var(--aud-pad, 0px)), transparent);
+}
+.aud-sl .aud-sl__track::-webkit-scrollbar {
+  display: none;
+}
+.aud-sl .aud-sl__track > .aud-uc__item {
+  flex: 0 0 min(340px, 80vw);
+  scroll-snap-align: start;
+}
+@media (hover: hover) and (pointer: fine) {
+  .aud-sl[data-sl-ready] .aud-sl__track {
+    cursor: grab;
+  }
+}
+.aud-sl.is-drag .aud-sl__track {
+  cursor: grabbing;
+  user-select: none;
+}
+.aud-sl.is-drag .aud-uc__item {
+  pointer-events: none;
+}
+.aud-sl__ctrl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -2px;
+}
+/* zonder JS (of bij te weinig kaarten) geen knoppen die niets doen */
+.aud-sl:not([data-sl-ready]) .aud-sl__ctrl {
+  visibility: hidden;
+}
+.aud-sl[data-sl-static] .aud-sl__ctrl {
+  display: none;
+}
+.aud-sl__bar {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  margin-right: 14px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+.aud-sl__thumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--p, 0) * (1 - var(--w, 0.35)) * 100%);
+  width: calc(var(--w, 0.35) * 100%);
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--teal), #00ff19);
+  box-shadow: 0 0 12px rgba(58, 255, 255, 0.45);
+}
+.aud-sl__btn {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  transition:
+    background 0.35s,
+    color 0.35s,
+    box-shadow 0.35s,
+    opacity 0.35s,
+    transform 0.5s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .aud-sl__btn:hover:not(:disabled) {
+    background: #fff;
+    color: #000;
+    box-shadow: none;
+  }
+  .aud-sl__btn[data-sl-prev]:hover:not(:disabled) {
+    transform: translateX(-2px);
+  }
+  .aud-sl__btn[data-sl-next]:hover:not(:disabled) {
+    transform: translateX(2px);
+  }
+}
+.aud-sl__btn:active:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+}
+.aud-sl__btn:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+.aud-sl__btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* ---------------- FAQ + CTA naast elkaar ---------------- */
+.aud-p__duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 372px);
+  align-items: start;
+  gap: clamp(28px, 3.6vw, 48px);
+}
+.aud-p__duo--solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+.aud-p__faq .faq__list {
+  gap: 10px;
+}
+.aud-p__faq .faq__item summary {
+  padding: 18px 20px 18px 22px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.aud-p__faq .faq__a {
+  padding: 0 22px 20px;
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+.aud-p__faq .faq__icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* CTA: organische paarse Aurora, gezichten, intake */
+.aud-cta {
+  position: sticky;
+  /* Chrome telt de padding van de scrollcontainer (de modal) hier al bij */
+  top: 24px;
+  isolation: isolate;
+  overflow: hidden;
+  min-width: 0;
+  border-radius: 26px;
+  background: #13052f;
+  color: #fff;
+  box-shadow:
+    0 0 0 1px rgba(155, 92, 255, 0.22),
+    0 40px 90px -50px rgba(74, 18, 201, 0.9);
+}
+.aud-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  background:
+    url("/media/bg/ai-waves.webp") center / cover no-repeat,
+    radial-gradient(90% 80% at 75% 20%, #4a12c9, #1a0646 70%);
+}
+.aud-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(12, 3, 32, 0.28) 0%, rgba(12, 3, 32, 0) 34%, rgba(12, 3, 32, 0.55) 72%, rgba(12, 3, 32, 0.82) 100%),
+    linear-gradient(100deg, rgba(12, 3, 32, 0.4), transparent 75%);
+}
+.aud-cta__in {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 26px 26px 28px;
+}
+.aud-cta__team.av-line {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 30ch;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+.aud-cta__team.av-line strong {
+  color: #fff;
+}
+.aud-cta__body {
+  margin-top: clamp(20px, 4.5vh, 48px);
+}
+.aud-cta__t {
+  font-size: clamp(1.5rem, 2.1vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.aud-cta__x {
+  max-width: 40ch;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  text-wrap: pretty;
+}
+.aud-cta__row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.aud-cta__row .btn {
+  max-width: 100%;
+}
+.aud-cta__call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 2px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  transition: color 0.3s;
+}
+.aud-cta__call svg {
+  transition: transform 0.5s var(--ease-out);
+}
+.aud-cta__call:hover {
+  color: #fff;
+}
+.aud-cta__call:hover svg {
+  transform: translateX(4px);
+}
+/* geen FAQ's: CTA over de volle breedte, tekst en knoppen naast elkaar */
+.aud-p__duo--solo .aud-cta {
+  position: relative;
+  top: auto;
+}
+.aud-p__duo--solo .aud-cta__body {
+  margin-top: 12px;
+}
+@media (min-width: 900px) {
+  .aud-p__duo--solo .aud-cta__in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 22px 40px;
+    padding: 32px 36px;
+  }
+  .aud-p__duo--solo .aud-cta__team {
+    grid-column: 1 / -1;
+  }
+  .aud-p__duo--solo .aud-cta__body {
+    margin-top: 18px;
+  }
+}
+@media (max-width: 900px) {
+  .aud-p__duo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(40px, 6vw, 56px);
+  }
+  .aud-cta {
+    position: relative;
+    top: auto;
+  }
+  .aud-cta__body {
+    margin-top: 28px;
+  }
+}
+@media (max-width: 640px) {
+  .aud-uc__item {
+    padding: 22px 20px 24px;
+  }
+  .aud-sl__btn {
+    width: 40px;
+    height: 40px;
+  }
+  .aud-p__faq .faq__item summary {
+    padding: 16px 16px 16px 18px;
+    font-size: 0.97rem;
+  }
+  .aud-p__faq .faq__a {
+    padding: 0 18px 18px;
+  }
+  .aud-cta__in {
+    padding: 22px 20px 24px;
+  }
+  .aud-cta__row {
+    align-items: stretch;
+  }
+  .aud-cta__row .btn {
+    justify-content: space-between;
+    white-space: normal;
   }
 }
 

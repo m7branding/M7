@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { MediaHero } from "@/components/hero/MediaHero";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { LevelUp } from "@/components/sections/Home";
-import { PageHero } from "@/components/sections/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SectorCard } from "@/components/ui/Cards";
 import type { Locale } from "@/content/types";
@@ -9,6 +10,7 @@ import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 import { buildMetadata, itemListLd } from "@/lib/seo";
+import "@/styles/overview.css";
 
 type P = { params: { lang: Locale } };
 
@@ -30,22 +32,28 @@ export default function SectorsPage({ params }: P) {
   const list = allSectors();
   return (
     <>
-      <PageHero
+      <MediaHero
         locale={locale}
+        page="sectors"
         crumbs={[
           { name: d.nav.home, path: "/" },
           { name: d.nav.sectors, path: paths.sectors },
         ]}
         crumbsLabel={d.misc.breadcrumbs}
-        kicker={d.nav.sectors}
+        meta={[{ icon: "grid", text: `${list.length} ${d.nav.sectors.toLowerCase()}` }]}
         title={[{ t: "We speak " }, { t: "your industry.", c: "g-shop" }]}
         lead={
           locale === "nl"
             ? "Elke branche heeft eigen klanten, regels en kansen. Kies je sector en zie welke diensten, toepassingen en cases bij jou passen."
             : "Every industry has its own customers, rules and opportunities. Pick your sector and see which services, applications and cases fit you."
         }
-      />
-      <section className="section section--tight">
+      >
+        <IntakeCta>{d.cta.launch}</IntakeCta>
+        <a href="#alle-sectoren" className="link-dash">
+          {locale === "nl" ? "Kies je sector" : "Pick your sector"}
+        </a>
+      </MediaHero>
+      <section className="section section--tight ov-body" id="alle-sectoren" aria-label={d.nav.allSectors}>
         <div className="container">
           <div className="sector-grid" data-stagger="">
             {list.map((s, i) => (

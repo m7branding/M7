@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { MediaHero } from "@/components/hero/MediaHero";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { CasesFilter } from "@/components/sections/CasesFilter";
 import { LevelUp } from "@/components/sections/Home";
-import { PageHero } from "@/components/sections/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CaseCard } from "@/components/ui/CaseCard";
 import type { Locale } from "@/content/types";
@@ -10,6 +11,7 @@ import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 import { buildMetadata, itemListLd } from "@/lib/seo";
+import "@/styles/overview.css";
 
 type P = { params: { lang: Locale } };
 
@@ -34,18 +36,27 @@ export default function CasesPage({ params }: P) {
 
   return (
     <>
-      <PageHero
+      <MediaHero
         locale={locale}
+        page="cases"
         crumbs={[
           { name: d.nav.home, path: "/" },
           { name: d.nav.cases, path: paths.cases },
         ]}
         crumbsLabel={d.misc.breadcrumbs}
-        kicker={`${d.nav.cases} (${cases.length})`}
+        meta={[
+          { icon: "star", text: `${cases.length} cases` },
+          { text: `${usedSectors.length} ${d.nav.sectors.toLowerCase()}` },
+        ]}
         title={[{ t: "A grasp of our " }, { t: "masterpieces.", c: "g-stars" }]}
         lead={d.cases.intro}
-      />
-      <section className="section section--tight">
+      >
+        <IntakeCta>{d.cta.launch}</IntakeCta>
+        <a href="#alle-cases" className="link-dash">
+          {locale === "nl" ? "Bekijk het werk" : "See the work"}
+        </a>
+      </MediaHero>
+      <section className="section section--tight ov-body" id="alle-cases" aria-label={d.nav.allCases}>
         <div className="container">
           <CasesFilter
             services={usedServices.map((s) => ({ slug: s.slug, label: tr(s.short, locale), color: s.color }))}

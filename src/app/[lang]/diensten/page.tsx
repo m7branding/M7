@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { TLink } from "@/components/motion/TLink";
-import { Mockup } from "@/components/mockups";
-import { FolderGrid, LevelUp } from "@/components/sections/Home";
-import { PageHero } from "@/components/sections/PageHero";
+import { MediaHero } from "@/components/hero/MediaHero";
+import { IntakeCta } from "@/components/overlay/OverlayButton";
+import { LevelUp, PillarStack } from "@/components/sections/Home";
+import { AppsBand, ServiceToc } from "@/components/sections/ServicesOverview";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Btn } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
+import { TLink } from "@/components/motion/TLink";
 import { site } from "@/content/site";
 import type { Locale } from "@/content/types";
-import { allApplications, allServices, applicationsFor } from "@/lib/content";
+import { allApplications, allServices } from "@/lib/content";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 import { buildMetadata, itemListLd } from "@/lib/seo";
+import "@/styles/overview.css";
 
 type P = { params: { lang: Locale } };
 
@@ -32,69 +32,41 @@ export default function ServicesPage({ params }: P) {
   const locale = params.lang;
   const d = getDict(locale);
   const list = allServices();
+  const apps = allApplications().length;
+  const half = Math.ceil(list.length / 2);
   return (
     <>
-      <PageHero
+      <MediaHero
         locale={locale}
+        page="services"
         crumbs={[
           { name: d.nav.home, path: "/" },
           { name: d.nav.services, path: paths.services },
         ]}
         crumbsLabel={d.misc.breadcrumbs}
-        kicker={d.nav.services}
+        meta={[
+          { icon: "grid", text: `${list.length} ${d.nav.services.toLowerCase()}` },
+          { text: `${apps} ${d.nav.applications.toLowerCase()}` },
+        ]}
         title={[{ t: "Everything your brand needs, " }, { t: "under one roof.", c: "g-pixels" }]}
         lead={
           locale === "nl"
-            ? `${list.length} peilers, ${allApplications().length} toepassingen en één team. Van eerste merkgevoel tot slimme software en campagnes die renderen.`
-            : `${list.length} pillars, ${allApplications().length} applications and one team. From first brand feeling to smart software and campaigns that perform.`
+            ? `${list.length} peilers, ${apps} toepassingen en één team. Van eerste merkgevoel tot slimme software en campagnes die renderen.`
+            : `${list.length} pillars, ${apps} applications and one team. From first brand feeling to smart software and campaigns that perform.`
         }
       >
-        <Btn href={site.letsgo}>{d.cta.configurator}</Btn>
-      </PageHero>
+        <IntakeCta>{d.cta.launch}</IntakeCta>
+        <TLink href={site.letsgo} className="link-dash">
+          {d.cta.configurator}
+        </TLink>
+      </MediaHero>
 
-      <section className="section section--tight">
-        <div className="container">
-          <FolderGrid locale={locale} />
-        </div>
-      </section>
+      <ServiceToc locale={locale} />
 
-      <section className="section svc-index" aria-label={d.nav.services}>
-        <div className="container">
-          <ol className="svc-rows">
-            {list.map((s, i) => {
-              const apps = applicationsFor(s.slug);
-              return (
-                <li key={s.slug} style={{ ["--accent" as string]: s.color }} data-reveal="up">
-                  <TLink href={paths.service(s)} className="svc-row" data-cursor={d.cta.discover}>
-                    <span className="svc-row__num">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="svc-row__main">
-                      <span className="svc-row__title">{tr(s.title, locale)}</span>
-                      <span className="svc-row__tag">{tr(s.tagline, locale)}</span>
-                    </span>
-                    <span className="svc-row__apps">
-                      {apps.slice(0, 4).map((a) => (
-                        <span key={a.slug}>{tr(a.title, locale)}</span>
-                      ))}
-                      {apps.length > 4 ? <span>+{apps.length - 4}</span> : null}
-                    </span>
-                    <span className="svc-row__arrow">
-                      <Icon name="arrowUpRight" size={26} stroke={1.8} />
-                    </span>
-                    <span className="svc-row__preview" aria-hidden="true">
-                      <Mockup kind={s.mockup} accent={s.color} />
-                    </span>
-                  </TLink>
-                </li>
-              );
-            })}
-          </ol>
-          <p className="center" style={{ marginTop: 48 }} data-reveal="up">
-            <TLink href={paths.applications} className="link-dash">
-              {d.nav.allApplications} <span className="count-badge">{allApplications().length}</span>
-            </TLink>
-          </p>
-        </div>
-      </section>
+      {/* Dezelfde kaarten met showcases als op home, in twee stapels van vijf */}
+      <PillarStack locale={locale} from={0} to={half} anchors />
+      <AppsBand locale={locale} />
+      <PillarStack locale={locale} from={half} anchors />
 
       <LevelUp locale={locale} />
       <JsonLd data={itemListLd(list.map((s) => ({ name: tr(s.title, locale), path: paths.service(s) })), locale)} />
