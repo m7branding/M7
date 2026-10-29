@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../src/components/cases/devices.css" />
+    <link rel="stylesheet" href="base.css" />
+    <!-- Cover (2400×1500): MacBook Pro met een iPhone ervoor, rechts licht overlappend. -->
+    <style>
+      body { --W: 1200px; --H: 750px; --gx: 52%; --gy: 58%; }
+      .mac { position: absolute; left: 170px; top: 92px; width: 790px; }
+      .phone { position: absolute; left: 872px; top: 352px; width: 152px; }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="scene">
+      <div class="mac" data-dx="mac" data-shot="desk"></div>
+      <div class="phone" data-dx="phone" data-shot="mob"></div>
+    </div>
+    <div class="grain"></div>
+    <script src="devices.js"></script>
+    <script src="stage.js"></script>
+  </body>
+</html>
