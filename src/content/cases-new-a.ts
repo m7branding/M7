@@ -696,5 +696,6 @@ export const newCasesA: Case[] = [
       nl: "Een website waarop je meteen ziet wanneer je welkom bent, en social media vol alpaca's, van feed tot reels.",
       en: "A website that shows right away when you're welcome, and social media full of alpacas, from feed to reels.",
     },
+    url: "https://alpacavorstenbosch.nl",
   },
 ];

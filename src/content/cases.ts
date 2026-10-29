@@ -313,6 +313,7 @@ export const cases: Case[] = [
     },
     featured: true,
     shape: "square",
+    url: "https://www.detailing.nl",
   },
   {
     slug: "debiteurnet",

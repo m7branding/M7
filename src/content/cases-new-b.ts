@@ -40,7 +40,7 @@ export const newCasesB: Case[] = [
     },
     url: "https://hela.nl",
   },
-  // TODO(M7): bedrijf niet geverifieerd (geen live site gevonden); sector en kleur zijn een voorlopige keuze.
+  // Geverifieerd via icewall.webflow.io (M7-credit); live domein nog onbekend. Sector en kleur graag checken.
   {
     slug: "soesoe",
     client: "Soesoe",
@@ -342,7 +342,7 @@ export const newCasesB: Case[] = [
     },
     url: "https://www.thesandt.nl",
   },
-  // TODO(M7): bedrijf niet geverifieerd (aigora.ai en aigora.eu zijn twee verschillende bedrijven; welke is het?); sector en kleur zijn een voorlopige keuze.
+  // Geverifieerd via aigora.webflow.io (M7-credit; "real-world data for precision medicine R&D"); live domein nog onbekend. Sector en kleur graag checken.
   {
     slug: "aigora",
     client: "Aigora",
@@ -402,7 +402,7 @@ export const newCasesB: Case[] = [
     },
     url: "https://shop.digitalnewsgroup.com",
   },
-  // TODO(M7): bedrijf niet geverifieerd (mogelijk martello.io, een DeFi-platform, maar onbevestigd); sector en kleur zijn een voorlopige keuze.
+  // Geverifieerd: www.martello.global wordt beheerd vanuit de M7-editor. Tekst blijft bij de scope; sector en kleur graag checken.
   {
     slug: "martello",
     client: "Martello",
@@ -431,6 +431,7 @@ export const newCasesB: Case[] = [
       nl: "Een merk en een website die één verhaal vertellen.",
       en: "A brand and a website that tell one story.",
     },
+    url: "https://www.martello.global",
   },
   {
     slug: "huurfix",
@@ -469,7 +470,7 @@ export const newCasesB: Case[] = [
     },
     url: "https://www.huurfix.nl",
   },
-  // TODO(M7): bedrijf niet geverifieerd (cryptocointalk.com was niet bereikbaar vanuit deze sessie); de scope klopt met de Google-review van Thijs Sijpestijn. Merkkleur onbekend.
+  // Geverifieerd: cryptocointalk.nl (WordPress-auteur m7branding); scope klopt met de Google-review van Thijs Sijpestijn. Merkkleur graag checken.
   {
     slug: "cryptocointalk",
     client: "CryptoCoinTalk",
@@ -498,6 +499,7 @@ export const newCasesB: Case[] = [
       nl: "Een vernieuwd platform met een helder abonnementsmodel, een opgefrist merk en een website in dezelfde lijn.",
       en: "A renewed platform with a clear subscription model, a refreshed brand and a website in the same line.",
     },
+    url: "https://cryptocointalk.nl",
   },
   // TODO(M7): bedrijf aannemelijk maar niet bevestigd: velorum.eu (Webflow-export, met een SolidLayer-sectie) heeft geen M7-vermelding. Even checken.
   {
@@ -531,7 +533,7 @@ export const newCasesB: Case[] = [
     },
     url: "https://www.velorum.eu",
   },
-  // TODO(M7): eigen website niet gevonden (solidlayer.io is een ander bedrijf). SolidLayer staat aangekondigd op velorum.eu; klopt die koppeling?
+  // Geverifieerd via solid-layer.webflow.io (Webflow-showcaseprofiel van M7); live domein nog onbekend.
   {
     slug: "solidlayer",
     client: "SolidLayer",
@@ -651,7 +653,7 @@ export const newCasesB: Case[] = [
     },
     url: "https://grid.com",
   },
-  // TODO(M7): bedrijf aannemelijk maar niet bevestigd: verichecks.eu (Brussel, Webflow-site) heeft geen M7-vermelding. Even checken.
+  // Geverifieerd: verichecks.eu staat in het Webflow-showcaseprofiel van M7.
   {
     slug: "verichecks",
     client: "VeriChecks",
@@ -742,7 +744,7 @@ export const newCasesB: Case[] = [
     },
     url: "https://nexisgroup.nl",
   },
-  // TODO(M7): bedrijf niet geverifieerd (geen live site gevonden); kleur is een voorlopige keuze.
+  // Geverifieerd via spartabluehydrogen.webflow.io (Webflow-showcaseprofiel van M7); live domein nog onbekend.
   {
     slug: "sparta-blue-hydrogen",
     client: "Sparta Blue Hydrogen",

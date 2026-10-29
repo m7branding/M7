@@ -154,7 +154,7 @@ export const archiveCases: Case[] = [
       en: "On the first day after launch, more than 50 brochure requests came in. Since then, the website has been the main information hub and lead channel of Wijkamp Farming Solutions.",
     },
     results: [{ value: "50+", label: { nl: "brochureaanvragen op de eerste dag", en: "brochure requests on day one" } }],
-    url: "https://kippenkar.nl",
+    url: "https://www.kippenkar.nl",
     featured: true,
     shape: "wide",
   },
@@ -409,6 +409,7 @@ export const archiveCases: Case[] = [
       en: "In the new style we designed the all-important for-sale signs, business cards, stationery, presentation kits, roll-up banners and flyers, as well as investment memorandums. With the website and the valuation portal, the brand stands just as firm online. A subtle change, with a lot of effect.",
     },
     shape: "square",
+    url: "https://www.bernheze.nl",
   },
   {
     slug: "bernheze-makelaars-video",
