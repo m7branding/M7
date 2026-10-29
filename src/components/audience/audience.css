@@ -773,6 +773,8 @@ html.aud-lock {
   align-items: center;
   gap: 10px;
   margin-top: -2px;
+  /* vrij van de zwevende sluitknop rechtsboven als deze rij onder de rand door scrolt */
+  margin-right: max(0px, calc(80px - var(--aud-pad, 0px)));
 }
 /* zonder JS (of bij te weinig kaarten) geen knoppen die niets doen */
 .aud-sl:not([data-sl-ready]) .aud-sl__ctrl {
