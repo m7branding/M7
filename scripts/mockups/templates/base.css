@@ -52,7 +52,7 @@ body {
   background: radial-gradient(120% 95% at 50% 32%, #26272b 0%, #1a1b1e 40%, #111214 72%, #0a0a0c 100%);
 }
 .bg-graphite .bg::before {
-  background: radial-gradient(46% 42% at var(--gx, 50%) var(--gy, 52%), color-mix(in srgb, var(--brand) 20%, transparent), transparent 72%);
+  background: radial-gradient(52% 48% at var(--gx, 50%) var(--gy, 52%), color-mix(in srgb, var(--brand) 30%, transparent), color-mix(in srgb, var(--brand) 8%, transparent) 55%, transparent 78%);
 }
 
 /* ---------- getint: merkkleur, heel gedempt (licht) ---------- */
@@ -101,4 +101,8 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: 50% 0;
+}
+
+[data-missing] {
+  display: none !important;
 }

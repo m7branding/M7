@@ -62,22 +62,23 @@ const COMPS = {
   ipad: { w: 1200, h: 800, q: 80, needs: ["tab"], bg: () => "graphite" },
   phones: { w: 1200, h: 800, q: 80, needs: ["mob", "mob2", "mob3"], bg: () => "studio" },
   "phones-angle": { w: 1200, h: 800, q: 80, needs: ["mob", "mob2", "mob3"], bg: () => "tint" },
-  display: { w: 1200, h: 800, q: 80, needs: ["desk2", "mob2"], bg: () => "studio" },
+  phone: { w: 1200, h: 800, q: 80, needs: ["mob"], bg: () => "tint" },
+  display: { w: 1200, h: 800, q: 80, needs: ["deskSec", "mob"], bg: () => "studio" },
   mac: { w: 1200, h: 800, q: 82, needs: ["desk"], bg: (s) => (s.dark ? "studio" : "graphite") },
-  detail: { w: 1200, h: 860, q: 82, needs: ["detail", "detailMob"], bg: () => "tint" },
+  detail: { w: 1200, h: 860, q: 82, needs: ["detail"], bg: () => "tint" },
 };
 /* volgorde in de galerij (eerste = sterkste) */
-const ORDER = ["ipad", "phones", "detail", "display", "mac", "phones-angle"];
+const ORDER = ["ipad", "phones", "detail", "display", "mac", "phones-angle", "phone"];
 
 const hash = (s) => parseInt(crypto.createHash("md5").update(s).digest("hex").slice(0, 8), 16);
 
 /* standaard 4 galerijbeelden; per project afwisselend (zelfde slug → zelfde keuze) */
 function pickComps(slug, shots) {
   const ok = (c) => COMPS[c].needs.every((n) => shots[n]);
-  let list = ALL ? ORDER.filter(ok) : [];
+  let list = ALL ? ORDER.filter((c) => ok(c) && (c !== "phone" || !ok("phones"))) : [];
   if (!ALL) {
     const h = hash(slug);
-    const phones = h % 2 ? ["phones", "phones-angle"] : ["phones-angle", "phones"];
+    const phones = h % 2 ? ["phones", "phones-angle", "phone"] : ["phones-angle", "phones", "phone"];
     const desk = (h >> 3) % 2 ? ["display", "mac"] : ["mac", "display"];
     for (const group of [["ipad"], phones, ["detail"], desk]) {
       const c = group.find(ok);
@@ -112,6 +113,7 @@ function loadSites() {
 
 /* ---------- welke beelden gaan in welk scherm ---------- */
 const PHONE_WIN = 1584; // 780 × (schermhoogte onder de statusbalk / schermbreedte)
+const DESK_WIN = 810; // 1440 × 9/16 (Studio Display)
 const CARD_WIN = Math.round(780 * (454 / 300));
 
 function planShots(dir, a) {
@@ -134,6 +136,10 @@ function planShots(dir, a) {
   const y3 = pageMob ? ys[0] : ys[1];
   if (fm && y3 != null) shots.mob3 = { src: fm, y: y3 };
   if (has("hero-desktop") && a.detail) shots.detail = { src: p("hero-desktop"), region: a.detail };
+  // Studio Display: een sectie verderop van de desktop-site (1x, past vrijwel 1-op-1); anders de hero
+  const dy = (a.desktopY ?? [])[0];
+  if (has("full-desktop") && dy != null) shots.deskSec = { src: p("full-desktop"), y: dy };
+  else if (shots.desk2) shots.deskSec = shots.desk2;
   const cy = (a.mobileCardY ?? [])[0] ?? ys[0];
   if (fm && cy != null) shots.detailMob = { src: fm, y: cy };
   return shots;
@@ -157,7 +163,7 @@ async function render(ctx, slug, comps, shots, site) {
     const C = COMPS[name];
     const page = await ctx.newPage();
     await page.setViewportSize({ width: C.w, height: C.h });
-    const M = { bg: C.bg(conf), brand: conf.brand, shots: {}, preview: false };
+    const M = { bg: C.bg(conf), brand: conf.brand, has: Object.keys(shots), preview: false };
     await page.addInitScript((m) => (window.M = m), M);
     await page.goto(pathToFileURL(path.join(TPL, `${name}.html`)).href);
     await page.waitForFunction(() => document.documentElement.dataset.ready === "1");
@@ -220,7 +226,7 @@ async function render(ctx, slug, comps, shots, site) {
 async function doSlug(ctx, slug, sites) {
   const dir = path.join(CAPTURES, slug);
   const site = sites[slug] ?? {};
-  const a = py("analyze", { dir, mobileWin: PHONE_WIN, cardWin: CARD_WIN });
+  const a = py("analyze", { dir, mobileWin: PHONE_WIN, cardWin: CARD_WIN, deskWin: DESK_WIN, detail: [1600, 1200] });
   const shots = planShots(dir, a);
   const brand = /^#[0-9a-f]{6}$/i.test(site.brandColor ?? "") ? site.brandColor : a.brand ?? "#8a8f98";
   const dark = typeof site.hasDarkHero === "boolean" ? site.hasDarkHero : (a.heroLum ?? 1) < 0.42;

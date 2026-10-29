@@ -14,6 +14,13 @@
   b.style.setProperty("--brand", M.brand);
   if (M.vars) for (const k in M.vars) b.style.setProperty(k, M.vars[k]);
   if (M.cls) b.classList.add(...M.cls);
+  // ontbrekende beelden: element markeren + body-klasse, zodat een template kan herschikken
+  const has = M.has || Object.keys(M.shots || {});
+  document.querySelectorAll("[data-shot]").forEach((el) => {
+    if (has.includes(el.dataset.shot)) return;
+    el.dataset.missing = "1";
+    b.classList.add(`no-${el.dataset.shot}`);
+  });
   window.DX.expand();
   // los bekijken: ruwe screenshots direct in de schermen
   if (M.preview)
