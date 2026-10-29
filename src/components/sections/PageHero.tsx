@@ -27,6 +27,9 @@ export function PageHero({
   children?: React.ReactNode;
   accent?: string;
 }) {
+  // een kicker die alleen een breadcrumb herhaalt ("Home / Sectoren" + "--- SECTOREN") laten we weg
+  const norm = (t: string) => t.trim().toLowerCase();
+  const showKicker = !!kicker && !crumbs.some((c) => norm(c.name) === norm(kicker));
   return (
     <section className="page-hero page-hero--center" style={{ ["--accent" as string]: accent }}>
       <div className="page-hero__bg">
@@ -44,9 +47,11 @@ export function PageHero({
       </div>
       <div className="container page-hero__inner">
         <Breadcrumbs items={crumbs} locale={locale} label={crumbsLabel} />
-        <p className="kicker kicker--center" data-reveal="fade">
-          {kicker}
-        </p>
+        {showKicker ? (
+          <p className="kicker kicker--center" data-reveal="fade">
+            {kicker}
+          </p>
+        ) : null}
         <SplitText as="h1" className="h-hero page-hero__title" parts={title} delay={0.1} />
         {lead ? (
           <p className="lead page-hero__lead" data-reveal="up" style={{ ["--d" as string]: "0.35s" }}>

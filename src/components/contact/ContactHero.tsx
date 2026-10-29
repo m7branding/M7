@@ -71,9 +71,6 @@ export function ContactHero({ locale }: { locale: Locale }) {
               { name: d.nav.contact, path: paths.contact },
             ]}
           />
-          <p className="kicker" data-reveal="fade">
-            {d.contact.title}
-          </p>
           <SplitText
             as="h1"
             id="chero-title"
