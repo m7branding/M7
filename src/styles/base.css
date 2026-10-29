@@ -112,6 +112,12 @@ ol {
   line-height: 1.04;
   text-wrap: balance;
 }
+/* Een woord dat breder is dan de hele kop loopt niet meer buiten beeld (zie ook .split .w) */
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
 .h-hero {
   font-size: var(--fs-hero);
   line-height: 1;
@@ -544,6 +550,11 @@ html.js [data-reveal="clip"].is-in {
   vertical-align: top;
   padding-bottom: 0.08em;
   margin-bottom: -0.08em;
+  /* Lange samengestelde woorden ("toegankelijkheidsverklaring") breken af met een koppelteken,
+     maar alleen als het woord breder is dan de hele kop: elk woord is een eigen blokje, dus
+     balance/regelval kan woorden die passen niet afbreken. */
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 .split .w > span {
   display: inline-block;
