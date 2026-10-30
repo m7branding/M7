@@ -72,6 +72,8 @@ export default function CasesPage({ params }: P) {
               sector: d.cases.filterSector,
               none: d.service.noCases,
               more: locale === "nl" ? "Toon meer cases" : "Show more cases",
+              count: "cases",
+              reset: locale === "nl" ? "Wis filters" : "Clear filters",
             }}
             pageSize={PAGE}
           >

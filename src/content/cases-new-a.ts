@@ -191,65 +191,6 @@ export const newCasesA: Case[] = [
     url: "https://www.impeco.nl",
   },
   {
-    slug: "impeco-chauffeurshandboek",
-    client: "IMPECO",
-    title: {
-      nl: "Het chauffeurshandboek van IMPECO, gewoon online",
-      en: "IMPECO's driver handbook, simply online",
-    },
-    summary: {
-      nl: "Een online instructieomgeving voor de chauffeurs van IMPECO: het chauffeurshandboek altijd bij de hand.",
-      en: "An online instruction environment for IMPECO's drivers: the driver handbook always at hand.",
-    },
-    sector: "transport-logistiek",
-    services: ["web-apps-portals-apps"],
-    applications: ["dashboards", "ux-ui-app-design"],
-    tools: [],
-    color: "#69257C",
-    challenge: {
-      nl: "De chauffeurs van IMPECO rijden nationaal en internationaal, vaak met tijdkritische zendingen. Afspraken, werkwijzen en instructies moeten voor iedereen hetzelfde zijn en snel te vinden. Dat vraagt om één plek waar altijd de actuele versie staat.",
-      en: "IMPECO's drivers cover national and international routes, often with time-critical shipments. Agreements, procedures and instructions must be the same for everyone and quick to find. That calls for one place that always holds the current version.",
-    },
-    approach: {
-      nl: "We zetten het chauffeurshandboek om naar een online instructieomgeving. De inhoud is opgedeeld in overzichtelijke onderwerpen, zodat chauffeurs snel vinden wat ze nodig hebben.",
-      en: "We turned the driver handbook into an online instruction environment. The content is split into clear topics, so drivers quickly find what they need.",
-    },
-    result: {
-      nl: "Een online chauffeurshandboek: één plek met de afspraken en instructies voor alle chauffeurs.",
-      en: "An online driver handbook: one place with the agreements and instructions for every driver.",
-    },
-  },
-  {
-    slug: "bctn-qhse",
-    client: "BCTN",
-    title: {
-      nl: "BCTN Online QHSE: veiligheid en kwaliteit in één omgeving",
-      en: "BCTN Online QHSE: safety and quality in one environment",
-    },
-    summary: {
-      nl: "Een online QHSE-omgeving voor BCTN: checklists, veiligheidsrondes, incidentmeldingen en een digitaal bedrijfshandboek op één plek.",
-      en: "An online QHSE environment for BCTN: checklists, safety walks, incident reports and a digital company handbook in one place.",
-    },
-    sector: "transport-logistiek",
-    services: ["web-apps-portals-apps"],
-    applications: ["dashboards", "ux-ui-app-design"],
-    tools: [],
-    color: "#2F6FC0",
-    challenge: {
-      nl: "BCTN heeft een netwerk van inland containerterminals in Nederland en België, waar dag en nacht gewerkt wordt. Kwaliteit, gezondheid, veiligheid en milieu (QHSE) vragen daar om vaste rondes, duidelijke afspraken en snelle opvolging. BCTN wilde dat in één online omgeving regelen.",
-      en: "BCTN runs a network of inland container terminals in the Netherlands and Belgium, where work goes on day and night. Quality, health, safety and environment (QHSE) call for regular rounds, clear agreements and quick follow-up. BCTN wanted to handle all of that in one online environment.",
-    },
-    approach: {
-      nl: "We ontwikkelden BCTN Online QHSE. Medewerkers lopen digitale checklists en veiligheidsrondes (safety walks) af, melden incidenten en vinden het bedrijfshandboek online terug. Alles komt samen op één plek, zodat zichtbaar is wat gecontroleerd is en wat nog opvolging nodig heeft.",
-      en: "We developed BCTN Online QHSE. Staff complete digital checklists and safety walks, report incidents and find the company handbook online. Everything comes together in one place, so it is clear what has been checked and what still needs follow-up.",
-    },
-    result: {
-      nl: "Eén online QHSE-omgeving met checklists, safety walks, incidentmeldingen en een digitaal bedrijfshandboek.",
-      en: "One online QHSE environment with checklists, safety walks, incident reports and a digital company handbook.",
-    },
-    url: "https://bctn.eu",
-  },
-  {
     slug: "kds-stansvormen",
     client: "KDS Die-Cutting Technology",
     title: {
@@ -278,35 +219,6 @@ export const newCasesA: Case[] = [
       en: "A sharp brand, print in the same style, a website in Webflow and a portal for quotes and customers.",
     },
     url: "https://www.kds.eu",
-  },
-  {
-    slug: "kds-intranet",
-    client: "KDS Die-Cutting Technology",
-    title: {
-      nl: "Een intranet voor KDS, alleen voor wie er werkt",
-      en: "An intranet for KDS, only for the people who work there",
-    },
-    summary: {
-      nl: "Een intranet voor de medewerkers van KDS met werkinstructies, een zoekfunctie en een mobielvriendelijke opzet, alleen bereikbaar binnen het eigen netwerk.",
-      en: "An intranet for KDS staff with work instructions, search and a mobile-friendly setup, only reachable within the company's own network.",
-    },
-    sector: "industrie-techniek",
-    services: ["web-apps-portals-apps"],
-    applications: ["dashboards", "ux-ui-app-design"],
-    tools: [],
-    color: "#D7203C",
-    challenge: {
-      nl: "Bij KDS draait alles om precisie. Medewerkers moeten snel de juiste werkinstructie kunnen vinden, ook als ze niet achter een bureau zitten. Tegelijk hoort die interne kennis niet op het open internet.",
-      en: "At KDS, everything revolves around precision. Staff need to find the right work instruction quickly, even when they are not at a desk. At the same time, that internal knowledge does not belong on the open internet.",
-    },
-    approach: {
-      nl: "We bouwden een intranet met alle werkinstructies op één plek en een zoekfunctie die snel de juiste instructie vindt. Het intranet is geoptimaliseerd voor mobiel, zodat het ook op een telefoon prettig werkt. Met een serverrestrictie is het alleen lokaal bereikbaar, voor medewerkers van KDS.",
-      en: "We built an intranet with all work instructions in one place and a search that quickly finds the right one. The intranet is optimised for mobile, so it works well on a phone too. A server restriction keeps it reachable only locally, for KDS staff.",
-    },
-    result: {
-      nl: "Een besloten intranet met doorzoekbare werkinstructies, prettig op mobiel en alleen bereikbaar voor medewerkers.",
-      en: "A private intranet with searchable work instructions, easy to use on mobile and reachable only by staff.",
-    },
   },
   {
     slug: "buitenstate-tools",
@@ -485,36 +397,6 @@ export const newCasesA: Case[] = [
     result: {
       nl: "Een merk en website die laten zien wat Plenty Planet doet, en een configurator die aanvragen rechtstreeks in Odoo CRM zet.",
       en: "A brand and website that show what Plenty Planet does, and a configurator that puts requests straight into Odoo CRM.",
-    },
-    url: "https://www.plentyplanet.com",
-  },
-  {
-    slug: "plenty-planet-content",
-    client: "Plenty Planet",
-    title: {
-      nl: "Content en social media voor Plenty Planet",
-      en: "Content and social media for Plenty Planet",
-    },
-    summary: {
-      nl: "Contentmarketing en social media posts voor Plenty Planet, in dezelfde lijn als het merk en de website.",
-      en: "Content marketing and social media posts for Plenty Planet, in line with the brand and the website.",
-    },
-    sector: "energie-duurzaamheid",
-    services: ["content-marketing-online-ads"],
-    applications: ["social-media-marketing", "contentstrategie"],
-    tools: [],
-    color: "#51247F",
-    challenge: {
-      nl: "Energieprojecten zoals zonne-overkappingen, zonneparken en batterijopslag zijn groot en technisch. Plenty Planet wil laten zien wat er gebeurt en waarom het ertoe doet, ook buiten de eigen website.",
-      en: "Energy projects such as solar car parks, solar parks and battery storage are big and technical. Plenty Planet wants to show what is happening and why it matters, beyond its own website too.",
-    },
-    approach: {
-      nl: "We maakten content voor Plenty Planet en zetten die om in posts voor social media. Projecten, oplossingen en inzichten krijgen zo een vaste plek in de tijdlijn, in dezelfde beeldtaal als het merk en de website.",
-      en: "We created content for Plenty Planet and turned it into social media posts. Projects, solutions and insights get a regular place in the feed, in the same visual language as the brand and the website.",
-    },
-    result: {
-      nl: "Content en social media posts die het verhaal van Plenty Planet herkenbaar en consequent vertellen.",
-      en: "Content and social media posts that tell Plenty Planet's story in a recognisable, consistent way.",
     },
     url: "https://www.plentyplanet.com",
   },

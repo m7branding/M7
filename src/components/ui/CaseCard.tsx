@@ -36,7 +36,8 @@ export function CaseCard({
   size?: "lg" | "md";
   index?: number;
 }) {
-  const services = c.services.slice(0, 2).map((s) => getService(s)).filter(Boolean);
+  // alle diensten in de HTML (het filter op /cases licht de gekozen dienst uit); standaard zichtbaar: de eerste twee
+  const services = c.services.map((s) => getService(s)).filter(Boolean);
   return (
     <TLink
       href={paths.case(c)}
@@ -54,8 +55,13 @@ export function CaseCard({
         </span>
         <span className="case-card__title">{tr(c.title, locale)}</span>
         <span className="case-card__tags">
-          {services.map((s) => (
-            <span key={s!.slug} className="case-card__tag" style={{ ["--accent" as string]: s!.color }}>
+          {services.map((s, i) => (
+            <span
+              key={s!.slug}
+              className={`case-card__tag${i >= 2 ? " is-extra" : ""}`}
+              data-svc={s!.slug}
+              style={{ ["--accent" as string]: s!.color }}
+            >
               <span className="chip__dot" />
               {tr(s!.short, locale)}
             </span>

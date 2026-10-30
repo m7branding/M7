@@ -364,41 +364,6 @@ export const cases: Case[] = [
     concept: true,
   },
   {
-    slug: "titanium-exhaust-configurator",
-    client: "Titanium Exhaust",
-    title: {
-      nl: "\"Vind jouw uitlaat\": een productconfigurator voor titanium uitlaatsystemen",
-      en: "\"Find your exhaust\": a product configurator for titanium exhaust systems",
-    },
-    summary: {
-      nl: "Personaliseerbaar, perfect op maat, ultieme prestaties en sound: een mobile-first configurator die bezoekers naar hun ideale uitlaat leidt.",
-      en: "Customisable, made to measure, ultimate performance and sound: a mobile-first configurator that guides visitors to their ideal exhaust.",
-    },
-    year: 2024,
-    sector: "automotive-mobiliteit",
-    services: ["configurators-lead-tools-widgets", "websites-webshops", "foto-video-3d-animatie"],
-    applications: ["productconfigurator", "3d-configurator", "offerte-calculator", "3d-visualisatie"],
-    tools: ["react", "threejs", "blender", "shopify"],
-    cover: "/media/cases/titanium-exhaust.webp",
-    gallery: ["/media/cases/titanium-phone.webp"],
-    color: "#E8262B",
-    challenge: {
-      nl: "Een technisch, maatwerkproduct verkopen aan liefhebbers die precies willen weten wat er op hun auto past.",
-      en: "Selling a technical, made-to-measure product to enthusiasts who want to know exactly what fits their car.",
-    },
-    approach: {
-      nl: "Een stap-voor-stap configurator op merk, model en wensen, met live visualisatie en een directe offerte-aanvraag.",
-      en: "A step-by-step configurator by make, model and preferences, with live visualisation and a direct quote request.",
-    },
-    result: {
-      nl: "Een beleving die past bij het product en gekwalificeerde aanvragen oplevert.",
-      en: "An experience that matches the product and generates qualified requests.",
-    },
-    featured: true,
-    shape: "tall",
-    concept: true,
-  },
-  {
     slug: "architectenbureau-koppens",
     client: "Architectenbureau Koppens",
     title: {
@@ -531,32 +496,6 @@ export const cases: Case[] = [
     },
     url: "https://www.thedigitalclinic.nl",
     shape: "square",
-  },
-  {
-    slug: "designershouse",
-    client: "DesignersHouse",
-    title: { nl: "Brandingtraject DesignersHouse", en: "DesignersHouse branding project" },
-    summary: {
-      nl: "Van merkstrategie tot complete huisstijl voor een creatieve design-community.",
-      en: "From brand strategy to complete identity for a creative design community.",
-    },
-    year: 2023,
-    sector: "interieur-architectuur",
-    services: ["branding-rebranding", "grafisch-ontwerp-print"],
-    applications: ["merkstrategie", "logo-ontwerp", "huisstijl", "brandbook"],
-    tools: ["figma", "illustrator", "indesign"],
-    color: "#C9A227",
-    challenge: {
-      nl: "Een merk bouwen voor ontwerpers: het publiek met de kritischste blik.",
-      en: "Building a brand for designers: the audience with the most critical eye.",
-    },
-    approach: {
-      nl: "Een strategisch fundament, een eigenzinnig logo en een flexibel huisstijlsysteem.",
-      en: "A strategic foundation, a distinctive logo and a flexible identity system.",
-    },
-    result: { nl: "Een merk met karakter dat ruimte laat voor creativiteit.", en: "A brand with character that leaves room for creativity." },
-    shape: "tall",
-    concept: true,
   },
   {
     slug: "nova-funeral-cars",

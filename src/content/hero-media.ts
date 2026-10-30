@@ -123,7 +123,7 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "TeamTV", en: "TeamTV" }, pos: "50% 45%", posM: "58% 45%", href: paths.case("teamtv") },
       { src: `${C}/jurgh-porsche.webp`, w: 2048, h: 1366, label: { nl: "JURGH Detailing", en: "JURGH Detailing" }, pos: "50% 45%", posM: "52% 50%", href: paths.case("jurgh-detailing") },
       { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Sami", en: "Sami" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.case("sami") },
-      { src: `${H}/designershouse-showroom.webp`, w: 1034, h: 469, label: { nl: "DesignersHouse", en: "DesignersHouse" }, pos: "50% 55%", posM: "50% 55%", href: paths.case("designershouse") },
+      { src: `${H}/designershouse-showroom.webp`, w: 1034, h: 469, label: { nl: "DesignersHouse", en: "DesignersHouse" }, pos: "50% 55%", posM: "50% 55%", href: paths.sector("interieur-architectuur") },
       { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Debiteurnet", en: "Debiteurnet" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.case("debiteurnet") },
     ],
   },

@@ -33,7 +33,7 @@ export function CasesFilter({
 }: {
   services: Opt[];
   sectors: Opt[];
-  labels: { all: string; service: string; sector: string; none: string; more?: string };
+  labels: { all: string; service: string; sector: string; none: string; more?: string; count?: string; reset?: string };
   /** Aantal kaarten per "pagina"; gelijk houden aan de data-more-grens op de server. */
   pageSize?: number;
   children: React.ReactNode;
@@ -85,6 +85,8 @@ export function CasesFilter({
     items.forEach((el) => {
       const ok = (!svc || (el.dataset.services || "").split(" ").includes(svc)) && (!sec || el.dataset.sector === sec);
       el.hidden = !ok;
+      // de gekozen dienst zichtbaar op de kaart (ook als het de derde of vierde dienst is)
+      el.querySelectorAll<HTMLElement>("[data-svc]").forEach((t) => t.classList.toggle("is-match", !!svc && t.dataset.svc === svc));
       if (ok) {
         if (n < limit) {
           delete el.dataset.more;
@@ -162,6 +164,23 @@ export function CasesFilter({
           </select>
         </label>
       </div>
+      {svc || sec ? (
+        <p className="cfilter__status" aria-live="polite">
+          <span>
+            {count ?? 0} {labels.count ?? "cases"}
+          </span>
+          <button
+            type="button"
+            className="link-dash"
+            onClick={() => {
+              setSvc(null);
+              setSec(null);
+            }}
+          >
+            {labels.reset ?? "Reset"}
+          </button>
+        </p>
+      ) : null}
       <div ref={grid} className="cfilter__grid">
         {children}
       </div>

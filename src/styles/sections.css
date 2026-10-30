@@ -1459,6 +1459,14 @@
   font-weight: 600;
   color: var(--muted);
 }
+/* extra diensten alleen tonen als het filter op /cases erop staat; die komt dan vooraan */
+.case-card__tag.is-extra:not(.is-match) {
+  display: none;
+}
+.case-card__tag.is-match {
+  order: -1;
+  color: var(--text);
+}
 .masonry-wrap {
   display: grid;
   gap: clamp(16px, 2vw, 28px);

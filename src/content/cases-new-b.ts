@@ -40,36 +40,6 @@ export const newCasesB: Case[] = [
     },
     url: "https://hela.nl",
   },
-  // Geverifieerd via icewall.webflow.io (M7-credit); live domein nog onbekend. Sector en kleur graag checken.
-  {
-    slug: "soesoe",
-    client: "Soesoe",
-    title: {
-      nl: "Soesoe: van onderzoek tot campagne",
-      en: "Soesoe: from research to campaign",
-    },
-    summary: {
-      nl: "Onderzoek, merkstrategie, branding, website en social campaigns voor Soesoe, in één doorlopend traject.",
-      en: "Research, brand strategy, branding, website and social campaigns for Soesoe, in one continuous project.",
-    },
-    sector: "food-retail",
-    services: ["branding-rebranding", "websites-webshops", "content-marketing-online-ads"],
-    applications: ["merkonderzoek", "merkstrategie", "huisstijl", "ux-ui-webdesign", "social-media-marketing"],
-    tools: [],
-    color: "#8A8F98",
-    challenge: {
-      nl: "Soesoe wilde een merk dat klopt: gebouwd op onderzoek, met een heldere strategie en een uitstraling die je overal herkent, van de website tot social.",
-      en: "Soesoe wanted a brand that adds up: built on research, with a clear strategy and a look you recognise everywhere, from the website to social.",
-    },
-    approach: {
-      nl: "We begonnen met onderzoek en legden daarop de merkstrategie vast. Daaruit volgden de branding, de website en de social campaigns. Zo bouwt elke stap voort op de vorige.",
-      en: "We started with research and set out the brand strategy on that basis. The branding, the website and the social campaigns followed from there. That way every step builds on the one before.",
-    },
-    result: {
-      nl: "Een merk met een doordachte basis, en een website en social campaigns die hetzelfde verhaal vertellen.",
-      en: "A brand with a well-thought-out foundation, and a website and social campaigns that tell the same story.",
-    },
-  },
   {
     slug: "pine-street-school",
     client: "Pine Street School & Battery Park Montessori",
@@ -99,37 +69,6 @@ export const newCasesB: Case[] = [
       en: "Two calm, well-organised school websites from the same family, where parents quickly find what they are looking for.",
     },
     url: "https://pinestreetschool.com",
-  },
-  // TODO(M7): bedrijf aannemelijk maar niet bevestigd: helloflow.nl (Helloflow B.V., Webflow-site) heeft geen M7-vermelding. Even checken.
-  {
-    slug: "helloflow",
-    client: "HelloFlow",
-    title: {
-      nl: "HelloFlow: een website die lekker doorloopt",
-      en: "HelloFlow: a website that flows",
-    },
-    summary: {
-      nl: "Sitemap, webdesign en animaties voor HelloFlow, dat mkb-bedrijven helpt hun operationele processen te verbeteren met AI.",
-      en: "Sitemap, web design and animations for HelloFlow, which helps SMEs improve their operational processes with AI.",
-    },
-    sector: "tech-saas-startups",
-    services: ["websites-webshops", "foto-video-3d-animatie"],
-    applications: ["contentstructuur", "ux-ui-webdesign", "webflow-website", "motion-design"],
-    tools: ["webflow"],
-    color: "#F36F43",
-    challenge: {
-      nl: "HelloFlow helpt mkb-bedrijven in logistiek, productie en handel om hun operationele processen slimmer te maken met AI, rond het ERP-systeem dat ze al hebben. Best abstract. De website moest het concreet en overzichtelijk maken.",
-      en: "HelloFlow helps SMEs in logistics, manufacturing and trade make their operational processes smarter with AI, built around the ERP system they already have. Fairly abstract stuff. The website had to make it concrete and easy to follow.",
-    },
-    approach: {
-      nl: "We begonnen bij de sitemap: welke pagina's heb je nodig en in welke volgorde vertel je het verhaal? Daarna ontwierpen we de website en maakten we de animaties die het verhaal ondersteunen.",
-      en: "We started with the sitemap: which pages do you need and in what order do you tell the story? Then we designed the website and made the animations that support the story.",
-    },
-    result: {
-      nl: "Een heldere website met een logische opbouw, van oplossingen en pakketten tot contact, en animaties die de boel in beweging houden.",
-      en: "A clear website with a logical structure, from solutions and packages to contact, and animations that keep things moving.",
-    },
-    url: "https://www.helloflow.nl",
   },
   // TODO(M7): bedrijf niet geverifieerd (geen live site gevonden); sector en kleur zijn een voorlopige keuze.
   {
@@ -191,36 +130,6 @@ export const newCasesB: Case[] = [
     },
     url: "https://calvinvlaanderen.com",
   },
-  // TODO(M7): bedrijf niet geverifieerd (geen live site gevonden; berkleyinvestments.com is een geparkeerd domein); kleur is een voorlopige keuze.
-  {
-    slug: "berkley-investments",
-    client: "Berkley Investments",
-    title: {
-      nl: "Berkley Investments: vertrouwen begint bij het merk",
-      en: "Berkley Investments: trust starts with the brand",
-    },
-    summary: {
-      nl: "Branding en website voor Berkley Investments.",
-      en: "Branding and website for Berkley Investments.",
-    },
-    sector: "finance-fintech",
-    services: ["branding-rebranding", "websites-webshops"],
-    applications: ["huisstijl", "ux-ui-webdesign"],
-    tools: [],
-    color: "#8A8F98",
-    challenge: {
-      nl: "Bij investeren draait alles om vertrouwen. Berkley Investments wilde een merk en een website die professioneel en betrouwbaar overkomen.",
-      en: "In investing, everything comes down to trust. Berkley Investments wanted a brand and a website that come across as professional and reliable.",
-    },
-    approach: {
-      nl: "We ontwikkelden de branding en vertaalden die naar een overzichtelijke website.",
-      en: "We developed the branding and translated it into a well-organised website.",
-    },
-    result: {
-      nl: "Een verzorgd merk en een website die rust en vertrouwen uitstralen.",
-      en: "A polished brand and a website that radiate calm and trust.",
-    },
-  },
   {
     slug: "silvr",
     client: "Silvr",
@@ -281,36 +190,6 @@ export const newCasesB: Case[] = [
       en: "A series on YouTube and content that keeps telling the BUS Whisky story, beyond the distillery walls too.",
     },
     url: "https://buswhisky.com",
-  },
-  // TODO(M7): bedrijf niet geverifieerd (geen live site gevonden); sector en kleur zijn een voorlopige keuze.
-  {
-    slug: "mission-critical-nutrition",
-    client: "Mission Critical Nutrition",
-    title: {
-      nl: "Mission Critical Nutrition: van scherm tot flyer",
-      en: "Mission Critical Nutrition: from screen to flyer",
-    },
-    summary: {
-      nl: "Branding, website en drukwerk voor Mission Critical Nutrition, van merk tot flyer.",
-      en: "Branding, website and print for Mission Critical Nutrition, from brand to flyer.",
-    },
-    sector: "food-retail",
-    services: ["branding-rebranding", "websites-webshops", "grafisch-ontwerp-print"],
-    applications: ["huisstijl", "ux-ui-webdesign", "flyers-posters"],
-    tools: [],
-    color: "#8A8F98",
-    challenge: {
-      nl: "Mission Critical Nutrition had een merk nodig dat online en op papier hetzelfde verhaal vertelt.",
-      en: "Mission Critical Nutrition needed a brand that tells the same story online and on paper.",
-    },
-    approach: {
-      nl: "We ontwikkelden de branding, maakten de website en zetten het merk door in drukwerk, zoals een flyer.",
-      en: "We developed the branding, made the website and carried the brand through into print, such as a flyer.",
-    },
-    result: {
-      nl: "Eén herkenbare uitstraling, van het scherm tot de flyer in je hand.",
-      en: "One recognisable look, from the screen to the flyer in your hand.",
-    },
   },
   {
     slug: "the-sandt",
@@ -501,38 +380,6 @@ export const newCasesB: Case[] = [
     },
     url: "https://cryptocointalk.nl",
   },
-  // TODO(M7): bedrijf aannemelijk maar niet bevestigd: velorum.eu (Webflow-export, met een SolidLayer-sectie) heeft geen M7-vermelding. Even checken.
-  {
-    slug: "velorum",
-    client: "Velorum",
-    title: {
-      nl: "Velorum: cryptografie, helder uitgelegd",
-      en: "Velorum: cryptography, clearly explained",
-    },
-    summary: {
-      nl: "Branding met een compact brandbook en een website voor Velorum, specialist in cryptografische beveiliging uit Nederland.",
-      en: "Branding with a compact brandbook and a website for Velorum, a Dutch specialist in cryptographic security.",
-    },
-    sector: "tech-saas-startups",
-    services: ["branding-rebranding", "websites-webshops"],
-    applications: ["huisstijl", "brandbook", "webflow-website"],
-    // Webflow-export (w-nav/w-button-klassen in de HTML, geen data-wf-site).
-    tools: ["webflow"],
-    color: "#08273F",
-    challenge: {
-      nl: "Velorum adviseert organisaties over cryptografie en beveiliging en bouwt die oplossingen ook, bijvoorbeeld voor mobiel bankieren en online inloggen. In dat vak is vertrouwen alles, dus het merk moest rust en deskundigheid uitstralen.",
-      en: "Velorum advises organisations on cryptography and security and builds those solutions too, for example for mobile banking and online authentication. In that field trust is everything, so the brand had to radiate calm and expertise.",
-    },
-    approach: {
-      nl: "We ontwikkelden de branding en legden die vast in een eenvoudig brandbook. Daarna ontwierpen en bouwden we de website, met de diensten, cases en veelgestelde vragen in een rustige opbouw.",
-      en: "We developed the branding and captured it in a simple brandbook. Then we designed and built the website, with the services, cases and FAQs in a calm structure.",
-    },
-    result: {
-      nl: "Een merk en website die passen bij een specialist: strak, rustig en betrouwbaar.",
-      en: "A brand and website that suit a specialist: clean, calm and reliable.",
-    },
-    url: "https://www.velorum.eu",
-  },
   // Geverifieerd via solid-layer.webflow.io (Webflow-showcaseprofiel van M7); live domein nog onbekend.
   {
     slug: "solidlayer",
@@ -592,36 +439,6 @@ export const newCasesB: Case[] = [
       en: "One place with all of WUR's agroforestry research results, from completed projects to the research that is still under way.",
     },
     url: "https://agroforestryonderzoek.nl",
-  },
-  // TODO(M7): bedrijf niet geverifieerd (gmu.nl had een verlopen certificaat, gmu.eu is te koop); sector en kleur zijn een voorlopige keuze.
-  {
-    slug: "gmu",
-    client: "GMU",
-    title: {
-      nl: "GMU: website en banners uit één stuk",
-      en: "GMU: website and banners in one piece",
-    },
-    summary: {
-      nl: "Een website en advertentiebanners voor GMU.",
-      en: "A website and ad banners for GMU.",
-    },
-    sector: "zakelijke-dienstverlening",
-    services: ["websites-webshops", "content-marketing-online-ads"],
-    applications: ["ux-ui-webdesign"],
-    tools: [],
-    color: "#8A8F98",
-    challenge: {
-      nl: "GMU wilde online professioneel overkomen en met advertenties gericht zichtbaar zijn.",
-      en: "GMU wanted to come across as professional online and to be visible in a targeted way with ads.",
-    },
-    approach: {
-      nl: "We maakten de website en ontwierpen advertentiebanners in dezelfde stijl.",
-      en: "We made the website and designed ad banners in the same style.",
-    },
-    result: {
-      nl: "Een website en banners die samen één herkenbaar geheel vormen.",
-      en: "A website and banners that together form one recognisable whole.",
-    },
   },
   {
     slug: "grid",
@@ -684,36 +501,6 @@ export const newCasesB: Case[] = [
     },
     url: "https://verichecks.eu",
   },
-  // TODO(M7): bedrijf niet geverifieerd (spoedfix.nl en spoedfix.com geven geen site); sector en kleur zijn een voorlopige keuze.
-  {
-    slug: "spoedfix",
-    client: "SpoedFix",
-    title: {
-      nl: "SpoedFix: merk en website, to the point",
-      en: "SpoedFix: brand and website, to the point",
-    },
-    summary: {
-      nl: "Branding en website voor SpoedFix.",
-      en: "Branding and website for SpoedFix.",
-    },
-    sector: "zakelijke-dienstverlening",
-    services: ["branding-rebranding", "websites-webshops"],
-    applications: ["huisstijl", "ux-ui-webdesign"],
-    tools: [],
-    color: "#8A8F98",
-    challenge: {
-      nl: "SpoedFix zocht een merk en een website die meteen duidelijk maken wat het bedrijf doet.",
-      en: "SpoedFix wanted a brand and a website that make clear right away what the company does.",
-    },
-    approach: {
-      nl: "We ontwikkelden de branding en vertaalden die naar een overzichtelijke website.",
-      en: "We developed the branding and translated it into a well-organised website.",
-    },
-    result: {
-      nl: "Een herkenbaar merk met een website die direct ter zake komt.",
-      en: "A recognisable brand with a website that gets straight to the point.",
-    },
-  },
   {
     slug: "nexis-group",
     client: "Nexis Group",
@@ -772,36 +559,6 @@ export const newCasesB: Case[] = [
     result: {
       nl: "Een sterk merk en een overzichtelijke website voor een speler in waterstof.",
       en: "A strong brand and a well-organised website for a hydrogen player.",
-    },
-  },
-  // TODO(M7): bedrijf niet geverifieerd (geen live site gevonden); kleur is een voorlopige keuze.
-  {
-    slug: "phoenix-green-hydrogen",
-    client: "Phoenix Green Hydrogen",
-    title: {
-      nl: "Phoenix Green Hydrogen: waterstof in 3D",
-      en: "Phoenix Green Hydrogen: hydrogen in 3D",
-    },
-    summary: {
-      nl: "3D-modellen, branding en website voor Phoenix Green Hydrogen.",
-      en: "3D models, branding and website for Phoenix Green Hydrogen.",
-    },
-    sector: "energie-duurzaamheid",
-    services: ["branding-rebranding", "websites-webshops", "foto-video-3d-animatie"],
-    applications: ["huisstijl", "ux-ui-webdesign", "3d-visualisatie"],
-    tools: [],
-    color: "#8A8F98",
-    challenge: {
-      nl: "Phoenix Green Hydrogen wilde hun verhaal niet alleen vertellen, maar ook laten zien. Met een merk en een website die daarbij passen.",
-      en: "Phoenix Green Hydrogen wanted not just to tell their story but to show it too. With a brand and a website to match.",
-    },
-    approach: {
-      nl: "We maakten 3D-modellen, ontwikkelden de branding en ontwierpen en bouwden de website.",
-      en: "We made 3D models, developed the branding and designed and built the website.",
-    },
-    result: {
-      nl: "Een merk, een website en 3D-beelden die samen één helder verhaal vertellen.",
-      en: "A brand, a website and 3D visuals that together tell one clear story.",
     },
   },
   {
@@ -864,7 +621,7 @@ export const newCasesB: Case[] = [
     },
     url: "https://www.jmtuning.nl",
   },
-  // Let op: de bestaande concept-case "titanium-exhaust-configurator" (cases.ts) lijkt ook over Maarschall te gaan.
+  // Voorheen ook "titanium-exhaust-configurator" (zelfde klant); die URL verwijst nu hierheen (next.config.js).
   {
     slug: "maarschall",
     client: "Maarschall",
@@ -877,10 +634,14 @@ export const newCasesB: Case[] = [
       en: "Website and branding for Maarschall Titanium: handmade titanium exhaust systems, with an exhaust finder by make and model.",
     },
     sector: "automotive-mobiliteit",
-    services: ["branding-rebranding", "websites-webshops"],
-    applications: ["huisstijl", "webflow-website"],
+    services: ["branding-rebranding", "websites-webshops", "configurators-lead-tools-widgets"],
+    applications: ["huisstijl", "webflow-website", "productconfigurator"],
     tools: ["webflow"],
-    color: "#FF0000",
+    cover: "/media/cases/titanium-exhaust.webp",
+    gallery: ["/media/cases/titanium-phone.webp"],
+    featured: true,
+    shape: "tall",
+    color: "#E8262B",
     challenge: {
       nl: "Maarschall maakt handgemaakte, personaliseerbare titanium uitlaatsystemen voor onder meer McLaren, Ferrari, Lamborghini en Audi, en levert ook via resellers. Een topproduct voor liefhebbers, dat online dezelfde klasse moest uitstralen.",
       en: "Maarschall makes handmade, customisable titanium exhaust systems for McLaren, Ferrari, Lamborghini and Audi, among others, and also sells through resellers. A top product for enthusiasts, which had to show the same class online.",
