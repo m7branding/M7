@@ -72,7 +72,7 @@ export function CaseHero({ c, locale, media, services }: { c: Case; locale: Loca
                 ))}
                 {c.concept ? <li className="cx-hero__concept">{d.cases.concept}</li> : null}
               </ul>
-              <SplitText as="h1" id="cx-title" className="cx-hero__title" parts={title} delay={0.15} />
+              <SplitText as="h1" id="cx-title" className={`cx-hero__title${title.length > 56 ? " is-long" : title.length > 38 ? " is-mid" : ""}`} parts={title} delay={0.15} />
             </div>
             {c.logo ? (
               <div className="cx-hero__logo" data-reveal="fade" style={{ ["--d" as string]: "0.5s" }}>

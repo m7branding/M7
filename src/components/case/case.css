@@ -78,7 +78,7 @@
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 22%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.22) 20%, rgba(0, 0, 0, 0) 34%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.42) 28%, rgba(0, 0, 0, 0) 60%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.26) 42%, rgba(0, 0, 0, 0) 70%),
     radial-gradient(75% 80% at 0% 100%, rgba(0, 0, 0, 0.5), transparent 70%);
@@ -137,11 +137,12 @@
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.92);
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  backdrop-filter: blur(14px) saturate(140%);
+  color: rgba(255, 255, 255, 0.94);
+  /* donker glas: leesbaar op lichte én donkere beelden */
+  background: rgba(12, 12, 15, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
   transition:
     background 0.35s,
     box-shadow 0.35s;
@@ -155,7 +156,7 @@
   box-shadow: 0 0 10px color-mix(in srgb, var(--accent, var(--teal)) 70%, transparent);
 }
 .cx-hero__tag:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(40, 40, 46, 0.55);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.26);
 }
 .cx-hero__concept {
@@ -179,6 +180,16 @@
   letter-spacing: -0.04em;
   color: #fff;
   text-wrap: balance;
+}
+/* lange titels: iets kleiner en breder, zodat ze in drie à vier regels passen */
+.cx-hero__title.is-mid {
+  max-width: 17ch;
+  font-size: clamp(2.2rem, 4.9vw, 5.4rem);
+}
+.cx-hero__title.is-long {
+  max-width: 19ch;
+  font-size: clamp(2rem, 4.2vw, 4.6rem);
+  line-height: 1.02;
 }
 /* logo van de klant rechtsonder, op glas */
 .cx-hero__logo {

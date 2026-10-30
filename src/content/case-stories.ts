@@ -1167,6 +1167,353 @@ export const caseNarratives: Record<string, CaseNarrative> = {
       { nl: "Een klein bureau mag groots ogen, zolang het persoonlijk blijft.", en: "A small firm can look big, as long as it stays personal." },
     ],
   },
+  "fairlink": {
+    intro: {
+      nl: "Wie voor werk de grens over gaat, betaalt soms hoge wervingskosten en weet niet altijd wat zijn rechten zijn. Fairlink maakt werving over de grens eerlijker, en wij gaven dat verhaal een helder merk.",
+      en: "People who cross borders for work sometimes pay high recruitment fees and don't always know their rights. Fairlink makes cross-border recruitment fairer, and we gave that story a clear brand.",
+    },
+    chapters: [
+      {
+        title: { nl: "Werknemer, werkgever, overheid.", en: "Worker, employer, government." },
+        body: [
+          {
+            nl: "Fairlink werkt aan veiligere en eerlijkere werving van arbeidsmigranten. Werknemers moeten hun rechten kennen, werkgevers willen aantonen dat hun werving eerlijk verloopt en overheden en ngo's willen zien wat er in de keten gebeurt. Een ingewikkeld, internationaal verhaal.",
+            en: "Fairlink works towards safer and fairer recruitment of migrant workers. Workers need to know their rights, employers want to prove their recruitment is fair, and governments and NGOs want to see what happens along the chain. A complicated, international story.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Terug naar de kern.", en: "Back to the core." },
+        body: [
+          {
+            nl: "We brachten dat verhaal terug tot de kern en bouwden er een merk omheen: rustig, betrouwbaar en menselijk. Daarna volgde de website in Webflow.",
+            en: "We brought that story back to its core and built a brand around it: calm, trustworthy and human. Then came the website in Webflow.",
+          },
+          {
+            nl: "Op de website heeft elke doelgroep een eigen route. Werknemers lezen over hun rechten en krijgen eenvoudige uitleg, werkgevers zien hoe ze grip houden op werving in andere landen en overheden vinden wat zij nodig hebben.",
+            en: "On the website, every audience has its own route. Workers read about their rights and get simple guidance, employers see how to stay in control of recruitment in other countries, and governments find what they need.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Ook op papier.", en: "On paper too." },
+        body: [
+          {
+            nl: "Daarnaast ontwierpen we ansichtkaarten in dezelfde stijl. Zo vertelt Fairlink zijn verhaal ook buiten het scherm, op iets dat je kunt vasthouden en doorgeven.",
+            en: "We also designed postcards in the same style. That way Fairlink tells its story off-screen too, on something you can hold and pass on.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Hoe zwaarder het onderwerp, hoe helderder de taal.", en: "The heavier the subject, the clearer the language." },
+    ],
+  },
+  "alpacafarm-vorstenbosch": {
+    intro: {
+      nl: "Wandelen met alpaca's, high tea tussen de dieren, pizza op de farm. Bij Alpacafarm Vorstenbosch, een paar kilometer van ons kantoor, is genoeg te doen. Online moest dat net zo gezellig voelen.",
+      en: "Walking with alpacas, high tea among the animals, pizza on the farm. Alpacafarm Vorstenbosch, a few kilometres from our office, has plenty going on. Online, it had to feel just as welcoming.",
+    },
+    chapters: [
+      {
+        title: { nl: "Eerst de openingstijden.", en: "Opening hours first." },
+        body: [
+          {
+            nl: "Bezoekers willen vooral snel weten wanneer ze langs kunnen komen en wat er te doen is. Dus bouwden we de website met een openingstijdenwidget die meteen laat zien wanneer de farm open is. Activiteiten, de Alpacabar en overnachten hebben elk een eigen plek.",
+            en: "Visitors mostly want to know quickly when they can drop by and what there is to do. So we built the website with an opening-hours widget that shows straight away when the farm is open. Activities, the Alpacabar and overnight stays each have their own place.",
+          },
+        ],
+      },
+      {
+        title: { nl: "De alpaca's als sterren.", en: "The alpacas as the stars." },
+        body: [
+          {
+            nl: "We verzorgden de complete social media: de hele feed, reels en alles wat erbij hoort. Daarin spelen de alpaca's vanzelf de hoofdrol. Een goed moment met een nieuwsgierige alpaca zegt meer dan een lange tekst.",
+            en: "We took care of the complete social media: the whole feed, reels and everything around it. The alpacas naturally play the lead role. A good moment with a curious alpaca says more than a long caption.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Soms is de beste content gewoon een nieuwsgierige alpaca.", en: "Sometimes the best content is simply a curious alpaca." },
+    ],
+  },
+  "hela": {
+    intro: {
+      nl: "Satésaus, ketchup, dressings en kaassaus. Hela maakt eten lekkerder, en wij zorgden dat je dat online al bijna proeft.",
+      en: "Satay sauce, ketchup, dressings and cheese sauce. Hela makes food taste better, and we made sure you can almost taste it online.",
+    },
+    chapters: [
+      {
+        title: { nl: "Smakelijk, ook op een scherm.", en: "Tasty, even on a screen." },
+        body: [
+          {
+            nl: "Hela is de smaakmaker met sauzen, ketchups en dressings, voor thuis en voor de foodprofessional. Het assortiment moest online net zo smakelijk ogen als op tafel. En bestellen moest makkelijk zijn.",
+            en: "Hela is the flavour maker behind sauces, ketchups and dressings, for home cooks and food professionals. The range had to look as tasty online as it does on the table. And ordering had to be easy.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een webshop vol recepten.", en: "A web shop full of recipes." },
+        body: [
+          {
+            nl: "We bouwden een website met webshop in WordPress en WooCommerce, in het Nederlands, Engels en Frans. Naast de shop vind je recepten die laten zien wat een flinke scheut Hela met een simpele maaltijd doet. Foodprofessionals hebben een eigen ingang.",
+            en: "We built a website with a web shop in WordPress and WooCommerce, in Dutch, English and French. Alongside the shop you'll find recipes that show what a generous splash of Hela does for a simple meal. Food professionals have their own way in.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Elke fles op zijn best.", en: "Every bottle at its best." },
+        body: [
+          {
+            nl: "Voor het assortiment maakten we productshots, geanimeerde packshots en 3D-renders. Zo staat elke fles strak en herkenbaar in beeld, van de klassieke ketchup tot de nieuwste smaak.",
+            en: "For the range we created product shots, animated packshots and 3D renders. Every bottle is shown sharp and recognisable, from the classic ketchup to the latest flavour.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Goede productbeelden maken trek.", en: "Good product shots make you hungry." },
+    ],
+  },
+  "pine-street-school": {
+    intro: {
+      nl: "Van Nistelrode naar Lower Manhattan. Voor twee scholen in New York maakten we websites waarop ouders snel vinden wat ze zoeken.",
+      en: "From Nistelrode to Lower Manhattan. For two schools in New York we created websites where parents quickly find what they need.",
+    },
+    chapters: [
+      {
+        title: { nl: "Twee scholen, veel vragen.", en: "Two schools, many questions." },
+        body: [
+          {
+            nl: "Pine Street School is een meertalige IB World School in Lower Manhattan, van de allerkleinsten tot en met grade 8. Battery Park Montessori, aan de Hudson, is een drietalige Montessorischool voor kinderen van 1 tot 5 jaar. Ouders willen alles weten over het onderwijs, toelating, lesgeld en het schoolleven.",
+            en: "Pine Street School is a multilingual IB World School in Lower Manhattan, from the very youngest through grade 8. Battery Park Montessori, on the Hudson, is a trilingual Montessori school for children aged 1 to 5. Parents want to know everything about the education, admissions, tuition and school life.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Eén familie, twee gezichten.", en: "One family, two faces." },
+        body: [
+          {
+            nl: "We werkten de branding van beide scholen uit en bouwden de websites in Webflow, op een gedeelde basis. Zo zijn ze familie van elkaar en heeft elke school toch een eigen uitstraling. Pine Street School kreeg diep groen, een klassieke letter en warme foto's uit de klas.",
+            en: "We developed the branding for both schools and built the websites in Webflow, on a shared foundation. That makes them family, while each school keeps its own look. Pine Street School got deep green, a classic typeface and warm photos from the classroom.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een menu dat meedenkt.", en: "A menu that thinks ahead." },
+        body: [
+          {
+            nl: "De navigatie doet meer dan een gewoon menu. Je zoekt direct, en snelle links brengen je in een paar klikken bij toelating, rondleidingen of het lesprogramma. Bij elk onderdeel staat een korte uitleg, zodat je weet waar je terechtkomt.",
+            en: "The navigation does more than an ordinary menu. You can search right away, and quick links take you to admissions, tours or the curriculum in a few clicks. Every section comes with a short description, so you know where you'll land.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goed menu beantwoordt de vraag voordat je hem stelt.", en: "A good menu answers the question before you ask it." },
+    ],
+  },
+  "icewall": {
+    intro: {
+      nl: "Een eindige kaart vol fragmenten, en wie er vroeg bij is, claimt er een. Icewall had een sterk idee. Wij gaven het een concept, een merk en een website.",
+      en: "A finite map full of fragments, and those who arrive early claim one. Icewall had a strong idea. We gave it a concept, a brand and a website.",
+    },
+    chapters: [
+      {
+        title: { nl: "Eerst het concept.", en: "Concept first." },
+        body: [
+          {
+            nl: "Icewall zocht een merk met een duidelijk concept: waar sta je voor, voor wie ben je er en hoe ziet dat eruit? We werkten eerst de merkstrategie en het concept uit. Pas daarna begon het ontwerp.",
+            en: "Icewall wanted a brand with a clear concept: what do you stand for, who are you for and what does that look like? We worked out the brand strategy and the concept first. Only then did the design begin.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een wereld van fragmenten.", en: "A world of fragments." },
+        body: [
+          {
+            nl: "Daarna ontwierpen we de branding en vertaalden we alles naar een website. Donker, met een gloeiende aarde en een kaart die je zelf verkent. In drie stappen zie je hoe het werkt: ontdekken, een fragment claimen en een spoor achterlaten voor wie na je komt.",
+            en: "Then we designed the branding and translated it all into a website. Dark, with a glowing earth and a map you explore yourself. Three steps show how it works: discover, claim a fragment and leave a mark for those who come after you.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een sterk concept maakt elke volgende keuze makkelijker.", en: "A strong concept makes every next decision easier." },
+    ],
+  },
+  "calvin-vlaanderen": {
+    intro: {
+      nl: "Calvin Vlaanderen rijdt in het MXGP, het wereldkampioenschap motorcross. Fans en partners willen weten waar hij rijdt en hoe het ging, en dat verdiende een website op volle snelheid.",
+      en: "Calvin Vlaanderen races in MXGP, the motocross world championship. Fans and partners want to know where he's racing and how it went, and that deserved a website at full throttle.",
+    },
+    chapters: [
+      {
+        title: { nl: "Initialen en een racenummer.", en: "Initials and a race number." },
+        body: [
+          {
+            nl: "De branding draait om CV10: Calvins initialen en zijn racenummer. Rood, wit en stoer, zoals een racer hoort te zijn. Een merk dat je in één oogopslag herkent, ook in volle vaart.",
+            en: "The branding revolves around CV10: Calvin's initials and his race number. Red, white and bold, the way a racer should be. A brand you recognise at a glance, even at full speed.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van kalender tot uitslag.", en: "From calendar to results." },
+        body: [
+          {
+            nl: "De website bouwden we in Webflow, met nieuws, een racekalender, een over-pagina, de partners en een link naar de shop. Bij elke wedstrijd zie je waar Calvin eindigde. En bovenaan staat waar hij de volgende keer aan de start staat.",
+            en: "We built the website in Webflow, with news, a race calendar, an about page, the partners and a link to the shop. For every race you see where Calvin finished. And at the top you see where he lines up next.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Snel herkenbaar, ook in een stofwolk.", en: "Instantly recognisable, even in a cloud of dust." },
+    ],
+  },
+  "silvr": {
+    intro: {
+      nl: "Je omzet is er, je geld nog niet. Bij Silvr verkoop je je bedrijfsauto, huur je hem direct terug en rijd je gewoon door. Een nieuw concept, met een merk dat we vanaf de naam opbouwden.",
+      en: "The revenue is there, the cash isn't yet. With Silvr you sell your company vehicle, lease it straight back and keep driving. A new concept, with a brand we built from the name up.",
+    },
+    chapters: [
+      {
+        title: { nl: "Geen geldprobleem, een timingprobleem.", en: "A timing problem, not money." },
+        body: [
+          {
+            nl: "Soms wordt een factuur pas over weken betaald, terwijl het geld nu nodig is. Silvr lost dat op zonder lening en zonder BKR-registratie. Een nieuw concept, dus het merk moest meteen duidelijk maken hoe het werkt.",
+            en: "Sometimes an invoice won't be paid for weeks, while the money is needed now. Silvr solves that without a loan and without a credit registration. A new concept, so the brand had to make clear straight away how it works.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Verzilveren als rode draad.", en: "Cashing in, as a thread." },
+        body: [
+          {
+            nl: "We begonnen bij de naam: Silvr, met verzilveren als rode draad in alles wat het merk zegt. Daarna volgden de logo's en een brandbook. Van de kop op de homepage tot de eerste vraag in de aanvraag: je verzilvert je voertuig.",
+            en: "We started with the name: Silvr, built on 'verzilveren', the Dutch for cashing in, which runs through everything the brand says. Then came the logos and a brandbook. From the homepage headline to the first question of the application: you cash in your vehicle.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Vijf stappen naar Teamleader.", en: "Five steps to Teamleader." },
+        body: [
+          {
+            nl: "De website bouwden we in Webflow. De aanvraagflow in vijf stappen begint bij de vraag welk voertuig je wilt verzilveren: een auto, bestelwagen, vrachtwagen of camper. Elke aanvraag loopt direct door naar Teamleader, zodat het team meteen aan de slag kan.",
+            en: "We built the website in Webflow. The five-step application starts by asking which vehicle you want to cash in: a car, van, truck or camper. Every application goes straight into Teamleader, so the team can get to work right away.",
+          },
+          {
+            nl: "Een explainervideo legt het concept uit, voor wie liever kijkt dan leest. Zo snap je een nieuw idee in één keer.",
+            en: "An explainer video covers the concept, for those who'd rather watch than read. It turns a new idea into something you understand in one go.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goede naam legt het concept al half uit.", en: "A good name already explains half the concept." },
+    ],
+  },
+  "bus-whisky": {
+    intro: {
+      nl: "Whisky van gerst van de eigen boerderij, gestookt in Loosbroek, op een steenworp van ons kantoor. Achter elke fles van BUS Whisky zit een verhaal, en dat verdiende een eigen serie.",
+      en: "Whisky made from barley grown on the distillery's own farm, distilled in Loosbroek, a stone's throw from our office. Every bottle of BUS Whisky has a story behind it, and that story deserved a series of its own.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een verhaal in elke fles.", en: "A story in every bottle." },
+        body: [
+          {
+            nl: "BUS Whisky maakt Nederlandse whisky van gerst van de eigen boerderij, in een stokerij die op hernieuwbare energie draait. Van het veld tot de fles gebeurt alles dichtbij. Dat verhaal wilden ze vaker en beter vertellen.",
+            en: "BUS Whisky makes Dutch whisky from barley grown on its own farm, in a distillery that runs on renewable energy. From field to bottle, everything happens close to home. They wanted to tell that story more often, and better.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van stokerij naar YouTube.", en: "From distillery to YouTube." },
+        body: [
+          {
+            nl: "We maakten een YouTube-serie voor BUS Whisky en zetten content marketing in om die verhalen bij de juiste mensen te krijgen. Zo vertelt BUS Whisky zijn verhaal ook buiten de stokerij, aan iedereen die wil weten waar zijn whisky vandaan komt.",
+            en: "We made a YouTube series for BUS Whisky and used content marketing to get those stories to the right people. That way BUS Whisky tells its story beyond the distillery, to anyone who wants to know where their whisky comes from.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goed verhaal rijpt, net als whisky.", en: "A good story matures, just like whisky." },
+    ],
+  },
+  "the-sandt": {
+    intro: {
+      nl: "Investeerders kijken scherp naar risico, rendement en transparantie. The Sandt Investment Engineers vroeg om een verhaal dat overal klopt: op de website, in de brochure en in de antwoorden van AI-zoekmachines.",
+      en: "Investors look closely at risk, return and transparency. The Sandt Investment Engineers needed a story that holds up everywhere: on the website, in the brochure and in the answers of AI search engines.",
+    },
+    chapters: [
+      {
+        title: { nl: "Elk woord onderbouwd.", en: "Every word backed up." },
+        body: [
+          {
+            nl: "The Sandt ontwerpt investeringsoplossingen in vastgoed, met vastgoedobligaties onder Nederlandse regie. Investeerders willen precies weten waar hun geld naartoe gaat. Het verhaal moest dus helder en goed onderbouwd zijn.",
+            en: "The Sandt designs property investment solutions, with real estate bonds under Dutch management. Investors want to know exactly where their money goes. So the story had to be clear and well substantiated.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Per investeerder een eigen weg.", en: "A path for every investor." },
+        body: [
+          {
+            nl: "We bouwden de website in Webflow, met de investeringsmogelijkheden per type investeerder, van particulier tot family office, en het trackrecord. Donkerblauw en goud, met de gebouwen zelf groot in beeld.",
+            en: "We built the website in Webflow, with the investment options per type of investor, from private individual to family office, and the track record. Dark blue and gold, with the buildings themselves shown large.",
+          },
+          {
+            nl: "Op de landingspagina Onderbouwd Investeren vraag je de brochure aan in een paar velden. Per mail krijg je een persoonlijke toegangslink, zodat de brochure precies bij de juiste persoon terechtkomt.",
+            en: "On the Onderbouwd Investeren landing page you request the brochure in a few fields. You then receive a personal access link by email, so the brochure reaches exactly the right person.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Klaar voor AI-zoekmachines.", en: "Ready for AI search." },
+        body: [
+          {
+            nl: "We bouwden de content zo op dat AI-zoekmachines The Sandt als bron kunnen noemen. Duidelijke vragen, duidelijke antwoorden en een structuur die machines net zo goed lezen als mensen. Dat is AEO en GEO in de praktijk.",
+            en: "We structured the content so AI search engines can cite The Sandt as a source. Clear questions, clear answers and a structure machines read as easily as people do. That is AEO and GEO in practice.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Schrijf voor mensen, structureer voor machines.", en: "Write for people, structure for machines." },
+    ],
+  },
+  "aigora": {
+    intro: {
+      nl: "Aigora levert data uit de praktijk aan teams in life sciences en medtech. Een vak vol precisie, en dat mocht je ook aan het merk zien.",
+      en: "Aigora supplies real-world data to life sciences and medtech teams. A field built on precision, and the brand had to show it.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een merk dat staat.", en: "A brand that holds." },
+        body: [
+          {
+            nl: "Aigora wilde een merk dat staat, en dat iedereen op dezelfde manier toepast. We ontwikkelden de branding en legden alles vast in een brandbook. Zo weet iedereen hoe het merk eruitziet en hoe je het gebruikt.",
+            en: "Aigora wanted a brand that holds, and that everyone applies the same way. We developed the branding and captured everything in a brandbook. Now everyone knows what the brand looks like and how to use it.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Helder voor twee werelden.", en: "Clear for two worlds." },
+        body: [
+          {
+            nl: "Daarna volgde de website, licht en rustig, in dezelfde lijn als het merk. Life sciences en medtech hebben elk een eigen ingang. Een aanvraagformulier vraagt meteen naar je datawensen.",
+            en: "Then came the website, light and calm, in the same style as the brand. Life sciences and medtech each have their own way in. An enquiry form asks about your data requirements right away.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Richtlijnen zijn geen keurslijf. Ze zorgen dat het merk overal hetzelfde zegt.", en: "Guidelines aren't a straitjacket. They make the brand say the same thing everywhere." },
+    ],
+  },
   "maarschall": {
     intro: {
       nl: "Handgemaakt titanium, een eigen sound en een plek onder McLarens, Ferrari's en Lamborghini's. Maarschall verdiende een website die net zo hard binnenkomt als het geluid van de uitlaat.",
