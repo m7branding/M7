@@ -237,6 +237,11 @@ export interface CaseNarrative {
 
 /* ---------- Case / project ---------- */
 export interface Case {
+  /**
+   * Concept-case (bv. nieuw uit Figma, nog niet bevestigd): alleen zichtbaar in development of met
+   * NEXT_PUBLIC_SHOW_DRAFTS=1, nooit in productie. Goedgekeurd? Haal `draft` weg.
+   */
+  draft?: boolean;
   /** Logo van de klant (liefst wit/mono SVG of PNG met transparantie), rechtsonder in de hero op glas. */
   logo?: string;
   /** Uitgewerkt projectverhaal; wordt uit case-stories.ts toegevoegd. */

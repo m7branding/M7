@@ -31,6 +31,7 @@ export const sectors = [...baseSectors, ...NEW_SECTORS_A, ...NEW_SECTORS_B, ...N
   .sort((a, b) => SECTOR_SLUGS.indexOf(a.slug) - SECTOR_SLUGS.indexOf(b.slug));
 import { cases as curatedCases } from "./cases";
 import { archiveCases } from "./cases-archive";
+import { figmaCases } from "./cases-figma";
 import { newCasesA } from "./cases-new-a";
 import { newCasesB } from "./cases-new-b";
 import { withMedia } from "./case-media";
@@ -38,8 +39,11 @@ import { withMedia } from "./case-media";
  * Uitgewerkte cases eerst, dan de nieuwe projecten, dan die van de vorige website; mockups uit de pipeline erbij.
  * Projecten zonder beeld (nog geen mockups of Figma-export) schuiven naar achteren.
  */
-const others = [...newCasesA, ...newCasesB, ...archiveCases].map(withMedia);
-export const cases = [...curatedCases.map(withMedia), ...others.filter((c) => c.cover), ...others.filter((c) => !c.cover)];
+const showDrafts = process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_SHOW_DRAFTS === "1";
+const others = [...newCasesA, ...newCasesB, ...figmaCases, ...archiveCases].map(withMedia);
+export const cases = [...curatedCases.map(withMedia), ...others.filter((c) => c.cover), ...others.filter((c) => !c.cover)].filter(
+  (c) => showDrafts || !c.draft,
+);
 export { reviews } from "./reviews";
 export { team } from "./team";
 export { TOOLS } from "./tools";
