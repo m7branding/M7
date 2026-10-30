@@ -20,3 +20,12 @@ slate_floor_02, fabric_leather_02 (textures; the s06 leather mat is procedural),
 
 Fonts used inside textures (status bar, browser toolbar, keyboard legends): Inter (SIL OFL 1.1), DejaVu Sans
 (arrow / ⌘ glyphs, free license). Software: Blender 5.2 (bpy, GPL — output is not covered), OpenColorIO, OIDN.
+
+## Templates (round 12, all projects)
+
+| Asset | Type | Source URL | License | Used in |
+|---|---|---|---|---|
+| concrete_wall_006 | PBR texture (2k) | https://polyhaven.com/a/concrete_wall_006 | CC0 | T3 plinth, T4 pedestal, T5 surface, animation B |
+| smooth_concrete_floor | PBR texture (2k) | https://polyhaven.com/a/smooth_concrete_floor | CC0 | downloaded, not used |
+
+The templates use no HDRI (area lights + flat world colour). OpenCV (Apache 2.0) samples the screen textures.

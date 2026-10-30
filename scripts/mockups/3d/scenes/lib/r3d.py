@@ -322,7 +322,7 @@ def mat_image(name, path, rough=0.4, emission=0.0, aov=False, alpha_clip=True, s
     return m
 
 
-def mat_pbr(name, tex_dir, scale=1.0, tint=None, rough_mul=1.0, bump=0.4, sat=1.0, val=1.0, rot=0.0):
+def mat_pbr(name, tex_dir, scale=1.0, tint=None, rough_mul=1.0, bump=0.4, sat=1.0, val=1.0, rot=0.0, box=False):
     """Poly Haven PBR texture set (diff / nor_gl / rough). scale in metres per texture tile."""
     m = bpy.data.materials.new(name); nt, N, L, out = _nodes(m)
     d = os.path.join(ASSETS, 'textures', tex_dir)
@@ -334,7 +334,10 @@ def mat_pbr(name, tex_dir, scale=1.0, tint=None, rough_mul=1.0, bump=0.4, sat=1.
     p = principled(N)
     def tex(key, cs):
         t = N.new('ShaderNodeTexImage'); t.image = bpy.data.images.load(fs[key], check_existing=True)
-        t.image.colorspace_settings.name = cs; L.new(mp.outputs['Vector'], t.inputs['Vector']); return t
+        t.image.colorspace_settings.name = cs; L.new(mp.outputs['Vector'], t.inputs['Vector'])
+        if box:
+            t.projection = 'BOX'; t.projection_blend = 0.25
+        return t
     dif = tex('diff', 'sRGB')
     col = dif.outputs['Color']
     if sat != 1.0 or val != 1.0:
