@@ -28,7 +28,7 @@ VIDEOS = {'A': 'v_a_gravity', 'B': 'v_b_plinth'}
 COVER_FROM = ['t1_gravity', 't3_plinth', 't5_ipads_dark', 't2_closeup']
 FPS = 24
 OUT_W, OUT_H = 1440, 810
-CRF = int(os.environ.get('R12_CRF', '25'))
+CRF = int(os.environ.get('R12_CRF', '27'))
 
 
 # develop settings per template (exposure only affects the set; screens stay colour-exact)
@@ -98,12 +98,16 @@ def stills_one(args):
             if r not in disp_cache:
                 disp_cache.update(P.displays_for(p, [r], caps=caps))
         img = Image.fromarray(C.finish(pp, disp_cache, bg_srgb=C.pastel(p['color'])))
+        src = os.path.join(d, 'src'); os.makedirs(src, exist_ok=True)
+        img.save(os.path.join(src, name + '.png'), compress_level=1)        # lossless source for fit()
         img.save(os.path.join(d, name + '.webp'), quality=88, method=6)
         if t == cover_template(p, idx):
             w, h = img.size
             ch = round(w * 1500 / 2400)
             y0 = max(0, (h - ch) // 2)
-            img.crop((0, y0, w, y0 + ch)).resize((2400, 1500), Image.LANCZOS).save(os.path.join(d, 'r-cover.webp'), quality=86, method=6)
+            cv = img.crop((0, y0, w, y0 + ch)).resize((2400, 1500), Image.LANCZOS)
+            cv.save(os.path.join(src, 'r-cover.png'), compress_level=1)
+            cv.save(os.path.join(d, 'r-cover.webp'), quality=86, method=6)
     return slug, time.time() - t0
 
 
@@ -131,13 +135,14 @@ def video_one(args):
     amp = {}
     for r, d in ds.items():
         vis = (d.H - d.top) * d.cscale
-        amp[r] = max(0.0, min(d.max_offset - start[r], (2.2 if d.W > 2000 else 3.0) * vis))
+        amp[r] = max(0.0, min(d.max_offset - start[r], (1.6 if d.W > 2000 else 2.2) * vis))
     bg = C.pastel(p['color'])
     d_out = os.path.join(OUT, slug); os.makedirs(d_out, exist_ok=True)
     mp4 = os.path.join(d_out, 'r-hero.mp4')
     W, H = first['W'], first['H']
     cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
            '-vf', f'scale={OUT_W}:{OUT_H}:flags=lanczos', '-c:v', 'libx264', '-preset', 'slow', '-crf', str(CRF),
+           '-g', '480', '-bf', '3', '-x264-params', 'aq-mode=3',
            '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', mp4]
     pr = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     cache = {}
@@ -166,7 +171,11 @@ def sheets(slugs):
         for s in slugs:
             f = os.path.join(OUT, s, name + '.webp')
             if os.path.exists(f):
-                im = Image.open(f).convert('RGB'); im.thumbnail((420, 420)); cells.append((im, s))
+                try:
+                    im = Image.open(f).convert('RGB')
+                except Exception:
+                    continue
+                im.thumbnail((420, 420)); cells.append((im, s))
         if not cells:
             continue
         cw = 430; chh = max(im.height for im, _ in cells) + 30; cols = 6
@@ -176,6 +185,32 @@ def sheets(slugs):
             x = 10 + (i % cols) * cw; y = 10 + (i // cols) * chh
             sh.paste(im, (x, y)); dr.text((x, y + im.height + 4), s, font=F, fill=(220, 220, 224))
         sh.save(os.path.join(R12, f'sheet-{name.replace("r-0", "").replace("r-", "")}.jpg'), quality=84)
+
+
+BUDGET = float(os.environ.get('R12_BUDGET', '1.6')) * 1048576
+
+
+def fit_one(args):
+    """Re-encode a project's stills from the lossless sources at the highest WebP quality that keeps the
+    project (stills + cover + hero video + poster) within BUDGET."""
+    slug, idx = args
+    d = os.path.join(OUT, slug); src = os.path.join(d, 'src')
+    if not os.path.isdir(src):
+        return slug, None, 0
+    fixed = sum(os.path.getsize(os.path.join(d, f)) for f in ('r-hero.mp4', 'r-hero.webp') if os.path.exists(os.path.join(d, f)))
+    ims = {f[:-4]: Image.open(os.path.join(src, f)).convert('RGB') for f in sorted(os.listdir(src)) if f.endswith('.png')}
+    import io
+    for q in (88, 85, 82, 79, 76, 73, 70):
+        enc = {}
+        for n, im in ims.items():
+            b = io.BytesIO(); im.save(b, 'webp', quality=q - (2 if n == 'r-cover' else 0), method=6); enc[n] = b.getvalue()
+        tot = fixed + sum(len(v) for v in enc.values())
+        if tot <= BUDGET:
+            break
+    for n, data in enc.items():
+        with open(os.path.join(d, n + '.webp'), 'wb') as f:
+            f.write(data)
+    return slug, q, tot
 
 
 def install(slugs):
@@ -211,6 +246,8 @@ if __name__ == '__main__':
         for r in run(stills_one, jobs, j): print('stills', r[0], f'{r[1]:.1f}s', flush=True)
     elif cmd == 'video':
         for r in run(video_one, jobs, j): print('video', r[0], r[1], f'{r[2]:.0f}s', f'{r[3] / 1048576:.2f} MB', flush=True)
+    elif cmd == 'fit':
+        for r in run(fit_one, jobs, j): print('fit', r[0], r[1], f'{r[2] / 1048576:.2f} MB', flush=True)
     elif cmd == 'sheets':
         sheets(sel)
     elif cmd == 'install':

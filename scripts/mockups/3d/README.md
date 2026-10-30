@@ -56,6 +56,7 @@ cd scripts/mockups/3d/templates/scenes
 ../../venv/bin/python batch.py prep -j4                  # sjablonen ontwikkelen + cachen
 R12_PROJECTS=/pad/naar/projects.json ../../venv/bin/python batch.py stills all -j4
 R12_PROJECTS=/pad/naar/projects.json ../../venv/bin/python batch.py video all -j4
+../../venv/bin/python batch.py fit all -j4             # WebP-kwaliteit per project zodat alles <= 1,6 MB blijft
 ../../venv/bin/python batch.py sheets all && ../../venv/bin/python batch.py install all
 node ../../../write-manifest.mjs                         # vanaf de repo-root: node scripts/mockups/write-manifest.mjs
 ```
@@ -65,5 +66,7 @@ node ../../../write-manifest.mjs                         # vanaf de repo-root: n
 `hero-tablet.png` (2360×1640). Een voorbeeld zonder renderen: `scenes/t1_gravity.py` met `R12_PV=1`
 (standaard) rendert een kleine preview in een paar seconden. De venv heeft daarnaast
 `opencv-python-headless` nodig (`venv/bin/pip install opencv-python-headless`).
+Rendertijd sjablonen (4 CPU-cores): stills 4–8 min elk, animatie A 80 frames × ~40 s, B 80 × ~35 s
+(samen ~2,5 h). Compositen: ~25 s per project voor alle stills, ~60 s per video.
 Per project: `r-01-gravity`, `r-02-closeup`, `r-03-plinth`, `r-04-floating-ipad`, `r-05-ipads` (.webp),
 `r-cover.webp` (2400×1500) en `r-hero.mp4` + `r-hero.webp` (animatie A of B, afhankelijk van de merkkleur).

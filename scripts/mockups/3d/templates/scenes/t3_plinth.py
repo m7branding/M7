@@ -16,7 +16,7 @@ def build(phone=False):
     T.world(strength=0.03, color=(1, 1, 1))
     wall = R.mat_paint('wall', R.srgb((22, 22, 24)), rough=0.9, spec=0.2)
     R.sweep('set', width=8, depth=6, height=4, radius=1.2, mat=wall, loc=(0, 1.6, 0))
-    conc = R.mat_pbr('plinth', 'concrete_wall_006', scale=0.9, sat=0.0, val=0.24, bump=0.5, rough_mul=1.0, box=True)
+    conc = R.mat_pbr('plinth', 'concrete_wall_006', scale=0.9, sat=0.0, val=0.20, bump=0.22, rough_mul=1.0, box=True)
     R.box('plinth', (0.62, 0.50, PH), mat=conc, loc=(0.03, 0.08, 0.0), bevel=0.004)
     mbp = R.macbook_pro14('MBP', screen='mbp-home.png', finish='spaceblack', open_deg=110)
     mbp.location = (0.0, 0.06, PH + mbp.location.z); mbp.rotation_euler.z = math.radians(-30)
@@ -34,7 +34,7 @@ def build(phone=False):
     T.edge_lights_skip_screens(edge)
     T.soft_fill((0.0, 0.05, PH - 0.1), power=5.0, loc=(0.2, -1.6, PH + 0.5))
     # plinth edges separate from a near-black page: thin top-edge light from behind on the plinth only
-    ed = R.area_light('plinthEdge', (0.0, 0.75, PH + 0.06), (0.0, 0.10, PH), size=(1.2, 0.05), power=14, color=(0.9, 0.93, 1.0))
+    ed = R.area_light('plinthEdge', (0.0, 0.75, PH + 0.06), (0.0, 0.10, PH), size=(1.2, 0.05), power=4, color=(0.9, 0.93, 1.0))
     T.link_only(ed, [bpy.data.objects['plinth']])
     return out
 

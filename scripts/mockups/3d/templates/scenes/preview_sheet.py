@@ -31,7 +31,7 @@ for s in slugs:
             ds = P.displays_for(p, sorted({x['role'] for x in pp['screens']}), video=True, caps=caps)
             for r, d in ds.items():
                 st = d.offset; vis = (d.H - d.top) * d.cscale
-                amp = max(0.0, min(d.max_offset - st, (2.2 if d.W > 2000 else 3.0) * vis))
+                amp = max(0.0, min(d.max_offset - st, (1.6 if d.W > 2000 else 2.2) * vis))
                 d.offset = st + amp * B.scroll_curve(u, Ftot)
             im = Image.fromarray(C.finish(pp, ds, bg_srgb=C.pastel(p['color']), aniso=3)); im.thumbnail((560, 400))
             cells.append((im, f'{kind} frame {u}'))

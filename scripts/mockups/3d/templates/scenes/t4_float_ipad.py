@@ -15,7 +15,7 @@ def build():
     T.world(strength=0.025, color=(1, 1, 1))
     wall = R.mat_paint('wall', R.srgb((20, 20, 22)), rough=0.9, spec=0.2)
     R.sweep('set', width=8, depth=6, height=4, radius=1.2, mat=wall, loc=(0, 1.2, 0))
-    stone = R.mat_pbr('ped', 'concrete_wall_006', scale=0.7, sat=0.0, val=0.15, bump=0.2, rough_mul=0.95, box=True)
+    stone = R.mat_pbr('ped', 'concrete_wall_006', scale=0.7, sat=0.0, val=0.09, bump=0.12, rough_mul=0.95, box=True)
     ped = R.cylinder('pedestal', 115.0, PH * 1000, segs=160, mat=stone, bevel=3.0)
     ped.location = (0.0, 0.05, 0.0)
     cam = cam_loc()
