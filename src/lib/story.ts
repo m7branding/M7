@@ -14,7 +14,9 @@ export function storyFor(c: Case): StoryBlock[] {
   // gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline) gaan vóór de cover, daarna de rest
   const gallery = c.gallery ?? [];
   const renders = gallery.filter((g) => /\/r-[^/]+$/.test(g));
-  const imgs = [...renders, c.cover, ...gallery.filter((g) => !renders.includes(g))].filter((x): x is string => !!x);
+  // een gerenderde cover (r-cover) is een uitsnede van een van de renders: niet nog eens in de galerij
+  const cover = c.cover && /\/r-cover\.webp$/.test(c.cover) ? undefined : c.cover;
+  const imgs = [...renders, cover, ...gallery.filter((g) => !renders.includes(g))].filter((x): x is string => !!x);
   const review = getReview(c.review);
   const apps = applicationsBySlugs(c.applications);
 

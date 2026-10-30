@@ -29,3 +29,41 @@ venv/bin/python scenes/fetch_assets.py          # HDRI's, texturen, planten -> a
 Projectspecifiek zijn: de captures, `screens.py`/`cards.py` (welke uitsneden texturen en kaarten worden),
 de textuurnamen in de scènebestanden en de merkkleuren in s04, s05, s09 en s10. `finalize.py` schrijft
 nu naar `misterglass`; pas `DST` en `NAMES` aan voor een ander project.
+
+## Sjablonen voor alle projecten (`templates/`)
+
+Elke scène wordt **één keer** gerenderd; daarna worden de schermen van elk project er in numpy in gezet
+(seconden per still, ~1–2 min per video). Belichting, reflecties, schaduwen en scherptediepte blijven echt.
+
+- `templates/lib/tmpl.py` (Blender-kant): schermmateriaal = wit, alleen voor camerastralen, in light group
+  `screen`, met shader-AOV's `scr_uv` (u, v, scherm-id) en `scr_cov`; wereldlicht in light group `env`.
+  Uitvoer per frame: `_rgb` (Combined), `_scr` (wit scherm W), `_env`, `_uv`, `_cov` en bij transparante
+  sjablonen `_sc` (Shadow Catcher). `masks.py` maakt de displaymaskers (afgeronde hoeken, Dynamic Island, notch).
+- `templates/lib/tcomp.py` (compositor): `prepare()` ontwikkelt het sjabloon (AgX buiten het scherm) en slaat
+  per schermpixel de displaycoördinaten + UV-afgeleiden op; `finish()` zet de inhoud erin: mip-mapped,
+  anisotroop (OpenCV remap) en kleurexact (sRGB, met 25% van de glasreflectie), en legt transparante sjablonen
+  op een pastel van de merkkleur (HSL-lichtheid 0,86, verzadiging ≥ 0,42) met de echte schaduw.
+- `templates/lib/proj.py`: per project de schermbeelden (captures + iOS-statusbalk/Safari-pil,
+  macOS-menubalk/werkbalk, iPadOS-balk) en welke capture op welk toestel komt (`ROLE_SOURCES`).
+- Sjablonen: `t1_gravity` (zwevende, kantelende iPhones + iPad), `t2_closeup`, `t3_plinth` (MacBook op
+  betonnen sokkel), `t4_float_ipad`, `t5_ipads_dark`; animaties `v_a_gravity` en `v_b_plinth` (unieke frames,
+  ping-pong met cosinus-easing; de site scrolt per uitvoerframe).
+
+```bash
+cd scripts/mockups/3d/templates/scenes
+../../venv/bin/python ../lib/masks.py                    # eenmalig
+./run_tpl.sh t1_gravity t2_closeup t3_plinth t4_float_ipad t5_ipads_dark v_a_gravity v_b_plinth   # ~2,5 h CPU
+../../venv/bin/python batch.py prep -j4                  # sjablonen ontwikkelen + cachen
+R12_PROJECTS=/pad/naar/projects.json ../../venv/bin/python batch.py stills all -j4
+R12_PROJECTS=/pad/naar/projects.json ../../venv/bin/python batch.py video all -j4
+../../venv/bin/python batch.py sheets all && ../../venv/bin/python batch.py install all
+node ../../../write-manifest.mjs                         # vanaf de repo-root: node scripts/mockups/write-manifest.mjs
+```
+
+`projects.json`: `[{slug, client, color, captures, url?}]`; `captures` bevat `hero-desktop.png` (2880×1800),
+`full-desktop.png` (1440 breed), `hero-mobile.png` (1170×2532), `full-mobile.png` (780 breed),
+`hero-tablet.png` (2360×1640). Een voorbeeld zonder renderen: `scenes/t1_gravity.py` met `R12_PV=1`
+(standaard) rendert een kleine preview in een paar seconden. De venv heeft daarnaast
+`opencv-python-headless` nodig (`venv/bin/pip install opencv-python-headless`).
+Per project: `r-01-gravity`, `r-02-closeup`, `r-03-plinth`, `r-04-floating-ipad`, `r-05-ipads` (.webp),
+`r-cover.webp` (2400×1500) en `r-hero.mp4` + `r-hero.webp` (animatie A of B, afhankelijk van de merkkleur).

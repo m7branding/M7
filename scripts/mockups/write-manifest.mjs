@@ -3,7 +3,8 @@
    Schrijft src/content/generated/case-media.ts op basis van wat er
    in public/media/cases/<slug>/ staat (m-*.webp, screen-*.webp, en de
    realistische 3D-renders r-*.webp / r-hero*.mp4 uit de Blender-pipeline).
-   - r-*.webp (behalve r-hero*) komen VOORAAN in de galerij, op naam gesorteerd (r-01-…, r-02-…).
+   - r-*.webp (behalve r-hero* en r-cover) komen VOORAAN in de galerij, op naam gesorteerd (r-01-…, r-02-…).
+   - r-cover.webp wint van m-cover.webp als gegenereerde cover (replaceCover-regels gelden voor beide).
    - r-hero*.mp4 + gelijknamige .webp-poster wordt de hero-video (heroVideo) van de case;
      bij meerdere: r-hero.mp4, anders de eerste op naam, of config.json heroVideo[slug] = "r-hero-b.mp4".
    Los te draaien (node scripts/mockups/write-manifest.mjs) of via compose.mjs.
@@ -42,9 +43,11 @@ export function writeManifest({ log = false } = {}) {
     for (const f of files) bytes += fs.statSync(path.join(dir, f)).size;
     const url = (f) => `/media/cases/${slug}/${f}`;
     const e = {};
-    if (files.includes("m-cover.webp")) e.cover = url("m-cover.webp");
-    // realistische renders eerst (op naam), dan de m-* mockups in vaste volgorde
-    const renders = files.filter((f) => /^r-.+\.webp$/.test(f) && !/^r-hero/.test(f)).sort();
+    // cover: de gerenderde r-cover.webp wint van m-cover.webp (zelfde replaceCover-regels)
+    if (files.includes("r-cover.webp")) e.cover = url("r-cover.webp");
+    else if (files.includes("m-cover.webp")) e.cover = url("m-cover.webp");
+    // realistische renders eerst (op naam, zonder r-cover en de hero-poster), dan de m-* mockups in vaste volgorde
+    const renders = files.filter((f) => /^r-.+\.webp$/.test(f) && !/^r-(hero|cover)/.test(f)).sort();
     const gallery = [...renders, ...GALLERY_ORDER.map((g) => `m-${g}.webp`).filter((f) => files.includes(f))];
     if (gallery.length) e.gallery = gallery.map(url);
     const videos = files.filter((f) => /^r-hero.*\.mp4$/.test(f)).sort();
