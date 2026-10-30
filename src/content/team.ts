@@ -48,6 +48,7 @@ export const team: TeamMember[] = [
     role: { nl: "Full-Stack Developer", en: "Full-Stack Developer" },
     photo: "/media/team/team-6.webp",
     avatar: "/media/team/avatar/finn-oliemeulen.webp",
+    fun: { nl: "Knapste kerel op kantoor.", en: "Best-looking guy in the office." },
   },
   {
     slug: "luuk-van-heeswijk",
