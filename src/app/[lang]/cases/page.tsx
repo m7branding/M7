@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { MediaHero } from "@/components/hero/MediaHero";
-import { IntakeCta } from "@/components/overlay/OverlayButton";
+import { TLink } from "@/components/motion/TLink";
 import { CasesFilter } from "@/components/sections/CasesFilter";
 import { LevelUp } from "@/components/sections/Home";
 import { LogoWall } from "@/components/sections/LogoWall";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ShowreelHero } from "@/components/showreel/ShowreelHero";
 import { CaseCard } from "@/components/ui/CaseCard";
+import { Icon } from "@/components/ui/Icon";
 import type { Case, Locale } from "@/content/types";
 import { allCases, allSectors, allServices } from "@/lib/content";
 import { getDict } from "@/lib/dict";
@@ -41,26 +42,28 @@ export default function CasesPage({ params }: P) {
 
   return (
     <>
-      <MediaHero
+      <ShowreelHero
         locale={locale}
-        page="cases"
         crumbs={[
           { name: d.nav.home, path: "/" },
           { name: d.nav.cases, path: paths.cases },
         ]}
         crumbsLabel={d.misc.breadcrumbs}
-        meta={[
-          { icon: "star", text: `${cases.length} cases` },
-          { text: `${usedSectors.length} ${d.nav.sectors.toLowerCase()}` },
-        ]}
         title={[{ t: "A grasp of our " }, { t: "masterpieces.", c: "g-stars" }]}
-        lead={d.cases.intro}
+        count={[
+          { value: cases.length, label: "cases" },
+          { value: usedSectors.length, label: d.nav.sectors.toLowerCase() },
+        ]}
+        line={d.cases.intro}
       >
-        <IntakeCta>{d.cta.launch}</IntakeCta>
         <a href="#alle-cases" className="link-dash">
           {locale === "nl" ? "Bekijk het werk" : "See the work"}
         </a>
-      </MediaHero>
+        <TLink href={paths.world} className="srh__world">
+          {d.nav.world}
+          <Icon name="arrowUpRight" size={16} stroke={2.2} />
+        </TLink>
+      </ShowreelHero>
       <section className="section section--tight ov-body" id="alle-cases" aria-label={d.nav.allCases}>
         <div className="container">
           <CasesFilter

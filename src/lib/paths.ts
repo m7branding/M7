@@ -11,6 +11,8 @@ export const paths = {
   sector: (s: Pick<Sector, "slug"> | string) => `/sectoren/${typeof s === "string" ? s : s.slug}`,
   cases: "/cases",
   case: (c: Pick<Case, "slug"> | string) => `/cases/${typeof c === "string" ? c : c.slug}`,
+  /** Scrollende showreel-ervaring; zelfde slug in NL en EN. */
+  world: "/world-of-m7",
   about: "/over-m7",
   process: "/werkproces",
   contact: "/contact",

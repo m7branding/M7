@@ -58,6 +58,11 @@ export function CaseHero({ c, locale, media, services }: { c: Case; locale: Loca
           <div className="cx-hero__bottom">
             <div className="cx-hero__text">
               <ul className="cx-hero__meta" data-reveal="fade" aria-label={d.cases.services}>
+                {c.year ? (
+                  <li className="cx-hero__year">
+                    <time dateTime={String(c.year)}>{c.year}</time>
+                  </li>
+                ) : null}
                 {services.map((s) => (
                   <li key={s.slug}>
                     <TLink href={paths.service(s)} className="cx-hero__tag" style={{ ["--accent" as string]: s.color }}>
@@ -65,11 +70,6 @@ export function CaseHero({ c, locale, media, services }: { c: Case; locale: Loca
                     </TLink>
                   </li>
                 ))}
-                {c.year ? (
-                  <li className="cx-hero__year">
-                    <time dateTime={String(c.year)}>{c.year}</time>
-                  </li>
-                ) : null}
                 {c.concept ? <li className="cx-hero__concept">{d.cases.concept}</li> : null}
               </ul>
               <SplitText as="h1" id="cx-title" className="cx-hero__title" parts={title} delay={0.15} />

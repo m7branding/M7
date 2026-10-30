@@ -1,39 +1,125 @@
+import { heroShowcase } from "@/components/cases/heroShowcase";
+import { imageSize } from "@/components/case/imageSize";
+import type { ServiceSlug } from "@/content/registry";
 import type { Case, Review, StoryBlock, T } from "@/content/types";
-import { applicationsBySlugs, getReview } from "./content";
+import { getReview, getService, publishedReviews } from "./content";
 import { getDict } from "./dict";
 
+/** Blok op de casepagina: een StoryBlock, of de geanimeerde showcase (uit de hero gehaald) als eigen sectie. */
+export type CaseBlock = StoryBlock | { type: "showcase"; slug: ServiceSlug };
+
+/** Wat de hero schermvullend toont: een eigen beeld/video, de gerenderde hero-video, de cover of de gegenereerde cover. */
+export type HeroMedia =
+  | { kind: "video"; src: string; poster?: string; srcMobile?: string; posterMobile?: string; position?: string }
+  | { kind: "image"; src: string; position?: string }
+  | { kind: "gen" };
+
+export function heroOf(c: Case): HeroMedia {
+  if (c.hero?.video) return { kind: "video", src: c.hero.video, poster: c.hero.poster, position: c.hero.position };
+  if (c.hero?.image) return { kind: "image", src: c.hero.image, position: c.hero.position };
+  if (c.heroVideo) return { kind: "video", ...c.heroVideo };
+  if (c.cover) return { kind: "image", src: c.cover };
+  return { kind: "gen" };
+}
+
+/** Hoeveel masonry-secties bij zoveel beelden: nooit een muur, hooguit vier blokken. */
+const sections = (n: number) => (n === 0 ? 0 : n <= 4 ? 1 : n <= 8 ? 2 : n <= 13 ? 3 : 4);
+
+/** Verdeelt de beelden over k secties, de eerste krijgt de extra beelden. */
+function chunk<X>(list: X[], k: number): X[][] {
+  const out: X[][] = [];
+  let o = 0;
+  for (let i = 0; i < k; i++) {
+    const size = Math.floor(list.length / k) + (i < list.length % k ? 1 : 0);
+    out.push(list.slice(o, o + size));
+    o += size;
+  }
+  return out.filter((x) => x.length);
+}
+
+const join = (paras: T[]): T => ({ nl: paras.map((p) => p.nl).join("\n\n"), en: paras.map((p) => p.en).join("\n\n") });
+
 /**
- * Het verhaal van een case. Heeft de case een eigen `story`, dan die;
- * anders een nette standaardopbouw uit de bestaande velden:
- * uitdaging → beelden → aanpak → quote → resultaat → cijfers → opgeleverd.
+ * Het verhaal van een case. Heeft de case een eigen `story`, dan die (met de showcase na de intro);
+ * anders een opbouw uit het projectverhaal (`narrative`) en de basisvelden:
+ * intro → [showcase] → masonry → hoofdstuk → quote/statement → masonry → hoofdstuk → beeld → masonry …
+ * De beelden worden over 1–4 masonry-secties verdeeld, met de tekst ertussen.
  */
-export function storyFor(c: Case): StoryBlock[] {
-  if (c.story?.length) return c.story;
+export function storyFor(c: Case): CaseBlock[] {
+  const show = heroShowcase(c.slug);
+  const showBlock: CaseBlock[] = show ? [{ type: "showcase", slug: show }] : [];
+  if (c.story?.length) {
+    const [first, ...rest] = c.story;
+    return first.type === "intro" ? [first, ...showBlock, ...rest] : [...showBlock, ...c.story];
+  }
+
   const nl = getDict("nl").cases;
   const en = getDict("en").cases;
+  const hero = heroOf(c);
+  const heroSrc = hero.kind === "gen" ? undefined : hero.src;
+
   // gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline) gaan vóór de cover, daarna de rest
   const gallery = c.gallery ?? [];
   const renders = gallery.filter((g) => /\/r-[^/]+$/.test(g));
   // een gerenderde cover (r-cover) is een uitsnede van een van de renders: niet nog eens in de galerij
   const cover = c.cover && /\/r-cover\.webp$/.test(c.cover) ? undefined : c.cover;
-  const imgs = [...renders, cover, ...gallery.filter((g) => !renders.includes(g))].filter((x): x is string => !!x);
-  const review = getReview(c.review);
-  const apps = applicationsBySlugs(c.applications);
+  let imgs = Array.from(new Set([...renders, cover, ...gallery.filter((g) => !renders.includes(g))])).filter(
+    (x): x is string => !!x && x !== heroSrc,
+  );
 
-  const out: StoryBlock[] = [{ type: "intro", kicker: { nl: nl.challenge, en: en.challenge }, text: c.challenge }];
-  if (imgs.length > 1) out.push({ type: "masonry", images: imgs.map((src) => ({ src })) });
-  out.push({ type: "text", kicker: { nl: "How we did it.", en: "How we did it." }, h: { nl: nl.approach, en: en.approach }, body: c.approach });
-  if (review)
-    out.push({
-      type: "quote",
-      text: review.quote,
-      cite: review.author,
-      role: reviewRole(review),
-      avatar: review.avatar,
-    });
-  out.push({ type: "text", kicker: { nl: "What it brought.", en: "What it brought." }, h: { nl: nl.result, en: en.result }, body: c.result });
-  if (c.results?.length) out.push({ type: "results" });
-  if (apps.length) out.push({ type: "timeline", style: "checklist", title: { nl: nl.delivered, en: en.delivered }, items: apps.map((a) => ({ label: a.title })) });
+  // één schermvullend beeld dat meegroeit: de eigen reveal, de hero-video als de hero iets anders toont,
+  // anders een liggende render (bij voorkeur de close-up) die dan niet ook in de masonry staat
+  let media: StoryBlock | undefined;
+  if (c.reveal) {
+    media = { type: "media", video: c.reveal.video, image: c.reveal.image, poster: c.reveal.poster, position: c.reveal.position };
+  } else if (c.heroVideo && heroSrc !== c.heroVideo.src) {
+    media = { type: "media", video: c.heroVideo.src, poster: c.heroVideo.poster };
+  } else if (imgs.length >= 4) {
+    const wide = (s: string) => {
+      const z = imageSize(s);
+      return !!z && z.w / z.h >= 1.3;
+    };
+    const pick = imgs.find((s) => /\/r-0\d-closeup\./.test(s) && wide(s)) ?? imgs.find((s, i) => i > 0 && wide(s));
+    if (pick) {
+      media = { type: "media", image: pick };
+      imgs = imgs.filter((s) => s !== pick);
+    }
+  }
+
+  const galleries: StoryBlock[] = chunk(imgs, sections(imgs.length)).map((list) => ({ type: "masonry", images: list.map((src) => ({ src })) }));
+
+  const chapters: StoryBlock[] = c.narrative?.chapters?.length
+    ? c.narrative.chapters.map((ch) => ({ type: "text", h: ch.title, body: join(ch.body) }))
+    : [
+        { type: "text", h: { nl: nl.approach, en: en.approach }, body: c.approach },
+        { type: "text", h: { nl: nl.result, en: en.result }, body: c.result },
+      ];
+
+  // quotes: eerst een echte review van de klant (met naam), dan de statements van M7 zelf (zonder naam).
+  // Geen van beide? Dan de payoff van de hoofddienst, ook in de stem van M7, nooit als klantcitaat.
+  const review = getReview(c.review) ?? publishedReviews().find((r) => r.case === c.slug && !r.draft);
+  const quotes: StoryBlock[] = [
+    ...(review ? [{ type: "quote" as const, text: review.quote, cite: review.author, role: reviewRole(review), avatar: review.avatar }] : []),
+    ...(c.narrative?.statements ?? []).map((text) => ({ type: "quote" as const, text })),
+  ];
+  if (!quotes.length) {
+    const tagline = getService(c.services[0])?.tagline;
+    if (tagline) quotes.push({ type: "quote", text: tagline });
+  }
+  const extras = [quotes[0], media, ...quotes.slice(1)].filter((x): x is StoryBlock => !!x);
+
+  const out: CaseBlock[] = [{ type: "intro", text: c.narrative?.intro ?? c.challenge }, ...showBlock];
+  const rounds = Math.max(galleries.length, chapters.length);
+  for (let i = 0; i < rounds; i++) {
+    if (galleries[i]) out.push(galleries[i]);
+    if (chapters[i]) {
+      out.push(chapters[i]);
+      // de cijfers direct na het laatste hoofdstuk
+      if (i === chapters.length - 1 && c.results?.length) out.push({ type: "results" });
+    }
+    if (extras[i]) out.push(extras[i]);
+  }
+  out.push(...extras.slice(rounds));
   return out;
 }
 

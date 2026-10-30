@@ -39,6 +39,7 @@ export function ShowreelPlayer({
   labels,
   ui = "full",
   className,
+  priority = false,
   rootMargin = "0px",
   children,
 }: {
@@ -46,6 +47,8 @@ export function ShowreelPlayer({
   labels: ShowreelLabels;
   ui?: "full" | "mini" | "none";
   className?: string;
+  /** Boven de vouw: de eerste poster als <img> met voorrang (LCP), al vóór de hydratatie zichtbaar. */
+  priority?: boolean;
   /** Marge voor 'in beeld' (bv. "20% 0px" om iets eerder te starten). */
   rootMargin?: string;
   children?: React.ReactNode;
@@ -68,8 +71,14 @@ export function ShowreelPlayer({
   const [slot, setSlot] = useState<[number, number]>([0, -1]);
   const [front, setFront] = useState<Slot>(0);
   const [fading, setFading] = useState(false);
-  /** Pas na de mount krijgen de video's een src (eerst de poster; mobiel kiest zijn eigen bestand). */
-  const [srcOn, setSrcOn] = useState(false);
+  /**
+   * Pas na de mount én in de buurt van de viewport krijgen de video's een src (eerst de poster;
+   * mobiel kiest zijn eigen bestand). Bij reduced motion of databesparing pas na een klik op play.
+   */
+  const [near, setNear] = useState(false);
+  const [blocked, setBlocked] = useState(false);
+  const [started, setStarted] = useState(false);
+  const srcOn = near && (!blocked || started);
   const [small, setSmall] = useState(false);
   const [reduce, setReduce] = useState(false);
   const [inView, setInView] = useState(false);
@@ -99,17 +108,32 @@ export function ShowreelPlayer({
     setReduce(r);
     setSmall(mqS.matches);
     // zonder beweging of bij databesparing: alleen de poster tot iemand op play drukt
-    if (r || save) setUserPaused(true);
-    setSrcOn(!(r || save));
+    if (r || save) {
+      setBlocked(true);
+      setUserPaused(true);
+    }
     setReady(true);
     const vis = () => setHidden(document.hidden);
     vis();
     document.addEventListener("visibilitychange", vis);
     const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin, threshold: 0.12 });
-    if (root.current) io.observe(root.current);
+    // ruim op tijd (een scherm vooruit) beginnen met laden, daarna blijft de src staan
+    const pre = new IntersectionObserver(
+      ([e]) => {
+        if (!e.isIntersecting) return;
+        setNear(true);
+        pre.disconnect();
+      },
+      { rootMargin: "100% 0px" },
+    );
+    if (root.current) {
+      io.observe(root.current);
+      pre.observe(root.current);
+    }
     return () => {
       document.removeEventListener("visibilitychange", vis);
       io.disconnect();
+      pre.disconnect();
     };
   }, [rootMargin]);
 
@@ -218,7 +242,8 @@ export function ShowreelPlayer({
 
   const toggle = () => {
     if (userPaused) {
-      setSrcOn(true);
+      setStarted(true);
+      setNear(true);
       setUserPaused(false);
     } else setUserPaused(true);
   };
@@ -239,6 +264,10 @@ export function ShowreelPlayer({
       data-reduce={reduce ? "1" : undefined}
     >
       <div className="srp__media" role="img" aria-label={reel ? `${labels.media}: ${reel.title}` : labels.media}>
+        {priority && seq[0]?.poster ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img className="srp__poster" src={seq[0].poster} alt="" fetchPriority="high" decoding="async" />
+        ) : null}
         {([0, 1] as Slot[]).map((i) => {
           const k = slot[i];
           const c = k >= 0 ? seq[k] : undefined;

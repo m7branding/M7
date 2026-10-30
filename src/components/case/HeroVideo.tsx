@@ -51,6 +51,8 @@ export function HeroVideo({
       if (loaded !== want) {
         loaded = want;
         setOn(false);
+        // React zet `muted` niet als attribuut in de SSR-HTML: zonder dit blokkeert de browser autoplay
+        v.muted = true;
         v.src = want;
         v.load();
       }

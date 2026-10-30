@@ -371,6 +371,802 @@ export const caseNarratives: Record<string, CaseNarrative> = {
       { nl: "Een platform waar je blijft lezen, ook als je nog niet verhuist.", en: "A platform you keep reading, even before you move." },
     ],
   },
+  "the-digital-clinic": {
+    intro: {
+      nl: "Haaruitval is persoonlijk, en niet iedereen praat er makkelijk over. The Digital Clinic regelt de hele behandeling online, en dat vroeg om een platform waarin cliënt, huisarts en apotheek elkaar vinden.",
+      en: "Hair loss is personal, and not everyone finds it easy to talk about. The Digital Clinic handles the entire treatment online, which called for a platform where client, GP and pharmacy find each other.",
+    },
+    chapters: [
+      {
+        title: { nl: "Drie rollen, één plek.", en: "Three roles, one place." },
+        body: [
+          {
+            nl: "The Digital Clinic biedt een volledig online behandeling tegen haaruitval: intake, behandeling op recept en levering aan huis, samen met een huisarts en een apotheek. Losse tools zouden dat proces versnipperen. Er was een eigen platform nodig, waarin iedereen zijn eigen rol heeft.",
+            en: "The Digital Clinic offers fully online hair-loss treatment: intake, prescription treatment and home delivery, together with a GP and a pharmacy. Loose tools would fragment that process. It needed a platform of its own, where everyone has their own role.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Gebouwd in sprints.", en: "Built in sprints." },
+        body: [
+          {
+            nl: "We ontwierpen en bouwden de website en het platform in sprints, met Next.js en Supabase en koppelingen naar bestaande systemen. Het platform kent drie soorten gebruikers: de cliënt, de huisarts en de apotheek. Ook de regie over het project lag bij ons, van planning tot oplevering.",
+            en: "We designed and built the website and the platform in sprints, with Next.js and Supabase and integrations with existing systems. The platform has three types of user: the client, the GP and the pharmacy. We also ran the project itself, from planning to delivery.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van intake tot voordeur.", en: "From intake to front door." },
+        body: [
+          {
+            nl: "De website laat in vier stappen zien hoe het werkt: een online intake, een behandeling op basis van je profiel, discrete levering en een portaal voor je abonnement. Cliënten doen hun intake online en beheren daarna alles in hun persoonlijke omgeving. Daar chatten ze ook met het team als ze een vraag hebben.",
+            en: "The website shows how it works in four steps: an online intake, a treatment based on your profile, discreet delivery and a portal for your subscription. Clients complete their intake online and then manage everything in their personal environment. That is also where they chat with the team when they have a question.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Weten wat werkt.", en: "Knowing what works." },
+        body: [
+          {
+            nl: "Daarnaast verzorgden we de marketing en de tracking, zodat helder is waar cliënten vandaan komen. Zo heeft The Digital Clinic één centrale omgeving voor cliënten, huisarts, apotheek en team, en een website die de online behandeling helder uitlegt.",
+            en: "We also took care of marketing and tracking, so it is clear where clients come from. The Digital Clinic now has one central environment for clients, GP, pharmacy and team, and a website that explains the online treatment clearly.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Zorg op afstand moet juist dichtbij voelen.", en: "Care at a distance should feel close." },
+      { nl: "Elke gebruiker een eigen rol. Eén platform dat ze verbindt.", en: "Every user their own role. One platform connecting them." },
+    ],
+  },
+  "nova-funeral-cars": {
+    intro: {
+      nl: "Een rouwauto rijdt op een van de zwaarste dagen in iemands leven. Voor het bedrijf dat die auto's levert, maakten we een merk vol rust en respect, met een nieuwe naam: Nova.",
+      en: "A hearse drives on one of the hardest days of someone's life. For the company that supplies those cars, we created a brand full of calm and respect, with a new name: Nova.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een naam die niet meer paste.", en: "A name that no longer fit." },
+        body: [
+          {
+            nl: "Nova Funeral Cars uit Oss levert rouwauto's aan uitvaartondernemers. Het bedrijf heette eerst Budget Hearses, terwijl het aanbod draait om elegantie en prestige. Het onderwerp is gevoelig, en vraagt om rust, respect en duidelijkheid.",
+            en: "Nova Funeral Cars from Oss supplies hearses to funeral directors. The company used to be called Budget Hearses, while its range is all about elegance and prestige. The subject is sensitive, and calls for calm, respect and clarity.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van Budget Hearses naar Nova.", en: "From Budget Hearses to Nova." },
+        body: [
+          {
+            nl: "We begonnen bij de naam: Nova, met Nova Funeral Cars en Nova Special Cars als twee lijnen. Het nieuwe merk legden we vast in een brandbook. Ingetogen, met veel ruimte en zonder opsmuk, zoals het onderwerp vraagt.",
+            en: "We started with the name: Nova, with Nova Funeral Cars and Nova Special Cars as two lines. We captured the new brand in a brandbook. Understated, spacious and without frills, as the subject demands.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Elk voertuig in het juiste licht.", en: "Every vehicle in the right light." },
+        body: [
+          {
+            nl: "De website is sober vormgegeven, met een heldere structuur per voertuig en in meerdere talen. De fotografie maakten we zelf, zodat elke auto rustig en tot in detail in beeld komt.",
+            en: "The website has a sober design, with a clear structure per vehicle and in several languages. We did the photography ourselves, so every car is shown calmly and in detail.",
+          },
+          {
+            nl: "Wie zich aanmeldt, krijgt automatisch een e-mail zodra er nieuwe voorraad binnenkomt. Zo missen uitvaartondernemers geen nieuw aanbod.",
+            en: "Anyone who signs up automatically gets an email as soon as new stock arrives. That way funeral directors never miss a new vehicle.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Ook op de beursvloer.", en: "On the trade-fair floor too." },
+        body: [
+          {
+            nl: "Voor beurzen ontwierpen we de stand, en daarnaast flyers in dezelfde stijl. Zo heeft Nova een waardig merk dat overal hetzelfde uitstraalt, van website tot beursstand.",
+            en: "For trade fairs we designed the booth, plus flyers in the same style. Nova now has a dignified brand that looks the same everywhere, from website to booth.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goede naam zegt wat je bent, niet wat je kost.", en: "A good name says what you are, not what you cost." },
+      { nl: "Ingetogen is ook een keuze. Vaak de sterkste.", en: "Restraint is a choice too. Often the strongest one." },
+    ],
+  },
+  "misterglass": {
+    intro: {
+      nl: "Glas op maat bestellen klinkt ingewikkeld. Bij MisterGlass kies je je glas, vul je de maten in en zie je meteen wat het kost. Wij maakten het merk en de webshop die het zo eenvoudig houden.",
+      en: "Ordering made-to-measure glass sounds complicated. At MisterGlass you choose your glass, enter the dimensions and see the price straight away. We created the brand and the web shop that keep it that simple.",
+    },
+    chapters: [
+      {
+        title: { nl: "Maatwerk zonder drempel.", en: "Made to measure, no hurdles." },
+        body: [
+          {
+            nl: "MisterGlass verkoopt glas op maat online: enkel glas, isolatieglas en triple glas, maar ook interieurglas, spiegels en glasbeslag. Voor vakmensen en voor particulieren. Maatwerk online verkopen vraagt om een merk dat vertrouwen geeft en een webshop die het de klant makkelijk maakt.",
+            en: "MisterGlass sells made-to-measure glass online: single glazing, insulated and triple glazing, but also interior glass, mirrors and glass fittings. For professionals and private customers alike. Selling custom products online takes a brand people trust and a web shop that makes life easy for the customer.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Eerst een gezicht.", en: "First, a face." },
+        body: [
+          {
+            nl: "We begonnen bij het merk: een nieuw logo en een huisstijl, vastgelegd in een brandbook. Fris, helder en zonder poespas, zoals goed glas hoort te zijn.",
+            en: "We started with the brand: a new logo and visual identity, captured in a brandbook. Fresh, clear and no-nonsense, the way good glass should be.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Samenstellen, opmeten, bestellen.", en: "Configure, measure, order." },
+        body: [
+          {
+            nl: "Daarna ontwikkelden we de webshop in WooCommerce. Bestellen gaat in drie stappen: je stelt je glassoort en vorm samen, bepaalt de afmetingen en kiest een levertijd die je uitkomt. Een prijscalculator per product rekent direct mee, en via Mollie reken je af met iDEAL.",
+            en: "Then we developed the web shop in WooCommerce. Ordering takes three steps: you choose your type of glass and shape, set the dimensions and pick a delivery time that suits you. A price calculator per product works it out as you go, and Mollie handles checkout with iDEAL.",
+          },
+          {
+            nl: "Campagnes op Google en Meta brengen gericht verkeer naar de shop. Video maakt het verhaal compleet.",
+            en: "Campaigns on Google and Meta bring targeted traffic to the shop. Video completes the story.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Hoe complexer het product, hoe simpeler de bestelling moet voelen.", en: "The more complex the product, the simpler ordering should feel." },
+    ],
+  },
+  "toy4participation": {
+    intro: {
+      nl: "Ook de allerjongsten mogen meepraten over wat hen aangaat. TOY4Participation wilde dat verhaal niet alleen vertellen, maar mensen er zelf aan laten meedoen.",
+      en: "Even the youngest children deserve a say in what affects them. TOY4Participation didn't just want to tell that story, but to get people to take part in it.",
+    },
+    chapters: [
+      {
+        title: { nl: "Meedoen in plaats van lezen.", en: "Taking part, not just reading." },
+        body: [
+          {
+            nl: "TOY4Participation is een Europees project binnen het netwerk van ISSA, de International Step by Step Association. Het zet zich in voor kinderparticipatie, in de kinderopvang en in Play Hubs in de buurt. Dat verhaal moest ouders van jonge kinderen bereiken, het liefst zo dat ze ook echt meedoen.",
+            en: "TOY4Participation is a European project within the network of ISSA, the International Step by Step Association. It champions child participation, in early childhood settings and in local Play Hubs. That story had to reach parents of young children, ideally in a way that gets them to join in.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een merk om mee te spelen.", en: "A brand to play with." },
+        body: [
+          {
+            nl: "We gaven TOY4Participation een eigen huisstijl, met fris turquoise, warme gele vormen en beelden van kinderen in actie. Daarna bouwden we de website in Webflow.",
+            en: "We gave TOY4Participation its own visual identity, with fresh turquoise, warm yellow shapes and images of children in action. Then we built the website in Webflow.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een speurtocht op de kaart.", en: "A treasure hunt on the map." },
+        body: [
+          {
+            nl: "Het hart is een interactieve quest. Op een kaart volg je korte hoofdstukken: wat kinderparticipatie is, waarom het ertoe doet, hoe het eruitziet en wat je misschien al doet zonder het zo te noemen. Onderweg deel je je eigen ervaringen.",
+            en: "At its heart is an interactive quest. On a map you follow short chapters: what child participation is, why it matters, what it looks like and what you may already be doing without calling it that. Along the way you share your own experiences.",
+          },
+          {
+            nl: "Die ervaringen komen samen op een community wall, waar je ziet wat anderen al doen en wat ze willen proberen. Zo werkt de quest als engagement funnel, van eerste klik tot actieve deelnemer, in meerdere talen.",
+            en: "Those experiences come together on a community wall, where you see what others already do and what they would like to try. That makes the quest an engagement funnel, from first click to active participant, in several languages.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Wat je zelf doet, onthoud je beter.", en: "What you do yourself, you remember." },
+      { nl: "Een funnel kan ook een speurtocht zijn.", en: "A funnel can be a treasure hunt too." },
+    ],
+  },
+  "chavore": {
+    intro: {
+      nl: "CHAVORE betekent 'kinderen' in het Romani. Voor dit ISSA-initiatief maakten we een korte speurtocht die professionals laat stilstaan bij hun eigen praktijk.",
+      en: "CHAVORE means 'children' in Romani. For this ISSA initiative we built a short treasure hunt that makes professionals stop and reflect on their own practice.",
+    },
+    chapters: [
+      {
+        title: { nl: "Kennis die blijft hangen.", en: "Knowledge that sticks." },
+        body: [
+          {
+            nl: "CHAVORE zet zich in voor de mentale gezondheid en het welzijn van kinderen van 0 tot 6 jaar, vooral in kwetsbare gemeenschappen zoals Roma. Partners in vijf landen werken eraan mee. De vraag was hoe je die kennis bij professionals brengt, op een manier die blijft hangen.",
+            en: "CHAVORE works for the mental health and well-being of children aged 0 to 6, especially in vulnerable communities such as Roma. Partners in five countries are involved. The question was how to bring that knowledge to professionals in a way that sticks.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een bekende basis, een eigen stijl.", en: "A familiar base, its own style." },
+        body: [
+          {
+            nl: "We namen de online ervaring van TOY4Participation als basis en maakten er een speurtocht van in de stijl van CHAVORE. Licht, warm en met oranje en geel als kleuren. Zo bouwden we voort op iets dat werkt, zonder dat het een kopie werd.",
+            en: "We took the TOY4Participation online experience as a base and turned it into a treasure hunt in CHAVORE's own style. Light, warm and coloured in orange and yellow. That way we built on something that works, without it becoming a copy.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Elk hoofdstuk een keuze.", en: "Every chapter a choice." },
+        body: [
+          {
+            nl: "Op een kaart volg je vijf korte hoofdstukken, van Learning Through Feelings tot Care for the Caregivers. Bij elk hoofdstuk kies je welke aanpak je wilt proberen of vaker wilt doen. De antwoorden komen samen in een community-deel, zodat je ziet hoe anderen het aanpakken.",
+            en: "On a map you follow five short chapters, from Learning Through Feelings to Care for the Caregivers. In each one you choose which practices you would like to try or do more of. The answers come together in a community section, so you see how others approach it.",
+          },
+          {
+            nl: "De quest is te volgen in het Engels en in de talen van de partnerlanden. Kort, speels en met ruimte om na te denken over je eigen werk.",
+            en: "The quest is available in English and in the languages of the partner countries. Short, playful and with room to think about your own work.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Kort en speels werkt ook bij serieuze onderwerpen.", en: "Short and playful works for serious subjects too." },
+    ],
+  },
+  "issa": {
+    intro: {
+      nl: "Initiatieven, nieuws, events, een conferentie, een kennisbank en een ledennetwerk. ISSA heeft veel te vertellen, en al die inhoud verdiende één logisch thuis.",
+      en: "Initiatives, news, events, a conference, a knowledge hub and a member network. ISSA has a lot to say, and all that content deserved one logical home.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een netwerk vol beweging.", en: "A network in motion." },
+        body: [
+          {
+            nl: "ISSA, de International Step by Step Association, verbindt organisaties en professionals in Europa en Centraal-Azië. Samen werken ze aan betere zorg en educatie voor jonge kinderen. Er gebeurt veel, en de website moest dat overzichtelijk laten zien.",
+            en: "ISSA, the International Step by Step Association, connects organisations and professionals across Europe and Central Asia. Together they work on better care and education for young children. A lot is going on, and the website had to show it clearly.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een vaste plek voor de basis.", en: "A fixed place for the essentials." },
+        body: [
+          {
+            nl: "We maakten de website in Webflow, met een heldere structuur voor de vaste onderdelen van het netwerk. Wie ISSA is, de initiatieven, samen leren via de kennisbank en de conferentie, en lid worden.",
+            en: "We built the website in Webflow, with a clear structure for the network's core parts. Who ISSA is, the initiatives, learning together through the knowledge hub and the conference, and becoming a member.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Wat er nu speelt, vooraan.", en: "What's happening now, up front." },
+        body: [
+          {
+            nl: "Nieuws en events staan vooraan, zodat bezoekers meteen zien wat er in het netwerk speelt. Van een webinar tot de ISSA-conferentie, alles is met een paar klikken te vinden. Zo heeft het hele netwerk één overzichtelijke website, met ruimte voor de vele initiatieven van ISSA.",
+            en: "News and events come first, so visitors see straight away what is happening in the network. From a webinar to the ISSA conference, everything is a few clicks away. The whole network now has one clear website, with room for ISSA's many initiatives.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Veel inhoud vraagt niet om meer pagina's, maar om een betere structuur.", en: "Lots of content doesn't need more pages. It needs better structure." },
+    ],
+  },
+  "ecos": {
+    intro: {
+      nl: "Binnen ECOS ontstaan steeds nieuwe samenwerkingen, elk met een eigen thema. De vraag was hoe je ze allemaal herkenbaar maakt, zonder dat je vergeet waar ze bij horen.",
+      en: "New collaborations keep emerging within ECOS, each with its own theme. The question was how to make every one recognisable without losing sight of where they belong.",
+    },
+    chapters: [
+      {
+        title: { nl: "Familie, geen kopieën.", en: "Family, not copies." },
+        body: [
+          {
+            nl: "Het ECOS Institute is het leer- en samenwerkingsplatform van ISSA, met cursussen, een community en samenwerkingsverbanden rond jonge kinderen. Daarbinnen ontstaan Collaboratives: groepen partners die samen aan één thema werken. Elke Collaborative wil een eigen gezicht, en toch moet je zien dat hij bij ECOS hoort.",
+            en: "The ECOS Institute is ISSA's platform for learning and collaboration, with courses, a community and partnerships around young children. Within it, Collaboratives emerge: groups of partners working together on one theme. Each Collaborative wants its own face, yet it should be clear that it belongs to ECOS.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Eerst de verhouding.", en: "First, the relationship." },
+        body: [
+          {
+            nl: "We begonnen bij de merkstrategie: hoe verhouden ECOS en de Collaboratives zich tot elkaar? Daaruit volgde een co-brandingsysteem, vastgelegd in algemene richtlijnen en een brandbook. Zo weet elke nieuwe Collaborative waar hij vrij is en waar hij aansluit.",
+            en: "We started with brand strategy: how do ECOS and the Collaboratives relate to each other? That led to a co-branding system, captured in general guidelines and a brandbook. Every new Collaborative now knows where it is free and where it falls in line.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Fatherhood gaat voorop.", en: "Fatherhood leads the way." },
+        body: [
+          {
+            nl: "De Fatherhood Collaborative werkten we als eerste helemaal uit, als voorbeeld voor wat volgt. Daarnaast ontwierpen we de website van het ECOS Institute: licht, warm en met geel als accent. Animatievideo's vertellen het verhaal in beweging.",
+            en: "We worked out the Fatherhood Collaborative in full first, as an example for what follows. We also designed the ECOS Institute website: light, warm and accented in yellow. Animated videos tell the story in motion.",
+          },
+          {
+            nl: "Zo ligt er een merkfundament waar nieuwe Collaboratives op kunnen aansluiten, met een volledig uitgewerkt voorbeeld erbij. Een nieuwe Collaborative hoeft dus niet bij nul te beginnen.",
+            en: "The result is a brand foundation that new Collaboratives can build on, with a fully worked-out example to follow. A new Collaborative never has to start from scratch.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goed merksysteem geeft vrijheid binnen duidelijke lijnen.", en: "A good brand system gives freedom within clear lines." },
+    ],
+  },
+  "outplay": {
+    intro: {
+      nl: "Buiten spelen helpt kinderen leren, groeien en zich thuis voelen. OUTPLAY onderzoekt dat in heel Europa, en had één gezicht nodig dat in elk land hetzelfde verhaal vertelt.",
+      en: "Outdoor play helps children learn, grow and feel they belong. OUTPLAY explores that across Europe, and needed one face that tells the same story in every country.",
+    },
+    chapters: [
+      {
+        title: { nl: "Eén project, veel landen.", en: "One project, many countries." },
+        body: [
+          {
+            nl: "OUTPLAY is een Erasmus+-project, medegefinancierd door de Europese Unie, met partners uit meerdere landen en ISSA als een van hen. Het onderzoekt hoe buiten spelen kinderen van 3 tot 10 jaar helpt bij leren, bij hun sociale en emotionele ontwikkeling en bij het gevoel erbij te horen. Met materiaal voor leerkrachten, pilots op scholen en Outdoor Play Labs in de buurt.",
+            en: "OUTPLAY is an Erasmus+ project, co-funded by the European Union, with partners from several countries and ISSA among them. It explores how outdoor play supports children aged 3 to 10 in learning, in their social and emotional development and in feeling they belong. With resources for educators, pilots in schools and community Outdoor Play Labs.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Alles in één brandbook.", en: "Everything in one brandbook." },
+        body: [
+          {
+            nl: "We legden het merk vast in een brandbook: de kleuren, de typografie en hoe je het merk toepast. Zo kan elke partner, in elk land, met hetzelfde merk aan de slag. En vertelt OUTPLAY overal hetzelfde, herkenbare verhaal.",
+            en: "We captured the brand in a brandbook: the colours, the typography and how to apply it. That way every partner, in every country, works with the same brand. And OUTPLAY tells the same recognisable story everywhere.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een merk dat reist, heeft duidelijke afspraken nodig.", en: "A brand that travels needs clear rules." },
+    ],
+  },
+  "impeco": {
+    intro: {
+      nl: "Van een spoedzending binnen Nederland tot logistiek voor een evenement aan de andere kant van de wereld. IMPECO regelt het dag en nacht, met een 'no worries'-aanpak die je ook aan het merk mocht zien.",
+      en: "From an urgent shipment within the Netherlands to logistics for an event on the other side of the world. IMPECO handles it day and night, with a 'no worries' approach that deserved to show in the brand.",
+    },
+    chapters: [
+      {
+        title: { nl: "Twee afdelingen, één verhaal.", en: "Two departments, one story." },
+        body: [
+          {
+            nl: "IMPECO uit Duiven regelt complexe, vaak tijdkritische logistiek, wereldwijd. Van sportevenementen en beurzen tot transport en opslag. De twee afdelingen, Sports & Events en Transport, moesten duidelijker onder één merk komen te staan.",
+            en: "IMPECO from Duiven handles complex, often time-critical logistics worldwide. From sports events and trade fairs to transport and storage. Its two departments, Sports & Events and Transport, needed to sit more clearly under one brand.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Opfrissen, niet weggooien.", en: "Refresh, don't replace." },
+        body: [
+          {
+            nl: "We gaven het merk een opfrisbeurt, zonder het herkenbare los te laten. Sports & Events en Transport kregen elk een eigen plek binnen één merk, met co-branding die de structuur laat zien. Voor het jubileum ontwierpen we een speciaal logo, en ook het drukwerk pakten we aan.",
+            en: "We gave the brand a refresh without letting go of what makes it recognisable. Sports & Events and Transport each got their own place within one brand, with co-branding that shows the structure. For the anniversary we designed a special logo, and we took on the print as well.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van bezoek naar aanvraag.", en: "From visit to request." },
+        body: [
+          {
+            nl: "Daarna ontwierpen we de nieuwe website in Webflow, in diep paars en met beelden van het werk achter de schermen. 'Moving Goods, Powering Experiences' zet de toon, en daaronder staan Sports & Events en Transport naast elkaar. Per dienst leidt een aanvraagflow bezoekers naar een concrete aanvraag.",
+            en: "Then we designed the new website in Webflow, in deep purple with images of the work behind the scenes. 'Moving Goods, Powering Experiences' sets the tone, with Sports & Events and Transport side by side below it. For each service, a request flow guides visitors to a concrete request.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "No worries begint bij een duidelijk merk.", en: "No worries starts with a clear brand." },
+    ],
+  },
+  "kds-stansvormen": {
+    intro: {
+      nl: "Als karton verandert in een verpakking, komt er een stansvorm aan te pas. KDS uit Weert maakt ze al sinds 1977, en verdiende een merk dat net zo scherp is als hun werk.",
+      en: "When cardboard turns into packaging, a cutting die is involved. KDS from Weert has been making them since 1977, and deserved a brand as sharp as its work.",
+    },
+    chapters: [
+      {
+        title: { nl: "Precisiewerk uit Weert.", en: "Precision work from Weert." },
+        body: [
+          {
+            nl: "KDS maakt stansvormen en alles wat erbij hoort, van stansvorm tot separatieset, voor bedrijven die karton tot verpakking verwerken. Het merk mocht laten zien hoe scherp KDS werkt. En klanten moesten makkelijker een offerte kunnen aanvragen en hun zaken online regelen.",
+            en: "KDS makes cutting dies and everything that goes with them, from die to separation set, for companies that turn cardboard into packaging. The brand had to show how sharply KDS works. And customers needed an easier way to request quotes and handle things online.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Scherp tot in de rand.", en: "Sharp to the edge." },
+        body: [
+          {
+            nl: "We werkten de branding uit en vertaalden die naar drukwerk en een nieuwe website in Webflow. Donker en strak, met rood als accent. De producten en de expertises stansen, uitbreken en separeren staan helder op een rij.",
+            en: "We developed the branding and carried it through to print and a new website in Webflow. Dark and clean, with red as the accent. The products and the core skills of cutting, stripping and separating are laid out clearly.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Offertes zonder omweg.", en: "Quotes without detours." },
+        body: [
+          {
+            nl: "Daarnaast bouwden we een offerte- en klantportaal. Klanten vragen er een offerte aan en loggen in op hun eigen omgeving. Zo heeft KDS een strak merk, drukwerk in dezelfde lijn, een heldere website en een portaal voor offertes en klanten.",
+            en: "We also built a quote and customer portal. Customers request quotes there and log in to their own environment. KDS now has a sharp brand, print in the same style, a clear website and a portal for quotes and customers.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Precisie zit niet alleen in staal. Ook in typografie.", en: "Precision isn't only in steel. It's in typography too." },
+    ],
+  },
+  "buitenstate-tools": {
+    intro: {
+      nl: "Een verkoper wil weten of er vraag is naar zijn woning. Een koper zoekt iets dat zich niet in een paar filters laat vangen. Voor Buitenstate bouwden we tools die ze allebei verder helpen.",
+      en: "A seller wants to know if there is demand for their home. A buyer is looking for something a few filters can't capture. For Buitenstate we built tools that help both of them along.",
+    },
+    chapters: [
+      {
+        title: { nl: "Twee kanten van de markt.", en: "Two sides of the market." },
+        body: [
+          {
+            nl: "Buitenstate is het platform voor landelijk wonen, met aanbod van een selectie NVM-makelaars. Verkopers willen weten of er belangstelling is voor hun woning. Kopers zoeken vaak iets heel specifieks, dat zich slecht laat vangen in een rij vinkjes.",
+            en: "Buitenstate is the platform for rural living, with listings from a select group of NVM estate agents. Sellers want to know if there is interest in their home. Buyers are often after something very specific, which a row of checkboxes struggles to capture.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Inzicht voor verkopers.", en: "Insight for sellers." },
+        body: [
+          {
+            nl: "Met 'Zoekers voor mijn woning' ziet een verkoper hoeveel actieve zoekers er in zijn regio zijn. Daarna vraagt hij meteen een gratis waardebepaling aan bij een Buitenstate-makelaar. Zo werkt de tool als leadfunnel voor verkopers van landelijke woningen.",
+            en: "With 'Zoekers voor mijn woning' a seller sees how many active searchers there are in their region. They can then request a free valuation from a Buitenstate agent right away. That makes the tool a lead funnel for sellers of rural homes.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Swipen naar je plek.", en: "Swipe to your place." },
+        body: [
+          {
+            nl: "Bij Woning Swipe vertel je in je eigen woorden wat je zoekt. AI vertaalt die vrije zoekvraag naar passende woningen, waar je doorheen swipet. Dat voelt meer als bladeren dan als een formulier invullen.",
+            en: "With Woning Swipe you describe in your own words what you are looking for. AI turns that free-text request into matching homes for you to swipe through. It feels more like browsing than filling in a form.",
+          },
+          {
+            nl: "Het AI-zoekprofiel houdt het aanbod daarna voor je in de gaten. Komt er iets passends langs, dan krijg je meteen een melding, met een matchscore per woning.",
+            en: "After that, the AI search profile keeps an eye on the listings for you. When something suitable comes along you get a notification straight away, with a match score for each home.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goede zoekvraag past niet in een filter.", en: "A good search doesn't fit in a filter." },
+      { nl: "Laat AI het zoekwerk doen. De keuze blijft aan jou.", en: "Let AI do the searching. The choice stays yours." },
+    ],
+  },
+  "zuyver-jeeps": {
+    intro: {
+      nl: "Handgebouwde custom Jeeps uit Nederland, op weg naar Noord-Amerika. Voor ZUYVER moest de eerste indruk meteen raak zijn.",
+      en: "Hand-built custom Jeeps from the Netherlands, heading for North America. For ZUYVER, the first impression had to land straight away.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een nieuw merk, een kritisch publiek.", en: "A new brand, a critical crowd." },
+        body: [
+          {
+            nl: "ZUYVER brengt de custom Jeeps die het team van BRUTE met de hand bouwt naar de Noord-Amerikaanse markt. Een nieuw merk in een markt vol liefhebbers, die precies weten waar ze naar kijken. Dan moet de website vanaf de eerste seconde kloppen.",
+            en: "ZUYVER brings the custom Jeeps hand-built by the BRUTE team to the North American market. A new brand in a market full of enthusiasts who know exactly what they're looking at. So the website has to be right from the very first second.",
+          },
+        ],
+      },
+      {
+        title: { nl: "De auto in de hoofdrol.", en: "The car takes the lead." },
+        body: [
+          {
+            nl: "We ontwierpen en bouwden de website: donker en strak, met de auto's in de hoofdrol en een directe weg naar contact. In aanloop naar de lancering staat er een coming soon-versie live, met de belofte 'Born in Holland'. Zo staat het merk er al, nog voor de officiële start.",
+            en: "We designed and built the website: dark and clean, with the cars in the lead role and a direct route to contact. In the run-up to launch, a coming-soon version is live, carrying the promise 'Born in Holland'. That way the brand is already standing before the official start.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Soms zegt een coming soon-pagina meer dan een hele site.", en: "Sometimes a coming-soon page says more than a whole site." },
+    ],
+  },
+  "atl-plus": {
+    intro: {
+      nl: "Hoe leer je een jonge atleet de juiste afzet, een goede startpositie of een vast pasritme tussen de horden? Met ATL+ zie je het stap voor stap, in heldere video's.",
+      en: "How do you teach a young athlete the right take-off, a solid starting position or a steady stride pattern between hurdles? With ATL+ you see it step by step, in clear videos.",
+    },
+    chapters: [
+      {
+        title: { nl: "Kennis op één plek.", en: "Expertise in one place." },
+        body: [
+          {
+            nl: "De Atletiekunie wil clubs sterker maken en trainers helpen met goede trainingsmethodieken. Daarvoor is een visuele ontwikkelmethodiek bedacht: per atletiekonderdeel een leerlijn in duidelijke stappen. Die kennis moest op één plek komen, voor iedereen die met atletiektalent werkt.",
+            en: "The Atletiekunie, the Dutch athletics federation, wants to strengthen clubs and help coaches with effective training methods. For that, a visual development method was created: a learning pathway in clear steps for each athletics event. That knowledge had to come together in one place, for everyone working with athletics talent.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Onderzoek voor het ontwerp.", en: "Research before design." },
+        body: [
+          {
+            nl: "We begonnen met UX-onderzoek, inclusief groepssessies. Daarna gaven we ATL+ een eigen logo en huisstijl, in blauw met oranje als accent. Het platform bouwden we in Webflow.",
+            en: "We started with UX research, including group sessions. Then we gave ATL+ its own logo and visual identity, in blue with orange as the accent. We built the platform in Webflow.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Elke stap in beeld.", en: "Every step on screen." },
+        body: [
+          {
+            nl: "Elke leerlijn is opgedeeld in genummerde stappen, van de basis tot wedstrijdtechniek, met bij elke stap een instructievideo. Van de afzet met een staande landing tot de acceleratie naar de eerste horde. Met een gratis account bekijk je alles.",
+            en: "Every learning pathway is split into numbered steps, from the basics to competition technique, with an instruction video for each step. From the take-off with a standing landing to the acceleration towards the first hurdle. A free account gives you access to everything.",
+          },
+          {
+            nl: "De instructievideo's namen we zelf op en monteerden we zelf. Ook het beheer van de aanmeldomgeving en de website ligt bij ons.",
+            en: "We recorded and edited the instruction videos ourselves. We also manage the sign-up environment and the website.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Techniek leer je door te kijken. Dus maakten we het kijken makkelijk.", en: "You learn technique by watching. So we made watching easy." },
+    ],
+  },
+  "steddion": {
+    intro: {
+      nl: "Het stroomnet staat onder druk, en voor veel bedrijven is energie geen vanzelfsprekendheid meer. Steddion helpt ze de regie terug te pakken, en wij hielpen Steddion dat helder te vertellen.",
+      en: "The grid is under pressure, and for many businesses energy is no longer a given. Steddion helps them take back control, and we helped Steddion tell that story clearly.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een technisch verhaal, rustig verteld.", en: "A technical story, calmly told." },
+        body: [
+          {
+            nl: "Steddion helpt vastgoedontwikkelaars, beheerders, huurders, beleggers en bouwers met hun energie. Van analyse en advies tot opwek, batterijopslag, laadinfrastructuur en beheer. Dat is veel, en het moest helder en betrouwbaar overkomen.",
+            en: "Steddion helps property developers, managers, tenants, investors and builders with their energy. From analysis and advice to generation, battery storage, charging infrastructure and management. That is a lot, and it had to come across as clear and reliable.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Elke doelgroep een eigen ingang.", en: "A way in for every audience." },
+        body: [
+          {
+            nl: "We zetten het merk Steddion neer en ontwierpen de website in Webflow, in diep paars met geel als accent. De oplossingen en de doelgroepen hebben elk een eigen, overzichtelijke plek. Zo vindt een beheerder net zo snel zijn antwoord als een belegger.",
+            en: "We established the Steddion brand and designed the website in Webflow, in deep purple with yellow as the accent. The solutions and the audiences each have their own clear place. A property manager finds their answer as quickly as an investor does.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Kennis die bijblijft.", en: "Knowledge that keeps up." },
+        body: [
+          {
+            nl: "Voor de kennisbank Energy Insights bouwden we een scraper die realtime thema's en marktontwikkelingen ophaalt. Zo blijft de kennisbank gevoed met wat er in de markt speelt. Daarnaast maakten we landingspagina's en video's.",
+            en: "For the Energy Insights knowledge base we built a scraper that collects themes and market developments in real time. That keeps the knowledge base fed with what is happening in the market. We also made landing pages and videos.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Hoe complexer de markt, hoe rustiger de website.", en: "The more complex the market, the calmer the website." },
+    ],
+  },
+  "steddion-tools": {
+    intro: {
+      nl: "Zonnepanelen, een batterij, laadpunten of een energiemanagementsysteem? Met twee online tools van Steddion verken je zelf wat bij jouw pand past, nog voor het eerste gesprek.",
+      en: "Solar panels, a battery, charging points or an energy management system? With two online tools from Steddion you explore what suits your building yourself, before the first conversation.",
+    },
+    chapters: [
+      {
+        title: { nl: "Zelf verkennen.", en: "Explore it yourself." },
+        body: [
+          {
+            nl: "Bedrijven met vastgoed staan voor de vraag wat ze met energie moeten, en welke leverancier daarbij past. Steddion wilde die eerste verkenning online mogelijk maken. En de aanvragen die daaruit komen netjes opvolgen.",
+            en: "Businesses with property face the question of what to do about energy, and which supplier fits. Steddion wanted to make that first exploration possible online. And to follow up properly on the requests it brings in.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Je pand op het scherm.", en: "Your building on screen." },
+        body: [
+          {
+            nl: "In de EPC Energy Property Configurator vul je je pand en je verbruik in. Je bekijkt simulaties en je nieuwe energiebehoefte, en ziet welke oplossing Steddion voorstelt. Aan het eind staat alles in een samenvatting bij elkaar.",
+            en: "In the EPC Energy Property Configurator you enter your building and your consumption. You view simulations and your new energy demand, and see which solution Steddion proposes. At the end, everything comes together in a summary.",
+          },
+          {
+            nl: "Met de EMS-vergelijker vind je leveranciers van energiemanagementsystemen die bij jouw situatie passen. Een paar vragen, en je ziet welke opties er zijn.",
+            en: "The EMS comparison tool helps you find energy management system suppliers that suit your situation. A few questions, and you see which options there are.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Recht in HubSpot.", en: "Straight into HubSpot." },
+        body: [
+          {
+            nl: "Beide tools zijn ingericht als leadfunnel en gekoppeld aan HubSpot. Aanvragen komen direct in het CRM terecht, zodat het team ze meteen kan opvolgen.",
+            en: "Both tools are set up as lead funnels and integrated with HubSpot. Requests land straight in the CRM, so the team can follow up right away.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goede configurator is het eerste adviesgesprek.", en: "A good configurator is the first consultation." },
+    ],
+  },
+  "plenty-planet": {
+    intro: {
+      nl: "Een parkeerterrein dat stroom opwekt, een dak dat meer doet dan de regen tegenhouden. Plenty Planet helpt organisaties aan hun eigen energie, en dat begint met een heldere eerste stap.",
+      en: "A car park that generates power, a roof that does more than keep the rain out. Plenty Planet helps organisations produce their own energy, and that starts with a clear first step.",
+    },
+    chapters: [
+      {
+        title: { nl: "Van kostenpost naar infrastructuur.", en: "From cost to infrastructure." },
+        body: [
+          {
+            nl: "Plenty Planet helpt organisaties hun energievoorziening om te bouwen: zonne-overkappingen op parkeerterreinen, zonneparken, zon op dak, batterijopslag en laadinfrastructuur. Natuurpositief, waar het kan. Grote projecten, die om een overzichtelijk begin vragen.",
+            en: "Plenty Planet helps organisations rebuild their energy supply: solar car parks, solar parks, rooftop solar, battery storage and charging infrastructure. Nature-positive where possible. Big projects that call for a manageable start.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Groen, in elk opzicht.", en: "Green, in every sense." },
+        body: [
+          {
+            nl: "We werkten de branding uit en ontwierpen en bouwden de website in Webflow. Oplossingen, diensten en cases hebben elk een eigen plek, zodat een bezoeker snel ziet wat er voor zijn situatie kan. Groen voert de boventoon, met grote beelden van installaties in het landschap.",
+            en: "We developed the branding and designed and built the website in Webflow. Solutions, services and cases each have their own place, so visitors quickly see what is possible for their situation. Green sets the tone, with large images of installations in the landscape.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van configurator naar CRM.", en: "From configurator to CRM." },
+        body: [
+          {
+            nl: "Met de configurator geeft een bezoeker stap voor stap zijn situatie en wensen door. Via een koppeling gaan die aanvragen direct naar Odoo CRM. Zo ligt bij elk eerste gesprek de juiste informatie al op tafel.",
+            en: "With the configurator, visitors share their situation and wishes step by step. Through an integration, those requests go straight into Odoo CRM. So the right information is already on the table at every first conversation.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Grote projecten beginnen met een kleine, duidelijke stap.", en: "Big projects start with a small, clear step." },
+    ],
+  },
+  "electriffy": {
+    intro: {
+      nl: "Zonne-energie in Namibië, met een plan om die stroom naar Zambia te brengen. Electriffy ontwikkelt projecten met een regeneratief doel, en had een merk nodig dat dat grote verhaal begrijpelijk maakt.",
+      en: "Solar power in Namibia, with a plan to bring that electricity to Zambia. Electriffy develops projects with a regenerative purpose, and needed a brand that makes that big story easy to grasp.",
+    },
+    chapters: [
+      {
+        title: { nl: "Meer dan megawatts.", en: "More than megawatts." },
+        body: [
+          {
+            nl: "Electriffy ontwikkelt zonne- en opslagprojecten in zuidelijk Afrika. Maar water, natuur en lokaal levensonderhoud horen net zo goed bij het verhaal. Investeerders, overheden, industrie en lokale gemeenschappen moesten dat allemaal snappen.",
+            en: "Electriffy develops solar and storage projects in southern Africa. But water, nature and local livelihoods are just as much part of the story. Investors, governments, industry and local communities all had to understand that.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een merk dat verder kijkt.", en: "A brand that looks further." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding, met paars als merkkleur en grote beelden van zon en landschap. De website opent met 'Go beyond energy', en dat is precies de belofte. Het gaat om stroom, en om alles wat die stroom mogelijk maakt.",
+            en: "We developed the branding, with purple as the brand colour and large images of sun and landscape. The website opens with 'Go beyond energy', and that is exactly the promise. It is about power, and about everything that power makes possible.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Stap voor stap uitgelegd.", en: "Explained step by step." },
+        body: [
+          {
+            nl: "De site legt uit wat Electriffy doet: zon en batterijopslag, stroomafnamecontracten en projectontwikkeling. Daarna voor wie, in welke regio's en hoe de regeneratieve aanpak samen met YOUR.earth werkt. Zo staat een groot, technisch project helder neer voor iedereen die erbij betrokken is.",
+            en: "The site explains what Electriffy does: solar and battery storage, power purchase agreements and project development. Then for whom, in which regions and how the regenerative approach works together with YOUR.earth. That way a large, technical project is clear to everyone involved.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een groot project verdient een eenvoudig verhaal.", en: "A big project deserves a simple story." },
+    ],
+  },
+  "your-earth": {
+    intro: {
+      nl: "Bedrijven dragen bij, YOUR.earth verdubbelt elke euro en investeert hem in het landschap waar die bedrijven zelf actief zijn. Een nieuw model, dat geloofwaardig moest overkomen.",
+      en: "Companies contribute, YOUR.earth doubles every euro and invests it in the landscape where those companies operate. A new model that had to come across as credible.",
+    },
+    chapters: [
+      {
+        title: { nl: "Geen sponsoring, maar een model.", en: "Not sponsorship, but a model." },
+        body: [
+          {
+            nl: "YOUR.earth zet het geld als renteloze lening in voor projecten in het landschap: van duintuinen en agroforestry in Nederland tot waterzekerheid in Namibië. Het is geen gift, maar een model met afspraken en metingen. Dat moest je in één bezoek begrijpen.",
+            en: "YOUR.earth deploys the money as interest-free loans for projects in the landscape: from dune gardens and agroforestry in the Netherlands to water security in Namibia. It isn't a donation, but a model with agreements and measurements. You had to understand that in a single visit.",
+          },
+        ],
+      },
+      {
+        title: { nl: "De kaart als verteller.", en: "The map tells the story." },
+        body: [
+          {
+            nl: "We maakten de branding en de website: donkerblauw met fel limoengroen. Een kaart laat de projecten per landschap zien, en terwijl je scrolt, zie je waar het geld terechtkomt.",
+            en: "We created the branding and the website: dark blue with bright lime green. A map shows the projects per landscape, and as you scroll, you see where the money goes.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Gemeten, niet beloofd.", en: "Measured, not promised." },
+        body: [
+          {
+            nl: "De site legt stap voor stap uit hoe het model werkt en hoe resultaten worden gemeten. Zo staan de projecten zelf in de hoofdrol, en wordt een nieuw model voor natuurfinanciering concreet.",
+            en: "The site explains step by step how the model works and how results are measured. That puts the projects themselves in the lead role, and makes a new model for financing nature concrete.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Vertrouwen bouw je met uitleg, niet met grote woorden.", en: "Trust is built with explanation, not big words." },
+    ],
+  },
+  "jalo-energy": {
+    intro: {
+      nl: "Resthout wordt warmte, CO₂ wordt afgevangen en het landschap krijgt er iets voor terug. JALO ontwikkelt in Almelo één fabriek met een hele keten erachter, en dat verhaal moest voor iedereen kloppen.",
+      en: "Residual wood becomes heat, CO₂ is captured and the landscape gets something back. In Almelo, JALO is developing one plant with an entire chain behind it, and that story had to add up for everyone.",
+    },
+    chapters: [
+      {
+        title: { nl: "Eén fabriek, een hele keten.", en: "One plant, a whole chain." },
+        body: [
+          {
+            nl: "JALO ontwikkelt in Almelo een fabriek die van resthout biopellets en lokale warmte maakt, biogene CO₂ afvangt en bijdraagt aan herstel van het landschap. Investeerders, afnemers, boeren en de regio kijken er elk anders naar. Het verhaal moest voor allemaal kloppen.",
+            en: "In Almelo, JALO is developing a plant that turns residual wood into biopellets and local heat, captures biogenic CO₂ and helps restore the landscape. Investors, buyers, farmers and the region each see it differently. The story had to work for all of them.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Het model in delen.", en: "The model, piece by piece." },
+        body: [
+          {
+            nl: "We gaven JALO een eigen merk en bouwden de website. Die legt het JALO-model in delen uit: Nederpellets, lokale warmte, CO₂-verwijdering en het landschapsprogramma met YOUR.earth. Boeren, investeerders en wie meer wil weten over de techniek vinden elk een eigen pagina.",
+            en: "We gave JALO its own brand and built the website. It explains the JALO model piece by piece: Nederpellets, local heat, carbon removal and the landscape programme with YOUR.earth. Farmers, investors and anyone curious about the technology each find a page of their own.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Ook buiten de website.", en: "Beyond the website." },
+        body: [
+          {
+            nl: "Daarnaast maakten we social content en een webinar. Zo vertellen merk, website, social en webinar samen één helder verhaal over energie, CO₂ en landschap.",
+            en: "We also created social content and a webinar. Together, brand, website, social and webinar tell one clear story about energy, CO₂ and landscape.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een ingewikkelde keten vraagt om een simpele volgorde.", en: "A complex chain needs a simple order." },
+    ],
+  },
+  "edgeway-commodities": {
+    intro: {
+      nl: "Traders, quants en leiders voor de wereldwijde handel in grondstoffen en energie. EdgeWay Commodities vindt ze, als kleine en persoonlijke speler tussen grote namen.",
+      en: "Traders, quants and leaders for global commodity and energy markets. EdgeWay Commodities finds them, as a small, personal player among big names.",
+    },
+    chapters: [
+      {
+        title: { nl: "Boutique tussen de grote namen.", en: "Boutique among the big names." },
+        body: [
+          {
+            nl: "EdgeWay Commodities zoekt talent voor handelshuizen, hedgefondsen en energiebedrijven. Persoonlijk, met de telefoon als belangrijkste gereedschap en veel kennis van de markt. Het merk moest die boutique-aanpak uitstralen, en de diensten moesten samenkomen in één logisch verhaal.",
+            en: "EdgeWay Commodities finds talent for trading houses, hedge funds and energy companies. Personally, with the phone as its main tool and deep knowledge of the market. The brand had to convey that boutique approach, and the services had to come together in one logical story.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Drie diensten, één lijn.", en: "Three services, one line." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en bouwden de website in Webflow. Diep blauw, een klassieke schreefletter en een pijl die omhoog wijst. De drie diensten, Search, Intelligence en Advisory, staan helder naast elkaar.",
+            en: "We developed the branding and built the website in Webflow. Deep blue, a classic serif and an arrow pointing upwards. The three services, Search, Intelligence and Advisory, sit clearly side by side.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Elke markt een eigen pagina.", en: "Every market its own page." },
+        body: [
+          {
+            nl: "Elke markt, van Power & Renewables tot Metals, heeft een eigen pagina. Zo vindt een bezoeker snel zijn eigen markt terug, en ziet hij meteen dat EdgeWay die markt kent.",
+            en: "Every market, from Power & Renewables to Metals, has its own page. Visitors quickly find their own market, and see straight away that EdgeWay knows it.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een klein bureau mag groots ogen, zolang het persoonlijk blijft.", en: "A small firm can look big, as long as it stays personal." },
+    ],
+  },
   "maarschall": {
     intro: {
       nl: "Handgemaakt titanium, een eigen sound en een plek onder McLarens, Ferrari's en Lamborghini's. Maarschall verdiende een website die net zo hard binnenkomt als het geluid van de uitlaat.",

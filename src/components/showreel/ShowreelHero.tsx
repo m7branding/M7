@@ -1,4 +1,3 @@
-import { preload } from "react-dom";
 import { SplitText } from "@/components/motion/SplitText";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import type { Locale } from "@/content/types";
@@ -35,11 +34,9 @@ export function ShowreelHero({
   children?: React.ReactNode;
 }) {
   const reels = casesReels(locale);
-  const first = reels[0]?.clips[0]?.poster;
-  if (first) preload(first, { as: "image", fetchPriority: "high" });
   return (
     <section className="srh" aria-labelledby="srh-title">
-      <ShowreelPlayer reels={reels} labels={showreelLabels(locale)} className="srh__frame">
+      <ShowreelPlayer reels={reels} labels={showreelLabels(locale)} className="srh__frame" priority>
         <div className="srh__top">
           <Breadcrumbs items={crumbs} locale={locale} label={crumbsLabel} />
         </div>

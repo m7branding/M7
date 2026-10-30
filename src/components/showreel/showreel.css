@@ -1,0 +1,476 @@
+/* ============================================================
+   Showreel: de speler (ShowreelPlayer, gedeeld met World of M7)
+   en de compacte showreel-hero van /cases (ShowreelHero).
+   ============================================================ */
+
+/* ---------------- Speler ---------------- */
+.srp {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #070708;
+}
+.srp__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.srp__poster,
+.srp__v {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--srp-pos, 50% 50%);
+}
+/* twee video's die elkaar afwisselen: de nieuwe vloeit over de vorige heen */
+.srp__v {
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-soft);
+}
+.srp__v[data-state="on"] {
+  z-index: 2;
+  opacity: 1;
+}
+.srp__v[data-state="off"] {
+  z-index: 1;
+  opacity: 1;
+  transition: none;
+}
+.srp__v[data-state="idle"] {
+  z-index: 0;
+  transition: none;
+}
+.srp__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.srp__inner {
+  position: relative;
+  z-index: 4;
+}
+
+/* balk: bijschrift links, pauze + wisselaar rechts */
+.srp__bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px 28px;
+}
+.srp__ctrl {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(12px, 1.6vw, 22px);
+  flex: none;
+  margin-left: auto;
+}
+.srp__pause {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s;
+}
+.srp__pause:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.srp__reels {
+  display: flex;
+  gap: clamp(10px, 1.3vw, 20px);
+}
+.srp__reel {
+  display: grid;
+  gap: 9px;
+  min-width: clamp(78px, 7.4vw, 112px);
+  padding: 6px 0 8px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.35s;
+}
+.srp__reel:hover,
+.srp__reel[data-state="on"] {
+  color: #fff;
+}
+.srp__reel:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+.srp__reel-label {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.srp__reel-num {
+  flex: none;
+  color: var(--teal);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+.srp__reel-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.srp__line {
+  position: relative;
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.3s;
+}
+.srp__reel:hover .srp__line {
+  background: rgba(255, 255, 255, 0.4);
+}
+.srp__fill {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: linear-gradient(90deg, #3affff, #00ff19);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.srp__reel[data-state="on"] .srp__fill {
+  transform: scaleX(var(--p, 0));
+}
+.srp__reel[data-state="done"] .srp__fill {
+  transform: scaleX(1);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.srp__cap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding-bottom: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+}
+.srp__cap-k {
+  flex: none;
+  color: rgba(255, 255, 255, 0.46);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+}
+.srp__cap-k::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 9px;
+  border-radius: 50%;
+  vertical-align: 1px;
+  background: var(--teal);
+  box-shadow: 0 0 10px var(--teal);
+}
+.srp[data-playing="0"] .srp__cap-k::before {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+}
+.srp__cap-link,
+.srp__cap-txt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: #fff;
+}
+.srp__cap-link > span,
+.srp__cap-txt {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  animation: srp-cap 0.9s var(--ease-out) both;
+}
+.srp__cap-link svg {
+  flex: none;
+  opacity: 0.6;
+  transition:
+    transform 0.4s var(--ease-out),
+    opacity 0.3s;
+}
+.srp__cap-link:hover svg,
+.srp__cap-link:focus-visible svg {
+  opacity: 1;
+  transform: translate3d(2px, -2px, 0);
+}
+.srp__cap-link:hover > span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+@keyframes srp-cap {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0);
+  }
+}
+
+/* ---------------- /cases: compacte showreel-hero ---------------- */
+.srh {
+  --srh-pad: clamp(10px, 2.2vw, 32px);
+  position: relative;
+  padding: var(--header-h) var(--srh-pad) 0;
+  background: #000;
+}
+.srh__frame {
+  --srh-r: clamp(24px, 3vw, 44px);
+  /* bewust iets lager dan het scherm: de catalogus eronder komt al in beeld */
+  height: min(78svh, 780px);
+  min-height: 470px;
+  border-radius: var(--srh-r);
+  /* video-lagen (eigen compositorlaag) worden niet altijd door border-radius geknipt */
+  clip-path: inset(0 round var(--srh-r));
+}
+.srh__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+.srh__frame .srp__v,
+.srh__frame .srp__poster {
+  filter: saturate(0.95) brightness(0.92);
+}
+.srh__frame .srp__shade {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 22%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.58) 28%, rgba(0, 0, 0, 0.12) 58%, rgba(0, 0, 0, 0) 74%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.66) 0%, rgba(0, 0, 0, 0.22) 44%, rgba(0, 0, 0, 0) 64%);
+}
+.srh__frame .srp__inner {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  padding: clamp(18px, 2.4vw, 36px) clamp(18px, 3.4vw, 56px) clamp(10px, 1.4vw, 18px);
+}
+.srh__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.srh .crumbs ol {
+  color: rgba(255, 255, 255, 0.55);
+}
+.srh .crumbs [aria-current] {
+  color: rgba(255, 255, 255, 0.85);
+}
+.srh__main {
+  align-self: end;
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+  max-width: 860px;
+  padding-bottom: clamp(18px, 2.2vw, 30px);
+}
+.srh__title {
+  max-width: 15ch;
+  font-size: clamp(2.7rem, 5.6vw, 5.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+.srh__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  line-height: 1.6;
+}
+.srh__facts {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+.srh__fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.srh__fact + .srh__fact {
+  padding-left: 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+}
+.srh__pill {
+  padding: 1px 8px;
+  font-size: 0.86em;
+}
+.srh__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 30px;
+}
+/* doorsteek naar World of M7: glazen pill */
+.srh__world {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px 9px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
+}
+.srh__world svg {
+  color: var(--teal);
+  transition: transform 0.4s var(--ease-out);
+}
+.srh__world:hover {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(58, 255, 255, 0.45);
+}
+.srh__world:hover svg {
+  transform: translate3d(2px, -2px, 0);
+}
+.srh__frame .srp__bar {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+/* de catalogus komt direct onder de hero al in beeld */
+.srh + .ov-body {
+  padding-top: clamp(26px, 3.2vw, 44px);
+}
+
+@media (max-height: 760px) and (min-width: 761px) {
+  .srh__title {
+    font-size: clamp(2.6rem, 5vw, 4.6rem);
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .srp__reels {
+    gap: 12px;
+  }
+  .srp__reel {
+    min-width: 0;
+    max-width: 128px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* smal: bijschrift boven de wisselaar, de wisselaar over de hele breedte */
+  .srh__frame .srp__bar {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+  .srp__cap {
+    flex: 1 1 100%;
+    padding-bottom: 0;
+  }
+  .srp__ctrl {
+    flex: 1 1 100%;
+    margin-left: 0;
+  }
+  .srp__reels {
+    flex: 1;
+    min-width: 0;
+  }
+  .srp__reels > li {
+    flex: 1;
+    min-width: 0;
+  }
+  .srp__reel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .srh {
+    --srh-pad: 10px;
+  }
+  .srh__frame {
+    --srh-r: 26px;
+    height: min(74svh, 640px);
+    min-height: 460px;
+  }
+  .srh__frame .srp__inner {
+    padding: 16px 18px 8px;
+  }
+  .srh__frame .srp__shade {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 20%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0.05) 100%);
+  }
+  /* staand scherm: het midden van de liggende clip */
+  .srh__frame .srp__v,
+  .srh__frame .srp__poster {
+    object-position: 50% 50%;
+  }
+  .srh__main {
+    gap: 14px;
+    padding-bottom: 14px;
+  }
+  .srh__title {
+    font-size: clamp(2.35rem, 10.6vw, 3.5rem);
+    line-height: 1;
+  }
+  .srh__line {
+    font-size: 0.95rem;
+    gap: 8px 14px;
+  }
+  .srh__cta {
+    gap: 12px 22px;
+  }
+  .srp__cap {
+    font-size: 0.74rem;
+    gap: 10px;
+  }
+  .srp__pause {
+    width: 32px;
+    height: 32px;
+  }
+  .srp__reels {
+    gap: 6px;
+  }
+  /* alleen de nummers; de titel van de actieve reel staat ernaast */
+  .srp__reel {
+    gap: 7px;
+    padding-bottom: 6px;
+  }
+  .srp__reel-title {
+    display: none;
+  }
+  .srp__reel[data-state="on"] .srp__reel-title {
+    display: block;
+  }
+  .srp__reels > li:has(.srp__reel[data-state="on"]) {
+    flex: 3.2;
+  }
+}
