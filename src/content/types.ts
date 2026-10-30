@@ -219,8 +219,28 @@ export type StoryBlock =
   /** De resultaten (`results`) als grote cijfers. */
   | { type: "results" };
 
+/**
+ * Uitgewerkt projectverhaal (src/content/case-stories.ts), los van de basisgegevens in cases*.ts.
+ * Alleen feiten die kloppen: geen verzonnen cijfers, resultaten, jaartallen of klantcitaten.
+ */
+export interface CaseNarrative {
+  /** Openingstekst die bij het scrollen woord voor woord oplicht. Zonder intro: `challenge`. */
+  intro?: T;
+  /** 2–4 hoofdstukken: een cinematische titel met 1–2 korte, editorial alinea's. Tussen de beeldsecties door. */
+  chapters?: { title: T; body: T[] }[];
+  /**
+   * Korte uitspraken in de stem van M7 (geen klantcitaten), groot en schermvullend in de merkkleur
+   * tussen de beelden door. Een echte review van de klant (`review`) krijgt de voorrang.
+   */
+  statements?: T[];
+}
+
 /* ---------- Case / project ---------- */
 export interface Case {
+  /** Logo van de klant (liefst wit/mono SVG of PNG met transparantie), rechtsonder in de hero op glas. */
+  logo?: string;
+  /** Uitgewerkt projectverhaal; wordt uit case-stories.ts toegevoegd. */
+  narrative?: CaseNarrative;
   slug: string;
   client: string;
   title: T;
@@ -242,7 +262,7 @@ export interface Case {
    * Gerenderde hero-video (realistische 3D-mockup, rustige camerabeweging) met poster. Gaat voor de
    * device-hero; tekst links, video rechts in een afgerond kader (mobiel eronder).
    */
-  heroVideo?: { src: string; poster?: string };
+  heroVideo?: { src: string; poster?: string; /** Staande versie voor mobiel (bv. 720×1280). */ srcMobile?: string; posterMobile?: string };
   gallery?: string[];
   color: string;
   challenge: T;
