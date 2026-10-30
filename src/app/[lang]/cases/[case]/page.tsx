@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { DeviceHero } from "@/components/cases/DeviceHero";
 import { heroShowcase } from "@/components/cases/heroShowcase";
 import { ShowcaseHero } from "@/components/cases/ShowcaseHero";
+import { VideoHero } from "@/components/cases/VideoHero";
 import { ScrollShowcase } from "@/components/motion/ScrollShowcase";
 import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
@@ -60,14 +61,17 @@ export default function CasePage({ params }: P) {
   // bewegende hero: de bestaande showcase van deze klant, anders de device-hero als er lange
   // screenshots zijn (een eigen hero-beeld/video gaat altijd voor)
   const show = c.hero ? undefined : heroShowcase(c.slug);
-  const screens = !c.hero && !show && (c.screens?.desktop || c.screens?.mobile) ? c.screens : undefined;
+  // gerenderde hero-video (realistische 3D-mockup) gaat voor de device-hero
+  const video = !c.hero && !show ? c.heroVideo : undefined;
+  const screens = !c.hero && !show && !video && (c.screens?.desktop || c.screens?.mobile) ? c.screens : undefined;
+  const devices = !!(screens || show || video);
 
   return (
     <article className="case" style={{ ["--cc" as string]: c.color, ["--accent" as string]: services[0]?.color }}>
       {/* ---------- Hero: schermvullend beeld (ingesprongen, afgerond) met donkere overlay ---------- */}
-      <section className={`case-hero${screens || show ? " case-hero--devices" : ""}${show ? " case-hero--show" : ""}`}>
+      <section className={`case-hero${devices ? " case-hero--devices" : ""}${show ? " case-hero--show" : ""}${video ? " case-hero--video" : ""}`}>
         <div className="case-hero__frame">
-          {screens || show ? null : (
+          {devices ? null : (
             <>
               <HeroScene>
                 <div className="case-hero__media">
@@ -116,6 +120,13 @@ export default function CasePage({ params }: P) {
           </div>
           {show ? (
             <ShowcaseHero slug={show} />
+          ) : video ? (
+            <VideoHero
+              src={video.src}
+              poster={video.poster}
+              color={c.color}
+              label={locale === "nl" ? `3D-mockup van het werk voor ${c.client} op Apple-apparaten` : `3D mockup of the work for ${c.client} on Apple devices`}
+            />
           ) : screens ? (
             <DeviceHero
               screens={screens}

@@ -1,12 +1,17 @@
 #!/usr/bin/env node
 /* ============================================================
    Schrijft src/content/generated/case-media.ts op basis van wat er
-   in public/media/cases/<slug>/ staat (m-*.webp, screen-*.webp).
+   in public/media/cases/<slug>/ staat (m-*.webp, screen-*.webp, en de
+   realistische 3D-renders r-*.webp / r-hero*.mp4 uit de Blender-pipeline).
+   - r-*.webp (behalve r-hero*) komen VOORAAN in de galerij, op naam gesorteerd (r-01-…, r-02-…).
+   - r-hero*.mp4 + gelijknamige .webp-poster wordt de hero-video (heroVideo) van de case;
+     bij meerdere: r-hero.mp4, anders de eerste op naam, of config.json heroVideo[slug] = "r-hero-b.mp4".
    Los te draaien (node scripts/mockups/write-manifest.mjs) of via compose.mjs.
    Instellingen per slug: scripts/mockups/config.json
      replaceCover: slugs waarvan de mockup-cover de bestaande cover vervangt
      noScreens:    slugs zonder bewegende device-hero (bv. eigen showcase)
      exclude:      slugs die niet in de manifest mogen
+     heroVideo:    { slug: "r-hero-x.mp4" } welke hero-video (bij meerdere r-hero*.mp4)
    ============================================================ */
 
 import fs from "node:fs";
@@ -31,14 +36,23 @@ export function writeManifest({ log = false } = {}) {
   for (const slug of fs.readdirSync(MEDIA).sort()) {
     const dir = path.join(MEDIA, slug);
     if (!fs.statSync(dir).isDirectory() || exclude.has(slug)) continue;
-    const files = fs.readdirSync(dir).filter((f) => /^(m-.+|screen-(desktop|mobile|tablet))\.webp$/.test(f));
+    const all = fs.readdirSync(dir);
+    const files = all.filter((f) => /^(m-.+|r-.+|screen-(desktop|mobile|tablet))\.webp$/.test(f) || /^r-hero.*\.mp4$/.test(f));
     if (!files.length) continue;
     for (const f of files) bytes += fs.statSync(path.join(dir, f)).size;
     const url = (f) => `/media/cases/${slug}/${f}`;
     const e = {};
     if (files.includes("m-cover.webp")) e.cover = url("m-cover.webp");
-    const gallery = GALLERY_ORDER.map((g) => `m-${g}.webp`).filter((f) => files.includes(f));
+    // realistische renders eerst (op naam), dan de m-* mockups in vaste volgorde
+    const renders = files.filter((f) => /^r-.+\.webp$/.test(f) && !/^r-hero/.test(f)).sort();
+    const gallery = [...renders, ...GALLERY_ORDER.map((g) => `m-${g}.webp`).filter((f) => files.includes(f))];
     if (gallery.length) e.gallery = gallery.map(url);
+    const videos = files.filter((f) => /^r-hero.*\.mp4$/.test(f)).sort();
+    const pick = conf.heroVideo?.[slug] && videos.includes(conf.heroVideo[slug]) ? conf.heroVideo[slug] : videos.includes("r-hero.mp4") ? "r-hero.mp4" : videos[0];
+    if (pick) {
+      const poster = pick.replace(/\.mp4$/, ".webp");
+      e.heroVideo = { src: url(pick), ...(files.includes(poster) ? { poster: url(poster) } : {}) };
+    }
     if (!noScreens.has(slug)) {
       const scr = {};
       for (const k of ["desktop", "mobile", "tablet"]) if (files.includes(`screen-${k}.webp`)) scr[k] = url(`screen-${k}.webp`);
@@ -55,6 +69,12 @@ export function writeManifest({ log = false } = {}) {
       if (e.screens)
         lines.push(
           `    screens: { ${Object.entries(e.screens)
+            .map(([k, v]) => `${k}: ${JSON.stringify(v)}`)
+            .join(", ")} },`,
+        );
+      if (e.heroVideo)
+        lines.push(
+          `    heroVideo: { ${Object.entries(e.heroVideo)
             .map(([k, v]) => `${k}: ${JSON.stringify(v)}`)
             .join(", ")} },`,
         );

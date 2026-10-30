@@ -238,6 +238,11 @@ export interface Case {
    * een MacBook/iPhone/iPad rustig doorscrollen). Zonder screens: de gewone hero met `hero`/cover.
    */
   screens?: { desktop?: string; mobile?: string; tablet?: string };
+  /**
+   * Gerenderde hero-video (realistische 3D-mockup, rustige camerabeweging) met poster. Gaat voor de
+   * device-hero; tekst links, video rechts in een afgerond kader (mobiel eronder).
+   */
+  heroVideo?: { src: string; poster?: string };
   gallery?: string[];
   color: string;
   challenge: T;

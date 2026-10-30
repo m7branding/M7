@@ -375,6 +375,16 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
   "misterglass": {
     cover: "/media/cases/misterglass/m-cover.webp",
     gallery: [
+      "/media/cases/misterglass/r-01-desk.webp",
+      "/media/cases/misterglass/r-02-macbook.webp",
+      "/media/cases/misterglass/r-03-phone-card.webp",
+      "/media/cases/misterglass/r-04-floating-ui.webp",
+      "/media/cases/misterglass/r-05-iso.webp",
+      "/media/cases/misterglass/r-06-ipad-top.webp",
+      "/media/cases/misterglass/r-07-browsers.webp",
+      "/media/cases/misterglass/r-08-macro.webp",
+      "/media/cases/misterglass/r-09-iphones.webp",
+      "/media/cases/misterglass/r-10-glass.webp",
       "/media/cases/misterglass/m-ipad.webp",
       "/media/cases/misterglass/m-phones.webp",
       "/media/cases/misterglass/m-detail.webp",
@@ -382,6 +392,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/misterglass/m-phones-angle.webp",
     ],
     screens: { desktop: "/media/cases/misterglass/screen-desktop.webp", mobile: "/media/cases/misterglass/screen-mobile.webp" },
+    heroVideo: { src: "/media/cases/misterglass/r-hero-a.mp4", poster: "/media/cases/misterglass/r-hero-a.webp" },
   },
   "monvy": {
     cover: "/media/cases/monvy/m-cover.webp",

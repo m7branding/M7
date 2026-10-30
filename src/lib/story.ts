@@ -11,7 +11,10 @@ export function storyFor(c: Case): StoryBlock[] {
   if (c.story?.length) return c.story;
   const nl = getDict("nl").cases;
   const en = getDict("en").cases;
-  const imgs = [c.cover, ...(c.gallery ?? [])].filter((x): x is string => !!x);
+  // gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline) gaan vóór de cover, daarna de rest
+  const gallery = c.gallery ?? [];
+  const renders = gallery.filter((g) => /\/r-[^/]+$/.test(g));
+  const imgs = [...renders, c.cover, ...gallery.filter((g) => !renders.includes(g))].filter((x): x is string => !!x);
   const review = getReview(c.review);
   const apps = applicationsBySlugs(c.applications);
 

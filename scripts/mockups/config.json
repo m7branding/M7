@@ -1,5 +1,5 @@
 {
-  "_doc": "Instellingen voor write-manifest.mjs. replaceCover: de mockup-cover vervangt de huidige (zwakkere/lage-resolutie) cover. noScreens: geen bewegende device-hero. exclude: niet in de manifest.",
+  "_doc": "Instellingen voor write-manifest.mjs. replaceCover: de mockup-cover vervangt de huidige (zwakkere/lage-resolutie) cover. noScreens: geen bewegende device-hero. exclude: niet in de manifest. heroVideo: per slug welke r-hero*.mp4 de hero-video wordt (standaard r-hero.mp4, anders de eerste op naam).",
   "replaceCover": [
     "repairlab",
     "jurgh-detailing",
@@ -10,5 +10,8 @@
   "exclude": [
     "expociety-branding",
     "plenty-planet-content"
-  ]
+  ],
+  "heroVideo": {
+    "misterglass": "r-hero-a.mp4"
+  }
 }
