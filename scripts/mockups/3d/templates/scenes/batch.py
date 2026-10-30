@@ -64,7 +64,7 @@ def prep_jobs():
 
 # ------------------------------------------------------------------ choices per project
 def video_kind(p, idx):
-    """B (dark plinth) for dark brand colours, A (pastel gravity) for light ones; near-greys alternate."""
+    """B (dark plinth) for dark brand colours, A (gravity, neutral/navy backdrop) for light ones; near-greys alternate."""
     r, g, b = C.hex2rgb(p['color'])
     l = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255
     sat = (max(r, g, b) - min(r, g, b)) / 255
@@ -75,6 +75,32 @@ def video_kind(p, idx):
 
 def cover_template(p, idx):
     return COVER_FROM[idx % len(COVER_FROM)]
+
+
+# ------------------------------------------------------------------ backdrops (transparent templates)
+ASSIGN_FILE = os.path.join(R12, 'bg-assign.json')
+# per template: variants that don't work there -> replacement (T2: the close-up phone's bezel edge vanishes on near-black)
+BG_OVERRIDE = {'t2_closeup': {'near-black': 'anthracite'}}
+
+
+def bg_variant(slug, t):
+    import backdrops as BD
+    a = json.load(open(ASSIGN_FILE)) if os.path.exists(ASSIGN_FILE) else {}
+    v = a.get(slug, {}).get('variant', 'light-grey')
+    return BG_OVERRIDE.get(t, {}).get(v, v)
+
+
+def still_backdrop(t, variant, pp):
+    """Project-independent backdrop for a still template, cached on disk (float16)."""
+    import backdrops as BD
+    f = os.path.join(C.TPL, t, 'bg', variant + '.npz')
+    if os.path.exists(f):
+        z = np.load(f); return z['img'].astype(np.float32), float(z['amp'])
+    meta = json.load(open(os.path.join(C.TPL, t, 'meta.json')))
+    img, amp = BD.backdrop(variant, meta['camera'], pp['W'], pp['H'], alpha=pp['a'])
+    os.makedirs(os.path.dirname(f), exist_ok=True)
+    np.savez(f, img=img.astype(np.float16), amp=amp)
+    return img, amp
 
 
 # ------------------------------------------------------------------ stills
@@ -97,7 +123,8 @@ def stills_one(args):
         for r in roles:
             if r not in disp_cache:
                 disp_cache.update(P.displays_for(p, [r], caps=caps))
-        img = Image.fromarray(C.finish(pp, disp_cache, bg_srgb=C.pastel(p['color'])))
+        bg = still_backdrop(t, bg_variant(slug, t), pp) if pp['transparent'] else None
+        img = Image.fromarray(C.finish(pp, disp_cache, bg=bg))
         src = os.path.join(d, 'src'); os.makedirs(src, exist_ok=True)
         img.save(os.path.join(src, name + '.png'), compress_level=1)        # lossless source for fit()
         img.save(os.path.join(d, name + '.webp'), quality=88, method=6)
@@ -136,7 +163,8 @@ def video_one(args):
     for r, d in ds.items():
         vis = (d.H - d.top) * d.cscale
         amp[r] = max(0.0, min(d.max_offset - start[r], (1.6 if d.W > 2000 else 2.2) * vis))
-    bg = C.pastel(p['color'])
+    import backdrops as BD
+    variant = bg_variant(slug, t)
     d_out = os.path.join(OUT, slug); os.makedirs(d_out, exist_ok=True)
     mp4 = os.path.join(d_out, 'r-hero.mp4')
     W, H = first['W'], first['H']
@@ -154,7 +182,9 @@ def video_one(args):
         s = scroll_curve(f, F)
         for r, d in ds.items():
             d.offset = start[r] + amp[r] * s
-        img = C.finish(cache[u], ds, bg_srgb=bg, aniso=3)
+        pp = cache[u]
+        bg = BD.backdrop(variant, meta['cameras'][f'f_{u:04d}'], pp['W'], pp['H'], alpha=pp['a'], phase=f / F) if pp['transparent'] else None
+        img = C.finish(pp, ds, bg=bg, aniso=3)
         if f == 0:
             Image.fromarray(img).resize((OUT_W, OUT_H), Image.LANCZOS).save(os.path.join(d_out, 'r-hero.webp'), quality=82, method=6)
         pr.stdin.write(img.tobytes())

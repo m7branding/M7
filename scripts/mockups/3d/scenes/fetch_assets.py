@@ -7,7 +7,7 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'assets')
 API = 'https://api.polyhaven.com/files/'
 MODELS = ['potted_plant_02', 'pachira_aquatica_01', 'ceramic_vase_03', 'potted_plant_04']
 TEXTURES = {'oak_veneer_03': '2k', 'oak_veneer_01': '2k', 'concrete_floor_01': '2k', 'fabric_leather_02': '2k', 'slate_floor_02': '2k',
-            'smooth_concrete_floor': '2k', 'concrete_wall_006': '2k'}
+            'smooth_concrete_floor': '2k', 'concrete_wall_006': '2k', 'white_plaster_02': '2k', 'rough_linen': '2k'}
 HDRIS = {'studio_small_09': '2k', 'white_studio_03': '2k', 'photo_studio_loft_hall': '2k', 'studio_kontrast_03': '2k', 'white_home_studio': '2k'}
 
 def get(url, dst):

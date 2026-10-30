@@ -33,7 +33,11 @@ for s in slugs:
                 st = d.offset; vis = (d.H - d.top) * d.cscale
                 amp = max(0.0, min(d.max_offset - st, (1.6 if d.W > 2000 else 2.2) * vis))
                 d.offset = st + amp * B.scroll_curve(u, Ftot)
-            im = Image.fromarray(C.finish(pp, ds, bg_srgb=C.pastel(p['color']), aniso=3)); im.thumbnail((560, 400))
+            bg = None
+            if pp['transparent']:
+                import backdrops as BD
+                bg = BD.backdrop(B.bg_variant(s, t), meta['cameras'][f'f_{u:04d}'], pp['W'], pp['H'], alpha=pp['a'], phase=u / Ftot)
+            im = Image.fromarray(C.finish(pp, ds, bg=bg, aniso=3)); im.thumbnail((560, 400))
             cells.append((im, f'{kind} frame {u}'))
         rows.append((f'{s}  animation {kind} ({"assigned" if B.video_kind(p, list(PR).index(s)) == kind else "alt"})', cells))
 W = 6 * 570 + 10

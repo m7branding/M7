@@ -134,13 +134,42 @@ def world(strength=1.0, color=(1, 1, 1), hdri=None, rot_z=0.0, sat=1.0):
     return w
 
 
+def cam_info():
+    """Camera of the current scene (world matrix + intrinsics) so the compositor can project backdrops
+    (floor textures, light pools) exactly into the image."""
+    sc = bpy.context.scene; cam = sc.camera; bpy.context.view_layer.update()
+    cd = cam.data
+    return dict(matrix=[list(map(float, r)) for r in cam.matrix_world], lens=cd.lens, sensor_width=cd.sensor_width,
+                sensor_height=cd.sensor_height, sensor_fit=cd.sensor_fit, shift=[cd.shift_x, cd.shift_y],
+                ortho=cd.ortho_scale if cd.type == 'ORTHO' else None)
+
+
+def meta_only():
+    """R12_META_ONLY=1: build the scene and write meta.json (incl. cameras) without rendering."""
+    return os.environ.get('R12_META_ONLY') == '1'
+
+
 def write_meta(name, extra=None):
     sc = bpy.context.scene
     d = dict(name=name, w=sc.render.resolution_x, h=sc.render.resolution_y, transparent=sc.render.film_transparent,
              screens={str(k): dict(type=v['type'], role=v['role']) for k, v in _SCREENS.items()}, glass=glass_rects())
+    if sc.camera is not None:
+        d['camera'] = cam_info()
     if extra: d.update(extra)
     os.makedirs(os.path.join(TPL, name), exist_ok=True)
-    with open(os.path.join(TPL, name, 'meta.json'), 'w') as f:
+    p = os.path.join(TPL, name, 'meta.json')
+    if os.path.exists(p):
+        old = json.load(open(p))
+        if 'cameras' in old: d['cameras'] = old['cameras']
+    with open(p, 'w') as f:
+        json.dump(d, f, indent=1)
+
+
+def _store_frame_camera(name, base):
+    p = os.path.join(TPL, name, 'meta.json')
+    d = json.load(open(p)) if os.path.exists(p) else {}
+    d.setdefault('cameras', {})[base] = cam_info()
+    with open(p, 'w') as f:
         json.dump(d, f, indent=1)
 
 
@@ -148,6 +177,10 @@ def render_frame(name, base):
     import time
     d = os.path.join(TPL, name)
     os.makedirs(d, exist_ok=True)
+    if base.startswith('f_'):
+        _store_frame_camera(name, base)
+    if meta_only():
+        return 0.0
     set_output(d, base)
     t = time.time()
     bpy.ops.render.render(write_still=False)

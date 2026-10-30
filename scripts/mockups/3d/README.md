@@ -42,7 +42,7 @@ Elke scène wordt **één keer** gerenderd; daarna worden de schermen van elk pr
 - `templates/lib/tcomp.py` (compositor): `prepare()` ontwikkelt het sjabloon (AgX buiten het scherm) en slaat
   per schermpixel de displaycoördinaten + UV-afgeleiden op; `finish()` zet de inhoud erin: mip-mapped,
   anisotroop (OpenCV remap) en kleurexact (sRGB, met 25% van de glasreflectie), en legt transparante sjablonen
-  op een pastel van de merkkleur (HSL-lichtheid 0,86, verzadiging ≥ 0,42) met de echte schaduw.
+  op een neutrale of diepblauwe achtergrond (`templates/lib/backdrops.py`, zie hieronder) met de echte schaduw.
 - `templates/lib/proj.py`: per project de schermbeelden (captures + iOS-statusbalk/Safari-pil,
   macOS-menubalk/werkbalk, iPadOS-balk) en welke capture op welk toestel komt (`ROLE_SOURCES`).
 - Sjablonen: `t1_gravity` (zwevende, kantelende iPhones + iPad), `t2_closeup`, `t3_plinth` (MacBook op
@@ -70,3 +70,24 @@ Rendertijd sjablonen (4 CPU-cores): stills 4–8 min elk, animatie A 80 frames �
 (samen ~2,5 h). Compositen: ~25 s per project voor alle stills, ~60 s per video.
 Per project: `r-01-gravity`, `r-02-closeup`, `r-03-plinth`, `r-04-floating-ipad`, `r-05-ipads` (.webp),
 `r-cover.webp` (2400×1500) en `r-hero.mp4` + `r-hero.webp` (animatie A of B, afhankelijk van de merkkleur).
+
+### Achtergronden (`templates/lib/backdrops.py`, ronde 12b)
+
+T1, T2 en animatie A staan niet meer op een merkkleur maar op een klein, vast setje van 14 achtergronden:
+licht (white #F2F2F0, light-grey #E3E4E6, mid-grey #CDCFD2, white-leaves, grey-plaster, white-linen, white-dune),
+donker (graphite #2A2B2F, anthracite #1D1E21, near-black #0D0E10, anthracite-plaster, graphite-dune) en
+diepblauw (navy-glow #070C1A, navy-nebula #060B18).
+
+- Elke achtergrond wordt via de opgeslagen camera (`meta.json` → `camera` / `cameras`, schrijf die zonder te renderen met
+  `R12_PV=0 R12_META_ONLY=1 ../../venv/bin/python t1_gravity.py`) op de echte vloer (z = 0) geprojecteerd: lichtpoel,
+  texturen en bladschaduw staan in perspectief en krijgen echte parallax in de video.
+- Bladschaduw: `scenes/gobo_leaves.py` rendert de gobo (CC0-planten) eenmalig naar `bgtex/leaves.png`.
+  Pleister en linnen: Poly Haven `white_plaster_02`, `rough_linen` (CC0, alleen de diffuse kaart, hoogdoorlaat, ±2–3,5 %).
+  Duin-banen en nevel: procedureel.
+- Donker en blauw: lichtpoel onder de toestellen plus een brede, zwakke halo uit het toestel-silhouet (scheiding van
+  space black zonder 'outer glow'). Statische fijne korrel in beeldruimte tegen banding (WebP en H.264).
+- In animatie A drijven poel en nevel langzaam mee (naadloze loop).
+- Toewijzing (`scenes/assign_bg.py` → `bg-assign.json`): de 40 % donkerste sites (luminantie van hero-desktop + hero-mobile)
+  krijgen licht, de rest donker (35 %) of blauw (25 %); varianten per quotum langs de volgorde van het /cases-grid, zodat
+  buren verschillen (volgorde: `work/grid_order.txt`, één slug per regel zoals op /cases: uitgelicht, met cover, zonder cover; zonder dat bestand de volgorde van projects.json). `batch.py` → `BG_OVERRIDE`: op T2 wordt near-black anthracite (de rand van de close-up-iPhone verdwijnt
+  anders). Achtergronden per sjabloon worden gecachet in `tpl/<sjabloon>/bg/`.

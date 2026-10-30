@@ -378,8 +378,15 @@ def prepare(fr, exposure=0.0, look='AgX - Medium High Contrast', vignette=0.0):
     return P
 
 
-def finish(P, displays, bg_srgb=None, refl=0.25, aniso=6):
-    """Project part: screen contents + background. Returns uint8 HxWx3."""
+def finish(P, displays, bg_srgb=None, refl=0.25, aniso=6, bg=None):
+    """Project part: screen contents + background. Returns uint8 HxWx3.
+    bg: optional (linear HxWx3 backdrop, grain amplitude in 8-bit levels) from backdrops.backdrop(); otherwise a
+    flat bg_srgb colour."""
+    return over(P, foreground(P, displays, refl, aniso), bg_srgb=bg_srgb, bg=bg)
+
+
+def foreground(P, displays, refl=0.25, aniso=6):
+    """Device layer with the project's screens (display-referred, H x W x 3 float)."""
     H, Wd = P['H'], P['W']
     out = P['dev'].reshape(-1, 3).copy()
     for s in P['screens']:
@@ -394,10 +401,22 @@ def finish(P, displays, bg_srgb=None, refl=0.25, aniso=6):
     out = out.reshape(H, Wd, 3)
     if P['vg'] is not None:
         out = out * P['vg'][..., None]
+    return out
+
+
+def over(P, fg, bg_srgb=None, bg=None):
+    """Composite the device layer over the backdrop (transparent templates keep their shadow-catcher shadows)."""
+    H, Wd = P['H'], P['W']
+    out = fg
     if P['transparent']:
-        bgl = oetf(background_lin(H, Wd, bg_srgb) * P['sc'])
+        if bg is not None:
+            from backdrops import grain
+            bl, amp = bg
+            bgl = oetf(bl * P['sc']) + grain(H, Wd, amp)
+        else:
+            bgl = oetf(background_lin(H, Wd, bg_srgb) * P['sc'])
         a = P['a'][..., None]
-        out = a * out + (1 - a) * bgl
+        out = a * fg + (1 - a) * bgl
     return (np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8)
 
 

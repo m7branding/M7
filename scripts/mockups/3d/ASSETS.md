@@ -27,5 +27,10 @@ Fonts used inside textures (status bar, browser toolbar, keyboard legends): Inte
 |---|---|---|---|---|
 | concrete_wall_006 | PBR texture (2k) | https://polyhaven.com/a/concrete_wall_006 | CC0 | T3 plinth, T4 pedestal, T5 surface, animation B |
 | smooth_concrete_floor | PBR texture (2k) | https://polyhaven.com/a/smooth_concrete_floor | CC0 | downloaded, not used |
+| white_plaster_02 | PBR texture (2k, diffuse only) | https://polyhaven.com/a/white_plaster_02 | CC0 | backdrops grey-plaster / anthracite-plaster (desaturated, high-passed, ±3.5 %) |
+| rough_linen | PBR texture (2k, diffuse only) | https://polyhaven.com/a/rough_linen | CC0 | backdrop white-linen (desaturated, high-passed, ±2 %) |
+| pachira_aquatica_01 + potted_plant_02 | glTF models (already in r11) | https://polyhaven.com/a/pachira_aquatica_01 , https://polyhaven.com/a/potted_plant_02 | CC0 | leaf-shadow gobo for the white-leaves backdrop (scenes/gobo_leaves.py -> bgtex/leaves.png) |
 
 The templates use no HDRI (area lights + flat world colour). OpenCV (Apache 2.0) samples the screen textures.
+
+Backdrops (round 12b): the dune bands and the navy nebula are procedural (numpy fBm), no assets.
