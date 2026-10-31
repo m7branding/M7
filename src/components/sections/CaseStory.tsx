@@ -19,17 +19,22 @@ const plain = (s: string) => s.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, 
  * beeld naast tekst, tijdlijn/checklist en de cijfers.
  */
 export function CaseStory({ blocks, c, locale }: { blocks: CaseBlock[]; c: Case; locale: Locale }) {
+  // per masonry: welke sectie (ritme) en het nummer van het eerste beeld (doorlopende alt-teksten)
   let gallery = 0;
+  let shown = 0;
   return (
     <>
-      {blocks.map((b, i) => (
-        <Block key={i} b={b} c={c} locale={locale} i={i} seed={b.type === "masonry" ? gallery++ : 0} />
-      ))}
+      {blocks.map((b, i) => {
+        const seed = b.type === "masonry" ? gallery++ : 0;
+        const start = shown;
+        if (b.type === "masonry") shown += b.images.length;
+        return <Block key={i} b={b} c={c} locale={locale} i={i} seed={seed} start={start} />;
+      })}
     </>
   );
 }
 
-function Block({ b, c, locale, i, seed }: { b: CaseBlock; c: Case; locale: Locale; i: number; seed: number }) {
+function Block({ b, c, locale, i, seed, start }: { b: CaseBlock; c: Case; locale: Locale; i: number; seed: number; start: number }) {
   switch (b.type) {
     case "intro":
       return (
@@ -47,7 +52,7 @@ function Block({ b, c, locale, i, seed }: { b: CaseBlock; c: Case; locale: Local
       return <CaseChapter title={b.h} body={b.body} quote={b.quote} locale={locale} id={`story-${i}`} />;
 
     case "masonry":
-      return <CaseGallery images={b.images} client={c.client} locale={locale} seed={seed} />;
+      return <CaseGallery images={b.images} client={c.client} locale={locale} seed={seed} start={start} />;
 
     case "media":
       return <CaseMedia image={b.image} video={b.video} poster={b.poster} position={b.position} quote={b.quote ? tr(b.quote, locale) : undefined} alt={c.client} />;

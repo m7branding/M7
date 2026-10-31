@@ -483,6 +483,12 @@ html.js .cx-words__w {
   color: #fff;
   text-wrap: balance;
 }
+/* lange titels (eigen story's): kleiner, zodat ze niet over vijf regels vallen */
+.cx-chapter__title.is-long {
+  max-width: 17ch;
+  font-size: clamp(2.3rem, 5vw, 5.2rem);
+  line-height: 1;
+}
 .cx-chapter__body {
   grid-column: 5 / span 7;
 }
@@ -670,7 +676,7 @@ html.js [data-reveal="cx"].is-in > img {
 .cx-say__grow .cx-grow__frame {
   display: grid;
   align-items: center;
-  min-height: 100svh;
+  min-height: min(100svh, 1080px);
   background:
     radial-gradient(90% 80% at 0% 100%, color-mix(in srgb, var(--glow) 80%, transparent), transparent 62%),
     radial-gradient(60% 60% at 100% 0%, color-mix(in srgb, var(--glow) 38%, transparent), transparent 70%),
@@ -1011,14 +1017,15 @@ html.js [data-reveal="cx"].is-in > img {
   }
 }
 .cx-lb__stage {
+  --lb-y: clamp(68px, 9vh, 100px);
   position: absolute;
-  inset: clamp(64px, 8vh, 96px) clamp(12px, 7vw, 120px);
+  inset: var(--lb-y) clamp(12px, 7vw, 120px);
   display: grid;
   place-items: center;
 }
 .cx-lb__img {
   max-width: 100%;
-  max-height: 100%;
+  max-height: calc(100dvh - 2 * var(--lb-y));
   width: auto;
   height: auto;
   object-fit: contain;

@@ -932,7 +932,7 @@ export const caseNarratives: Record<string, CaseNarrative> = {
       },
     ],
     statements: [
-      { nl: "Hoe complexer de markt, hoe rustiger de website.", en: "The more complex the market, the calmer the website." },
+      { nl: "Een rustige website brengt orde in een drukke markt.", en: "A calm website brings order to a busy market." },
     ],
   },
   "steddion-tools": {
@@ -1849,7 +1849,7 @@ export const caseNarratives: Record<string, CaseNarrative> = {
       },
     ],
     statements: [
-      { nl: "Hoe technischer het product, hoe belangrijker de eerste zin.", en: "The more technical the product, the more the first sentence matters." },
+      { nl: "De eerste zin moet het zware werk doen.", en: "The first sentence has to do the heavy lifting." },
     ],
   },
   "db-kiepers": {
@@ -2406,6 +2406,741 @@ export const caseNarratives: Record<string, CaseNarrative> = {
     ],
     statements: [
       { nl: "Een prijstabel is geen bijzaak. Vaak is het de laatste stap voor een ja.", en: "A pricing table is no afterthought. It's often the last step before a yes." },
+    ],
+  },
+  "bctn": {
+    intro: {
+      nl: "Containerterminals die dag en nacht draaien, en vrachtwagens die precies op tijd moeten komen en gaan. Bij BCTN begon het met één app, en werden we de innovatiepartner.",
+      en: "Container terminals that run day and night, and trucks that have to arrive and leave right on time. At BCTN it started with one app, and we became the innovation partner.",
+    },
+    chapters: [
+      {
+        title: { nl: "Eén app als begin.", en: "One app to start with." },
+        body: [
+          {
+            nl: "BCTN is een van de grootste inlandnetwerken van containerterminals in de Benelux. In 2018 vroeg BCTN ons te helpen bij de invoering van een nieuwe truck-app. Die legt vertrek-, aankomst-, los- en afkoppeltijden bij klanten vast.",
+            en: "BCTN is one of the largest inland container terminal networks in the Benelux. In 2018 BCTN asked us to help introduce a new truck app. It records departure, arrival, unloading and uncoupling times at customers' sites.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Verder kijken dan het project.", en: "Looking beyond the project." },
+        body: [
+          {
+            nl: "We keken verder dan die ene app en dachten mee over de IT-strategie. Zo werden we de externe innovatiecoördinator van BCTN. We hielpen het IT-serviceframework en de innovatiestrategie opnieuw vorm te geven.",
+            en: "We looked beyond that one app and helped shape the IT strategy. That's how we became BCTN's external innovation coordinator. We helped redesign the IT service framework and the innovation strategy.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van speedgate tot e-CMR.", en: "From speedgate to e-CMR." },
+        body: [
+          {
+            nl: "We leidden de ontwikkeling van hardware- en softwaresystemen, zoals de speedgates, de truck-app, het portaal en de e-CMR. We schoven aan bij belangrijke interne overleggen, zoals het managementteam. En we bleven betrokken bij de ontwikkeling van de terminals in Nederland en België.",
+            en: "We led the development of hardware and software systems, such as the speedgates, the truck app, the portal and the e-CMR. We joined key internal meetings, including the management team. And we stayed involved in developing the terminals in the Netherlands and Belgium.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Innovatie werkt pas als het past in een wereld die nooit stilstaat.", en: "Innovation only works when it fits a world that never stops." },
+    ],
+  },
+  "taylor": {
+    intro: {
+      nl: "Zonne-micro-elektronica klinkt ingewikkeld, en dat is het ook. Taylor Technologies wilde het toch simpel kunnen uitleggen, aan klanten en aan R&D-partners.",
+      en: "Solar micro-electronics sounds complicated, and it is. Taylor Technologies still wanted to explain it simply, to clients and R&D partners alike.",
+    },
+    chapters: [
+      {
+        title: { nl: "Voor klant en partner.", en: "For clients and partners." },
+        body: [
+          {
+            nl: "Taylor Technologies ontwikkelt zonne-micro-elektronica en levert die aan engineeringbedrijven. Om zowel B2B-klanten als R&D-partners aan te trekken, wilde Taylor een nieuwe huisstijl en een nieuwe website.",
+            en: "Taylor Technologies develops solar micro-electronics and supplies them to engineering companies. To attract both B2B clients and R&D partners, Taylor wanted a new visual identity and a new website.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Helder en minimalistisch.", en: "Clear and minimal." },
+        body: [
+          {
+            nl: "In een paar creatieve rondes maakten we de huisstijl helder en minimalistisch: donkerblauw en geel, met veel rust. Eigen iconen vertalen de techniek naar beelden die je in één keer leest.",
+            en: "In a few creative rounds we made the identity clear and minimal: dark blue and yellow, with plenty of calm. Custom icons translate the technology into images you read at a glance.",
+          },
+        ],
+      },
+      {
+        title: { nl: "De techniek in stukjes.", en: "Technology in bite-sized pieces." },
+        body: [
+          {
+            nl: "Voor de website betrokken we het managementteam in een agile, co-creatief proces, om de technologie op te knippen in begrijpelijke stukjes. Eerst wireframes om structuur en logica te checken, daarna styleframes om de stijl te kiezen. Met een CMS passen de beheerders de inhoud zelf aan.",
+            en: "For the website we involved the management team in an agile, co-creative process, to break the technology down into understandable pieces. Wireframes first to check structure and logic, then style frames to choose the look. With a CMS, the site's editors update the content themselves.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Eerst begrijpen, dan pas vormgeven.", en: "Understand first, design second." },
+    ],
+  },
+  "bernheze-makelaars-rebranding": {
+    intro: {
+      nl: "Een huisstijl die al twintig jaar een vertrouwd beeld was, en toch toe aan vernieuwing. Voor Bernheze Makelaars zochten we de kleine verandering met het grote effect.",
+      en: "An identity that had been a familiar sight for twenty years, yet was ready for renewal. For Bernheze Makelaars we looked for the small change with the big effect.",
+    },
+    chapters: [
+      {
+        title: { nl: "Respect voor wat er staat.", en: "Respect for what's there." },
+        body: [
+          {
+            nl: "Bernheze Makelaars vroeg ons om een complete rebranding van een huisstijl die al twintig jaar een vertrouwd beeld was. Dat vraagt om structuur, en om respect voor wat er al staat. Zeker met meerdere stakeholders aan tafel.",
+            en: "Bernheze Makelaars asked us for a complete rebrand of an identity that had been familiar for twenty years. That calls for structure, and for respect for what's already there. Especially with several stakeholders at the table.",
+          },
+        ],
+      },
+      {
+        title: { nl: "De heerser, zonder poespas.", en: "The ruler, without fuss." },
+        body: [
+          {
+            nl: "Met het managementteam begonnen we bij de oorspronkelijke identiteit, de visie, de missie en de kernwaarden. Na een paar sessies over merkarchetypes kwamen we uit bij 'de heerser': zonder poespas laat het merk ervaring, kwaliteit en autoriteit zien. Via styleframes en meerdere feedbackrondes kwamen we tot een nieuw logo.",
+            en: "With the management team we started from the original identity, the vision, the mission and the core values. After a few sessions on brand archetypes we arrived at 'the ruler': without fuss, the brand shows experience, quality and authority. Through style frames and several feedback rounds we arrived at a new logo.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van te-koopbord tot portaal.", en: "From for-sale sign to portal." },
+        body: [
+          {
+            nl: "Kleuren, typografie, iconen en beeldgebruik legden we vast in een brandbook. In de nieuwe stijl ontwierpen we de te-koopborden, visitekaartjes, briefpapier, presentatiekits, roll-upbanners, flyers en investment memorandums.",
+            en: "We captured colours, typography, icons and imagery in a brandbook. In the new style we designed the for-sale signs, business cards, stationery, presentation kits, roll-up banners, flyers and investment memorandums.",
+          },
+          {
+            nl: "Daarna bouwden we de website, met een eigen plek voor elke afdeling en een waardebepalingsportaal voor klanten. Zo staat het merk online net zo stevig als op straat.",
+            en: "Then we built the website, with a place for every department and a valuation portal for clients. The brand now stands as firmly online as it does on the street.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een subtiele verandering kan het grootste verschil maken.", en: "A subtle change can make the biggest difference." },
+    ],
+  },
+  "bernheze-makelaars-video": {
+    intro: {
+      nl: "Een foto zegt meer dan duizend woorden, laat staan video. Voor Bernheze Makelaars filmen we de meest exclusieve villa's die ze verkopen.",
+      en: "A picture says more than a thousand words, let alone video. For Bernheze Makelaars we film the most exclusive villas they sell.",
+    },
+    chapters: [
+      {
+        title: { nl: "Laten zien in plaats van vertellen.", en: "Show, don't tell." },
+        body: [
+          {
+            nl: "Bernheze Makelaars vroeg ons om hun meest exclusieve woningen beter te presenteren. Dus praatten we niet te lang, maar lieten we zien wat we kunnen. Samen plannen we draaidagen op locatie bij de villa's.",
+            en: "Bernheze Makelaars asked us to present their most exclusive homes better. So we didn't talk for long, we showed what we could do. Together we plan shoot days on location at the villas.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Vanaf de grond en de lucht.", en: "From the ground and the air." },
+        body: [
+          {
+            nl: "We filmen met een gestabiliseerde handcamera en een drone. Zo zie je de villa, de tuin en de omgeving in één vloeiende beweging. Daarna steken we veel tijd in de montage, en kiezen we per woning muziek die bij de stijl past.",
+            en: "We film with a stabilised handheld camera and a drone. That way you see the villa, the garden and the surroundings in one fluid movement. Then we put a lot of time into the edit, and choose music that suits the style of each home.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Elke woning heeft een eigen ritme. De montage volgt het.", en: "Every home has its own rhythm. The edit follows it." },
+    ],
+  },
+  "sublime-branding": {
+    intro: {
+      nl: "SUBLIME staat voor, nou ja, het woord zegt genoeg. Een community van supercareigenaren die wilde groeien, met een merk dat tot in de kauwgomverpakking klopt.",
+      en: "SUBLIME stands for, well, the word says it all. A community of supercar owners that wanted to grow, with a brand that's right down to the chewing-gum wrapper.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een community met ambitie.", en: "A community with ambition." },
+        body: [
+          {
+            nl: "SUBLIME bracht Nederlandse supercareigenaren samen en wilde verder groeien, met events en een nieuw online businessmodel. Daarvoor was een merk nodig dat opvalt tussen de auto's die het zelf in de schijnwerpers zet.",
+            en: "SUBLIME brought Dutch supercar owners together and wanted to grow further, with events and a new online business model. That needed a brand that stands out among the very cars it puts in the spotlight.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Geen detail bleef liggen.", en: "No detail left behind." },
+        body: [
+          {
+            nl: "We ontwikkelden een herkenbaar logo en een zwart-witte huisstijl, met rood als accent. Daarna volgden merkproducten en content om met de eigenaren in contact te komen. Beachflags, banners, nummerplaten en stickers, tot eigen kauwgomverpakkingen en polsbandjes voor de deelnemers.",
+            en: "We developed a recognisable logo and a black-and-white identity, with red as the accent. Then came branded products and content to connect with the owners. Beach flags, banners, number plates and stickers, right down to custom chewing-gum packaging and wristbands for participants.",
+          },
+          {
+            nl: "Ook de aankondigingen voor events, zoals een dag met karting en een toerrit, kregen dezelfde strakke stijl. Mede dankzij dat materiaal groeide de achterban op social media snel.",
+            en: "Event announcements, such as a day of karting and a scenic drive, got the same sharp style. Partly thanks to that material, the following on social media grew fast.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een merk zit in de kleinste dingen. Zelfs in kauwgom.", en: "A brand lives in the smallest things. Even in chewing gum." },
+    ],
+  },
+  "sublime-video": {
+    intro: {
+      nl: "Supercars op een rij, een drone erboven en twee camera's aan de grond. Voor SUBLIME maakten we content die het gevoel van een event echt overbrengt.",
+      en: "Supercars lined up, a drone overhead and two cameras on the ground. For SUBLIME we made content that truly captures the feeling of an event.",
+    },
+    chapters: [
+      {
+        title: { nl: "Het gevoel overbrengen.", en: "Capturing the feeling." },
+        body: [
+          {
+            nl: "SUBLIME bouwde een community van Nederlandse supercareigenaren op. Om het merk te laten groeien en meer eigenaren te bereiken, was content nodig die het SUBLIME-gevoel echt overbrengt. Dat gevoel zit in geluid, beweging en de mensen eromheen.",
+            en: "SUBLIME built a community of Dutch supercar owners. To grow the brand and reach more owners, it needed content that truly conveys the SUBLIME feeling. That feeling lives in sound, movement and the people around the cars.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Vier camera's, één verhaal.", en: "Four cameras, one story." },
+        body: [
+          {
+            nl: "Met een eigen mediateam filmden we de events met twee grondcamera's en twee drones. Zo maakten we veel online content en promotievideo's, die SUBLIME op social media deelde. De video's droegen bij aan een sterk gevoel van saamhorigheid en aan de kaartverkoop voor de events.",
+            en: "With our own media team we filmed the events using two ground cameras and two drones. That gave us lots of online content and promo videos, which SUBLIME shared on social media. The videos added to a strong sense of togetherness and to ticket sales for the events.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Het mooiste shot zie je vaak vanuit de lucht.", en: "The best shot is often the one from above." },
+    ],
+  },
+  "nktv": {
+    intro: {
+      nl: "De landelijke vereniging van korfbaltrainers was toe aan een nieuw gezicht. Wij gaven het NKTV een nieuw logo, een huisstijl en een website.",
+      en: "The national association of korfball coaches was ready for a new face. We gave NKTV a new logo, a visual identity and a website.",
+    },
+    chapters: [
+      {
+        title: { nl: "Fris, oranje en herkenbaar.", en: "Fresh, orange and recognisable." },
+        body: [
+          {
+            nl: "Het NKTV wilde een nieuwe huisstijl en een nieuwe website. We vernieuwden het logo, in oranje en zwart met een ring eromheen, en werkten de huisstijl uit. Alles legden we vast in een brandbook.",
+            en: "NKTV wanted a new visual identity and a new website. We renewed the logo, in orange and black with a ring around it, and developed the identity. We captured it all in a brandbook.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Zelf aan het stuur.", en: "In the driver's seat." },
+        body: [
+          {
+            nl: "Daarna ontwierpen en bouwden we de website, met een CMS dat de vereniging zelf beheert. In relatief korte tijd stond er zo een complete nieuwe identiteit, plus een website om mee verder te gaan.",
+            en: "Then we designed and built the website, with a CMS the association manages itself. In a relatively short time there was a complete new identity, plus a website to carry on with.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een vereniging verdient een merk waar leden graag achter staan.", en: "An association deserves a brand its members are glad to stand behind." },
+    ],
+  },
+  "trt-tv": {
+    intro: {
+      nl: "Paardensportvideo's van hoge kwaliteit, voor kijkers over de hele wereld. TRT TV had een platform nodig dat alles regelt, van betalen tot kijken.",
+      en: "High-quality equestrian videos, for viewers all over the world. TRT TV needed a platform that handles everything, from payment to playback.",
+    },
+    chapters: [
+      {
+        title: { nl: "Van betalen tot kijken.", en: "From payment to playback." },
+        body: [
+          {
+            nl: "TRT TV brengt hoogwaardig geproduceerde paardensportvideo's naar de wereld. Daarvoor moest er een platform komen met een betaalomgeving, gebruikersbeheer en een plek om alle video's te beheren.",
+            en: "TRT TV brings professionally produced equestrian videos to the world. That called for a platform with a payment environment, user management and a place to manage all the videos.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Full-stack gebouwd.", en: "Built full-stack." },
+        body: [
+          {
+            nl: "We ontwierpen het platform en bouwden het full-stack, met een betaalomgeving, gebruikersbeheer en een CMS. In een donkere, rustige interface staan de series centraal. Gebruikers slaan video's op in hun eigen collectie en geven losse video's een beoordeling.",
+            en: "We designed the platform and built it full-stack, with a payment environment, user management and a CMS. In a dark, calm interface the series take centre stage. Users save videos to their own collection and rate individual videos.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goed platform valt niet op. De video's wel.", en: "A good platform doesn't stand out. The videos do." },
+    ],
+  },
+  "rsi-3d-sportvelden": {
+    intro: {
+      nl: "Een sportveld dat je al ziet voordat de eerste schop de grond in gaat. Voor Recreational Systems International maken we 3D-renders en animaties van nieuwe velden.",
+      en: "A sports field you can see before the first spade goes into the ground. For Recreational Systems International we create 3D renders and animations of new fields.",
+    },
+    chapters: [
+      {
+        title: { nl: "Ontwerpen die leven.", en: "Designs that come alive." },
+        body: [
+          {
+            nl: "Recreational Systems International ontwerpt en ontwikkelt sportvelden, internationaal. Ze wilden hun ontwerpen meer laten leven, om sportinstellingen en clubs te overtuigen. Een schets op papier vraagt nu eenmaal veel verbeelding.",
+            en: "Recreational Systems International designs and develops sports fields internationally. They wanted their designs to come to life, to win over sports organisations and clubs. A sketch on paper simply asks a lot of the imagination.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van schets naar render.", en: "From sketch to render." },
+        body: [
+          {
+            nl: "We brainstormen mee over nieuwe concepten en maken van projectschetsen presenteerbare 3D-renders en animaties. Van een overdekte multisporthal tot een kooiveld met kunstgras. Zo werden we de vaste partner van RSI voor 3D-visualisaties, en zien we onze ontwerpen echt gebouwd worden, onder meer in Canada en Europa.",
+            en: "We help brainstorm new concepts and turn project sketches into presentable 3D renders and animations. From a covered multi-sport hall to a caged artificial-turf pitch. That's how we became RSI's regular partner for 3D visualisation, and we see our designs actually being built, in Canada and Europe among other places.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Wie het veld al ziet, zegt makkelijker ja.", en: "Once you can see the pitch, saying yes gets easier." },
+    ],
+  },
+  "tue-dcmt": {
+    intro: {
+      nl: "Een tafel vol blokjes die samen een stad vormen, waaraan iedereen kan meeplannen. Het Dynamic Campus Mapping Team van de TU Eindhoven bedacht het. Wij maakten het begrijpelijk.",
+      en: "A table full of blocks that together form a city, where everyone can help plan. The Dynamic Campus Mapping Team at TU Eindhoven came up with it. We made it understandable.",
+    },
+    chapters: [
+      {
+        title: { nl: "Slimme techniek, lastig uit te leggen.", en: "Clever tech, hard to explain." },
+        body: [
+          {
+            nl: "Het Dynamic Campus Mapping Team, een spin-off van de Smart Cities-guild van de TU Eindhoven, maakte een tastbare, interactieve matrix. Die maakt stedelijke planning met veel partijen toegankelijker en speelser. Alleen: die technologie is lastig uit te leggen.",
+            en: "The Dynamic Campus Mapping Team, a spin-off of TU Eindhoven's Smart Cities guild, created a tangible, interactive matrix. It makes urban planning with many stakeholders more accessible and more playful. The catch: the technology is hard to explain.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Stap voor stap in 3D.", en: "Step by step in 3D." },
+        body: [
+          {
+            nl: "We bouwden een 3D-model van de matrix en maakten een conceptvideo met 3D-animatie die het hele idee stap voor stap uitlegt. Je ziet de gebouwen op het gekleurde raster en het scherm erboven met de gegevens. Zo begrijpt iedereen aan tafel waar het over gaat.",
+            en: "We built a 3D model of the matrix and made a concept video with 3D animation that explains the whole idea step by step. You see the buildings on the coloured grid and the screen above showing the data. That way everyone at the table understands what it's about.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goede animatie maakt van een idee iets wat je kunt aanwijzen.", en: "A good animation turns an idea into something you can point at." },
+    ],
+  },
+  "intrador": {
+    intro: {
+      nl: "Een inspectie-app voor machinedealers, met AI en machine learning die de gegevens van inspecteurs controleren. Knap, maar niet in één zin uit te leggen. Daarom maakten we er animaties van.",
+      en: "An inspection app for machinery dealers, with AI and machine learning that validate inspectors' data. Clever, but not something you explain in one sentence. So we turned it into animations.",
+    },
+    chapters: [
+      {
+        title: { nl: "Het begon op papier.", en: "It started on paper." },
+        body: [
+          {
+            nl: "Intrador is een Nederlandse tech-start-up met een inspectie-app voor machinedealers wereldwijd. We ontwierpen en maakten meerdere animaties die de technologie en de functies concreet maken. Het begon met een schets: de app, de database, de GPS-locatie en de modellen die alles controleren.",
+            en: "Intrador is a Dutch tech start-up with an inspection app for machinery dealers worldwide. We designed and produced several animations that make the technology and features concrete. It started with a sketch: the app, the database, the GPS location and the models that check everything.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een vaste partner in beeld.", en: "A regular partner on screen." },
+        body: [
+          {
+            nl: "Daarna volgden ontwerp en animatie, tot de eindmontage. Jarenlang waren we de vaste partner van Intrador voor video en animatie in B2B-marketing en bedrijfspresentaties.",
+            en: "Design and animation followed, through to the final edit. For years we were Intrador's regular partner for video and animation in B2B marketing and company presentations.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Wat je niet kunt zien, kun je wel laten zien.", en: "What you can't see, you can still show." },
+    ],
+  },
+  "hylofit": {
+    intro: {
+      nl: "Hardware en een app die de hartslag van paard én ruiter meten. Voor Hylofit uit New York maakten we één video die overtuigt en tegelijk uitlegt.",
+      en: "Hardware and an app that measure the heart rate of horse and rider. For Hylofit from New York we made one video that persuades and explains at the same time.",
+    },
+    chapters: [
+      {
+        title: { nl: "Nieuw in een traditionele wereld.", en: "New in a traditional world." },
+        body: [
+          {
+            nl: "Hylofit ontwikkelde een systeem dat de hartslag van paard en ruiter meet, voor inzicht in rijprestaties. Geavanceerd, zeker in de vrij traditionele paardenwereld. De vraag was dus tweeledig: overtuigen én uitleggen.",
+            en: "Hylofit developed a system that measures the heart rate of horse and rider, for insight into riding performance. Advanced, especially in the fairly traditional equestrian world. So the brief was twofold: persuade and explain.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Promo en handleiding in één.", en: "Promo and manual in one." },
+        body: [
+          {
+            nl: "We maakten één video die allebei doet. Eerst de sterke punten van het product, daarna een heldere instructie om Hylofit stap voor stap in te stellen. Met echte beelden en 2D- en 3D-animaties, en een eindresultaat waar we trots op zijn.",
+            en: "We made one video that does both. First the product's strengths, then a clear walkthrough for setting up Hylofit step by step. With real footage and 2D and 3D animation, and an end result we're proud of.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goede uitleg is ook goede reclame.", en: "A good explanation is good advertising too." },
+    ],
+  },
+  "repairlab-content": {
+    intro: {
+      nl: "Na het nieuwe merk moest Repairlab ook online te zien zijn, overal waar klanten scrollen. Zwart, wit en een korte boodschap: meer had het niet nodig.",
+      en: "After the new brand, Repairlab had to show up online too, wherever customers scroll. Black, white and a short message: it needed nothing more.",
+    },
+    chapters: [
+      {
+        title: { nl: "Het merk de feed in.", en: "Taking the brand into the feed." },
+        body: [
+          {
+            nl: "Na het brandingtraject voor Repairlab moest het nieuwe merk ook online zichtbaar worden. Op Instagram, op LinkedIn, overal waar klanten scrollen. Herkenbaar in een fractie van een seconde.",
+            en: "After the branding project for Repairlab, the new brand had to become visible online too. On Instagram, on LinkedIn, wherever customers scroll. Recognisable in a split second.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Vlak, zwart-wit en direct.", en: "Flat, black-and-white and direct." },
+        body: [
+          {
+            nl: "We maakten een collectie banners en posts, van Instagram-swipeposts tot LinkedIn-covers. De basis is steeds hetzelfde: vlakke achtergronden in zwart en wit en een simpele, directe boodschap. Zo sluit elke post aan op de nieuwe huisstijl.",
+            en: "We created a collection of banners and posts, from Instagram carousel posts to LinkedIn covers. The basis is always the same: flat black and white backgrounds and a simple, direct message. Every post fits the new identity.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "In een feed wint de kortste boodschap.", en: "In a feed, the shortest message wins." },
+    ],
+  },
+  "sparked": {
+    intro: {
+      nl: "Gastvrijheid draait om mensen en emotie. Voor Sparked maakten we een merk met een vonk, en een brandbook waarmee het hele team verder kan.",
+      en: "Hospitality is about people and emotion. For Sparked we created a brand with a spark, and a brandbook the whole team can work with.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een merk met een vonk.", en: "A brand with a spark." },
+        body: [
+          {
+            nl: "Sparked is een Nederlands bedrijf in hospitalitydiensten. Alles draait om gastvrijheid, mensen en emotie. Het merk moest dus een sprankje laten zien, en in het logo zit letterlijk een bliksemschicht.",
+            en: "Sparked is a Dutch hospitality services company. Everything revolves around hospitality, people and emotion. So the brand had to show a spark, and the logo literally contains a lightning bolt.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Meer dan een logo.", en: "More than a logo." },
+        body: [
+          {
+            nl: "We ontwikkelden een identiteit die verder gaat dan een logo en wat kleuren. In het brandbook staat alles over de identiteit, en over hoe Sparked met klanten communiceert. Van de tone of voice tot zinnen als 'Jouw moment. Onze passie.'",
+            en: "We developed an identity that goes beyond a logo and a few colours. The brandbook covers everything about the identity, and about how Sparked communicates with clients. From the tone of voice to lines like 'Your moment. Our passion.'",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Gastvrijheid begint bij hoe je praat.", en: "Hospitality starts with how you speak." },
+    ],
+  },
+  "happy-horse-sales": {
+    intro: {
+      nl: "Happy horses deserve happy owners. Happy Horse Sales verkoopt dressuurpaarden met oog voor de match tussen koper en paard, en wilde elk paard zo eerlijk en mooi mogelijk laten zien.",
+      en: "Happy horses deserve happy owners. Happy Horse Sales sells dressage horses with an eye for the match between buyer and horse, and wanted to show every horse as honestly and beautifully as possible.",
+    },
+    chapters: [
+      {
+        title: { nl: "Verhalen en paarden.", en: "Stories and horses." },
+        body: [
+          {
+            nl: "Bij Happy Horse Sales draait het om verhalen en paarden. Ze geloven in kwalitatieve verkoop, met een goede match tussen koper en paard. Dus moest elk paard eerlijk en mooi in beeld komen.",
+            en: "At Happy Horse Sales it's all about stories and horses. They believe in quality sales, with a good match between buyer and horse. So every horse had to be shown honestly and beautifully.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Het paard centraal.", en: "The horse at the centre." },
+        body: [
+          {
+            nl: "We ontwierpen het logo en een moderne, lichte website die de paarden en hun verhaal centraal zet. Via een CMS beheert Happy Horse Sales de collectie zelf. Zo helpt de site kopers de juiste match te vinden.",
+            en: "We designed the logo and a modern, light website that puts the horses and their stories first. Through a CMS, Happy Horse Sales manages the collection itself. The site helps buyers find the right match.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Eerlijk in beeld is ook mooi in beeld.", en: "Honest on screen is beautiful on screen." },
+    ],
+  },
+  "smarthome-services": {
+    intro: {
+      nl: "Je komt thuis, het licht gaat aan, je playlist start en de grill warmt alvast op. Smarthome Services maakt het mogelijk. Wij maakten het begrijpelijk.",
+      en: "You come home, the lights switch on, your playlist starts and the grill is already warming up. Smarthome Services makes it happen. We made it easy to understand.",
+    },
+    chapters: [
+      {
+        title: { nl: "Slim klinkt abstract.", en: "Smart sounds abstract." },
+        body: [
+          {
+            nl: "Smarthome Services installeert slimme IoT-producten voor thuis. Maar een slim huis klinkt abstract. Ze wilden potentiële klanten laten zien wat het in het echt betekent.",
+            en: "Smarthome Services installs smart IoT products for the home. But a smart home sounds abstract. They wanted to show potential customers what it means in real life.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Scenario's in plaats van specificaties.", en: "Scenarios, not specifications." },
+        body: [
+          {
+            nl: "We ontwierpen en bouwden een informatie- en belevingsplatform met echte scenario's. Neem de voordeur: je komt binnen, de verlichting gaat vanzelf aan, je Spotify-playlist start en de grill warmt alvast op. Eigen infographics leggen elke stap uit.",
+            en: "We designed and built an information and experience platform around real scenarios. Take the front door: you walk in, the lights come on by themselves, your Spotify playlist starts and the grill warms up. Custom infographics explain every step.",
+          },
+          {
+            nl: "Met een CMS houdt het team de site zelf bij. Zo werkt de website als leadkanaal voor Smarthome Services.",
+            en: "With a CMS, the team keeps the site up to date itself. The website works as a lead channel for Smarthome Services.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Laat zien wat het doet, niet wat het is.", en: "Show what it does, not what it is." },
+    ],
+  },
+  "supernova-techniek": {
+    intro: {
+      nl: "Elektrotechniek uit Amsterdam, met een website die er professioneel uitziet en toch net even anders is. Supernova Techniek durfde voor paars te gaan.",
+      en: "Electrical engineering from Amsterdam, with a website that looks professional and is still just a little different. Supernova Techniek dared to go purple.",
+    },
+    chapters: [
+      {
+        title: { nl: "Professioneel én opvallend.", en: "Professional and striking." },
+        body: [
+          {
+            nl: "Supernova Techniek is een Amsterdams bedrijf in elektrotechniek. Ze wilden een website die er niet alleen professioneel uitziet, maar ook opvalt. Voor zakelijke partners én voor nieuwe medewerkers.",
+            en: "Supernova Techniek is an Amsterdam electrical engineering company. They wanted a website that doesn't just look professional, but also stands out. For business partners and for new employees alike.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een uitgesproken paars.", en: "A bold purple." },
+        body: [
+          {
+            nl: "We gingen uit van de kernwaarden en de propositie, bepaalden de tone of voice en kwamen uit op een professioneel maar uitgesproken paars webdesign. Vacatures en projecten hebben een eigen plek. Via een CMS beheert Supernova de inhoud zelf.",
+            en: "We started from the core values and the proposition, defined the tone of voice and arrived at a professional yet outspoken purple web design. Vacancies and projects have their own place. Through a CMS, Supernova manages the content itself.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Opvallen mag, als het klopt met wie je bent.", en: "Standing out is fine, as long as it's true to who you are." },
+    ],
+  },
+  "esmailly-bouw": {
+    intro: {
+      nl: "Renovatie en nieuwbouw, groot of klein, rond Amsterdam en Utrecht. Esmailly Bouw wilde een website die laat zien wie ze zijn en wat ze kunnen.",
+      en: "Renovation and new builds, big or small, around Amsterdam and Utrecht. Esmailly Bouw wanted a website that shows who they are and what they can do.",
+    },
+    chapters: [
+      {
+        title: { nl: "Twee duidelijke keuzes.", en: "Two clear choices." },
+        body: [
+          {
+            nl: "Esmailly Bouw doet renovatie- en bouwprojecten, zakelijk en rond huis. We ontwierpen en bouwden de site in Webflow: rustig, licht en in zandtinten, met veel ruimte voor beeld. Bovenaan staan twee duidelijke keuzes: een project starten of het werk bekijken.",
+            en: "Esmailly Bouw takes on renovation and building projects, commercial and residential. We designed and built the site in Webflow: calm, light and in sandy tones, with plenty of room for imagery. At the top are two clear choices: start a project or view the work.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Details die je voelt.", en: "Details you can feel." },
+        body: [
+          {
+            nl: "Eigen laad- en hoveranimaties maken de site net wat levendiger. Een offerteformulier vraagt meteen naar een foto van de locatie en de gewenste periode. Met een CMS en SEO-optimalisatie heeft Esmailly Bouw een professioneel online thuis.",
+            en: "Custom loading and hover animations make the site that bit more alive. A quote form asks straight away for a photo of the location and the preferred timing. With a CMS and SEO optimisation, Esmailly Bouw has a professional home online.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een bouwbedrijf mag online net zo strak afwerken als op de bouwplaats.", en: "A builder's website should be finished as neatly as its work on site." },
+    ],
+  },
+  "perfect-people": {
+    intro: {
+      nl: "Arbeid voor de agrarische sector, van werving tot volledige bemiddeling. Perfect People wilde een compleet nieuwe website die hen neerzet als strategische partner.",
+      en: "Labour for the agricultural sector, from recruitment to full placement. Perfect People wanted a completely new website that presents them as a strategic partner.",
+    },
+    chapters: [
+      {
+        title: { nl: "Meer dan bemiddelen.", en: "More than placement." },
+        body: [
+          {
+            nl: "Perfect People is een full-service arbeidsbemiddelaar voor de agrarische sector. Ze wilden een compleet nieuwe website. Eén die laat zien dat ze een strategische partner zijn op het gebied van arbeid.",
+            en: "Perfect People is a full-service labour agency for the agricultural sector. They wanted a completely new website. One that shows they are a strategic partner when it comes to labour.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Fris, groen en zelf te beheren.", en: "Fresh, green and easy to manage." },
+        body: [
+          {
+            nl: "We ontwierpen en bouwden de site in Webflow: fris en groen, met beelden uit de sector zelf. We richtten het Webflow CMS in, zodat het team de inhoud zelf bijhoudt.",
+            en: "We designed and built the site in Webflow: fresh and green, with imagery from the sector itself. We set up the Webflow CMS so the team keeps the content up to date themselves.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een nieuwe website is een nieuwe kans om te zeggen wie je bent.", en: "A new website is a new chance to say who you are." },
+    ],
+  },
+  "cj-privacy-legal": {
+    intro: {
+      nl: "Juridisch advies hoeft er niet grijs uit te zien. Voor CJ Privacy & Legal Consultancy ontwierpen we een kleurrijk logo en een huisstijl om zich mee te presenteren.",
+      en: "Legal advice doesn't have to look grey. For CJ Privacy & Legal Consultancy we designed a colourful logo and an identity to present themselves with.",
+    },
+    chapters: [
+      {
+        title: { nl: "Kleur in een serieus vak.", en: "Colour in a serious field." },
+        body: [
+          {
+            nl: "CJ Privacy & Legal Consultancy is een Nederlands juridisch adviesbureau. Het zocht een logo en een huisstijl om zich mee te presenteren. Wij kozen voor kleur, met een beeldmerk dat uit kleurvlakken is opgebouwd.",
+            en: "CJ Privacy & Legal Consultancy is a Dutch legal advisory firm. It was looking for a logo and an identity to present itself with. We chose colour, with a symbol built from blocks of colour.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Tot op het visitekaartje.", en: "Down to the business card." },
+        body: [
+          {
+            nl: "We ontwierpen het logo en legden de bijbehorende stijl vast in een brandbook. Tot en met de toepassing op visitekaartjes, in turquoise en oranje. Zo kan het bureau er zelf mee verder.",
+            en: "We designed the logo and captured the matching style in a brandbook. Right down to the business cards, in turquoise and orange. That way the firm can carry on with it independently.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Serieus advies mag er best vrolijk uitzien.", en: "Serious advice can look cheerful too." },
+    ],
+  },
+  "gemeente-gouda": {
+    intro: {
+      nl: "Nieuw beleid wordt meestal zonder veel glans gepresenteerd. Voor het Goudse Preventieakkoord mocht dat anders.",
+      en: "New policy is usually presented without much shine. For Gouda's Prevention Agreement, things could be different.",
+    },
+    chapters: [
+      {
+        title: { nl: "Beleid met een gezicht.", en: "Policy with a face." },
+        body: [
+          {
+            nl: "Gouda introduceerde begin 2021 samen met lokale partners het Preventieakkoord, om de gezondheid van inwoners te verbeteren. Een belangrijk akkoord, met veel partijen. Dat verdiende een video die mensen ook echt willen kijken.",
+            en: "In early 2021 Gouda introduced the Prevention Agreement together with local partners, to improve residents' health. An important agreement, with many parties involved. It deserved a video people actually want to watch.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Gouda in beeld.", en: "Gouda on screen." },
+        body: [
+          {
+            nl: "We produceerden een promotievideo met de hoogtepunten van het akkoord en quotes van partners zoals de GGD en Sport.Gouda. Met dronebeelden van de stad, ondertiteling en eigen animaties die laten zien wie er aan het woord is. Zo komen het akkoord en de partners helder en aantrekkelijk in beeld.",
+            en: "We produced a promotional video with the highlights of the agreement and quotes from partners such as the GGD public health service and Sport.Gouda. With drone footage of the city, subtitles and custom animations showing who is speaking. The agreement and its partners come across clearly and attractively.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Beleid om te onthouden.", en: "Policy worth remembering." },
+    ],
+  },
+  "giarte-tableau-dashboards": {
+    intro: {
+      nl: "Hoe tevreden zijn de mensen bij grote internationale bedrijven over hun IT? Voor Giarte Media Group bouwden we mee aan dashboards die het realtime laten zien.",
+      en: "How satisfied are people at large international companies with their IT? For Giarte Media Group we helped build dashboards that show it in real time.",
+    },
+    chapters: [
+      {
+        title: { nl: "Tevredenheid in cijfers.", en: "Satisfaction in numbers." },
+        body: [
+          {
+            nl: "Giarte helpt grote internationale bedrijven met IT-strategie en communicatie. Om een slimme IT-transformatie te ondersteunen, wilde Giarte realtime laten zien hoe tevreden de gebruikers van hun klanten over IT zijn.",
+            en: "Giarte helps large international companies with IT strategy and communication. To support a smart IT transformation, Giarte wanted to show in real time how satisfied their clients' users are with IT.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Per klant op maat.", en: "Tailored to each client." },
+        body: [
+          {
+            nl: "We hielpen bij het opbouwen van realtime dashboards in Tableau en de data warehousing erachter. Elk dashboard is afgestemd op de wensen van een grote klant, met onder meer een kaart die de cijfers per land laat zien. Zo komt de IT-tevredenheid per klant helder in beeld.",
+            en: "We helped build real-time dashboards in Tableau and the data warehousing behind them. Each dashboard is tailored to the wishes of a major client, including a map showing the figures per country. That puts IT satisfaction per client clearly in view.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Data wordt pas waardevol als je het in één blik snapt.", en: "Data only becomes valuable when you get it at a glance." },
+    ],
+  },
+  "audi-s5-coupe": {
+    intro: {
+      nl: "Een witte Audi S5 Coupé met een V8 die je hoort voordat je hem ziet. Daar hoort een montage bij die geluid en beweging recht doet.",
+      en: "A white Audi S5 Coupé with a V8 you hear before you see it. That calls for an edit that does justice to sound and motion.",
+    },
+    chapters: [
+      {
+        title: { nl: "Rolling shots in Eindhoven.", en: "Rolling shots in Eindhoven." },
+        body: [
+          {
+            nl: "Samen met onze filmcrew planden we draaidagen in Eindhoven, voor rolling shots van de auto in beweging. Strak in beeld, van dichtbij en op snelheid.",
+            en: "Together with our film crew we planned shoot days in Eindhoven, for rolling shots of the car in motion. Sharp, up close and at speed.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Geluid en beeld samen.", en: "Sound and picture together." },
+        body: [
+          {
+            nl: "In de montage brachten we uitlaatgeluid, beeld en muziek samen, zodat ze elkaar versterken. Het resultaat is een strak verpakte montage, met kippenvel als doel.",
+            en: "In the edit we brought exhaust sound, picture and music together, so they reinforce each other. The result is a tightly packaged edit, with goosebumps as the goal.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Goed geluid is het halve beeld.", en: "Good sound is half the picture." },
+    ],
+  },
+  "gender-reveal-rotterdam": {
+    intro: {
+      nl: "Een gender reveal aan het water in Rotterdam. Zo'n moment beleef je maar één keer, dus wil je het goed vastleggen.",
+      en: "A gender reveal by the water in Rotterdam. A moment like that only happens once, so you want to capture it well.",
+    },
+    chapters: [
+      {
+        title: { nl: "Eén moment, één kans.", en: "One moment, one chance." },
+        body: [
+          {
+            nl: "Bij een gender reveal is er geen tweede take. Alles draait om dat ene moment, en de plek aan het water maakte het extra bijzonder. We wilden het vastleggen zoals het voelde.",
+            en: "At a gender reveal there's no second take. Everything revolves around that one moment, and the waterfront location made it extra special. We wanted to capture it the way it felt.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Drone en stabilizer.", en: "Drone and stabiliser." },
+        body: [
+          {
+            nl: "We filmden de dag met een drone en een stabilizer, zodat je de plek en de mensen allebei goed ziet. Daarna monteerden we alles tot een aftermovie die het moment en de plek aan het water mooi vastlegt.",
+            en: "We filmed the day with a drone and a stabiliser, so you see both the place and the people. Then we edited it all into an aftermovie that beautifully captures the moment and the waterfront setting.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Sommige momenten verdienen meer dan een filmpje op je telefoon.", en: "Some moments deserve more than a clip on your phone." },
     ],
   },
 };

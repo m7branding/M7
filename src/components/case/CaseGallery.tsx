@@ -91,14 +91,28 @@ function layout(pics: Pic[], seed: number): Row[] {
   return rows;
 }
 
-export function CaseGallery({ images, client, locale, seed = 0 }: { images: StoryImage[]; client: string; locale: Locale; seed?: number }) {
+export function CaseGallery({
+  images,
+  client,
+  locale,
+  seed = 0,
+  start = 0,
+}: {
+  images: StoryImage[];
+  client: string;
+  locale: Locale;
+  /** Welke masonry op de pagina (bepaalt het ritme). */
+  seed?: number;
+  /** Nummer van het eerste beeld over alle secties heen (voor de alt-tekst). */
+  start?: number;
+}) {
   const word = locale === "nl" ? "beeld" : "image";
   const zoom = locale === "nl" ? "Vergroot" : "Enlarge";
   const pics: Pic[] = images.map((img, k) => {
     const z = imageSize(img.src) ?? { w: 1600, h: 1000 };
     return {
       src: img.src,
-      alt: img.alt ? tr(img.alt, locale) : `${client}, ${word} ${k + 1}`,
+      alt: img.alt ? tr(img.alt, locale) : `${client}, ${word} ${start + k + 1}`,
       caption: img.caption ? tr(img.caption, locale) : undefined,
       w: z.w,
       h: z.h,

@@ -435,6 +435,12 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.86);
 }
+.wc__n {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
 .wc__count {
   padding: 1px 9px;
   background: var(--accent, var(--teal));
@@ -703,7 +709,7 @@
   .wi__frame {
     --r: 24px;
     inset: 10px;
-    transform: translate3d(0, calc(var(--ea) * -7svh), 0) scale(calc(1.1 - 0.3 * var(--ea)));
+    transform: translate3d(0, calc(var(--ea) * -7svh), 0) scale(calc(1.1 - 0.36 * var(--ea)));
   }
   .wi__title {
     font-size: clamp(2.7rem, 12.4vw, 4.2rem);
@@ -712,15 +718,17 @@
     font-size: 1rem;
   }
   .wi__facts {
-    flex-wrap: wrap;
-    gap: 14px 26px;
-    bottom: 3svh;
-  }
-  .wi__facts li {
-    flex: 0 0 calc(50% - 26px);
+    justify-content: space-between;
+    gap: 8px;
+    bottom: 4svh;
+    padding-inline: 22px;
   }
   .wi__facts strong {
-    font-size: 2rem;
+    font-size: 1.7rem;
+  }
+  .wi__facts span {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
   }
   .wm {
     height: 170svh;
@@ -896,6 +904,10 @@
   }
   .ww__tiles {
     grid-template-columns: repeat(2, 1fr);
+  }
+  /* op de telefoon is een handvol genoeg; de knop erboven leidt naar alles */
+  .ww__tile:nth-child(n + 9) {
+    display: none;
   }
   .wx__title {
     font-size: clamp(2.8rem, 13vw, 4.6rem);

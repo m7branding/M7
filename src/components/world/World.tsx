@@ -206,9 +206,11 @@ function WorldChapterScene({ locale, ch, i, n }: { locale: Locale; ch: WorldChap
         </div>
         <div className="wc__info">
           <p className="wc__line">
-            <span className="count-pill wc__count">{ch.count}</span> {L(COPY.chapterCases)}
+            <span className="wc__n">
+              <span className="count-pill wc__count">{ch.count}</span> {L(COPY.chapterCases)}
+            </span>
             <span className="wc__sep" aria-hidden="true" />
-            {L(LINES[ch.key])}
+            <span>{L(LINES[ch.key])}</span>
           </p>
           <ul className="wc__cases">
             {ch.cases.map((c) => (
