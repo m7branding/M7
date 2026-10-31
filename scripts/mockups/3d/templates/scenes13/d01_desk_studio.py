@@ -17,4 +17,5 @@ def build():
 SK.run('d01_desk_studio', build, {
     'a': dict(loc=(0.10, -1.30, 0.40), target=(0.06, 0.06, 0.21), lens=44),
     'b': dict(loc=(-0.55, -0.85, 0.32), target=(-0.02, 0.15, 0.25), lens=55),
+    'p': dict(loc=(-0.04, -1.15, 0.55), target=(-0.03, 0.10, 0.28), lens=21, w=1440, h=2560, vertical=True),
 })

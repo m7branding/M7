@@ -11,4 +11,5 @@ SK.run('d19_studio_front', build, {
     'a': dict(loc=(0.0, -1.35, 0.32), target=(0.0, 0.0, 0.30), lens=50),
     'b': dict(loc=(0.75, -0.95, 0.42), target=(0.0, 0.0, 0.30), lens=60),
     'c': dict(loc=(-0.85, -0.90, 0.25), target=(0.0, 0.0, 0.32), lens=55),
+    'p': dict(loc=(0.25, -1.25, 0.36), target=(0.0, 0.0, 0.30), lens=26, w=1440, h=2560, vertical=True),
 })

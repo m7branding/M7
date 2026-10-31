@@ -10,4 +10,5 @@ def build():
 SK.run('b05_emboss', build, {
     'a': dict(loc=(0.12, -0.36, 0.24), target=(0.0, 0.0, 0.0), lens=62),
     'b': dict(loc=(0.0, -0.02, 0.48), target=(0.0, 0.0, 0.0), lens=55),
+    'p': dict(loc=(0.07, -0.34, 0.68), target=(0.03, 0.0, 0.0), lens=33, w=1440, h=2560, vertical=True),
 })

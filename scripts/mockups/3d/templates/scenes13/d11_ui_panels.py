@@ -22,4 +22,5 @@ SK.run('d11_ui_panels', build, {
     'a': dict(loc=(0.02, -0.55, 0.36), target=(0.0, 0.0, 0.11), lens=50),
     'b': dict(loc=(-0.30, -0.42, 0.20), target=(0.0, 0.0, 0.12), lens=58),
     'c': dict(loc=(0.34, -0.45, 0.28), target=(0.0, 0.0, 0.115), lens=55),
+    'p': dict(loc=(0.02, -0.66, 0.42), target=(0.0, 0.0, 0.12), lens=20, w=1440, h=2560, vertical=True),
 }, transparent=True)

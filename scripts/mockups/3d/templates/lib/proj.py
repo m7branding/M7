@@ -65,6 +65,8 @@ OVERRIDE = {
 def captures(p):
     """Content images with fallbacks (some projects lack a capture)."""
     c = {k: load(p, f'{k}.png') for k in ('hero-desktop', 'full-desktop', 'hero-mobile', 'full-mobile', 'hero-tablet')}
+    for k in set((p.get('role_src') or {}).values()):         # extra named screens (e.g. app UI screens)
+        c[k] = load(p, f'{k}.png')
     for k, f in OVERRIDE.get(p['slug'], {}).items():
         f = f if os.path.isabs(f) else os.path.join(p['captures'], f)
         if os.path.exists(f):
@@ -148,11 +150,27 @@ def ipad_overlay(url, W=None, H=None):
 
 
 # ------------------------------------------------------------------ displays per role
+def fit_screen(img, W, H):
+    """Fit a screenshot to a display aspect without stretching: crop when it is taller, pad with its own edge
+    colour when it is wider (a short app screen)."""
+    ar = W / H
+    if img.width / img.height > ar * 1.01 and img.height * ar >= 0.7 * img.width:
+        return img.crop((0, 0, round(img.height * ar), img.height))      # app UI: keep the left (sidebar / nav)
+    if img.width / img.height > ar * 1.01:
+        h = round(img.width / ar)
+        edge = tuple(int(v) for v in np.median(np.asarray(img)[-3:].reshape(-1, 3), 0))
+        c = Image.new('RGB', (img.width, h), edge); c.paste(img, (0, 0)); return c
+    return img
+
+
 def make_display(dtype, content, url, offset_frac=0.0, max_w=None):
     """content: PIL RGB capture (scaled to the display width by the sampler). offset_frac: start the
     content this many display-heights further down (clamped)."""
     if max_w and content.width > max_w:
         content = content.resize((max_w, round(content.height * max_w / content.width)), Image.LANCZOS)
+    if url is None:          # bare: an app screen without browser chrome (the screenshot has its own UI)
+        W, H = {'iphone': IPHONE17PRO['px'], 'mac': MBP14['px'], 'studio': STUDIO['px']}.get(dtype, IPADPRO13['px'])
+        return Display(W, H, np.asarray(fit_screen(content, W, H)), 0, None)
     if dtype == 'iphone':
         ov, top = iphone_overlay(top_color(content), url); W, H = IPHONE17PRO['px']
     elif dtype == 'mac':
@@ -215,10 +233,12 @@ def displays_for(p, roles, video=False, caps=None, glass=None, brand=None):
     """glass: template meta['glass'] (needed for flat screens to know their content resolution).
     brand: designs.Brand (needed for the 'social' screen)."""
     caps = caps or captures(p)
-    url = domain(p)
+    url = None if p.get('bare') else domain(p)
     out = {}
     for r in roles:
         dtype, still, vid, off = ROLE_SOURCES[r]
+        if (p.get('role_src') or {}).get(r):
+            still = vid = p['role_src'][r]
         if dtype == 'social':
             if brand is None: continue
             import designs as DS
@@ -228,7 +248,7 @@ def displays_for(p, roles, video=False, caps=None, glass=None, brand=None):
             ov = np.asarray(ov).copy(); ov[top:] = 0          # status bar only (no Safari pill)
             out[r] = Display(W, H, np.asarray(grid), 0, ov)
             continue
-        src = caps[vid if video else still]
+        src = caps.get(vid if video else still)
         if src is None:
             continue
         if dtype == 'flat':
@@ -252,3 +272,26 @@ def ipad_portrait_display(src, url):
 def rotated(d):
     d.rot = 90
     return d
+
+
+BARE_OK = {'phone_a', 'phone_b', 'phone_c', 'phone_d', 'mac', 'mac_b', 'studio', 'studio_b', 'tablet', 'tablet_b', 'tablet_c',
+           'tablet_d', 'billboard'}
+
+
+def roles_ok(p, caps=None):
+    """Screen roles this project can fill with real content (projects with only desktop or only phone
+    screens, app screens without browser chrome): templates needing other roles are not eligible."""
+    caps = caps or captures(p)
+    ok = set()
+    for r, (dtype, still, vid, off) in ROLE_SOURCES.items():
+        if dtype == 'social':
+            continue
+        rs = (p.get('role_src') or {}).get(r)
+        if caps.get(rs or still) is None or caps.get(rs or vid) is None:
+            continue
+        if p.get('bare') and r not in BARE_OK:
+            continue
+        if p.get('roles') and r not in p['roles']:
+            continue
+        ok.add(r)
+    return ok

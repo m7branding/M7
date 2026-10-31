@@ -148,6 +148,7 @@ def render(slug):
         if s not in brands: brands[s] = B13.brand_for(s, cs[s], caps)
         return V.Shot(s, cs[s], caps, brands[s], dict(st=sp['st'], move=sp['move'], scroll=sp['scroll']), {})
     tl = timeline([sp['dur'] for sp in R['shots']])
+    k = int(round(R['shots'][0]['dur'] / 2 * FPS)); tl = tl[k:] + tl[:k]      # frame 0 = poster: mid shot 1, no dissolve
     raw = os.path.join(OUTD, slug + '.lossless.mkv')     # lossless intermediate (a raw dump would be ~4.5 GB)
     live = {}          # only the shots on screen are kept in memory
     enc = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{RW}x{RH}', '-r', str(FPS),
@@ -164,7 +165,7 @@ def render(slug):
                 img = live[i].frame(s).astype(np.float32)
                 acc = img * w if acc is None else acc + img * w
             fr = np.clip(acc + 0.5, 0, 255).astype(np.uint8)
-            if f == int(FPS * 0.6):
+            if f == 0:
                 Image.fromarray(fr).save(os.path.join(OUTD, slug + '.webp'), quality=80, method=6)
             fh.write(fr.tobytes())
     live.clear()
@@ -184,6 +185,62 @@ def render(slug):
     return slug, time.time() - t0, sizes
 
 
+PW, PH = 720, 1280
+BUDGET['p'] = 2.5 * 1048576
+
+
+def portrait_template(t):
+    """The portrait camera of the same scene ('<scene>__p'), when it has a final render."""
+    tp = t.split('__')[0] + '__p'
+    return tp if os.path.exists(os.path.join(B13.C.TPL, tp, 'still_rgb.exr')) else None
+
+
+def render_portrait(slug):
+    """Portrait cut (720x1280) of a reel: same shots, timing and moves; each shot reframed around its main
+    subject (like the r-hero-m videos), or the scene's own portrait camera where the subject is too wide for a
+    crop of the landscape render."""
+    R = json.load(open(os.path.join(B13.R13, 'reel_plan.json')))[slug]
+    os.makedirs(OUTD, exist_ok=True)
+    V.MW, V.MH = PW, PH
+    cs = B13.cases(); brands = {}; used_p = []
+    t0 = time.time()
+
+    def make(i):
+        sp = R['shots'][i]; s = sp['slug']; p = P.projects().get(s); caps = P.captures(p) if p else {}
+        if s not in brands: brands[s] = B13.brand_for(s, cs[s], caps)
+        st = dict(sp['st']); tp = portrait_template(st['t'])
+        if tp:
+            st['t'] = tp; used_p.append(tp)
+        return V.Shot(s, cs[s], caps, brands[s], dict(st=st, move=sp['move'], scroll=sp['scroll']), {})
+    tl = timeline([sp['dur'] for sp in R['shots']])
+    k = int(round(R['shots'][0]['dur'] / 2 * FPS)); tl = tl[k:] + tl[:k]
+    raw = os.path.join(OUTD, slug + '-p.lossless.mkv')
+    enc = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{PW}x{PH}', '-r', str(FPS),
+                            '-i', '-', '-c:v', 'libx264', '-preset', 'ultrafast', '-qp', '0', '-pix_fmt', 'yuv444p', raw], stdin=subprocess.PIPE)
+    live = {}
+    for f, items in enumerate(tl):
+        need = {i for i, _, _ in items}
+        for i in list(live):
+            if i not in need: del live[i]
+        acc = None
+        for i, s, w in items:
+            if i not in live: live[i] = make(i)
+            img = live[i].frame(s, mobile=True).astype(np.float32)
+            acc = img * w if acc is None else acc + img * w
+        fr = np.clip(acc + 0.5, 0, 255).astype(np.uint8)
+        if f == 0:
+            Image.fromarray(fr).save(os.path.join(OUTD, slug + '-p.webp'), quality=80, method=6)
+        enc.stdin.write(fr.tobytes())
+    live.clear(); enc.stdin.close(); enc.wait()
+    mp4 = os.path.join(OUTD, slug + '-p.mp4')
+    for crf in (26, 28, 30, 32, 34):
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw, '-c:v', 'libx264', '-preset', 'slow', '-crf', str(crf), '-g', '96',
+                        '-bf', '3', '-x264-params', 'aq-mode=3', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', mp4], check=True)
+        if os.path.getsize(mp4) <= BUDGET['p']: break
+    os.remove(raw)
+    return slug, time.time() - t0, crf, os.path.getsize(mp4), sorted(set(used_p))
+
+
 def install():
     plan = json.load(open(os.path.join(B13.R13, 'reel_plan.json')))
     os.makedirs(DST, exist_ok=True)
@@ -191,21 +248,28 @@ def install():
     for R in REELS:
         s = R['slug']
         if s not in plan or not os.path.exists(os.path.join(OUTD, s + '.mp4')): continue
-        for f in (s + '.mp4', s + '-m.mp4', s + '.webp'):
-            shutil.copy2(os.path.join(OUTD, f), os.path.join(DST, f))
+        for f in (s + '.mp4', s + '-m.mp4', s + '.webp', s + '-p.mp4', s + '-p.webp'):
+            if os.path.exists(os.path.join(OUTD, f)):
+                shutil.copy2(os.path.join(OUTD, f), os.path.join(DST, f))
+        has_p = os.path.exists(os.path.join(OUTD, s + '-p.mp4'))
         cases = []
         for sh in plan[s]['shots']:
             if sh['slug'] not in cases: cases.append(sh['slug'])
         dur = round(sum(sh['dur'] for sh in plan[s]['shots']), 1)
         entries.append(dict(slug=s, title=plan[s]['title'], src=f'/media/showreels/{s}.mp4', srcMobile=f'/media/showreels/{s}-m.mp4',
-                            poster=f'/media/showreels/{s}.webp', duration=dur, cases=cases))
-    body = ''.join(
-        '  {\n'
-        f'    slug: {json.dumps(e["slug"])},\n'
-        f'    title: {{ nl: {json.dumps(e["title"]["nl"], ensure_ascii=False)}, en: {json.dumps(e["title"]["en"], ensure_ascii=False)} }},\n'
-        f'    src: {json.dumps(e["src"])},\n    srcMobile: {json.dumps(e["srcMobile"])},\n    poster: {json.dumps(e["poster"])},\n'
-        f'    duration: {e["duration"]},\n    cases: [{", ".join(json.dumps(c) for c in e["cases"])}],\n'
-        '  },\n' for e in entries)
+                            poster=f'/media/showreels/{s}.webp', duration=dur, cases=cases,
+                            portrait=(f'/media/showreels/{s}-p.mp4', f'/media/showreels/{s}-p.webp') if has_p else None))
+    def entry(e):
+        out = ['  {',
+               f'    slug: {json.dumps(e["slug"])},',
+               f'    title: {{ nl: {json.dumps(e["title"]["nl"], ensure_ascii=False)}, en: {json.dumps(e["title"]["en"], ensure_ascii=False)} }},',
+               f'    src: {json.dumps(e["src"])},', f'    srcMobile: {json.dumps(e["srcMobile"])},']
+        if e['portrait']:
+            out += [f'    srcPortrait: {json.dumps(e["portrait"][0])},', f'    posterPortrait: {json.dumps(e["portrait"][1])},']
+        out += [f'    poster: {json.dumps(e["poster"])},', f'    duration: {e["duration"]},',
+                f'    cases: [{", ".join(json.dumps(c) for c in e["cases"])}],', '  },']
+        return '\n'.join(out) + '\n'
+    body = ''.join(entry(e) for e in entries)
     ts = ('/* Gegenereerd door scripts/mockups — niet met de hand bewerken. */\n'
           'import type { Showreel } from "../showreels";\n\n'
           f'export const showreels: Showreel[] = [{chr(10) + body if body else ""}];\n')
@@ -250,6 +314,10 @@ if __name__ == '__main__':
         sel = args[1].split(',') if len(args) > 1 else [R['slug'] for R in REELS]
         for s in sel:
             r = render(s); print('reel', r[0], f'{r[1]:.0f}s', {k: f'crf{v[0]} {v[1] / 1048576:.2f}MB' for k, v in r[2].items()}, flush=True)
+    elif cmd == 'portrait':
+        sel = args[1].split(',') if len(args) > 1 else [R['slug'] for R in REELS]
+        for s in sel:
+            r = render_portrait(s); print('portrait', r[0], f'{r[1]:.0f}s', f'crf{r[2]} {r[3] / 1048576:.2f}MB', 'portrait cams:', r[4], flush=True)
     elif cmd == 'install':
         n, tot = install(); print(f'installed {n} reels, {tot / 1048576:.1f} MB')
     elif cmd == 'sheet':

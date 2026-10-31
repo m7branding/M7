@@ -11,4 +11,5 @@ def build():
 SK.run('d02_mac_top', build, {
     'a': dict(loc=(0.03, -0.12, 0.95), target=(0.03, 0.02, 0.0), lens=45),
     'b': dict(loc=(-0.28, -0.62, 0.55), target=(0.03, 0.04, 0.06), lens=50),
+    'p': dict(loc=(0.04, -0.05, 1.0), target=(0.04, 0.02, 0.0), lens=25, w=1440, h=2560, vertical=True),
 })

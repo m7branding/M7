@@ -14,4 +14,5 @@ def build():
 SK.run('b02_letterhead', build, {
     'a': dict(loc=(0.02, -0.03, 0.78), target=(0.02, 0.0, 0.0), lens=45),
     'b': dict(loc=(0.30, -0.52, 0.33), target=(0.0, 0.0, 0.0), lens=55),
+    'p': dict(loc=(0.0, -0.02, 0.95), target=(0.0, 0.015, 0.0), lens=26, w=1440, h=2560, vertical=True),
 })

@@ -13,4 +13,5 @@ SK.run('b06_wall_logo', build, {
     'a': dict(loc=(0.25, -3.4, 1.25), target=(0.0, 0.0, 1.30), lens=50),
     'b': dict(loc=(1.9, -2.3, 1.20), target=(-0.05, 0.0, 1.35), lens=55),
     'c': dict(loc=(-0.55, -1.55, 1.42), target=(0.05, 0.0, 1.36), lens=60),
+    'p': dict(loc=(0.30, -2.4, 1.45), target=(0.0, 0.0, 1.36), lens=26, w=1440, h=2560, vertical=True),
 })

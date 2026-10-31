@@ -30,4 +30,5 @@ def build():
 SK.run('b08_flags', build, {
     'a': dict(loc=(0.4, -4.2, 1.2), target=(0.0, 0.5, 2.0), lens=35),
     'b': dict(loc=(-2.2, -2.8, 1.0), target=(0.0, 0.5, 2.1), lens=40),
+    'p': dict(loc=(0.5, -3.2, 1.3), target=(0.0, 0.45, 2.1), lens=32, w=1440, h=2560, vertical=True),
 })

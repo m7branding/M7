@@ -17,4 +17,5 @@ SK.run('d09_ipad_keyboard', build, {
     'a': dict(loc=(-0.40, -0.62, 0.36), target=(0.0, 0.03, 0.10), lens=55),
     'b': dict(loc=(0.55, -0.35, 0.16), target=(0.0, 0.04, 0.11), lens=60),
     'c': dict(loc=(0.06, -0.85, 0.24), target=(0.0, 0.03, 0.11), lens=65),
+    'p': dict(loc=(-0.25, -0.75, 0.30), target=(0.0, 0.03, 0.11), lens=31, w=1440, h=2560, vertical=True),
 })

@@ -263,6 +263,8 @@ def hero_one(args):
     shots = [Shot(slug, case, caps, brand, sp, {}) for sp in spec]
     d = os.path.join(B13.OUT, slug); os.makedirs(d, exist_ok=True)
     tl = timeline(len(shots))
+    k = int(round(DUR / len(shots) / 2 * FPS))      # start (and poster) in the middle of shot 1, clear of any dissolve
+    tl = tl[k:] + tl[:k]
     # render once into memory-light temp files, then encode to budget
     tmp = os.path.join(d, '.frames'); os.makedirs(tmp, exist_ok=True)
     fd_path, fm_path = os.path.join(tmp, 'd.raw'), os.path.join(tmp, 'm.raw')

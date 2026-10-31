@@ -156,3 +156,14 @@ Praktisch (ronde 13):
   `apps`, `content`, `brand-colour`; per reel één camera per scène; gemengde reels openen op een sterk toestelbeeld
   (dat is ook de poster). Tussenbestand lossless x264 (geen rauwe dump van ~4,5 GB).
 - Logo-only cases zonder site krijgen geen hero-video (hun eigen film/foto blijft de hero).
+- Hero-video's en showreels beginnen (frame 0 = poster) midden in het eerste shot, nooit op de naad van de loop of in een
+  dissolve; de loop blijft naadloos. Bestaande video's zijn zo geroteerd met `templates/scenes13/rotate_hero.sh` / `rotate_reels.py`
+  (her-encode binnen hetzelfde budget, PSNR ~46 dB t.o.v. het origineel).
+- Staande showreels `<slug>-p.mp4` + `-p.webp` (720×1280, ≤ 2,5 MB, `reel13.py portrait`): zelfde shots en timing; per shot
+  de staande camera van dezelfde scène (`<scène>__p`, 1440×2560, voor b02, b05, b06, b08, d01, d02, d03, d09, d11, d19) of
+  anders een uitsnede rond het hoofdonderwerp. In `generated/showreels.ts` als `srcPortrait` / `posterPortrait`.
+  De `__p`-camera's doen niet mee in stills, covers of hero's (`batch13.library(portrait=False)`).
+- Cases zonder live site maar met eigen schermbeelden in hun galerij (`projects.json`: `bare: true` = app-scherm zonder
+  browserbalk, `role_src` = welk beeld op welk scherm, `roles` / `exclude_t` / `max_stills`): debiteurnet (portal),
+  infrai (app-schermen), perfect-people (site-screenshot uit de eigen cover). Een sjabloon doet alleen mee als alle
+  schermen echte inhoud krijgen (`proj.roles_ok`).

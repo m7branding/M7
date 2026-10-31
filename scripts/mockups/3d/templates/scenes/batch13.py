@@ -64,12 +64,13 @@ def cases():
 PATTERNS = os.environ.get('R13_TPL', '*').split(',')
 
 
-def library(final=True):
-    """Templates with a final still render (final=False: also preview-only ones; 'base' says which)."""
+def library(final=True, portrait=False):
+    """Templates with a final still render (final=False: also preview-only ones; 'base' says which).
+    '<scene>__p' cameras are portrait versions for the portrait showreels only (portrait=True includes them)."""
     out = {}
     for tdir in sorted(sum((glob.glob(os.path.join(C.TPL, pt)) for pt in PATTERNS), [])):
         t = os.path.basename(tdir)
-        if t.startswith('v_'): continue
+        if t.startswith('v_') or (t.endswith('__p') and not portrait): continue
         base = 'still' if os.path.exists(os.path.join(tdir, 'still_rgb.exr')) else 'pv' if os.path.exists(os.path.join(tdir, 'pv_rgb.exr')) else None
         if base is None or (final and base != 'still'): continue
         meta = json.load(open(os.path.join(tdir, 'meta.json')))
@@ -84,9 +85,10 @@ def library_any():
     return library(final=False)
 
 
-def eligible(t, L, case, has_caps, has_logo):
+def eligible(t, L, case, has_caps, has_logo, roles_ok=None):
     sv = set(case['services'])
     if L['roles'] and not has_caps: return False
+    if roles_ok is not None and not (set(L['roles']) - {'social'}) <= roles_ok: return False
     if 'social' in L['roles'] and not (sv & CONTENT and has_logo): return False
     pr = set(L['prints'])
     if pr & PRINT_BRAND and not (sv & BRANDING and has_logo): return False
@@ -111,7 +113,10 @@ def make_plan(max_stills=18):
         c = cs[slug]
         has_caps = slug in PR
         mono, _ = LG.load(slug)
-        el = [t for t, L in lib.items() if eligible(t, L, c, has_caps, mono is not None)]
+        rok = P.roles_ok(PR[slug]) if has_caps else None
+        ex = (PR.get(slug) or {}).get('exclude_t') or []          # e.g. no macro close-ups for low-res screens
+        el = [t for t, L in lib.items() if eligible(t, L, c, has_caps, mono is not None, rok)
+              and not any(t.startswith(x) for x in ex)]
         if el: el_all[slug] = (el, has_caps, mono is not None)
     # 1. unique covers: cases whose card shows the r-cover first (in /cases grid order), then the rest
     shows = {s: str(cs[s].get('cover') or '').endswith('r-cover.webp') or not cs[s].get('cover') for s in el_all}
@@ -134,10 +139,11 @@ def make_plan(max_stills=18):
         dev = [t for t in el if lib[t]['roles']]; br = [t for t in el if not lib[t]['roles']]
         rnd.shuffle(dev); rnd.shuffle(br)
         seq = []
-        while (dev or br) and len(seq) < max_stills:
+        cap = min(max_stills, (PR.get(slug) or {}).get('max_stills') or max_stills)
+        while (dev or br) and len(seq) < cap:
             for _ in range(2):
-                if dev and len(seq) < max_stills: seq.append(dev.pop())
-            if br and len(seq) < max_stills: seq.append(br.pop())
+                if dev and len(seq) < cap: seq.append(dev.pop())
+            if br and len(seq) < cap: seq.append(br.pop())
         if slug in PRESERVE: seq = seq[:PRESERVE[slug]['max']]
         cv = None if slug in PRESERVE else covers.get(slug)
         if cv and cv not in seq:

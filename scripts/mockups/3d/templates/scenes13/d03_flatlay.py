@@ -14,4 +14,5 @@ def build():
 SK.run('d03_flatlay', build, {
     'a': dict(loc=(0.0, 0.03, 1.25), target=(0.0, 0.06, 0.0), lens=42),
     'b': dict(loc=(0.48, -0.80, 0.36), target=(0.0, 0.02, 0.04), lens=50),
+    'p': dict(loc=(0.0, 0.035, 1.35), target=(0.0, 0.06, 0.0), lens=25, w=1440, h=2560, vertical=True),
 })

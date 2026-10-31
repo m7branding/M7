@@ -11,7 +11,7 @@ DEV = ['huurfix', 'atl-plus', 'steddion', 'impeco', 'kippenkar', 'electriffy', '
 BRD = ['jurgh-detailing', 'atl-plus', 'kippenkar', 'bernheze-makelaars-rebranding', 'nktv', 'sublime-branding', 'sparked', 'happy-horse-sales']
 SOC = ['sublime-branding', 'jurgh-detailing', 'atl-plus']
 FAMS = ['light', 'dark', 'brand', 'light', 'navy', 'brand', 'dark', 'light']
-cs = B13.cases(); lib = B13.library_any()
+cs = B13.cases(); lib = B13.library(final=False, portrait=bool(os.environ.get('R13_PORTRAIT')))
 F = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Medium.otf', 15)
 cells = []; i_dev = i_brd = 0
 for k, (t, L) in enumerate(sorted(lib.items())):
@@ -34,7 +34,7 @@ for k, (t, L) in enumerate(sorted(lib.items())):
         im = B13.render_still(slug, cs[slug], st, caps, B13.brand_for(slug, cs[slug], caps), {}, {})
     except Exception as e:
         import traceback; traceback.print_exc(); print('ERR', t, e); continue
-    im.thumbnail((470, 470)); cells.append((im, f"{t}  ·  {slug}  ·  {st.get('bg') or st.get('tint') or 'brand-dark'}  [{L['base']}]"))
+    im.thumbnail((470, 470) if im.width >= im.height else (300, 533)); cells.append((im, f"{t}  ·  {slug}  ·  {st.get('bg') or st.get('tint') or 'brand-dark'}  [{L['base']}]"))
     print(t, slug, flush=True)
 cols = 5; cw = 480; chh = max(c[0].height for c in cells) + 24
 sh = Image.new('RGB', (cols * cw + 10, ((len(cells) + cols - 1) // cols) * chh + 10), (24, 24, 26)); d = ImageDraw.Draw(sh)
