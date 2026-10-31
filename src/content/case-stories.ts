@@ -182,7 +182,7 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         body: [
           {
             nl: "We ontwierpen een heldere website in Webflow en een product-interface die op desktop, tablet en mobiel even prettig werkt. Licht, vriendelijk en met groen voor elke stap die goed gaat. Van eerste bezoek tot dagelijks gebruik voelt het als één product.",
-            en: "We designed a clear website in Webflow and a product interface that works equally well on desktop, tablet and mobile. Light, friendly and with green for every step that goes right. From first visit to daily use, it feels like one product.",
+            en: "We designed a straightforward website in Webflow and a product interface that works equally well on desktop, tablet and mobile. Light, friendly and with green for every step that goes right. From first visit to daily use, it feels like one product.",
           },
         ],
       },
@@ -408,8 +408,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Weten wat werkt.", en: "Knowing what works." },
         body: [
           {
-            nl: "Daarnaast verzorgden we de marketing en de tracking, zodat helder is waar cliënten vandaan komen. Zo heeft The Digital Clinic één centrale omgeving voor cliënten, huisarts, apotheek en team, en een website die de online behandeling helder uitlegt.",
-            en: "We also took care of marketing and tracking, so it is clear where clients come from. The Digital Clinic now has one central environment for clients, GP, pharmacy and team, and a website that explains the online treatment clearly.",
+            nl: "Daarnaast verzorgden we de marketing en de tracking, zodat ze weten waar cliënten vandaan komen. Zo heeft The Digital Clinic één centrale omgeving voor cliënten, huisarts, apotheek en team, en een website die de online behandeling in gewone taal uitlegt.",
+            en: "We also took care of marketing and tracking, so they know where clients come from. The Digital Clinic now has one central environment for clients, GP, pharmacy and team, and a website that explains the online treatment in plain language.",
           },
         ],
       },
@@ -609,7 +609,7 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         body: [
           {
             nl: "ISSA, de International Step by Step Association, verbindt organisaties en professionals in Europa en Centraal-Azië. Samen werken ze aan betere zorg en educatie voor jonge kinderen. Er gebeurt veel, en de website moest dat overzichtelijk laten zien.",
-            en: "ISSA, the International Step by Step Association, connects organisations and professionals across Europe and Central Asia. Together they work on better care and education for young children. A lot is going on, and the website had to show it clearly.",
+            en: "ISSA, the International Step by Step Association, connects organisations and professionals across Europe and Central Asia. Together they work on better care and education for young children. A lot is going on, and the website had to make sense of it all.",
           },
         ],
       },
@@ -627,7 +627,7 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         body: [
           {
             nl: "Nieuws en events staan vooraan, zodat bezoekers meteen zien wat er in het netwerk speelt. Van een webinar tot de ISSA-conferentie, alles is met een paar klikken te vinden. Zo heeft het hele netwerk één overzichtelijke website, met ruimte voor de vele initiatieven van ISSA.",
-            en: "News and events come first, so visitors see straight away what is happening in the network. From a webinar to the ISSA conference, everything is a few clicks away. The whole network now has one clear website, with room for ISSA's many initiatives.",
+            en: "News and events come first, so visitors see straight away what is happening in the network. From a webinar to the ISSA conference, everything is a few clicks away. The whole network now has one well-organised website, with room for ISSA's many initiatives.",
           },
         ],
       },
@@ -773,8 +773,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Offertes zonder omweg.", en: "Quotes without detours." },
         body: [
           {
-            nl: "Daarnaast bouwden we een offerte- en klantportaal. Klanten vragen er een offerte aan en loggen in op hun eigen omgeving. Zo heeft KDS een strak merk, drukwerk in dezelfde lijn, een heldere website en een portaal voor offertes en klanten.",
-            en: "We also built a quote and customer portal. Customers request quotes there and log in to their own environment. KDS now has a sharp brand, print in the same style, a clear website and a portal for quotes and customers.",
+            nl: "Daarnaast bouwden we een offerte- en klantportaal. Klanten vragen er een offerte aan en loggen in op hun eigen omgeving. Zo heeft KDS een strak merk, drukwerk in dezelfde lijn, een website zonder franje en een portaal voor offertes en klanten.",
+            en: "We also built a quote and customer portal. Customers request quotes there and log in to their own environment. KDS now has a sharp brand, print in the same style, a no-nonsense website and a portal for quotes and customers.",
           },
         ],
       },
@@ -899,8 +899,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "steddion": {
     intro: {
-      nl: "Het stroomnet staat onder druk, en voor veel bedrijven is energie geen vanzelfsprekendheid meer. Steddion helpt ze de regie terug te pakken, en wij hielpen Steddion dat helder te vertellen.",
-      en: "The grid is under pressure, and for many businesses energy is no longer a given. Steddion helps them take back control, and we helped Steddion tell that story clearly.",
+      nl: "Het stroomnet staat onder druk, en voor veel bedrijven is energie geen vanzelfsprekendheid meer. Steddion helpt ze de regie terug te pakken, en wij hielpen Steddion dat verhaal goed te vertellen.",
+      en: "The grid is under pressure, and for many businesses energy is no longer a given. Steddion helps them take back control, and we helped Steddion tell that story well.",
     },
     chapters: [
       {
@@ -917,7 +917,7 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         body: [
           {
             nl: "We zetten het merk Steddion neer en ontwierpen de website in Webflow, in diep paars met geel als accent. De oplossingen en de doelgroepen hebben elk een eigen, overzichtelijke plek. Zo vindt een beheerder net zo snel zijn antwoord als een belegger.",
-            en: "We established the Steddion brand and designed the website in Webflow, in deep purple with yellow as the accent. The solutions and the audiences each have their own clear place. A property manager finds their answer as quickly as an investor does.",
+            en: "We established the Steddion brand and designed the website in Webflow, in deep purple with yellow as the accent. The solutions and the audiences each have their own place. A property manager finds their answer as quickly as an investor does.",
           },
         ],
       },
@@ -1043,8 +1043,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Stap voor stap uitgelegd.", en: "Explained step by step." },
         body: [
           {
-            nl: "De site legt uit wat Electriffy doet: zon en batterijopslag, stroomafnamecontracten en projectontwikkeling. Daarna voor wie, in welke regio's en hoe de regeneratieve aanpak samen met YOUR.earth werkt. Zo staat een groot, technisch project helder neer voor iedereen die erbij betrokken is.",
-            en: "The site explains what Electriffy does: solar and battery storage, power purchase agreements and project development. Then for whom, in which regions and how the regenerative approach works together with YOUR.earth. That way a large, technical project is clear to everyone involved.",
+            nl: "De site legt uit wat Electriffy doet: zon en batterijopslag, stroomafnamecontracten en projectontwikkeling. Daarna voor wie, in welke regio's en hoe de regeneratieve aanpak samen met YOUR.earth werkt. Zo wordt een groot, technisch project begrijpelijk voor iedereen die erbij betrokken is.",
+            en: "The site explains what Electriffy does: solar and battery storage, power purchase agreements and project development. Then for whom, in which regions and how the regenerative approach works together with YOUR.earth. That way a large, technical project makes sense to everyone involved.",
           },
         ],
       },
@@ -1119,8 +1119,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Ook buiten de website.", en: "Beyond the website." },
         body: [
           {
-            nl: "Daarnaast maakten we social content en een webinar. Zo vertellen merk, website, social en webinar samen één helder verhaal over energie, CO₂ en landschap.",
-            en: "We also created social content and a webinar. Together, brand, website, social and webinar tell one clear story about energy, CO₂ and landscape.",
+            nl: "Daarnaast maakten we social content en een webinar. Zo vertellen merk, website, social en webinar samen één samenhangend verhaal over energie, CO₂ en landschap.",
+            en: "We also created social content and a webinar. Together, brand, website, social and webinar tell one coherent story about energy, CO₂ and landscape.",
           },
         ],
       },
@@ -1572,7 +1572,7 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         body: [
           {
             nl: "We ontwikkelden de branding en maakten de website in dezelfde lijn: diep groen, een rustige letter en een cursief accent. De opening zet de toon met drie korte zinnen over verleden, heden en toekomst. Daaronder staan de vijf vakgebieden overzichtelijk naast elkaar.",
-            en: "We developed the branding and created the website in the same style: deep green, a calm typeface and an italic accent. The opening sets the tone with three short lines about past, present and future. Below it, the five disciplines sit clearly side by side.",
+            en: "We developed the branding and created the website in the same style: deep green, a calm typeface and an italic accent. The opening sets the tone with three short lines about past, present and future. Below it, the five disciplines sit side by side.",
           },
         ],
       },
@@ -1651,8 +1651,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Opgefrist, van merk tot site.", en: "Refreshed, from brand to site." },
         body: [
           {
-            nl: "We fristen de branding op en bouwden een nieuwe website in dezelfde lijn: wit, donkerblauw en groen, met de cursussen helder op een rij. Zo vormen platform, merk en website weer één geheel.",
-            en: "We refreshed the branding and built a new website in the same style: white, dark blue and green, with the courses clearly laid out. Platform, brand and website form one whole again.",
+            nl: "We fristen de branding op en bouwden een nieuwe website in dezelfde lijn: wit, donkerblauw en groen, met de cursussen netjes op een rij. Zo vormen platform, merk en website weer één geheel.",
+            en: "We refreshed the branding and built a new website in the same style: white, dark blue and green, with the courses neatly laid out. Platform, brand and website form one whole again.",
           },
         ],
       },
@@ -1833,8 +1833,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een opstap naar een schonere industrie.", en: "A stepping stone to cleaner industry." },
         body: [
           {
-            nl: "Sparta richt zich op koolstofarme waterstof, gemaakt uit aardgas met afvang en opslag van CO₂. Een pragmatische stap in de energietransitie, met een technisch verhaal. Dat verhaal moest professioneel en helder overkomen.",
-            en: "Sparta focuses on low-carbon hydrogen, made from natural gas with carbon capture and storage. A pragmatic step in the energy transition, with a technical story. That story had to come across as professional and clear.",
+            nl: "Sparta richt zich op koolstofarme waterstof, gemaakt uit aardgas met afvang en opslag van CO₂. Een pragmatische stap in de energietransitie, met een technisch verhaal. Dat verhaal moest professioneel en toegankelijk overkomen.",
+            en: "Sparta focuses on low-carbon hydrogen, made from natural gas with carbon capture and storage. A pragmatic step in the energy transition, with a technical story. That story had to come across as professional and accessible.",
           },
         ],
       },
@@ -2086,8 +2086,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Samenstellen in stappen.", en: "Building it, step by step." },
         body: [
           {
-            nl: "Het hart van de Webflow-site is een configurator waarin je in een paar stappen je Speedbar PRO samenstelt en je aanvraag doet. Comfort, sterkte en veiligheid worden helder uitgelegd, zodat je weet waarom elk detail ertoe doet.",
-            en: "At the heart of the Webflow site is a configurator in which you put together your Speedbar PRO in a few steps and submit your request. Comfort, strength and safety are clearly explained, so you know why every detail matters.",
+            nl: "Het hart van de Webflow-site is een configurator waarin je in een paar stappen je Speedbar PRO samenstelt en je aanvraag doet. Comfort, sterkte en veiligheid krijgen elk een korte uitleg, zodat je weet waarom elk detail ertoe doet.",
+            en: "At the heart of the Webflow site is a configurator in which you put together your Speedbar PRO in a few steps and submit your request. Comfort, strength and safety each get a short explanation, so you know why every detail matters.",
           },
         ],
       },
@@ -3046,8 +3046,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Gouda in beeld.", en: "Gouda on screen." },
         body: [
           {
-            nl: "We produceerden een promotievideo met de hoogtepunten van het akkoord en quotes van partners zoals de GGD en Sport.Gouda. Met dronebeelden van de stad, ondertiteling en eigen animaties die laten zien wie er aan het woord is. Zo komen het akkoord en de partners helder en aantrekkelijk in beeld.",
-            en: "We produced a promotional video with the highlights of the agreement and quotes from partners such as the GGD public health service and Sport.Gouda. With drone footage of the city, subtitles and custom animations showing who is speaking. The agreement and its partners come across clearly and attractively.",
+            nl: "We produceerden een promotievideo met de hoogtepunten van het akkoord en quotes van partners zoals de GGD en Sport.Gouda. Met dronebeelden van de stad, ondertiteling en eigen animaties die laten zien wie er aan het woord is. Zo komen het akkoord en de partners aantrekkelijk en begrijpelijk in beeld.",
+            en: "We produced a promotional video with the highlights of the agreement and quotes from partners such as the GGD public health service and Sport.Gouda. With drone footage of the city, subtitles and custom animations showing who is speaking. The agreement and its partners are presented in an inviting, accessible way.",
           },
         ],
       },
@@ -3075,8 +3075,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Per klant op maat.", en: "Tailored to each client." },
         body: [
           {
-            nl: "We hielpen bij het opbouwen van realtime dashboards in Tableau en de data warehousing erachter. Elk dashboard is afgestemd op de wensen van een grote klant, met onder meer een kaart die de cijfers per land laat zien. Zo komt de IT-tevredenheid per klant helder in beeld.",
-            en: "We helped build real-time dashboards in Tableau and the data warehousing behind them. Each dashboard is tailored to the wishes of a major client, including a map showing the figures per country. That puts IT satisfaction per client clearly in view.",
+            nl: "We hielpen bij het opbouwen van realtime dashboards in Tableau en de data warehousing erachter. Elk dashboard is afgestemd op de wensen van een grote klant, met onder meer een kaart die de cijfers per land laat zien. Zo komt de IT-tevredenheid per klant duidelijk in beeld.",
+            en: "We helped build real-time dashboards in Tableau and the data warehousing behind them. Each dashboard is tailored to the wishes of a major client, including a map showing the figures per country. That brings IT satisfaction per client into plain view.",
           },
         ],
       },

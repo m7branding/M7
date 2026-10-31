@@ -744,8 +744,8 @@ export const archiveCases: Case[] = [
       en: "We created a collection of banners and posts, from Instagram swipe posts to LinkedIn covers. The basis: flat black and white backgrounds and a simple, direct message.",
     },
     result: {
-      nl: "Een herkenbare reeks content die naadloos aansluit op de nieuwe huisstijl van Repairlab.",
-      en: "A recognisable series of content that fits seamlessly with Repairlab's new identity.",
+      nl: "Een herkenbare reeks content die past bij de nieuwe huisstijl van Repairlab.",
+      en: "A recognisable series of content in line with Repairlab's new identity.",
     },
     shape: "wide",
   },

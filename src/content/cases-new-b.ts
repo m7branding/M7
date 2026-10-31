@@ -293,7 +293,7 @@ export const newCasesB: Case[] = [
       nl: "Branding en website voor Martello.",
       en: "Branding and website for Martello.",
     },
-    sector: "tech-saas-startups",
+    sector: "zakelijke-dienstverlening",
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["huisstijl", "ux-ui-webdesign"],
     tools: [],
