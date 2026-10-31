@@ -21,7 +21,10 @@ export interface ReelClip {
   src: string;
   /** Lichtere versie voor smalle schermen. */
   srcMobile?: string;
+  /** Staande versie, voor een staand kader op een smal scherm. */
+  srcPortrait?: string;
   poster?: string;
+  posterPortrait?: string;
   /** Terugval-reeks: de case die nu in beeld is (naam + intern NL-pad). */
   client?: string;
   href?: string;
@@ -129,7 +132,7 @@ function film(s: Showreel, locale: Locale): Reel {
   return {
     slug: s.slug,
     title: tr(s.title, locale),
-    clips: [{ src: s.src, srcMobile: s.srcMobile, poster: s.poster }],
+    clips: [{ src: s.src, srcMobile: s.srcMobile, srcPortrait: s.srcPortrait, poster: s.poster, posterPortrait: s.posterPortrait }],
     cases: cases.map(caseRef),
     film: true,
   };

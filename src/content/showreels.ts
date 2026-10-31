@@ -12,9 +12,13 @@ export interface Showreel {
   title: T;
   /** Liggend, 1920×1080 (H.264, faststart). */
   src: string;
-  /** Lichtere versie voor mobiel (1280×720 of staand). */
+  /** Lichtere liggende versie voor mobiel (1280×720). */
   srcMobile?: string;
+  /** Staande versie (720×1280) voor een staand kader op mobiel, per shot opnieuw kadreerd. */
+  srcPortrait?: string;
   poster: string;
+  /** Poster bij de staande versie. */
+  posterPortrait?: string;
   /** Duur in seconden. */
   duration: number;
   /** Cases die erin voorkomen, in volgorde van verschijnen. */

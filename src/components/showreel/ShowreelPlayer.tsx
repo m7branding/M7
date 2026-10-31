@@ -34,7 +34,8 @@ const CLIP_MAX = 6.5;
  *
  * - Speelt alleen in beeld (IntersectionObserver) en bij een zichtbaar tabblad.
  * - Reduced motion of databesparing: alleen de poster; met de playknop start hij alsnog.
- * - Mobiel (≤ 760px): `srcMobile` als die er is.
+ * - Mobiel (≤ 760px): `srcMobile` als die er is; is het kader daar staand, dan de staande
+ *   versie (`srcPortrait`/`posterPortrait`), zodat een liggende film niet tot een smalle strook wordt bijgesneden.
  * - `ui="full"`: wisselaar met voortgangslijnen per reel, pauzeknop en bijschrift.
  *   `ui="caption"`: pauzeknop en bijschrift; `ui="mini"`: alleen een pauzeknop; `ui="none"`: kale achtergrond.
  * De voortgang loopt via één rAF die alleen een CSS-variabele (--p) zet.
@@ -85,6 +86,8 @@ export function ShowreelPlayer({
   const [started, setStarted] = useState(false);
   const srcOn = near && (!blocked || started);
   const [small, setSmall] = useState(false);
+  /** Staand kader op een smal scherm (gemeten aan de speler zelf, niet aan de viewport). */
+  const [tall, setTall] = useState(false);
   const [reduce, setReduce] = useState(false);
   const [inView, setInView] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -132,18 +135,34 @@ export function ShowreelPlayer({
       },
       { rootMargin: "100% 0px" },
     );
+    // staand of liggend kader: alleen bij een omslag een nieuwe waarde (dan laadt de video het andere bestand)
+    const ro = new ResizeObserver(([e]) => {
+      const { width, height } = e.contentRect;
+      if (width > 0) setTall(mqS.matches && height > width * 1.05);
+    });
     if (root.current) {
       io.observe(root.current);
       pre.observe(root.current);
+      ro.observe(root.current);
     }
     return () => {
       document.removeEventListener("visibilitychange", vis);
       io.disconnect();
       pre.disconnect();
+      ro.disconnect();
     };
   }, [rootMargin]);
 
-  const srcOf = useCallback((k: number) => (small && seq[k]?.srcMobile ? seq[k].srcMobile! : seq[k]?.src), [seq, small]);
+  const srcOf = useCallback(
+    (k: number) => {
+      const c = seq[k];
+      if (!c) return undefined;
+      if (tall && c.srcPortrait) return c.srcPortrait;
+      return small && c.srcMobile ? c.srcMobile : c.src;
+    },
+    [seq, small, tall],
+  );
+  const posterOf = (c?: (typeof seq)[number]) => (c && tall && c.posterPortrait ? c.posterPortrait : c?.poster);
 
   /** Naar clip j (in de doorlopende rij): via de achterste video, met een overvloeier. */
   const go = useCallback(
@@ -276,8 +295,12 @@ export function ShowreelPlayer({
     >
       <div className="srp__media" role="img" aria-label={reel ? `${labels.media}: ${reel.title}` : labels.media}>
         {priority && seq[0]?.poster ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img className="srp__poster" src={seq[0].poster} alt="" fetchPriority="high" decoding="async" />
+          // vóór de hydratatie is het kader nog niet gemeten: een staand scherm krijgt alvast de staande poster
+          <picture>
+            {seq[0].posterPortrait ? <source media="(max-width: 760px) and (orientation: portrait)" srcSet={seq[0].posterPortrait} /> : null}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="srp__poster" src={seq[0].poster} alt="" fetchPriority="high" decoding="async" />
+          </picture>
         ) : null}
         {([0, 1] as Slot[]).map((i) => {
           const k = slot[i];
@@ -293,7 +316,7 @@ export function ShowreelPlayer({
               data-state={state}
               src={srcOn && c ? srcOf(k) : undefined}
               // een poster-attribuut laadt altijd meteen: pas zetten als de speler in de buurt is
-              poster={near || priority ? c?.poster : undefined}
+              poster={near || priority ? posterOf(c) : undefined}
               muted
               playsInline
               loop={N === 1}
