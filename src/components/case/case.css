@@ -1115,3 +1115,63 @@ html.js [data-reveal="cx"].is-in > img {
     transform: none !important;
   }
 }
+
+/* ---------------- Projectvideo (YouTube): poster met afspeelknop, na de klik de speler ---------------- */
+.cx-yt .cx-media__grow .cx-grow__frame {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+}
+.cx-yt__poster,
+.cx-yt__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.cx-yt__poster {
+  display: block;
+  padding: 0;
+  background: #000;
+  cursor: pointer;
+}
+.cx-yt__poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 50%);
+}
+.cx-yt__play {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 7vw, 96px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transform: translate(-50%, -50%);
+  transition: transform 0.45s var(--ease-out), background 0.3s;
+}
+.cx-yt__poster:hover .cx-yt__play,
+.cx-yt__poster:focus-visible .cx-yt__play {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: rgba(255, 255, 255, 0.24);
+}
+.cx-yt__label {
+  position: absolute;
+  z-index: 1;
+  left: var(--cx-side);
+  bottom: clamp(16px, 3vw, 36px);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}

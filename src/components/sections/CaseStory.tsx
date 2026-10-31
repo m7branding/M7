@@ -2,6 +2,7 @@ import { CaseChapter } from "@/components/case/CaseChapter";
 import { CaseGallery } from "@/components/case/CaseGallery";
 import { CaseMedia } from "@/components/case/CaseMedia";
 import { CaseShowcase } from "@/components/case/CaseShowcase";
+import { CaseYouTube } from "@/components/case/CaseYouTube";
 import { CaseStatement } from "@/components/case/CaseStatement";
 import { ScrollWords } from "@/components/case/ScrollWords";
 import { SplitText } from "@/components/motion/SplitText";
@@ -47,6 +48,9 @@ function Block({ b, c, locale, i, seed, start }: { b: CaseBlock; c: Case; locale
 
     case "showcase":
       return <CaseShowcase slug={b.slug} color={c.color} client={c.client} locale={locale} />;
+
+    case "youtube":
+      return <CaseYouTube id={b.id} poster={b.poster} title={`${c.client}: ${tr(c.title, locale)}`} label={locale === "nl" ? "Bekijk de video" : "Watch the video"} />;
 
     case "text":
       return <CaseChapter title={b.h} body={b.body} quote={b.quote} locale={locale} id={`story-${i}`} />;

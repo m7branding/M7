@@ -5,8 +5,11 @@ import type { Case, Review, StoryBlock, T } from "@/content/types";
 import { getReview, publishedReviews } from "./content";
 import { getDict } from "./dict";
 
-/** Blok op de casepagina: een StoryBlock, of de geanimeerde showcase (uit de hero gehaald) als eigen sectie. */
-export type CaseBlock = StoryBlock | { type: "showcase"; slug: ServiceSlug };
+/** Blok op de casepagina: een StoryBlock, de geanimeerde showcase (uit de hero gehaald) of de video van het project. */
+export type CaseBlock = StoryBlock | { type: "showcase"; slug: ServiceSlug } | { type: "youtube"; id: string; poster?: string };
+
+/** YouTube-id uit de projectlink (youtu.be/… of youtube.com/watch?v=…), anders undefined. */
+const youtubeId = (url?: string) => url?.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})/)?.[1];
 
 /** Wat de hero schermvullend toont: een eigen beeld/video, de gerenderde hero-video, de cover of de gegenereerde cover. */
 export type HeroMedia =
@@ -47,7 +50,13 @@ const join = (paras: T[]): T => ({ nl: paras.map((p) => p.nl).join("\n\n"), en: 
  */
 export function storyFor(c: Case): CaseBlock[] {
   const show = heroShowcase(c.slug);
-  const showBlock: CaseBlock[] = show ? [{ type: "showcase", slug: show }] : [];
+  const yt = youtubeId(c.url);
+  // poster lokaal (public/media/cases/<slug>/yt.webp), zodat er vóór de klik niets van YouTube laadt
+  const ytPoster = `/media/cases/${c.slug}/yt.webp`;
+  const showBlock: CaseBlock[] = [
+    ...(show ? [{ type: "showcase" as const, slug: show }] : []),
+    ...(yt ? [{ type: "youtube" as const, id: yt, poster: imageSize(ytPoster) ? ytPoster : undefined }] : []),
+  ];
   if (c.story?.length) {
     const [first, ...rest] = c.story;
     return first.type === "intro" ? [first, ...showBlock, ...rest] : [...showBlock, ...c.story];
