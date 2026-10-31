@@ -55,7 +55,7 @@ export const newCasesB: Case[] = [
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["huisstijl", "webflow-website", "ux-ui-webdesign"],
     tools: ["webflow"],
-    color: "#0F4D2A",
+    color: "#0A3C20",
     challenge: {
       nl: "Pine Street School is een meertalige IB World School in Lower Manhattan, van de allerkleinsten tot en met grade 8. Battery Park Montessori, aan de Hudson, is een drietalige Montessorischool voor kinderen van 1 tot 5 jaar. Twee scholen met veel informatie voor ouders, over het onderwijs, toelating, lesgeld en het schoolleven. Die moest makkelijk te vinden zijn.",
       en: "Pine Street School is a multilingual IB World School in Lower Manhattan, from the very youngest up to grade 8. Battery Park Montessori, on the Hudson, is a trilingual Montessori school for children aged 1 to 5. Two schools with a lot of information for parents, about the education, admissions, tuition and school life. It all had to be easy to find.",
@@ -86,7 +86,7 @@ export const newCasesB: Case[] = [
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["merkstrategie", "huisstijl", "ux-ui-webdesign"],
     tools: [],
-    color: "#8A8F98",
+    color: "#BAE6FF",
     challenge: {
       nl: "Icewall zocht een merk met een duidelijk concept: waar sta je voor, voor wie ben je er en hoe ziet dat eruit?",
       en: "Icewall wanted a brand with a clear concept: what do you stand for, who are you there for and what does that look like?",
@@ -145,7 +145,7 @@ export const newCasesB: Case[] = [
     services: ["branding-rebranding", "websites-webshops", "automation-funnels", "foto-video-3d-animatie"],
     applications: ["naamgeving", "logo-ontwerp", "brandbook", "webflow-website", "salesfunnels", "api-koppelingen"],
     tools: ["webflow", "teamleader"],
-    color: "#1E3FAE",
+    color: "#112032",
     challenge: {
       nl: "Soms is de omzet er wel, maar het geld nog niet: de factuur wordt pas over weken betaald. Bij Silvr verkoop je je bedrijfsvoertuig, huur je het direct terug en rijd je gewoon door. Geen lening en geen BKR-registratie. Een nieuw concept, dus er moest een nieuw merk komen dat meteen duidelijk maakt hoe het werkt.",
       en: "Sometimes the revenue is there but the cash isn't yet: the invoice only gets paid weeks later. With Silvr you sell your company vehicle, lease it straight back and simply keep driving. No loan and no credit registration. A new concept, so it needed a new brand that makes clear right away how it works.",
@@ -176,7 +176,7 @@ export const newCasesB: Case[] = [
     services: ["content-marketing-online-ads", "foto-video-3d-animatie"],
     applications: ["contentstrategie", "social-media-marketing"],
     tools: ["youtube"],
-    color: "#C9A227",
+    color: "#C7A225",
     challenge: {
       nl: "BUS Whisky maakt Nederlandse whisky van gerst van de eigen boerderij, in een stokerij die op hernieuwbare energie draait. Achter elke fles zit dus een verhaal, en dat verhaal wilden ze vaker en beter vertellen.",
       en: "BUS Whisky makes Dutch whisky from barley grown on its own farm, in a distillery that runs on renewable energy. So there is a story behind every bottle, and they wanted to tell it more often and better.",
@@ -206,7 +206,7 @@ export const newCasesB: Case[] = [
     services: ["websites-webshops", "automation-funnels", "seo-aeo-geo"],
     applications: ["webflow-website", "landingspaginas", "salesfunnels", "aeo", "geo"],
     tools: ["webflow"],
-    color: "#BE8A33",
+    color: "#6A4231",
     challenge: {
       nl: "The Sandt Investment Engineers ontwerpt sinds 2015 investeringsoplossingen in vastgoed, met vastgoedobligaties onder Nederlandse regie. Investeerders letten steeds scherper op risico, rendement en transparantie. Het verhaal moest dus helder en goed onderbouwd zijn: op de website, in de brochure en in de antwoorden van AI-zoekmachines.",
       en: "Since 2015, The Sandt Investment Engineers has been designing real estate investment solutions, with real estate bonds under Dutch management. Investors look ever more closely at risk, return and transparency. So the story had to be clear and well-founded: on the website, in the brochure and in the answers of AI search engines.",
@@ -237,7 +237,7 @@ export const newCasesB: Case[] = [
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["huisstijl", "brandbook", "ux-ui-webdesign"],
     tools: [],
-    color: "#8A8F98",
+    color: "#71A5AF",
     challenge: {
       nl: "Aigora wilde een merk dat staat, en dat iedereen op dezelfde manier toepast.",
       en: "Aigora wanted a brand that stands firm, and that everyone applies the same way.",
@@ -297,7 +297,7 @@ export const newCasesB: Case[] = [
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["huisstijl", "ux-ui-webdesign"],
     tools: [],
-    color: "#8A8F98",
+    color: "#103732",
     challenge: {
       nl: "Martello zocht een herkenbaar merk en een website die laat zien waar het bedrijf voor staat.",
       en: "Martello wanted a recognisable brand and a website that shows what the company stands for.",
@@ -365,7 +365,7 @@ export const newCasesB: Case[] = [
     services: ["web-apps-portals-apps", "websites-webshops", "branding-rebranding"],
     applications: ["ux-ui-app-design", "ledenportaal-loyaliteit", "ux-ui-webdesign", "rebranding"],
     tools: [],
-    color: "#8A8F98",
+    color: "#00477F",
     challenge: {
       nl: "Bij CryptoCoinTalk moest de manier waarop de abonnementen werkten op de schop. En het platform, de website en het merk konden ook wel een opfrisbeurt gebruiken.",
       en: "At CryptoCoinTalk, the way the subscriptions worked needed an overhaul. And the platform, the website and the brand could do with a refresh too.",
@@ -396,7 +396,7 @@ export const newCasesB: Case[] = [
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["huisstijl", "brandbook", "ux-ui-webdesign"],
     tools: [],
-    color: "#1A2F5B",
+    color: "#26D382",
     challenge: {
       nl: "SolidLayer bouwt aan veilige, soevereine infrastructuur, onder het motto 'Sovereign by structure'. Een nieuw merk dat vanaf de eerste dag solide moest overkomen.",
       en: "SolidLayer is building secure, sovereign infrastructure, under the motto 'Sovereign by structure'. A new brand that had to come across as solid from day one.",
@@ -547,7 +547,7 @@ export const newCasesB: Case[] = [
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["huisstijl", "ux-ui-webdesign"],
     tools: [],
-    color: "#8A8F98",
+    color: "#2149AD",
     challenge: {
       nl: "Waterstof is geen onderwerp dat je in één zin uitlegt. Sparta Blue Hydrogen wilde een merk en een website die professioneel overkomen en het verhaal helder vertellen.",
       en: "Hydrogen is not a subject you explain in one sentence. Sparta Blue Hydrogen wanted a brand and a website that come across as professional and tell the story clearly.",
@@ -606,7 +606,7 @@ export const newCasesB: Case[] = [
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["merkstrategie", "huisstijl", "webflow-website"],
     tools: ["webflow"],
-    color: "#0E70FB",
+    color: "#1875FA",
     challenge: {
       nl: "JMTuning in Schagen is gespecialiseerd in uitlaten, met eigen productie. Onder één dak zitten meerdere afdelingen: de titanium uitlaten van Maarschall, maatwerk van JM Custom Exhausts, BLAST en RVSuitlaatdelen.nl, een online platform voor uitlaatonderdelen. Hoe laat je die naast elkaar bestaan zonder dat het rommelig wordt?",
       en: "JMTuning in Schagen specialises in exhausts, with in-house production. Several departments share one roof: Maarschall's titanium exhausts, custom work by JM Custom Exhausts, BLAST and RVSuitlaatdelen.nl, an online platform for exhaust parts. How do you let them live side by side without it getting messy?",
@@ -640,7 +640,7 @@ export const newCasesB: Case[] = [
     cover: "/media/cases/titanium-exhaust.webp",
     gallery: ["/media/cases/titanium-phone.webp"],
     featured: true,
-    color: "#E8262B",
+    color: "#FE0000",
     challenge: {
       nl: "Maarschall maakt handgemaakte, personaliseerbare titanium uitlaatsystemen voor onder meer McLaren, Ferrari, Lamborghini en Audi, en levert ook via resellers. Een topproduct voor liefhebbers, dat online dezelfde klasse moest uitstralen.",
       en: "Maarschall makes handmade, customisable titanium exhaust systems for McLaren, Ferrari, Lamborghini and Audi, among others, and also sells through resellers. A top product for enthusiasts, which had to show the same class online.",

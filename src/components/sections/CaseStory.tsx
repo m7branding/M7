@@ -7,6 +7,7 @@ import { CaseStatement } from "@/components/case/CaseStatement";
 import { ScrollWords } from "@/components/case/ScrollWords";
 import { SplitText } from "@/components/motion/SplitText";
 import { RichText } from "@/components/ui/RichText";
+import { brandField } from "@/content/palettes";
 import type { Case, Locale } from "@/content/types";
 import { tr } from "@/lib/i18n";
 import type { CaseBlock } from "@/lib/story";
@@ -47,7 +48,7 @@ function Block({ b, c, locale, i, seed, start }: { b: CaseBlock; c: Case; locale
       );
 
     case "showcase":
-      return <CaseShowcase slug={b.slug} color={c.color} client={c.client} locale={locale} />;
+      return <CaseShowcase slug={b.slug} color={c.color} field={brandField(c.slug)} client={c.client} locale={locale} />;
 
     case "youtube":
       return <CaseYouTube id={b.id} poster={b.poster} title={`${c.client}: ${tr(c.title, locale)}`} label={locale === "nl" ? "Bekijk de video" : "Watch the video"} />;
@@ -62,7 +63,7 @@ function Block({ b, c, locale, i, seed, start }: { b: CaseBlock; c: Case; locale
       return <CaseMedia image={b.image} video={b.video} poster={b.poster} position={b.position} quote={b.quote ? tr(b.quote, locale) : undefined} alt={c.client} />;
 
     case "quote":
-      return <CaseStatement text={b.text} cite={b.cite} role={b.role} avatar={b.avatar} color={c.color} locale={locale} />;
+      return <CaseStatement text={b.text} cite={b.cite} role={b.role} avatar={b.avatar} color={c.color} field={brandField(c.slug)} locale={locale} />;
 
     case "split":
       return (

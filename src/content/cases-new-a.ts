@@ -25,7 +25,7 @@ export const newCasesA: Case[] = [
     services: ["branding-rebranding", "websites-webshops", "configurators-lead-tools-widgets", "automation-funnels"],
     applications: ["huisstijl", "webflow-website", "meertalige-website", "keuzehulp-quiz", "salesfunnels"],
     tools: ["webflow"],
-    color: "#1486B0",
+    color: "#5EA6A3",
     challenge: {
       nl: "TOY4Participation is een Europees project binnen het netwerk van ISSA, de International Step by Step Association. Het zet zich in voor kinderparticipatie: ook de allerjongsten mogen meepraten over wat hen aangaat, in de kinderopvang en in Play Hubs in de buurt. Dat verhaal moest ouders van jonge kinderen bereiken. En liefst zo dat ze meedoen, in plaats van alleen te lezen.",
       en: "TOY4Participation is a European project within the network of ISSA, the International Step by Step Association. It champions child participation: even the youngest children get a say in what affects them, in early childhood settings and in local Play Hubs. That story had to reach parents of young children. Ideally in a way that gets them to take part, not just read.",
@@ -85,7 +85,7 @@ export const newCasesA: Case[] = [
     services: ["websites-webshops"],
     applications: ["webflow-website", "ux-ui-webdesign"],
     tools: ["webflow"],
-    color: "#EA7424",
+    color: "#F9B022",
     challenge: {
       nl: "ISSA verbindt organisaties en professionals in Europa en Centraal-Azië die werken aan betere zorg en educatie voor jonge kinderen. Er gebeurt veel: initiatieven, nieuws, events, een jaarlijkse conferentie, een kennisbank en een ledennetwerk. Al die inhoud moest een logisch thuis krijgen.",
       en: "ISSA connects organisations and professionals across Europe and Central Asia who work on better care and education for young children. A lot is going on: initiatives, news, events, a conference, a knowledge hub and a member network. All that content needed a logical home.",
@@ -145,7 +145,7 @@ export const newCasesA: Case[] = [
     services: ["branding-rebranding"],
     applications: ["brandbook", "huisstijl"],
     tools: [],
-    color: "#E75D05",
+    color: "#4CAF6A",
     challenge: {
       nl: "OUTPLAY is een Erasmus+-project, medegefinancierd door de Europese Unie, met partners uit meerdere landen en ISSA als partner. Het onderzoekt hoe buiten spelen kinderen van 3 tot 10 jaar helpt bij leren, bij hun sociale en emotionele ontwikkeling en bij het gevoel erbij te horen. Met materiaal voor leerkrachten, pilots op scholen en Outdoor Play Labs in de buurt. Zo'n Europees concept heeft één herkenbaar gezicht nodig.",
       en: "OUTPLAY is an Erasmus+ project, co-funded by the European Union, with partners from several countries and ISSA among them. It explores how outdoor play supports children aged 3 to 10 in learning, in their social and emotional development and in feeling they belong. With resources for educators, pilots in schools and community Outdoor Play Labs. A European concept like that needs one recognisable face.",
@@ -175,7 +175,7 @@ export const newCasesA: Case[] = [
     services: ["branding-rebranding", "grafisch-ontwerp-print", "websites-webshops", "automation-funnels"],
     applications: ["rebranding", "logo-ontwerp", "huisstijl", "visitekaartjes-drukwerk", "webflow-website", "ux-ui-webdesign", "salesfunnels"],
     tools: ["webflow"],
-    color: "#69257C",
+    color: "#62238C",
     challenge: {
       nl: "IMPECO uit Duiven regelt complexe, vaak tijdkritische logistiek, wereldwijd en dag en nacht. Van sportevenementen en beurzen tot transport en opslag, met een 'no worries'-aanpak. Twee afdelingen, Sports & Events en Transport, moesten duidelijker onder één merk komen te staan.",
       en: "IMPECO from Duiven handles complex, often time-critical logistics, worldwide and around the clock. From sports events and trade fairs to transport and storage, with a 'no worries' approach. Two departments, Sports & Events and Transport, needed to sit more clearly under one brand.",
@@ -235,7 +235,7 @@ export const newCasesA: Case[] = [
     services: ["configurators-lead-tools-widgets", "ai-consultancy", "automation-funnels"],
     applications: ["check-tools", "keuzehulp-quiz", "salesfunnels", "ai-integraties"],
     tools: ["webflow"],
-    color: "#2A9BD6",
+    color: "#3A4510",
     challenge: {
       nl: "Buitenstate is het platform voor landelijk wonen: vrijstaande woningen, boerderijen en landgoederen in het buitengebied, aangeboden door een selectie NVM-makelaars. Verkopers willen weten of er vraag is naar hun woning. Kopers zoeken vaak iets heel specifieks, dat zich slecht laat vangen in een paar filters.",
       en: "Buitenstate is the platform for rural living: detached homes, farmhouses and estates in the countryside, offered by a selection of NVM estate agents. Sellers want to know whether there is demand for their home. Buyers are often looking for something very specific that a few filters can't capture.",
@@ -265,7 +265,7 @@ export const newCasesA: Case[] = [
     services: ["websites-webshops"],
     applications: ["ux-ui-webdesign"],
     tools: [],
-    color: "#070707",
+    color: "#020202",
     challenge: {
       nl: "ZUYVER brengt de handgebouwde custom Jeeps van BRUTE naar de Noord-Amerikaanse markt. Een nieuw merk in een markt vol liefhebbers, dus de eerste indruk moest meteen raak zijn.",
       en: "ZUYVER brings BRUTE's hand-built custom Jeeps to the North American market. A new brand in a market full of enthusiasts, so the first impression had to land straight away.",
@@ -355,7 +355,7 @@ export const newCasesA: Case[] = [
     services: ["configurators-lead-tools-widgets", "automation-funnels"],
     applications: ["productconfigurator", "keuzehulp-quiz", "salesfunnels", "crm-implementatie"],
     tools: ["hubspot"],
-    color: "#F9C142",
+    color: "#45297A",
     challenge: {
       nl: "Bedrijven met vastgoed staan voor de vraag wat ze met energie moeten: zonnepanelen, een batterij, laadpunten, een energiemanagementsysteem (EMS)? En welke leverancier past erbij? Steddion wilde die eerste verkenning online mogelijk maken, en de aanvragen die daaruit komen netjes opvolgen.",
       en: "Businesses with property face the question of what to do about energy: solar panels, a battery, charging points, an energy management system (EMS)? And which supplier fits? Steddion wanted to make that first exploration possible online, and follow up properly on the requests it brings in.",
@@ -385,7 +385,7 @@ export const newCasesA: Case[] = [
     services: ["branding-rebranding", "websites-webshops", "configurators-lead-tools-widgets", "automation-funnels"],
     applications: ["huisstijl", "webflow-website", "productconfigurator", "crm-implementatie"],
     tools: ["webflow", "odoo"],
-    color: "#69A739",
+    color: "#82B444",
     challenge: {
       nl: "Plenty Planet helpt organisaties hun energievoorziening om te bouwen, van kostenrisico naar eigen infrastructuur: zonne-overkappingen op parkeerterreinen, zonneparken, zon op dak, batterijopslag en laadinfrastructuur. Natuurpositief, waar het kan. Grote projecten, die met een heldere eerste stap moeten beginnen.",
       en: "Plenty Planet helps organisations rebuild their energy supply, from a cost risk into infrastructure of their own: solar car parks, solar parks, rooftop solar, battery storage and charging infrastructure. Nature-positive where possible. Big projects that need to start with a clear first step.",
@@ -505,7 +505,7 @@ export const newCasesA: Case[] = [
     services: ["branding-rebranding", "websites-webshops"],
     applications: ["huisstijl", "webflow-website", "ux-ui-webdesign"],
     tools: ["webflow"],
-    color: "#0385CE",
+    color: "#071B50",
     challenge: {
       nl: "EdgeWay Commodities zoekt talent voor handelshuizen, hedgefondsen en energiebedrijven in de wereldwijde grondstoffenmarkt: traders, quants en leiders. Een kleine, persoonlijke speler tussen grote namen. Het merk moest die boutique-aanpak uitstralen, en de diensten moesten samenkomen in één logisch verhaal.",
       en: "EdgeWay Commodities finds talent for trading houses, hedge funds and energy companies in global commodity markets: traders, quants and leaders. A small, personal player among big names. The brand had to convey that boutique approach, and the services had to come together in one logical story.",
@@ -565,7 +565,7 @@ export const newCasesA: Case[] = [
     services: ["websites-webshops", "content-marketing-online-ads", "foto-video-3d-animatie", "configurators-lead-tools-widgets"],
     applications: ["ux-ui-webdesign", "social-media-marketing", "social-video", "website-widgets"],
     tools: ["instagram"],
-    color: "#312A53",
+    color: "#F39200",
     challenge: {
       nl: "Alpacafarm Vorstenbosch is een recreatieve alpacafarm in het Brabantse buitengebied, een paar kilometer van ons kantoor. Je kunt er wandelen met de alpaca's, high tea drinken of pizza eten tussen de dieren, en er is een winkel. Bezoekers willen vooral snel weten wanneer ze langs kunnen komen en wat er te doen is.",
       en: "Alpacafarm Vorstenbosch is a recreational alpaca farm in the Brabant countryside, a few kilometres from our office. You can walk with the alpacas, have high tea or eat pizza among the animals, and there is a shop. Visitors mostly want to know quickly when they can drop by and what there is to do.",

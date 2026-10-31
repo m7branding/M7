@@ -38,7 +38,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("infrai"),
     gallery: gallery("infrai", 9),
-    color: "#4651D6",
+    color: "#060751",
     challenge: {
       nl: "Met InfrAI kunnen gemeentes de openbare ruimte slimmer inspecteren en onderhouden. Burgers melden wat er mis is, medewerkers pakken het op. De functies moesten voor allebei meteen duidelijk zijn, zonder handleiding.",
       en: "InfrAI lets municipalities inspect and maintain public space more smartly. Citizens report what is wrong, staff pick it up. The features had to be instantly clear to both, without a manual.",
@@ -86,7 +86,7 @@ export const archiveCases: Case[] = [
     tools: ["youtube"],
     cover: cover("mindyourpass"),
     gallery: gallery("mindyourpass", 9),
-    color: "#4FA6C8",
+    color: "#46A7CB",
     challenge: {
       nl: "MindYourPass maakt met een gepatenteerde technologie sterke wachtwoorden on-the-fly: een complete beveiligingsoplossing voor organisaties, die verder gaat dan een wachtwoordmanager. Complex en ontastbaar, en toch moest het voor iedereen helder zijn.",
       en: "MindYourPass uses a patented technology to generate strong passwords on the fly: a complete security solution for organisations that goes beyond a password manager. Complex and intangible, and yet it had to be clear to everyone.",
@@ -140,7 +140,7 @@ export const archiveCases: Case[] = [
     tools: ["webflow"],
     cover: cover("kippenkar"),
     gallery: gallery("kippenkar", 6),
-    color: "#8DC63F",
+    color: "#80B007",
     challenge: {
       nl: "De Kippenkar van Wijkamp Farming Solutions is een stevig kippenverblijf op wielen, waarmee boeren eieren produceren en verkopen. Jaren eerder bouwden we de eerste websites. Nu was het tijd voor een facelift en betere prestaties.",
       en: "The Kippenkar by Wijkamp Farming Solutions is a sturdy chicken shelter on wheels that farmers use to produce and sell eggs. We built the first websites years earlier. Now it was time for a facelift and better performance.",
@@ -176,7 +176,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("genson-grm"),
     gallery: gallery("genson-grm", 3),
-    color: "#6DB33F",
+    color: "#76B82A",
     challenge: {
       nl: "Genson Quality Plants zocht een eigen tool om de inzet van mensen en middelen te plannen en te beheren, afgestemd op hoe zij werken.",
       en: "Genson Quality Plants wanted its own tool to plan and manage the deployment of people and resources, tailored to the way they work.",
@@ -209,7 +209,7 @@ export const archiveCases: Case[] = [
     tools: ["appstore"],
     cover: cover("expociety-app"),
     gallery: gallery("expociety-app", 5),
-    color: "#E2257E",
+    color: "#9A32D1",
     challenge: {
       nl: "Expociety wilde een digitaal ecosysteem waarin influencers en venues makkelijk samenwerken rond events. De app moest werken voor gebruikers met elke technische achtergrond, met een soepele onboarding.",
       en: "Expociety wanted a digital ecosystem where influencers and venues work together on events with ease. The app had to work for users of any technical background, with smooth onboarding.",
@@ -249,7 +249,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("expociety-branding"),
     gallery: gallery("expociety-branding", 4),
-    color: "#7A3CF0",
+    color: "#9A32D1",
     challenge: {
       nl: "Expociety brengt influencers en venues samen voor bijzondere events. Het merk moest die vernieuwende, verbindende energie uitstralen en opvallen in een drukke markt.",
       en: "Expociety brings influencers and venues together for extraordinary events. The brand had to radiate that innovative, connecting energy and stand out in a crowded market.",
@@ -283,7 +283,7 @@ export const archiveCases: Case[] = [
     tools: ["webflow", "wordpress"],
     cover: cover("teamtv-pricing-table"),
     gallery: gallery("teamtv-pricing-table", 2),
-    color: "#6650E6",
+    color: "#5650A3",
     challenge: {
       nl: "Veel informatie, meerdere pakketten en verschillende valuta: alles over prijzen in één helder overzicht krijgen is lastig. Voor TeamTV, specialist in video-analyse, was dat precies de opgave.",
       en: "Lots of information, multiple plans and different currencies: getting everything about pricing into one clear overview is hard. For TeamTV, the video analysis specialist, that was exactly the brief.",
@@ -317,7 +317,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("bctn"),
     gallery: gallery("bctn", 1),
-    color: "#2F6FC0",
+    color: "#206088",
     challenge: {
       nl: "BCTN is een van de grootste inlandnetwerken van containerterminals in de Benelux, met klanten als Nike, Heineken en IKEA. In 2018 vroeg BCTN ons te helpen bij de invoering van een nieuwe truck-app.",
       en: "BCTN is one of the largest inland networks of container terminals in the Benelux, serving clients such as Nike, Heineken and IKEA. In 2018 BCTN asked us to help roll out a new truck app.",
@@ -351,7 +351,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("taylor"),
     gallery: gallery("taylor", 2),
-    color: "#F2B705",
+    color: "#E7AD25",
     challenge: {
       nl: "Taylor Technologies ontwikkelt zonne-micro-elektronica en levert die aan engineeringbedrijven. Om zowel B2B-klanten als R&D-partners aan te trekken, wilde Taylor een nieuwe huisstijl en een nieuwe website.",
       en: "Taylor Technologies develops solar micro-electronics and supplies them to engineering companies. To attract both B2B customers and R&D partners, Taylor wanted a new identity and a new website.",
@@ -395,7 +395,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("bernheze-makelaars-rebranding"),
     gallery: gallery("bernheze-makelaars-rebranding", 9),
-    color: "#3E7A5A",
+    color: "#1D2C25",
     challenge: {
       nl: "Bernheze Makelaars vroeg ons om een complete rebranding van een huisstijl die al 20 jaar een vertrouwd beeld was. Dat vraagt om structuur, en om respect voor wat er al staat.",
       en: "Bernheze Makelaars asked us for a full rebrand of an identity that had been a familiar sight for 20 years. That calls for structure, and for respect for what is already there.",
@@ -429,7 +429,7 @@ export const archiveCases: Case[] = [
     tools: ["youtube"],
     cover: cover("bernheze-makelaars-video"),
     gallery: gallery("bernheze-makelaars-video", 2),
-    color: "#4E8A5C",
+    color: "#1D2C25",
     challenge: {
       nl: "Een foto zegt meer dan duizend woorden, laat staan video. Bernheze Makelaars vroeg ons om hun meest exclusieve woningen beter te presenteren.",
       en: "A picture says more than a thousand words, let alone video. Bernheze Makelaars asked us to present their most exclusive listings better.",
@@ -463,7 +463,7 @@ export const archiveCases: Case[] = [
     tools: ["instagram"],
     cover: cover("sublime-branding"),
     gallery: gallery("sublime-branding", 8),
-    color: "#E52521",
+    color: "#FF0000",
     challenge: {
       nl: "SUBLIME staat voor... nou ja, het woord zegt genoeg. Het merk, opgericht in 2019, groeide uit tot een community van meer dan 100 Nederlandse supercareigenaren en wilde verder groeien.",
       en: "SUBLIME stands for... well, the word says it all. Founded in 2019, the brand grew into a community of more than 100 Dutch supercar owners and wanted to keep growing.",
@@ -498,7 +498,7 @@ export const archiveCases: Case[] = [
     tools: ["youtube"],
     cover: cover("sublime-video"),
     gallery: gallery("sublime-video", 2),
-    color: "#FF3B30",
+    color: "#FF0000",
     challenge: {
       nl: "SUBLIME bouwde sinds 2019 een community van meer dan 100 Nederlandse supercareigenaren op. Om het merk te laten groeien en meer eigenaren te bereiken, was content nodig die het SUBLIME-gevoel echt overbrengt.",
       en: "Since 2019, SUBLIME has built a community of more than 100 Dutch supercar owners. To grow the brand and reach more owners, it needed content that truly conveys the SUBLIME feeling.",
@@ -532,7 +532,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("nktv"),
     gallery: gallery("nktv", 4),
-    color: "#F69220",
+    color: "#F69320",
     challenge: {
       nl: "Het NKTV, de landelijke vereniging van korfbaltrainers, wilde een nieuwe huisstijl en een nieuwe website.",
       en: "The NKTV, the Dutch national association of korfball coaches, wanted a new identity and a new website.",
@@ -566,7 +566,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("trt-tv"),
     gallery: gallery("trt-tv", 5),
-    color: "#1E8FD0",
+    color: "#009EE2",
     challenge: {
       nl: "TRT TV brengt hoogwaardig geproduceerde paardensportvideo's naar de wereld. Daarvoor was een platform nodig dat alles regelt, van betalen tot kijken.",
       en: "TRT TV brings high-end equestrian entertainment videos to the world. That needed a platform that handles everything, from payment to viewing.",
@@ -600,7 +600,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("rsi-3d-sportvelden"),
     gallery: gallery("rsi-3d-sportvelden", 9),
-    color: "#F48041",
+    color: "#074C9C",
     challenge: {
       nl: "Recreational Systems International ontwerpt en ontwikkelt sportvelden, internationaal. Ze wilden hun ontwerpen meer laten leven om sportinstellingen en clubs te overtuigen.",
       en: "Recreational Systems International designs and develops sports pitches internationally. They wanted their designs to come to life more, to convince sports institutions and clubs.",
@@ -633,7 +633,7 @@ export const archiveCases: Case[] = [
     tools: ["youtube"],
     cover: cover("tue-dcmt"),
     gallery: gallery("tue-dcmt", 4),
-    color: "#42C07E",
+    color: "#C72125",
     challenge: {
       nl: "Het Dynamic Campus Mapping Team, een spin-off van de Smart Cities-guild van de TU Eindhoven, maakte een tastbare, interactieve matrix die stedelijke planning met veel partijen toegankelijker en speelser maakt. Alleen: die technologie is lastig uit te leggen.",
       en: "The Dynamic Campus Mapping Team, a spin-off of the Smart Cities guild at Eindhoven University of Technology, made a tangible interactive matrix that makes multi-stakeholder urban planning more accessible and playful. The catch: the technology is hard to explain.",
@@ -667,7 +667,7 @@ export const archiveCases: Case[] = [
     tools: ["youtube"],
     cover: cover("intrador"),
     gallery: gallery("intrador", 3),
-    color: "#299DE0",
+    color: "#1697AE",
     challenge: {
       nl: "Intrador is een Nederlandse tech-start-up met een inspectie-app voor machinedealers wereldwijd. De app gebruikt AI en machine learning om de informatie van inspecteurs te valideren. Knap, maar niet in één zin uit te leggen.",
       en: "Intrador is a Dutch tech start-up with an asset inspection app for machinery dealers worldwide. The app uses AI and machine learning to validate the information inspectors collect. Clever, but not something you explain in one sentence.",
@@ -700,7 +700,7 @@ export const archiveCases: Case[] = [
     applications: ["bedrijfsfilm", "motion-design", "3d-visualisatie"],
     tools: ["youtube"],
     cover: cover("hylofit"),
-    color: "#17839D",
+    color: "#3090A0",
     challenge: {
       nl: "Hylofit uit New York ontwikkelde hardware en een app die de hartslag van paard én ruiter meten, voor inzicht in rijprestaties. Geavanceerd, zeker in de vrij traditionele paardenwereld. De vraag: overtuigen én uitleggen.",
       en: "New York-based Hylofit developed hardware and an app that measure the heart rate of horse and rider for insight into riding performance. Sophisticated, especially in the rather traditional equestrian world. The brief: convince and explain.",
@@ -734,7 +734,7 @@ export const archiveCases: Case[] = [
     tools: ["instagram", "linkedin"],
     cover: cover("repairlab-content"),
     gallery: gallery("repairlab-content", 9),
-    color: "#E3173E",
+    color: "#E30512",
     challenge: {
       nl: "Na het brandingtraject voor Repairlab moest het nieuwe merk ook online zichtbaar worden, overal waar klanten scrollen.",
       en: "After the branding project for Repairlab, the new brand had to show up online too, wherever customers scroll.",
@@ -767,7 +767,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("sparked"),
     gallery: gallery("sparked", 2),
-    color: "#F5D90A",
+    color: "#FEDE00",
     challenge: {
       nl: "Sparked draait om gastvrijheid, mensen en emotie. Het merk moest dus een sprankje laten zien.",
       en: "Sparked is all about hospitality, people and emotion. So the brand had to show a little sparkle.",
@@ -800,7 +800,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("happy-horse-sales"),
     gallery: gallery("happy-horse-sales", 2),
-    color: "#2BB7A3",
+    color: "#28DEBE",
     challenge: {
       nl: "Bij Happy Horse Sales draait het om verhalen en paarden. Ze geloven in kwalitatieve verkoop, met een goede match tussen koper en paard, en wilden hun paarden zo eerlijk en mooi mogelijk laten zien.",
       en: "Happy Horse Sales is about stories and horses. They believe in quality sales, with the right match between buyer and horse, and wanted to present their horses in the best and most authentic way.",
@@ -834,7 +834,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("smarthome-services"),
     gallery: gallery("smarthome-services", 1),
-    color: "#8DBF4E",
+    color: "#80BC03",
     challenge: {
       nl: "Een slim huis klinkt abstract. Smarthome Services wilde potentiële klanten laten zien wat het in het echt betekent.",
       en: "A smart home sounds abstract. Smarthome Services wanted to show potential customers what it means in real life.",
@@ -867,7 +867,7 @@ export const archiveCases: Case[] = [
     applications: ["ux-ui-webdesign", "tone-of-voice"],
     tools: [],
     cover: cover("supernova-techniek"),
-    color: "#9B1B5A",
+    color: "#EA185A",
     challenge: {
       nl: "Supernova Techniek wilde een topwebsite die er niet alleen professioneel uitziet, maar ook opvalt en net even anders is.",
       en: "Supernova Techniek wanted a top-notch website that not only looks professional, but also stands out and is a little different.",
@@ -900,7 +900,7 @@ export const archiveCases: Case[] = [
     applications: ["webflow-website", "ux-ui-webdesign", "seo"],
     tools: ["webflow"],
     cover: cover("esmailly-bouw"),
-    color: "#C8955F",
+    color: "#D8B78F",
     challenge: {
       nl: "Esmailly Bouw doet renovatie- en bouwprojecten rond Amsterdam en Utrecht, en wilde een website die laat zien wie ze zijn en wat ze kunnen.",
       en: "Esmailly Bouw takes on renovation and construction jobs around Amsterdam and Utrecht, and wanted a website that shows who they are and what they can do.",
@@ -933,7 +933,7 @@ export const archiveCases: Case[] = [
     applications: ["webflow-website", "ux-ui-webdesign"],
     tools: ["webflow"],
     cover: cover("perfect-people"),
-    color: "#4F7A2B",
+    color: "#364224",
     challenge: {
       nl: "Perfect People is een full-service arbeidsbemiddelaar voor de agrarische sector en wilde een compleet nieuwe website.",
       en: "Perfect People is a full-service employment broker for the agricultural sector and wanted a completely new website.",
@@ -967,7 +967,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("cj-privacy-legal"),
     gallery: gallery("cj-privacy-legal", 3),
-    color: "#3FA9C2",
+    color: "#1BA0BB",
     challenge: {
       nl: "CJ Privacy & Legal Consultancy, een Nederlands juridisch adviesbureau, zocht een logo en een huisstijl om zich mee te presenteren.",
       en: "CJ Privacy & Legal Consultancy, a Dutch legal consultancy, was looking for a logo and an identity to present itself with.",
@@ -1000,7 +1000,7 @@ export const archiveCases: Case[] = [
     tools: [],
     cover: cover("gemeente-gouda"),
     gallery: gallery("gemeente-gouda", 3),
-    color: "#D2232A",
+    color: "#EA1017",
     challenge: {
       nl: "Nieuw beleid wordt meestal zonder veel glans gepresenteerd. Voor het Preventieakkoord, dat Gouda begin 2021 samen met lokale partners introduceerde om de gezondheid van inwoners te verbeteren, mocht dat anders.",
       en: "New policies are usually introduced without much shine. For the prevention agreement Gouda introduced in early 2021 with local partners to improve residents' health, things could be different.",
@@ -1032,7 +1032,7 @@ export const archiveCases: Case[] = [
     applications: ["dashboards"],
     tools: [],
     cover: cover("giarte-tableau-dashboards"),
-    color: "#2DA453",
+    color: "#005759",
     challenge: {
       nl: "Giarte helpt grote internationale bedrijven met IT-strategie en communicatie. Om een slimme IT-transformatie te ondersteunen, wilde Giarte realtime laten zien hoe tevreden de gebruikers van hun klanten over IT zijn.",
       en: "Giarte helps large international corporations with IT strategy and communication. To support a smart IT transformation, Giarte wanted to show in real time how satisfied their clients' users are with IT.",
@@ -1064,7 +1064,7 @@ export const archiveCases: Case[] = [
     applications: ["social-video"],
     tools: ["youtube"],
     cover: cover("audi-s5-coupe"),
-    color: "#AEB6C0",
+    color: "#111111",
     challenge: {
       nl: "Een witte Audi S5 Coupé met een V8 die je hoort voordat je hem ziet. Dat vraagt om beelden die geluid en beweging recht doen.",
       en: "A white Audi S5 Coupé with a V8 you hear before you see it. That calls for footage that does justice to sound and motion.",
@@ -1097,7 +1097,7 @@ export const archiveCases: Case[] = [
     applications: ["dronevideo", "social-video"],
     tools: ["youtube"],
     cover: cover("gender-reveal-rotterdam"),
-    color: "#8EB1CF",
+    color: "#111111",
     challenge: {
       nl: "Een gender reveal aan het water in Rotterdam: zo'n moment wil je goed vastleggen.",
       en: "A gender reveal by the water in Rotterdam: a moment you want to capture properly.",

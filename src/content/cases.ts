@@ -37,7 +37,7 @@ export const cases: Case[] = [
       "/media/cases/teamtv/06.webp",
       "/media/cases/teamtv/07.webp",
     ],
-    color: "#5B4BFF",
+    color: "#5650A3",
     hero: { image: "/media/cases/teamtv-devices.webp", position: "50% 45%" },
     story: [
       {
@@ -149,7 +149,7 @@ export const cases: Case[] = [
       "/media/cases/monvy/09.webp",
       "/media/cases/monvy/10.webp",
     ],
-    color: "#155EA4",
+    color: "#005F9C",
     challenge: {
       nl: "Monvy wil ondernemers één plek geven voor facturen, betalingen en financiering. Daar hoort een merk bij dat vertrouwen geeft, en software die ingewikkelde financiële processen eenvoudig maakt.",
       en: "Monvy wants to give businesses one place for invoices, payments and financing. That calls for a brand people trust, and software that makes complex financial processes simple.",
@@ -195,7 +195,7 @@ export const cases: Case[] = [
       "/media/cases/repairlab/08.webp",
       "/media/cases/repairlab/09.webp",
     ],
-    color: "#FF5A3D",
+    color: "#E30512",
     challenge: {
       nl: "Repairlab wilde zich onderscheiden als premium reparatiepartner, met een website die klanten in een paar klikken naar de juiste reparatie leidt.",
       en: "Repairlab wanted to stand out as a premium repair partner, with a website that guides customers to the right repair in a few clicks.",
@@ -234,7 +234,7 @@ export const cases: Case[] = [
       "/media/cases/sami/03.webp",
     ],
     hero: { image: "/media/cases/sami-devices.webp", position: "50% 40%" },
-    color: "#4F5BFF",
+    color: "#6164FE",
     challenge: {
       nl: "Een innovatief inspectieplatform moest in één oogopslag duidelijk maken wat het doet en waarom het tijd bespaart.",
       en: "An innovative inspection platform had to make clear at a glance what it does and why it saves time.",
@@ -298,7 +298,7 @@ export const cases: Case[] = [
       "/media/cases/jurgh-detailing/08.webp",
     ],
     hero: { image: "/media/cases/jurgh-porsche.webp", position: "50% 40%" },
-    color: "#3A4BFF",
+    color: "#E30512",
     challenge: {
       nl: "Exclusieve klanten verwachten een online uitstraling die net zo verzorgd is als hun auto. En achter de schermen moet het net zo strak lopen: van offerteaanvraag tot werkorder.",
       en: "Exclusive clients expect an online presence that is as polished as their car. And behind the scenes things need to run just as smoothly: from quote request to work order.",
@@ -347,7 +347,7 @@ export const cases: Case[] = [
       "/media/cases/debiteurnet/10.webp",
     ],
     hero: { image: "/media/cases/debiteurnet-imac.webp", position: "50% 40%" },
-    color: "#1C6FB8",
+    color: "#005F9C",
     challenge: {
       nl: "Ondernemers verliezen tijd en grip op openstaande offertes en facturen. Het portaal moest complexe data simpel maken.",
       en: "Business owners lose time and grip on outstanding quotes and invoices. The portal had to make complex data simple.",
@@ -386,7 +386,7 @@ export const cases: Case[] = [
       "/media/cases/architectenbureau-koppens/02.webp",
       "/media/cases/architectenbureau-koppens/03.webp",
     ],
-    color: "#0F3A40",
+    color: "#F0513B",
     challenge: {
       nl: "Het portfolio van het bureau verdiende een podium dat net zo doordacht is als de gebouwen zelf.",
       en: "The firm's portfolio deserved a stage as considered as the buildings themselves.",
@@ -444,7 +444,7 @@ export const cases: Case[] = [
       "/media/cases/buitenstate/03.webp",
       "/media/cases/buitenstate/04.webp",
     ],
-    color: "#2A9BD6",
+    color: "#3A4510",
     challenge: {
       nl: "Buitenstate brengt vrijstaande woningen, boerderijen en landgoederen in het buitengebied samen, aangeboden door een selectie NVM-makelaars. Aanbod en inspiratie moesten samenkomen op één plek die bezoekers terug laat komen. En de aangesloten makelaars moesten hun eigen aanbod en campagnes zelf kunnen beheren.",
       en: "Buitenstate brings together detached homes, farmhouses and estates in the countryside, offered by a selection of NVM estate agents. Listings and inspiration had to come together in one place that keeps visitors coming back. And the member agents needed to manage their own listings and campaigns themselves.",
@@ -481,7 +481,7 @@ export const cases: Case[] = [
       "tracking-analytics",
     ],
     tools: ["nextjs", "supabase", "figma", "openai", "webflow"],
-    color: "#18C29C",
+    color: "#562583",
     challenge: {
       nl: "The Digital Clinic biedt een volledig online behandeling tegen haaruitval: online intake, behandeling op recept en thuisbezorgd, in samenwerking met een huisarts en een apotheek. Zo'n dienst vraagt om een eigen platform waarin cliënt, huisarts en apotheek elk hun eigen rol hebben, in plaats van losse tools.",
       en: "The Digital Clinic offers fully online hair-loss treatment: online intake, prescription treatment and home delivery, in partnership with a GP and a pharmacy. A service like that needs its own platform in which client, GP and pharmacy each have their own role, instead of loose tools.",
@@ -528,7 +528,7 @@ export const cases: Case[] = [
       "marketing-automation",
     ],
     tools: ["webflow", "figma", "lightroom"],
-    color: "#8A8F98",
+    color: "#DAB671",
     challenge: {
       nl: "Nova Funeral Cars uit Oss levert rouwauto's aan uitvaartondernemers. Het bedrijf heette eerst Budget Hearses en was toe aan een naam en een merk die passen bij een aanbod waarin elegantie en prestige centraal staan. Een gevoelig onderwerp, dat om rust, respect en duidelijkheid vraagt.",
       en: "Nova Funeral Cars from Oss supplies hearses to funeral directors. The company used to be called Budget Hearses and was ready for a name and a brand that suit a range built around elegance and prestige. A sensitive subject that calls for calm, respect and clarity.",
@@ -563,7 +563,7 @@ export const cases: Case[] = [
     ],
     applications: ["webshop", "offerte-calculator", "google-ads", "meta-ads", "logo-ontwerp", "huisstijl", "brandbook", "bedrijfsfilm"],
     tools: ["woocommerce", "wordpress", "mollie", "googleads", "meta"],
-    color: "#3DB2FF",
+    color: "#3C745F",
     challenge: {
       nl: "MisterGlass verkoopt glas op maat online, van enkel glas en isolatieglas tot spiegels en glasbeslag, voor vakmensen en particulieren. Producten op maat online verkopen zonder dat het ingewikkeld voelt voor de klant: dat vraagt om een sterk merk en een webshop die het makkelijk maakt.",
       en: "MisterGlass sells made-to-measure glass online, from single glazing and insulated glass to mirrors and glass fittings, for professionals and private customers. Selling made-to-measure products online without it feeling complicated for the customer takes a strong brand and a web shop that makes it easy.",

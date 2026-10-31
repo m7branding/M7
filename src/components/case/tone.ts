@@ -61,3 +61,17 @@ export function brandTones(hex: string) {
     accent: shade(hex, 0.78, 0.16, 1),
   };
 }
+
+/**
+ * Voor merken zonder vol merkvlak (de merkkleur is alleen een accent, bv. RepairLab of JURGH):
+ * een neutrale, bijna zwarte basis met hooguit een zweem van de tint, en de merkkleur
+ * alleen in de details.
+ */
+export function neutralTones(accentHex: string) {
+  return {
+    deep: shade(accentHex, 0.2, 0.008),
+    glow: shade(accentHex, 0.3, 0.025),
+    accent: shade(accentHex, 0.7, 0.17, 1),
+  };
+}
+
