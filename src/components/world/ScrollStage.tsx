@@ -61,6 +61,26 @@ export function ScrollStage({
 
   useScroll((s) => update(s));
 
+  // toetsenbord: een tegel in de horizontale rij krijgt focus → scroll de pagina zo dat hij in beeld schuift
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !track) return;
+    const onFocus = (e: FocusEvent) => {
+      const t = el.querySelector<HTMLElement>(track);
+      const dist = Number(el.style.getPropertyValue("--dist")) || 0;
+      const target = e.target as HTMLElement;
+      if (!t || !dist || !t.contains(target) || getComputedStyle(t).transform === "none") return;
+      const item = (target.closest("li") as HTMLElement | null) ?? target;
+      const want = Math.min(dist, Math.max(0, item.offsetLeft + item.offsetWidth / 2 - window.innerWidth / 2));
+      const y = geo.current.top + (want / dist) * geo.current.len;
+      const l = (window as unknown as { __lenis?: { scrollTo: (y: number, o?: object) => void } }).__lenis;
+      if (l) l.scrollTo(y, { immediate: true });
+      else window.scrollTo(0, y);
+    };
+    el.addEventListener("focusin", onFocus);
+    return () => el.removeEventListener("focusin", onFocus);
+  }, [track]);
+
   useEffect(() => {
     measure();
     // alles erboven kan nog van hoogte veranderen (lazy beelden, fonts): dan opnieuw meten

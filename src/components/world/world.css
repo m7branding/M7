@@ -23,6 +23,8 @@
   top: 0;
   height: 100svh;
   overflow: hidden;
+  /* clip i.p.v. hidden: geen scrollcontainer, dus de focus kan de scène niet verschuiven */
+  overflow: clip;
   isolation: isolate;
 }
 
@@ -941,5 +943,11 @@
   }
   .wc__pin {
     min-height: min(92svh, 860px);
+  }
+  .ww__center,
+  .ww__end {
+    width: 100%;
+    max-width: 980px;
+    margin-inline: auto;
   }
 }

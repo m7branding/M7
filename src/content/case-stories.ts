@@ -287,8 +287,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "architectenbureau-koppens": {
     intro: {
-      nl: "Gebouwen die zuinig zijn met energie en er ook nog prachtig uitzien. Architectenbureau Koppens verdiende een website die net zo doordacht is als hun ontwerpen.",
-      en: "Buildings that are frugal with energy and look beautiful too. Architectenbureau Koppens deserved a website as considered as their designs.",
+      nl: "Gebouwen die zuinig zijn met energie en er ook nog prachtig uitzien. Voor Architectenbureau Koppens maakten we een website met dezelfde zorg als hun ontwerpen.",
+      en: "Buildings that are frugal with energy and look beautiful too. For Architectenbureau Koppens we made a website with the same care as their designs.",
     },
     chapters: [
       {
@@ -1148,8 +1148,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Drie diensten, één lijn.", en: "Three services, one line." },
         body: [
           {
-            nl: "We ontwikkelden de branding en bouwden de website in Webflow. Diep blauw, een klassieke schreefletter en een pijl die omhoog wijst. De drie diensten, Search, Intelligence en Advisory, staan helder naast elkaar.",
-            en: "We developed the branding and built the website in Webflow. Deep blue, a classic serif and an arrow pointing upwards. The three services, Search, Intelligence and Advisory, sit clearly side by side.",
+            nl: "Het merk en de Webflow-site ontstonden in één beweging. Diep blauw, een klassieke schreefletter en een pijl die omhoog wijst. De drie diensten, Search, Intelligence en Advisory, krijgen elk een eigen blok.",
+            en: "The brand and the Webflow site took shape in one go. Deep blue, a classic serif and an arrow pointing upwards. The three services, Search, Intelligence and Advisory, each get their own block.",
           },
         ],
       },
@@ -1462,8 +1462,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Per investeerder een eigen weg.", en: "A path for every investor." },
         body: [
           {
-            nl: "We bouwden de website in Webflow, met de investeringsmogelijkheden per type investeerder, van particulier tot family office, en het trackrecord. Donkerblauw en goud, met de gebouwen zelf groot in beeld.",
-            en: "We built the website in Webflow, with the investment options per type of investor, from private individual to family office, and the track record. Dark blue and gold, with the buildings themselves shown large.",
+            nl: "De website in Webflow zet de investeringsmogelijkheden per type investeerder op een rij, van particulier tot family office, en toont het trackrecord. Donkerblauw en goud, met de gebouwen zelf groot in beeld.",
+            en: "The Webflow website lays out the investment options per type of investor, from private individual to family office, and shows the track record. Dark blue and gold, with the buildings themselves shown large.",
           },
           {
             nl: "Op de landingspagina Onderbouwd Investeren vraag je de brochure aan in een paar velden. Per mail krijg je een persoonlijke toegangslink, zodat de brochure precies bij de juiste persoon terechtkomt.",
@@ -1600,8 +1600,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een gezicht en een check.", en: "A face and a check." },
         body: [
           {
-            nl: "We ontwikkelden de branding en bouwden de website in Webflow, in het Nederlands en Engels. Licht en warm, met geel als accent en de jurist zelf in beeld, zodat je weet met wie je te maken hebt.",
-            en: "We developed the branding and built the website in Webflow, in Dutch and English. Light and warm, with yellow as the accent and the legal specialist himself in view, so you know who you're dealing with.",
+            nl: "Na de branding volgde een tweetalige website in Webflow, in het Nederlands en Engels. Licht en warm, met geel als accent en de jurist zelf in beeld, zodat je weet met wie je te maken hebt.",
+            en: "After the branding came a bilingual website in Webflow, in Dutch and English. Light and warm, with yellow as the accent and the legal specialist himself in view, so you know who you're dealing with.",
           },
           {
             nl: "Alles op de site leidt naar de gratis huurprijscheck. Je vult je postcode en huisnummer in, en de aanvraag loopt verder.",
@@ -1780,8 +1780,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Drie stappen naar zekerheid.", en: "Three steps to certainty." },
         body: [
           {
-            nl: "We ontwikkelden de branding en ontwierpen en bouwden de website in Webflow: licht, helder en met blauw als basis. In drie stappen zie je hoe het werkt: klanten toevoegen, één voor één of in bulk, de juiste checks kiezen en de resultaten overzichtelijk terugzien.",
-            en: "We developed the branding and designed and built the website in Webflow: light, clear and based on blue. Three steps show how it works: add clients, one by one or in bulk, choose the right checks and review the results in a clear overview.",
+            nl: "Merk en website maakten we in één lijn, de site in Webflow: licht, helder en met blauw als basis. In drie stappen zie je hoe het werkt: klanten toevoegen, één voor één of in bulk, de juiste checks kiezen en de resultaten overzichtelijk terugzien.",
+            en: "We created brand and website as one, the site in Webflow: light, clear and based on blue. Three steps show how it works: add clients, one by one or in bulk, choose the right checks and review the results in a clear overview.",
           },
           {
             nl: "Elke toepassing krijgt een eigen uitleg, van screening bij werving tot due diligence. Zo herkent elke bezoeker zijn eigen situatie.",
@@ -1842,8 +1842,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Wit, blauw en Europa.", en: "White, blue and Europe." },
         body: [
           {
-            nl: "We ontwikkelden de branding en ontwierpen en bouwden de website. Wit en blauw, met een klassieke letter en een kaart van Europa als terugkerend beeld. De visie op betaalbare, koolstofarme waterstof krijgt de ruimte, zonder dat de lezer verdwaalt in jargon.",
-            en: "We developed the branding and designed and built the website. White and blue, with a classic typeface and a map of Europe as a recurring image. The vision of affordable, low-carbon hydrogen gets room to breathe, without the reader getting lost in jargon.",
+            nl: "Van branding tot website kwam alles uit onze studio. Wit en blauw, met een klassieke letter en een kaart van Europa als terugkerend beeld. De visie op betaalbare, koolstofarme waterstof krijgt de ruimte, zonder dat de lezer verdwaalt in jargon.",
+            en: "From branding to website, it all came out of our studio. White and blue, with a classic typeface and a map of Europe as a recurring image. The vision of affordable, low-carbon hydrogen gets room to breathe, without the reader getting lost in jargon.",
           },
         ],
       },
@@ -1871,8 +1871,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Premium, ook in de bouw.", en: "Premium, even in construction." },
         body: [
           {
-            nl: "We ontwikkelden de branding en bouwden de website in Webflow. Transport en grondstoffen staan helder naast elkaar, en cases laten zien aan welke projecten DB Kiepers levert, zoals de verbreding van de A27.",
-            en: "We developed the branding and built the website in Webflow. Transport and raw materials sit clearly side by side, and case studies show which projects DB Kiepers supplies, such as the widening of the A27 motorway.",
+            nl: "Op basis van de nieuwe branding zetten we de website in Webflow neer. Transport en grondstoffen staan helder naast elkaar, en cases laten zien aan welke projecten DB Kiepers levert, zoals de verbreding van de A27.",
+            en: "On the back of the new branding, we set up the website in Webflow. Transport and raw materials sit clearly side by side, and case studies show which projects DB Kiepers supplies, such as the widening of the A27 motorway.",
           },
         ],
       },
@@ -1947,8 +1947,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Zwart, rood en titanium.", en: "Black, red and titanium." },
         body: [
           {
-            nl: "We ontwikkelden de branding en bouwden de website in Webflow. Zwart als basis, rood als accent en veel ruimte voor beelden uit de werkplaats. Onder de opening vertellen vier blokken waar een Maarschall-uitlaat voor staat: een persoonlijke sound, handwerk, eigen ontwikkeling en titanium uit de lucht- en ruimtevaart.",
-            en: "We developed the branding and built the website in Webflow. Black as the base, red as the accent and plenty of room for images from the workshop. Below the opening, four blocks explain what a Maarschall exhaust stands for: a personal sound, handcraft, in-house development and titanium with roots in aerospace.",
+            nl: "Eerst kwam de branding, daarna de website in Webflow. Zwart als basis, rood als accent en veel ruimte voor beelden uit de werkplaats. Onder de opening vertellen vier blokken waar een Maarschall-uitlaat voor staat: een persoonlijke sound, handwerk, eigen ontwikkeling en titanium uit de lucht- en ruimtevaart.",
+            en: "Branding came first, then the website in Webflow. Black as the base, red as the accent and plenty of room for images from the workshop. Below the opening, four blocks explain what a Maarschall exhaust stands for: a personal sound, handcraft, in-house development and titanium with roots in aerospace.",
           },
         ],
       },
@@ -1990,8 +1990,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Het systeem in de hoofdrol.", en: "The system takes centre stage." },
         body: [
           {
-            nl: "We bouwden de website in Webflow, met geel als accent. Het systeem, de auto en het portfolio krijgen elk de ruimte. Zo zie je wat The Filmcar kan, voordat je één vraag hoeft te stellen.",
-            en: "We built the website in Webflow, with yellow as the accent. The system, the car and the portfolio each get room to breathe. You see what The Filmcar can do before you need to ask a single question.",
+            nl: "In Webflow bouwden we een site waarin geel de toon zet. Het systeem, de auto en het portfolio krijgen elk de ruimte. Zo zie je wat The Filmcar kan, voordat je één vraag hoeft te stellen.",
+            en: "In Webflow we built a site where yellow sets the tone. The system, the car and the portfolio each get room to breathe. You see what The Filmcar can do before you need to ask a single question.",
           },
         ],
       },
@@ -2028,8 +2028,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Begin bij je plan.", en: "Start with your plan." },
         body: [
           {
-            nl: "We ontwikkelden de branding en bouwden de website in Webflow, warm en ingetogen, met zand en goud als kleuren. Je zoekt op wat je wilt organiseren, van teambuilding en workshops tot vergaderen of trouwen. Per locatie zie je wat er kan.",
-            en: "We developed the branding and built the website in Webflow, warm and understated, in sand and gold. You search by what you want to organise, from team building and workshops to meetings or a wedding. For each venue you see what's possible.",
+            nl: "Merk en website, gebouwd in Webflow, kregen een warme en ingetogen uitstraling, met zand en goud als kleuren. Je zoekt op wat je wilt organiseren, van teambuilding en workshops tot vergaderen of trouwen. Per locatie zie je wat er kan.",
+            en: "Brand and website, built in Webflow, got a warm and understated look, in sand and gold. You search by what you want to organise, from team building and workshops to meetings or a wedding. For each venue you see what's possible.",
           },
         ],
       },
@@ -2057,8 +2057,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Genieten, vieren, zakendoen.", en: "Enjoy, celebrate, do business." },
         body: [
           {
-            nl: "We ontwikkelden de branding en bouwden de website in Webflow, ingedeeld in Enjoy, Celebrate en Business. Je zoekt direct op het soort event, zoals een high tea, een borrel of een verjaardag. Per foodbar zie je wat er kan.",
-            en: "We developed the branding and built the website in Webflow, organised into Enjoy, Celebrate and Business. You search straight away by type of event, such as high tea, drinks or a birthday. For each food bar you see what's on offer.",
+            nl: "Na de branding bouwden we een website in Webflow met drie ingangen: Enjoy, Celebrate en Business. Je zoekt direct op het soort event, zoals een high tea, een borrel of een verjaardag. Per foodbar zie je wat er kan.",
+            en: "After the branding we built a Webflow site with three entrances: Enjoy, Celebrate and Business. You search straight away by type of event, such as high tea, drinks or a birthday. For each food bar you see what's on offer.",
           },
         ],
       },
@@ -2077,8 +2077,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Op maat voor elke renner.", en: "Made for every rider." },
         body: [
           {
-            nl: "Speedbar maakt aerobars voor tijdritfietsen, voor elke renner op maat. Het product komt uit de profwereld en is dankzij 3D-printtechniek nu ook voor andere fietsers bereikbaar. Dat vraagt om een website die net zo zorgvuldig is als het product.",
-            en: "Speedbar makes aerobars for time-trial bikes, custom-fitted to every rider. The product comes from the pro world and, thanks to 3D printing, is now within reach of other cyclists too. That calls for a website as carefully made as the product.",
+            nl: "Speedbar maakt aerobars voor tijdritfietsen, voor elke renner op maat. Het product komt uit de profwereld en is dankzij 3D-printtechniek nu ook voor andere fietsers bereikbaar. Dat vraagt om een online presentatie met dezelfde precisie.",
+            en: "Speedbar makes aerobars for time-trial bikes, custom-fitted to every rider. The product comes from the pro world and, thanks to 3D printing, is now within reach of other cyclists too. That calls for an online presentation with the same precision.",
           },
         ],
       },
@@ -2086,8 +2086,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Samenstellen in stappen.", en: "Building it, step by step." },
         body: [
           {
-            nl: "We bouwden de website in Webflow, met een configurator waarin je in een paar stappen je Speedbar PRO samenstelt en je aanvraag doet. Comfort, sterkte en veiligheid worden helder uitgelegd, zodat je weet waarom elk detail ertoe doet.",
-            en: "We built the website in Webflow, with a configurator in which you put together your Speedbar PRO in a few steps and submit your request. Comfort, strength and safety are clearly explained, so you know why every detail matters.",
+            nl: "Het hart van de Webflow-site is een configurator waarin je in een paar stappen je Speedbar PRO samenstelt en je aanvraag doet. Comfort, sterkte en veiligheid worden helder uitgelegd, zodat je weet waarom elk detail ertoe doet.",
+            en: "At the heart of the Webflow site is a configurator in which you put together your Speedbar PRO in a few steps and submit your request. Comfort, strength and safety are clearly explained, so you know why every detail matters.",
           },
         ],
       },
@@ -2207,8 +2207,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "kippenkar": {
     intro: {
-      nl: "Een kippenverblijf op wielen, waarmee boeren hun eigen eieren produceren en verkopen. De Kippenkar verdiende een website die net zo stevig in elkaar zit als de kar zelf.",
-      en: "A chicken house on wheels that lets farmers produce and sell their own eggs. The Kippenkar deserved a website as solidly built as the wagon itself.",
+      nl: "Een kippenverblijf op wielen, waarmee boeren hun eigen eieren produceren en verkopen. Zo'n stevig product vroeg om een site die minstens zo goed in elkaar zit.",
+      en: "A chicken house on wheels that lets farmers produce and sell their own eggs. A product that sturdy called for a site that's just as well built.",
     },
     chapters: [
       {

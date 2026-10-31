@@ -19,6 +19,11 @@ export type ShowreelLabels = {
 type Slot = 0 | 1;
 /** Hoe lang de overvloeier duurt (ms); gelijk aan de transition in showreel.css. */
 const FADE = 900;
+/**
+ * Terugval-reeks: elke hero-clip speelt hooguit zo lang (s), zodat een reel van vijf clips
+ * rond een halve minuut blijft, ook als de clips zelf langer worden. Een echte film speelt helemaal.
+ */
+const CLIP_MAX = 6.5;
 
 /**
  * Showreel-speler: muted, inline en in een lus, met eerst de poster.
@@ -55,7 +60,7 @@ export function ShowreelPlayer({
 }) {
   // alle clips van alle reels op een rij; ri/ci = positie in de reel
   const seq = useMemo(
-    () => reels.flatMap((r, ri) => r.clips.map((c, ci) => ({ ...c, ri, ci, n: r.clips.length }))),
+    () => reels.flatMap((r, ri) => r.clips.map((c, ci) => ({ ...c, ri, ci, n: r.clips.length, cap: r.film ? Infinity : CLIP_MAX }))),
     [reels],
   );
   const N = seq.length;
@@ -221,7 +226,7 @@ export function ShowreelPlayer({
       const c = seq[slotRef.current[f]];
       if (!v || !c) return 0;
       const d = v.duration;
-      const t = Number.isFinite(d) && d > 0 ? Math.min(1, v.currentTime / d) : 0;
+      const t = Number.isFinite(d) && d > 0 ? Math.min(1, v.currentTime / Math.min(d, c.cap)) : 0;
       return (c.ci + t) / c.n;
     };
     set(at());
@@ -291,6 +296,11 @@ export function ShowreelPlayer({
               tabIndex={-1}
               disablePictureInPicture
               onEnded={() => onEnded(i)}
+              onTimeUpdate={(e) => {
+                const k2 = slotRef.current[i];
+                // te lange clip in een reeks: op tijd door naar de volgende (de overvloeier loopt nog even mee)
+                if (i === frontRef.current && N > 1 && seq[k2] && e.currentTarget.currentTime >= seq[k2].cap - 0.35) go(k2 + 1);
+              }}
               onError={() => i === frontRef.current && N > 1 && go(slotRef.current[i] + 1)}
             />
           );
