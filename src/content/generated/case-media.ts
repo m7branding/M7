@@ -1572,7 +1572,9 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/repairlab/screen-desktop.webp", mobile: "/media/cases/repairlab/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/repairlab/r-hero.mp4", poster: "/media/cases/repairlab/r-hero.webp", srcMobile: "/media/cases/repairlab/r-hero-m.mp4", posterMobile: "/media/cases/repairlab/r-hero-m.webp" },
     films: [
-      {"src":"/media/cases/repairlab/r-flow-1.mp4","poster":"/media/cases/repairlab/r-flow-1.webp","w":1920,"h":1080},
+      {"src":"/media/cases/repairlab/r-flow-1.mp4","poster":"/media/cases/repairlab/r-flow-1.webp","w":1920,"h":1080,"title":"Kies je device: zoeken, model openen, reparaties met prijzen"},
+      {"src":"/media/cases/repairlab/r-flow-2.mp4","poster":"/media/cases/repairlab/r-flow-2.webp","w":1920,"h":1080,"title":"Reparatie aanmelden: van prijsregel naar afspraak in vier stappen"},
+      {"src":"/media/cases/repairlab/r-flow-3.mp4","poster":"/media/cases/repairlab/r-flow-3.webp","w":1920,"h":1080,"title":"Reparatie aanmelden op de telefoon"},
     ],
     logo: "/media/cases/repairlab/logo-white.svg",
     next: "/media/cases/repairlab/r-next.webp",
@@ -1620,8 +1622,9 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/silvr/screen-desktop.webp", mobile: "/media/cases/silvr/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/silvr/r-hero.mp4", poster: "/media/cases/silvr/r-hero.webp", srcMobile: "/media/cases/silvr/r-hero-m.mp4", posterMobile: "/media/cases/silvr/r-hero-m.webp" },
     films: [
-      {"src":"/media/cases/silvr/r-flow-1.mp4","poster":"/media/cases/silvr/r-flow-1.webp","w":1920,"h":1080,"title":"Aanvraag starten: kenteken invullen"},
-      {"src":"/media/cases/silvr/r-flow-2.mp4","poster":"/media/cases/silvr/r-flow-2.webp","w":1920,"h":1080,"title":"Navigatie met uitklapmenu’s"},
+      {"src":"/media/cases/silvr/r-flow-1.mp4","poster":"/media/cases/silvr/r-flow-1.webp","w":1920,"h":1080,"title":"Voertuigenslider: per voertuig de belofte"},
+      {"src":"/media/cases/silvr/r-flow-2.mp4","poster":"/media/cases/silvr/r-flow-2.webp","w":1920,"h":1080,"title":"Aanvraagflow stap 1–3: voertuig, kenteken-check en staat"},
+      {"src":"/media/cases/silvr/r-flow-3.mp4","poster":"/media/cases/silvr/r-flow-3.webp","w":1920,"h":1080,"title":"Kenteken-check op de telefoon"},
     ],
     logo: "/media/cases/silvr/logo-white.png",
     next: "/media/cases/silvr/r-next.webp",

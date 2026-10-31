@@ -13,8 +13,10 @@ import numpy as np
 import proj as P, logos as LG
 import batch13 as B13
 
-RETIRED = ('b01_', 'b02_', 'b03_', 'b04_', 'b07_', 'b08_', 'b09_', 'b11_', 'b12_', 'b13_')
-LOGO = ('b05_', 'b06_', 'b10_')
+# round 15: the blind emboss (b05, white on white) and the laptop-lid sticker (b10, low-poly circle) are retired too;
+# the remaining b06 wall logos are filtered by r15/r3d/logo_eval.py (contrast, raster size) and reviewed by eye
+RETIRED = ('b01_', 'b02_', 'b03_', 'b04_', 'b05_', 'b07_', 'b08_', 'b09_', 'b10_', 'b11_', 'b12_', 'b13_')
+LOGO = ('b06_',)
 NEUTRAL = {'light': ['#E3E4E6', '#ECEBE7', '#D7D5D0'], 'dark': ['#2A2B2F', '#1D1E21', '#141518'], 'navy': ['#0B1426', '#0D1830']}
 FAM_BG = {'light': ['light-grey', 'white', 'mid-grey', 'grey-plaster', 'white-dune', 'white-leaves'],
           'dark': ['anthracite', 'graphite', 'near-black', 'anthracite-plaster', 'graphite-dune'],

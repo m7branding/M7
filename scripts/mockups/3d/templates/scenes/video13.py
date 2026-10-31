@@ -126,6 +126,9 @@ def make_plan(keep=None):
         cover = pl.get('cover')
         if len(dev) > 1 and dev[0] == cover: dev = dev[1:] + dev[:1]
         is_brand = bool(set(B13.cases()[slug]['services']) & B13.BRANDING)
+        if os.environ.get('R15_NOLOGO'):      # round 15: no logo scenes in heroes; a case without devices keeps its own hero
+            brd = []
+            if not dev: continue
         if not dev and not is_brand:
             continue        # logo-only case without a site: its own film / photo stays the hero
         if dev and not is_brand:

@@ -397,7 +397,7 @@ def stills_one(args):
         raise RuntimeError(f'{slug}: no final render for {missing}')
     d = os.path.join(OUT, slug); src = os.path.join(d, 'src'); os.makedirs(src, exist_ok=True)
     for f in glob.glob(os.path.join(d, 'r-*.webp')) + glob.glob(os.path.join(src, 'r-*.png')):
-        if 'r-hero' not in f and 'r-next' not in f and 'r-flow' not in f: os.remove(f)
+        if 'r-hero' not in f and 'r-next' not in f and 'r-flow' not in f and '-brand-' not in f: os.remove(f)
     dcache, disp = {}, {}
     t0 = time.time()
     ims = {}                  # kept in memory (no lossless copies on disk); fit encodes them to the budget
@@ -513,7 +513,7 @@ def fit_one(args, budget=None, ims=None):
         if best[2] <= budget: break
     scale, q, tot, enc = best
     for f in glob.glob(os.path.join(d, 'r-*.webp')):
-        if 'r-hero' not in f and 'r-next' not in f and 'r-flow' not in f and os.path.basename(f)[:-5] not in enc: os.remove(f)
+        if 'r-hero' not in f and 'r-next' not in f and 'r-flow' not in f and '-brand-' not in f and os.path.basename(f)[:-5] not in enc: os.remove(f)
     for n, data in enc.items():
         open(os.path.join(d, n + '.webp'), 'wb').write(data)
     return slug, f'{scale:.1f}x q{q}', tot

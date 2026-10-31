@@ -42,13 +42,15 @@ def rgb(css):
     return tuple(int(x) for x in v[:3])
 
 
+R15CAP = os.path.join(os.path.dirname(os.path.dirname(CAP)), 'r15', 'cap')
+
+
 def load(slug, fresh=True):
     f = os.path.join(CAP, slug, 'snippets.json')
-    if not os.path.exists(f): return []
     try:
-        xs = json.load(open(f))
+        xs = json.load(open(f)) if os.path.exists(f) else []
     except Exception:
-        return []
+        xs = []
     out = []
     for i, s in enumerate(xs):
         p = os.path.join(CAP, slug, s['file'])
@@ -56,6 +58,19 @@ def load(slug, fresh=True):
         w, h = s['size']; sc = s.get('scale') or 2
         if min(w, h) < 60 or w / sc < 120 or h / sc < 36: continue          # too small to read on a card
         out.append(dict(s, path=p, aspect=w / h, i=i))
+    # round 15: CAPTURE's r15 close-ups and snippets (2x PNG, reviewed); keys 'r15/<file>'
+    f15 = os.path.join(R15CAP, slug, 'stills.json')
+    if os.path.exists(f15):
+        try: j = json.load(open(f15))
+        except Exception: j = {}
+        for kind, xs15 in (('closeup', j.get('closeups') or []), (None, j.get('snippets') or [])):
+            for k, s in enumerate(xs15):
+                p = os.path.join(R15CAP, slug, s['file'])
+                if not os.path.exists(p): continue
+                w, h = s['size']
+                if min(w, h) < 60 or w / 2 < 120 or h / 2 < 36: continue
+                out.append(dict(s, file='r15/' + s['file'], kind=kind or s.get('kind') or 'snippet', desc=s.get('title', ''),
+                                scale=2, path=p, aspect=w / h, i=1000 + k + (0 if kind else 500)))
     if fresh: out = [x for x in out if quality(x) >= 0.05]
     return out
 

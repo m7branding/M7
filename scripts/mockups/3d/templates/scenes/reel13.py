@@ -41,7 +41,10 @@ REELS = [
     dict(slug='content', title={'nl': 'Content & campagnes', 'en': 'Content & campaigns'}, kind='mix',
          services={'content-marketing-online-ads'}, n=13),
     dict(slug='brand-colour', title={'nl': 'In merkkleur', 'en': 'In brand colour'}, kind='brandfam', n=15),
+    # round 15: cut from finished footage by reels15.py (r15/r3d/reels/<slug>.json), not planned here
+    dict(slug='masterpieces', title={'nl': 'Masterpieces', 'en': 'Masterpieces'}, kind='clips'),
 ]
+R15 = os.path.join(os.path.dirname(B13.R13), 'r15', 'r3d', 'reels')
 # beat pattern (s); cycles through, scaled so the reel lands on ~30 s
 BEAT = [2.4, 1.6, 1.6, 2.8, 1.2, 2.0, 2.0, 1.6, 2.6, 1.4, 1.8, 2.4]
 XF_SOFT = 0.35          # occasional dissolve; otherwise a hard cut
@@ -68,6 +71,7 @@ def make_plan():
     only = os.environ.get('R14_REELS')
     for R in REELS:
         if only and R['slug'] not in only.split(','): continue
+        if R['kind'] == 'clips' or (os.environ.get('R15_NOLOGO') and R['slug'] in ('apps', 'content')): continue   # cut by reels15.py
         cands = []
         for slug in order:
             c = cs[slug]
@@ -79,6 +83,7 @@ def make_plan():
             if R['kind'] == 'device': sts = [s for s in sts if lib[s['t']]['roles']]
             elif R['kind'] == 'brand': sts = [s for s in sts if lib[s['t']]['prints'] and not lib[s['t']]['roles']]
             elif R['kind'] == 'brandfam': sts = [s for s in sts if s['fam'] == 'brand']
+            if os.environ.get('R15_NOLOGO'): sts = [s for s in sts if not s['t'].startswith('b')]     # round 15: no logo scenes
             if sts: cands.append((slug, sts))
         # round robin over projects, never the same template twice; alternate device / branding in 'mix'
         rnd = np.random.default_rng(h(R['slug']))
@@ -275,7 +280,17 @@ def install():
     entries = []
     for R in REELS:
         s = R['slug']
-        if s not in plan or not os.path.exists(os.path.join(OUTD, s + '.mp4')): continue
+        built = os.path.join(R15, s + '.built.json')
+        if not os.path.exists(os.path.join(OUTD, s + '.mp4')): continue
+        if os.path.exists(built):          # round 15: a reel cut from footage (reels15.py)
+            b = json.load(open(built))
+            for f in (s + '.mp4', s + '-m.mp4', s + '.webp', s + '-p.mp4', s + '-p.webp'):
+                if os.path.exists(os.path.join(OUTD, f)): shutil.copy2(os.path.join(OUTD, f), os.path.join(DST, f))
+            entries.append(dict(slug=s, title=b['title'], src=f'/media/showreels/{s}.mp4', srcMobile=f'/media/showreels/{s}-m.mp4',
+                                poster=f'/media/showreels/{s}.webp', duration=b['duration'], cases=b['cases'],
+                                portrait=(f'/media/showreels/{s}-p.mp4', f'/media/showreels/{s}-p.webp')))
+            continue
+        if s not in plan: continue
         for f in (s + '.mp4', s + '-m.mp4', s + '.webp', s + '-p.mp4', s + '-p.webp'):
             if os.path.exists(os.path.join(OUTD, f)):
                 shutil.copy2(os.path.join(OUTD, f), os.path.join(DST, f))
@@ -339,11 +354,11 @@ if __name__ == '__main__':
         pl = make_plan()
         for k, v in pl.items(): print(k, len(v['shots']), f"{sum(s['dur'] for s in v['shots']):.1f}s", [s['slug'] for s in v['shots']])
     elif cmd == 'render':
-        sel = args[1].split(',') if len(args) > 1 else [R['slug'] for R in REELS]
+        sel = args[1].split(',') if len(args) > 1 else [R['slug'] for R in REELS if R['kind'] != 'clips']
         for s in sel:
             r = render(s); print('reel', r[0], f'{r[1]:.0f}s', {k: f'crf{v[0]} {v[1] / 1048576:.2f}MB' for k, v in r[2].items()}, flush=True)
     elif cmd == 'portrait':
-        sel = args[1].split(',') if len(args) > 1 else [R['slug'] for R in REELS]
+        sel = args[1].split(',') if len(args) > 1 else [R['slug'] for R in REELS if R['kind'] != 'clips']
         for s in sel:
             r = render_portrait(s); print('portrait', r[0], f'{r[1]:.0f}s', f'crf{r[2]} {r[3] / 1048576:.2f}MB', 'portrait cams:', r[4], flush=True)
     elif cmd == 'install':

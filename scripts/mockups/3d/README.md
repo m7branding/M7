@@ -231,3 +231,28 @@ Bron: CAPTURE-agent (`r14/cap/<slug>/`: `hero-*.png`, `screen-<n>-<device>.png`,
   hero met pop-up) gebruiken geen toestelslots die een kapotte of dubbele schermafbeelding zouden tonen.
 - Covers blijven staan zolang ze geldig zijn (`plan14`): nieuwe cases veroorzaken geen cascade van nieuwe covers.
 - Hero's renderen via een bijna-lossless tussenbestand (mkv) in plaats van een raw dump (schijfruimte).
+
+## Ronde 15
+
+- **Zwakke logoscènes weg**: de blinddruk (b05, wit op wit) en de laptopsticker (b10, logo op een low-poly cirkel) zijn
+  overal verwijderd en gepensioneerd (`plan14.RETIRED`). Van de wandlogo's (b06) blijven alleen die met een vectorlogo
+  (of een raster vanaf 1000 px) en duidelijk contrast met de wand (`r15/r3d/logo_eval.py`; mediaan ≥ 3:1 en ≥ 70% van het
+  logo op 3:1), plus een controle met het oog (te klein, te dun, dezelfde toon als de wand). Hero's en reels gebruiken geen
+  logoscènes meer (`R15_NOLOGO`).
+- **Brand sheets** (`templates/scenes/brandboards15.py`): borden van 2400×1350 uitsluitend uit echte bronnen: logo.svg /
+  logo-white.svg van de case, het geverifieerde palet (palettes.json, swatches met hex en RGB) en het lettertype alleen als
+  de computed CSS van de live site het noemt (een "Aa"-specimen alleen als het OFL-fontbestand er is). Logo op wit, op de
+  merkkleur, op zwart en op een licht neutraal; een logo dat voor een donker veld getekend is komt nooit op wit. Cases met
+  alleen een rasterlogo onder 1000 px worden overgeslagen. In de galerij als `r-62-brand-sheet-logos` en
+  `r-63-brand-sheet-colours`.
+- **3D-presentaties** van die borden (`brand15.py`, templates `scenes13/g01_board_wall.py` en `g02_booklet.py`): het bord
+  aan een wand boven een dressoir, en een open A5-boekje waarvan de spread de borden toont (`r-60-brand-wall`,
+  `r-61-brand-booklet`); neutrale achtergronden.
+- **Reels uit bestaand materiaal** (`reels15.py`): één moment per project (r-hero, met hetzelfde moment uit r-hero-m in de
+  staande versie; r-flow met een vaste uitsnede op het toestel; M7's eigen s-/v-films; campagnebeelden heel op een rustige
+  achtergrond). Harde cuts, geen tekst, het einde lost op in beeld 1. `masterpieces` (de top-25 uit
+  `src/content/masterpieces.ts`), `apps` (alleen app-, portal- en toolbeelden) en `content` (alleen campagne- en
+  socialwerk). `reel13.py install` neemt ze op in `showreels.ts`.
+- **Interactiefilms uit CAPTURE r15** (`flows15.py`): 2×-opnames op 30 fps met virtuele tijd; elke opname loopt al naadloos,
+  de film speelt hem één keer. Floating-UI-stills uit de r15-close-ups en -snippets (`ui15.py`, `snips.load` leest
+  `r15/cap/<slug>/stills.json` als `r15/<bestand>`).
