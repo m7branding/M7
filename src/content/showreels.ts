@@ -35,7 +35,7 @@ const supplied: Showreel[] = [
     src: "/media/showreels/s-projects-12-m7-reel.mp4",
     poster: "/media/showreels/s-projects-12-m7-reel.webp",
     duration: 10,
-    cases: ["teamtv", "repairlab", "jurgh-detailing", "mindyourpass", "kippenkar"],
+    cases: ["teamtv", "monvy", "citex-ai", "infrai", "repairlab", "kippenkar"],
   },
 ];
 
