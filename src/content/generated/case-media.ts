@@ -845,10 +845,6 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/huurfix/m-phones-angle.webp",
     ],
     screens: { desktop: "/media/cases/huurfix/screen-desktop.webp", mobile: "/media/cases/huurfix/screen-mobile.webp" },
-    films: [
-      {"src":"/media/cases/huurfix/r-flow-1.mp4","poster":"/media/cases/huurfix/r-flow-1.webp","w":1920,"h":1080,"title":"Huurprijscheck: postcode en huisnummer invullen"},
-      {"src":"/media/cases/huurfix/r-flow-2.mp4","poster":"/media/cases/huurfix/r-flow-2.webp","w":1920,"h":1080,"title":"Huurprijscheck op mobiel: postcode, huisnummer en eerste vraag"},
-    ],
     logo: "/media/cases/huurfix/logo-white.svg",
     next: "/media/cases/huurfix/r-next.webp",
   },
@@ -1746,10 +1742,6 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/steddion-tools/m-ipad.webp",
       "/media/cases/steddion-tools/m-detail.webp",
       "/media/cases/steddion-tools/m-mac.webp",
-    ],
-    films: [
-      {"src":"/media/cases/steddion-tools/r-flow-1.mp4","poster":"/media/cases/steddion-tools/r-flow-1.webp","w":1920,"h":1080,"title":"Configurator: intake in een paar vragen"},
-      {"src":"/media/cases/steddion-tools/r-flow-2.mp4","poster":"/media/cases/steddion-tools/r-flow-2.webp","w":1920,"h":1080,"title":"EMS-vergelijker (mobiel)"},
     ],
     logo: "/media/cases/steddion-tools/logo-white.svg",
     next: "/media/cases/steddion-tools/r-next.webp",
