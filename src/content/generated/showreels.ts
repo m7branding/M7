@@ -32,8 +32,8 @@ export const showreels: Showreel[] = [
     srcPortrait: "/media/showreels/apps-p.mp4",
     posterPortrait: "/media/showreels/apps-p.webp",
     poster: "/media/showreels/apps.webp",
-    duration: 30.0,
-    cases: ["alpacafarm-vorstenbosch", "the-sandt", "the-digital-clinic", "plenty-planet", "steddion-tools", "impeco", "chavore", "buitenstate-tools", "expociety-app", "infrai", "cryptocointalk", "bernheze-makelaars-rebranding", "buitenstate", "atl-plus"],
+    duration: 31.7,
+    cases: ["monvy", "steddion-tools", "expociety-app", "jurgh-detailing", "the-digital-clinic", "infrai", "misterglass", "genson-grm", "citex-ai", "buitenstate-tools", "mindyourpass", "speedbar", "atl-plus", "maarschall", "huurfix", "repairlab", "silvr"],
   },
   {
     slug: "content",
@@ -43,8 +43,8 @@ export const showreels: Showreel[] = [
     srcPortrait: "/media/showreels/content-p.mp4",
     posterPortrait: "/media/showreels/content-p.webp",
     poster: "/media/showreels/content.webp",
-    duration: 30.0,
-    cases: ["grid", "the-digital-clinic", "mindyourpass", "buitenstate", "bus-whisky", "alpacafarm-vorstenbosch", "huurfix", "jalo-energy"],
+    duration: 25.1,
+    cases: ["repairlab-content", "sublime-video", "expociety-branding", "sublime-branding", "buitenstate"],
   },
   {
     slug: "brand-colour",
@@ -56,5 +56,16 @@ export const showreels: Showreel[] = [
     poster: "/media/showreels/brand-colour.webp",
     duration: 30.2,
     cases: ["huurfix", "cj-privacy-legal", "infrai", "aigora", "calvin-vlaanderen", "solidlayer", "toy4participation", "pine-street-school", "impeco", "buitenstate-tools", "your-earth", "steddion-tools", "steddion", "foodbars-gelderland", "atl-plus"],
+  },
+  {
+    slug: "masterpieces",
+    title: { nl: "Masterpieces", en: "Masterpieces" },
+    src: "/media/showreels/masterpieces.mp4",
+    srcMobile: "/media/showreels/masterpieces-m.mp4",
+    srcPortrait: "/media/showreels/masterpieces-p.mp4",
+    posterPortrait: "/media/showreels/masterpieces-p.webp",
+    poster: "/media/showreels/masterpieces.webp",
+    duration: 45.2,
+    cases: ["monvy", "steddion-tools", "atl-plus", "buitenstate", "infrai", "designers-house", "expociety-app", "eredivisietoppers", "citex-ai", "repairlab", "teamtv", "bernheze-makelaars-rebranding", "mindyourpass", "fairlink", "calvin-vlaanderen", "silvr", "pine-street-school", "the-digital-clinic", "the-sandt", "impeco", "plenty-planet", "hela", "boutique-hotels-gelderland", "sparta-blue-hydrogen", "nexis-group"],
   },
 ];

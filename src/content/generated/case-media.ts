@@ -1572,7 +1572,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/repairlab/screen-desktop.webp", mobile: "/media/cases/repairlab/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/repairlab/r-hero.mp4", poster: "/media/cases/repairlab/r-hero.webp", srcMobile: "/media/cases/repairlab/r-hero-m.mp4", posterMobile: "/media/cases/repairlab/r-hero-m.webp" },
     films: [
-      {"src":"/media/cases/repairlab/r-flow-1.mp4","poster":"/media/cases/repairlab/r-flow-1.webp","w":1920,"h":1080,"title":"Toestel zoeken: live resultaten tijdens het typen"},
+      {"src":"/media/cases/repairlab/r-flow-1.mp4","poster":"/media/cases/repairlab/r-flow-1.webp","w":1920,"h":1080},
     ],
     logo: "/media/cases/repairlab/logo-white.svg",
     next: "/media/cases/repairlab/r-next.webp",
@@ -1818,8 +1818,8 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     heroVideo: { src: "/media/cases/steddion-tools/r-hero.mp4", poster: "/media/cases/steddion-tools/r-hero.webp", srcMobile: "/media/cases/steddion-tools/r-hero-m.mp4", posterMobile: "/media/cases/steddion-tools/r-hero-m.webp" },
     films: [
-      {"src":"/media/cases/steddion-tools/r-flow-1.mp4","poster":"/media/cases/steddion-tools/r-flow-1.webp","w":1920,"h":1080,"title":"Energy Property Configurator: intake met gebouwtype"},
-      {"src":"/media/cases/steddion-tools/r-flow-2.mp4","poster":"/media/cases/steddion-tools/r-flow-2.webp","w":1920,"h":1080,"title":"Configurator: fases doorlopen"},
+      {"src":"/media/cases/steddion-tools/r-flow-1.mp4","poster":"/media/cases/steddion-tools/r-flow-1.webp","w":1920,"h":1080,"title":"Oplossingen: zon-PV en batterij toevoegen, zelfvoorziening stijgt"},
+      {"src":"/media/cases/steddion-tools/r-flow-2.mp4","poster":"/media/cases/steddion-tools/r-flow-2.webp","w":1920,"h":1080,"title":"Nieuwe e-behoefte: laadpunten toevoegen, het 3D-pand rekent mee"},
     ],
     logo: "/media/cases/steddion-tools/logo-white.svg",
     next: "/media/cases/steddion-tools/r-next.webp",
