@@ -94,6 +94,7 @@ export function ShowreelPlayer({
   const root = useRef<HTMLDivElement>(null);
   const vids = useRef<(HTMLVideoElement | null)[]>([null, null]);
   const fills = useRef<(HTMLSpanElement | null)[]>([]);
+  const errors = useRef(0);
   const frontRef = useRef<Slot>(0);
   const slotRef = useRef<[number, number]>([0, -1]);
   frontRef.current = front;
@@ -203,6 +204,11 @@ export function ShowreelPlayer({
     vids.current.forEach((v, i) => {
       if (!v) return;
       if (i === front) {
+        // deze clip was als voorlader al mislukt: meteen door (zelfde rem als in onError)
+        if (v.error && N > 1 && ++errors.current < N) {
+          go(slot[front] + 1);
+          return;
+        }
         if (playing) {
           const p = v.play();
           if (p) p.catch(() => {});
@@ -211,7 +217,7 @@ export function ShowreelPlayer({
         v.pause();
       }
     });
-  }, [front, slot, playing, fading]);
+  }, [front, slot, playing, fading, N, go]);
 
   // voortgang van de huidige reel (één CSS-variabele, alleen terwijl er iets speelt)
   useEffect(() => {
@@ -301,7 +307,14 @@ export function ShowreelPlayer({
                 // te lange clip in een reeks: op tijd door naar de volgende (de overvloeier loopt nog even mee)
                 if (i === frontRef.current && N > 1 && seq[k2] && e.currentTarget.currentTime >= seq[k2].cap - 0.35) go(k2 + 1);
               }}
-              onError={() => i === frontRef.current && N > 1 && go(slotRef.current[i] + 1)}
+              onError={() => {
+                // kapotte of geblokkeerde clip: door naar de volgende, maar na een hele ronde fouten stoppen (poster blijft staan)
+                if (i !== frontRef.current || N < 2 || ++errors.current >= N) return;
+                go(slotRef.current[i] + 1);
+              }}
+              onPlaying={() => {
+                errors.current = 0;
+              }}
             />
           );
         })}

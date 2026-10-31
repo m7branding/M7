@@ -18,6 +18,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/agroforestry-wur/screen-desktop.webp", mobile: "/media/cases/agroforestry-wur/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/agroforestry-wur/r-hero.mp4", poster: "/media/cases/agroforestry-wur/r-hero.webp" },
+    logo: "/media/cases/agroforestry-wur/logo-white.svg",
   },
   "aigora": {
     cover: "/media/cases/aigora/r-cover.webp",
@@ -35,6 +36,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/aigora/screen-desktop.webp", mobile: "/media/cases/aigora/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/aigora/r-hero.mp4", poster: "/media/cases/aigora/r-hero.webp" },
+    logo: "/media/cases/aigora/logo-white.svg",
   },
   "alpacafarm-vorstenbosch": {
     cover: "/media/cases/alpacafarm-vorstenbosch/r-cover.webp",
@@ -50,6 +52,10 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/alpacafarm-vorstenbosch/screen-desktop.webp", mobile: "/media/cases/alpacafarm-vorstenbosch/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/alpacafarm-vorstenbosch/r-hero.mp4", poster: "/media/cases/alpacafarm-vorstenbosch/r-hero.webp" },
+    logo: "/media/cases/alpacafarm-vorstenbosch/logo-white.svg",
+  },
+  "architectenbureau-koppens": {
+    logo: "/media/cases/architectenbureau-koppens/logo-white.png",
   },
   "atl-plus": {
     cover: "/media/cases/atl-plus/r-cover.webp",
@@ -67,6 +73,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/atl-plus/screen-desktop.webp", mobile: "/media/cases/atl-plus/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/atl-plus/r-hero.mp4", poster: "/media/cases/atl-plus/r-hero.webp" },
+    logo: "/media/cases/atl-plus/logo-white.png",
   },
   "bernheze-makelaars-rebranding": {
     cover: "/media/cases/bernheze-makelaars-rebranding/r-cover.webp",
@@ -84,6 +91,10 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/bernheze-makelaars-rebranding/screen-desktop.webp", mobile: "/media/cases/bernheze-makelaars-rebranding/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/bernheze-makelaars-rebranding/r-hero.mp4", poster: "/media/cases/bernheze-makelaars-rebranding/r-hero.webp" },
+    logo: "/media/cases/bernheze-makelaars-rebranding/logo-white.svg",
+  },
+  "bernheze-makelaars-video": {
+    logo: "/media/cases/bernheze-makelaars-video/logo-white.svg",
   },
   "boutique-hotels-gelderland": {
     cover: "/media/cases/boutique-hotels-gelderland/r-cover.webp",
@@ -101,6 +112,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/boutique-hotels-gelderland/screen-desktop.webp", mobile: "/media/cases/boutique-hotels-gelderland/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/boutique-hotels-gelderland/r-hero.mp4", poster: "/media/cases/boutique-hotels-gelderland/r-hero.webp" },
+    logo: "/media/cases/boutique-hotels-gelderland/logo-white.svg",
   },
   "buitenstate": {
     cover: "/media/cases/buitenstate/r-cover.webp",
@@ -118,6 +130,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/buitenstate/screen-desktop.webp", mobile: "/media/cases/buitenstate/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/buitenstate/r-hero.mp4", poster: "/media/cases/buitenstate/r-hero.webp" },
+    logo: "/media/cases/buitenstate/logo-white.svg",
     replaceCover: true,
   },
   "buitenstate-tools": {
@@ -133,6 +146,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/buitenstate-tools/m-mac.webp",
     ],
     heroVideo: { src: "/media/cases/buitenstate-tools/r-hero.mp4", poster: "/media/cases/buitenstate-tools/r-hero.webp" },
+    logo: "/media/cases/buitenstate-tools/logo-white.svg",
   },
   "bus-whisky": {
     cover: "/media/cases/bus-whisky/r-cover.webp",
@@ -150,6 +164,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/bus-whisky/screen-desktop.webp", mobile: "/media/cases/bus-whisky/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/bus-whisky/r-hero.mp4", poster: "/media/cases/bus-whisky/r-hero.webp" },
+    logo: "/media/cases/bus-whisky/logo-white.svg",
   },
   "calvin-vlaanderen": {
     cover: "/media/cases/calvin-vlaanderen/r-cover.webp",
@@ -167,6 +182,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/calvin-vlaanderen/screen-desktop.webp", mobile: "/media/cases/calvin-vlaanderen/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/calvin-vlaanderen/r-hero.mp4", poster: "/media/cases/calvin-vlaanderen/r-hero.webp" },
+    logo: "/media/cases/calvin-vlaanderen/logo-white.svg",
   },
   "chavore": {
     cover: "/media/cases/chavore/r-cover.webp",
@@ -184,6 +200,10 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/chavore/screen-desktop.webp", mobile: "/media/cases/chavore/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/chavore/r-hero.mp4", poster: "/media/cases/chavore/r-hero.webp" },
+    logo: "/media/cases/chavore/logo-white.svg",
+  },
+  "cj-privacy-legal": {
+    logo: "/media/cases/cj-privacy-legal/logo-white.png",
   },
   "cryptocointalk": {
     cover: "/media/cases/cryptocointalk/r-cover.webp",
@@ -201,6 +221,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/cryptocointalk/screen-desktop.webp", mobile: "/media/cases/cryptocointalk/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/cryptocointalk/r-hero.mp4", poster: "/media/cases/cryptocointalk/r-hero.webp" },
+    logo: "/media/cases/cryptocointalk/logo-white.svg",
   },
   "db-kiepers": {
     cover: "/media/cases/db-kiepers/r-cover.webp",
@@ -218,6 +239,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/db-kiepers/screen-desktop.webp", mobile: "/media/cases/db-kiepers/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/db-kiepers/r-hero.mp4", poster: "/media/cases/db-kiepers/r-hero.webp" },
+    logo: "/media/cases/db-kiepers/logo-white.svg",
   },
   "digital-newsgroup": {
     cover: "/media/cases/digital-newsgroup/r-cover.webp",
@@ -235,6 +257,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/digital-newsgroup/screen-desktop.webp", mobile: "/media/cases/digital-newsgroup/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/digital-newsgroup/r-hero.mp4", poster: "/media/cases/digital-newsgroup/r-hero.webp" },
+    logo: "/media/cases/digital-newsgroup/logo-white.svg",
   },
   "ecos": {
     cover: "/media/cases/ecos/r-cover.webp",
@@ -252,6 +275,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/ecos/screen-desktop.webp", mobile: "/media/cases/ecos/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/ecos/r-hero.mp4", poster: "/media/cases/ecos/r-hero.webp" },
+    logo: "/media/cases/ecos/logo-white.png",
   },
   "edgeway-commodities": {
     cover: "/media/cases/edgeway-commodities/r-cover.webp",
@@ -269,6 +293,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/edgeway-commodities/screen-desktop.webp", mobile: "/media/cases/edgeway-commodities/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/edgeway-commodities/r-hero.mp4", poster: "/media/cases/edgeway-commodities/r-hero.webp" },
+    logo: "/media/cases/edgeway-commodities/logo-white.svg",
   },
   "electriffy": {
     cover: "/media/cases/electriffy/r-cover.webp",
@@ -286,6 +311,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/electriffy/screen-desktop.webp", mobile: "/media/cases/electriffy/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/electriffy/r-hero.mp4", poster: "/media/cases/electriffy/r-hero.webp" },
+    logo: "/media/cases/electriffy/logo-white.svg",
   },
   "esmailly-bouw": {
     cover: "/media/cases/esmailly-bouw/r-cover.webp",
@@ -314,6 +340,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/expociety-app/screen-desktop.webp", mobile: "/media/cases/expociety-app/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/expociety-app/r-hero.mp4", poster: "/media/cases/expociety-app/r-hero.webp" },
+    logo: "/media/cases/expociety-app/logo-white.svg",
   },
   "fairlink": {
     cover: "/media/cases/fairlink/r-cover.webp",
@@ -331,6 +358,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/fairlink/screen-desktop.webp", mobile: "/media/cases/fairlink/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/fairlink/r-hero.mp4", poster: "/media/cases/fairlink/r-hero.webp" },
+    logo: "/media/cases/fairlink/logo-white.svg",
   },
   "foodbars-gelderland": {
     cover: "/media/cases/foodbars-gelderland/r-cover.webp",
@@ -348,6 +376,13 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/foodbars-gelderland/screen-desktop.webp", mobile: "/media/cases/foodbars-gelderland/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/foodbars-gelderland/r-hero.mp4", poster: "/media/cases/foodbars-gelderland/r-hero.webp" },
+    logo: "/media/cases/foodbars-gelderland/logo-white.svg",
+  },
+  "gemeente-gouda": {
+    logo: "/media/cases/gemeente-gouda/logo-white.svg",
+  },
+  "genson-grm": {
+    logo: "/media/cases/genson-grm/logo-white.svg",
   },
   "grid": {
     cover: "/media/cases/grid/r-cover.webp",
@@ -365,6 +400,10 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/grid/screen-desktop.webp", mobile: "/media/cases/grid/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/grid/r-hero.mp4", poster: "/media/cases/grid/r-hero.webp" },
+    logo: "/media/cases/grid/logo-white.svg",
+  },
+  "happy-horse-sales": {
+    logo: "/media/cases/happy-horse-sales/logo-white.png",
   },
   "hela": {
     cover: "/media/cases/hela/r-cover.webp",
@@ -382,6 +421,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/hela/screen-desktop.webp", mobile: "/media/cases/hela/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/hela/r-hero.mp4", poster: "/media/cases/hela/r-hero.webp" },
+    logo: "/media/cases/hela/logo-white.svg",
   },
   "huurfix": {
     cover: "/media/cases/huurfix/r-cover.webp",
@@ -399,6 +439,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/huurfix/screen-desktop.webp", mobile: "/media/cases/huurfix/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/huurfix/r-hero.mp4", poster: "/media/cases/huurfix/r-hero.webp" },
+    logo: "/media/cases/huurfix/logo-white.svg",
   },
   "icewall": {
     cover: "/media/cases/icewall/r-cover.webp",
@@ -416,6 +457,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/icewall/screen-desktop.webp", mobile: "/media/cases/icewall/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/icewall/r-hero.mp4", poster: "/media/cases/icewall/r-hero.webp" },
+    logo: "/media/cases/icewall/logo-white.svg",
   },
   "impeco": {
     cover: "/media/cases/impeco/r-cover.webp",
@@ -433,6 +475,10 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/impeco/screen-desktop.webp", mobile: "/media/cases/impeco/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/impeco/r-hero.mp4", poster: "/media/cases/impeco/r-hero.webp" },
+    logo: "/media/cases/impeco/logo-white.svg",
+  },
+  "intrador": {
+    logo: "/media/cases/intrador/logo-white.svg",
   },
   "issa": {
     cover: "/media/cases/issa/r-cover.webp",
@@ -450,6 +496,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/issa/screen-desktop.webp", mobile: "/media/cases/issa/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/issa/r-hero.mp4", poster: "/media/cases/issa/r-hero.webp" },
+    logo: "/media/cases/issa/logo-white.png",
   },
   "jalo-energy": {
     cover: "/media/cases/jalo-energy/r-cover.webp",
@@ -467,6 +514,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/jalo-energy/screen-desktop.webp", mobile: "/media/cases/jalo-energy/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/jalo-energy/r-hero.mp4", poster: "/media/cases/jalo-energy/r-hero.webp" },
+    logo: "/media/cases/jalo-energy/logo-white.svg",
   },
   "jmtuning": {
     cover: "/media/cases/jmtuning/r-cover.webp",
@@ -484,6 +532,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/jmtuning/screen-desktop.webp", mobile: "/media/cases/jmtuning/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/jmtuning/r-hero.mp4", poster: "/media/cases/jmtuning/r-hero.webp" },
+    logo: "/media/cases/jmtuning/logo-white.svg",
   },
   "jurgh-detailing": {
     cover: "/media/cases/jurgh-detailing/r-cover.webp",
@@ -501,6 +550,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/jurgh-detailing/screen-desktop.webp", mobile: "/media/cases/jurgh-detailing/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/jurgh-detailing/r-hero.mp4", poster: "/media/cases/jurgh-detailing/r-hero.webp" },
+    logo: "/media/cases/jurgh-detailing/logo-white.svg",
     replaceCover: true,
   },
   "kds-stansvormen": {
@@ -519,6 +569,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/kds-stansvormen/screen-desktop.webp", mobile: "/media/cases/kds-stansvormen/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/kds-stansvormen/r-hero.mp4", poster: "/media/cases/kds-stansvormen/r-hero.webp" },
+    logo: "/media/cases/kds-stansvormen/logo-white.svg",
   },
   "kippenkar": {
     cover: "/media/cases/kippenkar/r-cover.webp",
@@ -536,6 +587,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/kippenkar/screen-desktop.webp", mobile: "/media/cases/kippenkar/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/kippenkar/r-hero.mp4", poster: "/media/cases/kippenkar/r-hero.webp" },
+    logo: "/media/cases/kippenkar/logo-white.png",
     replaceCover: true,
   },
   "maarschall": {
@@ -554,6 +606,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/maarschall/screen-desktop.webp", mobile: "/media/cases/maarschall/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/maarschall/r-hero.mp4", poster: "/media/cases/maarschall/r-hero.webp" },
+    logo: "/media/cases/maarschall/logo-white.svg",
   },
   "martello": {
     cover: "/media/cases/martello/r-cover.webp",
@@ -571,6 +624,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/martello/screen-desktop.webp", mobile: "/media/cases/martello/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/martello/r-hero.mp4", poster: "/media/cases/martello/r-hero.webp" },
+    logo: "/media/cases/martello/logo-white.svg",
   },
   "mindyourpass": {
     cover: "/media/cases/mindyourpass/r-cover.webp",
@@ -586,6 +640,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/mindyourpass/screen-desktop.webp", mobile: "/media/cases/mindyourpass/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/mindyourpass/r-hero.mp4", poster: "/media/cases/mindyourpass/r-hero.webp" },
+    logo: "/media/cases/mindyourpass/logo-white.svg",
   },
   "misterglass": {
     cover: "/media/cases/misterglass/m-cover.webp",
@@ -608,6 +663,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/misterglass/screen-desktop.webp", mobile: "/media/cases/misterglass/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/misterglass/r-hero-a.mp4", poster: "/media/cases/misterglass/r-hero-a.webp" },
+    logo: "/media/cases/misterglass/logo-white.svg",
   },
   "monvy": {
     cover: "/media/cases/monvy/r-cover.webp",
@@ -625,6 +681,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/monvy/screen-desktop.webp", mobile: "/media/cases/monvy/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/monvy/r-hero.mp4", poster: "/media/cases/monvy/r-hero.webp" },
+    logo: "/media/cases/monvy/logo-white.svg",
   },
   "nexis-group": {
     cover: "/media/cases/nexis-group/r-cover.webp",
@@ -642,6 +699,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/nexis-group/screen-desktop.webp", mobile: "/media/cases/nexis-group/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/nexis-group/r-hero.mp4", poster: "/media/cases/nexis-group/r-hero.webp" },
+    logo: "/media/cases/nexis-group/logo-white.png",
   },
   "nktv": {
     cover: "/media/cases/nktv/r-cover.webp",
@@ -653,6 +711,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/nktv/r-05-ipads.webp",
     ],
     heroVideo: { src: "/media/cases/nktv/r-hero.mp4", poster: "/media/cases/nktv/r-hero.webp" },
+    logo: "/media/cases/nktv/logo-white.png",
   },
   "nova-funeral-cars": {
     cover: "/media/cases/nova-funeral-cars/r-cover.webp",
@@ -670,6 +729,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/nova-funeral-cars/screen-desktop.webp", mobile: "/media/cases/nova-funeral-cars/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/nova-funeral-cars/r-hero.mp4", poster: "/media/cases/nova-funeral-cars/r-hero.webp" },
+    logo: "/media/cases/nova-funeral-cars/logo-white.svg",
   },
   "outplay": {
     cover: "/media/cases/outplay/r-cover.webp",
@@ -687,6 +747,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/outplay/screen-desktop.webp", mobile: "/media/cases/outplay/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/outplay/r-hero.mp4", poster: "/media/cases/outplay/r-hero.webp" },
+    logo: "/media/cases/outplay/logo-white.png",
   },
   "pine-street-school": {
     cover: "/media/cases/pine-street-school/r-cover.webp",
@@ -704,6 +765,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/pine-street-school/screen-desktop.webp", mobile: "/media/cases/pine-street-school/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/pine-street-school/r-hero.mp4", poster: "/media/cases/pine-street-school/r-hero.webp" },
+    logo: "/media/cases/pine-street-school/logo-white.svg",
   },
   "plenty-planet": {
     cover: "/media/cases/plenty-planet/r-cover.webp",
@@ -721,6 +783,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/plenty-planet/screen-desktop.webp", mobile: "/media/cases/plenty-planet/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/plenty-planet/r-hero.mp4", poster: "/media/cases/plenty-planet/r-hero.webp" },
+    logo: "/media/cases/plenty-planet/logo-white.svg",
   },
   "repairlab": {
     cover: "/media/cases/repairlab/r-cover.webp",
@@ -738,7 +801,14 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/repairlab/screen-desktop.webp", mobile: "/media/cases/repairlab/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/repairlab/r-hero.mp4", poster: "/media/cases/repairlab/r-hero.webp" },
+    logo: "/media/cases/repairlab/logo-white.svg",
     replaceCover: true,
+  },
+  "repairlab-content": {
+    logo: "/media/cases/repairlab-content/logo-white.svg",
+  },
+  "rsi-3d-sportvelden": {
+    logo: "/media/cases/rsi-3d-sportvelden/logo-white.png",
   },
   "silvr": {
     cover: "/media/cases/silvr/r-cover.webp",
@@ -756,6 +826,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/silvr/screen-desktop.webp", mobile: "/media/cases/silvr/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/silvr/r-hero.mp4", poster: "/media/cases/silvr/r-hero.webp" },
+    logo: "/media/cases/silvr/logo-white.png",
   },
   "smarthome-services": {
     cover: "/media/cases/smarthome-services/r-cover.webp",
@@ -767,6 +838,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/smarthome-services/r-05-ipads.webp",
     ],
     heroVideo: { src: "/media/cases/smarthome-services/r-hero.mp4", poster: "/media/cases/smarthome-services/r-hero.webp" },
+    logo: "/media/cases/smarthome-services/logo-white.svg",
   },
   "solidlayer": {
     cover: "/media/cases/solidlayer/r-cover.webp",
@@ -784,6 +856,10 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/solidlayer/screen-desktop.webp", mobile: "/media/cases/solidlayer/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/solidlayer/r-hero.mp4", poster: "/media/cases/solidlayer/r-hero.webp" },
+    logo: "/media/cases/solidlayer/logo-white.svg",
+  },
+  "sparked": {
+    logo: "/media/cases/sparked/logo-white.png",
   },
   "sparta-blue-hydrogen": {
     cover: "/media/cases/sparta-blue-hydrogen/r-cover.webp",
@@ -801,6 +877,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/sparta-blue-hydrogen/screen-desktop.webp", mobile: "/media/cases/sparta-blue-hydrogen/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/sparta-blue-hydrogen/r-hero.mp4", poster: "/media/cases/sparta-blue-hydrogen/r-hero.webp" },
+    logo: "/media/cases/sparta-blue-hydrogen/logo-white.svg",
   },
   "speedbar": {
     cover: "/media/cases/speedbar/r-cover.webp",
@@ -818,6 +895,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/speedbar/screen-desktop.webp", mobile: "/media/cases/speedbar/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/speedbar/r-hero.mp4", poster: "/media/cases/speedbar/r-hero.webp" },
+    logo: "/media/cases/speedbar/logo-white.svg",
   },
   "steddion": {
     cover: "/media/cases/steddion/r-cover.webp",
@@ -835,6 +913,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/steddion/screen-desktop.webp", mobile: "/media/cases/steddion/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/steddion/r-hero.mp4", poster: "/media/cases/steddion/r-hero.webp" },
+    logo: "/media/cases/steddion/logo-white.svg",
   },
   "steddion-tools": {
     cover: "/media/cases/steddion-tools/r-cover.webp",
@@ -849,6 +928,22 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/steddion-tools/m-mac.webp",
     ],
     heroVideo: { src: "/media/cases/steddion-tools/r-hero.mp4", poster: "/media/cases/steddion-tools/r-hero.webp" },
+    logo: "/media/cases/steddion-tools/logo-white.svg",
+  },
+  "sublime-branding": {
+    logo: "/media/cases/sublime-branding/logo-white.svg",
+  },
+  "sublime-video": {
+    logo: "/media/cases/sublime-video/logo-white.svg",
+  },
+  "taylor": {
+    logo: "/media/cases/taylor/logo-white.svg",
+  },
+  "teamtv": {
+    logo: "/media/cases/teamtv/logo-white.png",
+  },
+  "teamtv-pricing-table": {
+    logo: "/media/cases/teamtv-pricing-table/logo-white.png",
   },
   "the-digital-clinic": {
     cover: "/media/cases/the-digital-clinic/r-cover.webp",
@@ -866,6 +961,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/the-digital-clinic/screen-desktop.webp", mobile: "/media/cases/the-digital-clinic/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/the-digital-clinic/r-hero.mp4", poster: "/media/cases/the-digital-clinic/r-hero.webp" },
+    logo: "/media/cases/the-digital-clinic/logo-white.svg",
   },
   "the-filmcar": {
     cover: "/media/cases/the-filmcar/r-cover.webp",
@@ -883,6 +979,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/the-filmcar/screen-desktop.webp", mobile: "/media/cases/the-filmcar/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/the-filmcar/r-hero.mp4", poster: "/media/cases/the-filmcar/r-hero.webp" },
+    logo: "/media/cases/the-filmcar/logo-white.svg",
   },
   "the-sandt": {
     cover: "/media/cases/the-sandt/r-cover.webp",
@@ -900,6 +997,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/the-sandt/screen-desktop.webp", mobile: "/media/cases/the-sandt/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/the-sandt/r-hero.mp4", poster: "/media/cases/the-sandt/r-hero.webp" },
+    logo: "/media/cases/the-sandt/logo-white.png",
   },
   "toy4participation": {
     cover: "/media/cases/toy4participation/r-cover.webp",
@@ -917,6 +1015,10 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/toy4participation/screen-desktop.webp", mobile: "/media/cases/toy4participation/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/toy4participation/r-hero.mp4", poster: "/media/cases/toy4participation/r-hero.webp" },
+    logo: "/media/cases/toy4participation/logo-white.svg",
+  },
+  "tue-dcmt": {
+    logo: "/media/cases/tue-dcmt/logo-white.svg",
   },
   "verichecks": {
     cover: "/media/cases/verichecks/r-cover.webp",
@@ -934,6 +1036,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/verichecks/screen-desktop.webp", mobile: "/media/cases/verichecks/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/verichecks/r-hero.mp4", poster: "/media/cases/verichecks/r-hero.webp" },
+    logo: "/media/cases/verichecks/logo-white.svg",
   },
   "your-earth": {
     cover: "/media/cases/your-earth/r-cover.webp",
@@ -951,6 +1054,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/your-earth/screen-desktop.webp", mobile: "/media/cases/your-earth/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/your-earth/r-hero.mp4", poster: "/media/cases/your-earth/r-hero.webp" },
+    logo: "/media/cases/your-earth/logo-white.svg",
   },
   "zuyver-jeeps": {
     cover: "/media/cases/zuyver-jeeps/r-cover.webp",
@@ -966,5 +1070,6 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/zuyver-jeeps/screen-desktop.webp", mobile: "/media/cases/zuyver-jeeps/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/zuyver-jeeps/r-hero.mp4", poster: "/media/cases/zuyver-jeeps/r-hero.webp" },
+    logo: "/media/cases/zuyver-jeeps/logo-white.svg",
   },
 };

@@ -58,11 +58,30 @@
   position: absolute;
   inset: 0;
 }
+/*
+ * Isolatie: een veranderende custom property laat Chrome alles tekenen dat hem erft
+ * (hier: poster en video, ±1400×830 px per frame). Het beeld zelf beweegt alleen via de
+ * transform van zijn ouder, dus de variabelen staan hier vast. Zelfde voor de hoofdstukken.
+ */
+.wi__player,
+.wc__player,
+.ww__hero > img,
+.ww__video,
+.ws__list,
+.ws__head {
+  --p: 0;
+  --a: 0;
+  --ea: 0;
+  --t: 0;
+  --f: 0;
+  --e: 0;
+  --g: 0;
+  --q: 0;
+}
 .wi__player .srp__shade {
   background:
-    radial-gradient(90% 80% at 50% 50%, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.72) 100%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 40%);
-  opacity: calc(1 - 0.55 * var(--ea));
+    radial-gradient(90% 80% at 50% 50%, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.66) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 40%);
 }
 .wi__player .srp__inner,
 .wc__player .srp__inner {
@@ -362,7 +381,6 @@
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.5) 34%, rgba(0, 0, 0, 0.08) 66%, rgba(0, 0, 0, 0.2) 100%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 60%);
-  opacity: calc(0.25 + 0.75 * var(--g));
 }
 .wc__player .srp__inner {
   left: auto;
@@ -587,6 +605,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.66);
   opacity: var(--q);
+  will-change: opacity;
 }
 .ww__hero-cap {
   position: absolute;
@@ -596,6 +615,7 @@
   gap: 6px;
   max-width: 60%;
   opacity: calc(1 - var(--q) * 1.4);
+  will-change: opacity;
 }
 .ww__hero-cap strong {
   font-size: clamp(2rem, 4.4vw, 4.4rem);
