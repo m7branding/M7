@@ -335,8 +335,13 @@ export function WorldBrandWall({ locale, data }: { locale: Locale; data: WorldDa
           {cols.map((col, c) => (
             <ul key={c} className="wbw__col" style={{ ["--c" as string]: c - (n - 1) / 2 }}>
               {col.map((t) => (
-                <li key={t.slug}>
-                  <TLink href={t.href} className="wbw__tile" data-cursor={d.cta.viewCase} style={{ ["--accent" as string]: t.color }}>
+                <li key={t.image}>
+                  <TLink
+                    href={t.href}
+                    className={`wbw__tile${/brand-sheet/.test(t.image ?? "") ? " wbw__tile--board" : ""}`}
+                    data-cursor={d.cta.viewCase}
+                    style={{ ["--accent" as string]: t.color }}
+                  >
                     <img src={t.image} alt={t.alt} loading="lazy" decoding="async" />
                     <span className="wbw__cap">{t.client}</span>
                   </TLink>

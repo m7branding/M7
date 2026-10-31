@@ -857,6 +857,13 @@
 .wbw__tile:hover img {
   transform: scale(1.05);
 }
+/* brand sheets zijn 16:9-borden: helemaal tonen, niets van het logo of de swatches afsnijden */
+.wbw__tile--board img {
+  aspect-ratio: 16 / 9;
+}
+.wbw__tile--board:hover img {
+  transform: scale(1.02);
+}
 .wbw__cap {
   position: absolute;
   left: 12px;

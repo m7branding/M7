@@ -143,6 +143,12 @@ const BRAND_SHEETS: { slug: string; src: string; alt: T }[] = [
   { slug: "fairlink", src: "fairlink/s-postcard-mark.webp", alt: { nl: "beeldmerk op een kaart", en: "brand mark on a card" } },
 ];
 
+/** Brand sheets per case (public/media/cases/<slug>/), in deze volgorde in de merkenwand. */
+const BRAND_BOARDS: { file: string; alt: T }[] = [
+  { file: "r-62-brand-sheet-logos.webp", alt: { nl: "brand sheet met logovarianten", en: "brand sheet with logo variants" } },
+  { file: "r-63-brand-sheet-colours.webp", alt: { nl: "brand sheet met kleuren en typografie", en: "brand sheet with colours and typography" } },
+];
+
 /** Merk-render (logo op een wand) uit de galerij van een case; de zwakkere sticker- en reliëfscènes zijn weg. */
 const BRAND_RENDER = /\/r-\d+-b06-[^/]+\.webp$/;
 const BRAND_ALT: T = { nl: "logo op een wand", en: "logo on a wall" };
@@ -282,13 +288,20 @@ export function worldData(locale: Locale) {
     if (!c || !inGroup(c, "branding") || !onDisk(src)) return [];
     return [{ ...spotOf(c, locale), image: src, alt: `${c.client}: ${L(b.alt)}` }];
   });
+  // brand sheets uit de render-pipeline: logovarianten en kleuren & typografie, alleen uit echte assets
+  const boards: Tile[] = brandMembers.flatMap((c) =>
+    BRAND_BOARDS.flatMap((b) => {
+      const src = M(`${c.slug}/${b.file}`);
+      return onDisk(src) ? [{ ...spotOf(c, locale), image: src, alt: `${c.client}: ${L(b.alt)}` }] : [];
+    }),
+  );
   const renders: Tile[] = brandMembers.flatMap((c) => {
     const g = (c.gallery ?? []).find((x) => BRAND_RENDER.test(x) && onDisk(x));
     if (!g) return [];
     return [{ ...spotOf(c, locale), image: g, alt: `${c.client}: ${L(BRAND_ALT)}` }];
   });
   // eerst elk merk één keer (sheets voorop), dan de rest; nooit twee keer hetzelfde beeld
-  const pool = [...sheets, ...renders];
+  const pool = [...sheets, ...boards, ...renders];
   const firsts = pool.filter((t, i) => pool.findIndex((x) => x.slug === t.slug) === i);
   const brandWall = [...firsts, ...pool.filter((t) => !firsts.includes(t))].slice(0, 9);
 
