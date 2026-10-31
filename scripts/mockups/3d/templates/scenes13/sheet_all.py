@@ -11,7 +11,7 @@ DEV = ['huurfix', 'atl-plus', 'steddion', 'impeco', 'kippenkar', 'electriffy', '
 BRD = ['jurgh-detailing', 'atl-plus', 'kippenkar', 'bernheze-makelaars-rebranding', 'nktv', 'sublime-branding', 'sparked', 'happy-horse-sales']
 SOC = ['sublime-branding', 'jurgh-detailing', 'atl-plus']
 FAMS = ['light', 'dark', 'brand', 'light', 'navy', 'brand', 'dark', 'light']
-cs = B13.cases(); lib = B13.library(final=False, portrait=bool(os.environ.get('R13_PORTRAIT')))
+cs = B13.cases(); lib = B13.library(final=False, portrait=bool(os.environ.get('R13_PORTRAIT')), nxt=bool(os.environ.get('R14_NEXT')))
 F = ImageFont.truetype('/usr/share/fonts/opentype/inter/Inter-Medium.otf', 15)
 cells = []; i_dev = i_brd = 0
 for k, (t, L) in enumerate(sorted(lib.items())):

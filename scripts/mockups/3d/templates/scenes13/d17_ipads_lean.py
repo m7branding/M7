@@ -15,4 +15,5 @@ SK.run('d17_ipads_lean', build, {
     'a': dict(loc=(0.15, -0.95, 0.30), target=(0.0, 0.08, 0.11), lens=50),
     'b': dict(loc=(-0.55, -0.55, 0.18), target=(0.0, 0.08, 0.12), lens=55),
     'c': dict(loc=(0.60, -0.62, 0.22), target=(0.0, 0.08, 0.12), lens=55),
+    'n': dict(loc=(0.15, -0.95, 0.30), target=(0.0, 0.08, 0.11), lens=50, w=2400, h=1100, samples=64, autoframe=dict(h=0.62, w=0.55, x=0.64, y=0.5)),
 })

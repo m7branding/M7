@@ -12,4 +12,5 @@ SK.run('d18_mac_profile', build, {
     'a': dict(loc=(0.55, -0.55, 0.12), target=(0.0, 0.0, 0.09), lens=55),
     'b': dict(loc=(-0.20, -0.75, 0.30), target=(0.02, 0.02, 0.08), lens=60),
     'c': dict(loc=(0.10, -0.90, 0.45), target=(0.0, 0.02, 0.09), lens=55),
+    'n': dict(loc=(0.55, -0.55, 0.12), target=(0.0, 0.0, 0.09), lens=55, w=2400, h=1100, samples=64, autoframe=dict(h=0.62, w=0.55, x=0.64, y=0.5)),
 })

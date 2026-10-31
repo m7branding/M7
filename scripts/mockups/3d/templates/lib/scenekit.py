@@ -178,6 +178,8 @@ def run(name, build, cams, w=2400, h=1600, samples=24, transparent=False, look='
             transparent=transparent)
     bpy.context.scene.render.use_persistent_data = True
     build()
+    if os.environ.get('R14_COLLIDE'):
+        collide_report(name); return
     for cam, c in cams.items():
         if only and cam not in only.split(','):
             continue
@@ -189,7 +191,101 @@ def run(name, build, cams, w=2400, h=1600, samples=24, transparent=False, look='
             ob.rotation_euler = (ob.rotation_euler.to_matrix() @ Matrix.Rotation(math.radians(c['roll']), 3, 'Z')).to_euler()
         if c.get('vertical'):
             ob.data.sensor_fit = 'VERTICAL'; ob.data.sensor_height = 24.0
+        if c.get('autoframe'):
+            autoframe(ob, c['loc'], c['target'], c['autoframe'])
+        if c.get('samples') and not pv:
+            sc.cycles.samples = c['samples']; sc.cycles.adaptive_threshold = c.get('threshold', 0.02)
         tname = f'{name}__{cam}'
         T.write_meta(tname, dict(kind='still', look=c.get('look', look), exposure=c.get('exposure', 0.0), scene=name, cam=cam,
                                  **(extra or {})))
         T.render_frame(tname, 'pv' if pv else 'still')
+
+
+ENV_NAMES = ('floor', 'wall', 'cyc', 'catcher', 'desk', 'bench', 'plinth', 'block', 'slab', 'sweep', 'wall_bg', 'stand')
+
+
+def collide_report(name):
+    """Round 14: geometric overlap test between separate objects (device vs device, device vs print, anything vs
+    the set) with BVH trees of the evaluated meshes; writes r14/collide/<scene>.json."""
+    import json
+    from mathutils.bvhtree import BVHTree
+    dg = bpy.context.evaluated_depsgraph_get()
+
+    def root(o):
+        while o.parent: o = o.parent
+        return o
+    groups = {}
+    for o in bpy.context.scene.objects:
+        if o.type != 'MESH' or not o.visible_get() or getattr(o, 'is_shadow_catcher', False) or not o.visible_camera: continue
+        groups.setdefault(root(o).name, []).append(o)
+    import bmesh
+
+    def world_tree(o):          # BVHTree.FromObject is in object space: build it from the world-space mesh
+        bm = bmesh.new(); bm.from_object(o, dg); bm.transform(o.matrix_world)
+        t = BVHTree.FromBMesh(bm); bm.free(); return t
+    trees = {}
+    for g, obs in groups.items():
+        trees[g] = [(o.name, world_tree(o)) for o in obs]
+    is_env = lambda g: any(g.lower().startswith(e) for e in ENV_NAMES)
+    res = []
+    gs = sorted(trees)
+    for i, a in enumerate(gs):
+        for b in gs[i + 1:]:
+            n = 0; ex = None
+            for na, ta in trees[a]:
+                for nb, tb in trees[b]:
+                    ov = ta.overlap(tb)
+                    if ov: n += len(ov); ex = ex or (na, nb)
+            if n: res.append(dict(a=a, b=b, pairs=n, example=ex, env=is_env(a) or is_env(b)))
+    out = os.path.join(os.path.dirname(T.R12), 'r14', 'collide'); os.makedirs(out, exist_ok=True)
+    json.dump(dict(scene=name, groups=gs, overlaps=res), open(os.path.join(out, name + '.json'), 'w'), indent=1)
+    print('[collide]', name, len(res), 'overlapping group pairs:', [(r['a'], r['b'], r['pairs']) for r in res if not r['env']])
+
+
+
+SUBJECT_SKIP = ('plant', 'succulent', 'gobo', 'pot', 'dirt', 'leaf', 'catcher')
+
+
+def _subject_points():
+    pts = []
+    for o in bpy.context.scene.objects:
+        if o.type != 'MESH' or not o.visible_get() or not o.visible_camera: continue
+        nm = o.name.lower()
+        if nm.startswith(ENV_NAMES) or any(k in nm for k in SUBJECT_SKIP) or getattr(o, 'is_shadow_catcher', False): continue
+        pts += [o.matrix_world @ Vector(c) for c in o.bound_box]
+    return pts
+
+
+def autoframe(ob, loc, target, af):
+    """Round 14 next-case frames: keep the camera direction, set the distance (or ortho scale) so the subject
+    (all non-set objects) fills af['h'] of the frame height, then translate the camera parallel to the image plane
+    so the subject centre lands at (af['x'], af['y']) — e.g. centre-right with a calm left side."""
+    from bpy_extras.object_utils import world_to_camera_view
+    sc = bpy.context.scene
+    bpy.context.view_layer.update()          # world matrices of the freshly built (parented) parts
+    pts = _subject_points()
+    dirv = (Vector(target) - Vector(loc)).normalized()
+    tgt = Vector(target); d = (Vector(loc) - tgt).length
+    W, H = sc.render.resolution_x, sc.render.resolution_y
+    for _ in range(8):
+        ob.location = tgt - dirv * d; R.look_at(ob, tgt)
+        bpy.context.view_layer.update()
+        co = [world_to_camera_view(sc, ob, p) for p in pts]
+        xs = [c.x for c in co]; ys = [c.y for c in co]
+        hh = max(ys) - min(ys); ww = max(xs) - min(xs)
+        k = max(hh / af.get('h', 0.6), ww / af.get('w', 0.62))      # fit height, never wider than af['w']
+        if ob.data.type == 'ORTHO':
+            ob.data.ortho_scale *= k; width_world = ob.data.ortho_scale
+        else:
+            d *= k
+            width_world = 2 * d * math.tan(ob.data.angle_x / 2) if hasattr(ob.data, 'angle_x') else 2 * d * 18.0 / ob.data.lens
+        cx = (max(xs) + min(xs)) / 2; cy = (max(ys) + min(ys)) / 2
+        m = ob.matrix_world.to_3x3(); right = m.col[0].normalized(); up = m.col[1].normalized()
+        tgt = tgt + right * (cx - af.get('x', 0.64)) * width_world + up * (cy - af.get('y', 0.5)) * width_world * H / W
+    ob.location = tgt - dirv * d; R.look_at(ob, tgt)
+    bpy.context.view_layer.update()
+    co = [world_to_camera_view(sc, ob, p) for p in pts]
+    if os.environ.get('R14_AFDEBUG'):
+        print('[autoframe]', len(pts), 'x', round(min(c.x for c in co), 3), round(max(c.x for c in co), 3),
+              'y', round(min(c.y for c in co), 3), round(max(c.y for c in co), 3),
+              sorted({o.name for o in bpy.context.scene.objects if o.type == 'MESH'})[:40])

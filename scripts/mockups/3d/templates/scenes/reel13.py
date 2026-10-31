@@ -60,17 +60,22 @@ def h(s):
 
 
 def make_plan():
-    plan = json.load(open(os.path.join(B13.R13, 'plan.json')))
+    pf = os.environ.get('R14_PLAN') or os.path.join(B13.R13, 'plan.json')
+    plan = json.load(open(pf))
     lib = B13.library(final=False); cs = B13.cases()
     order = list(plan)
     out = {}
+    only = os.environ.get('R14_REELS')
     for R in REELS:
+        if only and R['slug'] not in only.split(','): continue
         cands = []
         for slug in order:
             c = cs[slug]
             if R.get('services') and not set(c['services']) & R['services']: continue
             if R.get('sector') and c['sector'] != R['sector']: continue
-            sts = [s for s in plan[slug]['stills'] if not lib[s['t']]['portrait']]
+            sts = [s for s in plan[slug]['stills'] if s['t'] in lib and not lib[s['t']]['portrait']]
+            if os.environ.get('R14_NEUTRAL'):      # round 14: no print scenes and no unverified brand-colour backdrops
+                sts = [s for s in sts if not s['t'].startswith(('b', 'd06_')) and s.get('fam') != 'brand']
             if R['kind'] == 'device': sts = [s for s in sts if lib[s['t']]['roles']]
             elif R['kind'] == 'brand': sts = [s for s in sts if lib[s['t']]['prints'] and not lib[s['t']]['roles']]
             elif R['kind'] == 'brandfam': sts = [s for s in sts if s['fam'] == 'brand']
@@ -102,12 +107,33 @@ def make_plan():
             if best and best[0] != 0:
                 i = best[0]; shots[0], shots[i] = shots[i], shots[0]
                 for k, sh in enumerate(shots): sh['move'] = RMOVES[k % len(RMOVES)]
+        if os.environ.get('R14_PHASE3') and R['slug'] in ('highlights', 'web', 'apps'):
+            # round 14: a few shots play a real interaction of the site (menus, configurators, search) on the screen
+            import flows as FL
+            nf = 0; ts = {sh['st']['t'] for sh in shots}
+            for sh in shots[1:]:
+                if nf >= (2 if R['slug'] == 'highlights' else 3): break
+                if not FL.load(sh['slug']): continue
+                sts = {x['t']: x for x in plan[sh['slug']]['stills']}
+                fs = V.flow_shot(sh['slug'], [], sts, lib, avoid=ts - {sh['st']['t']}, skip=1)
+                if not fs: continue
+                ts.discard(sh['st']['t']); ts.add(fs['st']['t'])
+                sh.update(st=fs['st'], scroll=False, flow=fs['flow']); nf += 1
         beats = [BEAT[i % len(BEAT)] for i in range(n)]
-        k = 30.0 / sum(beats)
+        FLOW_DUR = 3.2
+        fixed = sum(FLOW_DUR for sh in shots if sh.get('flow'))
+        k = (30.0 - fixed) / max(1e-6, sum(b for sh, b in zip(shots, beats) if not sh.get('flow')))
         for sh, b in zip(shots, beats):
-            sh['dur'] = round(b * k * FPS) / FPS
+            sh['dur'] = round((FLOW_DUR if sh.get('flow') else b * k) * FPS) / FPS
+            if sh.get('flow'):
+                import flows as FL
+                x = next(f for f in FL.load(sh['slug']) if f['path'] == sh['flow']['path'])
+                sh['flow']['t0'], sh['flow']['t1'] = FL.window(x, sh['dur'] + XF_SOFT)
         out[R['slug']] = dict(title=R['title'], shots=shots)
-    json.dump(out, open(os.path.join(B13.R13, 'reel_plan.json'), 'w'), indent=1)
+    pf_out = os.path.join(B13.R13, 'reel_plan.json')
+    if only and os.path.exists(pf_out):          # planning a subset: keep the other reels' plans
+        prev = json.load(open(pf_out)); prev.update(out); out = prev
+    json.dump(out, open(pf_out, 'w'), indent=1)
     return out
 
 
@@ -146,7 +172,8 @@ def render(slug):
     def make(i):
         sp = R['shots'][i]; s = sp['slug']; p = P.projects().get(s); caps = P.captures(p) if p else {}
         if s not in brands: brands[s] = B13.brand_for(s, cs[s], caps)
-        return V.Shot(s, cs[s], caps, brands[s], dict(st=sp['st'], move=sp['move'], scroll=sp['scroll']), {})
+        return V.Shot(s, cs[s], caps, brands[s], dict(st=sp['st'], move=sp['move'], scroll=sp['scroll'],
+                                                      **({'flow': sp['flow']} if sp.get('flow') else {})), {})
     tl = timeline([sp['dur'] for sp in R['shots']])
     k = int(round(R['shots'][0]['dur'] / 2 * FPS)); tl = tl[k:] + tl[:k]      # frame 0 = poster: mid shot 1, no dissolve
     raw = os.path.join(OUTD, slug + '.lossless.mkv')     # lossless intermediate (a raw dump would be ~4.5 GB)
@@ -211,7 +238,8 @@ def render_portrait(slug):
         st = dict(sp['st']); tp = portrait_template(st['t'])
         if tp:
             st['t'] = tp; used_p.append(tp)
-        return V.Shot(s, cs[s], caps, brands[s], dict(st=st, move=sp['move'], scroll=sp['scroll']), {})
+        return V.Shot(s, cs[s], caps, brands[s], dict(st=st, move=sp['move'], scroll=sp['scroll'],
+                                                      **({'flow': sp['flow']} if sp.get('flow') else {})), {})
     tl = timeline([sp['dur'] for sp in R['shots']])
     k = int(round(R['shots'][0]['dur'] / 2 * FPS)); tl = tl[k:] + tl[:k]
     raw = os.path.join(OUTD, slug + '-p.lossless.mkv')

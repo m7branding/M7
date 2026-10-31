@@ -12,4 +12,5 @@ SK.run('d10_tablets_iso', build, {
     'a': dict(loc=(d * 0.55, -d * 0.55, d * 0.62), target=(0, 0, 0), lens=50, ortho=0.85),
     'b': dict(loc=(-d * 0.6, -d * 0.45, d * 0.66), target=(0, 0, 0), lens=50, ortho=0.62),
     'c': dict(loc=(d * 0.06, -d * 0.22, d * 0.97), target=(0, 0, 0), lens=50, ortho=0.72),
+    'n': dict(loc=(d * 0.55, -d * 0.55, d * 0.62), target=(0, 0, 0), lens=50, ortho=0.85, w=2400, h=1100, samples=64, autoframe=dict(h=0.62, w=0.55, x=0.64, y=0.5)),
 })

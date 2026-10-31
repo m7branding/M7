@@ -11,4 +11,5 @@ def build():
 SK.run('d04_phone_trio', build, {
     'a': dict(loc=(0.0, -0.55, 0.09), target=(0.0, 0.0, 0.075), lens=60),
     'b': dict(loc=(-0.30, -0.42, 0.26), target=(0.0, 0.01, 0.07), lens=62),
+    'n': dict(loc=(0.12, -0.55, 0.16), target=(0.0, 0.0, 0.075), lens=60, w=2400, h=1100, samples=64, autoframe=dict(h=0.62, w=0.55, x=0.64, y=0.5)),
 })

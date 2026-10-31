@@ -1,5 +1,5 @@
-"""05 — Isometric device group (Studio Display, MacBook Pro, iPad Pro, iPhone 17 Pro) on a muted,
-brand-tinted (dusty plum) floor, like ref teamtv-platform."""
+"""05 — Isometric device group (Studio Display, MacBook Pro, iPad Pro, iPhone 17 Pro) on a light grey
+floor (round 14: no unverified brand colour), like ref teamtv-platform."""
 import sys, os, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
 import bpy
@@ -9,7 +9,7 @@ R.reset()
 w, h, spp = R.res(2400, 1600, 64)
 R.setup_render(w, h, samples=spp, threshold=0.01)
 R.world_hdri('studio_small_09', strength=0.10, rot_z=math.radians(-30))
-fl = R.mat_paint('floor', R.srgb((90, 70, 84)), rough=0.8, spec=0.25)
+fl = R.mat_paint('floor', R.srgb((150, 151, 154)), rough=0.8, spec=0.25)
 R.plane('floor', 8, 8, mat=fl, loc=(0, 0, 0))
 sd = R.studio_display('Studio', screen='studio-home.png', finish='silver', tilt_deg=3)
 sd.location = (-0.04, 0.15, 0); sd.rotation_euler.z = 0

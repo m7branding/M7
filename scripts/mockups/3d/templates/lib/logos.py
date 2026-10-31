@@ -100,3 +100,67 @@ def load(slug):
         rgb = np.asarray(im)[..., :3].astype(int)
         if rgb.mean() < 235: full = im
     return mono, full
+
+
+def _kit_original(slug):
+    """The BRAND kit's logo in original colours (also when that original is white-on-dark)."""
+    if slug in SKIP or slug not in ready(): return None
+    f = _first(os.path.join(KIT, slug), ['logo.svg', 'logo.png'])
+    return _img(f, slug + '-orig') if f else None
+
+
+def whitecontent(slug):
+    try:
+        return json.load(open(os.path.join(KIT, slug, 'meta.json'))).get('logo', {}).get('mode') == 'whitecontent'
+    except Exception:
+        return False
+
+
+def on_dark(im):
+    """Version for a dark surface: the near-black / grey ink becomes white, brand colours stay (e.g. RepairLab's
+    red dot, JURGH's red bar) — how these brands show their logo on black."""
+    a = np.asarray(im.convert('RGBA')).astype(np.float32)
+    rgb = a[..., :3] / 255.0
+    dark = rgb.max(-1) < 0.45                          # black / charcoal / navy / aubergine ink -> white
+    out = a.copy(); out[dark, :3] = 250
+    return Image.fromarray(out.astype(np.uint8))
+
+
+# M7's own logo tiles (logo on its brand surface) where the kit holds a later / temporary variant
+TILES = {'jurgh-detailing': 'jurgh-tile.webp'}       # the kit has the 10th-anniversary variant
+
+
+def _from_tile(fn):
+    """Logo (RGBA) keyed out of a tile: the background is the median border colour."""
+    im = Image.open(os.path.join(SITE, 'logos-designed', fn)).convert('RGB'); a = np.asarray(im).astype(np.float32)
+    bg = np.median(np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]), 0)
+    mx = a.max(-1)                                      # dark tile: the logo is what is clearly brighter
+    alpha = np.clip((mx - bg.max() - 45) * 3.0, 0, 255).astype(np.uint8)
+    out = Image.fromarray(np.dstack([a.astype(np.uint8), alpha]))
+    bb = out.split()[3].point(lambda v: 255 if v > 160 else 0).getbbox()
+    return out.crop(bb)
+
+
+def variants(slug):
+    """Logo images in their true colours for the logo scenes: {'light': for light surfaces or None,
+    'dark': for dark / brand-field surfaces, 'mono': L mask}. None when there is no verified logo."""
+    mono, full = load(slug)
+    if mono is None:
+        return None
+    if slug in TILES:
+        dark = _from_tile(TILES[slug])
+        a = np.asarray(dark).astype(np.float32); white = a[..., :3].min(-1) > 200
+        b = a.copy(); b[white, :3] = 0                  # light surface: the white letters print black
+        return dict(light=Image.fromarray(b.astype(np.uint8)), dark=dark, mono=dark.split()[3])
+    orig = _kit_original(slug)
+    if whitecontent(slug):
+        light = None                                   # a white-on-dark logo never goes on a light surface
+        dark = orig if orig is not None else Image.merge('RGBA', [Image.new('L', mono.size, 250)] * 3 + [mono])
+    else:
+        light = full
+        if full is not None:                           # a logo with white letters is a logo for dark surfaces
+            a = np.asarray(full.convert('RGBA')).astype(np.float32)
+            op = a[..., 3] > 128
+            if op.sum() and (a[op, :3].min(-1) > 225).mean() > 0.10: light = None
+        dark = on_dark(full) if full is not None else Image.merge('RGBA', [Image.new('L', mono.size, 250)] * 3 + [mono])
+    return dict(light=light, dark=dark, mono=mono)

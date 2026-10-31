@@ -184,6 +184,9 @@ def _store_frame_camera(name, base):
 
 def render_frame(name, base):
     import time
+    if os.environ.get('R14_COLLIDE'):          # round 14 collision audit: report, do not render
+        import scenekit
+        scenekit.collide_report(name); return
     d = os.path.join(TPL, name)
     os.makedirs(d, exist_ok=True)
     if base.startswith('f_'):

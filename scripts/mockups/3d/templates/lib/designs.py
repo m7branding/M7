@@ -348,3 +348,52 @@ def social_grid(b, W=1206, H=2622, top=162):
             i += 1
         y += tw + gap
     return c
+
+
+# ---------------------------------------------------------------------------- round 14: logo scenes, true colours
+def _place(img, c_size, box):
+    """The logo image (RGBA) fitted into box (x0, y0, w, h) on a canvas of c_size -> (rgb float, alpha float)."""
+    lw, lh = img.size; k = min(box[2] / lw, box[3] / lh)
+    im = img.resize((max(1, int(lw * k)), max(1, int(lh * k))), Image.LANCZOS)
+    cv = Image.new('RGBA', c_size, (0, 0, 0, 0))
+    cv.paste(im, (int(box[0] + (box[2] - im.width) / 2), int(box[1] + (box[3] - im.height) / 2)), im)
+    a = np.asarray(cv).astype(np.float32) / 255.0
+    return a[..., :3], a[..., 3]
+
+
+def logo_wall(img, wall, tone=False, w=2000, h=1300, ppm=1.2, light=(-0.7, -0.5), scale=1.0):
+    """Raised logo letters on a wall in the logo's true colours (tone=True: the letters in the wall colour).
+    Colour-true (applied after the view transform), like the wall around it ('wall_bg' = flat())."""
+    W, H = int(w * ppm), int(h * ppm)
+    bw, bh = W * 0.46 * scale, H * 0.30 * scale
+    box = (W * 0.5 - bw / 2, H * 0.45 - bh / 2, bw, bh)
+    rgb, hgt = _place(img, (W, H), box)
+    hb = np.asarray(Image.fromarray((hgt * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8)), np.float32) / 255.0
+    sh = Image.fromarray((hb * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(10 * ppm))
+    lx, ly = light; n = (lx * lx + ly * ly) ** 0.5
+    shadow = Image.new('L', (W, H), 0); shadow.paste(sh, (int(-lx / n * 14 * ppm), int(-ly / n * 14 * ppm)))
+    s = np.asarray(shadow, np.float32) / 255.0
+    wl = np.array(wall, np.float32) / 255.0
+    alb = np.ones((H, W, 3), np.float32) * wl
+    alb *= (1.0 - 0.38 * s * (1.0 - hb))[..., None]
+    if not tone:
+        alb = alb * (1 - hgt[..., None]) + rgb * hgt[..., None]
+    return C.PrintDesign((np.clip(alb, 0, 1) * 255).astype(np.uint8), height=hb * 10.0, relief=1.0)
+
+
+def logo_sticker(img, bg, d_mm=64, ppm=12):
+    """Round sticker: the logo in its true colours on a white (or black) disc."""
+    s = int(d_mm * ppm)
+    c = Image.new('RGB', (s, s), tuple(bg))
+    rgb, a = _place(img, (s, s), (s * 0.16, s * 0.30, s * 0.68, s * 0.40))
+    out = np.asarray(c, np.float32) / 255.0 * (1 - a[..., None]) + rgb * a[..., None]
+    return C.PrintDesign((np.clip(out, 0, 1) * 255).astype(np.uint8))
+
+
+def flat(color, w=64, h=26):
+    return C.PrintDesign(np.full((h, w, 3), np.array(color, np.uint8), np.uint8))
+
+
+def card_blank():
+    """Plain paper card (no print) — the b05 prop next to the blind emboss."""
+    return C.PrintDesign(np.full((55 * 4, 85 * 4, 3), np.array(PAPER, np.uint8), np.uint8))

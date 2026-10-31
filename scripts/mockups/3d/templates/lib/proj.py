@@ -15,8 +15,33 @@ PROJECTS = os.environ.get('R12_PROJECTS') or os.path.join(R12, 'projects.json')
 META_DIRS = [os.path.join(SCR, 'r10', 'u', 'meta')] + ([os.environ['R12_META']] if os.environ.get('R12_META') else [])
 
 
+# round 14: cases that were logo-only and now have CAPTURE's captures of their live site
+R14_SYNTH = ('teamtv', 'taylor', 'architectenbureau-koppens')
+_SYN = None
+
+
 def projects():
-    return {p['slug']: p for p in json.load(open(PROJECTS))}
+    global _SYN
+    d = {p['slug']: p for p in json.load(open(PROJECTS))}
+    if _SYN is None:
+        _SYN = {}
+        for s in R14_SYNTH:
+            q = r14_qa(s)
+            if q and ((q.get('items') or {}).get('hero-desktop') or {}).get('ok'):
+                _SYN[s] = dict(slug=s, captures=os.path.join(R14CAP, s), url=q.get('url'), r14=True,
+                               n_screens={dv: len(q['items'].get('screens-' + dv) or []) for dv in ('desktop', 'tablet', 'mobile')})
+    for s, p in _SYN.items():
+        if s not in d: d[s] = dict(p)
+    return d
+
+
+def bar_url(p):
+    """What the browser address bar of a device shows: None = no browser chrome (bare app screens), '' = an empty
+    address field when the site only lives on a hosting / staging domain (same guard as print), else the domain."""
+    if p.get('bare'): return None
+    import designs as DS
+    d = domain(p)
+    return DS.print_url(d) or ''
 
 
 def domain(p):
@@ -74,6 +99,8 @@ def captures(p):
             if k == 'full-desktop' and im.width > 1440:
                 im = im.resize((1440, round(im.height * 1440 / im.width)), Image.LANCZOS)
             c[k] = im
+    if os.environ.get('R14_PHASE3') or os.environ.get('R14_RECAP'):
+        r14_captures(p['slug'], c)
     if c['hero-desktop'] is None and c['full-desktop'] is not None:
         fd = c['full-desktop']; c['hero-desktop'] = fd.crop((0, 0, fd.width, int(fd.width * 0.625)))
     if c['full-desktop'] is None and c['hero-desktop'] is not None:
@@ -85,6 +112,97 @@ def captures(p):
     if c['hero-tablet'] is None and c['hero-desktop'] is not None:
         hd = c['hero-desktop']; c['hero-tablet'] = hd.resize((2360, int(hd.height * 2360 / hd.width))).crop((0, 0, 2360, 1640))
     return c
+
+
+# ---------------------------------------------------------------- round 14: clean recaptures (CAPTURE agent)
+R14CAP = os.path.join(SCR, 'r14', 'cap')
+_R14REP = None
+
+
+def r14_replace(slug):
+    """Capture files the r14 audit (r14/cap/AUDIT.md) says to replace for this slug (broken or clipped screens)."""
+    global _R14REP
+    if _R14REP is None:
+        _R14REP = {}
+        f = os.path.join(R14CAP, 'AUDIT.md'); cur = None
+        if os.path.exists(f):
+            for line in open(f):
+                m = re.match(r'^### (\S+)', line)
+                if m: cur = m.group(1); continue
+                if cur and line.startswith('Replace:'):
+                    for name, note in re.findall(r'`([\w-]+)\.png([^`]*)`', line):
+                        if 'from the client' not in note: _R14REP.setdefault(cur, set()).add(name)
+    return _R14REP.get(slug, set()) | R14_EXTRA_REPLACE.get(slug, set())
+
+
+def r14_qa(slug):
+    f = os.path.join(R14CAP, slug, 'qa.json')
+    return json.load(open(f)) if os.path.exists(f) else None
+
+
+def r14_stack(files, width):
+    """Clean viewport screens stacked into one tall 'page' + the row where each screen starts (content texels),
+    so device slots at an offset show whole screens instead of a clipped full-page capture."""
+    ims = []
+    for f in files:
+        im = _safe_open(f)
+        if im is None: raise IOError(f)
+        ims.append(im.resize((width, round(im.height * width / im.width)), Image.LANCZOS) if im.width != width else im)
+    pad = int(0.12 * ims[-1].height)        # the last screen can sit at the top of a slightly taller display
+    H = sum(i.height for i in ims) + pad; out = Image.new('RGB', (width, H)); y = 0; br = []
+    for i in ims:
+        out.paste(i, (0, y)); br.append(y); y += i.height
+    last = np.asarray(ims[-1])[-1]                          # continue the bottom row of the last screen
+    out.paste(Image.fromarray(np.repeat(last[None], pad, 0)), (0, y))
+    return out, br
+
+
+def _safe_open(f, tries=3):
+    """CAPTURE may be rewriting a file while we read it: retry, then give up (keep the old capture)."""
+    import time
+    for i in range(tries):
+        try:
+            im = Image.open(f); im.load(); return im.convert('RGB')
+        except Exception:
+            time.sleep(2 + 3 * i)
+    return None
+
+
+def r14_captures(slug, c):
+    try:
+        rep = r14_replace(slug); qa = r14_qa(slug)
+    except Exception:
+        return
+    if not rep or not qa: return
+    d = os.path.join(R14CAP, slug); items = qa.get('items') or {}
+    for k in ('hero-desktop', 'hero-tablet', 'hero-mobile'):
+        f = os.path.join(d, k + '.png')
+        if k in rep and (items.get(k) or {}).get('ok') and os.path.exists(f):
+            im = _safe_open(f)
+            if im is not None: c[k] = im
+    br = c.setdefault('_breaks', {})
+    for k, w in (('full-desktop', 1440), ('full-mobile', 780)):       # CAPTURE's clean stitched pages (r10 format)
+        f = os.path.join(d, k + '.png')
+        if k in rep and os.path.exists(f):
+            im = _safe_open(f)
+            if im is None: continue
+            if im.width != w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+            # scrolling video: one continuous clean page, but only when it is long enough for the deepest slot
+            # (short pages would clamp several devices onto the same screen: those use the stacked screens)
+            vh = 900 if k == 'full-desktop' else 1688
+            if im.height >= 4.6 * vh: c.setdefault('_video', {})[k] = im
+    for k, dev, w in (('full-desktop', 'desktop', 1440), ('full-mobile', 'mobile', 780), ('full-desktop', 'tablet', 1180)):
+        if k not in rep: continue
+        fs = [os.path.join(d, x['file']) for x in items.get('screens-' + dev) or []
+              if not x.get('issues') and os.path.exists(os.path.join(d, x['file']))]
+        if len(fs) < 2:
+            if dev != 'tablet' and (c.get('_video') or {}).get(k) is not None: c[k] = c['_video'][k]
+            continue
+        key = 'full-tablet' if dev == 'tablet' else k
+        try:
+            c[key], br[key] = r14_stack(fs, w)
+        except Exception:
+            pass                                    # a screen is being rewritten: keep the old capture
 
 
 def top_color(img, rows=6):
@@ -213,13 +331,16 @@ PANEL_CROP = {'panel_1': (0.0, 0.0, 1.0), 'panel_2': (0.05, 1.1, 0.55), 'panel_3
               'panel_4': (0.0, 2.8, 1.0), 'panel_5': (0.0, 0.0, 1.0)}
 
 
-def flat_display(role, src, px):
-    """Content for a flat screen (panel / billboard) of px = (w, h): a crop of the capture, no chrome."""
+def flat_display(role, src, px, breaks=None):
+    """Content for a flat screen (panel / billboard) of px = (w, h): a crop of the capture, no chrome.
+    breaks (r14 stacked clean screens): panels start at the top of a screen."""
     W, H = px
     if role.startswith('panel'):
         x0, y0, wf = PANEL_CROP.get(role, (0, 0, 1))
         cw = int(src.width * wf); ch = int(cw * H / W)
         y = int(y0 * src.width * 0.62)
+        if breaks:
+            y = min(breaks, key=lambda b: abs(b - y))
         y = max(0, min(y, src.height - ch)) if src.height > ch else 0
         crop = src.crop((int(x0 * src.width), y, int(x0 * src.width) + cw, y + ch))
     else:
@@ -233,8 +354,8 @@ def displays_for(p, roles, video=False, caps=None, glass=None, brand=None):
     """glass: template meta['glass'] (needed for flat screens to know their content resolution).
     brand: designs.Brand (needed for the 'social' screen)."""
     caps = caps or captures(p)
-    url = None if p.get('bare') else domain(p)
-    out = {}
+    url = bar_url(p)
+    out = {}; used = set()
     for r in roles:
         dtype, still, vid, off = ROLE_SOURCES[r]
         if (p.get('role_src') or {}).get(r):
@@ -248,18 +369,29 @@ def displays_for(p, roles, video=False, caps=None, glass=None, brand=None):
             ov = np.asarray(ov).copy(); ov[top:] = 0          # status bar only (no Safari pill)
             out[r] = Display(W, H, np.asarray(grid), 0, ov)
             continue
-        src = caps.get(vid if video else still)
+        key = vid if video else still
+        if dtype == 'ipad' and key == 'full-desktop' and caps.get('full-tablet') is not None:
+            key = 'full-tablet'                 # r14: clean tablet-width screens
+        src = caps.get(key)
+        breaks = (caps.get('_breaks') or {}).get(key)
+        if video and (caps.get('_video') or {}).get(key) is not None:
+            src = caps['_video'][key]; breaks = None
         if src is None:
             continue
         if dtype == 'flat':
             px = (glass or {}).get(r, {}).get('px') or (2400, 1500)
-            out[r] = flat_display(r, src, px)
+            out[r] = flat_display(r, src, px, breaks=None if video else breaks)
         elif dtype == 'ipad_p':
             d = ipad_portrait_display(src, url)
             d.offset = min(d.max_offset, off * (d.H - d.top) * d.cscale)
             out[r] = rotated(d)
         else:
             out[r] = make_display(dtype, src, url, off)
+        if breaks and not video and r in out and off > 0:       # r14: start exactly at a screen
+            d = out[r]; ok = [b for b in breaks if b <= d.max_offset + 1]
+            free = [b for b in ok if (key, b) not in used] or ok          # two devices: two different screens
+            if free:
+                d.offset = float(min(free, key=lambda b: abs(b - d.offset))); used.add((key, int(d.offset)))
     return out
 
 
@@ -294,4 +426,28 @@ def roles_ok(p, caps=None):
         if p.get('roles') and r not in p['roles']:
             continue
         ok.add(r)
+    ok -= R14_NOROLES.get(p['slug'], set())
+    if p.get('r14'):          # captured live site: as many offset slots as there are clean screens, never clamped
+        n = p.get('n_screens') or {}
+        need = {'mac_b': ('desktop', 2), 'studio_b': ('desktop', 2), 'tablet_c': ('tablet', 2), 'tablet_b': ('tablet', 3),
+                'tablet_d': ('tablet', 4), 'phone_b': ('mobile', 2), 'phone_c': ('mobile', 3), 'phone_d': ('mobile', 4),
+                'panel_2': ('desktop', 2), 'panel_3': ('desktop', 3), 'panel_4': ('desktop', 4), 'panel_1': ('desktop', 1),
+                'panel_5': ('mobile', 1)}
+        ok = {r for r in ok if r not in need or n.get(need[r][0], 0) >= need[r][1]}
     return ok
+
+
+# round 14 (CAPTURE AUDIT): sites that could not be recaptured or are a single screen: no device slots that would
+# show a broken capture or clamp several devices onto the same screen
+_OFFSET_ROLES = {'phone_b', 'phone_c', 'phone_d', 'tablet_b', 'tablet_c', 'tablet_d', 'mac_b', 'studio_b',
+                 'panel_1', 'panel_2', 'panel_3', 'panel_4', 'panel_5'}
+R14_NOROLES = {
+    'debiteurnet': _OFFSET_ROLES,                                   # one short portal screen
+    'infrai': {'phone_b', 'phone_c', 'phone_d', 'panel_5'},         # one short app screen
+    'zuyver-jeeps': _OFFSET_ROLES,                                  # 'coming soon' page: one screen
+    'perfect-people': {'mac', 'studio', 'billboard', 'tablet'},     # hero-desktop blurred + promo popup; no recapture
+}
+R14_EXTRA_REPLACE = {'zuyver-jeeps': {'hero-desktop', 'hero-tablet', 'hero-mobile'},     # the new heroes show the video
+                     'teamtv': {'full-desktop', 'full-mobile'}, 'taylor': {'full-desktop', 'full-mobile'},
+                     'architectenbureau-koppens': {'full-desktop', 'full-mobile'},
+                     'solidlayer': {'full-desktop', 'full-mobile'}}     # old full pages reach the placeholder FAQ

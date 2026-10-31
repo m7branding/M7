@@ -13,4 +13,5 @@ SK.run('d08_ipad_stand', build, {
     'a': dict(loc=(0.36, -0.95, 0.34), target=(0.0, 0.0, 0.125), lens=55),
     'b': dict(loc=(-0.14, -0.78, 0.17), target=(0.0, 0.0, 0.13), lens=50),
     'c': dict(loc=(-0.42, -0.78, 0.42), target=(0.0, 0.0, 0.12), lens=60),
+    'n': dict(loc=(0.36, -0.95, 0.34), target=(0.0, 0.0, 0.125), lens=55, w=2400, h=1100, samples=64, autoframe=dict(h=0.62, w=0.55, x=0.64, y=0.5)),
 })

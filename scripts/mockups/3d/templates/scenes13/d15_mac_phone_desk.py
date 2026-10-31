@@ -14,4 +14,5 @@ SK.run('d15_mac_phone_desk', build, {
     'a': dict(loc=(-0.30, -0.95, 0.38), target=(-0.02, 0.02, 0.10), lens=50),
     'b': dict(loc=(0.55, -0.70, 0.20), target=(0.0, 0.05, 0.12), lens=60),
     'c': dict(loc=(0.05, -0.58, 0.72), target=(0.0, 0.05, 0.05), lens=50),
+    'n': dict(loc=(-0.30, -0.95, 0.38), target=(-0.02, 0.02, 0.10), lens=50, w=2400, h=1100, samples=64, autoframe=dict(h=0.62, w=0.55, x=0.64, y=0.5)),
 })

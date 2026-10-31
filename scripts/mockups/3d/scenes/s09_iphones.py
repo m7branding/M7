@@ -19,7 +19,7 @@ b.rotation_euler = (math.radians(90), 0, math.radians(180 + 32)); b.location = (
 R.area_light('stripL', (-0.30, 0.22, 0.16), (0, 0.02, 0.08), size=(0.03, 0.5), power=12, color=(0.92, 0.95, 1.0))
 R.area_light('stripR', (0.30, 0.25, 0.16), (0, 0.02, 0.08), size=(0.03, 0.5), power=12, color=(1.0, 0.96, 0.94))
 R.area_light('key', (-0.25, -0.45, 0.35), (0, 0, 0.07), size=(0.35, 0.35), power=9, color=(1.0, 0.98, 0.96))
-R.area_light('glow', (0.05, 0.42, 0.25), (0, 0.45, 0.1), size=(0.6, 0.3), power=14, color=R.srgb((214, 0, 114)))
+R.area_light('glow', (0.05, 0.42, 0.25), (0, 0.45, 0.1), size=(0.6, 0.3), power=14, color=R.srgb((200, 202, 206)))
 R.area_light('backfill', (0.26, -0.22, 0.15), (0.045, 0.045, 0.085), size=(0.22, 0.30), power=3.2, color=(0.95, 0.97, 1.0))
 focus = R.empty('focus', (-0.02, -0.01, 0.08))
 R.camera((0.03, -0.33, 0.020), (0.0, 0.02, 0.083), lens=58, fstop=5.6, focus=focus)

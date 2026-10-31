@@ -15,4 +15,5 @@ def build():
 SK.run('d16_phone_plinth', build, {
     'a': dict(loc=(0.0, -0.60, 0.17), target=(0.0, 0.0, 0.14), lens=60, w=2000, h=2500, vertical=True),
     'b': dict(loc=(0.30, -0.50, 0.30), target=(0.0, 0.0, 0.13), lens=55),
+    'n': dict(loc=(0.30, -0.50, 0.30), target=(0.0, 0.0, 0.13), lens=55, w=2400, h=1100, samples=64, autoframe=dict(h=0.62, w=0.55, x=0.64, y=0.5)),
 })

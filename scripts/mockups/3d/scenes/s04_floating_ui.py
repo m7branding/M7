@@ -1,4 +1,4 @@
-"""04 — Floating UI fragments of the webshop layered in depth on a deep MisterGlass-magenta backdrop
+"""04 — Floating UI fragments of the webshop layered in depth on a deep anthracite backdrop (round 14: no unverified brand colour)
 (like ref cover (1)): hero, product card, price calculator, logo, price badge, CTA."""
 import sys, os, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib'))
@@ -11,13 +11,13 @@ R.reset()
 w, h, spp = R.res(2400, 1500, 80)
 R.setup_render(w, h, samples=spp, threshold=0.01)
 R.world_color((0.004, 0.002, 0.004), 1.0)
-# backdrop: deep plum, lit by a magenta glow from the upper right
-bd = R.mat_paint('backdrop', R.srgb((40, 10, 30)), rough=0.85, spec=0.2)
+# backdrop: deep anthracite, lit by a cool soft glow from the upper right
+bd = R.mat_paint('backdrop', R.srgb((27, 28, 31)), rough=0.85, spec=0.2)
 R.plane('backdrop', 4.0, 3.0, mat=bd, loc=(0, 0.75, 0), rot=(math.radians(90), 0, 0))
-R.area_light('glow', (0.55, 0.55, 0.45), (0.3, 0.75, 0.15), size=(0.5, 0.5), power=55, color=R.srgb((214, 0, 114)))
-R.area_light('glow2', (-0.6, 0.6, -0.4), (-0.3, 0.75, -0.2), size=(0.6, 0.6), power=10, color=R.srgb((90, 20, 120)))
+R.area_light('glow', (0.55, 0.55, 0.45), (0.3, 0.75, 0.15), size=(0.5, 0.5), power=55, color=R.srgb((205, 214, 230)))
+R.area_light('glow2', (-0.6, 0.6, -0.4), (-0.3, 0.75, -0.2), size=(0.6, 0.6), power=10, color=R.srgb((40, 60, 110)))
 R.area_light('key', (-0.45, -0.55, 0.6), (0, 0, 0), size=(0.35, 0.35), power=20, color=(1.0, 0.97, 0.95))
-R.area_light('rim', (0.35, 0.25, 0.35), (0, 0, 0), size=(0.2, 0.2), power=8, color=R.srgb((255, 120, 190)))
+R.area_light('rim', (0.35, 0.25, 0.35), (0, 0, 0), size=(0.2, 0.2), power=8, color=R.srgb((235, 238, 245)))
 
 grp = R.empty('ui')
 grp.rotation_euler = (math.radians(90 - 22), math.radians(-8), math.radians(14))

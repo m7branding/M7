@@ -64,13 +64,13 @@ def cases():
 PATTERNS = os.environ.get('R13_TPL', '*').split(',')
 
 
-def library(final=True, portrait=False):
+def library(final=True, portrait=False, nxt=False):
     """Templates with a final still render (final=False: also preview-only ones; 'base' says which).
     '<scene>__p' cameras are portrait versions for the portrait showreels only (portrait=True includes them)."""
     out = {}
     for tdir in sorted(sum((glob.glob(os.path.join(C.TPL, pt)) for pt in PATTERNS), [])):
         t = os.path.basename(tdir)
-        if t.startswith('v_') or (t.endswith('__p') and not portrait): continue
+        if t.startswith('v_') or (t.endswith('__p') and not portrait) or (t.endswith('__n') and not nxt): continue
         base = 'still' if os.path.exists(os.path.join(tdir, 'still_rgb.exr')) else 'pv' if os.path.exists(os.path.join(tdir, 'pv_rgb.exr')) else None
         if base is None or (final and base != 'still'): continue
         meta = json.load(open(os.path.join(tdir, 'meta.json')))
@@ -202,6 +202,63 @@ def brand_for(slug, case, caps):
     return b
 
 
+_PAL = None
+
+
+def palette(slug):
+    """Round 14 verified palette (r14/palette/palettes.json) or {}."""
+    global _PAL
+    if _PAL is None:
+        f = os.path.join(os.path.dirname(R13), 'r14', 'palette', 'palettes.json')
+        _PAL = json.load(open(f)) if os.path.exists(f) else {}
+    return _PAL.get(slug) or {}
+
+
+def bleed(slug):
+    """The verified full-bleed brand colour (hex) — the only brand colour a field / backdrop may use — or None."""
+    return palette(slug).get('fullBleed') or None
+
+
+def _hsv(hx):
+    import colorsys
+    r, g, b = hexrgb(hx)
+    return colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+
+
+def blue_colours(slug):
+    """The palette's brand colours that are a real blue (hue 195-250 deg, saturation > 0.25): the brand colour
+    (uiColor) or the verified full-bleed field."""
+    pal = palette(slug)
+    cands = [pal.get('fullBleed'), pal.get('uiColor')]          # the brand colour itself, not logo details / accents
+    out = []
+    for c in cands:
+        if not (isinstance(c, str) and c.startswith('#') and len(c) == 7): continue
+        hh, ss, vv = _hsv(c)
+        if 195 <= hh * 360 <= 250 and ss > 0.25 and vv > 0.12: out.append(c)
+    return out
+
+
+NOT_BLUE = {'speedbar', 'teamtv', 'teamtv-pricing-table', 'electriffy'}   # coordinator: slate reads neutral; violet brands
+
+
+def is_blue(slug):
+    """Navy backdrops only for blue brands (round 14 rule): every other case gets dark / light neutrals only."""
+    return slug not in NOT_BLUE and bool(blue_colours(slug))
+
+
+def hexrgb(h):
+    h = h.lstrip('#'); return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+_VAR = {}
+
+
+def logo_variant(slug, which):
+    if slug not in _VAR: _VAR[slug] = LG.variants(slug)
+    v = _VAR[slug]
+    return None if v is None else v.get(which)
+
+
 _UP = {}
 
 
@@ -229,19 +286,35 @@ def setup_still(slug, case, st, caps, brand, dcache, disp_cache, video=False):
     t = st['t']; pp = prepared(t)
     meta = json.load(open(os.path.join(C.TPL, t, 'meta.json')))
     tints = None
-    base = BD.lin('#%02x%02x%02x' % D.tint_dark(case['color'])) if st.get('tint') is None else BD.lin(st['tint'])
+    fb = bleed(slug) if palette(slug) else case['color']
+    if st.get('tint') is None and not fb: st = dict(st, tint='#1D1E21')       # no verified brand field: anthracite
+    base = BD.lin('#%02x%02x%02x' % D.tint_dark(fb)) if st.get('tint') is None else BD.lin(st['tint'])
     if pp.get('tints'):
         tints = {}
         for i, tr in enumerate(pp['tints']):
             f = 1.0 if i == 0 else (0.82 if base.mean() > 0.3 else 1.35)        # second surface a shade off
             tints[tr['role']] = np.clip(base * f, 0, 1)
+    snip, edges = snip_displays(slug, st, pp, meta)     # round 14 floating UI cards (real snippets of the site)
+    for r, col in edges.items():                        # card edge = the snippet's own page colour
+        if tints is not None and r in tints: tints[r] = BD.lin('#%02x%02x%02x' % col)
     prints = None
     if pp.get('prints') and brand:
         prints = {}
         pp = upright(t, pp)
         for pr in pp['prints']:
-            r = pr['role']
-            if r.split('#')[0] == 'wall_logo':      # the wall colour must match the tinted wall around it
+            r = pr['role']; r0 = r.split('#')[0]
+            if st.get('logo'):                      # round 14 logo scenes: true colours on a neutral / verified surface
+                surf = hexrgb(st.get('surface', '#ECEBE7'))
+                img = None if st['logo'] == 'tone' else logo_variant(slug, st['logo'])
+                if r0 == 'wall_bg': prints[r] = D.flat(surf)
+                elif r0 == 'wall_logo':      # the close-up camera (c) sees less of the wall: a smaller sign
+                    prints[r] = D.logo_wall(img if img is not None else logo_variant(slug, 'dark'), surf, tone=img is None,
+                                            scale=0.62 if t.endswith('__c') else 1.0)
+                elif r0 == 'sticker': prints[r] = D.logo_sticker(img, hexrgb(st.get('disc', '#FAFAF8')))
+                elif r0 == 'card_back': prints[r] = D.card_blank()
+                else: prints[r] = D.design_for(r, brand, dcache, swap=pr.get('swap', False))
+                continue
+            if r0 == 'wall_logo':      # the wall colour must match the tinted wall around it
                 wc = tints.get('wall_bg') if tints else base
                 wall = tuple(int(round(float(v))) for v in (C.oetf(np.asarray(wc, np.float32)).reshape(-1) * 255))
                 # light wall: tone-on-tone sign; dark wall: the letters in the brand colour (or off-white)
@@ -252,6 +325,7 @@ def setup_still(slug, case, st, caps, brand, dcache, disp_cache, video=False):
             else:
                 prints[r] = D.design_for(r, brand, dcache, swap=pr.get('swap', False))
     roles = sorted({x['role'] for x in pp['screens']})
+    roles = [r for r in roles if not r.startswith('snip_')]
     if video:
         ds = P.displays_for(P.projects()[slug], roles, video=True, caps=caps, glass=meta.get('glass'), brand=brand) if (roles and caps) else {}
     else:
@@ -261,10 +335,41 @@ def setup_still(slug, case, st, caps, brand, dcache, disp_cache, video=False):
         ds = disp_cache
     bg = None
     if pp['transparent']:
-        base = '#%02x%02x%02x' % D.backdrop_dark(case['color']) if st['fam'] == 'brand' else None
-        bg = BD.backdrop(st['bg'], meta['camera'], pp['W'], pp['H'], alpha=pp['a'], base=base)
+        fb = bleed(slug) if palette(slug) else case['color']
+        bgv = st['bg']
+        if st['fam'] == 'brand' and not fb: bgv = 'anthracite'
+        base = '#%02x%02x%02x' % D.backdrop_dark(fb) if (st['fam'] == 'brand' and fb) else None
+        bg = BD.backdrop(bgv, meta['camera'], pp['W'], pp['H'], alpha=pp['a'], base=base)
     dev = C.develop_set(pp, tints, prints) if (tints or prints) else None
+    if snip: ds = dict(ds, **snip)
     return dict(pp=pp, dev=dev, bg=bg, ds=ds, meta=meta)
+
+
+def snip_slots(pp, meta):
+    out = {}
+    for x in pp['screens']:
+        if x['role'].startswith('snip_'):
+            px = meta['glass'][x['type']]['px']; out[x['role']] = px[0] / px[1]
+    return out
+
+
+def snip_displays(slug, st, pp, meta):
+    """Displays for the 'snip_*' cards: st['snips'] {role: snippet file} or a fresh honest assignment."""
+    import snips as SN
+    slots = snip_slots(pp, meta)
+    if not slots: return {}, {}
+    if st.get('snips'):
+        by = {s['file']: s for s in SN.load(slug)}
+        pick = {r: by[f] for r, f in st['snips'].items() if f in by}
+    else:
+        pick = SN.assign(slug, list(slots.items()), seed=st['t']) or {}
+    if set(pick) != set(slots):
+        raise RuntimeError(f'{slug}: no snippets for {st["t"]}')
+    out, edges = {}, {}
+    for r, s in pick.items():
+        a, b = SN.card_image(s, slots[r]); out[r] = C.Display(a.shape[1], a.shape[0], a, 0, None)
+        edges['cedge_' + r.split('_')[1]] = b
+    return out, edges
 
 
 def compose(S, aniso=6):
@@ -272,7 +377,12 @@ def compose(S, aniso=6):
 
 
 def render_still(slug, case, st, caps, brand, dcache, disp_cache):
-    return Image.fromarray(compose(setup_still(slug, case, st, caps, brand, dcache, disp_cache)))
+    S = setup_still(slug, case, st, caps, brand, dcache, disp_cache)
+    img = Image.fromarray(compose(S))
+    if st.get('ui2d'):              # round 14: real UI snippets floating over the render (flat cards)
+        import float2d as F2
+        img = F2.overlay(img, S['pp'], slug, st['ui2d'])
+    return img
 
 
 def stills_one(args):
@@ -287,13 +397,13 @@ def stills_one(args):
         raise RuntimeError(f'{slug}: no final render for {missing}')
     d = os.path.join(OUT, slug); src = os.path.join(d, 'src'); os.makedirs(src, exist_ok=True)
     for f in glob.glob(os.path.join(d, 'r-*.webp')) + glob.glob(os.path.join(src, 'r-*.png')):
-        if 'r-hero' not in f: os.remove(f)
+        if 'r-hero' not in f and 'r-next' not in f and 'r-flow' not in f: os.remove(f)
     dcache, disp = {}, {}
     t0 = time.time()
     ims = {}                  # kept in memory (no lossless copies on disk); fit encodes them to the budget
     for i, st in enumerate(plan['stills']):
         img = render_still(slug, case, st, caps, brand, dcache, disp)
-        name = f"r-{i + 1 + PRESERVE.get(slug, {}).get('offset', 0):02d}-{st['t'].replace('__', '-').replace('_', '-')}"
+        name = f"r-{i + 1 + PRESERVE.get(slug, {}).get('offset', 0):02d}-{st['t'].replace('__', '-').replace('_', '-')}" + ('-ui' if st.get('ui2d') else '')
         ims[name] = img
         if plan.get('cover') == st['t']:
             w, hh = img.size; ch = round(w * 1500 / 2400); y0 = max(0, (hh - ch) // 2)
@@ -403,7 +513,7 @@ def fit_one(args, budget=None, ims=None):
         if best[2] <= budget: break
     scale, q, tot, enc = best
     for f in glob.glob(os.path.join(d, 'r-*.webp')):
-        if 'r-hero' not in f and os.path.basename(f)[:-5] not in enc: os.remove(f)
+        if 'r-hero' not in f and 'r-next' not in f and 'r-flow' not in f and os.path.basename(f)[:-5] not in enc: os.remove(f)
     for n, data in enc.items():
         open(os.path.join(d, n + '.webp'), 'wb').write(data)
     return slug, f'{scale:.1f}x q{q}', tot

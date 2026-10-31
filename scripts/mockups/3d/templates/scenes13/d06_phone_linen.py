@@ -6,7 +6,7 @@ def build():
     ph = R.iphone17pro('Phone', screen='iphone-home.png', finish='spaceblack')
     ph.rotation_euler.z = math.radians(-24); T.make_screen(ph, 'iphone', 'phone_a')
     ph2 = R.iphone17pro('Phone2', screen='iphone-home.png', finish='spaceblack')
-    ph2.location = (0.10, 0.06, 0); ph2.rotation_euler = (0, math.radians(180), math.radians(-24 + 180 - 8))
+    ph2.location = (0.145, 0.115, 0); ph2.rotation_euler = (0, math.radians(180), math.radians(-24 + 180 - 8))
     ph2.location.z = 0.00875
     sun, to_sun = SK.sun_window(az=-140, el=42, strength=4.5, angle=1.5)
     SK.leaf_gobo(to_sun, center=(0.12, 0.1, 0.0), dist=0.5, scale=0.45)

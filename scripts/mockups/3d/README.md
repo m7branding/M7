@@ -214,3 +214,20 @@ Bron: CAPTURE-agent (`r14/cap/<slug>/`: `hero-*.png`, `screen-<n>-<device>.png`,
   configurator, zoeken, filters, formulier) speelt als scherminhoud van één toestel; venster rond de eerste/laatste
   beweging, hooguit 1,5× versneld. In de hero is het eerste shot (ook de poster) de interactie; in de reels
   highlights/web/apps zijn 2-3 shots een interactie (3,2 s).
+- **Interactiefilms** (`templates/scenes/flows14.py`): per case 1-2 films `r-flow-<n>.mp4` + poster `.webp` +
+  `r-flows.json` (korte Nederlandse titel = alt-tekst). 1920×1080, 30 fps, geen audio, statische camera zodat de film
+  loopt (naadloze opnames zoals ze zijn, de andere lossen op in het eerste beeld); scherm ~0,6-1,0× native, nooit een
+  vlakke close-up. `write-manifest.mjs` neemt ze op als `films`.
+- **Elke opname is met de hand gekeurd** (begin- en middenbeeld, boven- en onderrand; `flows.REJECT`): tekst die door de
+  rand van de viewport of onder de sticky nav loopt, een lege menustand of een pop-up = nooit gebruikt (ook niet in
+  hero's en reels). `flows.TRIM` verbergt één afgesneden regel onder de adresbalk (misterglass), `flows.ALLOW` neemt
+  opnames mee waarvan de bewegingsdetectie het typen miste (huurfix).
+- **Navy alleen voor blauwe merken** (`batch13.is_blue`): uiColor of geverifieerde fullBleed met tint 195-250° en
+  verzadiging > 0,25 (niet speedbar, teamtv, electriffy: `NOT_BLUE`). Alle andere cases: donker en licht neutraal, plus
+  het verdiepte merkveld bij een geverifieerde fullBleed. Geldt voor stills, logoscènes, zwevende UI, r-next, films en hero's.
+- **Live sites van voorheen logo-cases** (`proj.R14_SYNTH`: teamtv, taylor, architectenbureau-koppens) zijn projecten met
+  CAPTURE's opnames; zoveel offset-slots als er schone schermen zijn. teamtv: ~11 toestelstills + de 7 logostills.
+- **Niet te hercapturen** (`proj.R14_NOROLES`): debiteurnet, infrai, zuyver-jeeps (één scherm) en perfect-people (wazige
+  hero met pop-up) gebruiken geen toestelslots die een kapotte of dubbele schermafbeelding zouden tonen.
+- Covers blijven staan zolang ze geldig zijn (`plan14`): nieuwe cases veroorzaken geen cascade van nieuwe covers.
+- Hero's renderen via een bijna-lossless tussenbestand (mkv) in plaats van een raw dump (schijfruimte).

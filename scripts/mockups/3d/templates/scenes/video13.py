@@ -37,7 +37,41 @@ MOVES = {
     'drift_r': dict(z=(1.12, 1.15), f0=(0.52, 0.47), f1=(0.64, 0.47)),
     'rise':    dict(z=(1.10, 1.16), f0=(0.58, 0.40), f1=(0.58, 0.53)),
     'sink':    dict(z=(1.14, 1.09), f0=(0.58, 0.53), f1=(0.58, 0.42)),
+    'ease':    dict(z=(1.04, 1.10), f0=(0.58, 0.47), f1=(0.58, 0.47)),      # interaction shots: slow, screen readable
 }
+# round 14 interaction shots (CAPTURE flows): compositions where one big screen can play the recording
+FLOW_DESK = ['d19_studio_front__b', 'd19_studio_front__a', 'd18_mac_profile__b', 'd02_mac_top__b', 'd01_desk_studio__a',
+             'd02_mac_top__a', 'd01_desk_studio__b', 'd19_studio_front__c']          # the screen fills >= half the frame
+FLOW_MOB = ['d16_phone_plinth__b', 'd05_phone_lean__a', 'd06_phone_linen__a', 'd07_phone_stone__b']
+FLOW_ROLES = {'desktop': ('studio', 'studio_b', 'mac', 'mac_b'), 'mobile': ('phone_a',)}
+
+
+FLOW_CNT = {}                   # how often each composition already plays an interaction (variety across heroes)
+
+
+def flow_shot(slug, shots, sts, lib, n=3, avoid=(), skip=0):
+    """One interaction shot (a real recording of the site on the device screen) or None. skip: use the next
+    recording in preference order (reels show another interaction than the hero)."""
+    import flows as FL
+    fls = FL.load(slug)
+    if skip and len(fls) > skip: fls = fls[skip:] + fls[:skip]
+    p = P.projects().get(slug)
+    if not fls or not p: return None
+    rok = P.roles_ok(p); ex = p.get('exclude_t') or []
+    taken = {sh['st']['t'] for sh in shots} | set(avoid)
+    for x in fls:
+        order = FLOW_MOB if x['device'] == 'mobile' else FLOW_DESK
+        for t in sorted(order, key=lambda t: (FLOW_CNT.get(t, 0), order.index(t))):     # least used first
+            if t not in lib or t in taken or any(t.startswith(e) for e in ex): continue
+            if not (set(lib[t]['roles']) - {'social'} <= rok): continue
+            role = next((r for r in FLOW_ROLES[x['device']] if r in lib[t]['roles']), None)
+            if not role: continue
+            FLOW_CNT[t] = FLOW_CNT.get(t, 0) + 1
+            st = dict(sts[t]) if t in sts else (dict(t=t, fam='dark', bg='anthracite') if lib[t]['transparent'] else dict(t=t, fam='dark', tint='#1D1E21'))
+            t0, t1 = FL.window(x, DUR / n + XF)
+            return dict(st=st, move='ease', scroll=False, flow=dict(path=x['path'], kind=x['kind'], device=x['device'], role=role, t0=t0, t1=t1,
+                                                                    size=x['size'], trim_top=x.get('trim_top') or 0))
+    return None
 # hero-worthy device compositions in 16:9, best first
 HERO_DEV = ['d01_desk_studio__a', 'd02_mac_top__b', 'd15_mac_phone_desk__a', 'd19_studio_front__b', 'd09_ipad_keyboard__a',
             'd13_macro_mac__a', 'd18_mac_profile__b', 'd04_phone_trio__a', 'd10_tablets_iso__a', 'd17_ipads_lean__a', 'd14_billboard__a',
@@ -79,6 +113,8 @@ def make_plan(keep=None):
     keep = keep or {}
     for slug, shots in keep.items():              # already rendered: keep as they are
         ts = tuple(x['st']['t'] for x in shots); used.add(frozenset(ts)); cnt.update(ts)
+        for x in shots:
+            if x.get('flow'): FLOW_CNT[x['st']['t']] = FLOW_CNT.get(x['st']['t'], 0) + 1
     for slug, pl in plan.items():
         if slug in B13.PRESERVE: continue
         if slug in keep:
@@ -117,7 +153,9 @@ def make_plan(keep=None):
         order = [mv[(k + i * 7) % len(mv)] for i in range(3)]
         if len(set(order)) < 3: order = [mv[(k + i) % len(mv)] for i in range(3)]
         shots = [dict(st=dict(sts[t]), move=m, scroll=bool(lib[t]['roles'])) for t, m in zip(pick, order)]
-        if not any(sh['st']['fam'] == 'brand' for sh in shots):      # at least one shot on the brand colour
+        fs = flow_shot(slug, shots[1:], sts, lib)
+        if fs: shots[0] = fs
+        if B13.bleed(slug) and not any(sh['st']['fam'] == 'brand' for sh in shots):  # verified brand field: one shot on it
             sh = shots[1]; sh['st']['fam'] = 'brand'
             if lib[sh['st']['t']]['transparent']: sh['st']['bg'] = B13.FAM_TO_BG['brand'][k % 3]
             else: sh['st']['tint'] = None
@@ -180,6 +218,15 @@ class Shot:
         self.rm = [crop_rect(W, H, MW / MH, zm[0], mx, my, *fm0, mw, mh), crop_rect(W, H, MW / MH, zm[1], mx, my, *fm1, mw, mh)]
         self.static = None; self._sf = None; self._last = None
         self.start = {}; self.amp = {}
+        self.flow = None
+        if spec.get('flow'):
+            import flows as FL
+            fl = spec['flow']; rd = FL.Reader(fl['path'])
+            url = P.bar_url(P.projects()[slug])
+            fx = dict(size=fl.get('size') or [1440, 900], trim_top=fl.get('trim_top') or 0)
+            d = P.make_display(P.ROLE_SOURCES[fl['role']][0], Image.fromarray(FL.prep(rd.get(fl['t0']), fx)), url, 0.0)
+            self.S['ds'] = dict(self.S['ds']); self.S['ds'][fl['role']] = d
+            self.flow = (rd, d, fl['t0'], fl['t1'], fx)
         if spec['scroll']:
             for r, d in self.S['ds'].items():
                 self.start[r] = d.offset
@@ -187,7 +234,7 @@ class Shot:
                 self.amp[r] = max(0.0, min(d.max_offset - d.offset, 1.1 * vis))
             if not any(a > 1 for a in self.amp.values()):
                 self.spec = dict(spec, scroll=False)
-        if not self.spec['scroll']:
+        if not self.spec['scroll'] and self.flow is None:
             self.static = B13.compose(self.S)
 
     def image(self, s):
@@ -199,7 +246,11 @@ class Shot:
             self._sf = C.StaticFrame(self.S['pp'], bg=self.S['bg'], dev=self.S['dev'])
         e = 0.5 - 0.5 * math.cos(math.pi * min(max(s, 0.0), 1.0))       # eased scroll, like a hand on a trackpad
         for r, d in self.S['ds'].items():
-            d.offset = self.start[r] + self.amp[r] * e
+            if r in self.start: d.offset = self.start[r] + self.amp[r] * e
+        if self.flow is not None:          # the recording, in real time (sped up a little when long)
+            rd, d, t0, t1, fx = self.flow
+            import flows as FL
+            d.content = C.Pyramid(C.to_lin(FL.prep(rd.get(t0 + (t1 - t0) * min(max(s, 0.0), 1.0)), fx)))
         img = self._sf.frame(self.S['ds'], aniso=4)
         self._last = (s, img)
         return img
@@ -265,34 +316,47 @@ def hero_one(args):
     tl = timeline(len(shots))
     k = int(round(DUR / len(shots) / 2 * FPS))      # start (and poster) in the middle of shot 1, clear of any dissolve
     tl = tl[k:] + tl[:k]
-    # render once into memory-light temp files, then encode to budget
+    # render once into near-lossless intermediates (a raw dump was ~1.7 GB per hero), then encode to budget
     tmp = os.path.join(d, '.frames'); os.makedirs(tmp, exist_ok=True)
-    fd_path, fm_path = os.path.join(tmp, 'd.raw'), os.path.join(tmp, 'm.raw')
-    with open(fd_path, 'wb') as FD, open(fm_path, 'wb') as FM:
-        def sd(f, img):
-            if f == 0: Image.fromarray(img).save(os.path.join(d, 'r-hero.webp'), quality=82, method=6)
-            FD.write(img.tobytes())
+    fd_path, fm_path = os.path.join(tmp, 'd.mkv'), os.path.join(tmp, 'm.mkv')
 
-        def sm(f, img):
-            if f == 0: Image.fromarray(img).save(os.path.join(d, 'r-hero-m.webp'), quality=82, method=6)
-            FM.write(img.tobytes())
-        render_frames(shots, sd, sm, tl)
+    def inter(path, W, H):
+        return subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}',
+                                 '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '8',
+                                 '-pix_fmt', 'yuv444p', path], stdin=subprocess.PIPE)
+    ED, EM = inter(fd_path, DW, DH), inter(fm_path, MW, MH)
+
+    def sd(f, img):
+        if f == 0: Image.fromarray(img).save(os.path.join(d, 'r-hero.webp'), quality=82, method=6)
+        ED.stdin.write(img.tobytes())
+
+    def sm(f, img):
+        if f == 0: Image.fromarray(img).save(os.path.join(d, 'r-hero-m.webp'), quality=82, method=6)
+        EM.stdin.write(img.tobytes())
+    render_frames(shots, sd, sm, tl)
+    for e in (ED, EM): e.stdin.close(); e.wait()
     sizes = {}
-    for raw, out, W, H, crf, budget in ((fd_path, 'r-hero.mp4', DW, DH, CRF_D, BUDGET_D), (fm_path, 'r-hero-m.mp4', MW, MH, CRF_M, BUDGET_M)):
+    for src, out, W, H, crf, budget in ((fd_path, 'r-hero.mp4', DW, DH, CRF_D, BUDGET_D), (fm_path, 'r-hero-m.mp4', MW, MH, CRF_M, BUDGET_M)):
         mp4 = os.path.join(d, out)
         for c in (crf, crf + 2, crf + 4, crf + 6):
-            pr = ffmpeg(mp4, W, H, c)
-            with open(raw, 'rb') as fh:
-                while True:
-                    buf = fh.read(W * H * 3 * 8)
-                    if not buf: break
-                    pr.stdin.write(buf)
-            pr.stdin.close(); pr.wait()
+            subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-c:v', 'libx264', '-preset', 'slow', '-crf', str(c),
+                            '-g', '480', '-bf', '3', '-x264-params', 'aq-mode=3', '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
+                            '-an', mp4], check=True)
             if os.path.getsize(mp4) <= budget: break
         sizes[out] = (c, os.path.getsize(mp4))
-        os.remove(raw)
+        os.remove(src)
     os.rmdir(tmp)
     return slug, time.time() - t0, sizes, [s.spec['st']['t'] + '/' + s.spec['move'] for s in shots]
+
+
+def hero_safe(args):
+    """One failing project must not stop the whole pool."""
+    import traceback
+    try:
+        return hero_one(args)
+    except Exception as e:
+        slug = args[0] if isinstance(args, tuple) else args
+        return slug, 0.0, {'error': (0, 0)}, [f'FAILED {type(e).__name__}: {e}'[:300], traceback.format_exc()[-600:]]
 
 
 def sheet(slugs):
@@ -329,12 +393,16 @@ if __name__ == '__main__':
             log = os.path.join(B13.R13, 'logs', 'hero.log')
             done = {l.split()[1] for l in open(log) if l.startswith('hero ')} if os.path.exists(log) else set()
             keep = {s: old[s] for s in done if s in old and s not in args}
+        if os.environ.get('R14_KEEP'):         # round 14: heroes already rendered that stay as they are
+            old = json.load(open(os.path.join(B13.R13, 'hero_plan.json')))
+            keep = {s: old[s] for s in os.environ['R14_KEEP'].split(',') if s in old}
         pl = make_plan(keep); print('hero plans', len(pl), 'kept', len(keep))
     else:
         pl = json.load(open(os.path.join(B13.R13, 'hero_plan.json')))
         sel = list(pl) if len(args) < 2 or args[1] == 'all' else args[1].split(',')
+        if os.environ.get('R14_KEEP'): sel = [s for s in sel if s not in os.environ['R14_KEEP'].split(',')]
         if cmd == 'hero':
-            for r in B13.B.run(hero_one, [(s,) for s in sel], j):
+            for r in B13.B.run(hero_safe, [(s,) for s in sel], j):
                 print('hero', r[0], f'{r[1]:.0f}s', {k: f'crf{v[0]} {v[1] / 1048576:.2f}MB' for k, v in r[2].items()}, r[3], flush=True)
         elif cmd == 'sheet':
             sheet(sel)
