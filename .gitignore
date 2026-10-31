@@ -31,3 +31,4 @@ yarn-error.log*
 # losse screenshots van agents
 /shots/
 /.next-test/
+/.next-*/
