@@ -9,6 +9,7 @@
      mobiele versie <naam>-m.mp4 (of r-hero-m.mp4) + -m.webp wordt heroVideo.srcMobile / posterMobile;
      bij meerdere: r-hero.mp4, anders de eerste op naam, of config.json heroVideo[slug] = "r-hero-b.mp4".
    - logo-white.svg|png (anders logo.svg|png) in de case-map wordt het logo (BRAND) voor de hero-badge.
+   - r-next.webp (2400×1100) wordt `next`: het beeld op de "volgende case"-kaart (niet in de galerij).
    Los te draaien (node scripts/mockups/write-manifest.mjs) of via compose.mjs.
    Instellingen per slug: scripts/mockups/config.json
      replaceCover: slugs waarvan de mockup-cover de bestaande cover vervangt
@@ -51,7 +52,7 @@ export function writeManifest({ log = false } = {}) {
     if (files.includes("r-cover.webp")) e.cover = url("r-cover.webp");
     else if (files.includes("m-cover.webp")) e.cover = url("m-cover.webp");
     // realistische renders eerst (op naam, zonder r-cover en de hero-poster), dan de m-* mockups in vaste volgorde
-    const renders = files.filter((f) => /^r-.+\.webp$/.test(f) && !/^r-(hero|cover)/.test(f)).sort();
+    const renders = files.filter((f) => /^r-.+\.webp$/.test(f) && !/^r-(hero|cover|next)/.test(f)).sort();
     const gallery = [...renders, ...GALLERY_ORDER.map((g) => `m-${g}.webp`).filter((f) => files.includes(f))];
     if (gallery.length) e.gallery = gallery.map(url);
     // staande mobiele versies (r-hero-m.mp4, r-hero-a-m.mp4) horen bij hun liggende video, zijn geen eigen keuze
@@ -69,6 +70,8 @@ export function writeManifest({ log = false } = {}) {
       }
     }
     if (logo) e.logo = url(logo);
+    // breed beeld voor de "volgende case"-kaart (2400×1100, onderwerp midden-rechts, links rustig en donker)
+    if (files.includes("r-next.webp")) e.next = url("r-next.webp");
     if (!noScreens.has(slug)) {
       const scr = {};
       for (const k of ["desktop", "mobile", "tablet"]) if (files.includes(`screen-${k}.webp`)) scr[k] = url(`screen-${k}.webp`);
@@ -95,6 +98,7 @@ export function writeManifest({ log = false } = {}) {
             .join(", ")} },`,
         );
       if (e.logo) lines.push(`    logo: ${JSON.stringify(e.logo)},`);
+      if (e.next) lines.push(`    next: ${JSON.stringify(e.next)},`);
       if (e.replaceCover) lines.push(`    replaceCover: true,`);
       return `  ${JSON.stringify(slug)}: {\n${lines.join("\n")}\n  },`;
     })

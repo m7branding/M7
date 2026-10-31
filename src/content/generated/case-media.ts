@@ -1451,7 +1451,6 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/the-sandt/m-phones-angle.webp",
     ],
     screens: { desktop: "/media/cases/the-sandt/screen-desktop.webp", mobile: "/media/cases/the-sandt/screen-mobile.webp" },
-    heroVideo: { src: "/media/cases/the-sandt/r-hero.mp4", poster: "/media/cases/the-sandt/r-hero.webp", srcMobile: "/media/cases/the-sandt/r-hero-m.mp4", posterMobile: "/media/cases/the-sandt/r-hero-m.webp" },
     logo: "/media/cases/the-sandt/logo-white.png",
   },
   "toy4participation": {
