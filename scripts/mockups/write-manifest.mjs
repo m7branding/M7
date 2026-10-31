@@ -5,8 +5,10 @@
    realistische 3D-renders r-*.webp / r-hero*.mp4 uit de Blender-pipeline).
    - r-*.webp (behalve r-hero* en r-cover) komen VOORAAN in de galerij, op naam gesorteerd (r-01-…, r-02-…).
    - r-cover.webp wint van m-cover.webp als gegenereerde cover (replaceCover-regels gelden voor beide).
-   - r-hero*.mp4 + gelijknamige .webp-poster wordt de hero-video (heroVideo) van de case;
+   - r-hero*.mp4 + gelijknamige .webp-poster wordt de hero-video (heroVideo) van de case; een staande
+     mobiele versie <naam>-m.mp4 (of r-hero-m.mp4) + -m.webp wordt heroVideo.srcMobile / posterMobile;
      bij meerdere: r-hero.mp4, anders de eerste op naam, of config.json heroVideo[slug] = "r-hero-b.mp4".
+   - logo-white.svg|png (anders logo.svg|png) in de case-map wordt het logo (BRAND) voor de hero-badge.
    Los te draaien (node scripts/mockups/write-manifest.mjs) of via compose.mjs.
    Instellingen per slug: scripts/mockups/config.json
      replaceCover: slugs waarvan de mockup-cover de bestaande cover vervangt
@@ -39,7 +41,9 @@ export function writeManifest({ log = false } = {}) {
     if (!fs.statSync(dir).isDirectory() || exclude.has(slug)) continue;
     const all = fs.readdirSync(dir);
     const files = all.filter((f) => /^(m-.+|r-.+|screen-(desktop|mobile|tablet))\.webp$/.test(f) || /^r-hero.*\.mp4$/.test(f));
-    if (!files.length) continue;
+    // logo van de klant (BRAND): liefst de witte versie (staat op de donkere hero), anders de gewone
+    const logo = ["logo-white.svg", "logo-white.png", "logo.svg", "logo.png"].find((f) => all.includes(f));
+    if (!files.length && !logo) continue;
     for (const f of files) bytes += fs.statSync(path.join(dir, f)).size;
     const url = (f) => `/media/cases/${slug}/${f}`;
     const e = {};
@@ -50,12 +54,21 @@ export function writeManifest({ log = false } = {}) {
     const renders = files.filter((f) => /^r-.+\.webp$/.test(f) && !/^r-(hero|cover)/.test(f)).sort();
     const gallery = [...renders, ...GALLERY_ORDER.map((g) => `m-${g}.webp`).filter((f) => files.includes(f))];
     if (gallery.length) e.gallery = gallery.map(url);
-    const videos = files.filter((f) => /^r-hero.*\.mp4$/.test(f)).sort();
+    // staande mobiele versies (r-hero-m.mp4, r-hero-a-m.mp4) horen bij hun liggende video, zijn geen eigen keuze
+    const isMobile = (f) => /-m\.(mp4|webp)$/.test(f);
+    const videos = files.filter((f) => /^r-hero.*\.mp4$/.test(f) && !isMobile(f)).sort();
     const pick = conf.heroVideo?.[slug] && videos.includes(conf.heroVideo[slug]) ? conf.heroVideo[slug] : videos.includes("r-hero.mp4") ? "r-hero.mp4" : videos[0];
     if (pick) {
       const poster = pick.replace(/\.mp4$/, ".webp");
       e.heroVideo = { src: url(pick), ...(files.includes(poster) ? { poster: url(poster) } : {}) };
+      const mob = [pick.replace(/\.mp4$/, "-m.mp4"), "r-hero-m.mp4"].find((f) => files.includes(f));
+      if (mob) {
+        e.heroVideo.srcMobile = url(mob);
+        const pm = mob.replace(/\.mp4$/, ".webp");
+        if (files.includes(pm)) e.heroVideo.posterMobile = url(pm);
+      }
     }
+    if (logo) e.logo = url(logo);
     if (!noScreens.has(slug)) {
       const scr = {};
       for (const k of ["desktop", "mobile", "tablet"]) if (files.includes(`screen-${k}.webp`)) scr[k] = url(`screen-${k}.webp`);
@@ -81,6 +94,7 @@ export function writeManifest({ log = false } = {}) {
             .map(([k, v]) => `${k}: ${JSON.stringify(v)}`)
             .join(", ")} },`,
         );
+      if (e.logo) lines.push(`    logo: ${JSON.stringify(e.logo)},`);
       if (e.replaceCover) lines.push(`    replaceCover: true,`);
       return `  ${JSON.stringify(slug)}: {\n${lines.join("\n")}\n  },`;
     })

@@ -448,6 +448,11 @@
 }
 .cx-words__w {
   display: inline-block;
+  /* lange samenstellingen ("energiemanagementsysteem") breken op smalle schermen af */
+  max-width: 100%;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 html.js .cx-words__w {
   /* 0 → 1 per woord; zo'n acht woorden tegelijk in beweging */
@@ -1103,5 +1108,10 @@ html.js [data-reveal="cx"].is-in > img {
   .cx-lb[open],
   .cx-lb__img {
     animation: none;
+  }
+  .cx-hero__media,
+  html.js [data-reveal="cx"] > a,
+  html.js [data-reveal="cx"] > img {
+    transform: none !important;
   }
 }

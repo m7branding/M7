@@ -39,6 +39,7 @@ export function HeroVideo({
     const mobile = window.matchMedia(MOBILE);
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
     let inView = true;
+    let ready = false;
     let loaded = "";
 
     const sync = () => {
@@ -65,7 +66,7 @@ export function HeroVideo({
     const io = new IntersectionObserver(
       ([e]) => {
         inView = e.isIntersecting;
-        sync();
+        if (ready) sync();
       },
       { threshold: 0.02 },
     );
@@ -73,7 +74,10 @@ export function HeroVideo({
     motion.addEventListener("change", sync);
     mobile.addEventListener("change", sync);
     // pas na de eerste paint laden: de poster (LCP) gaat voor
-    const t = window.setTimeout(sync, 120);
+    const t = window.setTimeout(() => {
+      ready = true;
+      sync();
+    }, 120);
     return () => {
       window.clearTimeout(t);
       io.disconnect();

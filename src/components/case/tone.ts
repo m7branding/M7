@@ -42,7 +42,10 @@ function labToHex({ L, a, b }: Lab): string {
 function shade(hex: string, L: number, maxC: number, keep = 0.75): string {
   const lab = hexToLab(hex);
   const C = Math.hypot(lab.a, lab.b);
-  const h = Math.atan2(lab.b, lab.a);
+  let h = Math.atan2(lab.b, lab.a);
+  // geel wordt donker al snel olijf: iets naar amber/brons draaien, dat blijft warm en herkenbaar
+  const deg = (h * 180) / Math.PI;
+  if (deg > 86 && deg < 118) h = (80 * Math.PI) / 180;
   const c = Math.min(C * keep, maxC);
   return labToHex({ L, a: c * Math.cos(h), b: c * Math.sin(h) });
 }
