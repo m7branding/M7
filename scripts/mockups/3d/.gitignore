@@ -1,0 +1,8 @@
+# gegenereerd / te groot voor git: opnieuw aan te maken met de stappen in README.md
+/venv/
+/assets/
+/tex/
+/out/
+/cap/screens/
+/cap/el/
+__pycache__/

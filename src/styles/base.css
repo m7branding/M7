@@ -1,0 +1,620 @@
+/* ============================================================
+   Base, typografie, layout-primitives, knoppen en reveals.
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--bg);
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+::selection {
+  background: var(--teal);
+  color: #000;
+}
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -60px;
+  z-index: 1000;
+  background: var(--teal);
+  color: #000;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: top 0.3s var(--ease-out);
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ---------- Typografie ---------- */
+.h-hero,
+.h1,
+.h2,
+.h3 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+/* Een woord dat breder is dan de hele kop loopt niet meer buiten beeld (zie ook .split .w) */
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
+.h-hero {
+  font-size: var(--fs-hero);
+  line-height: 1;
+}
+.h1 {
+  font-size: var(--fs-h1);
+}
+.h2 {
+  font-size: var(--fs-h2);
+}
+.h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.lead {
+  font-size: var(--fs-lead);
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+.body {
+  color: var(--muted);
+  line-height: 1.95;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+.small {
+  font-size: var(--fs-small);
+}
+.muted {
+  color: var(--muted);
+}
+.center {
+  text-align: center;
+}
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--teal) 0 5px, transparent 5px 9px);
+}
+.kicker--center {
+  justify-content: center;
+}
+
+.g-pixels,
+.g-stars,
+.g-shop,
+.g-level,
+.g-brand,
+.g-accent {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* slice: over meerdere regels loopt één verloop door (niet per regel opnieuw) */
+  -webkit-box-decoration-break: slice;
+  box-decoration-break: slice;
+}
+.g-pixels {
+  background-image: var(--g-pixels);
+}
+.g-stars {
+  background-image: var(--g-stars);
+}
+.g-shop {
+  background-image: var(--g-shop);
+}
+.g-level {
+  background-image: var(--g-level);
+}
+.g-brand {
+  background-image: var(--g-brand);
+}
+.g-accent {
+  background-image: linear-gradient(95deg, var(--accent, var(--teal)), color-mix(in srgb, var(--accent, var(--teal)) 55%, #fff));
+}
+.c-ai {
+  color: #33ff33;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container--narrow {
+  max-width: calc(980px + var(--gutter) * 2);
+}
+.section {
+  position: relative;
+  padding-block: var(--section);
+}
+.section--tight {
+  padding-block: calc(var(--section) * 0.6);
+}
+.stack-sm > * + * {
+  margin-top: 12px;
+}
+.stack > * + * {
+  margin-top: 24px;
+}
+.stack-lg > * + * {
+  margin-top: 40px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.section-head {
+  max-width: 920px;
+}
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+.section-head--split {
+  max-width: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- CTA pill (M7-signatuur) ---------- */
+.btn {
+  --btn-dot: var(--cta);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 9px 9px 9px 28px;
+  min-height: 58px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.005em;
+  color: var(--text);
+  background: linear-gradient(180deg, #26262a, #18181b);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 10px 30px -10px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.07);
+  isolation: isolate;
+  transition:
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out);
+  white-space: nowrap;
+}
+.btn::before {
+  /* subtiele gradient-rand zoals in het design */
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(100deg, rgba(58, 255, 255, 0.45), rgba(255, 255, 255, 0.05) 40%, rgba(58, 255, 255, 0.3));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+/* lichtstreep die bij hover rustig over de knop glijdt */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.07) 46%, rgba(58, 255, 255, 0.09) 50%, transparent 62%) no-repeat;
+  background-size: 260% 100%;
+  background-position: 130% 0;
+  transition: background-position 1.1s var(--ease-out);
+  pointer-events: none;
+}
+.btn:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 16px 44px -14px rgba(58, 255, 255, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.btn:hover::before {
+  opacity: 1;
+}
+.btn:hover::after {
+  background-position: -30% 0;
+}
+.btn__dot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--btn-dot);
+  color: #000;
+  flex: none;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-out);
+}
+.btn__dot svg {
+  transition: transform 0.55s var(--ease-out);
+}
+.btn__dot svg + svg {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+.btn__dot {
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--btn-dot) 0%, transparent);
+  transition:
+    transform 0.6s var(--ease-out),
+    box-shadow 0.6s var(--ease-out);
+}
+.btn:hover .btn__dot {
+  transform: scale(1.04);
+  box-shadow: 0 0 22px -2px color-mix(in srgb, var(--btn-dot) 55%, transparent);
+}
+.btn:active .btn__dot {
+  transform: scale(0.96);
+}
+.btn:hover .btn__dot svg:first-child {
+  transform: translate(150%, -150%);
+}
+.btn:hover .btn__dot svg + svg {
+  transform: translate(0, 0);
+}
+.btn--sm {
+  min-height: 46px;
+  padding: 6px 6px 6px 20px;
+  gap: 14px;
+  font-size: 0.9rem;
+}
+.btn--sm .btn__dot {
+  width: 34px;
+  height: 34px;
+}
+.btn--contact {
+  --btn-dot: var(--contact);
+}
+.btn--light {
+  background: linear-gradient(180deg, #f4f4f6, #dedee3);
+  color: #0b0b0d;
+}
+.btn--light .btn__dot {
+  background: #0b0b0d;
+  color: #fff;
+}
+
+.link-dash {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.link-dash::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--teal) 0 6px, transparent 6px 11px);
+  transition: width 0.5s var(--ease-out);
+}
+.link-dash:hover::before {
+  width: 64px;
+}
+/* klein, strak telpilletje (bv. Cases 13) */
+.count-pill {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.9em;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #000;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+.count-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 26px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #000;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+/* ---------- Chips ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px var(--line);
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  color: var(--text);
+  transition:
+    background 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s;
+}
+a.chip:hover {
+  background: var(--surface-3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px color-mix(in srgb, var(--accent, var(--teal)) 50%, transparent);
+  transform: translateY(-2px);
+}
+.chip--lg {
+  padding: 14px 24px;
+  font-size: 1.15rem;
+  border-radius: 16px;
+}
+@media (max-width: 600px) {
+  .chip--lg {
+    max-width: 100%;
+    padding: 12px 18px;
+    font-size: 1rem;
+    white-space: normal;
+  }
+}
+.chip--ghost {
+  background: transparent;
+}
+.chip__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent, var(--teal));
+  box-shadow: 0 0 10px var(--accent, var(--teal));
+}
+
+/* ---------- Cards ---------- */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  border-radius: var(--r-lg);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 0 1px var(--line);
+  overflow: hidden;
+}
+.card--pad {
+  padding: clamp(24px, 3vw, 40px);
+}
+
+/* ---------- Reveal-systeem ---------- */
+[data-reveal] {
+  --d: 0s;
+}
+html.js [data-reveal="up"] {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition:
+    opacity 1s var(--ease-out) var(--d),
+    transform 1.2s var(--ease-out) var(--d);
+}
+html.js [data-reveal="fade"] {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-soft) var(--d);
+}
+html.js [data-reveal="scale"] {
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity 1s var(--ease-out) var(--d),
+    transform 1.4s var(--ease-out) var(--d);
+}
+html.js [data-reveal="clip"] {
+  clip-path: inset(12% 6% 12% 6% round var(--r-xl));
+  opacity: 0.2;
+  transition:
+    clip-path 1.4s var(--ease-out) var(--d),
+    opacity 1s var(--ease-out) var(--d);
+}
+html.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0 round 0);
+}
+html.js [data-reveal="clip"].is-in {
+  clip-path: inset(0 0 0 0 round var(--r-xl));
+}
+
+/* Split text: woorden schuiven omhoog uit een masker */
+.split {
+  /* block i.p.v. inline: voorkomt een Chromium paint-bug bij meerregelige maskers */
+  display: block;
+}
+.split .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  /* Lange samengestelde woorden ("toegankelijkheidsverklaring") breken af met een koppelteken,
+     maar alleen als het woord breder is dan de hele kop: elk woord is een eigen blokje, dus
+     balance/regelval kan woorden die passen niet afbreken. */
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.split .w > span {
+  display: inline-block;
+  will-change: transform;
+}
+/* gradient-woorden: één doorlopend verloop over het hele segment (zie SplitText + GradientFlow) */
+.split [data-g] {
+  background-size: var(--gbs, 100%) 100%;
+  background-position: var(--gbp, 0%) 0;
+  background-repeat: no-repeat;
+}
+html.js .split[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+html.js .split[data-reveal] .w > span {
+  transform: translate3d(0, 108%, 0) rotate(4deg);
+  transform-origin: 0 100%;
+  transition: transform 1.25s var(--ease-out);
+  transition-delay: calc(var(--d) + var(--i, 0) * 0.055s);
+}
+html.js .split[data-reveal].is-in .w > span {
+  transform: none;
+}
+
+/* Stagger kinderen */
+html.js [data-stagger] > * {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 1.1s var(--ease-out);
+  transition-delay: calc(var(--d, 0s) + var(--si, 0) * 0.07s);
+}
+html.js [data-stagger].is-in > * {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  html.js [data-reveal],
+  html.js [data-stagger] > *,
+  html.js .split[data-reveal] .w > span {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* Secties buiten beeld: CSS-loops pauzeren (RevealObserver zet data-play) */
+section[data-play="0"] *,
+section[data-play="0"] *::before,
+section[data-play="0"] *::after {
+  animation-play-state: paused !important;
+}

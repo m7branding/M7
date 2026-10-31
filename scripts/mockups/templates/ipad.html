@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../src/components/cases/devices.css" />
+    <link rel="stylesheet" href="base.css" />
+    <!-- iPad Pro liggend in de Monvy-stijl: rustig gekanteld, met dikte, zwevend boven een zachte schaduw. -->
+    <style>
+      body { --W: 1200px; --H: 800px; --gx: 50%; --gy: 52%; }
+      .scene { perspective: 2600px; perspective-origin: 50% 40%; }
+      .ipad {
+        position: absolute; left: 165px; top: 112px; width: 870px;
+        transform: rotateX(9deg) rotateY(-17deg) rotateZ(1.2deg);
+      }
+      .drop {
+        position: absolute; left: 230px; top: 640px; width: 780px; height: 70px; border-radius: 50%;
+        background: rgba(var(--dx-shade), calc(var(--dx-amb) * 1.05)); filter: blur(34px);
+      }
+      .drop.is-near { left: 300px; top: 650px; width: 640px; height: 26px; filter: blur(14px); background: rgba(var(--dx-shade), calc(var(--dx-contact) * 0.5)); }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="drop"></div>
+    <div class="drop is-near"></div>
+    <div class="scene">
+      <div class="ipad" data-dx="ipad" data-shot="tab" data-depth="2.1"></div>
+    </div>
+    <div class="grain"></div>
+    <script src="devices.js"></script>
+    <script src="stage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1434 @@
+/* Buitenstate Zoekersmatch → CRM → bevestigingsmail. Scroll: --sp (lineair, gedempt) 0 → 1.
+   De widget is 1-op-1 opgebouwd uit de echte CSS (560px breed): elke maat is
+   "echte px × --u", zodat hij als geheel meeschaalt met de kaart (cqw).
+   Horizontale posities: offset t.o.v. het midden × --dir (spiegelt bij .show--flip).
+   Alles wat beweegt loopt via smoothstep: k = clamp((sp − A) / (B − A)); ks = k²(3 − 2k).
+   Verhaal (sp):
+     0    → 0.34  de widget komt omhoog, licht gekanteld (perspectief) en komt vlak tot rust; zachte
+                  lichtbaan over het oppervlak; de camera staat ingezoomd op de kaart (stap 1)
+     0.12 → 0.56  één lange camerabeweging: uitzoomen tot de hele widget in beeld is
+     0.10 → 0.31  cursor glijdt Groningen → Drenthe → Overijssel → Gelderland → Noord-Brabant,
+                  provincies lichten één voor één op (#b4cfa0)
+     0.32         klik: Noord-Brabant geselecteerd (#3c4f19), label wit, badge
+     0.495 → 0.58 stap 2: 1.447 zoekers in Noord-Brabant
+     0.565 → 0.64 stap 3: gegevens worden ingevuld
+     0.643 → 0.71 stap 4: 570 zoekers rond Vught; widget zoomt uit naar de buitenkant (0.52 → 0.70)
+     0.665 → 0.755 klik op de CTA (0.685) → CRM-kaartje zweeft over de widget, lijntje CTA → CRM,
+                  lead vouwt open (0.69 → 0.74)
+     0.74         sleutelbeeld: widget-resultaat + CRM met de nieuwe lead
+     0.77 → 0.93  bevestigingsmail zweeft als bovenste laag over widget en CRM (boven in beeld),
+                  lijntje + chip ertussen; de hele stapel drijft langzaam naar voren tot 1 */
+
+@property --bsfN {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --bsfT {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --bsfR {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --bsfH {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --bsfX {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --bsfE {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --bsfO {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --bsfM {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+
+.root {
+  --dir: 1;
+  --olive: #3c4f19;
+  --ink: #1a2510;
+  --blue: #5db3d8;
+  --font-bs: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+
+  /* schaal en compositie (horizontaal: offset t.o.v. het midden, positief = naar de buitenkant) */
+  --u: 0.115cqw; /* 1 echte widget-px */
+  --T: 2.5cqh; /* bovenrand widget */
+  --T1: 8cqh; /* ... aan het eind (de mail zweeft er iets boven uit) */
+  --x0: 5cqw; /* widget-midden tijdens de stappen */
+  --x1: 19cqw; /* ... aan het eind, als CRM + mail eroverheen komen */
+  --z1: 0.78; /* uitzoomen aan het eind */
+  --cs: 1cqw; /* maat-eenheid van CRM, mail en lijnen */
+  /* stapel: CRM en mail zweven deels over de binnenkant van de widget */
+  --crmX: -8cqw;
+  --crmW: 40cqw;
+  --crmTop: 42cqh;
+  --crmH: 30.4cqh; /* gemeten hoogte van het CRM-kaartje (voor de lijn naar de CTA) */
+  --mailX: -15cqw;
+  --mailW: 40cqw;
+  --mailTop: 4cqh;
+  --mailH: 33cqh;
+  --wireX: 5cqw; /* korte lijn CTA → CRM, waar beide kaartjes elkaar raken */
+  --linkX: -12cqw; /* lijn CRM → mail */
+  --ctaY: 843; /* bovenkant CTA in widget-px (stap 4, gemeten) */
+  /* opening: camera begint ingezoomd op de kaart in de (licht gekantelde) widget */
+  --hx: 5cqw;
+  --hy: 50cqh;
+  --Z0: 1.42;
+
+  /* ---- scroll-fases (smoothstep) ---- */
+  /* widget komt omhoog, licht gekanteld, en komt vlak tot rust */
+  --r0: clamp(0, var(--sp) / 0.34, 1);
+  --kr: calc(var(--r0) * var(--r0) * (3 - 2 * var(--r0)));
+  --f0: clamp(0, (var(--sp) - 0.02) / 0.15, 1);
+  --kf: calc(var(--f0) * var(--f0) * (3 - 2 * var(--f0)));
+  /* één lange, rustige camerabeweging: van de kaart naar de hele widget */
+  --cm0: clamp(0, (var(--sp) - 0.12) / 0.44, 1);
+  --kc: calc(var(--cm0) * var(--cm0) * (3 - 2 * var(--cm0)));
+  --zc: calc(1 + (var(--Z0) - 1) * (1 - var(--kc)));
+  /* cursor glijdt over de kaart */
+  --g0: clamp(0, (var(--sp) - 0.1) / 0.21, 1);
+  --kg: calc(var(--g0) * var(--g0) * (3 - 2 * var(--g0)));
+  /* klik op Noord-Brabant */
+  --s0: clamp(0, (var(--sp) - 0.315) / 0.035, 1);
+  --sel: calc(var(--s0) * var(--s0) * (3 - 2 * var(--s0)));
+  --b0: clamp(0, (var(--sp) - 0.325) / 0.04, 1);
+  --pill: calc(var(--b0) * var(--b0) * (3 - 2 * var(--b0)));
+  /* panelen 2, 3, 4 */
+  --q2: clamp(0, (var(--sp) - 0.495) / 0.045, 1);
+  --p2: calc(var(--q2) * var(--q2) * (3 - 2 * var(--q2)));
+  --q3: clamp(0, (var(--sp) - 0.565) / 0.045, 1);
+  --p3: calc(var(--q3) * var(--q3) * (3 - 2 * var(--q3)));
+  --q4: clamp(0, (var(--sp) - 0.643) / 0.045, 1);
+  --p4: calc(var(--q4) * var(--q4) * (3 - 2 * var(--q4)));
+  /* tellers */
+  --n1: clamp(0, (var(--sp) - 0.5) / 0.08, 1);
+  --e1: calc(var(--n1) * var(--n1) * (3 - 2 * var(--n1)));
+  --n2: clamp(0, (var(--sp) - 0.648) / 0.065, 1);
+  --e2: calc(var(--n2) * var(--n2) * (3 - 2 * var(--n2)));
+  /* camera: welk deel van de widget (echte px) moet onderin nog in beeld zijn (vooral mobiel) */
+  --kb1: clamp(0, (var(--sp) - 0.44) / 0.08, 1);
+  --kb2: clamp(0, (var(--sp) - 0.62) / 0.14, 1);
+  --B: calc(
+    680 + 60 * var(--kb1) * var(--kb1) * (3 - 2 * var(--kb1)) + 30 * var(--p3) + 150 * var(--kb2) * var(--kb2) * (3 - 2 * var(--kb2))
+  );
+  /* eind: uitzoomen; CRM en mail stapelen zich over de widget */
+  --kZ: clamp(0, (var(--sp) - 0.52) / 0.18, 1);
+  --eZ: calc(var(--kZ) * var(--kZ) * (3 - 2 * var(--kZ)));
+  --wz: calc(1 - var(--eZ) * (1 - var(--z1)));
+  --pan: max(0px, calc(var(--B) * var(--u) - (100cqh - var(--T) - var(--eZ) * (var(--T1) - var(--T))) / var(--wz)));
+  --kC: clamp(0, (var(--sp) - 0.665) / 0.09, 1);
+  --eC: calc(var(--kC) * var(--kC) * (3 - 2 * var(--kC)));
+  --w1: clamp(0, (var(--sp) - 0.685) / 0.04, 1);
+  --kW1: calc(var(--w1) * var(--w1) * (3 - 2 * var(--w1)));
+  --l0: clamp(0, (var(--sp) - 0.69) / 0.052, 1);
+  --kL: calc(var(--l0) * var(--l0) * (3 - 2 * var(--l0)));
+  --kM: clamp(0, (var(--sp) - 0.77) / 0.16, 1);
+  --eM: calc(var(--kM) * var(--kM) * (3 - 2 * var(--kM)));
+  --w2: clamp(0, (var(--sp) - 0.84) / 0.06, 1);
+  --kW2: calc(var(--w2) * var(--w2) * (3 - 2 * var(--w2)));
+  --k0: clamp(0, (var(--sp) - 0.86) / 0.06, 1);
+  --kK: calc(var(--k0) * var(--k0) * (3 - 2 * var(--k0)));
+  /* na het vastzetten: alles drijft langzaam door */
+  --d0: clamp(0, (var(--sp) - 0.7) / 0.3, 1);
+  --kd: calc(var(--d0) * var(--d0) * (3 - 2 * var(--d0)));
+  /* klikken van de cursor */
+  --clk: calc(
+    max(0, 1 - max(var(--sp) - 0.32, 0.32 - var(--sp)) * 90) + max(0, 1 - max(var(--sp) - 0.495, 0.495 - var(--sp)) * 90) +
+      max(0, 1 - max(var(--sp) - 0.565, 0.565 - var(--sp)) * 90) + max(0, 1 - max(var(--sp) - 0.643, 0.643 - var(--sp)) * 90) +
+      max(0, 1 - max(var(--sp) - 0.685, 0.685 - var(--sp)) * 90)
+  );
+
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+:global(.show--flip) .root {
+  --dir: -1;
+}
+
+/* één zachte, olijfgroene gloed achter de widget (de kaart zelf geeft al diepte) */
+.glow {
+  position: absolute;
+  left: calc(50cqw + var(--dir) * (var(--hx) + var(--eZ) * 6cqw) - 38cqw);
+  top: 4cqh;
+  width: 76cqw;
+  height: 92cqh;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(150, 178, 92, 0.16), rgba(112, 138, 52, 0.06) 55%, transparent);
+  opacity: calc(0.4 + var(--kf) * 0.6);
+  animation: breathe 10s ease-in-out infinite;
+}
+@keyframes breathe {
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+/* hele compositie drijft na het vastzetten langzaam naar voren (oorsprong: boven, binnenkant) */
+.rig {
+  position: absolute;
+  inset: 0;
+  transform-origin: calc(50cqw - var(--dir) * 50cqw) 0;
+  transform: scale(calc(1 + var(--kd) * 0.03));
+}
+
+/* venster om de camera (op mobiel met een zachte bovenrand, zie onderaan) */
+.win {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* camera rond de widget. Opening: de widget staat licht gekanteld en komt omhoog, de camera is
+   ingezoomd op de kaart (middelpunt 280, 444 widget-px) en zoomt in één lange beweging uit.
+   De binnenkant van de kaart wijkt bij het kantelen naar achteren (blijft van de binnenrand af). */
+.cam {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: var(--kf);
+  transform-origin: calc(50cqw + var(--dir) * var(--x0)) calc(var(--T) + 444 * var(--u));
+  transform:
+    translate3d(
+      calc(var(--dir) * (var(--hx) - var(--x0)) * (1 - var(--kc))),
+      calc((var(--hy) - var(--T) - 444 * var(--u)) * (1 - var(--kc)) + (1 - var(--kr)) * 8cqh),
+      0
+    )
+    perspective(140cqw)
+    rotateX(calc((1 - var(--kr)) * 12deg))
+    rotateY(calc(var(--dir) * (1 - var(--kr)) * -10deg))
+    scale(var(--zc));
+}
+
+/* =========================================================
+   Widget (echte maten × --u)
+   ========================================================= */
+.widget {
+  position: absolute;
+  left: calc(50cqw - 280 * var(--u));
+  top: 0;
+  z-index: 1;
+  width: calc(560 * var(--u));
+  /* hoogte volgt het actieve paneel (gemeten: 765 / 752 / 780 / 1103 px) */
+  height: calc((765 - 13 * var(--p2) + 28 * var(--p3) + 323 * var(--p4)) * var(--u));
+  overflow: hidden;
+  border-radius: calc(20 * var(--u));
+  isolation: isolate;
+  background: #fff;
+  font-family: var(--font-bs);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  /* zachte, gelaagde schaal-meeschalende schaduw; leest op de opgelichte kaartachtergrond */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 calc(3 * var(--u)) calc(8 * var(--u)) rgba(0, 0, 0, 0.35),
+    0 calc(26 * var(--u)) calc(66 * var(--u)) calc(-12 * var(--u)) rgba(0, 0, 0, 0.6);
+  transform-origin: 50% 0;
+  transform:
+    translate3d(calc(var(--dir) * (var(--x0) + var(--eZ) * (var(--x1) - var(--x0)))), calc(var(--T) + var(--eZ) * (var(--T1) - var(--T))), 0)
+    scale(var(--wz))
+    translate3d(0, calc(-1 * var(--pan)), 0);
+}
+/* licht: zolang de widget gekanteld staat valt er een zachte schaduw over de bovenkant en
+   strijkt een lichtbaan over het oppervlak; vlak = neutraal */
+.widget::after {
+  content: "";
+  position: absolute;
+  inset: 0 -40%;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(18, 26, 8, calc((1 - var(--kr)) * 0.14)), transparent 55%),
+    linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, calc((1 - var(--kr)) * 0.22)) 50%, transparent 62%);
+  transform: translateX(calc(var(--dir) * (var(--kr) - 0.5) * 30%));
+}
+
+/* ---------- header ---------- */
+.head {
+  display: flex;
+  align-items: center;
+  gap: calc(20 * var(--u));
+  padding: calc(26 * var(--u)) calc(32 * var(--u));
+  background: var(--olive);
+}
+.logo {
+  display: block;
+  flex: none;
+  width: calc(50 * var(--u));
+  height: calc(50 * var(--u));
+  border-radius: calc(6 * var(--u));
+}
+.head b {
+  display: block;
+  font-size: calc(19 * var(--u));
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+.head span {
+  display: block;
+  margin-top: calc(3 * var(--u));
+  font-size: calc(13 * var(--u));
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* ---------- voortgang ---------- */
+.prog {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  padding: calc(24 * var(--u)) calc(32 * var(--u)) 0;
+  list-style: none;
+}
+.prog li {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(11 * var(--u));
+  font-weight: 500;
+  line-height: 1.2;
+  color: color-mix(in srgb, var(--olive) calc(var(--a) * 100%), #aaa);
+}
+.prog li:nth-child(1) {
+  --a: 1;
+  --d: var(--p2);
+}
+.prog li:nth-child(2) {
+  --a: var(--p2);
+  --d: var(--p3);
+}
+.prog li:nth-child(3) {
+  --a: var(--p3);
+  --d: var(--p4);
+}
+.prog li:nth-child(4) {
+  --a: var(--p4);
+  --d: 0;
+}
+.prog li:not(:last-child)::before,
+.prog li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: calc(15 * var(--u));
+  left: calc(50% + 16 * var(--u));
+  right: calc(-50% + 16 * var(--u));
+  height: calc(2 * var(--u));
+  background: #e4e0d8;
+}
+.prog li:not(:last-child)::after {
+  background: var(--blue);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--d));
+}
+.circ {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(30 * var(--u));
+  height: calc(30 * var(--u));
+  margin-bottom: calc(6 * var(--u));
+  border: calc(2 * var(--u)) solid color-mix(in srgb, var(--blue) calc(var(--d) * 100%), color-mix(in srgb, var(--olive) calc(var(--a) * 100%), #e4e0d8));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--blue) calc(var(--d) * 100%), color-mix(in srgb, var(--olive) calc(var(--a) * 100%), #fff));
+  color: color-mix(in srgb, transparent calc(var(--d) * 100%), color-mix(in srgb, #fff calc(var(--a) * 100%), #bbb));
+  font-size: calc(12 * var(--u));
+  font-weight: 700;
+}
+.circ::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  opacity: var(--d);
+}
+
+/* ---------- panelen ---------- */
+.body {
+  position: relative;
+  padding: calc(28 * var(--u)) calc(32 * var(--u)) calc(32 * var(--u));
+}
+.panel {
+  position: absolute;
+  top: calc(28 * var(--u));
+  left: calc(32 * var(--u));
+  right: calc(32 * var(--u));
+}
+/* paneelwissel: het oude paneel is (bijna) weg voordat het nieuwe opkomt, zonder dubbelbeeld */
+.p1 {
+  opacity: clamp(0, 1 - var(--p2) * 2.2, 1);
+}
+.p2 {
+  opacity: max(0, calc(clamp(0, var(--p2) * 1.6 - 0.6, 1) - clamp(0, var(--p3) * 2.2, 1)));
+  transform: translate3d(0, calc((1 - var(--p2)) * 10 * var(--u)), 0);
+}
+.p3 {
+  opacity: max(0, calc(clamp(0, var(--p3) * 1.6 - 0.6, 1) - clamp(0, var(--p4) * 2.2, 1)));
+  transform: translate3d(0, calc((1 - var(--p3)) * 10 * var(--u)), 0);
+}
+.p4 {
+  opacity: clamp(0, var(--p4) * 1.6 - 0.6, 1);
+  transform: translate3d(0, calc((1 - var(--p4)) * 10 * var(--u)), 0);
+}
+.title {
+  display: block;
+  font-size: calc(20 * var(--u));
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.sub {
+  margin: calc(5 * var(--u)) 0 0;
+  font-size: calc(14 * var(--u));
+  line-height: 1.5;
+  color: #777;
+}
+
+/* stap 1: kaart */
+.map {
+  position: relative;
+  width: calc(290 * var(--u));
+  margin: calc(20 * var(--u)) auto 0;
+}
+.map img,
+.hl {
+  display: block;
+  width: 100%;
+  aspect-ratio: 286 / 337;
+}
+.hl {
+  position: absolute;
+  inset: 0 auto auto 0;
+  overflow: visible;
+}
+/* hover-laag: per provincie een zachte bult in --h rond het moment dat de cursor erboven is */
+.pv {
+  --h: min(clamp(0, (var(--sp) - var(--a) + 0.012) / 0.024, 1), clamp(0, (var(--b) + 0.012 - var(--sp)) / 0.024, 1));
+  fill: color-mix(in srgb, #b4cfa0 calc(var(--h) * 100%), #e5e1d8);
+  stroke: #fff;
+  stroke-width: 1.42;
+  stroke-linejoin: round;
+}
+.gr {
+  --a: 0.085;
+  --b: 0.142;
+}
+.dr {
+  --a: 0.142;
+  --b: 0.192;
+}
+.ov {
+  --a: 0.192;
+  --b: 0.221;
+}
+.ge {
+  --a: 0.221;
+  --b: 0.262;
+}
+.nb {
+  --a: 0.262;
+  --b: 9;
+  fill: color-mix(in srgb, var(--olive) calc(var(--sel) * 100%), color-mix(in srgb, #b4cfa0 calc(var(--h) * 100%), #e5e1d8));
+}
+.map .lbls,
+.map .lblSel {
+  position: absolute;
+  inset: 0 auto auto 0;
+}
+.map .lblSel {
+  opacity: var(--sel);
+}
+.badgeRow {
+  min-height: calc(34 * var(--u));
+  margin-top: calc(14 * var(--u));
+  text-align: center;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(7 * var(--u));
+  padding: calc(6 * var(--u)) calc(16 * var(--u));
+  border: calc(1.5 * var(--u)) solid #c0d99a;
+  border-radius: calc(30 * var(--u));
+  background: #eef5e4;
+  color: var(--olive);
+  font-size: calc(14 * var(--u));
+  font-weight: 600;
+  line-height: 1.2;
+  opacity: var(--pill);
+  transform: scale(calc(0.88 + var(--pill) * 0.12));
+}
+.badge::before {
+  content: "";
+  width: calc(8 * var(--u));
+  height: calc(8 * var(--u));
+  border-radius: 50%;
+  background: var(--olive);
+}
+
+/* knoppen */
+.btn,
+.back,
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(7 * var(--u));
+  border-radius: calc(10 * var(--u));
+  font-weight: 600;
+  letter-spacing: calc(0.2 * var(--u));
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.btn {
+  padding: calc(13 * var(--u)) calc(20 * var(--u));
+  background: var(--olive);
+  color: #fff;
+  font-size: calc(15 * var(--u));
+}
+.next {
+  --h: calc(clamp(0, (var(--sp) - 0.483) / 0.006, 1) * clamp(0, (0.502 - var(--sp)) / 0.004, 1));
+  margin-top: calc(24 * var(--u));
+  background: color-mix(in srgb, #2c3c10 calc(var(--h) * 100%), color-mix(in srgb, var(--olive) calc(var(--sel) * 100%), #c5c2bb));
+  box-shadow: 0 calc(4 * var(--u)) calc(14 * var(--u)) rgba(60, 79, 25, calc(var(--h) * 0.3));
+  transform: translate3d(0, calc(var(--h) * -1 * var(--u)), 0);
+}
+.go2 {
+  --h: calc(clamp(0, (var(--sp) - 0.555) / 0.006, 1) * clamp(0, (0.572 - var(--sp)) / 0.004, 1));
+}
+.go3 {
+  --h: calc(clamp(0, (var(--sp) - 0.633) / 0.006, 1) * clamp(0, (0.65 - var(--sp)) / 0.004, 1));
+}
+.go2,
+.go3 {
+  background: color-mix(in srgb, #2c3c10 calc(var(--h) * 100%), var(--olive));
+  box-shadow: 0 calc(4 * var(--u)) calc(14 * var(--u)) rgba(60, 79, 25, calc(var(--h) * 0.3));
+  transform: translate3d(0, calc(var(--h) * -1 * var(--u)), 0);
+}
+.row {
+  display: flex;
+  gap: calc(10 * var(--u));
+  margin-top: calc(24 * var(--u));
+}
+.row .btn {
+  flex: 1;
+}
+.back {
+  padding: calc(11 * var(--u)) calc(18 * var(--u));
+  border: calc(1.5 * var(--u)) solid #ddd9cf;
+  color: #777;
+  font-size: calc(14 * var(--u));
+}
+
+/* stap 2 en 4: resultaat */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: calc(20 * var(--u));
+  padding: calc(30 * var(--u)) calc(28 * var(--u));
+  overflow: hidden;
+  border-radius: calc(15 * var(--u));
+  background: linear-gradient(140deg, #3c4f19 0%, #243010 100%);
+  text-align: center;
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.hero::before {
+  top: calc(-35 * var(--u));
+  right: calc(-35 * var(--u));
+  width: calc(130 * var(--u));
+  height: calc(130 * var(--u));
+  background: rgba(93, 179, 216, 0.12);
+}
+.hero::after {
+  bottom: calc(-45 * var(--u));
+  left: calc(-25 * var(--u));
+  width: calc(160 * var(--u));
+  height: calc(160 * var(--u));
+  background: rgba(255, 255, 255, 0.04);
+}
+.eyebrow {
+  margin-bottom: calc(4 * var(--u));
+  font-size: calc(13 * var(--u));
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.65);
+}
+.prov {
+  margin-bottom: calc(6 * var(--u));
+  font-size: calc(17 * var(--u));
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+}
+.count {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  font-size: calc(76 * var(--u));
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: calc(-2 * var(--u));
+  color: var(--blue);
+}
+.count::before,
+.count::after {
+  grid-area: 1 / 1;
+}
+/* 1.447 met punt: duizendtallen en drie losse cijfers (integers ronden af) */
+.c1 {
+  --bsfN: calc(var(--e1) * 1447);
+  --bsfT: calc((var(--bsfN) - 500) / 1000);
+  --bsfR: calc(var(--bsfN) - var(--bsfT) * 1000);
+  --bsfH: calc((var(--bsfR) - 50) / 100);
+  --bsfX: calc(var(--bsfR) - var(--bsfH) * 100);
+  --bsfE: calc((var(--bsfX) - 5) / 10);
+  --bsfO: calc(var(--bsfX) - var(--bsfE) * 10);
+  counter-reset: bsT var(--bsfT) bsR var(--bsfR) bsH var(--bsfH) bsE var(--bsfE) bsO var(--bsfO);
+}
+.c1::before {
+  content: counter(bsT) "." counter(bsH) counter(bsE) counter(bsO);
+  opacity: var(--bsfT);
+}
+.c1::after {
+  content: counter(bsR);
+  opacity: calc(1 - var(--bsfT));
+}
+.c2 {
+  --bsfM: calc(var(--e2) * 570);
+  counter-reset: bsM var(--bsfM);
+}
+.c2::after {
+  content: counter(bsM);
+}
+.heroSub {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(8 * var(--u));
+  font-size: calc(13 * var(--u));
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+.blurb {
+  margin: calc(16 * var(--u)) 0 0;
+  padding: 0 calc(2 * var(--u));
+  font-size: calc(14 * var(--u));
+  line-height: 1.6;
+  color: #666;
+}
+
+/* stap 3: formulier */
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: calc(12 * var(--u));
+  margin-top: calc(22 * var(--u));
+}
+.form label {
+  display: block;
+  min-width: 0;
+  margin-bottom: calc(12 * var(--u));
+  font-size: calc(11 * var(--u));
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: calc(0.6 * var(--u));
+  text-transform: uppercase;
+  color: #555;
+}
+.form .wide {
+  grid-column: 1 / -1;
+}
+.form [data-split]::before {
+  content: "Jouw landelijke woning";
+  display: block;
+  margin: calc(6 * var(--u)) 0 calc(14 * var(--u));
+  background:
+    linear-gradient(#e8e3db, #e8e3db) 0 50% / calc(50% - 98 * var(--u)) 1px no-repeat,
+    linear-gradient(#e8e3db, #e8e3db) 100% 50% / calc(50% - 98 * var(--u)) 1px no-repeat;
+  letter-spacing: calc(1 * var(--u));
+  text-align: center;
+  color: #999;
+}
+.inp {
+  --k: clamp(0, (var(--sp) - var(--t)) / 0.011, 1);
+  --f: calc(clamp(0, (var(--sp) - var(--t) + 0.0025) / 0.002, 1) * clamp(0, (var(--t) + 0.0125 - var(--sp)) / 0.002, 1));
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: calc(40 * var(--u));
+  margin-top: calc(5 * var(--u));
+  padding: 0 calc(14 * var(--u));
+  border: calc(1.5 * var(--u)) solid color-mix(in srgb, var(--olive) calc(var(--f) * 100%), #ddd9cf);
+  border-radius: calc(9 * var(--u));
+  background: color-mix(in srgb, #fff calc(var(--f) * 100%), #faf9f6);
+  font-size: calc(14 * var(--u));
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+.inp::before {
+  content: attr(data-ph);
+  position: absolute;
+  left: calc(14 * var(--u));
+  color: #8a8a8a;
+  opacity: calc(1 - clamp(0, var(--k) * 40, 1));
+}
+.typed {
+  display: block;
+  max-width: calc(var(--k) * var(--w));
+  overflow: hidden;
+  white-space: nowrap;
+}
+.inp::after {
+  content: "";
+  flex: none;
+  width: calc(1.5 * var(--u));
+  height: calc(17 * var(--u));
+  margin-left: calc(1 * var(--u));
+  background: var(--ink);
+  opacity: var(--f);
+  animation: caret 1s steps(1) infinite;
+}
+@keyframes caret {
+  50% {
+    visibility: hidden;
+  }
+}
+
+/* stap 4: straal + makelaar */
+.radius {
+  margin-top: calc(22 * var(--u));
+  padding: calc(18 * var(--u)) calc(20 * var(--u));
+  border: calc(1.5 * var(--u)) solid #e4dfd5;
+  border-radius: calc(14 * var(--u));
+  background: #f7f5f0;
+}
+.rHead {
+  display: flex;
+  white-space: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: calc(12 * var(--u));
+  font-size: calc(13 * var(--u));
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--olive);
+}
+.rHead em {
+  padding: calc(2 * var(--u)) calc(12 * var(--u));
+  border: calc(1.5 * var(--u)) solid #c0d99a;
+  border-radius: calc(20 * var(--u));
+  background: #eef5e4;
+  font-style: normal;
+}
+/* preflight zet svg op display:block */
+.pinIco {
+  display: inline-block;
+  width: calc(14 * var(--u));
+  height: calc(14 * var(--u));
+  margin-right: calc(4 * var(--u));
+  vertical-align: calc(-2 * var(--u));
+}
+.slider {
+  position: relative;
+  display: block;
+  height: calc(5 * var(--u));
+  margin: calc(8 * var(--u)) 0;
+  border-radius: calc(3 * var(--u));
+  background: linear-gradient(to right, var(--olive) 28.6%, #ddd9cf 28.6%);
+}
+.slider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(10 * var(--u) + 0.286 * (100% - 20 * var(--u)));
+  width: calc(20 * var(--u));
+  height: calc(20 * var(--u));
+  box-sizing: border-box;
+  border: calc(3 * var(--u)) solid #fff;
+  border-radius: 50%;
+  background: var(--olive);
+  box-shadow: 0 calc(1 * var(--u)) calc(6 * var(--u)) rgba(0, 0, 0, 0.25);
+  translate: -50% -50%;
+}
+.rRes {
+  margin: calc(12 * var(--u)) 0 0;
+  font-size: calc(13 * var(--u));
+  line-height: 1.5;
+  color: #555;
+}
+.rRes b {
+  font-size: calc(15 * var(--u));
+  font-weight: 800;
+  color: var(--olive);
+}
+.rRes small {
+  display: block;
+  margin-top: calc(4 * var(--u));
+  font-size: calc(11 * var(--u));
+  color: #999;
+}
+.cta {
+  --h: calc(clamp(0, (var(--sp) - 0.677) / 0.006, 1) * clamp(0, (0.71 - var(--sp)) / 0.01, 1));
+  margin-top: calc(18 * var(--u));
+  padding: calc(16 * var(--u));
+  background: color-mix(in srgb, #4aa2c7 calc(var(--h) * 100%), var(--blue));
+  color: #fff;
+  font-size: calc(16 * var(--u));
+  box-shadow: 0 calc(4 * var(--u)) calc(18 * var(--u)) rgba(93, 179, 216, calc(var(--h) * 0.4));
+  transform: translate3d(0, calc(var(--h) * -1 * var(--u)), 0);
+}
+.broker {
+  display: flex;
+  align-items: center;
+  gap: calc(15 * var(--u));
+  margin-top: calc(18 * var(--u));
+  padding: calc(18 * var(--u)) calc(20 * var(--u));
+  border: calc(1.5 * var(--u)) solid #c0d99a;
+  border-radius: calc(13 * var(--u));
+  background: #eef5e4;
+}
+.bAv {
+  flex: none;
+  width: calc(80 * var(--u));
+  height: calc(56 * var(--u));
+  overflow: hidden;
+  border: calc(1.5 * var(--u)) solid #d8e8c4;
+  border-radius: calc(10 * var(--u));
+  background: #fff;
+}
+.bAv img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: calc(6 * var(--u));
+  object-fit: contain;
+}
+.broker > span:last-child {
+  display: flex;
+  flex-direction: column;
+  font-size: calc(13 * var(--u));
+  line-height: 1.2;
+  color: #667;
+}
+.broker b {
+  margin-bottom: calc(2 * var(--u));
+  font-size: calc(15 * var(--u));
+  font-weight: 700;
+  color: var(--ink);
+}
+.broker i {
+  margin-top: calc(3 * var(--u));
+  font-size: calc(12 * var(--u));
+  font-style: normal;
+  font-weight: 600;
+  color: var(--olive);
+}
+
+/* ---------- cursor (in widget-px) ----------
+   eerst een bézier over de kaart (Groningen → Noord-Brabant, in widget-px), daarna rustige
+   verplaatsingen naar de knoppen; tijdens de kaart-hero wordt de camerazoom gecompenseerd */
+.cursor {
+  --x0b: 386.4;
+  --y0b: 303.5;
+  --x1b: 378.3;
+  --y1b: 384.6;
+  --x2b: 342.8;
+  --y2b: 425.2;
+  --x3b: 276.9;
+  --y3b: 518.5;
+  --ia: calc((1 - var(--kg)) * (1 - var(--kg)) * (1 - var(--kg)));
+  --ib: calc(3 * (1 - var(--kg)) * (1 - var(--kg)) * var(--kg));
+  --ic: calc(3 * (1 - var(--kg)) * var(--kg) * var(--kg));
+  --id: calc(var(--kg) * var(--kg) * var(--kg));
+  --m2: clamp(0, (var(--sp) - 0.425) / 0.062, 1);
+  --m3: clamp(0, (var(--sp) - 0.525) / 0.035, 1);
+  --m5: clamp(0, (var(--sp) - 0.605) / 0.032, 1);
+  --m6: clamp(0, (var(--sp) - 0.65) / 0.031, 1);
+  --s2: calc(var(--m2) * var(--m2) * (3 - 2 * var(--m2)));
+  --s3: calc(var(--m3) * var(--m3) * (3 - 2 * var(--m3)));
+  --s5: calc(var(--m5) * var(--m5) * (3 - 2 * var(--m5)));
+  --s6: calc(var(--m6) * var(--m6) * (3 - 2 * var(--m6)));
+  --cx: calc(
+    var(--ia) * var(--x0b) + var(--ib) * var(--x1b) + var(--ic) * var(--x2b) + var(--id) * var(--x3b) + 53 * var(--s2) + 15 * var(--s3) +
+      3 * var(--s5) - 48 * var(--s6) - 2.2
+  );
+  --cy: calc(
+    var(--ia) * var(--y0b) + var(--ib) * var(--y1b) + var(--ic) * var(--y2b) + var(--id) * var(--y3b) + 193.5 * var(--s2) - 12 * var(--s3) +
+      30 * var(--s5) + 138 * var(--s6) - 1.6
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: calc(22 * var(--u));
+  height: calc(26 * var(--u));
+  opacity: calc(clamp(0, (var(--sp) - 0.06) / 0.035, 1) * (1 - clamp(0, (var(--sp) - 0.7) / 0.025, 1)));
+  transform-origin: 0 0;
+  transform: translate3d(calc(var(--cx) * var(--u)), calc(var(--cy) * var(--u)), 0) scale(calc(1 / var(--zc)));
+}
+.cursor svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 calc(2 * var(--u)) calc(2 * var(--u)) rgba(0, 0, 0, 0.35));
+  transform-origin: 10% 6%;
+  transform: scale(calc(1 - min(1, var(--clk)) * 0.14));
+}
+.cursor path {
+  fill: #111;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+.cursor::before {
+  content: "";
+  position: absolute;
+  top: calc(-14 * var(--u));
+  left: calc(-14 * var(--u));
+  width: calc(32 * var(--u));
+  height: calc(32 * var(--u));
+  border-radius: 50%;
+  background: rgba(93, 179, 216, 0.28);
+  box-shadow: 0 0 0 calc(2 * var(--u)) rgba(93, 179, 216, 0.5);
+  opacity: min(1, var(--clk));
+  transform: scale(calc(1.3 - min(1, var(--clk)) * 0.7));
+}
+
+/* =========================================================
+   Verbindingen
+   ========================================================= */
+.wire {
+  position: absolute;
+  z-index: 2;
+  overflow: visible;
+  pointer-events: none;
+}
+.w1,
+.w2 {
+  width: calc(0.28 * var(--cs));
+  margin-left: calc(-0.14 * var(--cs));
+  border-radius: 9px;
+  background: linear-gradient(0deg, rgba(170, 214, 120, 0.9), rgba(93, 179, 216, 0.95));
+  box-shadow: 0 0 calc(0.8 * var(--cs)) rgba(93, 179, 216, 0.6);
+  transform-origin: 50% 100%;
+}
+.w1 {
+  /* kort lijntje van de CTA in de widget omhoog naar het CRM-kaartje dat erboven zweeft */
+  --y0: calc(var(--crmTop) + var(--crmH));
+  --y1: calc(var(--T1) + var(--ctaY) * var(--u) * var(--z1));
+  left: calc(50cqw + var(--dir) * var(--wireX));
+  top: var(--y0);
+  height: max(0px, calc(var(--y1) - var(--y0)));
+  transform: scaleY(var(--kW1));
+}
+.w2 {
+  /* van het CRM omhoog naar de mail */
+  left: calc(50cqw + var(--dir) * var(--linkX));
+  top: calc(var(--mailTop) + var(--mailH));
+  height: calc(var(--crmTop) - var(--mailTop) - var(--mailH));
+  transform: scaleY(var(--kW2));
+}
+.wire i {
+  position: absolute;
+  inset: 0;
+  opacity: clamp(0, (var(--k) - 0.95) * 20, 1);
+  animation: run 2.4s cubic-bezier(0.55, 0, 0.35, 1) infinite;
+}
+.w1 i {
+  --k: var(--kW1);
+  --tx: 0%;
+  --ty: 50%;
+}
+.w2 i {
+  --k: var(--kW2);
+  --tx: 0%;
+  --ty: 50%;
+  animation-delay: -1.2s;
+}
+.wire i::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(1.1 * var(--cs));
+  height: calc(1.1 * var(--cs));
+  margin: calc(-0.55 * var(--cs)) 0 0 calc(-0.55 * var(--cs));
+  border-radius: 50%;
+  background: #eaf7ff;
+  box-shadow:
+    0 0 0 calc(0.35 * var(--cs)) rgba(93, 179, 216, 0.35),
+    0 0 calc(1.2 * var(--cs)) rgba(93, 179, 216, 0.9);
+}
+@keyframes run {
+  0% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-1 * var(--tx)), calc(-1 * var(--ty)));
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   CRM
+   ========================================================= */
+/* stapel: widget → CRM → mail; elke laag iets hoger, met een iets grotere schaduw.
+   Ze zweven rustig omhoog op hun plek en hun schaduw groeit mee terwijl ze "optillen". */
+.crm,
+.mail {
+  position: absolute;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: calc(1.3 * var(--cs));
+  background: #fff;
+  font-family: var(--font-bs);
+  -webkit-font-smoothing: antialiased;
+}
+.crm {
+  left: calc(50cqw + var(--dir) * var(--crmX));
+  top: var(--crmTop);
+  width: var(--crmW);
+  margin-left: calc(var(--crmW) / -2);
+  color: #23301a;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 calc(0.35 * var(--cs)) calc(1 * var(--cs)) rgba(0, 0, 0, calc(0.15 + var(--eC) * 0.2)),
+    0 calc(1 * var(--cs) + var(--eC) * 2.2 * var(--cs)) calc(3 * var(--cs) + var(--eC) * 4.5 * var(--cs)) calc(-1.5 * var(--cs))
+      rgba(0, 0, 0, calc(0.3 + var(--eC) * 0.32));
+  opacity: clamp(0, var(--eC) * 4, 1);
+  transform: translate3d(0, calc((1 - var(--eC)) * 6cqh), 0) scale(calc(0.97 + var(--eC) * 0.03));
+}
+.cBar {
+  display: flex;
+  align-items: center;
+  gap: calc(0.8 * var(--cs));
+  padding: calc(1.1 * var(--cs)) calc(1.4 * var(--cs));
+  border-bottom: 1px solid #ecebe6;
+  background: #f7f6f2;
+  font-size: calc(1.05 * var(--cs));
+  color: #8a8f80;
+  white-space: nowrap;
+}
+.cBar img {
+  width: calc(2.5 * var(--cs));
+  height: calc(2.5 * var(--cs));
+  border-radius: calc(0.4 * var(--cs));
+}
+.cBar b {
+  font-size: calc(1.3 * var(--cs));
+  color: #1f2a14;
+}
+.cBar span::before {
+  content: "/ ";
+  color: #c9c7bd;
+}
+.cBar em {
+  margin-left: auto;
+  padding: calc(0.25 * var(--cs)) calc(0.8 * var(--cs));
+  border-radius: 99px;
+  background: rgba(93, 179, 216, 0.16);
+  color: #2f86ad;
+  font-size: calc(0.95 * var(--cs));
+  font-style: normal;
+  font-weight: 700;
+  opacity: var(--kL);
+}
+.fresh {
+  position: relative;
+  height: calc(15.4 * var(--cs));
+  clip-path: inset(0 0 calc((1 - var(--kL)) * 100%) 0);
+}
+.fresh > * {
+  opacity: var(--kL);
+  transform: translate3d(calc(var(--dir) * (1 - var(--kL)) * calc(-2 * var(--cs))), 0, 0);
+}
+/* de bestaande aanvragen schuiven omlaag terwijl de nieuwe lead bovenaan openvouwt */
+.olds {
+  transform: translate3d(0, calc((1 - var(--kL)) * calc(-15.4 * var(--cs))), 0);
+}
+.lead,
+.old {
+  display: flex;
+  align-items: center;
+  gap: calc(1 * var(--cs));
+  padding: calc(1.1 * var(--cs)) calc(1.4 * var(--cs));
+}
+.lead {
+  background: linear-gradient(90deg, rgba(93, 179, 216, 0.14), rgba(238, 245, 228, 0.6));
+  box-shadow: inset calc(0.3 * var(--cs)) 0 0 var(--blue);
+}
+.av {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: calc(3.2 * var(--cs));
+  height: calc(3.2 * var(--cs));
+  border-radius: 50%;
+  background: var(--olive);
+  color: #fff;
+  font-size: calc(1.1 * var(--cs));
+  font-weight: 700;
+}
+.who {
+  display: grid;
+  gap: calc(0.15 * var(--cs));
+  min-width: 0;
+  font-size: calc(1.05 * var(--cs));
+  color: #7a7f70;
+  white-space: nowrap;
+}
+.who b {
+  font-size: calc(1.4 * var(--cs));
+  color: #1f2a14;
+}
+.stamp {
+  display: grid;
+  justify-items: end;
+  gap: calc(0.3 * var(--cs));
+  margin-left: auto;
+  font-size: calc(0.95 * var(--cs));
+  color: #8a8f80;
+}
+.stamp em {
+  position: relative;
+  padding: calc(0.2 * var(--cs)) calc(0.7 * var(--cs));
+  border-radius: calc(0.4 * var(--cs));
+  background: var(--blue);
+  color: #fff;
+  font-size: calc(0.9 * var(--cs));
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.stamp em::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 calc(0.4 * var(--cs)) rgba(93, 179, 216, 0.22);
+  opacity: 0;
+  animation: live 2s ease-in-out infinite;
+}
+@keyframes live {
+  50% {
+    opacity: 1;
+  }
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  gap: calc(0.6 * var(--cs));
+  margin: 0;
+  padding: calc(1 * var(--cs)) calc(1.4 * var(--cs));
+  border-top: 1px solid #ecebe6;
+}
+.facts dt {
+  font-size: calc(0.8 * var(--cs));
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9a9d91;
+  white-space: nowrap;
+}
+.facts dd {
+  margin: calc(0.25 * var(--cs)) 0 0;
+  font-size: calc(1.15 * var(--cs));
+  font-weight: 700;
+  color: #23301a;
+  white-space: nowrap;
+}
+.pipe {
+  display: flex;
+  gap: calc(0.4 * var(--cs));
+  margin: 0;
+  padding: 0 calc(1.4 * var(--cs)) calc(1.2 * var(--cs));
+  list-style: none;
+}
+.pipe li {
+  flex: 1;
+  padding: calc(0.45 * var(--cs)) 0;
+  border-radius: calc(0.4 * var(--cs));
+  background: #f1efe9;
+  font-size: calc(0.9 * var(--cs));
+  font-weight: 600;
+  text-align: center;
+  color: #9a9d91;
+}
+.pipe li:first-child {
+  background: var(--olive);
+  color: #fff;
+}
+.old {
+  border-top: 1px solid #ecebe6;
+  opacity: 0.55;
+}
+.old .av {
+  background: #d9d6cc;
+  color: #6b6e62;
+}
+.old small {
+  margin-left: auto;
+  font-size: calc(0.95 * var(--cs));
+  color: #8a8f80;
+}
+
+/* ---------- automatisering ---------- */
+.chip {
+  position: absolute;
+  left: calc(50cqw + var(--dir) * var(--linkX));
+  top: calc((var(--mailTop) + var(--mailH) + var(--crmTop)) / 2);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: calc(0.7 * var(--cs));
+  padding: calc(0.5 * var(--cs)) calc(1.1 * var(--cs)) calc(0.5 * var(--cs)) calc(0.5 * var(--cs));
+  border-radius: 99px;
+  background: linear-gradient(180deg, #33421a, #222c12);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 calc(1.2 * var(--cs)) calc(2.4 * var(--cs)) rgba(0, 0, 0, 0.45);
+  color: #eef2e2;
+  font-family: var(--font-bs);
+  font-size: calc(1.15 * var(--cs));
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: var(--kK);
+  translate: -50% -50%;
+  transform: scale(calc(0.9 + var(--kK) * 0.1));
+}
+.chip svg {
+  width: calc(2.4 * var(--cs));
+  height: calc(2.4 * var(--cs));
+  padding: calc(0.5 * var(--cs));
+  border-radius: 50%;
+  background: var(--blue);
+  fill: #fff;
+}
+.chip em {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(0.3 * var(--cs));
+  padding: calc(0.25 * var(--cs)) calc(0.7 * var(--cs));
+  border-radius: 99px;
+  background: rgba(168, 214, 114, 0.16);
+  color: #c4e69a;
+  font-size: calc(0.95 * var(--cs));
+  font-style: normal;
+}
+.chip em::before {
+  content: "✓";
+}
+
+/* =========================================================
+   E-mail
+   ========================================================= */
+.mail {
+  /* bovenste laag; onderkant vast op het lijntje naar het CRM, hoogte volgt de inhoud */
+  left: calc(50cqw + var(--dir) * var(--mailX));
+  bottom: calc(100cqh - var(--mailTop) - var(--mailH));
+  z-index: 3;
+  width: var(--mailW);
+  max-height: var(--mailH);
+  margin-left: calc(var(--mailW) / -2);
+  color: #333;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 calc(0.4 * var(--cs)) calc(1.2 * var(--cs)) rgba(0, 0, 0, calc(0.15 + var(--eM) * 0.23)),
+    0 calc(1.2 * var(--cs) + var(--eM) * 2.8 * var(--cs)) calc(3.5 * var(--cs) + var(--eM) * 5.5 * var(--cs)) calc(-1.5 * var(--cs))
+      rgba(0, 0, 0, calc(0.3 + var(--eM) * 0.36));
+  opacity: clamp(0, var(--eM) * 4, 1);
+  transform-origin: 50% 100%;
+  transform: translate3d(0, calc((1 - var(--eM)) * 5cqh), 0) scale(calc(0.97 + var(--eM) * 0.03));
+}
+.mTop {
+  display: flex;
+  align-items: center;
+  gap: calc(0.9 * var(--cs));
+  padding: calc(1.3 * var(--cs)) calc(1.5 * var(--cs)) calc(0.6 * var(--cs));
+}
+.mTop img {
+  width: calc(3.2 * var(--cs));
+  height: calc(3.2 * var(--cs));
+  border-radius: calc(0.6 * var(--cs));
+}
+.mTop span {
+  display: grid;
+  gap: calc(0.1 * var(--cs));
+  font-size: calc(1 * var(--cs));
+  color: #85897d;
+}
+.mTop b {
+  font-size: calc(1.3 * var(--cs));
+  color: #1f2a14;
+}
+.mTop small {
+  align-self: flex-start;
+  margin-left: auto;
+  font-size: calc(1 * var(--cs));
+  font-weight: 600;
+  color: #2f86ad;
+}
+.subject {
+  display: block;
+  padding: calc(0.3 * var(--cs)) calc(1.5 * var(--cs)) calc(1.1 * var(--cs));
+  font-size: calc(1.55 * var(--cs));
+  line-height: 1.25;
+  color: var(--ink);
+}
+.mBody {
+  height: 100%;
+  padding: calc(1.2 * var(--cs)) calc(1.5 * var(--cs));
+  border-top: 1px solid #ecebe6;
+  background: #f3f1eb;
+}
+.mCard {
+  overflow: hidden;
+  border-radius: calc(0.9 * var(--cs));
+  background: #fff;
+  box-shadow: 0 calc(0.2 * var(--cs)) calc(0.8 * var(--cs)) rgba(40, 50, 20, 0.08);
+}
+.mHead {
+  display: flex;
+  align-items: center;
+  gap: calc(1 * var(--cs));
+  padding: calc(1.1 * var(--cs)) calc(1.3 * var(--cs));
+  background: var(--olive);
+}
+.mHead img {
+  width: calc(3 * var(--cs));
+  height: calc(3 * var(--cs));
+  border-radius: calc(0.35 * var(--cs));
+}
+.mHead span {
+  display: grid;
+  gap: calc(0.1 * var(--cs));
+  font-size: calc(0.95 * var(--cs));
+  color: rgba(255, 255, 255, 0.68);
+}
+.mHead b {
+  font-size: calc(1.25 * var(--cs));
+  color: #fff;
+}
+.hi {
+  display: block;
+  padding: calc(1.2 * var(--cs)) calc(1.3 * var(--cs)) 0;
+  font-size: calc(1.3 * var(--cs));
+  color: var(--ink);
+}
+.mCard p {
+  margin: 0;
+  padding: calc(0.3 * var(--cs)) calc(1.3 * var(--cs)) 0;
+  font-size: calc(1.05 * var(--cs));
+  line-height: 1.5;
+  color: #666;
+}
+.mCard p b {
+  color: var(--olive);
+}
+.mCard p:last-child {
+  padding-bottom: calc(1.3 * var(--cs));
+  font-size: calc(0.95 * var(--cs));
+}
+.mHero {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  margin: calc(1 * var(--cs)) calc(1.3 * var(--cs));
+  padding: calc(1 * var(--cs));
+  overflow: hidden;
+  border-radius: calc(0.9 * var(--cs));
+  background: linear-gradient(140deg, #3c4f19, #243010);
+}
+.mHero::before {
+  content: "";
+  position: absolute;
+  top: calc(-2 * var(--cs));
+  right: calc(-2 * var(--cs));
+  width: calc(7 * var(--cs));
+  height: calc(7 * var(--cs));
+  border-radius: 50%;
+  background: rgba(93, 179, 216, 0.12);
+}
+.mHero span {
+  font-size: calc(0.95 * var(--cs));
+  color: rgba(255, 255, 255, 0.65);
+}
+.mHero strong {
+  position: relative;
+  font-size: calc(4.4 * var(--cs));
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: calc(-0.1 * var(--cs));
+  color: var(--blue);
+}
+
+/* =========================================================
+   Smalle (staande) kaart, mobiel: widget groter, CRM en mail
+   schuiven aan het eind over de binnenkant van de widget heen
+   ========================================================= */
+@container (max-aspect-ratio: 1/1) and (max-width: 520px) {
+  .root {
+    --u: 0.145cqw;
+    --x0: 0cqw;
+    --x1: 20cqw;
+    --z1: 0.75;
+    --hx: 0cqw;
+    --hy: 47cqh;
+    --Z0: 1.25;
+    --crmX: -12cqw;
+    --crmW: 54cqw;
+    --crmTop: 54cqh;
+    --mailX: -15cqw;
+    --mailW: 54cqw;
+    --linkX: -18cqw;
+    --cs: 1.22cqw;
+    --mailTop: 6cqh;
+    --mailH: 42cqh;
+  }
+  .w1 {
+    display: none;
+  }
+  /* bovenrand is hier de binnenrand: de widget scrolt onder een zachte rand weg en raakt hem nooit */
+  .win {
+    -webkit-mask: linear-gradient(transparent 3.5cqw, #000 10cqw);
+    mask: linear-gradient(transparent 3.5cqw, #000 10cqw);
+  }
+}

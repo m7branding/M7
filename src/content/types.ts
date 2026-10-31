@@ -1,0 +1,365 @@
+/* ============================================================
+   M7 content model — types.
+   Alle content is getypeerd en cross-referenced via slugs.
+   Een typefout in een slug (bv. een dienst die niet bestaat)
+   breekt de build, zodat links nooit dood lopen.
+   ============================================================ */
+
+import type {
+  ApplicationSlug,
+  SectorSlug,
+  ServiceSlug,
+} from "./registry";
+import type { ToolSlug } from "./tools";
+import type { IconKey } from "@/components/ui/Icon";
+import type { MockupKey } from "@/components/mockups/keys";
+
+export type Locale = "nl" | "en";
+export const LOCALES: Locale[] = ["nl", "en"];
+
+/** Vertaalde tekst. NL is leidend, EN is de vertaling. */
+export type T = { nl: string; en: string };
+/** Vertaalde lijst. */
+export type TList = { nl: string[]; en: string[] };
+
+export interface FAQ {
+  q: T;
+  /** Antwoord. Alinea's scheiden met een lege regel (\n\n). */
+  a: T;
+}
+
+export interface TextSection {
+  h: T;
+  /** Alinea's scheiden met \n\n. Regels die met "- " beginnen worden een lijst. */
+  body: T;
+}
+
+/**
+ * Rustige content-sectie tussen de blokken door (extra SEO in de nuchtere
+ * Brabantse M7-toon). In `body` kun je een dienst of toepassing als
+ * klikbaar label met icoon opnemen: [[websites-webshops]] of
+ * [[webflow-website|eigen label]].
+ */
+export interface Chapter {
+  /** Korte Engelse kicker / mini-quote boven de kop (optioneel), bv. "No nonsense.". */
+  kicker?: T;
+  h: T;
+  /** Alinea's (\n\n), lijsten ("- ") en inline labels ([[slug]]). */
+  body: T;
+  /** Optionele pull-quote die groot naast de tekst komt. */
+  quote?: T;
+}
+
+export interface Step {
+  title: T;
+  text: T;
+}
+
+export interface Highlight {
+  value: string;
+  label: T;
+}
+
+export interface Benefit {
+  title: T;
+  text: T;
+}
+
+/* ---------- Dienst (peiler / kapstok) ---------- */
+export interface Service {
+  slug: ServiceSlug;
+  /** Volgorde in menu's en overzichten. */
+  order: number;
+  /** H1 / volledige naam, bv. "Branding & Rebranding". */
+  title: T;
+  /** Korte label voor menu's en folders, bv. "Branding". */
+  short: T;
+  /** Accentkleur van de peiler (folder-tab, glows, mockup). */
+  color: string;
+  icon: IconKey;
+  /** Welke unieke geanimeerde mockup bij deze peiler hoort. */
+  mockup: MockupKey;
+  /** Korte Engelse quote / payoff (groot getoond). */
+  tagline: T;
+  /** Lead: 1-2 zinnen. */
+  intro: T;
+  /** Uitgebreidere omschrijving (1-2 alinea's). */
+  description: T;
+  highlights: Highlight[];
+  /** Relevante termen / keywords als chips, bv. "Webflow", "Hosting". */
+  terms: string[];
+  /** Tools die we gebruiken (met iconen). */
+  tools: ToolSlug[];
+  /** Werkwijze voor deze dienst. */
+  process: Step[];
+  /** Extra content-secties die tussen de blokken van de dienstpagina komen. */
+  chapters?: Chapter[];
+  /** SEO-tekst onderaan de pagina. */
+  seo: { title: T; sections: TextSection[] };
+  /** Uitgebreide FAQ (GEO / AEO). */
+  faqs: FAQ[];
+  metaTitle: T;
+  metaDescription: T;
+  /** Gerelateerde diensten (cross-sell). */
+  related: ServiceSlug[];
+  /** Categorie-id's in de letsgo-configurator. */
+  configurator?: string[];
+  /** Optioneel pad op answers.m7branding.com voor deze dienst. */
+  answersPath?: string;
+  /** Eigen media die de geanimeerde mockup vervangt (Lottie JSON, video of afbeelding). */
+  media?: Media;
+}
+
+/* ---------- Toepassing (gekoppeld onder een dienst) ---------- */
+export interface Application {
+  slug: ApplicationSlug;
+  service: ServiceSlug;
+  title: T;
+  /** One-liner voor kaarten en sliders. */
+  summary: T;
+  intro: T;
+  body: TextSection[];
+  deliverables: TList;
+  benefits: Benefit[];
+  tools: ToolSlug[];
+  /** Gerelateerde toepassingen (mag over diensten heen). */
+  related: ApplicationSlug[];
+  faqs: FAQ[];
+  metaTitle?: T;
+  metaDescription: T;
+  media?: Media;
+}
+
+/* ---------- Mockup in een dienst-tegel (sectorpagina) ---------- */
+/** `label` = projectnaam die als bijschrift bij de mockup staat. */
+export type TileVisual =
+  /** Platte screenshot in een strak browservenster; een lange screenshot scrollt langzaam. */
+  | { kind: "browser"; src: string; url?: string; scroll?: boolean; label?: string }
+  | { kind: "tablet"; src: string; label?: string }
+  | { kind: "phone"; src: string; label?: string }
+  /** Bestaande mockup-foto van een project (staat zelf al in een device). */
+  | { kind: "photo"; src: string; position?: string; label?: string }
+  /** Opengeslagen boek of rapport: linker- en rechterpagina. */
+  | { kind: "book"; left: string; right: string; label?: string }
+  /** Drukwerk: brochure voor- en achterkant, met optioneel een visitekaartje. */
+  | { kind: "print"; front: string; back?: string; card?: string; cardBack?: string; label?: string }
+  /** Videoframe (16:9) met een render of still. */
+  | { kind: "video"; src: string; label?: string };
+
+/** Een doelgroep binnen een sector (bv. makelaardij binnen vastgoed), met eigen vragen voor SEO. */
+export interface SectorSegment {
+  /** Korte naam voor de tab, bv. "Makelaardij". */
+  name: T;
+  /** Eén of twee zinnen met de brede doelgroep in eigen woorden. */
+  intro: T;
+  /** Soorten bedrijven binnen deze doelgroep (zoekbaar via de zoekbalk), bv. "Makelaarskantoren". */
+  types?: T[];
+  /** Concrete toepassingen voor deze doelgroep, elk gekoppeld aan een dienst (en optioneel een toepassing). */
+  useCases?: SegmentUseCase[];
+  faqs: FAQ[];
+}
+
+export interface SegmentUseCase {
+  title: T;
+  text: T;
+  service: ServiceSlug;
+  application?: ApplicationSlug;
+}
+
+/* ---------- Sector ---------- */
+export interface Sector {
+  slug: SectorSlug;
+  title: T;
+  short: T;
+  icon: IconKey;
+  /** Breed beeld (bij voorkeur eigen werk uit deze sector) dat bij het scrollen openschuift. */
+  image?: string;
+  /** object-position van het beeld, bv. "50% 30%". */
+  imagePosition?: string;
+  /** Korte (Engelse) quote die over het beeld verschijnt. */
+  quote?: T;
+  intro: T;
+  description: T;
+  challenges: Benefit[];
+  services: ServiceSlug[];
+  applications: ApplicationSlug[];
+  faqs: FAQ[];
+  metaTitle: T;
+  metaDescription: T;
+  /** Mockup per dienst in de dienstentegels; zonder: automatisch uit een project in deze sector of de standaard. */
+  visuals?: Partial<Record<ServiceSlug, TileVisual>>;
+  /** Doelgroepen binnen deze sector met eigen FAQ's (tabs onder "Veelgestelde vragen"). */
+  segments?: SectorSegment[];
+  /** Soorten bedrijven die we in deze sector helpen (SEO-raster onder de FAQ). */
+  audiences?: T[];
+}
+
+/* ---------- Case-verhaal (vrij op te bouwen blokken) ---------- */
+export interface StoryImage {
+  src: string;
+  alt?: T;
+  caption?: T;
+}
+
+export type StoryBlock =
+  /** Introductie of statement over het project, groot in beeld. */
+  | { type: "intro"; kicker?: T; text: T }
+  /** Tekstsectie: kop links, tekst rechts. Inline dienst-labels mogen: [[slug]]. */
+  | { type: "text"; kicker?: T; h: T; body: T; quote?: T }
+  /** Schermvullende masonry-galerij (beelden in hun eigen verhouding). */
+  | { type: "masonry"; images: StoryImage[] }
+  /** Eén breed beeld of video dat bij het scrollen openvouwt, optioneel met quote erop. */
+  | {
+      type: "media";
+      image?: string;
+      video?: string;
+      poster?: string;
+      position?: string;
+      quote?: T;
+      /** native: kader in de eigen verhouding van de film (niets bijgesneden); stage: staande film gecentreerd op een podium. */
+      fit?: "native" | "stage";
+      /** Breedte / hoogte van de film (voor fit). */
+      ratio?: number;
+      alt?: string;
+    }
+  /** Grote quote, bv. van de klant. */
+  | { type: "quote"; text: T; cite?: string; role?: T; avatar?: string }
+  /** Beeld naast tekst. */
+  | { type: "split"; image: string; kicker?: T; h: T; body: T; reverse?: boolean }
+  /** Mijlpalen (met datum/fase) of een checklist van wat we opleverden. */
+  | { type: "timeline"; title?: T; style?: "timeline" | "checklist"; items: { label: T; text?: T; date?: string }[] }
+  /** De resultaten (`results`) als grote cijfers. */
+  | { type: "results" };
+
+/**
+ * Uitgewerkt projectverhaal (src/content/case-stories.ts), los van de basisgegevens in cases*.ts.
+ * Alleen feiten die kloppen: geen verzonnen cijfers, resultaten, jaartallen of klantcitaten.
+ */
+export interface CaseNarrative {
+  /** Openingstekst die bij het scrollen woord voor woord oplicht. Zonder intro: `challenge`. */
+  intro?: T;
+  /** 2–4 hoofdstukken: een cinematische titel met 1–2 korte, editorial alinea's. Tussen de beeldsecties door. */
+  chapters?: { title: T; body: T[] }[];
+  /**
+   * Korte uitspraken in de stem van M7 (geen klantcitaten), groot en schermvullend in de merkkleur
+   * tussen de beelden door. Een echte review van de klant (`review`) krijgt de voorrang.
+   */
+  statements?: T[];
+}
+
+/* ---------- Case / project ---------- */
+export interface Case {
+  /**
+   * Concept-case (bv. nieuw uit Figma, nog niet bevestigd): alleen zichtbaar in development of met
+   * NEXT_PUBLIC_SHOW_DRAFTS=1, nooit in productie. Goedgekeurd? Haal `draft` weg.
+   */
+  draft?: boolean;
+  /** Logo van de klant (liefst wit/mono SVG of PNG met transparantie), rechtsonder in de hero op glas. */
+  logo?: string;
+  /** Uitgewerkt projectverhaal; wordt uit case-stories.ts toegevoegd. */
+  narrative?: CaseNarrative;
+  slug: string;
+  client: string;
+  title: T;
+  summary: T;
+  /** Jaar van oplevering; weglaten als het (nog) niet bekend is. */
+  year?: number;
+  sector: SectorSlug;
+  services: ServiceSlug[];
+  applications: ApplicationSlug[];
+  tools: ToolSlug[];
+  /** Hoofdbeeld. Zonder beeld genereert de site een cover in `color`. */
+  cover?: string;
+  /**
+   * Schermafbeeldingen voor de bewegende device-hero op de casepagina (lange screenshots die in
+   * een MacBook/iPhone/iPad rustig doorscrollen). Zonder screens: de gewone hero met `hero`/cover.
+   */
+  screens?: { desktop?: string; mobile?: string; tablet?: string };
+  /**
+   * Gerenderde hero-video (realistische 3D-mockup, rustige camerabeweging) met poster. Gaat voor de
+   * device-hero; tekst links, video rechts in een afgerond kader (mobiel eronder).
+   */
+  heroVideo?: { src: string; poster?: string; /** Staande versie voor mobiel (bv. 720×1280). */ srcMobile?: string; posterMobile?: string };
+  /** Brede render voor de strook "volgende case" (r-next.webp, ±2,2:1, onderwerp rechts van het midden). */
+  next?: string;
+  /** Films die M7 aanlevert (supplied-media.ts): schermvullende blokken in het verhaal. */
+  films?: { src: string; poster: string; w: number; h: number; title?: string }[];
+  gallery?: string[];
+  color: string;
+  challenge: T;
+  approach: T;
+  result: T;
+  results?: Highlight[];
+  url?: string;
+  /** Uitgelicht (home, menu, grote tegel in masonry). */
+  featured?: boolean;
+  /** Vorm in de masonry-grid. */
+  shape?: "tall" | "wide" | "square";
+  review?: string;
+  /** Concepttekst: nog verifiëren / aanvullen met echte projectinfo. */
+  concept?: boolean;
+  /** Schermvullende hero-achtergrond (beeld of video, met donkere overlay). Zonder hero: de cover. */
+  hero?: { image?: string; video?: string; poster?: string; position?: string };
+  /** Optionele video (of beeld) die na de hero omhoog schuift en meegroeit bij het scrollen. */
+  reveal?: { video?: string; image?: string; poster?: string; position?: string };
+  /**
+   * Het verhaal van het project: tekst, masonry-galerijen, quotes, beeld en
+   * een tijdlijn, in vrije volgorde. Zonder story bouwt de pagina er zelf
+   * een op uit challenge, approach, result, beelden en review.
+   */
+  story?: StoryBlock[];
+}
+
+/* ---------- Review ---------- */
+export interface Review {
+  id: string;
+  /** Naam zoals de reviewer die zelf gebruikt (persoon of bedrijf). */
+  author: string;
+  /** Functie; Google-reviews hebben er geen. */
+  role?: T;
+  company?: string;
+  avatar?: string;
+  quote: T;
+  /** Taal van de tekst als die maar in één taal bestaat (dan staat hij in nl én en). */
+  lang?: Locale;
+  services: ServiceSlug[];
+  case?: string;
+  rating?: number;
+  /** Waar de review gepubliceerd is (toont het logo van de bron). */
+  source?: "google";
+  /** Wanneer geplaatst, zoals de bron het toonde, bv. "2 jaar geleden". */
+  when?: T;
+  /** Tekst is een automatische vertaling door de bron (Google), niet het origineel. */
+  translated?: boolean;
+  /** Alleen een fragment beschikbaar (eindigt op […]). */
+  fragment?: boolean;
+  /** Concept-review: alleen zichtbaar in development of met NEXT_PUBLIC_SHOW_DRAFTS=1. */
+  draft?: boolean;
+}
+
+/* ---------- Team ---------- */
+export interface TeamMember {
+  slug: string;
+  name: string;
+  /** Voornaam voor korte teksten ("Bel Martijn"). */
+  first: string;
+  role: T;
+  /** Portret 800×999. */
+  photo: string;
+  /** Vierkante gezichtsuitsnede 256×256 voor avatar-emblemen. */
+  avatar: string;
+  /** Leuk detail voor de hover-kaart. */
+  fun?: T;
+  linkedin?: string;
+  founder?: boolean;
+  /** Millie: wel in het team, niet als Person in JSON-LD. */
+  dog?: boolean;
+}
+
+/* ---------- Media (eigen assets) ---------- */
+export type Media =
+  /** Scroll-gestuurde frame-reeks (zie scripts/sequence.mjs), bv. de Lotties van /home-2. */
+  | { type: "sequence"; src: string }
+  | { type: "lottie"; src: string; poster?: string }
+  | { type: "video"; src: string; poster?: string }
+  | { type: "image"; src: string; alt?: T };

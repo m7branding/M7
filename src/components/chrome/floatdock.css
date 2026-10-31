@@ -1,0 +1,228 @@
+/* ============================================================
+   Zwevende dock rechtsonder (korte intake + WhatsApp/contact)
+   ============================================================ */
+.fdock {
+  --fd-btn: 48px;
+  --fd-edge: clamp(16px, 2.2vw, 28px);
+  position: fixed;
+  right: calc(var(--fd-edge) + env(safe-area-inset-right, 0px));
+  bottom: calc(var(--fd-edge) + env(safe-area-inset-bottom, 0px));
+  z-index: 650;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 18px, 0) scale(0.96);
+  transform-origin: 100% 100%;
+  transition:
+    opacity 0.45s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.7s;
+}
+.fdock[data-shown] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+  transition:
+    opacity 0.6s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s;
+}
+/* Weg zolang er iets anders 'voor' ligt */
+html.ov-open .fdock,
+html.menu-open .fdock,
+html.aud-lock .fdock,
+body:has(.consent) .fdock {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 18px, 0) scale(0.96);
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.5s;
+}
+
+.fdock__pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(14, 14, 17, 0.74);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 50px -20px rgba(0, 0, 0, 0.95),
+    0 0 40px -14px rgba(58, 255, 255, 0.18);
+}
+
+/* live-dot als 'badge' linksboven */
+.fdock__live {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #0b0b0d;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.fdock__btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--fd-btn);
+  height: var(--fd-btn);
+  border-radius: 50%;
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.fdock__btn:focus-visible {
+  outline: 2px solid var(--teal, #3affff);
+  outline-offset: 3px;
+}
+.fdock__ico {
+  display: grid;
+  place-items: center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Raket: donker glas met merkrand, vult zich met de merkgradient bij hover */
+.fdock__btn--intake {
+  color: #3affff;
+  background:
+    linear-gradient(#111416, #111416) padding-box,
+    linear-gradient(135deg, rgba(58, 255, 255, 0.55), rgba(0, 255, 25, 0.35)) border-box;
+  border: 1px solid transparent;
+}
+.fdock__btn--intake::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3affff 0%, #22ffb4 55%, #00ff19 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.fdock__btn--intake .fdock__ico {
+  position: relative;
+  transform: rotate(45deg);
+}
+.fdock__btn--intake:hover,
+.fdock__btn--intake:focus-visible {
+  color: #031a10;
+}
+.fdock__btn--intake:hover::before,
+.fdock__btn--intake:focus-visible::before {
+  opacity: 1;
+}
+.fdock__btn--intake:hover .fdock__ico {
+  transform: translate3d(2px, -2px, 0) rotate(45deg);
+}
+
+/* WhatsApp: herkenbaar groen met wit logo */
+.fdock__btn--wa {
+  background: #25d366;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.fdock__btn--wa:hover {
+  background: #2be070;
+}
+.fdock__btn--wa:hover .fdock__ico,
+.fdock__btn--msg:hover .fdock__ico {
+  transform: scale(1.08);
+}
+
+/* Zonder WhatsApp-nummer: bericht/mail */
+.fdock__btn--msg {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.fdock__btn--msg:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Label boven de knop (rechts uitgelijnd, zodat het nooit buiten beeld valt) */
+.fdock__tip {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 14px);
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(20, 20, 24, 0.94);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 14px 34px -14px rgba(0, 0, 0, 0.95);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 6px, 0);
+  transition:
+    opacity 0.25s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fdock__btn--intake .fdock__tip {
+  right: auto;
+  left: -6px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .fdock__btn:hover .fdock__tip {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fdock__btn:focus-visible .fdock__tip,
+.fdock__btn.is-hint .fdock__tip {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 600px) {
+  .fdock {
+    --fd-btn: 44px;
+    --fd-edge: 14px;
+  }
+  .fdock__pill {
+    gap: 5px;
+    padding: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fdock,
+  .fdock[data-shown],
+  html.ov-open .fdock,
+  html.menu-open .fdock,
+  html.aud-lock .fdock,
+  body:has(.consent) .fdock {
+    transform: none;
+  }
+  .fdock__ico,
+  .fdock__btn,
+  .fdock__tip {
+    transition: none;
+  }
+}
+
+@media print {
+  .fdock {
+    display: none;
+  }
+}

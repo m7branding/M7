@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../src/components/cases/devices.css" />
+    <link rel="stylesheet" href="base.css" />
+    <!-- Drie iPhones recht van voren: home, subpagina en een sectie verderop. -->
+    <style>
+      body { --W: 1200px; --H: 800px; --gy: 60%; }
+      .row { position: absolute; left: 0; right: 0; top: 124px; display: flex; justify-content: center; gap: 74px; }
+      .phone { width: 246px; }
+      .phone:nth-child(2) { translate: 0 -14px; }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="scene">
+      <div class="row">
+        <div class="phone" data-dx="phone" data-shot="mob"></div>
+        <div class="phone" data-dx="phone" data-shot="mob2"></div>
+        <div class="phone" data-dx="phone" data-shot="mob3"></div>
+      </div>
+    </div>
+    <div class="grain"></div>
+    <script src="devices.js"></script>
+    <script src="stage.js"></script>
+  </body>
+</html>
