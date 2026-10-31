@@ -192,3 +192,25 @@ Praktisch (ronde 13):
   `write-manifest.mjs` schrijft `next`.
 - Staande camera's `__p` (portret-reels) en `__n` doen niet mee in stills/covers/hero's (`batch13.library(portrait=, nxt=)`).
 - `designs.print_url()` blijft de centrale guard tegen staging-/hostingdomeinen.
+
+### Ronde 14, fase 3: zwevende UI, interacties, schone schermen (`R14_PHASE3=1`)
+
+Bron: CAPTURE-agent (`r14/cap/<slug>/`: `hero-*.png`, `screen-<n>-<device>.png`, `snippets/` + `snippets.json`,
+`flows/` + `flows.json`, `qa.json`; `r14/cap/AUDIT.md` zegt per case welke oude capture kapot was).
+
+- **Schone schermen** (`proj.r14_captures`): voor de bestanden die AUDIT.md per case als "Replace" noemt komen de nieuwe
+  hero's in de plaats, en `full-desktop` / `full-mobile` worden de nieuwe viewport-schermen onder elkaar (plus
+  `full-tablet` voor iPads). Toestellen op een offset beginnen dan precies bovenaan een scherm (`_breaks`), en twee
+  toestellen in één compositie tonen twee verschillende schermen; panelen (d11) beginnen ook bovenaan een scherm.
+- **Zwevende UI in 3D** (`templates/scenes13/f01-f04_*`, `_float.py`): toestel + 2-4 kaarten die uit het scherm komen;
+  het voorvlak van elke kaart is een plat scherm (`snip_<k>`), de rand een tintvlak (`cedge_<k>`) in de paginakleur van
+  het fragment. `lib/snips.py` kiest echte fragmenten van de site met een passende verhouding (geen hele viewports,
+  liefst open menu's, formulieren, prijzen) en zet ze passend op de kaart; geen passend fragment = scène niet gebruikt.
+- **Zwevende UI plat** (`lib/float2d.py`, still-optie `ui2d`): 2-3 fragmenten als scherpe kaarten over een bestaande
+  toestelrender, half over de rand van het toestel (nooit meer dan ~40 % over het scherm), met twee zachte schaduwen
+  (zweefhoogte) en optioneel een lichte perspectiefdraai. Alleen op composities met ruimte rond het scherm
+  (`r14/bbox.json`).
+- **Interacties** (`lib/flows.py`, `video13.flow_shot`): een opname van de site (mega-menu, dropdown, menu op mobiel,
+  configurator, zoeken, filters, formulier) speelt als scherminhoud van één toestel; venster rond de eerste/laatste
+  beweging, hooguit 1,5× versneld. In de hero is het eerste shot (ook de poster) de interactie; in de reels
+  highlights/web/apps zijn 2-3 shots een interactie (3,2 s).
