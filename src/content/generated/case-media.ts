@@ -444,6 +444,29 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     heroVideo: { src: "/media/cases/db-kiepers/r-hero.mp4", poster: "/media/cases/db-kiepers/r-hero.webp", srcMobile: "/media/cases/db-kiepers/r-hero-m.mp4", posterMobile: "/media/cases/db-kiepers/r-hero-m.webp" },
     logo: "/media/cases/db-kiepers/logo-white.svg",
   },
+  "debiteurnet": {
+    gallery: [
+      "/media/cases/debiteurnet/r-01-d19-studio-front-c.webp",
+      "/media/cases/debiteurnet/r-02-t3-plinth.webp",
+      "/media/cases/debiteurnet/r-03-d10-tablets-iso-b.webp",
+      "/media/cases/debiteurnet/r-04-d19-studio-front-b.webp",
+      "/media/cases/debiteurnet/r-05-t4-float-ipad.webp",
+      "/media/cases/debiteurnet/r-06-d09-ipad-keyboard-a.webp",
+      "/media/cases/debiteurnet/r-07-t5-ipads-dark.webp",
+      "/media/cases/debiteurnet/r-08-d17-ipads-lean-c.webp",
+      "/media/cases/debiteurnet/r-09-d14-billboard-a.webp",
+      "/media/cases/debiteurnet/r-10-d14-billboard-c.webp",
+      "/media/cases/debiteurnet/r-11-d18-mac-profile-a.webp",
+      "/media/cases/debiteurnet/r-12-d10-tablets-iso-a.webp",
+      "/media/cases/debiteurnet/r-13-d09-ipad-keyboard-c.webp",
+      "/media/cases/debiteurnet/r-14-d17-ipads-lean-b.webp",
+      "/media/cases/debiteurnet/r-15-d17-ipads-lean-a.webp",
+      "/media/cases/debiteurnet/r-16-d18-mac-profile-c.webp",
+      "/media/cases/debiteurnet/r-17-d18-mac-profile-b.webp",
+      "/media/cases/debiteurnet/r-18-d19-studio-front-a.webp",
+    ],
+    heroVideo: { src: "/media/cases/debiteurnet/r-hero.mp4", poster: "/media/cases/debiteurnet/r-hero.webp", srcMobile: "/media/cases/debiteurnet/r-hero-m.mp4", posterMobile: "/media/cases/debiteurnet/r-hero-m.webp" },
+  },
   "digital-newsgroup": {
     cover: "/media/cases/digital-newsgroup/r-cover.webp",
     gallery: [
@@ -908,6 +931,20 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/impeco/screen-desktop.webp", mobile: "/media/cases/impeco/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/impeco/r-hero.mp4", poster: "/media/cases/impeco/r-hero.webp", srcMobile: "/media/cases/impeco/r-hero-m.mp4", posterMobile: "/media/cases/impeco/r-hero-m.webp" },
     logo: "/media/cases/impeco/logo-white.svg",
+  },
+  "infrai": {
+    gallery: [
+      "/media/cases/infrai/r-01-d04-phone-trio-a.webp",
+      "/media/cases/infrai/r-02-d07-phone-stone-a.webp",
+      "/media/cases/infrai/r-03-d06-phone-linen-b.webp",
+      "/media/cases/infrai/r-04-d06-phone-linen-a.webp",
+      "/media/cases/infrai/r-05-d05-phone-lean-a.webp",
+      "/media/cases/infrai/r-06-d07-phone-stone-b.webp",
+      "/media/cases/infrai/r-07-d04-phone-trio-b.webp",
+      "/media/cases/infrai/r-08-d05-phone-lean-b.webp",
+      "/media/cases/infrai/r-09-d16-phone-plinth-b.webp",
+    ],
+    heroVideo: { src: "/media/cases/infrai/r-hero.mp4", poster: "/media/cases/infrai/r-hero.webp", srcMobile: "/media/cases/infrai/r-hero-m.mp4", posterMobile: "/media/cases/infrai/r-hero-m.webp" },
   },
   "intrador": {
     gallery: [
@@ -1377,6 +1414,17 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/outplay/screen-desktop.webp", mobile: "/media/cases/outplay/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/outplay/r-hero.mp4", poster: "/media/cases/outplay/r-hero.webp", srcMobile: "/media/cases/outplay/r-hero-m.mp4", posterMobile: "/media/cases/outplay/r-hero-m.webp" },
     logo: "/media/cases/outplay/logo-white.png",
+  },
+  "perfect-people": {
+    gallery: [
+      "/media/cases/perfect-people/r-01-d18-mac-profile-b.webp",
+      "/media/cases/perfect-people/r-02-d18-mac-profile-a.webp",
+      "/media/cases/perfect-people/r-03-d19-studio-front-a.webp",
+      "/media/cases/perfect-people/r-04-d18-mac-profile-c.webp",
+      "/media/cases/perfect-people/r-05-d19-studio-front-b.webp",
+      "/media/cases/perfect-people/r-06-d19-studio-front-c.webp",
+    ],
+    heroVideo: { src: "/media/cases/perfect-people/r-hero.mp4", poster: "/media/cases/perfect-people/r-hero.webp", srcMobile: "/media/cases/perfect-people/r-hero-m.mp4", posterMobile: "/media/cases/perfect-people/r-hero-m.webp" },
   },
   "pine-street-school": {
     cover: "/media/cases/pine-street-school/r-cover.webp",
