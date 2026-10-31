@@ -10,6 +10,8 @@
      bij meerdere: r-hero.mp4, anders de eerste op naam, of config.json heroVideo[slug] = "r-hero-b.mp4".
    - logo-white.svg|png (anders logo.svg|png) in de case-map wordt het logo (BRAND) voor de hero-badge.
    - r-next.webp (2400×1100) wordt `next`: het beeld op de "volgende case"-kaart (niet in de galerij).
+   - r-flow-*.mp4 + gelijknamige .webp-poster: interactiefilms (menu's, tools, flows op een device) die als
+     eigen blokken in het verhaal komen (`films`); maten via ffprobe, titel uit r-flows.json ({ bestand: titel }).
    Los te draaien (node scripts/mockups/write-manifest.mjs) of via compose.mjs.
    Instellingen per slug: scripts/mockups/config.json
      replaceCover: slugs waarvan de mockup-cover de bestaande cover vervangt
@@ -18,6 +20,7 @@
      heroVideo:    { slug: "r-hero-x.mp4" } welke hero-video (bij meerdere r-hero*.mp4)
    ============================================================ */
 
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -30,6 +33,17 @@ const OUT = path.join(ROOT, "src/content/generated/case-media.ts");
 /** Volgorde in de galerij: sterkste beeld eerst. */
 export const GALLERY_ORDER = ["ipad", "phones", "detail", "display", "mac", "phones-angle"];
 
+/** Breedte en hoogte van een video (ffprobe); null als dat niet lukt. */
+function videoSize(file) {
+  try {
+    const out = execFileSync("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", file], { encoding: "utf8" });
+    const [w, h] = out.trim().split(",").map(Number);
+    return w && h ? { w, h } : null;
+  } catch {
+    return null;
+  }
+}
+
 export function writeManifest({ log = false } = {}) {
   const conf = fs.existsSync(path.join(HERE, "config.json")) ? JSON.parse(fs.readFileSync(path.join(HERE, "config.json"), "utf8")) : {};
   const replace = new Set(conf.replaceCover ?? []);
@@ -41,7 +55,7 @@ export function writeManifest({ log = false } = {}) {
     const dir = path.join(MEDIA, slug);
     if (!fs.statSync(dir).isDirectory() || exclude.has(slug)) continue;
     const all = fs.readdirSync(dir);
-    const files = all.filter((f) => /^(m-.+|r-.+|screen-(desktop|mobile|tablet))\.webp$/.test(f) || /^r-hero.*\.mp4$/.test(f));
+    const files = all.filter((f) => /^(m-.+|r-.+|screen-(desktop|mobile|tablet))\.webp$/.test(f) || /^r-(hero|flow-).*\.mp4$/.test(f));
     // logo van de klant (BRAND): liefst de witte versie (staat op de donkere hero), anders de gewone
     const logo = ["logo-white.svg", "logo-white.png", "logo.svg", "logo.png"].find((f) => all.includes(f));
     if (!files.length && !logo) continue;
@@ -52,7 +66,7 @@ export function writeManifest({ log = false } = {}) {
     if (files.includes("r-cover.webp")) e.cover = url("r-cover.webp");
     else if (files.includes("m-cover.webp")) e.cover = url("m-cover.webp");
     // realistische renders eerst (op naam, zonder r-cover en de hero-poster), dan de m-* mockups in vaste volgorde
-    const renders = files.filter((f) => /^r-.+\.webp$/.test(f) && !/^r-(hero|cover|next)/.test(f)).sort();
+    const renders = files.filter((f) => /^r-.+\.webp$/.test(f) && !/^r-(hero|cover|next|flow-)/.test(f)).sort();
     const gallery = [...renders, ...GALLERY_ORDER.map((g) => `m-${g}.webp`).filter((f) => files.includes(f))];
     if (gallery.length) e.gallery = gallery.map(url);
     // staande mobiele versies (r-hero-m.mp4, r-hero-a-m.mp4) horen bij hun liggende video, zijn geen eigen keuze
@@ -69,6 +83,18 @@ export function writeManifest({ log = false } = {}) {
         if (files.includes(pm)) e.heroVideo.posterMobile = url(pm);
       }
     }
+    // interactiefilms: alleen met poster en bekende maten (anders geen nette verhouding op de pagina)
+    const titles = all.includes("r-flows.json") ? JSON.parse(fs.readFileSync(path.join(dir, "r-flows.json"), "utf8")) : {};
+    const flows = files
+      .filter((f) => /^r-flow-.+\.mp4$/.test(f))
+      .sort()
+      .map((f) => {
+        const poster = f.replace(/\.mp4$/, ".webp");
+        const size = all.includes(poster) ? videoSize(path.join(dir, f)) : null;
+        return size ? { src: url(f), poster: url(poster), ...size, ...(titles[f] ? { title: titles[f] } : {}) } : null;
+      })
+      .filter(Boolean);
+    if (flows.length) e.films = flows;
     if (logo) e.logo = url(logo);
     // breed beeld voor de "volgende case"-kaart (2400×1100, onderwerp midden-rechts, links rustig en donker)
     if (files.includes("r-next.webp")) e.next = url("r-next.webp");
@@ -97,6 +123,7 @@ export function writeManifest({ log = false } = {}) {
             .map(([k, v]) => `${k}: ${JSON.stringify(v)}`)
             .join(", ")} },`,
         );
+      if (e.films) lines.push(`    films: [\n${e.films.map((f) => `      ${JSON.stringify(f)},`).join("\n")}\n    ],`);
       if (e.logo) lines.push(`    logo: ${JSON.stringify(e.logo)},`);
       if (e.next) lines.push(`    next: ${JSON.stringify(e.next)},`);
       if (e.replaceCover) lines.push(`    replaceCover: true,`);

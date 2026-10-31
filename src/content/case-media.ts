@@ -23,6 +23,8 @@ export interface CaseMediaEntry {
   logo?: string;
   /** Brede render voor de strook "volgende case" (r-next.webp). */
   next?: string;
+  /** Interactiefilms (r-flow-*.mp4 + poster): menu's, tools en flows op een device, als eigen blokken. */
+  films?: Case["films"];
   /** true: deze cover vervangt een bestaande cover van de case. */
   replaceCover?: boolean;
 }
@@ -83,5 +85,6 @@ function withGenerated(c: Case): Case {
     heroVideo: c.heroVideo ?? m.heroVideo,
     logo: c.logo ?? m.logo,
     next: c.next ?? m.next,
+    films: m.films?.length ? [...(c.films ?? []), ...m.films] : c.films,
   };
 }
