@@ -77,10 +77,10 @@ export function storyFor(c: Case): CaseBlock[] {
   const hero = heroOf(c);
   const heroSrc = hero.kind === "gen" ? undefined : hero.src;
 
-  // eerst wat M7 zelf aanlevert (s-*), dan de gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline),
+  // eerst wat M7 zelf aanlevert (s-*) en de portfolio-mockups (v-*), dan de gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline),
   // dan de cover en de rest
   const gallery = c.gallery ?? [];
-  const supplied = gallery.filter((g) => /\/s-[^/]+$/.test(g));
+  const supplied = gallery.filter((g) => /\/[sv]-[^/]+$/.test(g));
   const renders = gallery.filter((g) => /\/r-[^/]+$/.test(g));
   // een gerenderde cover (r-cover) is een uitsnede van een van de renders: niet nog eens in de galerij
   const cover = c.cover && /\/r-cover\.webp$/.test(c.cover) ? undefined : c.cover;

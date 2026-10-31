@@ -6,6 +6,7 @@
 
 import { caseNarratives } from "./case-stories";
 import { caseMedia } from "./generated/case-media";
+import { portfolioV2 } from "./portfolio-v2";
 import { suppliedMedia } from "./supplied-media";
 import type { Case } from "./types";
 
@@ -27,12 +28,25 @@ export interface CaseMediaEntry {
 }
 
 /**
- * Vult een case aan met beeld: eerst wat M7 zelf aanlevert (supplied-media), dan de gegenereerde
- * renders (r-*) en mockups (m-*), daarna de bestaande beelden van de case.
+ * Vult een case aan met beeld: eerst wat M7 zelf aanlevert (supplied-media), dan de
+ * portfolio-mockups v2, dan de gegenereerde renders (r-*) en mockups (m-*), daarna de
+ * bestaande beelden van de case.
  */
 export function withMedia(c0: Case): Case {
   const narrative = c0.narrative ?? caseNarratives[c0.slug];
-  return withSupplied(withGenerated(narrative ? { ...c0, narrative } : c0));
+  return withSupplied(withPortfolio(withGenerated(narrative ? { ...c0, narrative } : c0)));
+}
+
+/** Portfolio-mockups v2 vóór de renders; hun films als blokken in het verhaal; hun cover voor de kaarten. */
+function withPortfolio(c: Case): Case {
+  const p = portfolioV2[c.slug];
+  if (!p) return c;
+  return {
+    ...c,
+    cover: p.cover ?? c.cover,
+    gallery: [...p.images, ...(c.gallery ?? []).filter((g) => !p.images.includes(g))],
+    films: [...(c.films ?? []), ...p.films],
+  };
 }
 
 /** Aangeleverde beelden vooraan, films als eigen blokken; één film kan de hero worden en één beeld de cover. */
@@ -48,7 +62,7 @@ function withSupplied(c: Case): Case {
     ...c,
     cover: s.cover ?? c.cover,
     gallery,
-    films: s.films.filter((f) => f !== heroFilm),
+    films: [...s.films.filter((f) => f !== heroFilm), ...(c.films ?? [])],
     hero: heroFilm ? { video: heroFilm.src, poster: heroFilm.poster } : c.hero,
   };
 }
