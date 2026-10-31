@@ -159,6 +159,21 @@
   background: rgba(40, 40, 46, 0.55);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.26);
 }
+.cx-hero__more {
+  display: none;
+  height: 30px;
+  align-items: center;
+  padding: 0 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(12, 12, 15, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
 .cx-hero__concept {
   height: 30px;
   display: inline-flex;
@@ -235,6 +250,20 @@
   .cx-hero__title {
     max-width: none;
   }
+  .cx-hero__meta {
+    gap: 6px;
+  }
+  .cx-hero__meta .is-extra {
+    display: none;
+  }
+  .cx-hero__more {
+    display: inline-flex;
+  }
+  .cx-hero__tag {
+    height: 28px;
+    padding: 0 11px 0 10px;
+    font-size: 0.74rem;
+  }
   .cx-hero__logo {
     min-width: 0;
     height: 56px;
@@ -263,6 +292,8 @@
   align-items: start;
 }
 .cx-facts__lead {
+  position: sticky;
+  top: calc(var(--header-h) + 32px);
   font-size: clamp(1.2rem, 1.8vw, 1.7rem);
   font-weight: 500;
   line-height: 1.5;
@@ -380,6 +411,9 @@
   .cx-facts__grid {
     grid-template-columns: minmax(0, 1fr);
   }
+  .cx-facts__lead {
+    position: static;
+  }
 }
 @media (max-width: 520px) {
   .cx-specs__row {
@@ -450,25 +484,30 @@ html.js .cx-words__w {
   text-wrap: balance;
 }
 .cx-chapter__body {
-  grid-column: 6 / span 7;
+  grid-column: 5 / span 7;
+}
+.cx-chapter__text {
+  max-width: 38ch;
+  font-size: clamp(1.125rem, 1.42vw, 1.32rem);
 }
 .cx-chapter__text p {
-  max-width: 54ch;
-  font-size: clamp(1.04rem, 1.28vw, 1.26rem);
-  line-height: 1.78;
-  color: #a9a9b3;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: 1.62;
+  letter-spacing: -0.006em;
+  color: #c9c9d1;
   text-wrap: pretty;
 }
 .cx-chapter__text p:first-child {
-  color: #e2e2e8;
+  color: #f2f2f5;
 }
 .cx-chapter__text > * + * {
-  margin-top: 1.3em;
+  margin-top: 1.15em;
 }
 .cx-chapter__text ul {
   display: grid;
   gap: 8px;
-  color: #a9a9b3;
+  color: #c9c9d1;
 }
 .cx-chapter__quote {
   margin-top: 2em;
@@ -478,6 +517,11 @@ html.js .cx-words__w {
   font-weight: 600;
   line-height: 1.4;
   color: #fff;
+}
+@media (max-width: 1100px) {
+  .cx-chapter__body {
+    grid-column: 4 / -1;
+  }
 }
 @media (max-width: 900px) {
   .cx-chapter__title,
@@ -755,22 +799,65 @@ html.js [data-reveal="cx"].is-in > img {
   }
 }
 
-/* showcase van de klant */
+/* showcase van de klant: het podium loopt tot in de rechter- en onderrand van het kader (zoals in de hero
+   van de dienstpagina, waarvoor de mockups zijn ontworpen); links een korte regel in de lucht */
 .cx-show__grow .cx-grow__frame {
+  min-height: clamp(560px, 50vw, min(880px, 92svh));
   background:
-    radial-gradient(70% 70% at 55% 62%, color-mix(in srgb, var(--glow) 60%, transparent), transparent 75%),
+    radial-gradient(55% 75% at 68% 62%, color-mix(in srgb, var(--glow) 62%, transparent), transparent 75%),
     var(--deep);
 }
 .cx-show__stage {
-  position: relative;
-  height: clamp(560px, 54vw, 94svh);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(62%, 1100px);
+  height: calc(100% - clamp(48px, 6vw, 96px));
 }
 .cx-show__stage .show {
   border-radius: 0;
 }
-@media (max-width: 760px) {
+.cx-show__cap {
+  position: absolute;
+  left: var(--cx-side);
+  bottom: clamp(28px, 4vw, 64px);
+  z-index: 1;
+  max-width: min(30%, 340px);
+  display: grid;
+  gap: 10px;
+}
+.cx-show__cap span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.cx-show__cap strong {
+  font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .cx-show__grow .cx-grow__frame {
+    display: grid;
+    min-height: 0;
+  }
   .cx-show__stage {
-    height: clamp(420px, 118vw, 660px);
+    position: relative;
+    width: 100%;
+    height: clamp(420px, 112vw, 660px);
+    margin-top: 12px;
+  }
+  .cx-show__cap {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    max-width: none;
+    order: -1;
+    padding: 28px 20px 0;
   }
 }
 

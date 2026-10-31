@@ -74,7 +74,7 @@ export function worldData(locale: Locale) {
   const withClip = cases.filter((c) => c.heroVideo?.src && c.cover);
   const strip = spread(
     withClip.filter((c) => !introSlugs.has(c.slug)),
-    14,
+    12,
   ).map((c) => tileOf(c, locale));
   const stripSlugs = new Set(strip.map((t) => t.slug));
 
@@ -99,8 +99,9 @@ export function worldData(locale: Locale) {
   });
 
   /* ---------- projectwand: één project in het midden, de rest eromheen ---------- */
+  const chapterSlugs = new Set(chapters.flatMap((ch) => ch.reel?.cases.map((c) => c.slug) ?? []));
   const centerCase =
-    cases.find((c) => c.featured && c.heroVideo && !introSlugs.has(c.slug)) ?? cases.find((c) => c.featured && c.heroVideo) ?? withClip[0];
+    withClip.find((c) => !introSlugs.has(c.slug) && !stripSlugs.has(c.slug) && !chapterSlugs.has(c.slug)) ?? withClip[0];
   const wallPool = cases.filter((c) => c.cover && c.slug !== centerCase?.slug && !stripSlugs.has(c.slug));
   const wall = spread(wallPool, 12).map((c) => tileOf(c, locale));
 
@@ -129,7 +130,13 @@ export function worldData(locale: Locale) {
       };
       intro.forEach((r) => r.cases.forEach((c) => add(c.slug)));
       strip.forEach((t) => add(t.slug));
-      chapters.forEach((ch) => ch.reel?.cases.forEach((c) => add(c.slug)));
+      chapters.forEach((ch) => {
+        ch.reel?.cases.forEach((c) => add(c.slug));
+        ch.cases.forEach((x) => {
+          const c = cases.find((y) => paths.case(y) === x.href);
+          if (c) add(c.slug);
+        });
+      });
       if (centerCase) add(centerCase.slug);
       wall.forEach((t) => add(t.slug));
       return out;

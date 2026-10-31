@@ -117,6 +117,7 @@ const nl = {
     delivered: "Wat we opleverden",
     milestones: "Mijlpalen",
     scroll: "Scroll",
+    tools: "Tools",
   },
   about: {
     title: "Over M7",
@@ -303,6 +304,7 @@ const en: Dict = {
     delivered: "What we delivered",
     milestones: "Milestones",
     scroll: "Scroll",
+    tools: "Tools",
   },
   about: {
     title: "About M7",

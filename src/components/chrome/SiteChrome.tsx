@@ -19,7 +19,7 @@ import { MegaPanels, type MegaPanel } from "./Mega";
 import type { NavData } from "./types";
 
 type Panel = MegaPanel | null;
-type MenuKey = "sectors" | "services" | "cases" | "about" | "contact";
+type MenuKey = "sectors" | "services" | "cases" | "world" | "about" | "contact";
 
 export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
   const locale = useLocale();
@@ -180,6 +180,11 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
                 {dict.nav.about}
               </TLink>
             </div>
+            <div className="hdr__item" onMouseEnter={() => openPanel(null)}>
+              <TLink href={paths.world} className="hdr__link" onFocus={() => openPanel(null)}>
+                {dict.nav.world}
+              </TLink>
+            </div>
           </nav>
 
           <div className="hdr__actions">
@@ -276,6 +281,7 @@ function FullMenu({
     { key: "sectors", label: dict.nav.sectors, href: paths.sectors, sub: true },
     { key: "services", label: dict.nav.services, href: paths.services, sub: true },
     { key: "cases", label: dict.nav.cases, href: paths.cases, count: nav.caseCount, sub: false },
+    { key: "world", label: dict.nav.world, href: paths.world, sub: false },
     { key: "about", label: dict.nav.about, href: paths.about, sub: false },
     { key: "contact", label: dict.nav.contact, href: paths.contact, sub: false },
   ];
@@ -381,6 +387,25 @@ function FullMenu({
                 </TLink>
               ))}
             </div>
+          </div>
+          <div className={`fm__pane${active === "world" ? " is-on" : ""}`}>
+            <p className="kicker">{dict.nav.world}</p>
+            <div className="fm__cases">
+              {nav.cases.slice(4, 8).map((c, i) => (
+                <TLink key={c.slug} href={paths.world} style={{ ["--i" as string]: i }} tabIndex={-1} aria-hidden="true">
+                  <span style={{ background: c.color }}>{c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}</span>
+                  <strong>{c.client}</strong>
+                </TLink>
+              ))}
+            </div>
+            <p className="fm__about">
+              {locale === "nl"
+                ? "Een scrollende reis door ons werk: showreels, disciplines en klanten wereldwijd."
+                : "A scrolling journey through our work: showreels, disciplines and clients worldwide."}
+            </p>
+            <TLink href={paths.world} className="link-dash" tabIndex={open && active === "world" ? 0 : -1}>
+              {locale === "nl" ? "Stap erin" : "Step inside"}
+            </TLink>
           </div>
           <div className={`fm__pane${active === "about" ? " is-on" : ""}`}>
             <p className="kicker">{dict.nav.about}</p>

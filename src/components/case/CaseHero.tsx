@@ -10,6 +10,9 @@ import { paths } from "@/lib/paths";
 import type { HeroMedia } from "@/lib/story";
 import { HeroVideo } from "./HeroVideo";
 
+/** Op mobiel staan er hooguit zoveel diensten, de rest als "+N" (anders worden het drie rijen chips). */
+const MOBILE_TAGS = 3;
+
 /**
  * Case-hero: schermvullend, ingesprongen en afgerond (zoals de overige heroes), met het beeld
  * of de gerenderde hero-video full-bleed op de achtergrond. Donker verloop linksonder, daarop
@@ -63,13 +66,18 @@ export function CaseHero({ c, locale, media, services }: { c: Case; locale: Loca
                     <time dateTime={String(c.year)}>{c.year}</time>
                   </li>
                 ) : null}
-                {services.map((s) => (
-                  <li key={s.slug}>
+                {services.map((s, i) => (
+                  <li key={s.slug} className={i >= MOBILE_TAGS ? "is-extra" : undefined}>
                     <TLink href={paths.service(s)} className="cx-hero__tag" style={{ ["--accent" as string]: s.color }}>
                       {tr(s.short, locale)}
                     </TLink>
                   </li>
                 ))}
+                {services.length > MOBILE_TAGS ? (
+                  <li className="cx-hero__more" title={services.slice(MOBILE_TAGS).map((s) => tr(s.short, locale)).join(", ")}>
+                    +{services.length - MOBILE_TAGS}
+                  </li>
+                ) : null}
                 {c.concept ? <li className="cx-hero__concept">{d.cases.concept}</li> : null}
               </ul>
               <SplitText as="h1" id="cx-title" className={`cx-hero__title${title.length > 56 ? " is-long" : title.length > 38 ? " is-mid" : ""}`} parts={title} delay={0.15} />

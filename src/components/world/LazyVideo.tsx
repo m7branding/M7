@@ -4,20 +4,20 @@ import { useEffect, useRef } from "react";
 
 /**
  * Korte loop die pas laadt als hij in de buurt komt en alleen speelt als hij echt
- * in beeld is (IntersectionObserver); daarbuiten pauzeert hij. Zonder beweging
- * (reduced motion) of bij databesparing blijft de poster staan.
+ * in beeld is (IntersectionObserver); daarbuiten pauzeert hij. Het stilstaande beeld
+ * is een gewone <img loading="lazy"> eronder (een poster-attribuut laadt altijd meteen):
+ * de video vloeit er pas overheen als hij speelt (data-on, zie world.css).
+ * Zonder beweging (reduced motion) of bij databesparing blijft het beeld staan.
  * De src wordt buiten React gezet, zodat er niets opnieuw rendert.
  */
 export function LazyVideo({
   src,
   srcMobile,
-  poster,
   className,
   play = 0.4,
 }: {
   src: string;
   srcMobile?: string;
-  poster?: string;
   className?: string;
   /** Welk deel in beeld moet zijn voor hij speelt (0–1). */
   play?: number;
@@ -31,6 +31,8 @@ export function LazyVideo({
     const save = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
     if (reduce || save) return;
     const small = window.matchMedia("(max-width: 760px)").matches;
+    const on = () => (v.dataset.on = "1");
+    v.addEventListener("playing", on);
     let armed = false;
     let seen = false;
     const tryPlay = () => {
@@ -62,9 +64,10 @@ export function LazyVideo({
       near.disconnect();
       vis.disconnect();
       document.removeEventListener("visibilitychange", tryPlay);
+      v.removeEventListener("playing", on);
       v.pause();
     };
   }, [src, srcMobile, play]);
 
-  return <video ref={ref} className={className} poster={poster} muted playsInline loop preload="none" aria-hidden="true" tabIndex={-1} disablePictureInPicture />;
+  return <video ref={ref} className={className} muted playsInline loop preload="none" aria-hidden="true" tabIndex={-1} disablePictureInPicture />;
 }

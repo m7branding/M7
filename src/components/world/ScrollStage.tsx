@@ -11,6 +11,7 @@ import { useScroll } from "@/components/motion/SmoothScroll";
  * de positie van de sectie wordt alleen bij het laden en bij een andere maat gemeten,
  * de voortgang daarna uit de scrollpositie (Lenis) berekend.
  *
+ * data-end="1" zodra de scène voor 60% doorlopen is (links in het eindbeeld pas dan klikbaar).
  * `track`: selector van een horizontale rij; de overloop (px) komt in --dist,
  * zodat de CSS de sectie precies zo hoog maakt als de rij lang is.
  */
@@ -39,6 +40,8 @@ export function ScrollStage({
     const { top, len } = geo.current;
     const p = Math.min(1, Math.max(0, (y - top) / len));
     if (Math.abs(p - last.current) < 0.0004) return;
+    const end = p >= 0.6;
+    if (end !== last.current >= 0.6 || last.current < 0) el.dataset.end = end ? "1" : "0";
     last.current = p;
     el.style.setProperty("--p", p.toFixed(4));
   }, []);

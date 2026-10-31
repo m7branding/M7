@@ -281,7 +281,8 @@ export function ShowreelPlayer({
               className="srp__v"
               data-state={state}
               src={srcOn && c ? srcOf(k) : undefined}
-              poster={c?.poster}
+              // een poster-attribuut laadt altijd meteen: pas zetten als de speler in de buurt is
+              poster={near || priority ? c?.poster : undefined}
               muted
               playsInline
               loop={N === 1}

@@ -45,7 +45,7 @@ export function CaseFacts({ c, locale, sector, apps }: { c: Case; locale: Locale
     });
   if (c.tools.length)
     rows.push({
-      k: d.service.tools,
+      k: d.cases.tools,
       wide: true,
       v: (
         <div className="cx-specs__tools">

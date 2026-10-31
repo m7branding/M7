@@ -85,6 +85,7 @@ export function llmsTxt(full = false): string {
   }
   out.push("");
   out.push("## Optioneel");
+  out.push(`- [World of M7](${u(paths.world)}): scrollende ervaring met showreels van het werk, per discipline, met de klantenkaart`);
   out.push(`- [Over M7](${u(paths.about)})`);
   out.push(`- [Werkproces per dienst](${u(paths.process)}): hoe M7 per dienst te werk gaat, stap voor stap`);
   out.push(`- [Contact](${u(paths.contact)})`);

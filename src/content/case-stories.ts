@@ -1514,6 +1514,420 @@ export const caseNarratives: Record<string, CaseNarrative> = {
       { nl: "Richtlijnen zijn geen keurslijf. Ze zorgen dat het merk overal hetzelfde zegt.", en: "Guidelines aren't a straitjacket. They make the brand say the same thing everywhere." },
     ],
   },
+  "digital-newsgroup": {
+    intro: {
+      nl: "Backlinks en PR-publicaties bestellen, net zo makkelijk als een paar schoenen. Voor Digital Newsgroup bouwden we de shop die dat mogelijk maakt.",
+      en: "Ordering backlinks and PR placements as easily as a pair of shoes. For Digital Newsgroup we built the shop that makes it possible.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een database vol publicaties.", en: "A database full of publishers." },
+        body: [
+          {
+            nl: "Digital Newsgroup (DNG) is een internationaal linkbuildingbureau met eigen software en een grote database met blogs en nieuwssites. Klanten moesten dat aanbod makkelijk kunnen doorzoeken. En ze moesten direct kunnen bestellen.",
+            en: "Digital Newsgroup (DNG) is an international link-building agency with its own software and a large database of blogs and news sites. Customers needed to search that offer easily. And they needed to order straight away.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Fris, met een groene vonk.", en: "Fresh, with a green spark." },
+        body: [
+          {
+            nl: "We gaven het merk een frisse uitstraling: donker, met fel limoengroen als accent. Die stijl loopt door in de shop, die we bouwden in WordPress met WooCommerce.",
+            en: "We gave the brand a fresh look: dark, with bright lime green as the accent. That style carries through to the shop, which we built in WordPress with WooCommerce.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Kiezen zoals in een webshop.", en: "Choose like in any web shop." },
+        body: [
+          {
+            nl: "In de shop filter je op categorie en zie je per site de belangrijkste cijfers, zoals domain authority en organisch verkeer, met de prijs ernaast. Je bestelt meteen, en de contentdetails vul je later in. Zo kies je backlinks zoals je dat van elke webshop gewend bent.",
+            en: "In the shop you filter by category and see the key figures for each site, such as domain authority and organic traffic, with the price alongside. You order right away and fill in the content details later. Choosing backlinks works just like any web shop you're used to.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een ingewikkeld aanbod wordt simpel als je het als een winkel inricht.", en: "A complicated offer becomes simple when you set it up like a shop." },
+    ],
+  },
+  "martello": {
+    intro: {
+      nl: "Martello adviseert besturen, investeerders en directies waar strategie, kapitaal, klimaat en reputatie samenkomen. Zo'n bureau verdient een merk en een website die één verhaal vertellen.",
+      en: "Martello advises boards, investors and leadership teams where strategy, capital, climate and reputation meet. A firm like that deserves a brand and a website that tell one story.",
+    },
+    chapters: [
+      {
+        title: { nl: "Eén team, vijf vakgebieden.", en: "One team, five disciplines." },
+        body: [
+          {
+            nl: "Martello werkt met één senior team op elke opdracht, zonder laag ertussen. Van strategie en communicatie tot kapitaal, klimaat en training. Martello zocht een herkenbaar merk en een website die laat zien waar het bedrijf voor staat.",
+            en: "Martello puts one senior team on every assignment, with no layer in between. From strategy and communications to capital, climate and training. Martello wanted a recognisable brand and a website that shows what the firm stands for.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Verleden, heden, toekomst.", en: "Past, present, future." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en maakten de website in dezelfde lijn: diep groen, een rustige letter en een cursief accent. De opening zet de toon met drie korte zinnen over verleden, heden en toekomst. Daaronder staan de vijf vakgebieden overzichtelijk naast elkaar.",
+            en: "We developed the branding and created the website in the same style: deep green, a calm typeface and an italic accent. The opening sets the tone with three short lines about past, present and future. Below it, the five disciplines sit clearly side by side.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een senior merk hoeft niet hard te praten.", en: "A senior brand doesn't need to raise its voice." },
+    ],
+  },
+  "huurfix": {
+    intro: {
+      nl: "Betaal je te veel huur, dan wil je dat weten. Maar gedoe met je verhuurder, daar zit niemand op te wachten. Huurfix regelt het voor je, en wij zorgden dat dat aanbod simpel en betrouwbaar overkomt.",
+      en: "If you're paying too much rent, you want to know. But nobody wants a fight with their landlord. Huurfix sorts it out for you, and we made sure that offer comes across as simple and trustworthy.",
+    },
+    chapters: [
+      {
+        title: { nl: "Pas betalen als het lukt.", en: "Pay only when it works." },
+        body: [
+          {
+            nl: "Bij Huurfix neemt een jurist het contact met je verhuurder en de procedure bij de Huurcommissie over. Je betaalt pas achteraf, op no cure no pay-basis. Een sterk aanbod, maar alleen als mensen het ook geloven.",
+            en: "At Huurfix, a legal specialist takes over contact with your landlord and the procedure at the Rent Tribunal. You only pay afterwards, on a no cure, no pay basis. A strong offer, but only if people believe it.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een gezicht en een check.", en: "A face and a check." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en bouwden de website in Webflow, in het Nederlands en Engels. Licht en warm, met geel als accent en de jurist zelf in beeld, zodat je weet met wie je te maken hebt.",
+            en: "We developed the branding and built the website in Webflow, in Dutch and English. Light and warm, with yellow as the accent and the legal specialist himself in view, so you know who you're dealing with.",
+          },
+          {
+            nl: "Alles op de site leidt naar de gratis huurprijscheck. Je vult je postcode en huisnummer in, en de aanvraag loopt verder.",
+            en: "Everything on the site leads to the free rent check. You enter your postcode and house number, and the application takes it from there.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Zelf verder, in dezelfde stijl.", en: "Carrying on, in the same style." },
+        body: [
+          {
+            nl: "Daarnaast maakten we templates voor social media en een e-book. Zo kan Huurfix zelf verder met content, in dezelfde stijl als de website.",
+            en: "We also made social media templates and an e-book. That way Huurfix can keep creating content itself, in the same style as the website.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een sterk aanbod werkt pas als je het in één keer snapt.", en: "A strong offer only works if you get it in one go." },
+    ],
+  },
+  "cryptocointalk": {
+    intro: {
+      nl: "Een realistische kijk op crypto, voor beginners en gevorderde traders. Bij CryptoCoinTalk moest de manier waarop abonnementen werkten op de schop, en het platform kon wel een frisse start gebruiken.",
+      en: "A realistic take on crypto, for beginners and experienced traders. At CryptoCoinTalk, the way subscriptions worked needed an overhaul, and the platform could use a fresh start.",
+    },
+    chapters: [
+      {
+        title: { nl: "Toe aan een frisse start.", en: "Ready for a fresh start." },
+        body: [
+          {
+            nl: "CryptoCoinTalk helpt traders en investeerders met cursussen, een community en educatie. Het abonnementsmodel was niet meer helder genoeg. En ook het platform, de website en het merk konden een opfrisbeurt gebruiken.",
+            en: "CryptoCoinTalk helps traders and investors with courses, a community and education. The subscription model was no longer clear enough. And the platform, the website and the brand could all use a refresh.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Abonnementen die kloppen.", en: "Subscriptions that make sense." },
+        body: [
+          {
+            nl: "We richtten de abonnementen opnieuw in en gaven het platform een UI/UX-redesign. Van de gratis cursus tot de trade- en investeringscursus: je ziet beter wat je krijgt en waar je bent.",
+            en: "We restructured the subscriptions and gave the platform a UI/UX redesign. From the free course to the trading and investing courses, you see more clearly what you get and where you are.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Opgefrist, van merk tot site.", en: "Refreshed, from brand to site." },
+        body: [
+          {
+            nl: "We fristen de branding op en bouwden een nieuwe website in dezelfde lijn: wit, donkerblauw en groen, met de cursussen helder op een rij. Zo vormen platform, merk en website weer één geheel.",
+            en: "We refreshed the branding and built a new website in the same style: white, dark blue and green, with the courses clearly laid out. Platform, brand and website form one whole again.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een helder abonnement is ook goede UX.", en: "A clear subscription is good UX too." },
+    ],
+  },
+  "solidlayer": {
+    intro: {
+      nl: "Data die de Europese Unie nooit verlaat, juridisch en fysiek. SolidLayer bouwt aan soevereine infrastructuur, en had een merk nodig dat vanaf dag één solide overkomt.",
+      en: "Data that never leaves the European Union, legally or physically. SolidLayer builds sovereign infrastructure, and needed a brand that feels solid from day one.",
+    },
+    chapters: [
+      {
+        title: { nl: "Soeverein van opzet.", en: "Sovereign by structure." },
+        body: [
+          {
+            nl: "SolidLayer bouwt aan veilige, soevereine infrastructuur, zoals een CDN dat volledig binnen de EU blijft. Het motto is 'Sovereign by structure'. Een nieuw merk in een technische markt, dat meteen vertrouwen moest wekken.",
+            en: "SolidLayer builds secure, sovereign infrastructure, such as a CDN that stays entirely within the EU. Its motto is 'Sovereign by structure'. A new brand in a technical market that had to earn trust straight away.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Europa op de kaart.", en: "Europe on the map." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en legden die vast in een compact brandbook. Daarna ontwierpen en bouwden we de website: donkerblauw, met een felgroene kaart van Europa waarover het netwerk oplicht. Zo zie je in één beeld waar je data blijft.",
+            en: "We developed the branding and captured it in a compact brandbook. Then we designed and built the website: dark blue, with a bright green map of Europe on which the network lights up. One image shows you where your data stays.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een stevig merk begint bij een eenvoudige structuur.", en: "A solid brand starts with a simple structure." },
+    ],
+  },
+  "agroforestry-wur": {
+    intro: {
+      nl: "Bomen, struiken en landbouw die samen een veerkrachtiger systeem vormen. Wageningen University & Research onderzoekt het al jaren, en al die kennis verdiende één plek.",
+      en: "Trees, shrubs and farming working together as a more resilient system. Wageningen University & Research has studied it for years, and all that knowledge deserved one home.",
+    },
+    chapters: [
+      {
+        title: { nl: "Van niche naar praktijk.", en: "From niche to practice." },
+        body: [
+          {
+            nl: "WUR onderzoekt samen met partners hoe agroforestry in de praktijk werkt. In het publiek-private project 'Agroforestry in diverse vormen van niche naar gevestigde praktijk' komt al dat onderzoek samen. Die kennis moest goed vindbaar worden, voor boeren, beleidsmakers en iedereen die ermee aan de slag wil.",
+            en: "WUR works with partners to research how agroforestry works in practice. The public-private project 'Agroforestry in diverse forms, from niche to established practice' brings all that research together. The knowledge had to be easy to find, for farmers, policymakers and anyone who wants to get started.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Op type en op thema.", en: "By type and by theme." },
+        body: [
+          {
+            nl: "We ontwierpen de website in Webflow en zetten die over naar WordPress. De kennisbank deelden we in op type, zoals factsheets, rapporten, tools en video's. En op thema: voedselbossen, veehouderij, akkerbouw, internationaal en beleid.",
+            en: "We designed the website in Webflow and moved it to WordPress. We organised the knowledge base by type, such as factsheets, reports, tools and videos. And by theme: food forests, livestock farming, arable farming, international and policy.",
+          },
+          {
+            nl: "Zo vind je snel een praktijkgids voor dierhouders of een verkenning voor de akkerbouw. Van afgeronde projecten tot lopend onderzoek, alles staat op één plek.",
+            en: "That way you quickly find a practical guide for livestock farmers or an exploration for arable farming. From completed projects to ongoing research, it's all in one place.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Onderzoek is pas af als iemand het kan vinden.", en: "Research is only finished when someone can find it." },
+    ],
+  },
+  "grid": {
+    intro: {
+      nl: "Laadpunten vinden, de goedkoopste pomp kiezen en een laadpaal bestellen. GRID doet het allemaal, en dat moest online een duidelijk thuis krijgen.",
+      en: "Finding charging points, choosing the cheapest pump and ordering a charger. GRID does it all, and that needed a clear home online.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een app en een winkel.", en: "An app and a shop." },
+        body: [
+          {
+            nl: "Met de GRID-app vind je laadpunten en tankstations, plan je je route en zie je waar laden of tanken het voordeligst is. Daarnaast levert GRID laadpalen, laadkabels en snelladers, voor particulieren en bedrijven. Twee werelden die online bij elkaar moesten komen.",
+            en: "With the GRID app you find charging points and fuel stations, plan your route and see where charging or refuelling is cheapest. GRID also supplies chargers, charging cables and fast chargers, for consumers and businesses. Two worlds that had to come together online.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Website en shop, één familie.", en: "Site and shop, one family." },
+        body: [
+          {
+            nl: "We bouwden de website in Webflow en de marketplace shop.grid.com in WordPress met WooCommerce. Licht, met groen als merkkleur, en aparte ingangen voor particulieren en zakelijk. Van laadkabel tot DC-snellader bestel je alles op één plek.",
+            en: "We built the website in Webflow and the shop.grid.com marketplace in WordPress with WooCommerce. Light, with green as the brand colour, and separate entrances for consumers and businesses. From charging cable to DC fast charger, you order everything in one place.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Eén boodschap per banner.", en: "One message per banner." },
+        body: [
+          {
+            nl: "Voor campagnes maakten we advertentiebanners, zoals die voor het gratis aanvragen van een publiek laadpunt bij je woning. Eén boodschap, één actie, en meteen duidelijk wat je moet doen.",
+            en: "For campaigns we made ad banners, such as the one for requesting a free public charging point near your home. One message, one action, and instantly clear what to do.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Elektrisch rijden is al nieuw genoeg. De website hoeft het niet ingewikkelder te maken.", en: "Electric driving is new enough. The website shouldn't make it harder." },
+    ],
+  },
+  "verichecks": {
+    intro: {
+      nl: "Eerst checken, dan zakendoen. VeriChecks uit Brussel helpt bedrijven met verificatie en compliance, een serieus onderwerp dat toch toegankelijk moest voelen.",
+      en: "Check first, then do business. VeriChecks from Brussels helps companies with verification and compliance, a serious subject that still had to feel approachable.",
+    },
+    chapters: [
+      {
+        title: { nl: "Serieus, maar niet zwaar.", en: "Serious, not heavy." },
+        body: [
+          {
+            nl: "VeriChecks doet verificatie- en compliancechecks: van zakelijke checks tot achtergrondcontroles bij nieuwe medewerkers, leveranciers en klanten. Daar komt veel bij kijken. Het merk moest betrouwbaar zijn, zonder af te schrikken.",
+            en: "VeriChecks runs verification and compliance checks: from business checks to background screening of new employees, suppliers and customers. There's a lot involved. The brand had to be trustworthy without being intimidating.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Drie stappen naar zekerheid.", en: "Three steps to certainty." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en ontwierpen en bouwden de website in Webflow: licht, helder en met blauw als basis. In drie stappen zie je hoe het werkt: klanten toevoegen, één voor één of in bulk, de juiste checks kiezen en de resultaten overzichtelijk terugzien.",
+            en: "We developed the branding and designed and built the website in Webflow: light, clear and based on blue. Three steps show how it works: add clients, one by one or in bulk, choose the right checks and review the results in a clear overview.",
+          },
+          {
+            nl: "Elke toepassing krijgt een eigen uitleg, van screening bij werving tot due diligence. Zo herkent elke bezoeker zijn eigen situatie.",
+            en: "Every use case gets its own explanation, from screening during recruitment to due diligence. That way every visitor recognises their own situation.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Vertrouwen moet je kunnen aantonen. Ook op je eigen website.", en: "Trust should be provable. On your own website too." },
+    ],
+  },
+  "nexis-group": {
+    intro: {
+      nl: "Bloeddruk, hartslag en zuurstofsaturatie, gemeten bij de patiënt thuis en automatisch zichtbaar voor het zorgteam. Nexis Telebox maakt het mogelijk, en de website moest dat in één keer uitleggen.",
+      en: "Blood pressure, heart rate and oxygen saturation, measured at the patient's home and automatically visible to the care team. Nexis Telebox makes it possible, and the website had to explain that in one go.",
+    },
+    chapters: [
+      {
+        title: { nl: "Thuis gemeten, in het dashboard.", en: "Measured at home, seen on screen." },
+        body: [
+          {
+            nl: "Met Nexis Telebox meten patiënten thuis hun waarden, en via 4G komen de metingen automatisch in het dashboard van het zorgteam. Ziekenhuizen en klinieken moesten in één keer snappen wat het is, voor wie het is en hoe het in hun bestaande systemen past.",
+            en: "With Nexis Telebox, patients take their measurements at home, and via 4G the readings arrive automatically in the care team's dashboard. Hospitals and clinics had to understand in one go what it is, who it is for and how it fits their existing systems.",
+          },
+        ],
+      },
+      {
+        title: { nl: "De vragen van de bezoeker leiden.", en: "The visitor's questions lead." },
+        body: [
+          {
+            nl: "We ontwierpen de website in Webflow en zetten die over naar WordPress, in het Nederlands en Engels. De opbouw volgt de vragen van de bezoeker: waarom nu, wat is het, voor wie is het en hoe werkt het? Rustige beelden van patiënten thuis en een duidelijke weg naar een demo maken het af.",
+            en: "We designed the website in Webflow and moved it to WordPress, in Dutch and English. The structure follows the visitor's questions: why now, what is it, who is it for and how does it work? Calm images of patients at home and a clear path to a demo complete it.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een technisch zorgproduct verdient een menselijke website.", en: "A technical care product deserves a human website." },
+    ],
+  },
+  "sparta-blue-hydrogen": {
+    intro: {
+      nl: "Waterstof leg je niet in één zin uit. Sparta Blue Hydrogen wilde een merk en een website die professioneel overkomen en het verhaal helder vertellen.",
+      en: "Hydrogen isn't something you explain in one sentence. Sparta Blue Hydrogen wanted a brand and a website that come across as professional and tell the story clearly.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een opstap naar een schonere industrie.", en: "A stepping stone to cleaner industry." },
+        body: [
+          {
+            nl: "Sparta richt zich op koolstofarme waterstof, gemaakt uit aardgas met afvang en opslag van CO₂. Een pragmatische stap in de energietransitie, met een technisch verhaal. Dat verhaal moest professioneel en helder overkomen.",
+            en: "Sparta focuses on low-carbon hydrogen, made from natural gas with carbon capture and storage. A pragmatic step in the energy transition, with a technical story. That story had to come across as professional and clear.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Wit, blauw en Europa.", en: "White, blue and Europe." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en ontwierpen en bouwden de website. Wit en blauw, met een klassieke letter en een kaart van Europa als terugkerend beeld. De visie op betaalbare, koolstofarme waterstof krijgt de ruimte, zonder dat de lezer verdwaalt in jargon.",
+            en: "We developed the branding and designed and built the website. White and blue, with a classic typeface and a map of Europe as a recurring image. The vision of affordable, low-carbon hydrogen gets room to breathe, without the reader getting lost in jargon.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Hoe technischer het product, hoe belangrijker de eerste zin.", en: "The more technical the product, the more the first sentence matters." },
+    ],
+  },
+  "db-kiepers": {
+    intro: {
+      nl: "Zand, puin en granulaat, geleverd met eigen kiepwagens en containerauto's, dag en nacht. DB Kiepers heeft de hele keten in handen, en dat mocht je zien: online en op de weg.",
+      en: "Sand, rubble and aggregate, delivered by its own tipper trucks and container lorries, day and night. DB Kiepers controls the whole chain, and that deserved to show: online and on the road.",
+    },
+    chapters: [
+      {
+        title: { nl: "De hele keten in eigen hand.", en: "The whole chain in-house." },
+        body: [
+          {
+            nl: "DB Kiepers levert gecertificeerde bouwstoffen en verzorgt zelf het transport. Dat maakt ze anders dan een gewone transporteur of een gewone leverancier. Die combinatie verdiende een premium uitstraling.",
+            en: "DB Kiepers supplies certified building materials and handles the transport itself. That sets them apart from an ordinary haulier or an ordinary supplier. That combination deserved a premium look.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Premium, ook in de bouw.", en: "Premium, even in construction." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en bouwden de website in Webflow. Transport en grondstoffen staan helder naast elkaar, en cases laten zien aan welke projecten DB Kiepers levert, zoals de verbreding van de A27.",
+            en: "We developed the branding and built the website in Webflow. Transport and raw materials sit clearly side by side, and case studies show which projects DB Kiepers supplies, such as the widening of the A27 motorway.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Het merk rijdt mee.", en: "The brand rides along." },
+        body: [
+          {
+            nl: "We ontwierpen ook de stickering voor de trucks. Zo rijdt het merk overal mee, van de bouwplaats tot de snelweg. Van homepage tot vrachtwagen ziet DB Kiepers er hetzelfde uit.",
+            en: "We also designed the livery for the trucks. That way the brand travels everywhere, from building site to motorway. From homepage to lorry, DB Kiepers looks the same.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een vrachtwagen is ook een billboard.", en: "A truck is a billboard too." },
+    ],
+  },
+  "jmtuning": {
+    intro: {
+      nl: "Titanium voor supercars, maatwerk voor liefhebbers en een online platform vol uitlaatonderdelen. JMTuning in Schagen huisvest het allemaal onder één dak, en dat moest online overzichtelijk blijven.",
+      en: "Titanium for supercars, custom work for enthusiasts and an online platform full of exhaust parts. JMTuning in Schagen houses it all under one roof, and online it had to stay clear.",
+    },
+    chapters: [
+      {
+        title: { nl: "Vier afdelingen, één dak.", en: "Four departments, one roof." },
+        body: [
+          {
+            nl: "JMTuning is gespecialiseerd in uitlaten, met eigen productie. Onder één dak zitten de titanium uitlaten van Maarschall, maatwerk van JM Custom Exhausts, BLAST en RVSuitlaatdelen.nl, een online platform voor uitlaatonderdelen. Hoe laat je die naast elkaar bestaan zonder dat het rommelig wordt?",
+            en: "JMTuning specialises in exhausts, with its own production. Under one roof sit Maarschall's titanium exhausts, custom work by JM Custom Exhausts, BLAST and RVSuitlaatdelen.nl, an online platform for exhaust parts. How do you let them live side by side without it getting messy?",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een familie met eigen accenten.", en: "A family with its own accents." },
+        body: [
+          {
+            nl: "We begonnen bij de merkstrategie en brachten de afdelingen onder in één merkfamilie. Elke afdeling kreeg een eigen accent, en samen blijven ze herkenbaar als JMTuning.",
+            en: "We started with brand strategy and brought the departments together in one brand family. Each department got its own accent, and together they remain recognisable as JMTuning.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Eerst kiezen, dan binnen.", en: "Choose first, then step inside." },
+        body: [
+          {
+            nl: "De website in Webflow werkt als voordeur. Je kiest een afdeling en komt direct op de juiste plek, of je nu een titanium systeem zoekt of een los onderdeel. Zo komt elke bezoeker snel bij de juiste specialist uit.",
+            en: "The website in Webflow works as a front door. You pick a department and land in the right place straight away, whether you're after a titanium system or a single part. Every visitor quickly reaches the right specialist.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een merkfamilie werkt als iedereen zijn eigen stem houdt.", en: "A brand family works when everyone keeps their own voice." },
+    ],
+  },
   "maarschall": {
     intro: {
       nl: "Handgemaakt titanium, een eigen sound en een plek onder McLarens, Ferrari's en Lamborghini's. Maarschall verdiende een website die net zo hard binnenkomt als het geluid van de uitlaat.",
@@ -1555,6 +1969,140 @@ export const caseNarratives: Record<string, CaseNarrative> = {
     statements: [
       { nl: "Je moet de uitlaat bijna horen, alleen door naar de site te kijken.", en: "You should almost hear the exhaust, just by looking at the site." },
       { nl: "Klasse zie je ook aan wat je weglaat.", en: "Class also shows in what you leave out." },
+    ],
+  },
+  "the-filmcar": {
+    intro: {
+      nl: "Een auto vol camera's die meerijdt met alles wat beweegt. The Filmcar maakt rolling shots voor producties, en de website moest net zo strak in beeld staan.",
+      en: "A car full of cameras that runs alongside anything that moves. The Filmcar shoots rolling shots for productions, and the website had to look just as sharp.",
+    },
+    chapters: [
+      {
+        title: { nl: "Alleen de auto, of alles.", en: "Just the car, or everything." },
+        body: [
+          {
+            nl: "The Filmcar levert rolling shots met een eigen camera-auto en crew. Productiebedrijven huren alleen de auto, of besteden de hele productie uit. Dat verschil moest meteen duidelijk zijn, net als de weg naar een offerte.",
+            en: "The Filmcar delivers rolling shots with its own camera car and crew. Production companies either hire just the car or outsource the whole production. That difference had to be clear straight away, as did the route to a quote.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Het systeem in de hoofdrol.", en: "The system takes centre stage." },
+        body: [
+          {
+            nl: "We bouwden de website in Webflow, met geel als accent. Het systeem, de auto en het portfolio krijgen elk de ruimte. Zo zie je wat The Filmcar kan, voordat je één vraag hoeft te stellen.",
+            en: "We built the website in Webflow, with yellow as the accent. The system, the car and the portfolio each get room to breathe. You see what The Filmcar can do before you need to ask a single question.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een offerte in stappen.", en: "A quote, step by step." },
+        body: [
+          {
+            nl: "De offerteaanvraag loopt in stappen. Je kiest alleen de auto of de hele productie, daarna de apparatuur, de crew en hoe lang je de auto nodig hebt. Zo komt elke aanvraag compleet binnen.",
+            en: "The quote request runs in steps. You choose just the car or the full production, then the equipment, the crew and how long you need the car. Every request arrives complete.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goed formulier stelt de vragen die de crew anders zelf moet stellen.", en: "A good form asks the questions the crew would otherwise have to ask." },
+    ],
+  },
+  "boutique-hotels-gelderland": {
+    intro: {
+      nl: "Een hotel op de Veluwe, een villa in het stadse groen, een kerk waar je een feest viert. Boutique Hotels Gelderland brengt bijzondere locaties samen, elk met een eigen karakter.",
+      en: "A hotel on the Veluwe, a villa in a green corner of town, a church where you throw a party. Boutique Hotels Gelderland brings special venues together, each with its own character.",
+    },
+    chapters: [
+      {
+        title: { nl: "Karakter, maar één gevoel.", en: "Character, but one feeling." },
+        body: [
+          {
+            nl: "Boutique Hotels Gelderland brengt locaties samen als Hotel de Wereld, Villa Ruimzicht, Villa Wanrooy en The Church. Monumentale panden, elk met een eigen karakter, maar met één gevoel en één serviceniveau. Dat moest je in het merk en op de website terugzien.",
+            en: "Boutique Hotels Gelderland brings together venues such as Hotel de Wereld, Villa Ruimzicht, Villa Wanrooy and The Church. Listed buildings, each with its own character, but with one feeling and one level of service. That had to show in the brand and on the website.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Begin bij je plan.", en: "Start with your plan." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en bouwden de website in Webflow, warm en ingetogen, met zand en goud als kleuren. Je zoekt op wat je wilt organiseren, van teambuilding en workshops tot vergaderen of trouwen. Per locatie zie je wat er kan.",
+            en: "We developed the branding and built the website in Webflow, warm and understated, in sand and gold. You search by what you want to organise, from team building and workshops to meetings or a wedding. For each venue you see what's possible.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Elk pand een eigen verhaal. Eén merk dat ze bij elkaar houdt.", en: "Every building its own story. One brand that holds them together." },
+    ],
+  },
+  "foodbars-gelderland": {
+    intro: {
+      nl: "Lunch, borrel, diner of een bruiloft. Foodbars Gelderland brengt vier foodbars onder één vlag, en wij maakten er één merk van.",
+      en: "Lunch, drinks, dinner or a wedding. Foodbars Gelderland brings four food bars under one flag, and we turned them into one brand.",
+    },
+    chapters: [
+      {
+        title: { nl: "Vier zaken, één vlag.", en: "Four venues, one flag." },
+        body: [
+          {
+            nl: "Foodbars Gelderland bestaat uit LEV. Foodbar, LEV. by Mike, Gastrobar de Wereld en JANS'. Van high tea tot walking dinner en van zakelijke borrel tot bruiloft. Elke zaak heeft zijn eigen sfeer, en toch moesten ze samen één merk vormen.",
+            en: "Foodbars Gelderland is made up of LEV. Foodbar, LEV. by Mike, Gastrobar de Wereld and JANS'. From high tea to walking dinner and from business drinks to weddings. Each venue has its own atmosphere, yet together they had to form one brand.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Genieten, vieren, zakendoen.", en: "Enjoy, celebrate, do business." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding en bouwden de website in Webflow, ingedeeld in Enjoy, Celebrate en Business. Je zoekt direct op het soort event, zoals een high tea, een borrel of een verjaardag. Per foodbar zie je wat er kan.",
+            en: "We developed the branding and built the website in Webflow, organised into Enjoy, Celebrate and Business. You search straight away by type of event, such as high tea, drinks or a birthday. For each food bar you see what's on offer.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Eén merk, vier keer anders lekker.", en: "One brand, four different flavours." },
+    ],
+  },
+  "speedbar": {
+    intro: {
+      nl: "Een aerobar die voor elke renner apart wordt gemaakt. Dankzij 3D-printtechniek is Speedbar nu ook bereikbaar voor fietsers buiten de profwereld, en zo'n product verkoop je niet met een standaard bestelknop.",
+      en: "An aerobar made individually for every rider. Thanks to 3D printing, Speedbar is now within reach of cyclists outside the pro peloton, and a product like that isn't sold with a standard buy button.",
+    },
+    chapters: [
+      {
+        title: { nl: "Op maat voor elke renner.", en: "Made for every rider." },
+        body: [
+          {
+            nl: "Speedbar maakt aerobars voor tijdritfietsen, voor elke renner op maat. Het product komt uit de profwereld en is dankzij 3D-printtechniek nu ook voor andere fietsers bereikbaar. Dat vraagt om een website die net zo zorgvuldig is als het product.",
+            en: "Speedbar makes aerobars for time-trial bikes, custom-fitted to every rider. The product comes from the pro world and, thanks to 3D printing, is now within reach of other cyclists too. That calls for a website as carefully made as the product.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Samenstellen in stappen.", en: "Building it, step by step." },
+        body: [
+          {
+            nl: "We bouwden de website in Webflow, met een configurator waarin je in een paar stappen je Speedbar PRO samenstelt en je aanvraag doet. Comfort, sterkte en veiligheid worden helder uitgelegd, zodat je weet waarom elk detail ertoe doet.",
+            en: "We built the website in Webflow, with a configurator in which you put together your Speedbar PRO in a few steps and submit your request. Comfort, strength and safety are clearly explained, so you know why every detail matters.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Ook in bewegend beeld.", en: "In motion, too." },
+        body: [
+          {
+            nl: "Daarnaast maakten we een videodocumentaire over Speedbar. Bewegend beeld laat zien wat een productfoto niet kan vertellen.",
+            en: "We also made a video documentary about Speedbar. Moving images show what a product photo can't tell.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Maatwerk verdient een aanvraag die meedenkt.", en: "Custom work deserves a request form that thinks along." },
     ],
   },
   "infrai": {
@@ -1707,6 +2255,157 @@ export const caseNarratives: Record<string, CaseNarrative> = {
     statements: [
       { nl: "Een goed product verdient een site die net zo hard werkt.", en: "A good product deserves a site that works just as hard." },
       { nl: "Een brochure is pas het begin van het gesprek.", en: "A brochure is only the start of the conversation." },
+    ],
+  },
+  "genson-grm": {
+    intro: {
+      nl: "Planning, medewerkers, huisvesting en check-in en check-out, in één tool. Voor Genson Quality Plants bouwden we GRM, afgestemd op hoe zij werken.",
+      en: "Planning, staff, housing and check-in and check-out, in one tool. For Genson Quality Plants we built GRM, tailored to the way they work.",
+    },
+    chapters: [
+      {
+        title: { nl: "Op maat, niet uit de doos.", en: "Tailored, not off the shelf." },
+        body: [
+          {
+            nl: "Genson Quality Plants zocht een eigen tool om de inzet van mensen en middelen te plannen en te beheren. Geen pakket uit de doos, maar iets dat aansluit op hoe zij werken.",
+            en: "Genson Quality Plants wanted its own tool to plan and manage people and resources. Not a package off the shelf, but something that fits the way they work.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van wireframe tot werkende tool.", en: "From wireframe to working tool." },
+        body: [
+          {
+            nl: "We begonnen met IT-advies en wireframes, en gingen via klikbare prototypes naar het UI/UX-design en de bouw. Zo lag er bij elke stap iets om op te reageren, voordat er een regel code werd geschreven.",
+            en: "We started with IT advice and wireframes, then moved through clickable prototypes to UI/UX design and the build. That way there was something to react to at every step, before a line of code was written.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Alles op één planbord.", en: "Everything on one board." },
+        body: [
+          {
+            nl: "GRM kreeg modules voor planning, weekschema's, medewerkers, huisvesting met een beddenplanner, een planbord, check-in en check-out en een omzetoverzicht. In de beddenplanner zie je per kamer wie er verblijft. Grafieken en tabellen laten in één oogopslag zien hoe het ervoor staat.",
+            en: "GRM got modules for planning, weekly schedules, staff, housing with a bed planner, a planning board, check-in and check-out and a revenue overview. The bed planner shows who's staying in each room. Charts and tables show at a glance how things stand.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "De beste tool past zich aan de werkvloer aan, niet andersom.", en: "The best tool adapts to the work floor, not the other way round." },
+    ],
+  },
+  "expociety-app": {
+    intro: {
+      nl: "Een venue organiseert een event, influencers komen en delen het met hun volgers. Expociety brengt die twee bij elkaar, in een app die iedereen snapt.",
+      en: "A venue hosts an event, influencers show up and share it with their followers. Expociety brings the two together, in an app anyone can use.",
+    },
+    chapters: [
+      {
+        title: { nl: "Twee kanten, één ecosysteem.", en: "Two sides, one ecosystem." },
+        body: [
+          {
+            nl: "Expociety wilde een digitaal ecosysteem waarin influencers en venues makkelijk samenwerken rond events. De app moest werken voor gebruikers met elke technische achtergrond. Met een onboarding die soepel loopt.",
+            en: "Expociety wanted a digital ecosystem where influencers and venues easily work together around events. The app had to work for users of every technical background. With an onboarding that runs smoothly.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Begrijpen wie het gebruikt.", en: "Understanding who uses it." },
+        body: [
+          {
+            nl: "We begonnen met een analyse van gebruikersbehoeften en trends, en schreven user stories. Daarop ontwierpen we een interface met een heldere navigatie. Een kaart toont events in de buurt, filters helpen je zoeken en bij elk event zie je wie er is uitgenodigd.",
+            en: "We started with an analysis of user needs and trends, and wrote user stories. On that basis we designed an interface with clear navigation. A map shows events nearby, filters help you search and for every event you see who has been invited.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van ontwerp tot App Store.", en: "From design to App Store." },
+        body: [
+          {
+            nl: "Daarna bouwden we de iOS-app: events aanmaken, beheren en promoten, influencers uitnodigen, samenwerken, analytics-dashboards en veilige communicatie. Na uitgebreid testen op stabiliteit, veiligheid en prestaties ging de app live in de App Store.",
+            en: "Then we built the iOS app: creating, managing and promoting events, inviting influencers, collaborating, analytics dashboards and secure messaging. After thorough testing for stability, security and performance, the app went live in the App Store.",
+          },
+          {
+            nl: "De architectuur is gebouwd om mee te groeien. Zo blijft de app met nieuwe updates doorgroeien.",
+            en: "The architecture is built to grow. So the app keeps evolving with every new update.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goede onboarding voelt niet als uitleg.", en: "Good onboarding doesn't feel like instructions." },
+    ],
+  },
+  "expociety-branding": {
+    intro: {
+      nl: "Influencers, venues en events die je niet wilt missen. Expociety had een merk nodig met net zoveel energie als de avonden die het mogelijk maakt.",
+      en: "Influencers, venues and events you don't want to miss. Expociety needed a brand with as much energy as the nights it makes happen.",
+    },
+    chapters: [
+      {
+        title: { nl: "Opvallen in een drukke markt.", en: "Standing out in a busy market." },
+        body: [
+          {
+            nl: "Expociety brengt influencers en venues samen voor bijzondere events. Het merk moest die verbindende energie uitstralen. En het moest opvallen in een markt waar iedereen om aandacht vraagt.",
+            en: "Expociety brings influencers and venues together for special events. The brand had to radiate that connecting energy. And it had to stand out in a market where everyone is asking for attention.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een ring die samenkomt.", en: "A ring that comes together." },
+        body: [
+          {
+            nl: "We vertaalden de visie en waarden van Expociety naar een complete identiteit. Een logo als een ring van stippen, een kleurverloop van diep paars naar fel roze en moderne, toegankelijke typografie. Alles legden we vast in een brandbook, zodat het merk overal hetzelfde verhaal vertelt.",
+            en: "We translated Expociety's vision and values into a complete identity. A logo shaped like a ring of dots, a gradient from deep purple to bright pink and modern, accessible typography. We captured it all in a brandbook, so the brand tells the same story everywhere.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van brandbook tot giveaway.", en: "From brandbook to giveaway." },
+        body: [
+          {
+            nl: "Daarna zetten we het merk door: in de website, op social media, in een giveaway-campagne en in animaties. Beelden met 'Discover, Connect, Influence' en 'Unlock your influence' zetten de toon. Ook de app ontwierpen en bouwden we, zodat merk en product één verhaal vertellen.",
+            en: "Then we carried the brand through: on the website, on social media, in a giveaway campaign and in animations. Visuals with 'Discover, Connect, Influence' and 'Unlock your influence' set the tone. We also designed and built the app, so brand and product tell one story.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een merk voor events mag zelf ook een beetje feest zijn.", en: "A brand for events should feel a bit like a party itself." },
+    ],
+  },
+  "teamtv-pricing-table": {
+    intro: {
+      nl: "Meerdere pakketten, verschillende valuta, maandelijks of jaarlijks betalen. Voor TeamTV maakten we een prijstabel die al die keuzes overzichtelijk houdt.",
+      en: "Several plans, different currencies, monthly or annual billing. For TeamTV we made a pricing table that keeps all those choices clear.",
+    },
+    chapters: [
+      {
+        title: { nl: "Veel informatie, één overzicht.", en: "Lots of information, one overview." },
+        body: [
+          {
+            nl: "TeamTV is specialist in video-analyse voor sportclubs. Elk pakket heeft een eigen set functies, en clubs komen uit verschillende landen. Alles over prijzen in één helder overzicht krijgen, dat was de opgave.",
+            en: "TeamTV specialises in video analysis for sports clubs. Every plan has its own set of features, and clubs come from different countries. Getting everything about pricing into one clear overview was the brief.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Schakelaars en vraagtekens.", en: "Toggles and question marks." },
+        body: [
+          {
+            nl: "We ontwierpen en bouwden een uitgebreide prijsmatrix. Inklapbare lijsten laten per pakket zien wat erin zit, en met schakelaars wissel je van valuta en betaalperiode. Eigen iconen en tooltips bij de vraagtekens geven uitleg waar dat nodig is.",
+            en: "We designed and built an extensive pricing matrix. Collapsible lists show what each plan includes, and toggles switch currency and billing period. Custom icons and tooltips on the question marks explain where needed.",
+          },
+          {
+            nl: "De Webflow-front-end integreerden we in de WordPress-website, met subtiele hover- en scrollinteracties. De prijstabel werd een van de belangrijkste leadpagina's in de online funnel van TeamTV.",
+            en: "We integrated the Webflow front end into the WordPress website, with subtle hover and scroll interactions. The pricing table became one of the most important lead pages in TeamTV's online funnel.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een prijstabel is geen bijzaak. Vaak is het de laatste stap voor een ja.", en: "A pricing table is no afterthought. It's often the last step before a yes." },
     ],
   },
 };

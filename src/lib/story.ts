@@ -2,7 +2,7 @@ import { heroShowcase } from "@/components/cases/heroShowcase";
 import { imageSize } from "@/components/case/imageSize";
 import type { ServiceSlug } from "@/content/registry";
 import type { Case, Review, StoryBlock, T } from "@/content/types";
-import { getReview, getService, publishedReviews } from "./content";
+import { getReview, publishedReviews } from "./content";
 import { getDict } from "./dict";
 
 /** Blok op de casepagina: een StoryBlock, of de geanimeerde showcase (uit de hero gehaald) als eigen sectie. */
@@ -67,26 +67,26 @@ export function storyFor(c: Case): CaseBlock[] {
     (x): x is string => !!x && x !== heroSrc,
   );
 
-  // één schermvullend beeld dat meegroeit: de eigen reveal, de hero-video als de hero iets anders toont,
-  // anders een liggende render (bij voorkeur de close-up) die dan niet ook in de masonry staat
+  // schermvullende beelden die meegroeien: de eigen reveal, de hero-video als de hero iets anders toont,
+  // anders liggende renders (bij voorkeur de close-up) die dan niet ook in de masonry staan
+  const wide = (s: string) => {
+    const z = imageSize(s);
+    return !!z && z.w / z.h >= 1.3;
+  };
+  const takeWide = (prefer?: RegExp) => {
+    if (imgs.length < 4) return undefined;
+    const pick = (prefer && imgs.find((s) => prefer.test(s) && wide(s))) || imgs.find((s, i) => i > 0 && wide(s));
+    if (pick) imgs = imgs.filter((s) => s !== pick);
+    return pick ? ({ type: "media", image: pick } as StoryBlock) : undefined;
+  };
   let media: StoryBlock | undefined;
   if (c.reveal) {
     media = { type: "media", video: c.reveal.video, image: c.reveal.image, poster: c.reveal.poster, position: c.reveal.position };
   } else if (c.heroVideo && heroSrc !== c.heroVideo.src) {
     media = { type: "media", video: c.heroVideo.src, poster: c.heroVideo.poster };
-  } else if (imgs.length >= 4) {
-    const wide = (s: string) => {
-      const z = imageSize(s);
-      return !!z && z.w / z.h >= 1.3;
-    };
-    const pick = imgs.find((s) => /\/r-0\d-closeup\./.test(s) && wide(s)) ?? imgs.find((s, i) => i > 0 && wide(s));
-    if (pick) {
-      media = { type: "media", image: pick };
-      imgs = imgs.filter((s) => s !== pick);
-    }
+  } else {
+    media = takeWide(/\/r-0\d-closeup\./);
   }
-
-  const galleries: StoryBlock[] = chunk(imgs, sections(imgs.length)).map((list) => ({ type: "masonry", images: list.map((src) => ({ src })) }));
 
   const chapters: StoryBlock[] = c.narrative?.chapters?.length
     ? c.narrative.chapters.map((ch) => ({ type: "text", h: ch.title, body: join(ch.body) }))
@@ -96,17 +96,16 @@ export function storyFor(c: Case): CaseBlock[] {
       ];
 
   // quotes: eerst een echte review van de klant (met naam), dan de statements van M7 zelf (zonder naam).
-  // Geen van beide? Dan de payoff van de hoofddienst, ook in de stem van M7, nooit als klantcitaat.
+  // Geen van beide? Dan geen verzonnen of algemene quote, maar nog een schermvullend beeld (als er genoeg zijn).
   const review = getReview(c.review) ?? publishedReviews().find((r) => r.case === c.slug && !r.draft);
   const quotes: StoryBlock[] = [
     ...(review ? [{ type: "quote" as const, text: review.quote, cite: review.author, role: reviewRole(review), avatar: review.avatar }] : []),
     ...(c.narrative?.statements ?? []).map((text) => ({ type: "quote" as const, text })),
   ];
-  if (!quotes.length) {
-    const tagline = getService(c.services[0])?.tagline;
-    if (tagline) quotes.push({ type: "quote", text: tagline });
-  }
-  const extras = [quotes[0], media, ...quotes.slice(1)].filter((x): x is StoryBlock => !!x);
+  const first = quotes[0] ?? (imgs.length >= 7 ? takeWide(/\/r-0\d-gravity\./) : undefined);
+  const extras = [first, media, ...quotes.slice(1)].filter((x): x is StoryBlock => !!x);
+
+  const galleries: StoryBlock[] = chunk(imgs, sections(imgs.length)).map((list) => ({ type: "masonry", images: list.map((src) => ({ src })) }));
 
   const out: CaseBlock[] = [{ type: "intro", text: c.narrative?.intro ?? c.challenge }, ...showBlock];
   const rounds = Math.max(galleries.length, chapters.length);

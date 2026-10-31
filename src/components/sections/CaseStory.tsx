@@ -41,7 +41,7 @@ function Block({ b, c, locale, i, seed }: { b: CaseBlock; c: Case; locale: Local
       );
 
     case "showcase":
-      return <CaseShowcase slug={b.slug} color={c.color} label={locale === "nl" ? `${c.client}: geanimeerde showcase` : `${c.client}: animated showcase`} />;
+      return <CaseShowcase slug={b.slug} color={c.color} client={c.client} locale={locale} />;
 
     case "text":
       return <CaseChapter title={b.h} body={b.body} quote={b.quote} locale={locale} id={`story-${i}`} />;

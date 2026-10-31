@@ -62,6 +62,9 @@ export function Footer({ locale }: { locale: Locale }) {
               <li>
                 <TLink href={paths.cases}>{d.nav.allCases} →</TLink>
               </li>
+              <li>
+                <TLink href={paths.world}>{d.nav.world}</TLink>
+              </li>
             </ul>
           </div>
           <div className="ftr__col">

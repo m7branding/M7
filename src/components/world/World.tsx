@@ -22,6 +22,8 @@ import type { WorldChapter, WorldData, WorldTile } from "./data";
 import { LazyVideo } from "./LazyVideo";
 import { ScrollStage } from "./ScrollStage";
 import { WhenNear } from "./WhenNear";
+import "@/components/showreel/showreel.css";
+import "./world.css";
 
 const COPY = {
   introSub: {
@@ -161,8 +163,8 @@ function StripTile({ t, i, label }: { t: WorldTile; i: number; label: string }) 
   return (
     <TLink href={t.href} className="ws__tile" data-cursor={label} style={{ ["--accent" as string]: t.color }}>
       <span className="ws__media">
-        <img src={t.image} alt="" loading="lazy" decoding="async" />
-        {t.video ? <LazyVideo src={t.video.src} srcMobile={t.video.srcMobile} poster={t.video.poster} className="ws__video" play={0.55} /> : null}
+        <img src={t.video?.poster || t.image} alt="" loading="lazy" decoding="async" />
+        {t.video ? <LazyVideo src={t.video.src} srcMobile={t.video.srcMobile} className="ws__video" play={0.55} /> : null}
       </span>
       <span className="ws__cap">
         <span className="ws__num">{pad(i + 1)}</span>
@@ -233,18 +235,19 @@ function WorldChapterScene({ locale, ch, i, n }: { locale: Locale; ch: WorldChap
  * een losse collage, ruim buiten het midden (dat is 30–70% breed en hoog).
  */
 const SLOTS: { x: number; y: number; w: number; z: number }[] = [
-  { x: 12, y: 21, w: 15, z: 1.3 },
-  { x: 37, y: 13, w: 10.5, z: 0.8 },
-  { x: 59, y: 14, w: 12.5, z: 1 },
-  { x: 85, y: 20, w: 14, z: 1.25 },
-  { x: 20, y: 51, w: 10, z: 0.75 },
-  { x: 81, y: 50, w: 10, z: 0.8 },
-  { x: 11, y: 80, w: 14, z: 1.2 },
-  { x: 41, y: 87, w: 11.5, z: 0.9 },
-  { x: 62, y: 86, w: 10, z: 0.85 },
-  { x: 89, y: 79, w: 14.5, z: 1.35 },
-  { x: 4.5, y: 50, w: 6, z: 0.6 },
-  { x: 95.5, y: 48, w: 6, z: 0.6 },
+  { x: 14, y: 18, w: 19, z: 1.3 },
+  { x: 38, y: 13, w: 15, z: 0.9 },
+  { x: 61, y: 14, w: 16, z: 1 },
+  { x: 86, y: 19, w: 18, z: 1.25 },
+  { x: 15, y: 50, w: 17, z: 0.85 },
+  { x: 85, y: 50, w: 17, z: 0.9 },
+  { x: 13, y: 82, w: 18, z: 1.2 },
+  { x: 40, y: 86, w: 15, z: 0.95 },
+  { x: 62, y: 87, w: 16, z: 1.05 },
+  { x: 87, y: 81, w: 19, z: 1.35 },
+  // net over de rand: er is meer dan wat je ziet
+  { x: -1, y: 34, w: 10, z: 0.7 },
+  { x: 101, y: 66, w: 10, z: 0.7 },
 ];
 
 export function WorldWall({ locale, data }: { locale: Locale; data: WorldData }) {
@@ -278,7 +281,7 @@ export function WorldWall({ locale, data }: { locale: Locale; data: WorldData })
           <div className="ww__center">
             <TLink href={c.href} className="ww__hero" data-cursor={d.cta.viewCase} aria-label={`${c.client}: ${c.title}`}>
               <img src={c.video?.poster || c.image} alt="" loading="lazy" decoding="async" />
-              {c.video ? <LazyVideo src={c.video.src} srcMobile={c.video.srcMobile} poster={c.video.poster} className="ww__video" play={0.3} /> : null}
+              {c.video ? <LazyVideo src={c.video.src} srcMobile={c.video.srcMobile} className="ww__video" play={0.3} /> : null}
               <span className="ww__dim" aria-hidden="true" />
               <span className="ww__hero-cap" aria-hidden="true">
                 <strong>{c.client}</strong>
@@ -289,7 +292,7 @@ export function WorldWall({ locale, data }: { locale: Locale; data: WorldData })
         ) : null}
         <div className="ww__end">
           <h2 id="ww-title" className="ww__title">
-            {L(COPY.wallTitleA)} <span className="g-stars">{fill(L(COPY.wallTitleB), { n: total - 1 })}</span>
+            {L(COPY.wallTitleA)} <span className="g-stars ww__more">{fill(L(COPY.wallTitleB), { n: total - 1 })}</span>
           </h2>
           <Btn href={paths.cases} variant="light" size="sm">
             {fill(L(COPY.wallCta), { n: total })}
