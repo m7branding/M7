@@ -102,7 +102,9 @@ export function worldData(locale: Locale) {
   const chapterSlugs = new Set(chapters.flatMap((ch) => ch.reel?.cases.map((c) => c.slug) ?? []));
   const centerCase =
     withClip.find((c) => !introSlugs.has(c.slug) && !stripSlugs.has(c.slug) && !chapterSlugs.has(c.slug)) ?? withClip[0];
-  const wallPool = cases.filter((c) => c.cover && c.slug !== centerCase?.slug && !stripSlugs.has(c.slug));
+  const wallPool = cases.filter(
+    (c) => c.cover && c.slug !== centerCase?.slug && !stripSlugs.has(c.slug) && !introSlugs.has(c.slug) && !chapterSlugs.has(c.slug),
+  );
   const wall = spread(wallPool, 12).map((c) => tileOf(c, locale));
 
   return {

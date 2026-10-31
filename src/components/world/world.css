@@ -89,6 +89,19 @@
   left: clamp(24px, 4.4vw, 64px);
   bottom: clamp(26px, 4.4vw, 56px);
 }
+/* opening: pauzeknop met daarnaast "Nu in beeld · <case>" */
+.wi__player .srp__bar {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+}
+.wi__player .srp__ctrl {
+  margin-left: 0;
+}
+.wi__player .srp__cap {
+  padding-bottom: 0;
+}
 .wi__text {
   position: relative;
   z-index: 2;
@@ -688,8 +701,7 @@
   z-index: 0;
 }
 .wx__still {
-  background-size: cover;
-  background-position: center;
+  background: radial-gradient(80% 90% at 70% 20%, #0b4f55 0%, #000a0a 70%);
 }
 .wx__shade {
   position: absolute;

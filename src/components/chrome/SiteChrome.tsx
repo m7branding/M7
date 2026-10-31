@@ -391,7 +391,7 @@ function FullMenu({
           <div className={`fm__pane${active === "world" ? " is-on" : ""}`}>
             <p className="kicker">{dict.nav.world}</p>
             <div className="fm__cases">
-              {nav.cases.slice(4, 8).map((c, i) => (
+              {nav.cases.slice(4, 6).map((c, i) => (
                 <TLink key={c.slug} href={paths.world} style={{ ["--i" as string]: i }} tabIndex={-1} aria-hidden="true">
                   <span style={{ background: c.color }}>{c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}</span>
                   <strong>{c.client}</strong>

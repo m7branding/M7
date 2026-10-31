@@ -389,7 +389,8 @@ html.js:not([data-loading="1"]) .hdr {
   display: inline-flex;
   align-items: center;
   gap: 18px;
-  font-size: clamp(2.6rem, 6.4vw, 6rem);
+  /* ook naar de hoogte: zes items passen zo ook op een laag scherm */
+  font-size: clamp(2.6rem, min(6.4vw, 9.4svh), 6rem);
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.04;

@@ -79,7 +79,7 @@ export function WorldIntro({ locale, data }: { locale: Locale; data: WorldData }
     <ScrollStage className="wi" aria-labelledby="wi-title">
       <div className="wi__pin">
         <div className="wi__frame">
-          <ShowreelPlayer reels={data.intro} labels={showreelLabels(locale)} ui="mini" className="wi__player" priority />
+          <ShowreelPlayer reels={data.intro} labels={showreelLabels(locale)} ui="caption" className="wi__player" priority />
         </div>
         <div className="wi__text">
           <p className="kicker kicker--center wi__kicker" data-reveal="fade">
@@ -313,7 +313,8 @@ export function WorldCta({ locale }: { locale: Locale }) {
   return (
     <section className="wx" aria-labelledby="wx-title">
       <div className="wx__panel">
-        <WhenNear className="wx__bg" fallback={<div className="wx__still" style={{ backgroundImage: `url(${still})` }} />}>
+        {/* tot de afsluiter in de buurt komt alleen een verloop; Aurora brengt zijn eigen stilstaande beeld mee */}
+        <WhenNear className="wx__bg" fallback={<div className="wx__still" />}>
           <Aurora palette="brand" fallback={still} />
         </WhenNear>
         <div className="wx__shade" aria-hidden="true" />

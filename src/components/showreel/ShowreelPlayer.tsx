@@ -36,7 +36,7 @@ const CLIP_MAX = 6.5;
  * - Reduced motion of databesparing: alleen de poster; met de playknop start hij alsnog.
  * - Mobiel (≤ 760px): `srcMobile` als die er is.
  * - `ui="full"`: wisselaar met voortgangslijnen per reel, pauzeknop en bijschrift.
- *   `ui="none"`: kale achtergrond (World of M7), met `ui="mini"` alleen een pauzeknop.
+ *   `ui="caption"`: pauzeknop en bijschrift; `ui="mini"`: alleen een pauzeknop; `ui="none"`: kale achtergrond.
  * De voortgang loopt via één rAF die alleen een CSS-variabele (--p) zet.
  */
 export function ShowreelPlayer({
@@ -50,7 +50,7 @@ export function ShowreelPlayer({
 }: {
   reels: Reel[];
   labels: ShowreelLabels;
-  ui?: "full" | "mini" | "none";
+  ui?: "full" | "caption" | "mini" | "none";
   className?: string;
   /** Boven de vouw: de eerste poster als <img> met voorrang (LCP), al vóór de hydratatie zichtbaar. */
   priority?: boolean;
@@ -324,7 +324,7 @@ export function ShowreelPlayer({
         {children}
         {ui !== "none" ? (
           <div className="srp__bar">
-            {ui === "full" && caption ? (
+            {(ui === "full" || ui === "caption") && caption ? (
               <p className="srp__cap" aria-live="off">
                 <span className="srp__cap-k">{caption.kind === "now" ? labels.now : labels.featuring}</span>
                 {caption.kind === "now" && caption.href ? (
