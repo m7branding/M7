@@ -1,5 +1,7 @@
 # Portfolio mockups v2: hand-over for the case pages
 
+> **Update 31 Oct:** the owner's decisions and the settled open points are in `incoming/portfolio-v2/update-2026-10-31.json`. Where it differs, it overrides curation.json and the notes below.
+
 Delivered from the session "M7 Website project mockups" on 31 Oct 2026.
 Branch: `claude/portfolio-mockups-v2`, based on `main`. Do not merge it. Copy what you need from it, as described below.
 
@@ -28,7 +30,7 @@ Branch: `claude/portfolio-mockups-v2`, based on `main`. Do not merge it. Copy wh
   - onderbouwd-investeren (onderbouwdinvesteren.nl)
   - battery-park-montessori (batteryparkmontessori.com)
 
-  All five are live sites with an M7 credit. Create the case pages if they fit the site; otherwise skip them.
+  All five sites are in M7's Webflow workspace. Update 31 Oct: dng-shop folds into digital-newsgroup; the other four become new cases.
 
 ## How to apply
 

@@ -1,0 +1,392 @@
+{
+ "from": "M7 Website project mockups session, on behalf of the owner",
+ "date": "2026-10-31",
+ "decisions_by_owner": {
+  "bctn": "Stays BCTN, no rename to ITG. The v2 BCTN screens show the live portal under the new Inland Terminals Group name, so do not use the v2 BCTN set; keep the case as it is.",
+  "digital-newsgroup": "The current DNG identity is the green shop.digitalnewsgroup.com branding; the red corporate site is old. No separate dng-shop case. Use the green v2 set below (files already in place on this branch).",
+  "new_cases": "Create case pages for nova-special-cars, designers-house, onderbouwd-investeren and battery-park-montessori (device/UI mockups only; facts per case in \"brief\")."
+ },
+ "settled_on_owner_request": {
+  "hero_videos": "Use the new v2 hero clip (heroVideo) for cases without an r-hero yet; keep existing r-hero videos. Web clips only, never logo/colour motions.",
+  "removeFromGallery": "The r- renders are being re-rendered, so use your own judgement instead of the list: at most 2-3 shots of the same hero screen per case; keep authentic brand/print photos.",
+  "sublime-branding": "sublimecars.nl is in M7's Webflow workspace (M7 built the site): add the website service and the v2 device/UI mockups, unless the owner says otherwise in your chat.",
+  "composed_print": "Stays out everywhere, as the owner told you."
+ },
+ "curation": {
+  "digital-newsgroup": {
+   "project": "dngshop",
+   "newCase": false,
+   "cover": {
+    "src": "/media/cases/digital-newsgroup/v-05-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   "heroVideo": {
+    "video": "/media/cases/digital-newsgroup/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/digital-newsgroup/v-motion-01-laptop-scroll.webp",
+    "from": "v2",
+    "kind": "laptop-scroll"
+   },
+   "gallery": [
+    {
+     "src": "/media/cases/digital-newsgroup/v-05-phone-row.webp",
+     "from": "v2",
+     "kind": "phone-row"
+    },
+    {
+     "src": "/media/cases/digital-newsgroup/v-04-floating-ui.webp",
+     "from": "v2",
+     "kind": "floating-ui"
+    },
+    {
+     "src": "/media/cases/digital-newsgroup/v-01-screen-wall.webp",
+     "from": "v2",
+     "kind": "screen-wall"
+    },
+    {
+     "src": "/media/cases/digital-newsgroup/v-07-phone-closeup.webp",
+     "from": "v2",
+     "kind": "phone-closeup"
+    },
+    {
+     "video": "/media/cases/digital-newsgroup/v-motion-02-phones-scroll.mp4",
+     "poster": "/media/cases/digital-newsgroup/v-motion-02-phones-scroll.webp",
+     "from": "v2",
+     "kind": "phones-scroll"
+    },
+    {
+     "src": "/media/cases/digital-newsgroup/v-02-lifted-components.webp",
+     "from": "v2",
+     "kind": "lifted-components"
+    },
+    {
+     "src": "/media/cases/digital-newsgroup/v-06-phones-flatlay.webp",
+     "from": "v2",
+     "kind": "phones-flatlay"
+    },
+    {
+     "src": "/media/cases/digital-newsgroup/v-03-page-columns.webp",
+     "from": "v2",
+     "kind": "page-columns"
+    },
+    {
+     "src": "/media/cases/digital-newsgroup/v-08-phones-duo.webp",
+     "from": "v2",
+     "kind": "phones-duo"
+    }
+   ],
+   "notes": "Green shop branding is the current DNG identity (owner, 31 Oct). Add these as the v2 layer next to the existing green r- renders; the red corporate set is old and not used."
+  },
+  "nova-special-cars": {
+   "project": "novaspecialcars",
+   "newCase": true,
+   "cover": {
+    "src": "/media/cases/nova-special-cars/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   "heroVideo": {
+    "video": "/media/cases/nova-special-cars/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/nova-special-cars/v-motion-01-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   "gallery": [
+    {
+     "src": "/media/cases/nova-special-cars/v-06-tablet.webp",
+     "from": "v2",
+     "kind": "tablet"
+    },
+    {
+     "src": "/media/cases/nova-special-cars/v-05-phones-flatlay.webp",
+     "from": "v2",
+     "kind": "phones-flatlay"
+    },
+    {
+     "src": "/media/cases/nova-special-cars/v-01-laptop-closeup.webp",
+     "from": "v2",
+     "kind": "laptop-closeup"
+    },
+    {
+     "src": "/media/cases/nova-special-cars/v-07-phones-duo.webp",
+     "from": "v2",
+     "kind": "phones-duo"
+    },
+    {
+     "src": "/media/cases/nova-special-cars/v-03-screen-detail.webp",
+     "from": "v2",
+     "kind": "screen-detail"
+    },
+    {
+     "video": "/media/cases/nova-special-cars/v-motion-02-phones-scroll.mp4",
+     "poster": "/media/cases/nova-special-cars/v-motion-02-phones-scroll.webp",
+     "from": "v2",
+     "kind": "phones-scroll"
+    },
+    {
+     "src": "/media/cases/nova-special-cars/v-02-browser-components.webp",
+     "from": "v2",
+     "kind": "browser-components"
+    },
+    {
+     "src": "/media/cases/nova-special-cars/v-04-device-panels.webp",
+     "from": "v2",
+     "kind": "device-panels"
+    },
+    {
+     "video": "/media/cases/nova-special-cars/v-motion-03-pages.mp4",
+     "poster": "/media/cases/nova-special-cars/v-motion-03-pages.webp",
+     "from": "v2",
+     "kind": "pages"
+    }
+   ],
+   "removeFromGallery": [],
+   "notes": "New case, V only; dropped flat colour bands (chips cover it); dark gold mood balanced with light-background shots.",
+   "brief": {
+    "client": "Nova Special Cars (sister company of Nova Funeral Cars)",
+    "site": "https://www.novaspecialcars.eu/",
+    "built": "Webflow website, in M7's Webflow workspace",
+    "about": "Ontdek bij Nova Special Cars een divers aanbod aan luxe voertuigen, van exclusieve personenbusjes tot rolstoeltoegankelijke oplossingen. Ervaar kwaliteit, comfort en een persoonlijke benadering voor elke vervoersbehoefte.",
+    "h1": [
+     "Where your journey begins..."
+    ],
+    "pages": [
+     "Diensten",
+     "Ons Verhaal",
+     "Contact",
+     "Voorraad"
+    ]
+   }
+  },
+  "designers-house": {
+   "project": "designershouse",
+   "newCase": true,
+   "cover": {
+    "src": "/media/cases/designers-house/v-03-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   "heroVideo": {
+    "video": "/media/cases/designers-house/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/designers-house/v-motion-01-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   "gallery": [
+    {
+     "src": "/media/cases/designers-house/v-03-display-and-phone.webp",
+     "from": "v2",
+     "kind": "display-and-phone"
+    },
+    {
+     "src": "/media/cases/designers-house/v-05-phones-flatlay.webp",
+     "from": "v2",
+     "kind": "phones-flatlay"
+    },
+    {
+     "src": "/media/cases/designers-house/v-11-imagery.webp",
+     "from": "v2",
+     "kind": "imagery"
+    },
+    {
+     "src": "/media/cases/designers-house/v-02-screen-detail.webp",
+     "from": "v2",
+     "kind": "screen-detail"
+    },
+    {
+     "src": "/media/cases/designers-house/v-07-phones-duo.webp",
+     "from": "v2",
+     "kind": "phones-duo"
+    },
+    {
+     "video": "/media/cases/designers-house/v-motion-03-components.mp4",
+     "poster": "/media/cases/designers-house/v-motion-03-components.webp",
+     "from": "v2",
+     "kind": "components"
+    },
+    {
+     "src": "/media/cases/designers-house/v-06-tablet.webp",
+     "from": "v2",
+     "kind": "tablet"
+    },
+    {
+     "src": "/media/cases/designers-house/v-01-browser-components.webp",
+     "from": "v2",
+     "kind": "browser-components"
+    }
+   ],
+   "removeFromGallery": [],
+   "notes": "New case, V only; dropped panels (dup of display), phoneRow (dup of flatlay) and type (dup of brandbook).",
+   "brief": {
+    "client": "DesignersHouse",
+    "site": "https://www.designershouse.nl/",
+    "built": "Webflow website, in M7's Webflow workspace",
+    "about": "DesignersHouse is dé plek waar interieurprofessionals hun klanten meenemen in een totaalbeleving. Ons centrum biedt niet alleen een stijlvolle showroom met hoogwaardige artikelen en materialen van topleveranciers, maar ook alle faciliteiten voor gastvrije ontvangsten, werkafspraken en presentaties. Dé setting om mooie interieur projecten te realiseren!",
+    "h1": [
+     "Welkom bij DesignersHouse.",
+     "Hét platform voor"
+    ],
+    "pages": [
+     "Partners 19",
+     "Over ons",
+     "Evenementen",
+     "Projecten",
+     "Contact",
+     "Member worden",
+     "Plan je bezoek"
+    ]
+   }
+  },
+  "onderbouwd-investeren": {
+   "project": "onderbouwd",
+   "newCase": true,
+   "cover": {
+    "src": "/media/cases/onderbouwd-investeren/v-01-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   "heroVideo": {
+    "video": "/media/cases/onderbouwd-investeren/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/onderbouwd-investeren/v-motion-01-browser-scroll.webp",
+    "from": "v2",
+    "kind": "browser-scroll"
+   },
+   "gallery": [
+    {
+     "src": "/media/cases/onderbouwd-investeren/v-01-display-and-phone.webp",
+     "from": "v2",
+     "kind": "display-and-phone"
+    },
+    {
+     "src": "/media/cases/onderbouwd-investeren/v-07-phones-flatlay.webp",
+     "from": "v2",
+     "kind": "phones-flatlay"
+    },
+    {
+     "src": "/media/cases/onderbouwd-investeren/v-03-lifted-components.webp",
+     "from": "v2",
+     "kind": "lifted-components"
+    },
+    {
+     "src": "/media/cases/onderbouwd-investeren/v-14-imagery.webp",
+     "from": "v2",
+     "kind": "imagery"
+    },
+    {
+     "video": "/media/cases/onderbouwd-investeren/v-motion-03-pages.mp4",
+     "poster": "/media/cases/onderbouwd-investeren/v-motion-03-pages.webp",
+     "from": "v2",
+     "kind": "pages"
+    },
+    {
+     "src": "/media/cases/onderbouwd-investeren/v-05-phone-closeup.webp",
+     "from": "v2",
+     "kind": "phone-closeup"
+    },
+    {
+     "src": "/media/cases/onderbouwd-investeren/v-04-screen-wall.webp",
+     "from": "v2",
+     "kind": "screen-wall"
+    },
+    {
+     "src": "/media/cases/onderbouwd-investeren/v-02-laptop-closeup.webp",
+     "from": "v2",
+     "kind": "laptop-closeup"
+    }
+   ],
+   "removeFromGallery": [],
+   "notes": "One-page site, so repeat hero kept to display, laptop and two phone shots; brand pieces carry variety; dropped phones3d/phoneRow and book (dups).",
+   "brief": {
+    "client": "The Sandt: lead-generation landing site \"Onderbouwd Investeren\" (same client as the-sandt case; link the two)",
+    "site": "https://onderbouwdinvesteren.nl/",
+    "built": "Webflow one-page site with a brochure request form, in M7's Webflow workspace",
+    "about": "Laat uw vermogen ook groeien met internationale vastgoedproducten onder nederlandse regie. Vraag geheel vrijblijvend de brochure aan en ontdek de mogelijkheden.",
+    "h1": [
+     "ONDERBOUWD INVESTEREN IN VASTGOED"
+    ],
+    "sections": [
+     "INFORMATIE AANVRAGEN",
+     "CONTACT",
+     "Vraag geheel vrijblijvend de brochure aan en ontdek de mogelijkheden",
+     "DE VERBINDENDE FACTOR",
+     "BEKIJK ONZE PROJECTEN",
+     "DOWNLOAD DE GRATIS INFORMATIEBROCHURE"
+    ]
+   }
+  },
+  "battery-park-montessori": {
+   "project": "batterypark",
+   "newCase": true,
+   "cover": {
+    "src": "/media/cases/battery-park-montessori/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   "heroVideo": {
+    "video": "/media/cases/battery-park-montessori/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/battery-park-montessori/v-motion-01-laptop-scroll.webp",
+    "from": "v2",
+    "kind": "laptop-scroll"
+   },
+   "gallery": [
+    {
+     "src": "/media/cases/battery-park-montessori/v-06-tablet.webp",
+     "from": "v2",
+     "kind": "tablet"
+    },
+    {
+     "src": "/media/cases/battery-park-montessori/v-04-phone-row.webp",
+     "from": "v2",
+     "kind": "phone-row"
+    },
+    {
+     "src": "/media/cases/battery-park-montessori/v-01-laptop-closeup.webp",
+     "from": "v2",
+     "kind": "laptop-closeup"
+    },
+    {
+     "video": "/media/cases/battery-park-montessori/v-motion-02-phones-scroll.mp4",
+     "poster": "/media/cases/battery-park-montessori/v-motion-02-phones-scroll.webp",
+     "from": "v2",
+     "kind": "phones-scroll"
+    },
+    {
+     "src": "/media/cases/battery-park-montessori/v-03-screen-wall.webp",
+     "from": "v2",
+     "kind": "screen-wall"
+    },
+    {
+     "src": "/media/cases/battery-park-montessori/v-07-phones-duo.webp",
+     "from": "v2",
+     "kind": "phones-duo"
+    },
+    {
+     "src": "/media/cases/battery-park-montessori/v-05-phones-flatlay.webp",
+     "from": "v2",
+     "kind": "phones-flatlay"
+    }
+   ],
+   "removeFromGallery": [],
+   "notes": "New case, V-only: text-heavy V2 zoom dropped; M3/M4 left out as near-copies of V11 grid and V8 paper; M1 laptop scroll (Programs) as hero.",
+   "brief": {
+    "client": "Battery Park Montessori, New York",
+    "site": "https://batteryparkmontessori.com/",
+    "built": "Webflow website, in M7's Webflow workspace",
+    "about": "Nestled along the Hudson River in downtown Manhattan, Battery Park Montessori is an independent trilingual immersion school for children ages 1 through 5. Purposeful Montessori learning unfolds in English, Mandarin, and Spanish throughout the day.",
+    "h1": [
+     "A Trilingual Montessori School"
+    ],
+    "pages": [
+     "Parent Portal",
+     "Contact",
+     "Visit",
+     "About",
+     "Academics",
+     "Student Experience",
+     "Admissions",
+     "Community"
+    ]
+   }
+  }
+ }
+}
