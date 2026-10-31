@@ -138,8 +138,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Kies je toestel, plan je afspraak.", en: "Pick your device, book your slot." },
         body: [
           {
-            nl: "Op de site kies je eerst het merk: iPhone, MacBook, iPad of Apple Watch, maar ook Samsung, Huawei en andere merken. Daarna je model, en dan zie je welke reparaties er zijn. Een afspraakformulier in een paar stappen legt het type reparatie, de schade en je gegevens vast. Daarna stuurt de flow je automatisch e-mails.",
-            en: "On the site you first pick the brand: iPhone, MacBook, iPad or Apple Watch, but also Samsung, Huawei and others. Then your model, and you see which repairs are available. A booking form in a few steps captures the type of repair, the damage and your details. The flow then sends you automated emails.",
+            nl: "Op de site kies je eerst het merk: iPhone, MacBook, iPad of Apple Watch, maar ook Samsung, Huawei en andere merken. Of je typt je toestel in de zoekbalk en ziet meteen de resultaten. Elk model heeft een eigen pagina met de reparaties die Repairlab eraan uitvoert, van batterij en scherm tot camera, elk met een vanaf-prijs.",
+            en: "On the site you first pick the brand: iPhone, MacBook, iPad or Apple Watch, but also Samsung, Huawei and others. Or you type your device into the search bar and see the results straight away. Every model has its own page with the repairs Repairlab carries out on it, from battery and screen to camera, each with a starting price.",
+          },
+          {
+            nl: "Kies je een reparatie, dan opent de afspraakflow. Je bevestigt merk, model en reparatie, en voegt er zo nodig nog een reparatie aan toe. Daarna kies je hoe je toestel bij Repairlab komt: je brengt het langs in Eindhoven, laat het ophalen of vraagt een verzendpakket aan. Of je vraagt eerst een prijsindicatie per mail. Kom je langs of laat je het ophalen, dan kies je meteen een datum en een tijdslot. Je laat je gegevens achter, en daarna stuurt de flow je automatisch e-mails.",
+            en: "Pick a repair and the booking flow opens. You confirm the brand, model and repair, and add another repair if you need to. Then you choose how your device gets to Repairlab: you drop it off in Eindhoven, have it collected or request a shipping box. Or you ask for a price indication by email first. Dropping it off or having it collected? Then you pick a date and a time slot right away. You leave your details, and the flow then sends you automated emails.",
           },
           {
             nl: "We bouwden de website in Webflow, met interacties, scroll-animaties en geanimeerde schermvullende modals die net dat beetje extra geven. En we richtten hem in op lokale vindbaarheid, samen met het Google Bedrijfsprofiel. Want wie een kapot scherm heeft, zoekt dichtbij.",
@@ -962,18 +966,22 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Je pand op het scherm.", en: "Your building on screen." },
         body: [
           {
-            nl: "In de EPC Energy Property Configurator vul je je pand en je verbruik in. Je bekijkt simulaties en je nieuwe energiebehoefte, en ziet welke oplossing Steddion voorstelt. Aan het eind staat alles in een samenvatting bij elkaar.",
-            en: "In the EPC Energy Property Configurator you enter your building and your consumption. You view simulations and your new energy demand, and see which solution Steddion proposes. At the end, everything comes together in a summary.",
+            nl: "De EPC Energy Property Configurator begint met een korte intake: welk type pand heb je, en welk verbruiksprofiel past erbij? Daarna staat je pand in 3D midden in beeld, met de netaansluiting en de zon erbij. Bij 'Mijn situatie' stel je met schuifjes en schakelaars je gecontracteerde vermogen, teruglevering, blokstroom en zonnepanelen in. Of je uploadt je eigen kwartierdata.",
+            en: "The EPC Energy Property Configurator starts with a short intake: what type of building do you have, and which consumption profile fits it? Then your building appears in 3D in the middle of the screen, with the grid connection and the sun alongside. Under 'My situation' you use sliders and switches to set your contracted capacity, feed-in, block power and solar panels. Or you upload your own quarter-hourly data.",
           },
           {
-            nl: "Met de EMS-vergelijker vind je leveranciers van energiemanagementsystemen die bij jouw situatie passen. Een paar vragen, en je ziet welke opties er zijn.",
-            en: "The EMS comparison tool helps you find energy management system suppliers that suit your situation. A few questions, and you see which options there are.",
+            nl: "Bij 'Nieuwe e-behoefte' voeg je extra stroomvraag en laadbehoefte toe, voor auto's, busjes en trucks, en zie je je verwachte verbruik over een etmaal, op een zonnige zomerdag en op een donkere winterdag. Bij 'Oplossingen' zet je zon-pv en batterijopslag op je pand, of je laat Steddion een oplossing voorstellen. Een balk onderin houdt intussen je piekvraag en jaarverbruik bij, en bij de oplossingen ook je zelfvoorziening en de vermeden CO₂. Aan het eind staat alles in een samenvatting bij elkaar.",
+            en: "Under 'New energy demand' you add extra power demand and charging needs, for cars, vans and trucks, and see your expected consumption over a full day, on a sunny summer day and on a dark winter day. Under 'Solutions' you place solar PV and battery storage on your building, or let Steddion propose a solution. Meanwhile a bar along the bottom keeps track of your peak demand and annual consumption, and with the solutions also your self-sufficiency and the CO₂ you avoid. At the end, everything comes together in a summary.",
           },
         ],
       },
       {
-        title: { nl: "Recht in HubSpot.", en: "Straight into HubSpot." },
+        title: { nl: "Vergelijken, en recht in HubSpot.", en: "Compare, then straight into HubSpot." },
         body: [
+          {
+            nl: "Met de EMS-vergelijker vind je leveranciers van energiemanagementsystemen die bij jouw situatie passen. In drie stappen kies je je sector, zie je welke leveranciers passen en vraag je meteen contact aan.",
+            en: "The EMS comparison tool helps you find energy management system suppliers that suit your situation. In three steps you choose your sector, see which suppliers fit and request contact straight away.",
+          },
           {
             nl: "Beide tools zijn ingericht als leadfunnel en gekoppeld aan HubSpot. Aanvragen komen direct in het CRM terecht, zodat het team ze meteen kan opvolgen.",
             en: "Both tools are set up as lead funnels and integrated with HubSpot. Requests land straight in the CRM, so the team can follow up right away.",
@@ -1285,11 +1293,16 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             nl: "Voor het assortiment maakten we productshots, geanimeerde packshots en 3D-renders. Zo staat elke fles strak en herkenbaar in beeld, van de klassieke ketchup tot de nieuwste smaak.",
             en: "For the range we created product shots, animated packshots and 3D renders. Every bottle is shown sharp and recognisable, from the classic ketchup to the latest flavour.",
           },
+          {
+            nl: "Op de homepage komen die flessen in beweging. In de hero draait een 3D-fles Kruiden Ketchup Curry mee terwijl je scrolt, en verderop, bij het assortiment, doen een Honing Mosterd Dressing en een ketchup hetzelfde. Het zijn Lottie-animaties die frame voor frame met je scroll meelopen: scroll je terug, dan draait de fles ook terug.",
+            en: "On the homepage those bottles start to move. In the hero, a 3D bottle of Kruiden Ketchup Curry turns as you scroll, and further down, at the product range, a Honey Mustard Dressing and a ketchup do the same. They are Lottie animations that follow your scroll frame by frame: scroll back up and the bottle turns back too.",
+          },
         ],
       },
     ],
     statements: [
       { nl: "Goede productbeelden maken trek.", en: "Good product shots make you hungry." },
+      { nl: "Een fles die meedraait als je scrolt, laat je niet zomaar los.", en: "A bottle that turns as you scroll is hard to scroll past." },
     ],
   },
   "pine-street-school": {
@@ -1441,36 +1454,41 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Verzilveren als rode draad.", en: "Cashing in, as a thread." },
         body: [
           {
-            nl: "We begonnen bij de naam: Silvr, met verzilveren als rode draad in alles wat het merk zegt. Daarna volgden de logo's en een brandbook. Van de kop op de homepage tot de eerste vraag in de aanvraag: je verzilvert je voertuig.",
-            en: "We started with the name: Silvr, built on 'verzilveren', the Dutch for cashing in, which runs through everything the brand says. Then came the logos and a brandbook. From the homepage headline to the first question of the application: you cash in your vehicle.",
+            nl: "We begonnen bij de naam: Silvr, met verzilveren als rode draad in alles wat het merk zegt. Daarna volgden de logo's en een brandbook. Van de kop op de homepage tot de eerste vraag in de aanvraag: je verzilvert je voertuig. En een explainervideo legt het concept uit, voor wie liever kijkt dan leest.",
+            en: "We started with the name: Silvr, built on 'verzilveren', the Dutch for cashing in, which runs through everything the brand says. Then came the logos and a brandbook. From the homepage headline to the first question of the application: you cash in your vehicle. And an explainer video covers the concept, for those who'd rather watch than read.",
           },
         ],
       },
       {
-        title: { nl: "Vijf stappen naar Teamleader.", en: "Five steps to Teamleader." },
+        title: { nl: "Van slider tot aanvraag.", en: "From slider to application." },
         body: [
           {
-            nl: "De website bouwden we in Webflow. De kern is een interactieve calculator in vijf stappen, die begint bij de vraag welk voertuig je wilt verzilveren: een auto, bestelwagen, vrachtwagen of camper. Bij elke stap wordt de aanvraag persoonlijker, in realtime.",
-            en: "We built the website in Webflow. At its core is an interactive five-step calculator that starts by asking which vehicle you want to cash in: a car, van, truck or camper. With every step the application becomes more personal, in real time.",
+            nl: "De website bouwden we in Webflow. Op de homepage schuif je langs de voertuigen die je kunt verzilveren: de bestelwagen, de auto van de zaak, de vrachtwagen en elk ander bedrijfsvoertuig op kenteken. Elke kaart zegt in één zin wat Silvr voor dat voertuig betekent.",
+            en: "We built the website in Webflow. On the homepage you slide past the vehicles you can cash in: the van, the company car, the truck and any other business vehicle with a licence plate. Each card sums up in one sentence what Silvr means for that vehicle.",
           },
           {
-            nl: "Elke aanvraag loopt direct door naar Teamleader. CRM-automatiseringen verrijken de leadgegevens en sturen persoonlijke e-mailreeksen, zodat het team meteen aan de slag kan. Zo vangt de site leads niet alleen op, maar kwalificeert en volgt hij ze ook op.",
-            en: "Every application goes straight into Teamleader. CRM automations enrich the lead data and send personalised email sequences, so the team can get to work right away. That way the site doesn't just capture leads, it qualifies and nurtures them too.",
+            nl: "Daarna begint de aanvraagflow: een interactieve calculator in vijf stappen. Eerst kies je welk voertuig je wilt verzilveren, een auto, bedrijfswagen, vrachtwagen of camper, en daarna vul je het kenteken in. Bij elke stap wordt de aanvraag persoonlijker, in realtime. Aan het eind controleer je je gegevens nog één keer en verstuur je de aanvraag.",
+            en: "Then the application flow begins: an interactive five-step calculator. First you choose which vehicle you want to cash in, a car, commercial vehicle, truck or camper, and then you enter the licence plate. With every step the application becomes more personal, in real time. At the end you check your details once more and send the application.",
           },
         ],
       },
       {
-        title: { nl: "Uitleg in beeld.", en: "Explained on screen." },
+        title: { nl: "Bevestigd, en meteen in Teamleader.", en: "Confirmed, and straight into Teamleader." },
         body: [
           {
-            nl: "Een explainervideo legt het concept uit, voor wie liever kijkt dan leest. Zo snap je een nieuw idee in één keer.",
-            en: "An explainer video covers the concept, for those who'd rather watch than read. It turns a new idea into something you understand in one go.",
+            nl: "Na het versturen volgt een bevestigingsmail in de stijl van Silvr: een bedankje, het bedrag dat je hebt aangevraagd, de gegevens van je voertuig, zoals kenteken, kilometerstand en staat, en wat er nu gaat gebeuren. Zo weet je zeker dat je aanvraag goed is aangekomen.",
+            en: "After you send it, a confirmation email follows in Silvr's style: a thank-you, the amount you applied for, your vehicle's details, such as licence plate, mileage and condition, and what happens next. So you know for sure that your application has arrived.",
+          },
+          {
+            nl: "Achter de schermen bouwden we de koppeling met Teamleader, die alle binnenkomende aanvragen stroomlijnt. Elke aanvraag loopt direct door naar het CRM, en CRM-automatiseringen verrijken de leadgegevens en sturen persoonlijke e-mailreeksen. Zo kan het team meteen aan de slag, en vangt de site leads niet alleen op, maar kwalificeert en volgt hij ze ook op.",
+            en: "Behind the scenes we built the Teamleader integration that streamlines every incoming application. Each application goes straight into the CRM, where automations enrich the lead data and send personalised email sequences. So the team can get to work right away, and the site doesn't just capture leads, it qualifies and nurtures them too.",
           },
         ],
       },
     ],
     statements: [
       { nl: "Een goede naam legt het concept al half uit.", en: "A good name already explains half the concept." },
+      { nl: "Een goede aanvraag houdt niet op bij de verzendknop.", en: "A good application doesn't stop at the send button." },
     ],
   },
   "bus-whisky": {
@@ -1915,8 +1933,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "We designed the website in Webflow and moved it to WordPress, in Dutch and English. The structure follows the visitor's questions: why now, what is it, who is it for and how does it work? Calm images of patients at home and a clear path to a demo complete it.",
           },
           {
-            nl: "De site laadt snel en is opgebouwd voor SEO. Zo wordt complexe techniek begrijpelijk voor iedereen die meebeslist.",
-            en: "The site loads fast and is structured for SEO. That makes complex technology understandable for everyone involved in the decision.",
+            nl: "Interactieve scrolleffecten nemen je mee door dat verhaal: secties schuiven als panelen in beeld en teksten verschijnen terwijl je scrolt. De site laadt snel en is opgebouwd voor SEO. Zo wordt complexe techniek begrijpelijk voor iedereen die meebeslist.",
+            en: "Interactive scroll effects carry you through that story: sections slide into view like panels and text appears as you scroll. The site loads fast and is structured for SEO. That makes complex technology understandable for everyone involved in the decision.",
           },
         ],
       },
@@ -1924,12 +1942,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Meerdere beslissers, één route.", en: "Several decision-makers, one route." },
         body: [
           {
-            nl: "Een eigen leadwidget voor de verschillende doelgroepen stroomlijnt het beslisproces en verstuurt automatisch transactionele e-mails.",
-            en: "A custom lead widget for the different stakeholders streamlines the decision process and sends automated transactional emails.",
+            nl: "Op de homepage kies je in tabs een onderdeel van de Telebox: de AnyHub (de 4G-gateway), de bloeddrukmeter, de weegschaal, de pulse-oximeter en de glucosemeter. Elk apparaat draait er als 3D-model rond, naast een korte uitleg van wat het meet en doorstuurt. Samen met device-mockups van de whitelabel-software maakt dat het product tastbaar, nog voor de eerste demo.",
+            en: "On the homepage you use tabs to pick a part of the Telebox: the AnyHub (the 4G gateway), the blood pressure monitor, the scales, the pulse oximeter and the glucose meter. Each device turns there as a 3D model, next to a short explanation of what it measures and sends on. Together with device mockups of the white-label software, that makes the product tangible, even before the first demo.",
           },
           {
-            nl: "Strakke 3D-productanimaties en device-mockups van de whitelabel-software maken het product tastbaar, nog voor de eerste demo.",
-            en: "Sleek 3D product animations and device mockups of the white-label software make the product tangible, even before the first demo.",
+            nl: "Een eigen leadwidget voor de verschillende doelgroepen stroomlijnt het beslisproces en verstuurt automatisch transactionele e-mails.",
+            en: "A custom lead widget for the different stakeholders streamlines the decision process and sends automated transactional emails.",
           },
         ],
       },

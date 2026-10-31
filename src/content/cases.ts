@@ -133,8 +133,8 @@ export const cases: Case[] = [
     },
     year: 2023,
     sector: "tech-saas-startups",
-    services: ["branding-rebranding", "web-apps-portals-apps", "websites-webshops", "ai-consultancy"],
-    applications: ["brandbook", "huisstijl", "tone-of-voice", "ux-ui-app-design", "saas-platform", "api-koppelingen", "webflow-website", "ai-chatbots"],
+    services: ["web-apps-portals-apps", "branding-rebranding", "websites-webshops", "ai-consultancy"],
+    applications: ["ux-ui-app-design", "saas-platform", "api-koppelingen", "brandbook", "huisstijl", "tone-of-voice", "webflow-website", "ai-chatbots"],
     tools: ["figma", "illustrator", "webflow"],
     cover: "/media/cases/monvy/01.webp",
     // beelden van de vorige website (m7branding.com): brandbook + platform
@@ -180,7 +180,7 @@ export const cases: Case[] = [
     year: 2023,
     sector: "food-retail",
     services: ["branding-rebranding", "websites-webshops", "seo-aeo-geo", "grafisch-ontwerp-print", "automation-funnels", "configurators-lead-tools-widgets"],
-    applications: ["rebranding", "huisstijl", "webflow-website", "lokale-seo", "boekingswidget", "visitekaartjes-drukwerk", "e-mailmarketing"],
+    applications: ["rebranding", "huisstijl", "webflow-website", "lokale-seo", "boekingswidget", "visitekaartjes-drukwerk", "brochures-magazines", "beurs-signing", "e-mailmarketing"],
     tools: ["figma", "webflow", "googlebusiness", "ga4"],
     cover: "/media/cases/repairlab.webp",
     // + beelden van de vorige website (m7branding.com)
@@ -281,6 +281,7 @@ export const cases: Case[] = [
       "klantportaal",
       "workflow-automatisering",
       "visitekaartjes-drukwerk",
+      "flyers-posters",
       "crm-implementatie",
     ],
     tools: ["webflow", "figma", "lightroom", "premiere"],
@@ -563,7 +564,7 @@ export const cases: Case[] = [
       "branding-rebranding",
       "foto-video-3d-animatie",
     ],
-    applications: ["webshop", "offerte-calculator", "google-ads", "meta-ads", "logo-ontwerp", "huisstijl", "brandbook", "bedrijfsfilm"],
+    applications: ["webshop", "wordpress-website", "productconfigurator", "offerte-calculator", "google-ads", "meta-ads", "logo-ontwerp", "huisstijl", "brandbook", "bedrijfsfilm"],
     tools: ["woocommerce", "wordpress", "mollie", "googleads", "meta"],
     color: "#3C745F",
     challenge: {

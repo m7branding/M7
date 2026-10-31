@@ -222,6 +222,13 @@ export const suppliedMedia: Record<string, SuppliedSet> = {
     films: [
     ],
   },
+  "silvr": {
+    images: [
+      { src: "/media/cases/silvr/s-bevestigingsmail.webp", title: "Silvr — Confirmation email after a request" },
+    ],
+    films: [
+    ],
+  },
   "smarthome-services": {
     images: [
       { src: "/media/cases/smarthome-services/s-iphones.webp" },

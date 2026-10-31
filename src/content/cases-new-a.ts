@@ -292,8 +292,8 @@ export const newCasesA: Case[] = [
       en: "For the Atletiekunie (the Dutch athletics federation) we created ATL+: the national e-learning platform for athletics, with a visual development method, learning pathways, instruction videos and a personal dashboard. From brand and UX research to video recording and management.",
     },
     sector: "sport-media",
-    services: ["branding-rebranding", "web-apps-portals-apps", "foto-video-3d-animatie", "websites-webshops"],
-    applications: ["logo-ontwerp", "huisstijl", "ux-research", "ledenportaal-loyaliteit", "webflow-website", "hosting-onderhoud"],
+    services: ["web-apps-portals-apps", "branding-rebranding", "foto-video-3d-animatie", "websites-webshops"],
+    applications: ["ledenportaal-loyaliteit", "ux-research", "logo-ontwerp", "huisstijl", "webflow-website", "hosting-onderhoud"],
     tools: ["webflow"],
     color: "#DE4A19",
     challenge: {
