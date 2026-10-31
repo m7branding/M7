@@ -4,6 +4,7 @@
    door scripts/mockups (generated/showreels.ts).
    ============================================================ */
 
+import { showreels as rendered } from "./generated/showreels";
 import type { T } from "./types";
 
 export interface Showreel {
@@ -25,4 +26,17 @@ export interface Showreel {
   cases: string[];
 }
 
-export { showreels } from "./generated/showreels";
+
+/** Reels die M7 zelf aanlevert (artifact "M7 Case Mockups"). */
+const supplied: Showreel[] = [
+  {
+    slug: "m7-selected-work",
+    title: { nl: "M7 — geselecteerd werk", en: "M7 — selected work" },
+    src: "/media/showreels/s-projects-12-m7-reel.mp4",
+    poster: "/media/showreels/s-projects-12-m7-reel.webp",
+    duration: 10,
+    cases: ["teamtv", "repairlab", "jurgh-detailing", "mindyourpass", "kippenkar"],
+  },
+];
+
+export const showreels: Showreel[] = [...rendered, ...supplied];

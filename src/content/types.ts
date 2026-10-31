@@ -209,7 +209,19 @@ export type StoryBlock =
   /** Schermvullende masonry-galerij (beelden in hun eigen verhouding). */
   | { type: "masonry"; images: StoryImage[] }
   /** Eén breed beeld of video dat bij het scrollen openvouwt, optioneel met quote erop. */
-  | { type: "media"; image?: string; video?: string; poster?: string; position?: string; quote?: T }
+  | {
+      type: "media";
+      image?: string;
+      video?: string;
+      poster?: string;
+      position?: string;
+      quote?: T;
+      /** native: kader in de eigen verhouding van de film (niets bijgesneden); stage: staande film gecentreerd op een podium. */
+      fit?: "native" | "stage";
+      /** Breedte / hoogte van de film (voor fit). */
+      ratio?: number;
+      alt?: string;
+    }
   /** Grote quote, bv. van de klant. */
   | { type: "quote"; text: T; cite?: string; role?: T; avatar?: string }
   /** Beeld naast tekst. */
@@ -270,6 +282,8 @@ export interface Case {
   heroVideo?: { src: string; poster?: string; /** Staande versie voor mobiel (bv. 720×1280). */ srcMobile?: string; posterMobile?: string };
   /** Brede render voor de strook "volgende case" (r-next.webp, ±2,2:1, onderwerp rechts van het midden). */
   next?: string;
+  /** Films die M7 aanlevert (supplied-media.ts): schermvullende blokken in het verhaal. */
+  films?: { src: string; poster: string; w: number; h: number; title?: string }[];
   gallery?: string[];
   color: string;
   challenge: T;

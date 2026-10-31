@@ -32,6 +32,7 @@ export const sectors = [...baseSectors, ...NEW_SECTORS_A, ...NEW_SECTORS_B, ...N
 import { cases as curatedCases } from "./cases";
 import { archiveCases } from "./cases-archive";
 import { figmaCases } from "./cases-figma";
+import { suppliedCases } from "./cases-supplied";
 import { newCasesA } from "./cases-new-a";
 import { newCasesB } from "./cases-new-b";
 import { withMedia } from "./case-media";
@@ -40,7 +41,7 @@ import { withMedia } from "./case-media";
  * Projecten zonder beeld (nog geen mockups of Figma-export) schuiven naar achteren.
  */
 const showDrafts = process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_SHOW_DRAFTS === "1";
-const others = [...newCasesA, ...newCasesB, ...figmaCases, ...archiveCases].map(withMedia);
+const others = [...newCasesA, ...newCasesB, ...suppliedCases, ...figmaCases, ...archiveCases].map(withMedia);
 export const cases = [...curatedCases.map(withMedia), ...others.filter((c) => c.cover), ...others.filter((c) => !c.cover)].filter(
   (c) => showDrafts || !c.draft,
 );

@@ -60,7 +60,18 @@ function Block({ b, c, locale, i, seed, start }: { b: CaseBlock; c: Case; locale
       return <CaseGallery images={b.images} client={c.client} locale={locale} seed={seed} start={start} />;
 
     case "media":
-      return <CaseMedia image={b.image} video={b.video} poster={b.poster} position={b.position} quote={b.quote ? tr(b.quote, locale) : undefined} alt={c.client} />;
+      return (
+        <CaseMedia
+          image={b.image}
+          video={b.video}
+          poster={b.poster}
+          position={b.position}
+          fit={b.fit}
+          ratio={b.ratio}
+          quote={b.quote ? tr(b.quote, locale) : undefined}
+          alt={b.alt ?? c.client}
+        />
+      );
 
     case "quote":
       return <CaseStatement text={b.text} cite={b.cite} role={b.role} avatar={b.avatar} color={c.color} field={brandField(c.slug)} locale={locale} />;

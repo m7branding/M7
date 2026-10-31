@@ -40,6 +40,16 @@ function chunk<X>(list: X[], k: number): X[][] {
   return out.filter((x) => x.length);
 }
 
+/** a1, b1, a2, b2 …, daarna wat over is. */
+function interleave<X>(a: X[], b: X[]): X[] {
+  const out: X[] = [];
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    if (a[i]) out.push(a[i]);
+    if (b[i]) out.push(b[i]);
+  }
+  return out;
+}
+
 const join = (paras: T[]): T => ({ nl: paras.map((p) => p.nl).join("\n\n"), en: paras.map((p) => p.en).join("\n\n") });
 
 /**
@@ -67,14 +77,14 @@ export function storyFor(c: Case): CaseBlock[] {
   const hero = heroOf(c);
   const heroSrc = hero.kind === "gen" ? undefined : hero.src;
 
-  // gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline) gaan vóór de cover, daarna de rest
+  // eerst wat M7 zelf aanlevert (s-*), dan de gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline),
+  // dan de cover en de rest
   const gallery = c.gallery ?? [];
+  const supplied = gallery.filter((g) => /\/s-[^/]+$/.test(g));
   const renders = gallery.filter((g) => /\/r-[^/]+$/.test(g));
   // een gerenderde cover (r-cover) is een uitsnede van een van de renders: niet nog eens in de galerij
   const cover = c.cover && /\/r-cover\.webp$/.test(c.cover) ? undefined : c.cover;
-  let imgs = Array.from(new Set([...renders, cover, ...gallery.filter((g) => !renders.includes(g))])).filter(
-    (x): x is string => !!x && x !== heroSrc,
-  );
+  let imgs = Array.from(new Set([...supplied, ...renders, cover, ...gallery])).filter((x): x is string => !!x && x !== heroSrc);
 
   // schermvullende beelden die meegroeien: de eigen reveal, de hero-video als de hero iets anders toont,
   // anders liggende renders (bij voorkeur de close-up) die dan niet ook in de masonry staan
@@ -112,9 +122,21 @@ export function storyFor(c: Case): CaseBlock[] {
     ...(c.narrative?.statements ?? []).map((text) => ({ type: "quote" as const, text })),
   ];
   const first = quotes[0] ?? (imgs.length >= 7 ? takeWide(/\/r-0\d-gravity\./) : undefined);
-  const extras = [first, media, ...quotes.slice(1)].filter((x): x is StoryBlock => !!x);
+  // aangeleverde films: in hun eigen verhouding (liggend) of op een podium (staand), om en om met de rest
+  const films: StoryBlock[] = (c.films ?? []).map((f) => ({
+    type: "media",
+    video: f.src,
+    poster: f.poster,
+    fit: f.h > f.w ? "stage" : "native",
+    ratio: f.w / f.h,
+    alt: f.title,
+  }));
+  const rest = [media, ...quotes.slice(1)].filter((x): x is StoryBlock => !!x);
+  const extras = [first, ...interleave(films, rest)].filter((x): x is StoryBlock => !!x);
 
-  const galleries: StoryBlock[] = chunk(imgs, sections(imgs.length)).map((list) => ({ type: "masonry", images: list.map((src) => ({ src })) }));
+  // zoveel masonry-secties dat de films en quotes ertussen passen (met minstens twee beelden per sectie)
+  const k = Math.min(Math.max(sections(imgs.length), extras.length), Math.floor(imgs.length / 2) || sections(imgs.length));
+  const galleries: StoryBlock[] = chunk(imgs, k).map((list) => ({ type: "masonry", images: list.map((src) => ({ src })) }));
 
   const out: CaseBlock[] = [{ type: "intro", text: c.narrative?.intro ?? c.challenge }, ...showBlock];
   const rounds = Math.max(galleries.length, chapters.length);

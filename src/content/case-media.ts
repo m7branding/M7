@@ -6,6 +6,7 @@
 
 import { caseNarratives } from "./case-stories";
 import { caseMedia } from "./generated/case-media";
+import { suppliedMedia } from "./supplied-media";
 import type { Case } from "./types";
 
 export interface CaseMediaEntry {
@@ -25,10 +26,34 @@ export interface CaseMediaEntry {
   replaceCover?: boolean;
 }
 
-/** Vult een case aan met de gegenereerde mockups: renders (r-*) en mockups (m-*) vooraan in de galerij, bestaande beelden erachter. */
+/**
+ * Vult een case aan met beeld: eerst wat M7 zelf aanlevert (supplied-media), dan de gegenereerde
+ * renders (r-*) en mockups (m-*), daarna de bestaande beelden van de case.
+ */
 export function withMedia(c0: Case): Case {
   const narrative = c0.narrative ?? caseNarratives[c0.slug];
-  const c = narrative ? { ...c0, narrative } : c0;
+  return withSupplied(withGenerated(narrative ? { ...c0, narrative } : c0));
+}
+
+/** Aangeleverde beelden vooraan, films als eigen blokken; één film kan de hero worden en één beeld de cover. */
+function withSupplied(c: Case): Case {
+  const s = suppliedMedia[c.slug];
+  if (!s) return c;
+  const heroFilm = s.hero ? s.films.find((f) => f.src === s.hero) : undefined;
+  // een eigen hero-beeld dat door de film wordt vervangen, blijft in de galerij
+  const freed = heroFilm && c.hero?.image ? [c.hero.image] : [];
+  const images = s.images.map((i) => i.src);
+  const gallery = [...images, ...(c.gallery ?? []).filter((g) => !images.includes(g)), ...freed];
+  return {
+    ...c,
+    cover: s.cover ?? c.cover,
+    gallery,
+    films: s.films.filter((f) => f !== heroFilm),
+    hero: heroFilm ? { video: heroFilm.src, poster: heroFilm.poster } : c.hero,
+  };
+}
+
+function withGenerated(c: Case): Case {
   const m = caseMedia[c.slug];
   if (!m) return c;
   const gallery = [...(m.gallery ?? []), ...(c.gallery ?? []).filter((g) => !m.gallery?.includes(g))];

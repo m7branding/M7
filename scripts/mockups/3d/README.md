@@ -167,3 +167,28 @@ Praktisch (ronde 13):
   browserbalk, `role_src` = welk beeld op welk scherm, `roles` / `exclude_t` / `max_stills`): debiteurnet (portal),
   infrai (app-schermen), perfect-people (site-screenshot uit de eigen cover). Een sjabloon doet alleen mee als alle
   schermen echte inhoud krijgen (`proj.roles_ok`).
+
+## Ronde 14: geen verzonnen print, geverifieerde paletten, botsingscontrole, "volgende case"-beelden
+
+- **Retired** (niet meer gebruikt in stills, covers, hero's, reels): b01 kaartjes, b02 briefpapier, b03/b04 posters,
+  b07 A-bord, b08 vlaggen, b09 brochure, b11 kaartjes + telefoon, b12 brief + MacBook, b13 social. Echte print, brand sheets
+  en social posts komen later uit Figma. `templates/scenes/retire14.py` haalde de bestaande bestanden van de site
+  (naar `r14/retired/`).
+- **Paletten** (`r14/palette/palettes.json`, PALETTE-agent): achtergronden van toestelscènes zijn lichtgrijs, antraciet,
+  bijna-zwart of diep navy; een verdiepte merkkleur alleen als de case een geverifieerde `fullBleed` heeft
+  (`batch13.bleed()`), nooit `uiColor`/accent. `templates/scenes/plan14.py` maakt het plan.
+- **Logoscènes in echte kleuren**: b05 blinddruk (kleurloos, losse kaart blanco), b06 verhoogd logo op de wand, b10
+  sticker. `logos.variants()`: de versie voor lichte vlakken (origineel in kleur; logo's met witte letters niet) en voor
+  donkere vlakken (zwart/antraciet/navy inkt wordt wit, merkkleuren blijven: RepairLab-stip, JURGH-balk; wit-op-donker
+  originelen ongewijzigd; JURGH uit M7's eigen tegel `logos-designed/jurgh-tile.webp`). Ondergrond: `neutrals.light`/
+  `neutrals.dark` van het palet of de geverifieerde fullBleed (op een licht merkvlak de versie voor licht).
+  In b06 is ook de wand rond het bord een printvlak (vlakke kleur), zodat bord en wand één kleurpad delen (kleurecht, geen naad).
+- **Botsingscontrole**: `R14_COLLIDE=1 R12_PV=1 python <scène>.py` bouwt de scène en test met BVH-bomen in wereldruimte
+  of losse objecten elkaar doorsnijden (`r14/collide/<scène>.json`); contact met vloer/bureau/standaard is normaal.
+  Gevonden en opgelost: d06 (twee iPhones door elkaar), b05 (kaart door het papier).
+- **"Volgende case"** (`r-next.webp`, 2400×1100): 13 camera's `<scène>__n` die `scenekit.autoframe` plaatst (onderwerp
+  midden-rechts, ~62 % van de hoogte, linker 40 % rustig), 64 samples; `templates/scenes/next14.py` kiest per case een
+  compositie (niet die van de cover, niet gelijk aan de buur), donkere neutrale of navy achtergrond, links iets donkerder.
+  `write-manifest.mjs` schrijft `next`.
+- Staande camera's `__p` (portret-reels) en `__n` doen niet mee in stills/covers/hero's (`batch13.library(portrait=, nxt=)`).
+- `designs.print_url()` blijft de centrale guard tegen staging-/hostingdomeinen.

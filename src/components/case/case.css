@@ -1285,3 +1285,42 @@ html.js [data-reveal="cx"].is-in > img {
     transition: none;
   }
 }
+
+/* aangeleverde films: eigen verhouding (niets van de ingebakken titels bijgesneden) */
+.cx-media--native .cx-media__grow .cx-grow__frame {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: var(--ar, 16 / 9);
+}
+.cx-media--native .cx-media__el {
+  transform: scale(calc(1.06 - var(--g) * 0.06));
+}
+/* staande film (bv. 4:5) gecentreerd op een donker podium met een zachte gloed */
+.cx-media--stage .cx-media__grow .cx-grow__frame {
+  background:
+    radial-gradient(60% 70% at 50% 55%, rgba(255, 255, 255, 0.07), transparent 70%),
+    #0b0b0e;
+}
+.cx-media--stage .cx-media__el {
+  inset: 7% auto;
+  left: 50%;
+  width: auto;
+  height: 86%;
+  object-fit: contain;
+  border-radius: clamp(12px, 1.4vw, 22px);
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.8);
+  transform: translateX(-50%) scale(calc(1.08 - var(--g) * 0.08));
+}
+@media (max-width: 760px) {
+  .cx-media--native .cx-media__grow .cx-grow__frame {
+    aspect-ratio: var(--ar, 16 / 9);
+  }
+  .cx-media--stage .cx-media__grow .cx-grow__frame {
+    aspect-ratio: 4 / 5;
+  }
+  .cx-media--stage .cx-media__el {
+    inset: 5% auto;
+    height: 90%;
+  }
+}
