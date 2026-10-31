@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { ShowreelHero } from "@/components/showreel/ShowreelHero";
 import { CaseCard } from "@/components/ui/CaseCard";
 import { Icon } from "@/components/ui/Icon";
+import { masterpieceRank } from "@/content/masterpieces";
 import type { Case, Locale } from "@/content/types";
 import { allCases, allSectors, allServices } from "@/lib/content";
 import { getDict } from "@/lib/dict";
@@ -34,9 +35,14 @@ export function generateMetadata({ params }: P): Metadata {
 export default function CasesPage({ params }: P) {
   const locale = params.lang;
   const d = getDict(locale);
-  // Volgorde in het overzicht: uitgelicht, dan met beeld, dan zonder beeld (gegenereerde cover)
+  // Volgorde in het overzicht: eerst M7's eigen top-25 (in hun volgorde), dan uitgelicht, met beeld, zonder beeld
   const rank = (c: Case) => (c.featured ? 0 : c.cover ? 1 : 2);
-  const cases = [...allCases()].sort((a, b) => rank(a) - rank(b));
+  const cases = [...allCases()].sort((a, b) => {
+    const ma = masterpieceRank(a.slug);
+    const mb = masterpieceRank(b.slug);
+    if (ma !== mb) return ma === Infinity ? 1 : mb === Infinity ? -1 : ma - mb;
+    return rank(a) - rank(b);
+  });
   const usedServices = allServices().filter((s) => cases.some((c) => c.services.includes(s.slug)));
   const usedSectors = allSectors().filter((s) => cases.some((c) => c.sector === s.slug));
 
