@@ -48,6 +48,11 @@ def logo_st(slug, t, i):
     (logo version for dark surfaces), or the verified full-bleed field."""
     pal = B13.palette(slug); neu = pal.get('neutrals') or {}
     light = neu.get('light') or '#ECEBE7'; dark = neu.get('dark') or '#1D1E21'
+    hh, ss, vv = B13._hsv(dark)
+    if not B13.is_blue(slug) and slug not in ('teamtv', 'teamtv-pricing-table') and 195 <= hh * 360 <= 250 and ss > 0.25:
+        # a navy 'dark' neutral on a brand that is not blue: the darkened verified brand field, else near-black neutral
+        fb = B13.bleed(slug)
+        dark = ('#%02x%02x%02x' % B13.D.tint_dark(fb)) if fb else '#1D1E21'
     has_light = B13.logo_variant(slug, 'light') is not None
     lum = lambda hx: (0.2126 * B13.hexrgb(hx)[0] + 0.7152 * B13.hexrgb(hx)[1] + 0.0722 * B13.hexrgb(hx)[2]) / 255
     opts = [('dark', dark, 'dark')]

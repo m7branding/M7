@@ -39,6 +39,23 @@ def backdrop(slug, t, lib):
     return st
 
 
+def add_new():
+    """Cases that have captures now but no r-next yet (round 14: live sites of former logo-only cases)."""
+    lib = {t: L for t, L in B13.library(final=False, nxt=True).items() if t.endswith('__n') and not t.startswith(('d01_', 'd15_'))}
+    PR = P.projects(); pl = json.load(open(os.path.join(B13.R13, 'plan.json'))); nx = json.load(open(PLAN)); ch = []
+    cnt = {}
+    for st in nx.values(): cnt[st['t']] = cnt.get(st['t'], 0) + 1
+    for slug in pl:
+        if slug in nx or slug not in PR or slug in B13.PRESERVE: continue
+        rok = P.roles_ok(PR[slug]); cov = (pl[slug].get('cover') or '').split('__')[0]
+        el = [t for t, L in lib.items() if set(L['roles']) - {'social'} <= rok and t.split('__')[0] != cov]
+        if not el: continue
+        t = min(el, key=lambda t: (cnt.get(t, 0), h(slug + t) % 97)); cnt[t] = cnt.get(t, 0) + 1
+        nx[slug] = backdrop(slug, t, lib); ch.append(slug)
+    json.dump(nx, open(PLAN, 'w'), indent=1)
+    return ch
+
+
 def fix_navy():
     """Non-blue cases whose r-next sits on navy: same composition, dark neutral backdrop. Returns the slugs."""
     lib = B13.library(final=False, nxt=True); nx = json.load(open(PLAN)); ch = []
@@ -150,6 +167,9 @@ if __name__ == '__main__':
         print(f'total {tot / 1048576:.1f} MB')
     elif cmd == 'sheet':
         sheet()
+    elif cmd == 'addnew':
+        ch = add_new(); print('added', len(ch), ','.join(ch))
+        for s in ch: print('next', s, render_one(s, json.load(open(PLAN))[s]) // 1024, 'KB', flush=True)
     elif cmd == 'fixnavy':
         ch = fix_navy(); print('navy -> dark', len(ch), ','.join(ch))
         for s in ch: print('next', s, render_one(s, json.load(open(PLAN))[s]) // 1024, 'KB', flush=True)
