@@ -53,11 +53,27 @@ def backdrop_dark(hexc):
     return dark_for(hexc, l=0.15, smax=0.5)
 
 
+import re as _re
+# hosting / staging domains: never printed on stationery (a client's own domain only)
+_STAGING = _re.compile(r'(\.(webflow\.(io|com)|vercel\.app|netlify\.app|herokuapp\.com|pages\.dev|github\.io|wixsite\.com|'
+                       r'myshopify\.com|framer\.(app|website)|webstudio\.is|squarespace\.com|wpengine(powered)?\.com|'
+                       r'azurewebsites\.net|onrender\.com|fly\.dev|surge\.sh|ngrok\.(io|app))$)'
+                       r'|^(staging|stage|dev|test|acc|preview|beta)[.-]|localhost')
+
+
+def print_url(u):
+    """The domain to print on a design, or '' when it is missing or a hosting / staging domain."""
+    d = (u or '').strip().lower()
+    d = _re.sub(r'^[a-z]+://', '', d)
+    d = _re.sub(r'^www\.', '', d).split('/')[0].split('?')[0]
+    return '' if (not d or _STAGING.search(d)) else d
+
+
 class Brand:
     """Everything a design may use. mono: L mask (logo shape, 255 = ink); rgba: full-colour logo (optional)."""
 
     def __init__(self, slug, color, url, mono, rgba=None, captures=None):
-        self.slug, self.color, self.url = slug, color, url
+        self.slug, self.color, self.url = slug, color, print_url(url)        # central guard: no staging domains
         self.mono = mono
         self.rgba = rgba
         self.caps = captures or {}
