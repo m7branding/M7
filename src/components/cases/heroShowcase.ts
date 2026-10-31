@@ -15,6 +15,7 @@ export const HERO_SHOWCASE: Partial<Record<string, ServiceSlug>> = {
   "steddion-tools": "configurators-lead-tools-widgets",
   "the-sandt": "seo-aeo-geo", // SandtAnswers
   "bernheze-makelaars-rebranding": "grafisch-ontwerp-print", // BernhezePrint
+  "designers-house": "branding-rebranding", // DesignersHouseBook (uit hun eigen brandbook)
   // niet: alpacafarm-vorstenbosch (SocialAds zet een GRID-advertentie vooraan, dat is een andere klant)
   // en bctn-qhse (BctnControlTower is de AI-klantenservice-toren, geen QHSE-verhaal); die houden de device-hero
 };

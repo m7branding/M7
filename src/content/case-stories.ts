@@ -1524,17 +1524,17 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een database vol publicaties.", en: "A database full of publishers." },
         body: [
           {
-            nl: "Digital Newsgroup (DNG) is een internationaal linkbuildingbureau met eigen software en een grote database met blogs en nieuwssites. Klanten moesten dat aanbod makkelijk kunnen doorzoeken. En ze moesten direct kunnen bestellen.",
-            en: "Digital Newsgroup (DNG) is an international link-building agency with its own software and a large database of blogs and news sites. Customers needed to search that offer easily. And they needed to order straight away.",
+            nl: "Digital Newsgroup (DNG) is een internationaal linkbuildingbureau met eigen software en een grote database met blogs en nieuwssites. Plaatsingen kopen kon alleen in de applicatie, met een login en een account. Dat moest laagdrempeliger: iedereen moest online kennis kunnen maken met DNG en meteen kunnen bestellen.",
+            en: "Digital Newsgroup (DNG) is an international link-building agency with its own software and a large database of blogs and news sites. Buying placements was only possible in the application, with a login and an account. It had to be easier: anyone should be able to get to know DNG online and order straight away.",
           },
         ],
       },
       {
-        title: { nl: "Fris, met een groene vonk.", en: "Fresh, with a green spark." },
+        title: { nl: "Van rood naar gifgroen.", en: "From red to acid green." },
         body: [
           {
-            nl: "We gaven het merk een frisse uitstraling: donker, met fel limoengroen als accent. Die stijl loopt door in de shop, die we bouwden in WordPress met WooCommerce.",
-            en: "We gave the brand a fresh look: dark, with bright lime green as the accent. That style carries through to the shop, which we built in WordPress with WooCommerce.",
+            nl: "We voerden een volledige rebranding door: van de oude rode huisstijl en het logo naar een gifgroene branding, actief en levendig. Die stijl loopt door in de shop, die we bouwden in WordPress met WooCommerce.",
+            en: "We carried out a full rebrand: from the old red identity and logo to an acid-green brand, active and lively. That style carries through to the shop, which we built in WordPress with WooCommerce.",
           },
         ],
       },
@@ -1542,8 +1542,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Kiezen zoals in een webshop.", en: "Choose like in any web shop." },
         body: [
           {
-            nl: "In de shop filter je op categorie en zie je per site de belangrijkste cijfers, zoals domain authority en organisch verkeer, met de prijs ernaast. Je bestelt meteen, en de contentdetails vul je later in. Zo kies je backlinks zoals je dat van elke webshop gewend bent.",
-            en: "In the shop you filter by category and see the key figures for each site, such as domain authority and organic traffic, with the price alongside. You order right away and fill in the content details later. Choosing backlinks works just like any web shop you're used to.",
+            nl: "De shop biedt een selectie uit de applicatie, zonder login of account. Een adapter haalt alle websites automatisch op, met hun domain ratings, favicon en een screenshot. Je filtert op categorie, ziet per site de cijfers en de prijs, en bestelt meteen. De contentdetails vul je later in.",
+            en: "The shop offers a selection from the application, with no login or account. An adapter automatically fetches every website, with its domain ratings, favicon and a screenshot. You filter by category, see each site's figures and price, and order right away. The content details come later.",
           },
         ],
       },

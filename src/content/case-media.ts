@@ -37,7 +37,10 @@ export function withMedia(c0: Case): Case {
   return withSupplied(withPortfolio(withGenerated(narrative ? { ...c0, narrative } : c0)));
 }
 
-/** Portfolio-mockups v2 vóór de renders; hun films als blokken in het verhaal; hun cover voor de kaarten. */
+/**
+ * Portfolio-mockups v2 vóór de renders; hun films als blokken in het verhaal; hun cover voor de kaarten;
+ * hun webclip als hero-video alleen zolang de case nog geen eigen hero-video (r-hero) heeft.
+ */
 function withPortfolio(c: Case): Case {
   const p = portfolioV2[c.slug];
   if (!p) return c;
@@ -46,6 +49,7 @@ function withPortfolio(c: Case): Case {
     cover: p.cover ?? c.cover,
     gallery: [...p.images, ...(c.gallery ?? []).filter((g) => !p.images.includes(g))],
     films: [...(c.films ?? []), ...p.films],
+    heroVideo: c.heroVideo ?? (p.hero ? { src: p.hero.src, poster: p.hero.poster } : undefined),
   };
 }
 

@@ -3,6 +3,7 @@
    van M7; zie scripts/mockups/README). `fullBleed`: de kleur die het merk ook echt
    als vol vlak gebruikt, of null als de merkkleur alleen een accent is (bv. RepairLab:
    zwart-wit met een rood puntje). De UI-kleur zelf staat als `color` in de case.
+   Nieuwe cases (Nova Special Cars, Onderbouwd Investeren e.a.) volgen hun zustermerk.
    ============================================================ */
 
 export const casePalettes: Record<string, { fullBleed: string | null; dark: string; light: string }> = {
@@ -92,6 +93,12 @@ export const casePalettes: Record<string, { fullBleed: string | null; dark: stri
   "verichecks": { fullBleed: null, dark: "#1B3044", light: "#F8FBFC" },
   "your-earth": { fullBleed: "#08233C", dark: "#08233C", light: "#FFFFFF" },
   "zuyver-jeeps": { fullBleed: null, dark: "#020202", light: "#FFFFFF" },
+  "nova-special-cars": { fullBleed: "#112032", dark: "#020202", light: "#FFFFFF" },
+  "onderbouwd-investeren": { fullBleed: "#1A1E40", dark: "#011E41", light: "#FFFFFF" },
+  "designers-house": { fullBleed: null, dark: "#2F2E2D", light: "#FBFAF8" },
+  "battery-park-montessori": { fullBleed: null, dark: "#1A1A1A", light: "#FFFFFF" },
+  "citex-ai": { fullBleed: null, dark: "#0B1218", light: "#FFFFFF" },
+  "eredivisietoppers": { fullBleed: null, dark: "#0B0E1C", light: "#FFFFFF" },
 };
 
 /** Kleur voor een vol merkvlak (statement, showcase), of null: dan neutraal met de merkkleur als accent. */
