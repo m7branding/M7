@@ -28,6 +28,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/agroforestry-wur/screen-desktop.webp", mobile: "/media/cases/agroforestry-wur/screen-mobile.webp" },
     logo: "/media/cases/agroforestry-wur/logo-white.svg",
+    next: "/media/cases/agroforestry-wur/r-next.webp",
   },
   "aigora": {
     cover: "/media/cases/aigora/r-cover.webp",
@@ -51,6 +52,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/aigora/screen-desktop.webp", mobile: "/media/cases/aigora/screen-mobile.webp" },
     logo: "/media/cases/aigora/logo-white.svg",
+    next: "/media/cases/aigora/r-next.webp",
   },
   "alpacafarm-vorstenbosch": {
     cover: "/media/cases/alpacafarm-vorstenbosch/r-cover.webp",
@@ -76,6 +78,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/alpacafarm-vorstenbosch/screen-desktop.webp", mobile: "/media/cases/alpacafarm-vorstenbosch/screen-mobile.webp" },
     logo: "/media/cases/alpacafarm-vorstenbosch/logo-white.svg",
+    next: "/media/cases/alpacafarm-vorstenbosch/r-next.webp",
   },
   "architectenbureau-koppens": {
     cover: "/media/cases/architectenbureau-koppens/r-cover.webp",
@@ -130,6 +133,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/bernheze-makelaars-rebranding/screen-desktop.webp", mobile: "/media/cases/bernheze-makelaars-rebranding/screen-mobile.webp" },
     logo: "/media/cases/bernheze-makelaars-rebranding/logo-white.svg",
+    next: "/media/cases/bernheze-makelaars-rebranding/r-next.webp",
   },
   "bernheze-makelaars-video": {
     cover: "/media/cases/bernheze-makelaars-video/r-cover.webp",
@@ -162,6 +166,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/boutique-hotels-gelderland/screen-desktop.webp", mobile: "/media/cases/boutique-hotels-gelderland/screen-mobile.webp" },
     logo: "/media/cases/boutique-hotels-gelderland/logo-white.svg",
+    next: "/media/cases/boutique-hotels-gelderland/r-next.webp",
   },
   "buitenstate": {
     cover: "/media/cases/buitenstate/r-cover.webp",
@@ -214,6 +219,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/buitenstate-tools/m-mac.webp",
     ],
     logo: "/media/cases/buitenstate-tools/logo-white.svg",
+    next: "/media/cases/buitenstate-tools/r-next.webp",
   },
   "bus-whisky": {
     cover: "/media/cases/bus-whisky/r-cover.webp",
@@ -241,6 +247,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/bus-whisky/screen-desktop.webp", mobile: "/media/cases/bus-whisky/screen-mobile.webp" },
     logo: "/media/cases/bus-whisky/logo-white.svg",
+    next: "/media/cases/bus-whisky/r-next.webp",
   },
   "calvin-vlaanderen": {
     cover: "/media/cases/calvin-vlaanderen/r-cover.webp",
@@ -265,6 +272,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/calvin-vlaanderen/screen-desktop.webp", mobile: "/media/cases/calvin-vlaanderen/screen-mobile.webp" },
     logo: "/media/cases/calvin-vlaanderen/logo-white.svg",
+    next: "/media/cases/calvin-vlaanderen/r-next.webp",
   },
   "chavore": {
     cover: "/media/cases/chavore/r-cover.webp",
@@ -292,6 +300,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/chavore/screen-desktop.webp", mobile: "/media/cases/chavore/screen-mobile.webp" },
     logo: "/media/cases/chavore/logo-white.svg",
+    next: "/media/cases/chavore/r-next.webp",
   },
   "cj-privacy-legal": {
     gallery: [
@@ -323,6 +332,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/cryptocointalk/screen-desktop.webp", mobile: "/media/cases/cryptocointalk/screen-mobile.webp" },
     logo: "/media/cases/cryptocointalk/logo-white.svg",
+    next: "/media/cases/cryptocointalk/r-next.webp",
   },
   "db-kiepers": {
     cover: "/media/cases/db-kiepers/r-cover.webp",
@@ -347,6 +357,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/db-kiepers/screen-desktop.webp", mobile: "/media/cases/db-kiepers/screen-mobile.webp" },
     logo: "/media/cases/db-kiepers/logo-white.svg",
+    next: "/media/cases/db-kiepers/r-next.webp",
   },
   "debiteurnet": {
     gallery: [
@@ -370,6 +381,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/debiteurnet/r-18-d19-studio-front-a.webp",
     ],
     heroVideo: { src: "/media/cases/debiteurnet/r-hero.mp4", poster: "/media/cases/debiteurnet/r-hero.webp", srcMobile: "/media/cases/debiteurnet/r-hero-m.mp4", posterMobile: "/media/cases/debiteurnet/r-hero-m.webp" },
+    next: "/media/cases/debiteurnet/r-next.webp",
   },
   "digital-newsgroup": {
     cover: "/media/cases/digital-newsgroup/r-cover.webp",
@@ -394,6 +406,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/digital-newsgroup/screen-desktop.webp", mobile: "/media/cases/digital-newsgroup/screen-mobile.webp" },
     logo: "/media/cases/digital-newsgroup/logo-white.svg",
+    next: "/media/cases/digital-newsgroup/r-next.webp",
   },
   "ecos": {
     cover: "/media/cases/ecos/r-cover.webp",
@@ -417,6 +430,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/ecos/screen-desktop.webp", mobile: "/media/cases/ecos/screen-mobile.webp" },
     logo: "/media/cases/ecos/logo-white.png",
+    next: "/media/cases/ecos/r-next.webp",
   },
   "edgeway-commodities": {
     cover: "/media/cases/edgeway-commodities/r-cover.webp",
@@ -438,6 +452,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/edgeway-commodities/screen-desktop.webp", mobile: "/media/cases/edgeway-commodities/screen-mobile.webp" },
     logo: "/media/cases/edgeway-commodities/logo-white.svg",
+    next: "/media/cases/edgeway-commodities/r-next.webp",
   },
   "electriffy": {
     cover: "/media/cases/electriffy/r-cover.webp",
@@ -461,6 +476,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/electriffy/screen-desktop.webp", mobile: "/media/cases/electriffy/screen-mobile.webp" },
     logo: "/media/cases/electriffy/logo-white.svg",
+    next: "/media/cases/electriffy/r-next.webp",
   },
   "esmailly-bouw": {
     cover: "/media/cases/esmailly-bouw/r-cover.webp",
@@ -485,6 +501,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/esmailly-bouw/r-18-d04-phone-trio-b.webp",
     ],
     heroVideo: { src: "/media/cases/esmailly-bouw/r-hero.mp4", poster: "/media/cases/esmailly-bouw/r-hero.webp", srcMobile: "/media/cases/esmailly-bouw/r-hero-m.mp4", posterMobile: "/media/cases/esmailly-bouw/r-hero-m.webp" },
+    next: "/media/cases/esmailly-bouw/r-next.webp",
     replaceCover: true,
   },
   "expociety-app": {
@@ -514,6 +531,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/expociety-app/screen-desktop.webp", mobile: "/media/cases/expociety-app/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/expociety-app/r-hero.mp4", poster: "/media/cases/expociety-app/r-hero.webp", srcMobile: "/media/cases/expociety-app/r-hero-m.mp4", posterMobile: "/media/cases/expociety-app/r-hero-m.webp" },
     logo: "/media/cases/expociety-app/logo-white.svg",
+    next: "/media/cases/expociety-app/r-next.webp",
     replaceCover: true,
   },
   "expociety-branding": {
@@ -542,6 +560,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/fairlink/screen-desktop.webp", mobile: "/media/cases/fairlink/screen-mobile.webp" },
     logo: "/media/cases/fairlink/logo-white.svg",
+    next: "/media/cases/fairlink/r-next.webp",
   },
   "foodbars-gelderland": {
     cover: "/media/cases/foodbars-gelderland/r-cover.webp",
@@ -564,6 +583,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/foodbars-gelderland/screen-desktop.webp", mobile: "/media/cases/foodbars-gelderland/screen-mobile.webp" },
     logo: "/media/cases/foodbars-gelderland/logo-white.svg",
+    next: "/media/cases/foodbars-gelderland/r-next.webp",
   },
   "gemeente-gouda": {
     gallery: [
@@ -603,6 +623,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/grid/screen-desktop.webp", mobile: "/media/cases/grid/screen-mobile.webp" },
     logo: "/media/cases/grid/logo-white.svg",
+    next: "/media/cases/grid/r-next.webp",
   },
   "happy-horse-sales": {
     logo: "/media/cases/happy-horse-sales/logo-white.png",
@@ -633,6 +654,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/hela/screen-desktop.webp", mobile: "/media/cases/hela/screen-mobile.webp" },
     logo: "/media/cases/hela/logo-white.svg",
+    next: "/media/cases/hela/r-next.webp",
   },
   "huurfix": {
     cover: "/media/cases/huurfix/r-cover.webp",
@@ -654,6 +676,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/huurfix/screen-desktop.webp", mobile: "/media/cases/huurfix/screen-mobile.webp" },
     logo: "/media/cases/huurfix/logo-white.svg",
+    next: "/media/cases/huurfix/r-next.webp",
   },
   "icewall": {
     cover: "/media/cases/icewall/r-cover.webp",
@@ -678,6 +701,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/icewall/screen-desktop.webp", mobile: "/media/cases/icewall/screen-mobile.webp" },
     logo: "/media/cases/icewall/logo-white.svg",
+    next: "/media/cases/icewall/r-next.webp",
   },
   "impeco": {
     cover: "/media/cases/impeco/r-cover.webp",
@@ -702,6 +726,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/impeco/screen-desktop.webp", mobile: "/media/cases/impeco/screen-mobile.webp" },
     logo: "/media/cases/impeco/logo-white.svg",
+    next: "/media/cases/impeco/r-next.webp",
   },
   "infrai": {
     gallery: [
@@ -716,6 +741,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/infrai/r-09-d16-phone-plinth-b.webp",
     ],
     heroVideo: { src: "/media/cases/infrai/r-hero.mp4", poster: "/media/cases/infrai/r-hero.webp", srcMobile: "/media/cases/infrai/r-hero-m.mp4", posterMobile: "/media/cases/infrai/r-hero-m.webp" },
+    next: "/media/cases/infrai/r-next.webp",
   },
   "intrador": {
     gallery: [
@@ -750,6 +776,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/issa/screen-desktop.webp", mobile: "/media/cases/issa/screen-mobile.webp" },
     logo: "/media/cases/issa/logo-white.png",
+    next: "/media/cases/issa/r-next.webp",
   },
   "jalo-energy": {
     cover: "/media/cases/jalo-energy/r-cover.webp",
@@ -774,6 +801,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/jalo-energy/screen-desktop.webp", mobile: "/media/cases/jalo-energy/screen-mobile.webp" },
     logo: "/media/cases/jalo-energy/logo-white.svg",
+    next: "/media/cases/jalo-energy/r-next.webp",
   },
   "jmtuning": {
     cover: "/media/cases/jmtuning/r-cover.webp",
@@ -797,6 +825,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/jmtuning/screen-desktop.webp", mobile: "/media/cases/jmtuning/screen-mobile.webp" },
     logo: "/media/cases/jmtuning/logo-white.svg",
+    next: "/media/cases/jmtuning/r-next.webp",
   },
   "jurgh-detailing": {
     cover: "/media/cases/jurgh-detailing/r-cover.webp",
@@ -820,6 +849,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/jurgh-detailing/screen-desktop.webp", mobile: "/media/cases/jurgh-detailing/screen-mobile.webp" },
     logo: "/media/cases/jurgh-detailing/logo-white.svg",
+    next: "/media/cases/jurgh-detailing/r-next.webp",
     replaceCover: true,
   },
   "kds-stansvormen": {
@@ -842,6 +872,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/kds-stansvormen/screen-desktop.webp", mobile: "/media/cases/kds-stansvormen/screen-mobile.webp" },
     logo: "/media/cases/kds-stansvormen/logo-white.svg",
+    next: "/media/cases/kds-stansvormen/r-next.webp",
   },
   "kippenkar": {
     cover: "/media/cases/kippenkar/r-cover.webp",
@@ -867,6 +898,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/kippenkar/screen-desktop.webp", mobile: "/media/cases/kippenkar/screen-mobile.webp" },
     logo: "/media/cases/kippenkar/logo-white.png",
+    next: "/media/cases/kippenkar/r-next.webp",
     replaceCover: true,
   },
   "maarschall": {
@@ -919,6 +951,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/martello/screen-desktop.webp", mobile: "/media/cases/martello/screen-mobile.webp" },
     logo: "/media/cases/martello/logo-white.svg",
+    next: "/media/cases/martello/r-next.webp",
   },
   "mindyourpass": {
     cover: "/media/cases/mindyourpass/m-cover.webp",
@@ -940,6 +973,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/mindyourpass/screen-desktop.webp", mobile: "/media/cases/mindyourpass/screen-mobile.webp" },
     logo: "/media/cases/mindyourpass/logo-white.svg",
+    next: "/media/cases/mindyourpass/r-next.webp",
   },
   "misterglass": {
     cover: "/media/cases/misterglass/m-cover.webp",
@@ -986,6 +1020,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/monvy/screen-desktop.webp", mobile: "/media/cases/monvy/screen-mobile.webp" },
     logo: "/media/cases/monvy/logo-white.svg",
+    next: "/media/cases/monvy/r-next.webp",
   },
   "nexis-group": {
     cover: "/media/cases/nexis-group/r-cover.webp",
@@ -1013,6 +1048,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/nexis-group/screen-desktop.webp", mobile: "/media/cases/nexis-group/screen-mobile.webp" },
     logo: "/media/cases/nexis-group/logo-white.png",
+    next: "/media/cases/nexis-group/r-next.webp",
   },
   "nktv": {
     gallery: [
@@ -1028,6 +1064,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/nktv/r-17-d19-studio-front-a.webp",
     ],
     logo: "/media/cases/nktv/logo-white.png",
+    next: "/media/cases/nktv/r-next.webp",
   },
   "nova-funeral-cars": {
     cover: "/media/cases/nova-funeral-cars/r-cover.webp",
@@ -1052,6 +1089,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/nova-funeral-cars/screen-desktop.webp", mobile: "/media/cases/nova-funeral-cars/screen-mobile.webp" },
     logo: "/media/cases/nova-funeral-cars/logo-white.svg",
+    next: "/media/cases/nova-funeral-cars/r-next.webp",
   },
   "outplay": {
     cover: "/media/cases/outplay/r-cover.webp",
@@ -1075,6 +1113,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/outplay/screen-desktop.webp", mobile: "/media/cases/outplay/screen-mobile.webp" },
     logo: "/media/cases/outplay/logo-white.png",
+    next: "/media/cases/outplay/r-next.webp",
   },
   "perfect-people": {
     gallery: [
@@ -1086,6 +1125,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/perfect-people/r-06-d19-studio-front-c.webp",
     ],
     heroVideo: { src: "/media/cases/perfect-people/r-hero.mp4", poster: "/media/cases/perfect-people/r-hero.webp", srcMobile: "/media/cases/perfect-people/r-hero-m.mp4", posterMobile: "/media/cases/perfect-people/r-hero-m.webp" },
+    next: "/media/cases/perfect-people/r-next.webp",
   },
   "pine-street-school": {
     cover: "/media/cases/pine-street-school/r-cover.webp",
@@ -1110,6 +1150,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/pine-street-school/screen-desktop.webp", mobile: "/media/cases/pine-street-school/screen-mobile.webp" },
     logo: "/media/cases/pine-street-school/logo-white.svg",
+    next: "/media/cases/pine-street-school/r-next.webp",
   },
   "plenty-planet": {
     cover: "/media/cases/plenty-planet/r-cover.webp",
@@ -1133,6 +1174,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/plenty-planet/screen-desktop.webp", mobile: "/media/cases/plenty-planet/screen-mobile.webp" },
     logo: "/media/cases/plenty-planet/logo-white.svg",
+    next: "/media/cases/plenty-planet/r-next.webp",
   },
   "repairlab": {
     cover: "/media/cases/repairlab/r-cover.webp",
@@ -1155,6 +1197,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/repairlab/screen-desktop.webp", mobile: "/media/cases/repairlab/screen-mobile.webp" },
     logo: "/media/cases/repairlab/logo-white.svg",
+    next: "/media/cases/repairlab/r-next.webp",
     replaceCover: true,
   },
   "repairlab-content": {
@@ -1190,6 +1233,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/silvr/screen-desktop.webp", mobile: "/media/cases/silvr/screen-mobile.webp" },
     logo: "/media/cases/silvr/logo-white.png",
+    next: "/media/cases/silvr/r-next.webp",
   },
   "smarthome-services": {
     gallery: [
@@ -1205,6 +1249,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/smarthome-services/r-17-d20-gravity-alt-b.webp",
     ],
     logo: "/media/cases/smarthome-services/logo-white.svg",
+    next: "/media/cases/smarthome-services/r-next.webp",
   },
   "solidlayer": {
     cover: "/media/cases/solidlayer/r-cover.webp",
@@ -1229,6 +1274,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/solidlayer/screen-desktop.webp", mobile: "/media/cases/solidlayer/screen-mobile.webp" },
     logo: "/media/cases/solidlayer/logo-white.svg",
+    next: "/media/cases/solidlayer/r-next.webp",
   },
   "sparked": {
     gallery: [
@@ -1260,6 +1306,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/sparta-blue-hydrogen/screen-desktop.webp", mobile: "/media/cases/sparta-blue-hydrogen/screen-mobile.webp" },
     logo: "/media/cases/sparta-blue-hydrogen/logo-white.svg",
+    next: "/media/cases/sparta-blue-hydrogen/r-next.webp",
   },
   "speedbar": {
     cover: "/media/cases/speedbar/r-cover.webp",
@@ -1288,6 +1335,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/speedbar/screen-desktop.webp", mobile: "/media/cases/speedbar/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/speedbar/r-hero.mp4", poster: "/media/cases/speedbar/r-hero.webp", srcMobile: "/media/cases/speedbar/r-hero-m.mp4", posterMobile: "/media/cases/speedbar/r-hero-m.webp" },
     logo: "/media/cases/speedbar/logo-white.svg",
+    next: "/media/cases/speedbar/r-next.webp",
   },
   "steddion": {
     cover: "/media/cases/steddion/r-cover.webp",
@@ -1312,6 +1360,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/steddion/screen-desktop.webp", mobile: "/media/cases/steddion/screen-mobile.webp" },
     logo: "/media/cases/steddion/logo-white.svg",
+    next: "/media/cases/steddion/r-next.webp",
   },
   "steddion-tools": {
     cover: "/media/cases/steddion-tools/r-cover.webp",
@@ -1339,6 +1388,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/steddion-tools/m-mac.webp",
     ],
     logo: "/media/cases/steddion-tools/logo-white.svg",
+    next: "/media/cases/steddion-tools/r-next.webp",
   },
   "sublime-branding": {
     gallery: [
@@ -1394,6 +1444,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/the-digital-clinic/screen-desktop.webp", mobile: "/media/cases/the-digital-clinic/screen-mobile.webp" },
     logo: "/media/cases/the-digital-clinic/logo-white.svg",
+    next: "/media/cases/the-digital-clinic/r-next.webp",
   },
   "the-filmcar": {
     cover: "/media/cases/the-filmcar/r-cover.webp",
@@ -1425,6 +1476,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/the-filmcar/screen-desktop.webp", mobile: "/media/cases/the-filmcar/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/the-filmcar/r-hero.mp4", poster: "/media/cases/the-filmcar/r-hero.webp", srcMobile: "/media/cases/the-filmcar/r-hero-m.mp4", posterMobile: "/media/cases/the-filmcar/r-hero-m.webp" },
     logo: "/media/cases/the-filmcar/logo-white.svg",
+    next: "/media/cases/the-filmcar/r-next.webp",
   },
   "the-sandt": {
     cover: "/media/cases/the-sandt/r-cover.webp",
@@ -1455,6 +1507,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/the-sandt/screen-desktop.webp", mobile: "/media/cases/the-sandt/screen-mobile.webp" },
     logo: "/media/cases/the-sandt/logo-white.png",
+    next: "/media/cases/the-sandt/r-next.webp",
   },
   "toy4participation": {
     cover: "/media/cases/toy4participation/r-cover.webp",
@@ -1477,6 +1530,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/toy4participation/screen-desktop.webp", mobile: "/media/cases/toy4participation/screen-mobile.webp" },
     logo: "/media/cases/toy4participation/logo-white.svg",
+    next: "/media/cases/toy4participation/r-next.webp",
   },
   "tue-dcmt": {
     gallery: [
@@ -1507,6 +1561,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/verichecks/screen-desktop.webp", mobile: "/media/cases/verichecks/screen-mobile.webp" },
     logo: "/media/cases/verichecks/logo-white.svg",
+    next: "/media/cases/verichecks/r-next.webp",
   },
   "your-earth": {
     cover: "/media/cases/your-earth/r-cover.webp",
@@ -1529,6 +1584,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/your-earth/screen-desktop.webp", mobile: "/media/cases/your-earth/screen-mobile.webp" },
     logo: "/media/cases/your-earth/logo-white.svg",
+    next: "/media/cases/your-earth/r-next.webp",
   },
   "zuyver-jeeps": {
     cover: "/media/cases/zuyver-jeeps/r-cover.webp",
@@ -1554,5 +1610,6 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/zuyver-jeeps/screen-desktop.webp", mobile: "/media/cases/zuyver-jeeps/screen-mobile.webp" },
     logo: "/media/cases/zuyver-jeeps/logo-white.svg",
+    next: "/media/cases/zuyver-jeeps/r-next.webp",
   },
 };
