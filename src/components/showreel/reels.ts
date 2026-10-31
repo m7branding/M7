@@ -172,9 +172,30 @@ export function casesReels(locale: Locale): Reel[] {
   return out;
 }
 
-/** Openingsreel van World of M7: alle showreels achter elkaar, of de uitgelichte cases. */
+/** Welke gerenderde showreel bij welk hoofdstuk hoort (elke film hooguit één keer). */
+function chapterFilms(): Partial<Record<DisciplineKey, Showreel>> {
+  const used = new Set<string>();
+  const out: Partial<Record<DisciplineKey, Showreel>> = {};
+  for (const d of DISCIPLINES) {
+    const f = filmFor(d.key, used);
+    if (f) {
+      used.add(f.slug);
+      out[d.key] = f;
+    }
+  }
+  return out;
+}
+
+/**
+ * Openingsreel van World of M7: de films die geen hoofdstuk hebben (bv. "highlights"),
+ * anders de eerste film; zonder films de uitgelichte cases.
+ */
 export function introReels(locale: Locale): Reel[] {
-  if (hasFilms()) return showreels.map((s) => film(s, locale));
+  if (hasFilms()) {
+    const taken = new Set(Object.values(chapterFilms()).map((f) => f!.slug));
+    const free = showreels.filter((s) => !taken.has(s.slug));
+    return (free.length ? free : showreels.slice(0, 1)).map((s) => film(s, locale));
+  }
   const all = withClip();
   const used = new Set<string>();
   const hl = sequence("highlights", tr(HIGHLIGHTS, locale), all.filter((c) => c.featured), used, 6);
@@ -186,14 +207,13 @@ export function introReels(locale: Locale): Reel[] {
  * showreel, anders een reeks clips uit die discipline (zonder de cases van de openingsreel).
  */
 export function disciplineReels(locale: Locale): Record<DisciplineKey, Reel | null> {
-  const usedFilms = new Set<string>();
-  const used = new Set<string>(hasFilms() ? [] : introReels(locale).flatMap((r) => r.cases.map((c) => c.slug)));
+  const films = hasFilms() ? chapterFilms() : {};
+  const used = new Set<string>(introReels(locale).flatMap((r) => r.cases.map((c) => c.slug)));
   const all = withClip();
   const out = {} as Record<DisciplineKey, Reel | null>;
   for (const d of DISCIPLINES) {
-    const f = hasFilms() ? filmFor(d.key, usedFilms) : undefined;
+    const f = films[d.key];
     if (f) {
-      usedFilms.add(f.slug);
       out[d.key] = { ...film(f, locale), title: tr(d.title, locale) };
     } else {
       out[d.key] = sequence(d.key, tr(d.title, locale), disciplineCases(d.key, all), used, 4);
