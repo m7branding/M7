@@ -15,7 +15,7 @@
    ============================================================ */
 
 import { masterpiecesReel } from "@/components/showreel/reels";
-import { onDisk } from "@/components/showreel/onDisk";
+import { lightest, onDisk } from "@/components/showreel/onDisk";
 import { MASTERPIECE_SLUGS } from "@/content/masterpieces";
 import type { ServiceSlug } from "@/content/registry";
 import type { Case, Locale, T } from "@/content/types";
@@ -336,7 +336,8 @@ export function worldData(locale: Locale) {
 
   /* ---------- finale: alle masterpieces ---------- */
   const tiles: Tile[] = masters.flatMap((c) => {
-    const img = [c.cover, c.heroVideo?.poster].find((x) => onDisk(x));
+    // kleine tegels: de lichtste goede still van het project (cover, render-cover of hero-poster)
+    const img = lightest([c.cover, `/media/cases/${c.slug}/r-cover.webp`, c.heroVideo?.poster]);
     if (!img) return [];
     return [{ ...spotOf(c, locale), image: img, alt: c.client, video: heroVideoOf(c) }];
   });

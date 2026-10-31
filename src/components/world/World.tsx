@@ -434,7 +434,7 @@ export function WorldSites({ locale, data, n }: { locale: Locale; data: WorldDat
   const L = (t: T) => tr(t, locale);
   const d = getDict(locale);
   return (
-    <section className="wt" aria-labelledby="wt-title">
+    <ScrollStage className="wt" pass aria-labelledby="wt-title">
       <div className="wt__in">
         <SceneHead n={n} id="wt-title" title={data.groups.websites} text={L(COPY.sitesText)} className="wt__head" />
         <ol className="wt__stack">
@@ -470,7 +470,7 @@ export function WorldSites({ locale, data, n }: { locale: Locale; data: WorldDat
           ))}
         </ol>
       </div>
-    </section>
+    </ScrollStage>
   );
 }
 

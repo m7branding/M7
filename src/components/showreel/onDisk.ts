@@ -7,22 +7,32 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const seen = new Map<string, boolean>();
+const seen = new Map<string, number>();
 const PUBLIC = path.join(process.cwd(), "public");
 
-/** true als `/media/…` in public/ staat. In productie onthouden; in development elke keer opnieuw gekeken. */
-export function onDisk(src?: string | null): src is string {
-  if (!src || !src.startsWith("/")) return false;
+/** Grootte in bytes (0 = bestaat niet). In productie onthouden; in development elke keer opnieuw gekeken. */
+function sizeOf(src: string): number {
   const dev = process.env.NODE_ENV !== "production";
   if (!dev && seen.has(src)) return seen.get(src)!;
-  let ok = false;
+  let n = 0;
   try {
-    ok = fs.statSync(path.join(PUBLIC, decodeURI(src))).size > 0;
+    n = fs.statSync(path.join(PUBLIC, decodeURI(src))).size;
   } catch {
-    ok = false;
+    n = 0;
   }
-  if (!dev) seen.set(src, ok);
-  return ok;
+  if (!dev) seen.set(src, n);
+  return n;
+}
+
+/** true als `/media/…` in public/ staat. */
+export function onDisk(src?: string | null): src is string {
+  return Boolean(src && src.startsWith("/") && sizeOf(src) > 0);
+}
+
+/** Het lichtste bestaande bestand uit een rij gelijkwaardige beelden (voor kleine tegels), of undefined. */
+export function lightest(list: (string | undefined | null)[]): string | undefined {
+  const ok = Array.from(new Set(list.filter(onDisk)));
+  return ok.sort((a, b) => sizeOf(a) - sizeOf(b))[0];
 }
 
 /** Alleen de paden die bestaan. */

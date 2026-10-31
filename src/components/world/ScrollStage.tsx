@@ -19,6 +19,11 @@ import { useScroll } from "@/components/motion/SmoothScroll";
  * alleen het actieve paneel; een paneel ([data-i]) dat focus krijgt, scrollt in beeld.
  * `pass`: niet vastgepind; --p loopt van 0 → 1 terwijl de sectie door het beeld schuift
  * (onderkant scherm → bovenkant), voor parallax.
+ *
+ * Beelden: in een vastgepinde scène staan tegels en kaarten eerst buiten het (geknipte)
+ * podium en vliegen ze pas later binnen, dus native loading="lazy" vraagt ze te laat op
+ * (je ziet dan lege vlakken). Daarom zet de scène al haar lazy beelden op "eager" zodra
+ * ze anderhalf scherm voor de viewport is; tot dan laadt er niets.
  */
 export function ScrollStage({
   as: Tag = "section",
@@ -106,6 +111,24 @@ export function ScrollStage({
     el.addEventListener("focusin", onFocus);
     return () => el.removeEventListener("focusin", onFocus);
   }, [track]);
+
+  // beelden ruim op tijd laden (zie boven)
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (!e.isIntersecting) return;
+        el.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach((img) => {
+          img.loading = "eager";
+        });
+        io.disconnect();
+      },
+      { rootMargin: "150% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   // toetsenbord in een scène met stappen: het paneel met de focus wordt de actieve stap
   useEffect(() => {
