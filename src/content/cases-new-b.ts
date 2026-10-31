@@ -640,7 +640,6 @@ export const newCasesB: Case[] = [
     cover: "/media/cases/titanium-exhaust.webp",
     gallery: ["/media/cases/titanium-phone.webp"],
     featured: true,
-    shape: "tall",
     color: "#E8262B",
     challenge: {
       nl: "Maarschall maakt handgemaakte, personaliseerbare titanium uitlaatsystemen voor onder meer McLaren, Ferrari, Lamborghini en Audi, en levert ook via resellers. Een topproduct voor liefhebbers, dat online dezelfde klasse moest uitstralen.",
