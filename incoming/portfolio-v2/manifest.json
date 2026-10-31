@@ -1,0 +1,1845 @@
+{
+ "impeco": {
+  "project": "impeco",
+  "newCase": false,
+  "stills": [
+   "/media/cases/impeco/v-01-screen-detail.webp",
+   "/media/cases/impeco/v-02-device-panels.webp",
+   "/media/cases/impeco/v-03-laptop-closeup.webp",
+   "/media/cases/impeco/v-04-screen-wall.webp",
+   "/media/cases/impeco/v-05-lifted-components.webp",
+   "/media/cases/impeco/v-06-floating-ui.webp",
+   "/media/cases/impeco/v-07-phone-row.webp",
+   "/media/cases/impeco/v-08-phones-duo.webp",
+   "/media/cases/impeco/v-09-tablet.webp",
+   "/media/cases/impeco/v-10-phones-flatlay.webp",
+   "/media/cases/impeco/v-11-brandbook.webp",
+   "/media/cases/impeco/v-12-business-cards.webp",
+   "/media/cases/impeco/v-13-typography.webp",
+   "/media/cases/impeco/v-14-brand-grid.webp",
+   "/media/cases/impeco/v-15-logo-cover.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/impeco/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/impeco/v-motion-01-browser-scroll.webp",
+    "kind": "browser-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/impeco/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/impeco/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/impeco/v-motion-03-screens.mp4",
+    "poster": "/media/cases/impeco/v-motion-03-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/impeco/v-motion-04-logo.mp4",
+    "poster": "/media/cases/impeco/v-motion-04-logo.webp",
+    "kind": "logo",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "fairlink": {
+  "project": "fairlink",
+  "newCase": false,
+  "stills": [
+   "/media/cases/fairlink/v-01-page-columns.webp",
+   "/media/cases/fairlink/v-02-browser-components.webp",
+   "/media/cases/fairlink/v-03-screen-wall.webp",
+   "/media/cases/fairlink/v-04-phones-duo.webp",
+   "/media/cases/fairlink/v-05-phone-row.webp",
+   "/media/cases/fairlink/v-06-logo-emboss.webp",
+   "/media/cases/fairlink/v-07-logo-on-paper.webp",
+   "/media/cases/fairlink/v-08-posters.webp",
+   "/media/cases/fairlink/v-09-stationery.webp",
+   "/media/cases/fairlink/v-10-colour-palette.webp",
+   "/media/cases/fairlink/v-11-typography.webp",
+   "/media/cases/fairlink/v-12-logo-cover.webp",
+   "/media/cases/fairlink/v-13-brandbook.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/fairlink/v-motion-01-zoom-in.mp4",
+    "poster": "/media/cases/fairlink/v-motion-01-zoom-in.webp",
+    "kind": "zoom-in",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/fairlink/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/fairlink/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/fairlink/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/fairlink/v-motion-03-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/fairlink/v-motion-04-colour-chips.mp4",
+    "poster": "/media/cases/fairlink/v-motion-04-colour-chips.webp",
+    "kind": "colour-chips",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "kds-stansvormen": {
+  "project": "kds",
+  "newCase": false,
+  "stills": [
+   "/media/cases/kds-stansvormen/v-01-lifted-components.webp",
+   "/media/cases/kds-stansvormen/v-02-page-columns.webp",
+   "/media/cases/kds-stansvormen/v-03-screen-detail.webp",
+   "/media/cases/kds-stansvormen/v-04-display-and-phone.webp",
+   "/media/cases/kds-stansvormen/v-05-device-panels.webp",
+   "/media/cases/kds-stansvormen/v-06-phone-closeup.webp",
+   "/media/cases/kds-stansvormen/v-07-phones-flatlay.webp",
+   "/media/cases/kds-stansvormen/v-08-phone-row.webp",
+   "/media/cases/kds-stansvormen/v-09-tablet.webp",
+   "/media/cases/kds-stansvormen/v-10-colour-chips.webp",
+   "/media/cases/kds-stansvormen/v-11-logo-emboss.webp",
+   "/media/cases/kds-stansvormen/v-12-logo-on-paper.webp",
+   "/media/cases/kds-stansvormen/v-13-imagery.webp",
+   "/media/cases/kds-stansvormen/v-14-business-cards.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/kds-stansvormen/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/kds-stansvormen/v-motion-01-floating-ui.webp",
+    "kind": "floating-ui",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/kds-stansvormen/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-motion-03-pages.mp4",
+    "poster": "/media/cases/kds-stansvormen/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-motion-04-logo-emboss.mp4",
+    "poster": "/media/cases/kds-stansvormen/v-motion-04-logo-emboss.webp",
+    "kind": "logo-emboss",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "digital-newsgroup": {
+  "project": "dng",
+  "newCase": false,
+  "stills": [
+   "/media/cases/digital-newsgroup/v-01-browser-components.webp",
+   "/media/cases/digital-newsgroup/v-02-display-and-phone.webp",
+   "/media/cases/digital-newsgroup/v-03-screen-detail.webp",
+   "/media/cases/digital-newsgroup/v-04-page-columns.webp",
+   "/media/cases/digital-newsgroup/v-05-laptop-closeup.webp",
+   "/media/cases/digital-newsgroup/v-06-phones-duo.webp",
+   "/media/cases/digital-newsgroup/v-07-phones-flatlay.webp",
+   "/media/cases/digital-newsgroup/v-08-phone-closeup.webp",
+   "/media/cases/digital-newsgroup/v-09-tablet.webp",
+   "/media/cases/digital-newsgroup/v-10-brand-grid.webp",
+   "/media/cases/digital-newsgroup/v-11-brandbook.webp",
+   "/media/cases/digital-newsgroup/v-12-stationery.webp",
+   "/media/cases/digital-newsgroup/v-13-colour-palette.webp",
+   "/media/cases/digital-newsgroup/v-14-logo-cover.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/digital-newsgroup/v-motion-01-display-scroll.mp4",
+    "poster": "/media/cases/digital-newsgroup/v-motion-01-display-scroll.webp",
+    "kind": "display-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/digital-newsgroup/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-motion-03-components.mp4",
+    "poster": "/media/cases/digital-newsgroup/v-motion-03-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-motion-04-logo-paper.mp4",
+    "poster": "/media/cases/digital-newsgroup/v-motion-04-logo-paper.webp",
+    "kind": "logo-paper",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "dng-shop": {
+  "project": "dngshop",
+  "newCase": true,
+  "stills": [
+   "/media/cases/dng-shop/v-01-screen-wall.webp",
+   "/media/cases/dng-shop/v-02-lifted-components.webp",
+   "/media/cases/dng-shop/v-03-page-columns.webp",
+   "/media/cases/dng-shop/v-04-floating-ui.webp",
+   "/media/cases/dng-shop/v-05-phone-row.webp",
+   "/media/cases/dng-shop/v-06-phones-flatlay.webp",
+   "/media/cases/dng-shop/v-07-phone-closeup.webp",
+   "/media/cases/dng-shop/v-08-phones-duo.webp",
+   "/media/cases/dng-shop/v-09-typography.webp",
+   "/media/cases/dng-shop/v-10-business-cards.webp",
+   "/media/cases/dng-shop/v-11-colour-chips.webp",
+   "/media/cases/dng-shop/v-12-logo-on-paper.webp",
+   "/media/cases/dng-shop/v-13-brandbook.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/dng-shop/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/dng-shop/v-motion-01-laptop-scroll.webp",
+    "kind": "laptop-scroll",
+    "duration_s": 9.0
+   },
+   {
+    "src": "/media/cases/dng-shop/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/dng-shop/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/dng-shop/v-motion-03-components.mp4",
+    "poster": "/media/cases/dng-shop/v-motion-03-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/dng-shop/v-motion-04-colours.mp4",
+    "poster": "/media/cases/dng-shop/v-motion-04-colours.webp",
+    "kind": "colours",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "kippenkar": {
+  "project": "kippenkar",
+  "newCase": false,
+  "stills": [
+   "/media/cases/kippenkar/v-01-browser-components.webp",
+   "/media/cases/kippenkar/v-02-screen-wall.webp",
+   "/media/cases/kippenkar/v-03-laptop-closeup.webp",
+   "/media/cases/kippenkar/v-04-device-panels.webp",
+   "/media/cases/kippenkar/v-05-page-columns.webp",
+   "/media/cases/kippenkar/v-06-tablet.webp",
+   "/media/cases/kippenkar/v-07-phones-flatlay.webp",
+   "/media/cases/kippenkar/v-08-phone-closeup.webp",
+   "/media/cases/kippenkar/v-09-posters.webp",
+   "/media/cases/kippenkar/v-10-imagery.webp",
+   "/media/cases/kippenkar/v-11-logo-cover.webp",
+   "/media/cases/kippenkar/v-12-brand-grid.webp",
+   "/media/cases/kippenkar/v-13-logo-emboss.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/kippenkar/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/kippenkar/v-motion-01-floating-ui.webp",
+    "kind": "floating-ui",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/kippenkar/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/kippenkar/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/kippenkar/v-motion-03-screens.mp4",
+    "poster": "/media/cases/kippenkar/v-motion-03-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/kippenkar/v-motion-04-logo-paper.mp4",
+    "poster": "/media/cases/kippenkar/v-motion-04-logo-paper.webp",
+    "kind": "logo-paper",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "nova-funeral-cars": {
+  "project": "novacars",
+  "newCase": false,
+  "stills": [
+   "/media/cases/nova-funeral-cars/v-01-display-and-phone.webp",
+   "/media/cases/nova-funeral-cars/v-02-floating-ui.webp",
+   "/media/cases/nova-funeral-cars/v-03-screen-detail.webp",
+   "/media/cases/nova-funeral-cars/v-04-screen-wall.webp",
+   "/media/cases/nova-funeral-cars/v-05-lifted-components.webp",
+   "/media/cases/nova-funeral-cars/v-06-device-panels.webp",
+   "/media/cases/nova-funeral-cars/v-07-phones-duo.webp",
+   "/media/cases/nova-funeral-cars/v-08-tablet.webp",
+   "/media/cases/nova-funeral-cars/v-09-phones-flatlay.webp",
+   "/media/cases/nova-funeral-cars/v-10-phone-row.webp",
+   "/media/cases/nova-funeral-cars/v-11-colour-chips.webp",
+   "/media/cases/nova-funeral-cars/v-12-typography.webp",
+   "/media/cases/nova-funeral-cars/v-13-colour-palette.webp",
+   "/media/cases/nova-funeral-cars/v-14-logo-on-paper.webp",
+   "/media/cases/nova-funeral-cars/v-15-stationery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/nova-funeral-cars/v-motion-01-display-scroll.mp4",
+    "poster": "/media/cases/nova-funeral-cars/v-motion-01-display-scroll.webp",
+    "kind": "display-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/nova-funeral-cars/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/nova-funeral-cars/v-motion-03-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-motion-04-colour-chips.mp4",
+    "poster": "/media/cases/nova-funeral-cars/v-motion-04-colour-chips.webp",
+    "kind": "colour-chips",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "aigora": {
+  "project": "aigora",
+  "newCase": false,
+  "stills": [
+   "/media/cases/aigora/v-01-display-and-phone.webp",
+   "/media/cases/aigora/v-02-screen-wall.webp",
+   "/media/cases/aigora/v-03-page-columns.webp",
+   "/media/cases/aigora/v-04-phones-duo.webp",
+   "/media/cases/aigora/v-05-phones-flatlay.webp",
+   "/media/cases/aigora/v-06-tablet.webp",
+   "/media/cases/aigora/v-07-business-cards.webp",
+   "/media/cases/aigora/v-08-stationery.webp",
+   "/media/cases/aigora/v-09-logo-emboss.webp",
+   "/media/cases/aigora/v-10-posters.webp",
+   "/media/cases/aigora/v-11-logo-cover.webp",
+   "/media/cases/aigora/v-12-typography.webp",
+   "/media/cases/aigora/v-13-colour-palette.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/aigora/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/aigora/v-motion-01-laptop-scroll.webp",
+    "kind": "laptop-scroll",
+    "duration_s": 9.0
+   },
+   {
+    "src": "/media/cases/aigora/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/aigora/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/aigora/v-motion-03-pages.mp4",
+    "poster": "/media/cases/aigora/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/aigora/v-motion-04-colours.mp4",
+    "poster": "/media/cases/aigora/v-motion-04-colours.webp",
+    "kind": "colours",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "bernheze-makelaars-rebranding": {
+  "project": "bernheze",
+  "newCase": false,
+  "stills": [
+   "/media/cases/bernheze-makelaars-rebranding/v-01-floating-ui.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-02-browser-components.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-03-lifted-components.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-04-display-and-phone.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-05-laptop-closeup.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-06-screen-wall.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-07-phones-duo.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-08-phone-row.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-09-phone-closeup.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-10-phones-flatlay.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-11-imagery.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-12-typography.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-13-brandbook.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-14-logo-cover.webp",
+   "/media/cases/bernheze-makelaars-rebranding/v-15-brand-grid.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/bernheze-makelaars-rebranding/v-motion-01-browser-scroll.webp",
+    "kind": "browser-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/bernheze-makelaars-rebranding/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-motion-03-components.mp4",
+    "poster": "/media/cases/bernheze-makelaars-rebranding/v-motion-03-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-motion-04-logo.mp4",
+    "poster": "/media/cases/bernheze-makelaars-rebranding/v-motion-04-logo.webp",
+    "kind": "logo",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "buitenstate": {
+  "project": "buitenstate",
+  "newCase": false,
+  "stills": [
+   "/media/cases/buitenstate/v-01-screen-detail.webp",
+   "/media/cases/buitenstate/v-02-page-columns.webp",
+   "/media/cases/buitenstate/v-03-browser-components.webp",
+   "/media/cases/buitenstate/v-04-lifted-components.webp",
+   "/media/cases/buitenstate/v-05-laptop-closeup.webp",
+   "/media/cases/buitenstate/v-06-phone-closeup.webp",
+   "/media/cases/buitenstate/v-07-phone-row.webp",
+   "/media/cases/buitenstate/v-08-tablet.webp",
+   "/media/cases/buitenstate/v-09-phones-duo.webp",
+   "/media/cases/buitenstate/v-10-colour-chips.webp",
+   "/media/cases/buitenstate/v-11-imagery.webp",
+   "/media/cases/buitenstate/v-12-colour-palette.webp",
+   "/media/cases/buitenstate/v-13-posters.webp",
+   "/media/cases/buitenstate/v-14-business-cards.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/buitenstate/v-motion-01-zoom-in.mp4",
+    "poster": "/media/cases/buitenstate/v-motion-01-zoom-in.webp",
+    "kind": "zoom-in",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/buitenstate/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/buitenstate/v-motion-02-phone-scroll.webp",
+    "kind": "phone-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/buitenstate/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/buitenstate/v-motion-03-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/buitenstate/v-motion-04-brand-system.mp4",
+    "poster": "/media/cases/buitenstate/v-motion-04-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/buitenstate/v-motion-05-logo-emboss.mp4",
+    "poster": "/media/cases/buitenstate/v-motion-05-logo-emboss.webp",
+    "kind": "logo-emboss",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "jurgh-detailing": {
+  "project": "jurgh",
+  "newCase": false,
+  "stills": [
+   "/media/cases/jurgh-detailing/v-01-display-and-phone.webp",
+   "/media/cases/jurgh-detailing/v-02-laptop-closeup.webp",
+   "/media/cases/jurgh-detailing/v-03-browser-components.webp",
+   "/media/cases/jurgh-detailing/v-04-lifted-components.webp",
+   "/media/cases/jurgh-detailing/v-05-screen-detail.webp",
+   "/media/cases/jurgh-detailing/v-06-phones-flatlay.webp",
+   "/media/cases/jurgh-detailing/v-07-phone-closeup.webp",
+   "/media/cases/jurgh-detailing/v-08-phone-row.webp",
+   "/media/cases/jurgh-detailing/v-09-phones-duo.webp",
+   "/media/cases/jurgh-detailing/v-10-colour-palette.webp",
+   "/media/cases/jurgh-detailing/v-11-logo-emboss.webp",
+   "/media/cases/jurgh-detailing/v-12-stationery.webp",
+   "/media/cases/jurgh-detailing/v-13-typography.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/jurgh-detailing/v-motion-01-display-scroll.mp4",
+    "poster": "/media/cases/jurgh-detailing/v-motion-01-display-scroll.webp",
+    "kind": "display-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/jurgh-detailing/v-motion-02-phone-scroll.webp",
+    "kind": "phone-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/jurgh-detailing/v-motion-03-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-motion-04-screens.mp4",
+    "poster": "/media/cases/jurgh-detailing/v-motion-04-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-motion-05-colours.mp4",
+    "poster": "/media/cases/jurgh-detailing/v-motion-05-colours.webp",
+    "kind": "colours",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "mindyourpass": {
+  "project": "mindyourpass",
+  "newCase": false,
+  "stills": [
+   "/media/cases/mindyourpass/v-01-device-panels.webp",
+   "/media/cases/mindyourpass/v-02-screen-wall.webp",
+   "/media/cases/mindyourpass/v-03-floating-ui.webp",
+   "/media/cases/mindyourpass/v-04-display-and-phone.webp",
+   "/media/cases/mindyourpass/v-05-phone-row.webp",
+   "/media/cases/mindyourpass/v-06-tablet.webp",
+   "/media/cases/mindyourpass/v-07-phones-duo.webp",
+   "/media/cases/mindyourpass/v-08-phones-flatlay.webp",
+   "/media/cases/mindyourpass/v-09-logo-on-paper.webp",
+   "/media/cases/mindyourpass/v-10-brand-grid.webp",
+   "/media/cases/mindyourpass/v-11-brandbook.webp",
+   "/media/cases/mindyourpass/v-12-business-cards.webp",
+   "/media/cases/mindyourpass/v-13-colour-chips.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/mindyourpass/v-motion-01-zoom-in.mp4",
+    "poster": "/media/cases/mindyourpass/v-motion-01-zoom-in.webp",
+    "kind": "zoom-in",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/mindyourpass/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-motion-03-pages.mp4",
+    "poster": "/media/cases/mindyourpass/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-motion-04-logo-emboss.mp4",
+    "poster": "/media/cases/mindyourpass/v-motion-04-logo-emboss.webp",
+    "kind": "logo-emboss",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "misterglass": {
+  "project": "misterglass",
+  "newCase": false,
+  "stills": [
+   "/media/cases/misterglass/v-01-screen-wall.webp",
+   "/media/cases/misterglass/v-02-browser-components.webp",
+   "/media/cases/misterglass/v-03-screen-detail.webp",
+   "/media/cases/misterglass/v-04-lifted-components.webp",
+   "/media/cases/misterglass/v-05-display-and-phone.webp",
+   "/media/cases/misterglass/v-06-laptop-closeup.webp",
+   "/media/cases/misterglass/v-07-tablet.webp",
+   "/media/cases/misterglass/v-08-phone-closeup.webp",
+   "/media/cases/misterglass/v-09-posters.webp",
+   "/media/cases/misterglass/v-10-colour-chips.webp",
+   "/media/cases/misterglass/v-11-brand-grid.webp",
+   "/media/cases/misterglass/v-12-typography.webp",
+   "/media/cases/misterglass/v-13-brandbook.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/misterglass/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/misterglass/v-motion-01-browser-scroll.webp",
+    "kind": "browser-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/misterglass/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/misterglass/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/misterglass/v-motion-03-components.mp4",
+    "poster": "/media/cases/misterglass/v-motion-03-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/misterglass/v-motion-04-colour-chips.mp4",
+    "poster": "/media/cases/misterglass/v-motion-04-colour-chips.webp",
+    "kind": "colour-chips",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "the-sandt": {
+  "project": "thesandt",
+  "newCase": false,
+  "stills": [
+   "/media/cases/the-sandt/v-01-device-panels.webp",
+   "/media/cases/the-sandt/v-02-screen-wall.webp",
+   "/media/cases/the-sandt/v-03-display-and-phone.webp",
+   "/media/cases/the-sandt/v-04-tablet.webp",
+   "/media/cases/the-sandt/v-05-phone-closeup.webp",
+   "/media/cases/the-sandt/v-06-phones-duo.webp",
+   "/media/cases/the-sandt/v-07-phone-row.webp",
+   "/media/cases/the-sandt/v-08-imagery.webp",
+   "/media/cases/the-sandt/v-09-colour-palette.webp",
+   "/media/cases/the-sandt/v-10-stationery.webp",
+   "/media/cases/the-sandt/v-11-logo-on-paper.webp",
+   "/media/cases/the-sandt/v-12-logo-cover.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/the-sandt/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/the-sandt/v-motion-01-laptop-scroll.webp",
+    "kind": "laptop-scroll",
+    "duration_s": 9.0
+   },
+   {
+    "src": "/media/cases/the-sandt/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/the-sandt/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/the-sandt/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/the-sandt/v-motion-03-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/the-sandt/v-motion-04-logo.mp4",
+    "poster": "/media/cases/the-sandt/v-motion-04-logo.webp",
+    "kind": "logo",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "nova-special-cars": {
+  "project": "novaspecialcars",
+  "newCase": true,
+  "stills": [
+   "/media/cases/nova-special-cars/v-01-laptop-closeup.webp",
+   "/media/cases/nova-special-cars/v-02-browser-components.webp",
+   "/media/cases/nova-special-cars/v-03-screen-detail.webp",
+   "/media/cases/nova-special-cars/v-04-device-panels.webp",
+   "/media/cases/nova-special-cars/v-05-phones-flatlay.webp",
+   "/media/cases/nova-special-cars/v-06-tablet.webp",
+   "/media/cases/nova-special-cars/v-07-phones-duo.webp",
+   "/media/cases/nova-special-cars/v-08-logo-emboss.webp",
+   "/media/cases/nova-special-cars/v-09-posters.webp",
+   "/media/cases/nova-special-cars/v-10-colour-palette.webp",
+   "/media/cases/nova-special-cars/v-11-brand-grid.webp",
+   "/media/cases/nova-special-cars/v-12-colour-chips.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/nova-special-cars/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/nova-special-cars/v-motion-01-floating-ui.webp",
+    "kind": "floating-ui",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/nova-special-cars/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-motion-03-pages.mp4",
+    "poster": "/media/cases/nova-special-cars/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-motion-04-logo-paper.mp4",
+    "poster": "/media/cases/nova-special-cars/v-motion-04-logo-paper.webp",
+    "kind": "logo-paper",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "repairlab": {
+  "project": "repairlab",
+  "newCase": false,
+  "stills": [
+   "/media/cases/repairlab/v-01-screen-wall.webp",
+   "/media/cases/repairlab/v-02-laptop-closeup.webp",
+   "/media/cases/repairlab/v-03-device-panels.webp",
+   "/media/cases/repairlab/v-04-lifted-components.webp",
+   "/media/cases/repairlab/v-05-tablet.webp",
+   "/media/cases/repairlab/v-06-phones-flatlay.webp",
+   "/media/cases/repairlab/v-07-phone-row.webp",
+   "/media/cases/repairlab/v-08-logo-emboss.webp",
+   "/media/cases/repairlab/v-09-logo-cover.webp",
+   "/media/cases/repairlab/v-10-posters.webp",
+   "/media/cases/repairlab/v-11-logo-on-paper.webp",
+   "/media/cases/repairlab/v-12-business-cards.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/repairlab/v-motion-01-zoom-in.mp4",
+    "poster": "/media/cases/repairlab/v-motion-01-zoom-in.webp",
+    "kind": "zoom-in",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/repairlab/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/repairlab/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/repairlab/v-motion-03-screens.mp4",
+    "poster": "/media/cases/repairlab/v-motion-03-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/repairlab/v-motion-04-logo.mp4",
+    "poster": "/media/cases/repairlab/v-motion-04-logo.webp",
+    "kind": "logo",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "designers-house": {
+  "project": "designershouse",
+  "newCase": true,
+  "stills": [
+   "/media/cases/designers-house/v-01-browser-components.webp",
+   "/media/cases/designers-house/v-02-screen-detail.webp",
+   "/media/cases/designers-house/v-03-display-and-phone.webp",
+   "/media/cases/designers-house/v-04-device-panels.webp",
+   "/media/cases/designers-house/v-05-phones-flatlay.webp",
+   "/media/cases/designers-house/v-06-tablet.webp",
+   "/media/cases/designers-house/v-07-phones-duo.webp",
+   "/media/cases/designers-house/v-08-phone-row.webp",
+   "/media/cases/designers-house/v-09-typography.webp",
+   "/media/cases/designers-house/v-10-brandbook.webp",
+   "/media/cases/designers-house/v-11-imagery.webp",
+   "/media/cases/designers-house/v-12-stationery.webp",
+   "/media/cases/designers-house/v-13-logo-emboss.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/designers-house/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/designers-house/v-motion-01-floating-ui.webp",
+    "kind": "floating-ui",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/designers-house/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/designers-house/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/designers-house/v-motion-03-components.mp4",
+    "poster": "/media/cases/designers-house/v-motion-03-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/designers-house/v-motion-04-colour-chips.mp4",
+    "poster": "/media/cases/designers-house/v-motion-04-colour-chips.webp",
+    "kind": "colour-chips",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "plenty-planet": {
+  "project": "plentyplanet",
+  "newCase": false,
+  "stills": [
+   "/media/cases/plenty-planet/v-01-lifted-components.webp",
+   "/media/cases/plenty-planet/v-02-browser-components.webp",
+   "/media/cases/plenty-planet/v-03-screen-wall.webp",
+   "/media/cases/plenty-planet/v-04-display-and-phone.webp",
+   "/media/cases/plenty-planet/v-05-phones-flatlay.webp",
+   "/media/cases/plenty-planet/v-06-phone-closeup.webp",
+   "/media/cases/plenty-planet/v-07-tablet.webp",
+   "/media/cases/plenty-planet/v-08-phones-duo.webp",
+   "/media/cases/plenty-planet/v-09-logo-on-paper.webp",
+   "/media/cases/plenty-planet/v-10-business-cards.webp",
+   "/media/cases/plenty-planet/v-11-typography.webp",
+   "/media/cases/plenty-planet/v-12-imagery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/plenty-planet/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/plenty-planet/v-motion-01-laptop-scroll.webp",
+    "kind": "laptop-scroll",
+    "duration_s": 9.0
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/plenty-planet/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-motion-03-screens.mp4",
+    "poster": "/media/cases/plenty-planet/v-motion-03-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-motion-04-logo-paper.mp4",
+    "poster": "/media/cases/plenty-planet/v-motion-04-logo-paper.webp",
+    "kind": "logo-paper",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "the-digital-clinic": {
+  "project": "digitalclinic",
+  "newCase": false,
+  "stills": [
+   "/media/cases/the-digital-clinic/v-01-floating-ui.webp",
+   "/media/cases/the-digital-clinic/v-02-screen-detail.webp",
+   "/media/cases/the-digital-clinic/v-03-screen-wall.webp",
+   "/media/cases/the-digital-clinic/v-04-phone-row.webp",
+   "/media/cases/the-digital-clinic/v-05-phone-closeup.webp",
+   "/media/cases/the-digital-clinic/v-06-tablet.webp",
+   "/media/cases/the-digital-clinic/v-07-phones-flatlay.webp",
+   "/media/cases/the-digital-clinic/v-08-logo-cover.webp",
+   "/media/cases/the-digital-clinic/v-09-colour-chips.webp",
+   "/media/cases/the-digital-clinic/v-10-posters.webp",
+   "/media/cases/the-digital-clinic/v-11-colour-palette.webp",
+   "/media/cases/the-digital-clinic/v-12-business-cards.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/the-digital-clinic/v-motion-01-display-scroll.mp4",
+    "poster": "/media/cases/the-digital-clinic/v-motion-01-display-scroll.webp",
+    "kind": "display-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/the-digital-clinic/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/the-digital-clinic/v-motion-03-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-motion-04-logo-emboss.mp4",
+    "poster": "/media/cases/the-digital-clinic/v-motion-04-logo-emboss.webp",
+    "kind": "logo-emboss",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "onderbouwd-investeren": {
+  "project": "onderbouwd",
+  "newCase": true,
+  "stills": [
+   "/media/cases/onderbouwd-investeren/v-01-display-and-phone.webp",
+   "/media/cases/onderbouwd-investeren/v-02-laptop-closeup.webp",
+   "/media/cases/onderbouwd-investeren/v-03-lifted-components.webp",
+   "/media/cases/onderbouwd-investeren/v-04-screen-wall.webp",
+   "/media/cases/onderbouwd-investeren/v-05-phone-closeup.webp",
+   "/media/cases/onderbouwd-investeren/v-06-phones-duo.webp",
+   "/media/cases/onderbouwd-investeren/v-07-phones-flatlay.webp",
+   "/media/cases/onderbouwd-investeren/v-08-phone-row.webp",
+   "/media/cases/onderbouwd-investeren/v-09-brandbook.webp",
+   "/media/cases/onderbouwd-investeren/v-10-logo-cover.webp",
+   "/media/cases/onderbouwd-investeren/v-11-logo-emboss.webp",
+   "/media/cases/onderbouwd-investeren/v-12-stationery.webp",
+   "/media/cases/onderbouwd-investeren/v-13-brand-grid.webp",
+   "/media/cases/onderbouwd-investeren/v-14-imagery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/onderbouwd-investeren/v-motion-01-browser-scroll.webp",
+    "kind": "browser-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/onderbouwd-investeren/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-motion-03-pages.mp4",
+    "poster": "/media/cases/onderbouwd-investeren/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-motion-04-colours.mp4",
+    "poster": "/media/cases/onderbouwd-investeren/v-motion-04-colours.webp",
+    "kind": "colours",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "pine-street-school": {
+  "project": "pinestreet",
+  "newCase": false,
+  "stills": [
+   "/media/cases/pine-street-school/v-01-display-and-phone.webp",
+   "/media/cases/pine-street-school/v-02-laptop-closeup.webp",
+   "/media/cases/pine-street-school/v-03-tablet.webp",
+   "/media/cases/pine-street-school/v-04-phones-duo.webp",
+   "/media/cases/pine-street-school/v-05-phones-flatlay.webp",
+   "/media/cases/pine-street-school/v-06-posters.webp",
+   "/media/cases/pine-street-school/v-07-colour-palette.webp",
+   "/media/cases/pine-street-school/v-08-stationery.webp",
+   "/media/cases/pine-street-school/v-09-brandbook.webp",
+   "/media/cases/pine-street-school/v-10-colour-chips.webp",
+   "/media/cases/pine-street-school/v-11-screen-wall.webp",
+   "/media/cases/pine-street-school/v-12-typography.webp",
+   "/media/cases/pine-street-school/v-13-logo-cover.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/pine-street-school/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/pine-street-school/v-motion-01-floating-ui.webp",
+    "kind": "floating-ui",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/pine-street-school/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-motion-03-components.mp4",
+    "poster": "/media/cases/pine-street-school/v-motion-03-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-motion-04-colour-chips.mp4",
+    "poster": "/media/cases/pine-street-school/v-motion-04-colour-chips.webp",
+    "kind": "colour-chips",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "silvr": {
+  "project": "silvr",
+  "newCase": false,
+  "stills": [
+   "/media/cases/silvr/v-01-screen-detail.webp",
+   "/media/cases/silvr/v-02-device-panels.webp",
+   "/media/cases/silvr/v-03-display-and-phone.webp",
+   "/media/cases/silvr/v-04-floating-ui.webp",
+   "/media/cases/silvr/v-05-screen-wall.webp",
+   "/media/cases/silvr/v-06-tablet.webp",
+   "/media/cases/silvr/v-07-typography.webp",
+   "/media/cases/silvr/v-08-logo-on-paper.webp",
+   "/media/cases/silvr/v-09-imagery.webp",
+   "/media/cases/silvr/v-10-logo-emboss.webp",
+   "/media/cases/silvr/v-11-brandbook.webp",
+   "/media/cases/silvr/v-12-colour-palette.webp",
+   "/media/cases/silvr/v-13-logo-cover.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/silvr/v-motion-01-zoom-in.mp4",
+    "poster": "/media/cases/silvr/v-motion-01-zoom-in.webp",
+    "kind": "zoom-in",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/silvr/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/silvr/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/silvr/v-motion-03-screens.mp4",
+    "poster": "/media/cases/silvr/v-motion-03-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/silvr/v-motion-04-colours.mp4",
+    "poster": "/media/cases/silvr/v-motion-04-colours.webp",
+    "kind": "colours",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "battery-park-montessori": {
+  "project": "batterypark",
+  "newCase": true,
+  "stills": [
+   "/media/cases/battery-park-montessori/v-01-laptop-closeup.webp",
+   "/media/cases/battery-park-montessori/v-02-screen-detail.webp",
+   "/media/cases/battery-park-montessori/v-03-screen-wall.webp",
+   "/media/cases/battery-park-montessori/v-04-phone-row.webp",
+   "/media/cases/battery-park-montessori/v-05-phones-flatlay.webp",
+   "/media/cases/battery-park-montessori/v-06-tablet.webp",
+   "/media/cases/battery-park-montessori/v-07-phones-duo.webp",
+   "/media/cases/battery-park-montessori/v-08-logo-on-paper.webp",
+   "/media/cases/battery-park-montessori/v-09-business-cards.webp",
+   "/media/cases/battery-park-montessori/v-10-stationery.webp",
+   "/media/cases/battery-park-montessori/v-11-brand-grid.webp",
+   "/media/cases/battery-park-montessori/v-12-posters.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/battery-park-montessori/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/battery-park-montessori/v-motion-01-laptop-scroll.webp",
+    "kind": "laptop-scroll",
+    "duration_s": 9.0
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/battery-park-montessori/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/battery-park-montessori/v-motion-03-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-motion-04-logo-paper.mp4",
+    "poster": "/media/cases/battery-park-montessori/v-motion-04-logo-paper.webp",
+    "kind": "logo-paper",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "edgeway-commodities": {
+  "project": "edgeway",
+  "newCase": false,
+  "stills": [
+   "/media/cases/edgeway-commodities/v-01-display-and-phone.webp",
+   "/media/cases/edgeway-commodities/v-02-browser-components.webp",
+   "/media/cases/edgeway-commodities/v-03-device-panels.webp",
+   "/media/cases/edgeway-commodities/v-04-screen-wall.webp",
+   "/media/cases/edgeway-commodities/v-05-phone-closeup.webp",
+   "/media/cases/edgeway-commodities/v-06-phones-flatlay.webp",
+   "/media/cases/edgeway-commodities/v-07-phone-row.webp",
+   "/media/cases/edgeway-commodities/v-08-tablet.webp",
+   "/media/cases/edgeway-commodities/v-09-logo-cover.webp",
+   "/media/cases/edgeway-commodities/v-10-colour-chips.webp",
+   "/media/cases/edgeway-commodities/v-11-colour-palette.webp",
+   "/media/cases/edgeway-commodities/v-12-imagery.webp",
+   "/media/cases/edgeway-commodities/v-13-typography.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/edgeway-commodities/v-motion-01-display-scroll.mp4",
+    "poster": "/media/cases/edgeway-commodities/v-motion-01-display-scroll.webp",
+    "kind": "display-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/edgeway-commodities/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-motion-03-pages.mp4",
+    "poster": "/media/cases/edgeway-commodities/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-motion-04-logo-emboss.mp4",
+    "poster": "/media/cases/edgeway-commodities/v-motion-04-logo-emboss.webp",
+    "kind": "logo-emboss",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "calvin-vlaanderen": {
+  "project": "cv10",
+  "newCase": false,
+  "stills": [
+   "/media/cases/calvin-vlaanderen/v-01-lifted-components.webp",
+   "/media/cases/calvin-vlaanderen/v-02-display-and-phone.webp",
+   "/media/cases/calvin-vlaanderen/v-03-device-panels.webp",
+   "/media/cases/calvin-vlaanderen/v-04-phone-closeup.webp",
+   "/media/cases/calvin-vlaanderen/v-05-phones-flatlay.webp",
+   "/media/cases/calvin-vlaanderen/v-06-logo-emboss.webp",
+   "/media/cases/calvin-vlaanderen/v-07-business-cards.webp",
+   "/media/cases/calvin-vlaanderen/v-08-brand-grid.webp",
+   "/media/cases/calvin-vlaanderen/v-09-brandbook.webp",
+   "/media/cases/calvin-vlaanderen/v-10-colour-palette.webp",
+   "/media/cases/calvin-vlaanderen/v-11-screen-wall.webp",
+   "/media/cases/calvin-vlaanderen/v-12-typography.webp",
+   "/media/cases/calvin-vlaanderen/v-13-logo-cover.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/calvin-vlaanderen/v-motion-01-browser-scroll.webp",
+    "kind": "browser-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/calvin-vlaanderen/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-motion-03-pages.mp4",
+    "poster": "/media/cases/calvin-vlaanderen/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-motion-04-logo.mp4",
+    "poster": "/media/cases/calvin-vlaanderen/v-motion-04-logo.webp",
+    "kind": "logo",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "maarschall": {
+  "project": "maarschall",
+  "newCase": false,
+  "stills": [
+   "/media/cases/maarschall/v-01-floating-ui.webp",
+   "/media/cases/maarschall/v-02-lifted-components.webp",
+   "/media/cases/maarschall/v-03-screen-detail.webp",
+   "/media/cases/maarschall/v-04-device-panels.webp",
+   "/media/cases/maarschall/v-05-display-and-phone.webp",
+   "/media/cases/maarschall/v-06-tablet.webp",
+   "/media/cases/maarschall/v-07-phone-row.webp",
+   "/media/cases/maarschall/v-08-phones-flatlay.webp",
+   "/media/cases/maarschall/v-09-phones-duo.webp",
+   "/media/cases/maarschall/v-10-stationery.webp",
+   "/media/cases/maarschall/v-11-colour-chips.webp",
+   "/media/cases/maarschall/v-12-logo-on-paper.webp",
+   "/media/cases/maarschall/v-13-typography.webp",
+   "/media/cases/maarschall/v-14-logo-cover.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/maarschall/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/maarschall/v-motion-01-floating-ui.webp",
+    "kind": "floating-ui",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/maarschall/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/maarschall/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/maarschall/v-motion-03-components.mp4",
+    "poster": "/media/cases/maarschall/v-motion-03-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/maarschall/v-motion-04-logo.mp4",
+    "poster": "/media/cases/maarschall/v-motion-04-logo.webp",
+    "kind": "logo",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "sublime-branding": {
+  "project": "sublimecars",
+  "newCase": false,
+  "stills": [
+   "/media/cases/sublime-branding/v-01-browser-components.webp",
+   "/media/cases/sublime-branding/v-02-screen-detail.webp",
+   "/media/cases/sublime-branding/v-03-screen-wall.webp",
+   "/media/cases/sublime-branding/v-04-floating-ui.webp",
+   "/media/cases/sublime-branding/v-05-page-columns.webp",
+   "/media/cases/sublime-branding/v-06-phone-closeup.webp",
+   "/media/cases/sublime-branding/v-07-phone-row.webp",
+   "/media/cases/sublime-branding/v-08-tablet.webp",
+   "/media/cases/sublime-branding/v-09-phones-duo.webp",
+   "/media/cases/sublime-branding/v-10-posters.webp",
+   "/media/cases/sublime-branding/v-11-logo-emboss.webp",
+   "/media/cases/sublime-branding/v-12-colour-chips.webp",
+   "/media/cases/sublime-branding/v-13-logo-cover.webp",
+   "/media/cases/sublime-branding/v-14-colour-palette.webp",
+   "/media/cases/sublime-branding/v-15-imagery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/sublime-branding/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/sublime-branding/v-motion-01-laptop-scroll.webp",
+    "kind": "laptop-scroll",
+    "duration_s": 9.0
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/sublime-branding/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/sublime-branding/v-motion-03-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-motion-04-logo-paper.mp4",
+    "poster": "/media/cases/sublime-branding/v-motion-04-logo-paper.webp",
+    "kind": "logo-paper",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "atl-plus": {
+  "project": "atlplus",
+  "newCase": false,
+  "stills": [
+   "/media/cases/atl-plus/v-01-display-and-phone.webp",
+   "/media/cases/atl-plus/v-02-page-columns.webp",
+   "/media/cases/atl-plus/v-03-device-panels.webp",
+   "/media/cases/atl-plus/v-04-screen-wall.webp",
+   "/media/cases/atl-plus/v-05-phones-flatlay.webp",
+   "/media/cases/atl-plus/v-06-phone-closeup.webp",
+   "/media/cases/atl-plus/v-07-phones-duo.webp",
+   "/media/cases/atl-plus/v-08-phone-row.webp",
+   "/media/cases/atl-plus/v-09-tablet.webp",
+   "/media/cases/atl-plus/v-10-browser-components.webp",
+   "/media/cases/atl-plus/v-11-lifted-components.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/atl-plus/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/atl-plus/v-motion-01-browser-scroll.webp",
+    "kind": "browser-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/atl-plus/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/atl-plus/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/atl-plus/v-motion-03-screens.mp4",
+    "poster": "/media/cases/atl-plus/v-motion-03-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   }
+  ]
+ },
+ "boutique-hotels-gelderland": {
+  "project": "boutiquehotels",
+  "newCase": false,
+  "stills": [
+   "/media/cases/boutique-hotels-gelderland/v-01-browser-components.webp",
+   "/media/cases/boutique-hotels-gelderland/v-02-screen-wall.webp",
+   "/media/cases/boutique-hotels-gelderland/v-03-phone-closeup.webp",
+   "/media/cases/boutique-hotels-gelderland/v-04-phones-flatlay.webp",
+   "/media/cases/boutique-hotels-gelderland/v-05-phones-duo.webp",
+   "/media/cases/boutique-hotels-gelderland/v-06-tablet.webp",
+   "/media/cases/boutique-hotels-gelderland/v-07-brandbook.webp",
+   "/media/cases/boutique-hotels-gelderland/v-08-brand-grid.webp",
+   "/media/cases/boutique-hotels-gelderland/v-09-posters.webp",
+   "/media/cases/boutique-hotels-gelderland/v-10-logo-on-paper.webp",
+   "/media/cases/boutique-hotels-gelderland/v-11-business-cards.webp",
+   "/media/cases/boutique-hotels-gelderland/v-12-imagery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-motion-01-display-scroll.mp4",
+    "poster": "/media/cases/boutique-hotels-gelderland/v-motion-01-display-scroll.webp",
+    "kind": "display-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/boutique-hotels-gelderland/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-motion-03-screens.mp4",
+    "poster": "/media/cases/boutique-hotels-gelderland/v-motion-03-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-motion-04-colours.mp4",
+    "poster": "/media/cases/boutique-hotels-gelderland/v-motion-04-colours.webp",
+    "kind": "colours",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "esmailly-bouw": {
+  "project": "esmaillybouw",
+  "newCase": false,
+  "stills": [
+   "/media/cases/esmailly-bouw/v-01-screen-detail.webp",
+   "/media/cases/esmailly-bouw/v-02-browser-components.webp",
+   "/media/cases/esmailly-bouw/v-03-display-and-phone.webp",
+   "/media/cases/esmailly-bouw/v-04-lifted-components.webp",
+   "/media/cases/esmailly-bouw/v-05-device-panels.webp",
+   "/media/cases/esmailly-bouw/v-06-floating-ui.webp",
+   "/media/cases/esmailly-bouw/v-07-phone-row.webp",
+   "/media/cases/esmailly-bouw/v-08-phones-duo.webp",
+   "/media/cases/esmailly-bouw/v-09-phone-closeup.webp",
+   "/media/cases/esmailly-bouw/v-10-phones-flatlay.webp",
+   "/media/cases/esmailly-bouw/v-11-logo-emboss.webp",
+   "/media/cases/esmailly-bouw/v-12-logo-cover.webp",
+   "/media/cases/esmailly-bouw/v-13-business-cards.webp",
+   "/media/cases/esmailly-bouw/v-14-colour-chips.webp",
+   "/media/cases/esmailly-bouw/v-15-typography.webp",
+   "/media/cases/esmailly-bouw/v-16-imagery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/esmailly-bouw/v-motion-01-zoom-in.mp4",
+    "poster": "/media/cases/esmailly-bouw/v-motion-01-zoom-in.webp",
+    "kind": "zoom-in",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/esmailly-bouw/v-motion-02-phone-scroll.webp",
+    "kind": "phone-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/esmailly-bouw/v-motion-03-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-motion-04-brand-system.mp4",
+    "poster": "/media/cases/esmailly-bouw/v-motion-04-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-motion-05-colour-chips.mp4",
+    "poster": "/media/cases/esmailly-bouw/v-motion-05-colour-chips.webp",
+    "kind": "colour-chips",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "foodbars-gelderland": {
+  "project": "foodbars",
+  "newCase": false,
+  "stills": [
+   "/media/cases/foodbars-gelderland/v-01-device-panels.webp",
+   "/media/cases/foodbars-gelderland/v-02-screen-detail.webp",
+   "/media/cases/foodbars-gelderland/v-03-browser-components.webp",
+   "/media/cases/foodbars-gelderland/v-04-phone-closeup.webp",
+   "/media/cases/foodbars-gelderland/v-05-tablet.webp",
+   "/media/cases/foodbars-gelderland/v-06-phone-row.webp",
+   "/media/cases/foodbars-gelderland/v-07-phones-flatlay.webp",
+   "/media/cases/foodbars-gelderland/v-08-stationery.webp",
+   "/media/cases/foodbars-gelderland/v-09-colour-palette.webp",
+   "/media/cases/foodbars-gelderland/v-10-typography.webp",
+   "/media/cases/foodbars-gelderland/v-11-logo-on-paper.webp",
+   "/media/cases/foodbars-gelderland/v-12-imagery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/foodbars-gelderland/v-motion-01-zoom-in.mp4",
+    "poster": "/media/cases/foodbars-gelderland/v-motion-01-zoom-in.webp",
+    "kind": "zoom-in",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/foodbars-gelderland/v-motion-02-phone-scroll.webp",
+    "kind": "phone-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/foodbars-gelderland/v-motion-03-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-motion-04-pages.mp4",
+    "poster": "/media/cases/foodbars-gelderland/v-motion-04-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-motion-05-logo-emboss.mp4",
+    "poster": "/media/cases/foodbars-gelderland/v-motion-05-logo-emboss.webp",
+    "kind": "logo-emboss",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "jmtuning": {
+  "project": "jmtuning",
+  "newCase": false,
+  "stills": [
+   "/media/cases/jmtuning/v-01-display-and-phone.webp",
+   "/media/cases/jmtuning/v-02-screen-wall.webp",
+   "/media/cases/jmtuning/v-03-lifted-components.webp",
+   "/media/cases/jmtuning/v-04-device-panels.webp",
+   "/media/cases/jmtuning/v-05-laptop-closeup.webp",
+   "/media/cases/jmtuning/v-06-phones-duo.webp",
+   "/media/cases/jmtuning/v-07-phone-closeup.webp",
+   "/media/cases/jmtuning/v-08-phone-row.webp",
+   "/media/cases/jmtuning/v-09-tablet.webp",
+   "/media/cases/jmtuning/v-10-stationery.webp",
+   "/media/cases/jmtuning/v-11-posters.webp",
+   "/media/cases/jmtuning/v-12-brandbook.webp",
+   "/media/cases/jmtuning/v-13-logo-emboss.webp",
+   "/media/cases/jmtuning/v-14-business-cards.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/jmtuning/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/jmtuning/v-motion-01-browser-scroll.webp",
+    "kind": "browser-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/jmtuning/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/jmtuning/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/jmtuning/v-motion-03-components.mp4",
+    "poster": "/media/cases/jmtuning/v-motion-03-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/jmtuning/v-motion-04-colours.mp4",
+    "poster": "/media/cases/jmtuning/v-motion-04-colours.webp",
+    "kind": "colours",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "bctn": {
+  "project": "bctn",
+  "newCase": false,
+  "stills": [
+   "/media/cases/bctn/v-01-screen-wall.webp",
+   "/media/cases/bctn/v-02-screen-detail.webp",
+   "/media/cases/bctn/v-03-browser-components.webp",
+   "/media/cases/bctn/v-04-lifted-components.webp",
+   "/media/cases/bctn/v-05-device-panels.webp",
+   "/media/cases/bctn/v-06-page-columns.webp",
+   "/media/cases/bctn/v-07-tablet.webp",
+   "/media/cases/bctn/v-08-phones-duo.webp",
+   "/media/cases/bctn/v-09-phone-closeup.webp",
+   "/media/cases/bctn/v-10-typography.webp",
+   "/media/cases/bctn/v-11-colour-chips.webp",
+   "/media/cases/bctn/v-12-colour-palette.webp",
+   "/media/cases/bctn/v-13-brandbook.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/bctn/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/bctn/v-motion-01-laptop-scroll.webp",
+    "kind": "laptop-scroll",
+    "duration_s": 9.0
+   },
+   {
+    "src": "/media/cases/bctn/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/bctn/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/bctn/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/bctn/v-motion-03-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/bctn/v-motion-04-colour-chips.mp4",
+    "poster": "/media/cases/bctn/v-motion-04-colour-chips.webp",
+    "kind": "colour-chips",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "the-filmcar": {
+  "project": "thefilmcar",
+  "newCase": false,
+  "stills": [
+   "/media/cases/the-filmcar/v-01-display-and-phone.webp",
+   "/media/cases/the-filmcar/v-02-screen-wall.webp",
+   "/media/cases/the-filmcar/v-03-page-columns.webp",
+   "/media/cases/the-filmcar/v-04-screen-detail.webp",
+   "/media/cases/the-filmcar/v-05-lifted-components.webp",
+   "/media/cases/the-filmcar/v-06-phone-row.webp",
+   "/media/cases/the-filmcar/v-07-phones-duo.webp",
+   "/media/cases/the-filmcar/v-08-tablet.webp",
+   "/media/cases/the-filmcar/v-09-stationery.webp",
+   "/media/cases/the-filmcar/v-10-logo-on-paper.webp",
+   "/media/cases/the-filmcar/v-11-logo-cover.webp",
+   "/media/cases/the-filmcar/v-12-business-cards.webp",
+   "/media/cases/the-filmcar/v-13-colour-chips.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/the-filmcar/v-motion-01-display-scroll.mp4",
+    "poster": "/media/cases/the-filmcar/v-motion-01-display-scroll.webp",
+    "kind": "display-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/the-filmcar/v-motion-02-phone-scroll.webp",
+    "kind": "phone-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/the-filmcar/v-motion-03-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-motion-04-screens.mp4",
+    "poster": "/media/cases/the-filmcar/v-motion-04-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-motion-05-logo-emboss.mp4",
+    "poster": "/media/cases/the-filmcar/v-motion-05-logo-emboss.webp",
+    "kind": "logo-emboss",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "speedbar": {
+  "project": "speedbar",
+  "newCase": false,
+  "stills": [
+   "/media/cases/speedbar/v-01-display-and-phone.webp",
+   "/media/cases/speedbar/v-02-floating-ui.webp",
+   "/media/cases/speedbar/v-03-screen-wall.webp",
+   "/media/cases/speedbar/v-04-laptop-closeup.webp",
+   "/media/cases/speedbar/v-05-phones-flatlay.webp",
+   "/media/cases/speedbar/v-06-phone-row.webp",
+   "/media/cases/speedbar/v-07-phone-closeup.webp",
+   "/media/cases/speedbar/v-08-phones-duo.webp",
+   "/media/cases/speedbar/v-09-logo-on-paper.webp",
+   "/media/cases/speedbar/v-10-logo-cover.webp",
+   "/media/cases/speedbar/v-11-brandbook.webp",
+   "/media/cases/speedbar/v-12-typography.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/speedbar/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/speedbar/v-motion-01-floating-ui.webp",
+    "kind": "floating-ui",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/speedbar/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/speedbar/v-motion-02-phone-scroll.webp",
+    "kind": "phone-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/speedbar/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/speedbar/v-motion-03-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/speedbar/v-motion-04-components.mp4",
+    "poster": "/media/cases/speedbar/v-motion-04-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/speedbar/v-motion-05-logo.mp4",
+    "poster": "/media/cases/speedbar/v-motion-05-logo.webp",
+    "kind": "logo",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "electriffy": {
+  "project": "electriffy",
+  "newCase": false,
+  "stills": [
+   "/media/cases/electriffy/v-01-floating-ui.webp",
+   "/media/cases/electriffy/v-02-page-columns.webp",
+   "/media/cases/electriffy/v-03-device-panels.webp",
+   "/media/cases/electriffy/v-04-screen-detail.webp",
+   "/media/cases/electriffy/v-05-display-and-phone.webp",
+   "/media/cases/electriffy/v-06-tablet.webp",
+   "/media/cases/electriffy/v-07-phone-row.webp",
+   "/media/cases/electriffy/v-08-phones-flatlay.webp",
+   "/media/cases/electriffy/v-09-posters.webp",
+   "/media/cases/electriffy/v-10-colour-palette.webp",
+   "/media/cases/electriffy/v-11-stationery.webp",
+   "/media/cases/electriffy/v-12-logo-emboss.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/electriffy/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/electriffy/v-motion-01-browser-scroll.webp",
+    "kind": "browser-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/electriffy/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/electriffy/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/electriffy/v-motion-03-pages.mp4",
+    "poster": "/media/cases/electriffy/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/electriffy/v-motion-04-logo-paper.mp4",
+    "poster": "/media/cases/electriffy/v-motion-04-logo-paper.webp",
+    "kind": "logo-paper",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "your-earth": {
+  "project": "yourearth",
+  "newCase": false,
+  "stills": [
+   "/media/cases/your-earth/v-01-display-and-phone.webp",
+   "/media/cases/your-earth/v-02-device-panels.webp",
+   "/media/cases/your-earth/v-03-floating-ui.webp",
+   "/media/cases/your-earth/v-04-page-columns.webp",
+   "/media/cases/your-earth/v-05-phone-closeup.webp",
+   "/media/cases/your-earth/v-06-tablet.webp",
+   "/media/cases/your-earth/v-07-phones-duo.webp",
+   "/media/cases/your-earth/v-08-phones-flatlay.webp",
+   "/media/cases/your-earth/v-09-posters.webp",
+   "/media/cases/your-earth/v-10-colour-chips.webp",
+   "/media/cases/your-earth/v-11-typography.webp",
+   "/media/cases/your-earth/v-12-business-cards.webp",
+   "/media/cases/your-earth/v-13-brandbook.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/your-earth/v-motion-01-zoom-in.mp4",
+    "poster": "/media/cases/your-earth/v-motion-01-zoom-in.webp",
+    "kind": "zoom-in",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/your-earth/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/your-earth/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/your-earth/v-motion-03-pages.mp4",
+    "poster": "/media/cases/your-earth/v-motion-03-pages.webp",
+    "kind": "pages",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/your-earth/v-motion-04-colour-chips.mp4",
+    "poster": "/media/cases/your-earth/v-motion-04-colour-chips.webp",
+    "kind": "colour-chips",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "jalo-energy": {
+  "project": "jalo",
+  "newCase": false,
+  "stills": [
+   "/media/cases/jalo-energy/v-01-screen-wall.webp",
+   "/media/cases/jalo-energy/v-02-browser-components.webp",
+   "/media/cases/jalo-energy/v-03-floating-ui.webp",
+   "/media/cases/jalo-energy/v-04-laptop-closeup.webp",
+   "/media/cases/jalo-energy/v-05-screen-detail.webp",
+   "/media/cases/jalo-energy/v-06-device-panels.webp",
+   "/media/cases/jalo-energy/v-07-phone-row.webp",
+   "/media/cases/jalo-energy/v-08-phones-flatlay.webp",
+   "/media/cases/jalo-energy/v-09-phone-closeup.webp",
+   "/media/cases/jalo-energy/v-10-tablet.webp",
+   "/media/cases/jalo-energy/v-11-posters.webp",
+   "/media/cases/jalo-energy/v-12-logo-cover.webp",
+   "/media/cases/jalo-energy/v-13-logo-emboss.webp",
+   "/media/cases/jalo-energy/v-14-colour-palette.webp",
+   "/media/cases/jalo-energy/v-15-stationery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/jalo-energy/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/jalo-energy/v-motion-01-floating-ui.webp",
+    "kind": "floating-ui",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/jalo-energy/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/jalo-energy/v-motion-03-brand-system.webp",
+    "kind": "brand-system",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-motion-04-logo.mp4",
+    "poster": "/media/cases/jalo-energy/v-motion-04-logo.webp",
+    "kind": "logo",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "martello": {
+  "project": "martello",
+  "newCase": false,
+  "stills": [
+   "/media/cases/martello/v-01-screen-wall.webp",
+   "/media/cases/martello/v-02-display-and-phone.webp",
+   "/media/cases/martello/v-03-page-columns.webp",
+   "/media/cases/martello/v-04-browser-components.webp",
+   "/media/cases/martello/v-05-device-panels.webp",
+   "/media/cases/martello/v-06-phones-duo.webp",
+   "/media/cases/martello/v-07-phone-row.webp",
+   "/media/cases/martello/v-08-phones-flatlay.webp",
+   "/media/cases/martello/v-09-tablet.webp",
+   "/media/cases/martello/v-10-colour-palette.webp",
+   "/media/cases/martello/v-11-colour-chips.webp",
+   "/media/cases/martello/v-12-logo-cover.webp",
+   "/media/cases/martello/v-13-logo-on-paper.webp",
+   "/media/cases/martello/v-14-stationery.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/martello/v-motion-01-laptop-scroll.mp4",
+    "poster": "/media/cases/martello/v-motion-01-laptop-scroll.webp",
+    "kind": "laptop-scroll",
+    "duration_s": 9.0
+   },
+   {
+    "src": "/media/cases/martello/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/martello/v-motion-02-phone-scroll.webp",
+    "kind": "phone-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/martello/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/martello/v-motion-03-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/martello/v-motion-04-components.mp4",
+    "poster": "/media/cases/martello/v-motion-04-components.webp",
+    "kind": "components",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/martello/v-motion-05-logo-emboss.mp4",
+    "poster": "/media/cases/martello/v-motion-05-logo-emboss.webp",
+    "kind": "logo-emboss",
+    "duration_s": 6.0
+   }
+  ]
+ },
+ "steddion": {
+  "project": "steddion",
+  "newCase": false,
+  "stills": [
+   "/media/cases/steddion/v-01-lifted-components.webp",
+   "/media/cases/steddion/v-02-display-and-phone.webp",
+   "/media/cases/steddion/v-03-browser-components.webp",
+   "/media/cases/steddion/v-04-page-columns.webp",
+   "/media/cases/steddion/v-05-phone-closeup.webp",
+   "/media/cases/steddion/v-06-phones-duo.webp",
+   "/media/cases/steddion/v-07-phone-row.webp",
+   "/media/cases/steddion/v-08-tablet.webp",
+   "/media/cases/steddion/v-09-imagery.webp",
+   "/media/cases/steddion/v-10-brandbook.webp",
+   "/media/cases/steddion/v-11-logo-on-paper.webp",
+   "/media/cases/steddion/v-12-logo-emboss.webp"
+  ],
+  "videos": [
+   {
+    "src": "/media/cases/steddion/v-motion-01-display-scroll.mp4",
+    "poster": "/media/cases/steddion/v-motion-01-display-scroll.webp",
+    "kind": "display-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/steddion/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/steddion/v-motion-02-phones-scroll.webp",
+    "kind": "phones-scroll",
+    "duration_s": 8.0
+   },
+   {
+    "src": "/media/cases/steddion/v-motion-03-screens.mp4",
+    "poster": "/media/cases/steddion/v-motion-03-screens.webp",
+    "kind": "screens",
+    "duration_s": 7.0
+   },
+   {
+    "src": "/media/cases/steddion/v-motion-04-colours.mp4",
+    "poster": "/media/cases/steddion/v-motion-04-colours.webp",
+    "kind": "colours",
+    "duration_s": 6.0
+   }
+  ]
+ }
+}

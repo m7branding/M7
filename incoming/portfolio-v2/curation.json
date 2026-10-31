@@ -1,0 +1,4395 @@
+{
+ "impeco": {
+  "project": "impeco",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/impeco/v-06-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "heroVideo": {
+   "video": "/media/cases/impeco/v-motion-01-browser-scroll.mp4",
+   "poster": "/media/cases/impeco/v-motion-01-browser-scroll.webp",
+   "from": "v2",
+   "kind": "browser-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/impeco/v-06-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/impeco/r-11-d13-macro-mac-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/impeco/r-01-d11-ui-panels-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/impeco/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/impeco/v-11-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/impeco/r-10-d04-phone-trio-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/impeco/v-03-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/impeco/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/impeco/v-12-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "video": "/media/cases/impeco/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/impeco/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/impeco/v-10-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/impeco/r-07-t2-closeup.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/impeco/v-14-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "src": "/media/cases/impeco/r-08-d07-phone-stone-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/impeco/v-13-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/impeco/v-04-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/impeco/r-16-d20-gravity-alt-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/impeco/r-14-d12-macro-phone-b.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/impeco/r-02-d03-flatlay-a.webp",
+   "/media/cases/impeco/r-04-d09-ipad-keyboard-a.webp",
+   "/media/cases/impeco/r-05-d16-phone-plinth-a.webp",
+   "/media/cases/impeco/r-13-d17-ipads-lean-a.webp",
+   "/media/cases/impeco/r-17-t4-float-ipad.webp",
+   "/media/cases/impeco/m-ipad.webp",
+   "/media/cases/impeco/m-phones.webp",
+   "/media/cases/impeco/m-detail.webp",
+   "/media/cases/impeco/m-display.webp",
+   "/media/cases/impeco/m-phones-angle.webp",
+   "/media/cases/impeco/m-cover.webp"
+  ],
+  "notes": "No existing hero video; new browser-scroll clip as hero. Dropped duplicate hero-screen iPads/m-mockups (S4, S14, S19, V9) and weak flatlay/plinth renders."
+ },
+ "fairlink": {
+  "project": "fairlink",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/fairlink/r-17-d13-macro-mac-a.webp",
+   "from": "site"
+  },
+  "heroVideo": {
+   "video": "/media/cases/fairlink/v-motion-01-zoom-in.mp4",
+   "poster": "/media/cases/fairlink/v-motion-01-zoom-in.webp",
+   "from": "v2",
+   "kind": "zoom-in"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/fairlink/r-17-d13-macro-mac-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/fairlink/v-02-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/fairlink/r-02-d11-ui-panels-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/fairlink/v-05-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/fairlink/r-07-d19-studio-front-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/fairlink/v-07-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/fairlink/r-01-d07-phone-stone-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/fairlink/v-01-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/fairlink/r-04-d01-desk-studio-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/fairlink/v-08-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/fairlink/v-04-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "video": "/media/cases/fairlink/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/fairlink/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/fairlink/v-09-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/fairlink/r-11-d12-macro-phone-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/fairlink/v-10-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/fairlink/v-13-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/fairlink/v-03-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/fairlink/v-11-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "video": "/media/cases/fairlink/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/fairlink/v-motion-03-brand-system.webp",
+    "from": "v2",
+    "kind": "brand-system"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/fairlink/r-cover.webp",
+   "/media/cases/fairlink/r-05-d01-desk-studio-b.webp",
+   "/media/cases/fairlink/r-06-b06-wall-logo-c.webp",
+   "/media/cases/fairlink/r-08-d03-flatlay-b.webp",
+   "/media/cases/fairlink/r-10-t4-float-ipad.webp",
+   "/media/cases/fairlink/r-13-d02-mac-top-a.webp",
+   "/media/cases/fairlink/r-14-d15-mac-phone-desk-b.webp",
+   "/media/cases/fairlink/m-ipad.webp",
+   "/media/cases/fairlink/m-phones.webp",
+   "/media/cases/fairlink/m-detail.webp",
+   "/media/cases/fairlink/m-mac.webp",
+   "/media/cases/fairlink/m-phones-angle.webp",
+   "/media/cases/fairlink/m-cover.webp"
+  ],
+  "notes": "No existing hero video; zoom-in clip leads. Dropped S6 (logo cropped), V12 (cropped wordmark) and repeated hero-screen desk/mac shots (S1, S5, S11, S12, m-*)."
+ },
+ "kds-stansvormen": {
+  "project": "kds",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/kds-stansvormen/v-09-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/kds-stansvormen/v-motion-01-floating-ui.mp4",
+   "poster": "/media/cases/kds-stansvormen/v-motion-01-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/kds-stansvormen/v-09-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/r-10-d13-macro-mac-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-12-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-06-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-08-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/r-11-d20-gravity-alt-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-03-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-13-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-02-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-14-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/r-04-d06-phone-linen-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-11-logo-emboss.webp",
+    "from": "v2",
+    "kind": "logo-emboss"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-07-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-01-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "video": "/media/cases/kds-stansvormen/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/kds-stansvormen/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/r-14-d08-ipad-stand-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kds-stansvormen/v-10-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/kds-stansvormen/r-cover.webp",
+   "/media/cases/kds-stansvormen/r-02-d13-macro-mac-a.webp",
+   "/media/cases/kds-stansvormen/r-05-d02-mac-top-b.webp",
+   "/media/cases/kds-stansvormen/r-07-t5-ipads-dark.webp",
+   "/media/cases/kds-stansvormen/r-13-d20-gravity-alt-b.webp",
+   "/media/cases/kds-stansvormen/r-17-d09-ipad-keyboard-b.webp",
+   "/media/cases/kds-stansvormen/m-ipad.webp",
+   "/media/cases/kds-stansvormen/m-phones.webp",
+   "/media/cases/kds-stansvormen/m-detail.webp",
+   "/media/cases/kds-stansvormen/m-display.webp",
+   "/media/cases/kds-stansvormen/m-phones-angle.webp",
+   "/media/cases/kds-stansvormen/m-cover.webp"
+  ],
+  "notes": "No existing hero video; floating-UI clip leads. Kept one macro-mac (S6) and one gravity render (S7); dropped weak r-cover, duplicate hero-screen devices and m-* mockups."
+ },
+ "digital-newsgroup": {
+  "project": "dng",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/digital-newsgroup/v-09-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/digital-newsgroup/v-motion-01-display-scroll.mp4",
+   "poster": "/media/cases/digital-newsgroup/v-motion-01-display-scroll.webp",
+   "from": "v2",
+   "kind": "display-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/digital-newsgroup/v-09-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/r-10-d13-macro-mac-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-11-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-06-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/r-14-d11-ui-panels-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-12-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-01-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/r-05-d07-phone-stone-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-10-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-08-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-04-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/r-01-d19-studio-front-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-13-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/v-07-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/digital-newsgroup/r-17-d10-tablets-iso-a.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/digital-newsgroup/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/digital-newsgroup/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/digital-newsgroup/r-cover.webp",
+   "/media/cases/digital-newsgroup/r-02-d08-ipad-stand-b.webp",
+   "/media/cases/digital-newsgroup/r-04-d14-billboard-b.webp",
+   "/media/cases/digital-newsgroup/r-07-d19-studio-front-a.webp",
+   "/media/cases/digital-newsgroup/r-08-d09-ipad-keyboard-b.webp",
+   "/media/cases/digital-newsgroup/r-11-d02-mac-top-b.webp",
+   "/media/cases/digital-newsgroup/r-13-d03-flatlay-b.webp",
+   "/media/cases/digital-newsgroup/r-16-t4-float-ipad.webp",
+   "/media/cases/digital-newsgroup/m-ipad.webp",
+   "/media/cases/digital-newsgroup/m-phones.webp",
+   "/media/cases/digital-newsgroup/m-detail.webp",
+   "/media/cases/digital-newsgroup/m-display.webp",
+   "/media/cases/digital-newsgroup/m-phones-angle.webp",
+   "/media/cases/digital-newsgroup/m-cover.webp"
+  ],
+  "notes": "Red corporate site + brand lead (green shop now has its own dng-shop case); four best shop renders kept for the shop story. Dropped repeated hero-screen devices (V2, V5, S1, S7, m-*)."
+ },
+ "dng-shop": {
+  "project": "dngshop",
+  "newCase": true,
+  "cover": {
+   "src": "/media/cases/dng-shop/v-04-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "heroVideo": {
+   "video": "/media/cases/dng-shop/v-motion-01-laptop-scroll.mp4",
+   "poster": "/media/cases/dng-shop/v-motion-01-laptop-scroll.webp",
+   "from": "v2",
+   "kind": "laptop-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/dng-shop/v-04-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-01-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-08-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-11-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-02-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-07-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-12-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-05-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-06-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-10-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-03-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "video": "/media/cases/dng-shop/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/dng-shop/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/dng-shop/v-13-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   }
+  ],
+  "removeFromGallery": [],
+  "notes": "New case, v2 only; laptop-scroll clip as hero. Dropped V9 type card (redundant with the book) and M3/M4 (repeat iso and colour stills)."
+ },
+ "kippenkar": {
+  "project": "kippenkar",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/kippenkar/v-03-laptop-closeup.webp",
+   "from": "v2",
+   "kind": "laptop-closeup"
+  },
+  "heroVideo": {
+   "video": "/media/cases/kippenkar/v-motion-01-floating-ui.mp4",
+   "poster": "/media/cases/kippenkar/v-motion-01-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/kippenkar/v-03-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/kippenkar/r-10-d11-ui-panels-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-08-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-10-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-04-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/kippenkar/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-09-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/kippenkar/01.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-07-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "from": "other-import",
+    "artifact": "https://claude.ai/artifact/2ScZAeHNZF5o3xbwgeSbjn",
+    "title": "Chickenwagon — Website on MacBook and iPad",
+    "image": "img/projects-07-chickenwagon.jpg"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-12-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "src": "/media/cases/kippenkar/r-01-d12-macro-phone-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-02-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/kippenkar/04.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-05-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "video": "/media/cases/kippenkar/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/kippenkar/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/kippenkar/05.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/kippenkar/v-01-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/kippenkar/r-02-d06-phone-linen-a.webp",
+   "/media/cases/kippenkar/r-04-d17-ipads-lean-b.webp",
+   "/media/cases/kippenkar/r-05-d14-billboard-c.webp",
+   "/media/cases/kippenkar/r-06-d04-phone-trio-a.webp",
+   "/media/cases/kippenkar/r-07-d08-ipad-stand-a.webp",
+   "/media/cases/kippenkar/r-08-d05-phone-lean-b.webp",
+   "/media/cases/kippenkar/r-11-d01-desk-studio-b.webp",
+   "/media/cases/kippenkar/r-13-d09-ipad-keyboard-b.webp",
+   "/media/cases/kippenkar/r-14-d13-macro-mac-b.webp",
+   "/media/cases/kippenkar/r-16-d08-ipad-stand-b.webp",
+   "/media/cases/kippenkar/r-17-d07-phone-stone-a.webp",
+   "/media/cases/kippenkar/m-ipad.webp",
+   "/media/cases/kippenkar/m-phones.webp",
+   "/media/cases/kippenkar/m-detail.webp",
+   "/media/cases/kippenkar/m-display.webp",
+   "/media/cases/kippenkar/m-phones-angle.webp",
+   "/media/cases/kippenkar/02.webp",
+   "/media/cases/kippenkar/03.webp",
+   "/media/cases/kippenkar/06.webp",
+   "/media/cases/kippenkar/cover.webp",
+   "/media/cases/kippenkar/m-cover.webp"
+  ],
+  "notes": "No existing hero video; floating-UI clip leads. Hero screen trimmed to V3/S2/S1; kept real wagon photography (V9, V10) and configurator screenshots S20/S23/S24, dropped plain screenshots S21/S22/S25 and flat logo cards."
+ },
+ "nova-funeral-cars": {
+  "project": "novacars",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/nova-funeral-cars/v-08-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/nova-funeral-cars/v-motion-01-display-scroll.mp4",
+   "poster": "/media/cases/nova-funeral-cars/v-motion-01-display-scroll.webp",
+   "from": "v2",
+   "kind": "display-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/nova-funeral-cars/v-08-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-02-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/r-07-t1-gravity.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-15-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-03-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-10-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/r-11-t5-ipads-dark.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-13-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-06-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/r-05-d01-desk-studio-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-09-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-12-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-11-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-04-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/nova-funeral-cars/v-05-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "video": "/media/cases/nova-funeral-cars/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/nova-funeral-cars/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/nova-funeral-cars/r-cover.webp",
+   "/media/cases/nova-funeral-cars/r-01-d08-ipad-stand-a.webp",
+   "/media/cases/nova-funeral-cars/r-02-d05-phone-lean-a.webp",
+   "/media/cases/nova-funeral-cars/r-04-d03-flatlay-b.webp",
+   "/media/cases/nova-funeral-cars/r-08-d06-phone-linen-b.webp",
+   "/media/cases/nova-funeral-cars/r-10-d07-phone-stone-a.webp",
+   "/media/cases/nova-funeral-cars/r-13-d19-studio-front-a.webp",
+   "/media/cases/nova-funeral-cars/r-14-d17-ipads-lean-b.webp",
+   "/media/cases/nova-funeral-cars/r-16-d18-mac-profile-a.webp",
+   "/media/cases/nova-funeral-cars/r-17-d15-mac-phone-desk-c.webp",
+   "/media/cases/nova-funeral-cars/m-ipad.webp",
+   "/media/cases/nova-funeral-cars/m-phones.webp",
+   "/media/cases/nova-funeral-cars/m-detail.webp",
+   "/media/cases/nova-funeral-cars/m-mac.webp",
+   "/media/cases/nova-funeral-cars/m-phones-angle.webp",
+   "/media/cases/nova-funeral-cars/m-cover.webp"
+  ],
+  "notes": "No existing hero video; display-scroll clip leads. Site renders are dark/low-contrast, kept only the clearest three (S6, S9, S5); dropped duplicate flatlay cover, tiny-screen renders, V1 (same screen as V8) and V14 (murky)."
+ },
+ "aigora": {
+  "project": "aigora",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/aigora/v-06-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/aigora/v-motion-01-laptop-scroll.mp4",
+   "poster": "/media/cases/aigora/v-motion-01-laptop-scroll.webp",
+   "from": "v2",
+   "kind": "laptop-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/aigora/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/aigora/v-04-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/aigora/v-10-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/aigora/r-04-t1-gravity.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/aigora/v-03-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/aigora/v-07-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/aigora/v-08-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/aigora/v-05-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/aigora/v-02-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/aigora/r-10-t3-plinth.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/aigora/v-12-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/aigora/r-14-t5-ipads-dark.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/aigora/v-13-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/aigora/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/aigora/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/aigora/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/aigora/r-01-d06-phone-linen-b.webp",
+   "/media/cases/aigora/r-02-d02-mac-top-b.webp",
+   "/media/cases/aigora/r-05-d18-mac-profile-c.webp",
+   "/media/cases/aigora/r-07-d09-ipad-keyboard-b.webp",
+   "/media/cases/aigora/r-08-d19-studio-front-a.webp",
+   "/media/cases/aigora/r-11-d18-mac-profile-b.webp",
+   "/media/cases/aigora/r-16-d13-macro-mac-b.webp",
+   "/media/cases/aigora/r-17-d19-studio-front-c.webp",
+   "/media/cases/aigora/m-ipad.webp",
+   "/media/cases/aigora/m-phones.webp",
+   "/media/cases/aigora/m-detail.webp",
+   "/media/cases/aigora/m-display.webp",
+   "/media/cases/aigora/m-phones-angle.webp",
+   "/media/cases/aigora/m-cover.webp"
+  ],
+  "notes": "No existing hero video; laptop-scroll clip leads. Same hero screen appears in most renders, kept only V6/S4/S8 plus S1 (sector section); dropped V11 (cropped wordmark), V9 (murky emboss) and near-duplicate studio/mac shots."
+ },
+ "bernheze-makelaars-rebranding": {
+  "project": "bernheze",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/bernheze-makelaars-rebranding/v-02-browser-components.webp",
+   "from": "v2",
+   "kind": "browser-components"
+  },
+  "heroVideo": {
+   "video": "/media/cases/bernheze-makelaars-rebranding/v-motion-01-browser-scroll.mp4",
+   "poster": "/media/cases/bernheze-makelaars-rebranding/v-motion-01-browser-scroll.webp",
+   "from": "v2",
+   "kind": "browser-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-02-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/06.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/03.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-13-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/r-11-d18-mac-profile-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-08-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/01.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/08.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-05-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-09-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/05.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-10-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-15-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/09.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/bernheze-makelaars-rebranding/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/bernheze-makelaars-rebranding/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/bernheze-makelaars-rebranding/v-12-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/bernheze-makelaars-rebranding/m-cover.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-01-d19-studio-front-a.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-02-d04-phone-trio-a.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-04-t2-closeup.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-07-d01-desk-studio-b.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-08-d03-flatlay-b.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-10-d11-ui-panels-b.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-13-d18-mac-profile-a.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-14-d18-mac-profile-c.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-16-d15-mac-phone-desk-b.webp",
+   "/media/cases/bernheze-makelaars-rebranding/r-17-t5-ipads-dark.webp",
+   "/media/cases/bernheze-makelaars-rebranding/m-ipad.webp",
+   "/media/cases/bernheze-makelaars-rebranding/m-phones.webp",
+   "/media/cases/bernheze-makelaars-rebranding/m-detail.webp",
+   "/media/cases/bernheze-makelaars-rebranding/m-mac.webp",
+   "/media/cases/bernheze-makelaars-rebranding/m-phones-angle.webp",
+   "/media/cases/bernheze-makelaars-rebranding/02.webp",
+   "/media/cases/bernheze-makelaars-rebranding/04.webp",
+   "/media/cases/bernheze-makelaars-rebranding/07.webp"
+  ],
+  "notes": "Real signage, office, brochure and logo photos woven between web shots; dropped S21 (placeholder text), S24 (off-brand flyer), S19 (tiny flat back cover) and the many repeat 'Professionals met focus' device renders."
+ },
+ "buitenstate": {
+  "project": "buitenstate",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/buitenstate/v-08-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/buitenstate/v-motion-01-zoom-in.mp4",
+   "poster": "/media/cases/buitenstate/v-motion-01-zoom-in.webp",
+   "from": "v2",
+   "kind": "zoom-in"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/buitenstate/v-03-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/buitenstate/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-09-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-13-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-08-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-04-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/buitenstate/02.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-11-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/buitenstate/r-13-d12-macro-phone-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-14-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-05-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/buitenstate/01.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-12-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-06-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/buitenstate/r-01-d19-studio-front-c.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/buitenstate/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/buitenstate/v-motion-03-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/buitenstate/v-02-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "video": "/media/cases/buitenstate/v-motion-05-logo-emboss.mp4",
+    "poster": "/media/cases/buitenstate/v-motion-05-logo-emboss.webp",
+    "from": "v2",
+    "kind": "logo-emboss"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/buitenstate/r-04-d08-ipad-stand-c.webp",
+   "/media/cases/buitenstate/r-05-d07-phone-stone-a.webp",
+   "/media/cases/buitenstate/r-07-t1-gravity.webp",
+   "/media/cases/buitenstate/r-08-d20-gravity-alt-b.webp",
+   "/media/cases/buitenstate/r-10-t3-plinth.webp",
+   "/media/cases/buitenstate/r-11-d01-desk-studio-b.webp",
+   "/media/cases/buitenstate/r-12-d03-flatlay-b.webp",
+   "/media/cases/buitenstate/r-14-d14-billboard-c.webp",
+   "/media/cases/buitenstate/r-15-d17-ipads-lean-b.webp",
+   "/media/cases/buitenstate/r-16-t5-ipads-dark.webp",
+   "/media/cases/buitenstate/r-17-d09-ipad-keyboard-b.webp",
+   "/media/cases/buitenstate/r-18-d01-desk-studio-a.webp",
+   "/media/cases/buitenstate/m-ipad.webp",
+   "/media/cases/buitenstate/m-phones.webp",
+   "/media/cases/buitenstate/m-detail.webp",
+   "/media/cases/buitenstate/m-mac.webp",
+   "/media/cases/buitenstate/m-phones-angle.webp",
+   "/media/cases/buitenstate/03.webp",
+   "/media/cases/buitenstate/04.webp",
+   "/media/cases/buitenstate/m-cover.webp"
+  ],
+  "notes": "No existing hero video; zoom-in clip leads. 'Liefde voor het buitenleven' screen trimmed to V8/S10/S1; kept S21/S22, dropped S23 (internal M7 proposal diagram), S24 (flat email), duplicate gravity S5/S6 and studio/desk renders."
+ },
+ "jurgh-detailing": {
+  "project": "jurgh",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/jurgh-detailing/v-01-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/jurgh-detailing/v-motion-01-display-scroll.mp4",
+   "poster": "/media/cases/jurgh-detailing/v-motion-01-display-scroll.webp",
+   "from": "v2",
+   "kind": "display-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/jurgh-detailing/v-01-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-07-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-12-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-03-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-08-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-11-logo-emboss.webp",
+    "from": "v2",
+    "kind": "logo-emboss"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-05-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/03.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-10-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "video": "/media/cases/jurgh-detailing/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/jurgh-detailing/v-motion-02-phone-scroll.webp",
+    "from": "v2",
+    "kind": "phone-scroll"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/r-10-d12-macro-phone-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-04-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/02.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/06.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/07.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/05.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jurgh-detailing/v-13-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/jurgh-detailing/r-cover.webp",
+   "/media/cases/jurgh-detailing/r-01-d07-phone-stone-b.webp",
+   "/media/cases/jurgh-detailing/r-02-d09-ipad-keyboard-a.webp",
+   "/media/cases/jurgh-detailing/r-04-d02-mac-top-b.webp",
+   "/media/cases/jurgh-detailing/r-05-d05-phone-lean-b.webp",
+   "/media/cases/jurgh-detailing/r-07-d04-phone-trio-b.webp",
+   "/media/cases/jurgh-detailing/r-08-d11-ui-panels-a.webp",
+   "/media/cases/jurgh-detailing/r-13-d09-ipad-keyboard-c.webp",
+   "/media/cases/jurgh-detailing/r-14-d11-ui-panels-b.webp",
+   "/media/cases/jurgh-detailing/r-16-d17-ipads-lean-a.webp",
+   "/media/cases/jurgh-detailing/r-17-d14-billboard-a.webp",
+   "/media/cases/jurgh-detailing/m-ipad.webp",
+   "/media/cases/jurgh-detailing/m-phones.webp",
+   "/media/cases/jurgh-detailing/m-detail.webp",
+   "/media/cases/jurgh-detailing/m-mac.webp",
+   "/media/cases/jurgh-detailing/m-phones-angle.webp",
+   "/media/cases/jurgh-detailing/01.webp",
+   "/media/cases/jurgh-detailing/04.webp",
+   "/media/cases/jurgh-detailing/08.webp",
+   "/media/cases/jurgh-detailing/m-cover.webp"
+  ],
+  "notes": "New clean V set leads; kept authentic logo/about/hero/cards/gallery shots; dropped footer 04, dup 01, odd 08, repeat-hero renders and O items (old design)."
+ },
+ "mindyourpass": {
+  "project": "mindyourpass",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/mindyourpass/v-04-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/mindyourpass/v-motion-01-zoom-in.mp4",
+   "poster": "/media/cases/mindyourpass/v-motion-01-zoom-in.webp",
+   "from": "v2",
+   "kind": "zoom-in"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/mindyourpass/v-04-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-12-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-05-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/mindyourpass/01.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-03-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-13-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/mindyourpass/cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-11-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/mindyourpass/r-07-d12-macro-phone-a.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/mindyourpass/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/mindyourpass/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/mindyourpass/02.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "from": "other-import",
+    "artifact": "https://claude.ai/artifact/2ScZAeHNZF5o3xbwgeSbjn",
+    "title": "MindYourPass — Password Generator & Cyber Dashboard",
+    "image": "img/projects-06-mindyourpass.jpg"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-09-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/mindyourpass/04.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/mindyourpass/v-02-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/mindyourpass/06.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/mindyourpass/m-cover.webp",
+   "/media/cases/mindyourpass/r-01-d11-ui-panels-a.webp",
+   "/media/cases/mindyourpass/r-02-t1-gravity.webp",
+   "/media/cases/mindyourpass/r-04-d14-billboard-a.webp",
+   "/media/cases/mindyourpass/r-05-d20-gravity-alt-b.webp",
+   "/media/cases/mindyourpass/r-08-d14-billboard-c.webp",
+   "/media/cases/mindyourpass/r-10-d18-mac-profile-c.webp",
+   "/media/cases/mindyourpass/r-13-d16-phone-plinth-b.webp",
+   "/media/cases/mindyourpass/r-14-d17-ipads-lean-c.webp",
+   "/media/cases/mindyourpass/r-16-d18-mac-profile-b.webp",
+   "/media/cases/mindyourpass/r-17-d19-studio-front-c.webp",
+   "/media/cases/mindyourpass/m-ipad.webp",
+   "/media/cases/mindyourpass/m-detail.webp",
+   "/media/cases/mindyourpass/m-mac.webp",
+   "/media/cases/mindyourpass/03.webp",
+   "/media/cases/mindyourpass/05.webp",
+   "/media/cases/mindyourpass/07.webp",
+   "/media/cases/mindyourpass/08.webp",
+   "/media/cases/mindyourpass/09.webp",
+   "/media/cases/mindyourpass/m-phone.webp"
+  ],
+  "notes": "Navy V set plus strongest authentic shots (01, 02, 04, 06, hand-phone cover); dropped bol.com 03, flat text pages 05/07/08/09 and repeat renders."
+ },
+ "misterglass": {
+  "project": "misterglass",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/misterglass/v-05-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": "keep",
+  "gallery": [
+   {
+    "src": "/media/cases/misterglass/v-05-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/misterglass/v-08-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/misterglass/v-09-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/misterglass/r-06-ipad-top.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/misterglass/v-06-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/misterglass/r-10-glass.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/misterglass/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/misterglass/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/misterglass/v-10-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/misterglass/r-04-floating-ui.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/misterglass/v-03-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/misterglass/r-09-iphones.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/misterglass/v-13-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/misterglass/v-04-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/misterglass/v-11-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "video": "/media/cases/misterglass/v-motion-03-components.mp4",
+    "poster": "/media/cases/misterglass/v-motion-03-components.webp",
+    "from": "v2",
+    "kind": "components"
+   },
+   {
+    "src": "/media/cases/misterglass/v-12-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/misterglass/r-05-iso.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/misterglass/m-cover.webp",
+   "/media/cases/misterglass/r-01-desk.webp",
+   "/media/cases/misterglass/r-02-macbook.webp",
+   "/media/cases/misterglass/r-03-phone-card.webp",
+   "/media/cases/misterglass/r-07-browsers.webp",
+   "/media/cases/misterglass/r-08-macro.webp",
+   "/media/cases/misterglass/m-ipad.webp",
+   "/media/cases/misterglass/m-phones.webp",
+   "/media/cases/misterglass/m-detail.webp",
+   "/media/cases/misterglass/m-display.webp",
+   "/media/cases/misterglass/m-phones-angle.webp"
+  ],
+  "notes": "Keep desk r-hero video; mascot display leads; kept best renders (iPad top, glass, floating UI, iPhones); dropped repeat hero devices and weak macbook/macro."
+ },
+ "the-sandt": {
+  "project": "thesandt",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/the-sandt/v-03-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/the-sandt/v-motion-01-laptop-scroll.mp4",
+   "poster": "/media/cases/the-sandt/v-motion-01-laptop-scroll.webp",
+   "from": "v2",
+   "kind": "laptop-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/the-sandt/v-03-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/the-sandt/v-10-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/the-sandt/v-06-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/the-sandt/r-09-b06-wall-logo-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-sandt/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/the-sandt/v-02-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/the-sandt/v-09-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/the-sandt/r-14-d12-macro-phone-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-sandt/r-12-d19-studio-front-c.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/the-sandt/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/the-sandt/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/the-sandt/v-11-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/the-sandt/r-18-d10-tablets-iso-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-sandt/v-05-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "video": "/media/cases/the-sandt/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/the-sandt/v-motion-03-brand-system.webp",
+    "from": "v2",
+    "kind": "brand-system"
+   },
+   {
+    "src": "/media/cases/the-sandt/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-sandt/v-08-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/the-sandt/r-01-d20-gravity-alt-b.webp",
+   "/media/cases/the-sandt/r-02-d02-mac-top-a.webp",
+   "/media/cases/the-sandt/r-03-b06-wall-logo-a.webp",
+   "/media/cases/the-sandt/r-04-d07-phone-stone-b.webp",
+   "/media/cases/the-sandt/r-05-d17-ipads-lean-a.webp",
+   "/media/cases/the-sandt/r-06-b06-wall-logo-b.webp",
+   "/media/cases/the-sandt/r-07-d17-ipads-lean-b.webp",
+   "/media/cases/the-sandt/r-08-d11-ui-panels-a.webp",
+   "/media/cases/the-sandt/r-10-d14-billboard-a.webp",
+   "/media/cases/the-sandt/r-11-d17-ipads-lean-c.webp",
+   "/media/cases/the-sandt/r-13-d06-phone-linen-b.webp",
+   "/media/cases/the-sandt/r-15-d06-phone-linen-a.webp",
+   "/media/cases/the-sandt/r-16-d11-ui-panels-b.webp",
+   "/media/cases/the-sandt/r-17-d09-ipad-keyboard-c.webp",
+   "/media/cases/the-sandt/m-ipad.webp",
+   "/media/cases/the-sandt/m-phones.webp",
+   "/media/cases/the-sandt/m-detail.webp",
+   "/media/cases/the-sandt/m-display.webp",
+   "/media/cases/the-sandt/m-phones-angle.webp",
+   "/media/cases/the-sandt/m-cover.webp"
+  ],
+  "notes": "Display hero leads; brand stationery/folder/palette from V; best wall-logo emboss (c) and macro phone kept; dropped faint wall logos, low-contrast tablet and repeat hero renders."
+ },
+ "nova-special-cars": {
+  "project": "novaspecialcars",
+  "newCase": true,
+  "cover": {
+   "src": "/media/cases/nova-special-cars/v-06-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/nova-special-cars/v-motion-01-floating-ui.mp4",
+   "poster": "/media/cases/nova-special-cars/v-motion-01-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/nova-special-cars/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-09-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-05-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-01-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-08-logo-emboss.webp",
+    "from": "v2",
+    "kind": "logo-emboss"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-03-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "video": "/media/cases/nova-special-cars/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/nova-special-cars/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-02-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-12-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-04-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/nova-special-cars/v-11-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "video": "/media/cases/nova-special-cars/v-motion-03-pages.mp4",
+    "poster": "/media/cases/nova-special-cars/v-motion-03-pages.webp",
+    "from": "v2",
+    "kind": "pages"
+   }
+  ],
+  "removeFromGallery": [],
+  "notes": "New case, V only; dropped flat colour bands (chips cover it); dark gold mood balanced with light-background shots."
+ },
+ "repairlab": {
+  "project": "repairlab",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/repairlab/v-02-laptop-closeup.webp",
+   "from": "v2",
+   "kind": "laptop-closeup"
+  },
+  "heroVideo": {
+   "video": "/media/cases/repairlab/v-motion-01-zoom-in.mp4",
+   "poster": "/media/cases/repairlab/v-motion-01-zoom-in.webp",
+   "from": "v2",
+   "kind": "zoom-in"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/repairlab/v-02-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/repairlab/v-09-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   },
+   {
+    "src": "/media/cases/repairlab/04.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/repairlab/v-06-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "from": "other-import",
+    "artifact": "https://claude.ai/artifact/2ScZAeHNZF5o3xbwgeSbjn",
+    "title": "Repairlab — Website on MacBook and iPhone",
+    "image": "img/projects-03-repairlab-website.jpg"
+   },
+   {
+    "src": "/media/cases/repairlab/05.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/repairlab/v-03-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/repairlab/08.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/repairlab/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/repairlab/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/repairlab/v-12-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/repairlab/v-04-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/repairlab/09.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/repairlab/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/repairlab/06.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/repairlab/v-11-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/repairlab/07.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/repairlab/03.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/repairlab/r-01-d08-ipad-stand-c.webp",
+   "/media/cases/repairlab/r-02-d10-tablets-iso-c.webp",
+   "/media/cases/repairlab/r-04-d15-mac-phone-desk-c.webp",
+   "/media/cases/repairlab/r-05-d17-ipads-lean-b.webp",
+   "/media/cases/repairlab/r-08-d06-phone-linen-a.webp",
+   "/media/cases/repairlab/r-10-d06-phone-linen-b.webp",
+   "/media/cases/repairlab/r-11-d09-ipad-keyboard-c.webp",
+   "/media/cases/repairlab/r-13-d14-billboard-b.webp",
+   "/media/cases/repairlab/r-16-d01-desk-studio-a.webp",
+   "/media/cases/repairlab/r-17-d20-gravity-alt-a.webp",
+   "/media/cases/repairlab/m-ipad.webp",
+   "/media/cases/repairlab/m-phones.webp",
+   "/media/cases/repairlab/m-detail.webp",
+   "/media/cases/repairlab/m-mac.webp",
+   "/media/cases/repairlab/m-phones-angle.webp",
+   "/media/cases/repairlab/01.webp",
+   "/media/cases/repairlab/02.webp",
+   "/media/cases/repairlab/m-cover.webp"
+  ],
+  "notes": "Rich authentic identity kept (desk photo, brochure, cards, car wrap, polo, hoodie); hero screen shown twice max; dropped 01 (O1 better), 02 flat, O2 collage, emboss and repeat renders."
+ },
+ "designers-house": {
+  "project": "designershouse",
+  "newCase": true,
+  "cover": {
+   "src": "/media/cases/designers-house/v-03-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/designers-house/v-motion-01-floating-ui.mp4",
+   "poster": "/media/cases/designers-house/v-motion-01-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/designers-house/v-03-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/designers-house/v-05-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/designers-house/v-11-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/designers-house/v-02-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/designers-house/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/designers-house/v-12-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "video": "/media/cases/designers-house/v-motion-03-components.mp4",
+    "poster": "/media/cases/designers-house/v-motion-03-components.webp",
+    "from": "v2",
+    "kind": "components"
+   },
+   {
+    "src": "/media/cases/designers-house/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/designers-house/v-01-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/designers-house/v-10-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "video": "/media/cases/designers-house/v-motion-04-colour-chips.mp4",
+    "poster": "/media/cases/designers-house/v-motion-04-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/designers-house/v-13-logo-emboss.webp",
+    "from": "v2",
+    "kind": "logo-emboss"
+   }
+  ],
+  "removeFromGallery": [],
+  "notes": "New case, V only; dropped panels (dup of display), phoneRow (dup of flatlay) and type (dup of brandbook)."
+ },
+ "plenty-planet": {
+  "project": "plentyplanet",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/plenty-planet/v-04-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/plenty-planet/v-motion-01-laptop-scroll.mp4",
+   "poster": "/media/cases/plenty-planet/v-motion-01-laptop-scroll.webp",
+   "from": "v2",
+   "kind": "laptop-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/plenty-planet/v-04-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-09-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-07-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-05-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-12-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-01-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-03-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "video": "/media/cases/plenty-planet/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/plenty-planet/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-10-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/plenty-planet/m-display.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/plenty-planet/r-04-d10-tablets-iso-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-08-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/plenty-planet/v-11-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/plenty-planet/r-cover.webp",
+   "/media/cases/plenty-planet/r-01-d19-studio-front-c.webp",
+   "/media/cases/plenty-planet/r-02-d18-mac-profile-c.webp",
+   "/media/cases/plenty-planet/r-05-d19-studio-front-a.webp",
+   "/media/cases/plenty-planet/r-07-t5-ipads-dark.webp",
+   "/media/cases/plenty-planet/r-08-d09-ipad-keyboard-b.webp",
+   "/media/cases/plenty-planet/r-10-d14-billboard-a.webp",
+   "/media/cases/plenty-planet/r-11-d20-gravity-alt-b.webp",
+   "/media/cases/plenty-planet/r-13-d10-tablets-iso-b.webp",
+   "/media/cases/plenty-planet/r-16-d15-mac-phone-desk-a.webp",
+   "/media/cases/plenty-planet/r-17-d09-ipad-keyboard-a.webp",
+   "/media/cases/plenty-planet/m-ipad.webp",
+   "/media/cases/plenty-planet/m-phones.webp",
+   "/media/cases/plenty-planet/m-detail.webp",
+   "/media/cases/plenty-planet/m-phones-angle.webp",
+   "/media/cases/plenty-planet/m-cover.webp"
+  ],
+  "notes": "V set with new hero headline leads; kept two distinct renders (display section, tablets iso); dropped browserBleed (dup of display), weak phoneGiant and many repeat decarbonisatie-hero renders."
+ },
+ "the-digital-clinic": {
+  "project": "digitalclinic",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/the-digital-clinic/v-06-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/the-digital-clinic/v-motion-01-display-scroll.mp4",
+   "poster": "/media/cases/the-digital-clinic/v-motion-01-display-scroll.webp",
+   "from": "v2",
+   "kind": "display-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/the-digital-clinic/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-10-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-08-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-04-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-05-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-01-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-09-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-03-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-12-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "video": "/media/cases/the-digital-clinic/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/the-digital-clinic/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/r-10-d10-tablets-iso-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/v-02-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/the-digital-clinic/r-12-d05-phone-lean-b.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/the-digital-clinic/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/the-digital-clinic/v-motion-03-brand-system.webp",
+    "from": "v2",
+    "kind": "brand-system"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/the-digital-clinic/r-cover.webp",
+   "/media/cases/the-digital-clinic/r-01-d09-ipad-keyboard-b.webp",
+   "/media/cases/the-digital-clinic/r-02-d04-phone-trio-b.webp",
+   "/media/cases/the-digital-clinic/r-04-d15-mac-phone-desk-a.webp",
+   "/media/cases/the-digital-clinic/r-05-d10-tablets-iso-a.webp",
+   "/media/cases/the-digital-clinic/r-07-d08-ipad-stand-b.webp",
+   "/media/cases/the-digital-clinic/r-08-d20-gravity-alt-a.webp",
+   "/media/cases/the-digital-clinic/r-11-d14-billboard-b.webp",
+   "/media/cases/the-digital-clinic/r-13-t4-float-ipad.webp",
+   "/media/cases/the-digital-clinic/r-14-d16-phone-plinth-b.webp",
+   "/media/cases/the-digital-clinic/r-15-d01-desk-studio-a.webp",
+   "/media/cases/the-digital-clinic/r-16-d19-studio-front-b.webp",
+   "/media/cases/the-digital-clinic/r-17-d16-phone-plinth-a.webp",
+   "/media/cases/the-digital-clinic/r-18-d19-studio-front-c.webp",
+   "/media/cases/the-digital-clinic/m-ipad.webp",
+   "/media/cases/the-digital-clinic/m-phones.webp",
+   "/media/cases/the-digital-clinic/m-detail.webp",
+   "/media/cases/the-digital-clinic/m-mac.webp",
+   "/media/cases/the-digital-clinic/m-phones-angle.webp",
+   "/media/cases/the-digital-clinic/m-cover.webp"
+  ],
+  "notes": "Hero screen limited to tablet, browser and phone; purple brand pieces for rhythm; dropped flatlay (dup of phoneRow), bands, and the many repeat hero renders."
+ },
+ "onderbouwd-investeren": {
+  "project": "onderbouwd",
+  "newCase": true,
+  "cover": {
+   "src": "/media/cases/onderbouwd-investeren/v-01-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/onderbouwd-investeren/v-motion-01-browser-scroll.mp4",
+   "poster": "/media/cases/onderbouwd-investeren/v-motion-01-browser-scroll.webp",
+   "from": "v2",
+   "kind": "browser-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-01-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-12-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-07-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-10-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-03-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-14-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "video": "/media/cases/onderbouwd-investeren/v-motion-03-pages.mp4",
+    "poster": "/media/cases/onderbouwd-investeren/v-motion-03-pages.webp",
+    "from": "v2",
+    "kind": "pages"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-05-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-13-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-11-logo-emboss.webp",
+    "from": "v2",
+    "kind": "logo-emboss"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-04-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/onderbouwd-investeren/v-02-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "video": "/media/cases/onderbouwd-investeren/v-motion-04-colours.mp4",
+    "poster": "/media/cases/onderbouwd-investeren/v-motion-04-colours.webp",
+    "from": "v2",
+    "kind": "colours"
+   }
+  ],
+  "removeFromGallery": [],
+  "notes": "One-page site, so repeat hero kept to display, laptop and two phone shots; brand pieces carry variety; dropped phones3d/phoneRow and book (dups)."
+ },
+ "pine-street-school": {
+  "project": "pinestreet",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/pine-street-school/v-03-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/pine-street-school/v-motion-01-floating-ui.mp4",
+   "poster": "/media/cases/pine-street-school/v-motion-01-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/pine-street-school/v-03-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/pine-street-school/r-05-d04-phone-trio-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-06-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/pine-street-school/r-17-d09-ipad-keyboard-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/pine-street-school/m-phones.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-09-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/pine-street-school/r-04-d03-flatlay-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/pine-street-school/r-11-d11-ui-panels-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-08-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-02-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/pine-street-school/r-13-d20-gravity-alt-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-11-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-12-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "video": "/media/cases/pine-street-school/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/pine-street-school/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/pine-street-school/r-02-d17-ipads-lean-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-07-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/pine-street-school/v-13-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/pine-street-school/r-cover.webp",
+   "/media/cases/pine-street-school/r-01-d08-ipad-stand-b.webp",
+   "/media/cases/pine-street-school/r-07-d07-phone-stone-b.webp",
+   "/media/cases/pine-street-school/r-08-d07-phone-stone-a.webp",
+   "/media/cases/pine-street-school/r-10-d19-studio-front-c.webp",
+   "/media/cases/pine-street-school/r-14-d15-mac-phone-desk-a.webp",
+   "/media/cases/pine-street-school/r-16-d08-ipad-stand-c.webp",
+   "/media/cases/pine-street-school/m-ipad.webp",
+   "/media/cases/pine-street-school/m-detail.webp",
+   "/media/cases/pine-street-school/m-display.webp",
+   "/media/cases/pine-street-school/m-phones-angle.webp",
+   "/media/cases/pine-street-school/m-cover.webp"
+  ],
+  "notes": "Hero-screen variants trimmed to V3/S13; brand pieces (poster, book, stationery, type, bands) interleaved with web/mobile; no site hero video, so M1 floating UI leads."
+ },
+ "silvr": {
+  "project": "silvr",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/silvr/v-03-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/silvr/v-motion-01-zoom-in.mp4",
+   "poster": "/media/cases/silvr/v-motion-01-zoom-in.webp",
+   "from": "v2",
+   "kind": "zoom-in"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/silvr/v-03-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/silvr/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/silvr/v-09-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/silvr/r-13-d04-phone-trio-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/silvr/r-12-b06-wall-logo-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/silvr/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/silvr/v-11-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/silvr/m-phones.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/silvr/r-08-d10-tablets-iso-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/silvr/v-04-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/silvr/v-02-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/silvr/r-05-t3-plinth.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/silvr/v-07-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/silvr/r-17-t1-gravity.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/silvr/v-08-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "video": "/media/cases/silvr/v-motion-03-screens.mp4",
+    "poster": "/media/cases/silvr/v-motion-03-screens.webp",
+    "from": "v2",
+    "kind": "screens"
+   },
+   {
+    "src": "/media/cases/silvr/v-13-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/silvr/r-01-d07-phone-stone-b.webp",
+   "/media/cases/silvr/r-02-d17-ipads-lean-a.webp",
+   "/media/cases/silvr/r-04-d19-studio-front-c.webp",
+   "/media/cases/silvr/r-07-d14-billboard-c.webp",
+   "/media/cases/silvr/r-10-d11-ui-panels-b.webp",
+   "/media/cases/silvr/r-11-d17-ipads-lean-b.webp",
+   "/media/cases/silvr/r-14-t5-ipads-dark.webp",
+   "/media/cases/silvr/r-16-d16-phone-plinth-b.webp",
+   "/media/cases/silvr/m-ipad.webp",
+   "/media/cases/silvr/m-detail.webp",
+   "/media/cases/silvr/m-display.webp",
+   "/media/cases/silvr/m-phones-angle.webp",
+   "/media/cases/silvr/m-cover.webp"
+  ],
+  "notes": "Navy-heavy set balanced with light V scenes and the wall-logo/imagery brand shots; duplicate iPad-lean, panels and phone-angle renders dropped; M1 zoom-in as hero."
+ },
+ "battery-park-montessori": {
+  "project": "batterypark",
+  "newCase": true,
+  "cover": {
+   "src": "/media/cases/battery-park-montessori/v-06-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/battery-park-montessori/v-motion-01-laptop-scroll.mp4",
+   "poster": "/media/cases/battery-park-montessori/v-motion-01-laptop-scroll.webp",
+   "from": "v2",
+   "kind": "laptop-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/battery-park-montessori/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-12-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-04-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-11-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-01-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-08-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "video": "/media/cases/battery-park-montessori/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/battery-park-montessori/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-03-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-10-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-05-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/battery-park-montessori/v-09-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   }
+  ],
+  "removeFromGallery": [],
+  "notes": "New case, V-only: text-heavy V2 zoom dropped; M3/M4 left out as near-copies of V11 grid and V8 paper; M1 laptop scroll (Programs) as hero."
+ },
+ "edgeway-commodities": {
+  "project": "edgeway",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/edgeway-commodities/r-cover.webp",
+   "from": "site"
+  },
+  "heroVideo": {
+   "video": "/media/cases/edgeway-commodities/v-motion-01-display-scroll.mp4",
+   "poster": "/media/cases/edgeway-commodities/v-motion-01-display-scroll.webp",
+   "from": "v2",
+   "kind": "display-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/edgeway-commodities/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-05-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-02-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-12-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-03-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-09-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/r-07-d04-phone-trio-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/r-05-d17-ipads-lean-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-04-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-06-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-13-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-08-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "video": "/media/cases/edgeway-commodities/v-motion-03-pages.mp4",
+    "poster": "/media/cases/edgeway-commodities/v-motion-03-pages.webp",
+    "from": "v2",
+    "kind": "pages"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/m-display.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/edgeway-commodities/v-11-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/edgeway-commodities/r-02-d17-ipads-lean-c.webp",
+   "/media/cases/edgeway-commodities/r-08-d15-mac-phone-desk-b.webp",
+   "/media/cases/edgeway-commodities/r-10-d15-mac-phone-desk-c.webp",
+   "/media/cases/edgeway-commodities/r-11-d07-phone-stone-a.webp",
+   "/media/cases/edgeway-commodities/r-14-d01-desk-studio-b.webp",
+   "/media/cases/edgeway-commodities/r-16-d02-mac-top-b.webp",
+   "/media/cases/edgeway-commodities/r-17-d13-macro-mac-a.webp",
+   "/media/cases/edgeway-commodities/m-ipad.webp",
+   "/media/cases/edgeway-commodities/m-phones.webp",
+   "/media/cases/edgeway-commodities/m-detail.webp",
+   "/media/cases/edgeway-commodities/m-phones-angle.webp",
+   "/media/cases/edgeway-commodities/m-cover.webp"
+  ],
+  "notes": "Hero screen appeared 11 times; kept S1 and V8 only, added the renewables, advisory and imagery screens plus logo/type brand pieces; M1 display scroll as hero."
+ },
+ "calvin-vlaanderen": {
+  "project": "cv10",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/calvin-vlaanderen/m-ipad.webp",
+   "from": "site"
+  },
+  "heroVideo": {
+   "video": "/media/cases/calvin-vlaanderen/v-motion-03-pages.mp4",
+   "poster": "/media/cases/calvin-vlaanderen/v-motion-03-pages.webp",
+   "from": "v2",
+   "kind": "pages"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/calvin-vlaanderen/m-ipad.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-04-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-07-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-01-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/m-phones.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-13-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-03-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-11-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-09-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/r-11-d20-gravity-alt-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-05-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-08-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "video": "/media/cases/calvin-vlaanderen/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/calvin-vlaanderen/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-10-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/calvin-vlaanderen/v-12-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/calvin-vlaanderen/r-01-d19-studio-front-b.webp",
+   "/media/cases/calvin-vlaanderen/r-02-t4-float-ipad.webp",
+   "/media/cases/calvin-vlaanderen/r-04-d05-phone-lean-a.webp",
+   "/media/cases/calvin-vlaanderen/r-05-d03-flatlay-b.webp",
+   "/media/cases/calvin-vlaanderen/r-07-d05-phone-lean-b.webp",
+   "/media/cases/calvin-vlaanderen/r-08-d18-mac-profile-b.webp",
+   "/media/cases/calvin-vlaanderen/r-10-d19-studio-front-c.webp",
+   "/media/cases/calvin-vlaanderen/r-13-d15-mac-phone-desk-b.webp",
+   "/media/cases/calvin-vlaanderen/r-14-d17-ipads-lean-b.webp",
+   "/media/cases/calvin-vlaanderen/r-16-d10-tablets-iso-b.webp",
+   "/media/cases/calvin-vlaanderen/r-17-d08-ipad-stand-b.webp",
+   "/media/cases/calvin-vlaanderen/m-detail.webp",
+   "/media/cases/calvin-vlaanderen/m-mac.webp",
+   "/media/cases/calvin-vlaanderen/m-phones-angle.webp",
+   "/media/cases/calvin-vlaanderen/m-cover.webp"
+  ],
+  "notes": "Rider hero screen limited to S14/S1/V3; news pages, phones and red brand pieces carry the rest; text-only studio-front displays and faint emboss dropped; M3 pages as hero."
+ },
+ "maarschall": {
+  "project": "maarschall",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/maarschall/v-06-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/maarschall/v-motion-01-floating-ui.mp4",
+   "poster": "/media/cases/maarschall/v-motion-01-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/maarschall/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/maarschall/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/maarschall/v-12-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/maarschall/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/maarschall/m-phones.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/maarschall/v-14-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   },
+   {
+    "src": "/media/cases/maarschall/r-08-d13-macro-mac-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/maarschall/v-09-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/maarschall/v-10-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/maarschall/r-17-d10-tablets-iso-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/maarschall/v-04-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/maarschall/v-13-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/maarschall/r-01-d19-studio-front-b.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/maarschall/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/maarschall/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/maarschall/v-11-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/maarschall/r-11-d12-macro-phone-a.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/maarschall/r-02-d16-phone-plinth-b.webp",
+   "/media/cases/maarschall/r-04-d15-mac-phone-desk-c.webp",
+   "/media/cases/maarschall/r-05-d07-phone-stone-a.webp",
+   "/media/cases/maarschall/r-06-d11-ui-panels-c.webp",
+   "/media/cases/maarschall/r-07-d16-phone-plinth-a.webp",
+   "/media/cases/maarschall/r-10-d03-flatlay-a.webp",
+   "/media/cases/maarschall/r-13-d17-ipads-lean-b.webp",
+   "/media/cases/maarschall/r-14-t4-float-ipad.webp",
+   "/media/cases/maarschall/r-16-t3-plinth.webp",
+   "/media/cases/maarschall/m-ipad.webp",
+   "/media/cases/maarschall/m-detail.webp",
+   "/media/cases/maarschall/m-mac.webp",
+   "/media/cases/maarschall/m-phones-angle.webp",
+   "/media/cases/maarschall/m-cover.webp"
+  ],
+  "notes": "Dark site, so light-ground mockups and red/white brand pieces set the rhythm; the many repeat hero-screen renders (plinths, iPads, flatlay, m-mac) cut to S1, S8 and S10; M1 floating UI as hero."
+ },
+ "sublime-branding": {
+  "project": "sublimecars",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/sublime-branding/cover.webp",
+   "from": "site"
+  },
+  "heroVideo": {
+   "video": "/media/cases/sublime-branding/v-motion-03-brand-system.mp4",
+   "poster": "/media/cases/sublime-branding/v-motion-03-brand-system.webp",
+   "from": "v2",
+   "kind": "brand-system"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/sublime-branding/01.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-08-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/sublime-branding/03.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-04-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/sublime-branding/04.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-10-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/sublime-branding/06.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-06-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/sublime-branding/cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-14-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/sublime-branding/02.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-09-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/sublime-branding/08.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-01-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/sublime-branding/05.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/sublime-branding/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/sublime-branding/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/sublime-branding/v-15-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/sublime-branding/07.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/sublime-branding/r-05-b06-wall-logo-b.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/sublime-branding/r-14-b06-wall-logo-a.webp"
+  ],
+  "notes": "All nine authentic brand/print photos kept and alternated with the strongest web mockups; duplicate wall-logo render, Audi zoom, columns, iso and faint emboss dropped; M3 brand system as hero."
+ },
+ "atl-plus": {
+  "project": "atlplus",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/atl-plus/v-10-browser-components.webp",
+   "from": "v2",
+   "kind": "browser-components"
+  },
+  "heroVideo": {
+   "video": "/media/cases/atl-plus/v-motion-01-browser-scroll.mp4",
+   "poster": "/media/cases/atl-plus/v-motion-01-browser-scroll.webp",
+   "from": "v2",
+   "kind": "browser-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/atl-plus/v-10-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-08-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-06-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/atl-plus/r-04-d19-studio-front-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-03-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-09-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-05-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-11-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/atl-plus/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-02-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/atl-plus/r-13-d08-ipad-stand-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/atl-plus/v-04-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "video": "/media/cases/atl-plus/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/atl-plus/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/atl-plus/r-14-d20-gravity-alt-b.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/atl-plus/r-01-t4-float-ipad.webp",
+   "/media/cases/atl-plus/r-02-d07-phone-stone-b.webp",
+   "/media/cases/atl-plus/r-05-d17-ipads-lean-a.webp",
+   "/media/cases/atl-plus/r-07-d01-desk-studio-b.webp",
+   "/media/cases/atl-plus/r-08-d03-flatlay-b.webp",
+   "/media/cases/atl-plus/r-10-t3-plinth.webp",
+   "/media/cases/atl-plus/r-16-d18-mac-profile-b.webp",
+   "/media/cases/atl-plus/r-17-d12-macro-phone-b.webp",
+   "/media/cases/atl-plus/m-ipad.webp",
+   "/media/cases/atl-plus/m-phones.webp",
+   "/media/cases/atl-plus/m-detail.webp",
+   "/media/cases/atl-plus/m-mac.webp",
+   "/media/cases/atl-plus/m-phones-angle.webp",
+   "/media/cases/atl-plus/m-cover.webp"
+  ],
+  "notes": "Mostly-empty navy hero screen repeated across ~14 renders; kept S1/V9 for it and led with the athlete-photo course screens; odd rotated macro-phone and duplicate phone trios dropped; M1 browser scroll as hero."
+ },
+ "boutique-hotels-gelderland": {
+  "project": "boutiquehotels",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/boutique-hotels-gelderland/v-06-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/boutique-hotels-gelderland/v-motion-01-display-scroll.mp4",
+   "poster": "/media/cases/boutique-hotels-gelderland/v-motion-01-display-scroll.webp",
+   "from": "v2",
+   "kind": "display-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-03-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-09-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-11-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-01-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/r-11-d04-phone-trio-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-12-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/r-08-d13-macro-mac-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-08-brand-grid.webp",
+    "from": "v2",
+    "kind": "brand-grid"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-04-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-07-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "video": "/media/cases/boutique-hotels-gelderland/v-motion-03-screens.mp4",
+    "poster": "/media/cases/boutique-hotels-gelderland/v-motion-03-screens.webp",
+    "from": "v2",
+    "kind": "screens"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/r-10-d08-ipad-stand-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-05-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/boutique-hotels-gelderland/v-10-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/boutique-hotels-gelderland/r-cover.webp",
+   "/media/cases/boutique-hotels-gelderland/r-01-d18-mac-profile-c.webp",
+   "/media/cases/boutique-hotels-gelderland/r-02-d04-phone-trio-b.webp",
+   "/media/cases/boutique-hotels-gelderland/r-04-d06-phone-linen-a.webp",
+   "/media/cases/boutique-hotels-gelderland/r-05-d15-mac-phone-desk-a.webp",
+   "/media/cases/boutique-hotels-gelderland/r-06-d09-ipad-keyboard-c.webp",
+   "/media/cases/boutique-hotels-gelderland/r-07-d18-mac-profile-a.webp",
+   "/media/cases/boutique-hotels-gelderland/r-13-d15-mac-phone-desk-b.webp",
+   "/media/cases/boutique-hotels-gelderland/r-14-d18-mac-profile-b.webp",
+   "/media/cases/boutique-hotels-gelderland/r-16-d05-phone-lean-b.webp",
+   "/media/cases/boutique-hotels-gelderland/r-17-d17-ipads-lean-b.webp",
+   "/media/cases/boutique-hotels-gelderland/m-ipad.webp",
+   "/media/cases/boutique-hotels-gelderland/m-phones.webp",
+   "/media/cases/boutique-hotels-gelderland/m-detail.webp",
+   "/media/cases/boutique-hotels-gelderland/m-mac.webp",
+   "/media/cases/boutique-hotels-gelderland/m-phones-angle.webp",
+   "/media/cases/boutique-hotels-gelderland/m-cover.webp"
+  ],
+  "notes": "'Organiseer.' hero screen repeated in 14 renders, cut to V6 and S8; added food/venue screens, the warm phone trio and strong black/tan brand pieces (poster, cards, book, grid); M1 display scroll as hero."
+ },
+ "esmailly-bouw": {
+  "project": "esmaillybouw",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/esmailly-bouw/r-02-d01-desk-studio-b.webp",
+   "from": "site"
+  },
+  "heroVideo": "keep",
+  "gallery": [
+   {
+    "src": "/media/cases/esmailly-bouw/r-02-d01-desk-studio-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-08-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-05-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/r-13-d19-studio-front-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-13-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/r-11-d11-ui-panels-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-03-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/r-16-d10-tablets-iso-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-15-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-09-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-06-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-16-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/r-09-d20-gravity-alt-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-14-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-04-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "video": "/media/cases/esmailly-bouw/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/esmailly-bouw/v-motion-02-phone-scroll.webp",
+    "from": "v2",
+    "kind": "phone-scroll"
+   },
+   {
+    "src": "/media/cases/esmailly-bouw/v-12-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/esmailly-bouw/r-cover.webp",
+   "/media/cases/esmailly-bouw/r-01-d03-flatlay-b.webp",
+   "/media/cases/esmailly-bouw/r-03-d19-studio-front-b.webp",
+   "/media/cases/esmailly-bouw/r-04-d08-ipad-stand-b.webp",
+   "/media/cases/esmailly-bouw/r-05-d09-ipad-keyboard-a.webp",
+   "/media/cases/esmailly-bouw/r-06-t2-closeup.webp",
+   "/media/cases/esmailly-bouw/r-07-d18-mac-profile-a.webp",
+   "/media/cases/esmailly-bouw/r-08-d18-mac-profile-c.webp",
+   "/media/cases/esmailly-bouw/r-10-d09-ipad-keyboard-c.webp",
+   "/media/cases/esmailly-bouw/r-12-d10-tablets-iso-c.webp",
+   "/media/cases/esmailly-bouw/r-14-d12-macro-phone-b.webp",
+   "/media/cases/esmailly-bouw/r-15-d17-ipads-lean-b.webp",
+   "/media/cases/esmailly-bouw/r-17-d16-phone-plinth-a.webp",
+   "/media/cases/esmailly-bouw/r-18-d04-phone-trio-b.webp",
+   "/media/cases/esmailly-bouw/cover.webp"
+  ],
+  "notes": "Kept the site's brown flatlay hero video; sideways phone close-ups (S1, S7, S15) and the many repeat 'Visionair in de bouw' renders dropped; project pages, services, stats and tan/black brand pieces fill the gallery."
+ },
+ "foodbars-gelderland": {
+  "project": "foodbars",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/foodbars-gelderland/v-05-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/foodbars-gelderland/v-motion-01-zoom-in.mp4",
+   "poster": "/media/cases/foodbars-gelderland/v-motion-01-zoom-in.webp",
+   "from": "v2",
+   "kind": "zoom-in"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/foodbars-gelderland/r-01-d20-gravity-alt-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-04-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/r-13-d01-desk-studio-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-08-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-06-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/r-08-d17-ipads-lean-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-09-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-03-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-07-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-11-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/r-16-d09-ipad-keyboard-b.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/foodbars-gelderland/v-motion-05-logo-emboss.mp4",
+    "poster": "/media/cases/foodbars-gelderland/v-motion-05-logo-emboss.webp",
+    "from": "v2",
+    "kind": "logo-emboss"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-05-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-12-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/foodbars-gelderland/v-10-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "video": "/media/cases/foodbars-gelderland/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/foodbars-gelderland/v-motion-03-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/foodbars-gelderland/r-02-d15-mac-phone-desk-a.webp",
+   "/media/cases/foodbars-gelderland/r-04-d14-billboard-a.webp",
+   "/media/cases/foodbars-gelderland/r-05-d10-tablets-iso-c.webp",
+   "/media/cases/foodbars-gelderland/r-10-d15-mac-phone-desk-b.webp",
+   "/media/cases/foodbars-gelderland/r-11-d16-phone-plinth-b.webp",
+   "/media/cases/foodbars-gelderland/r-14-d09-ipad-keyboard-c.webp",
+   "/media/cases/foodbars-gelderland/m-ipad.webp",
+   "/media/cases/foodbars-gelderland/m-phones.webp",
+   "/media/cases/foodbars-gelderland/m-detail.webp",
+   "/media/cases/foodbars-gelderland/m-mac.webp",
+   "/media/cases/foodbars-gelderland/m-phones-angle.webp",
+   "/media/cases/foodbars-gelderland/m-cover.webp"
+  ],
+  "notes": "Dropped duplicate tablet/keyboard renders, flat old m-* mockups and V2 (same screen as V3); no site hero video, so the hero zoom-in clip takes over."
+ },
+ "jmtuning": {
+  "project": "jmtuning",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/jmtuning/v-05-laptop-closeup.webp",
+   "from": "v2",
+   "kind": "laptop-closeup"
+  },
+  "heroVideo": {
+   "video": "/media/cases/jmtuning/v-motion-03-components.mp4",
+   "poster": "/media/cases/jmtuning/v-motion-03-components.webp",
+   "from": "v2",
+   "kind": "components"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/jmtuning/v-05-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-07-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-08-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-14-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-03-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/jmtuning/r-08-d04-phone-trio-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-11-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/jmtuning/r-11-d09-ipad-keyboard-c.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/jmtuning/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/jmtuning/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-02-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-10-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/jmtuning/r-17-d20-gravity-alt-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-04-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/jmtuning/v-12-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/jmtuning/r-13-d07-phone-stone-b.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/jmtuning/v-motion-04-colours.mp4",
+    "poster": "/media/cases/jmtuning/v-motion-04-colours.webp",
+    "from": "v2",
+    "kind": "colours"
+   },
+   {
+    "src": "/media/cases/jmtuning/r-cover.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/jmtuning/r-01-d06-phone-linen-a.webp",
+   "/media/cases/jmtuning/r-04-d15-mac-phone-desk-c.webp",
+   "/media/cases/jmtuning/r-05-d16-phone-plinth-a.webp",
+   "/media/cases/jmtuning/r-07-d17-ipads-lean-c.webp",
+   "/media/cases/jmtuning/r-10-d11-ui-panels-a.webp",
+   "/media/cases/jmtuning/r-14-d16-phone-plinth-b.webp",
+   "/media/cases/jmtuning/r-16-d05-phone-lean-a.webp",
+   "/media/cases/jmtuning/m-ipad.webp",
+   "/media/cases/jmtuning/m-phones.webp",
+   "/media/cases/jmtuning/m-detail.webp",
+   "/media/cases/jmtuning/m-mac.webp",
+   "/media/cases/jmtuning/m-phones-angle.webp",
+   "/media/cases/jmtuning/m-cover.webp"
+  ],
+  "notes": "Titanium-hero renders lead; cut the pile of same-screen single-phone renders, duplicate laptop/tablet shots, old m-* mockups and the low-contrast emboss."
+ },
+ "bctn": {
+  "project": "bctn",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/bctn/v-07-tablet.webp",
+   "from": "v2",
+   "kind": "tablet"
+  },
+  "heroVideo": {
+   "video": "/media/cases/bctn/v-motion-03-brand-system.mp4",
+   "poster": "/media/cases/bctn/v-motion-03-brand-system.webp",
+   "from": "v2",
+   "kind": "brand-system"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/bctn/v-07-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/bctn/01.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bctn/v-09-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/bctn/v-02-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/bctn/v-11-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/bctn/v-05-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/bctn/cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/bctn/v-08-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "video": "/media/cases/bctn/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/bctn/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/bctn/v-03-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/bctn/v-10-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/bctn/v-01-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   }
+  ],
+  "removeFromGallery": [],
+  "notes": "Both real terminal photos kept; dropped bands and book (logo sits in a hard white box), plane and columns as near-repeats; portal has test data so kept the set lean."
+ },
+ "the-filmcar": {
+  "project": "thefilmcar",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/the-filmcar/v-04-screen-detail.webp",
+   "from": "v2",
+   "kind": "screen-detail"
+  },
+  "heroVideo": "keep",
+  "gallery": [
+   {
+    "src": "/media/cases/the-filmcar/v-04-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/the-filmcar/r-13-d01-desk-studio-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-09-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-06-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-03-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/the-filmcar/r-14-t5-ipads-dark.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-filmcar/r-03-b06-wall-logo-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-05-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "video": "/media/cases/the-filmcar/v-motion-02-phone-scroll.mp4",
+    "poster": "/media/cases/the-filmcar/v-motion-02-phone-scroll.webp",
+    "from": "v2",
+    "kind": "phone-scroll"
+   },
+   {
+    "src": "/media/cases/the-filmcar/r-07-d13-macro-mac-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-12-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/the-filmcar/r-01-d10-tablets-iso-c.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-13-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/the-filmcar/r-15-d09-ipad-keyboard-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-10-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/the-filmcar/r-04-d07-phone-stone-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/the-filmcar/v-02-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/the-filmcar/r-cover.webp",
+   "/media/cases/the-filmcar/r-02-d17-ipads-lean-c.webp",
+   "/media/cases/the-filmcar/r-05-d09-ipad-keyboard-c.webp",
+   "/media/cases/the-filmcar/r-06-b06-wall-logo-c.webp",
+   "/media/cases/the-filmcar/r-08-t4-float-ipad.webp",
+   "/media/cases/the-filmcar/r-09-b06-wall-logo-a.webp",
+   "/media/cases/the-filmcar/r-10-d16-phone-plinth-b.webp",
+   "/media/cases/the-filmcar/r-11-d18-mac-profile-a.webp",
+   "/media/cases/the-filmcar/r-12-d08-ipad-stand-b.webp",
+   "/media/cases/the-filmcar/r-16-d02-mac-top-a.webp",
+   "/media/cases/the-filmcar/r-17-d17-ipads-lean-b.webp",
+   "/media/cases/the-filmcar/r-18-d16-phone-plinth-a.webp",
+   "/media/cases/the-filmcar/m-ipad.webp",
+   "/media/cases/the-filmcar/m-phones.webp",
+   "/media/cases/the-filmcar/m-detail.webp",
+   "/media/cases/the-filmcar/m-mac.webp",
+   "/media/cases/the-filmcar/m-phones-angle.webp",
+   "/media/cases/the-filmcar/m-cover.webp"
+  ],
+  "notes": "Cut a dozen same-hero device renders down to the best four, kept one wall-logo (S7 is cropped), dropped the cropped-type V11 cover and old m-* mockups; site hero video stays."
+ },
+ "speedbar": {
+  "project": "speedbar",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/speedbar/v-04-laptop-closeup.webp",
+   "from": "v2",
+   "kind": "laptop-closeup"
+  },
+  "heroVideo": "keep",
+  "gallery": [
+   {
+    "src": "/media/cases/speedbar/v-04-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/speedbar/v-07-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/speedbar/r-01-t3-plinth.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/speedbar/v-11-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/speedbar/v-06-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/speedbar/v-02-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/speedbar/r-12-d11-ui-panels-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/speedbar/v-09-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/speedbar/r-15-d03-flatlay-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/speedbar/v-08-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/speedbar/r-02-d19-studio-front-c.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/speedbar/v-motion-01-floating-ui.mp4",
+    "poster": "/media/cases/speedbar/v-motion-01-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/speedbar/r-11-d02-mac-top-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/speedbar/r-16-d05-phone-lean-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/speedbar/v-03-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "video": "/media/cases/speedbar/v-motion-04-components.mp4",
+    "poster": "/media/cases/speedbar/v-motion-04-components.webp",
+    "from": "v2",
+    "kind": "components"
+   },
+   {
+    "src": "/media/cases/speedbar/r-04-d17-ipads-lean-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/speedbar/v-12-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/speedbar/r-cover.webp",
+   "/media/cases/speedbar/r-05-d08-ipad-stand-a.webp",
+   "/media/cases/speedbar/r-07-d06-phone-linen-a.webp",
+   "/media/cases/speedbar/r-08-d18-mac-profile-c.webp",
+   "/media/cases/speedbar/r-10-d15-mac-phone-desk-b.webp",
+   "/media/cases/speedbar/r-13-d15-mac-phone-desk-c.webp",
+   "/media/cases/speedbar/r-14-d08-ipad-stand-b.webp",
+   "/media/cases/speedbar/r-17-d09-ipad-keyboard-c.webp",
+   "/media/cases/speedbar/r-18-d19-studio-front-b.webp",
+   "/media/cases/speedbar/m-ipad.webp",
+   "/media/cases/speedbar/m-phones.webp",
+   "/media/cases/speedbar/m-detail.webp",
+   "/media/cases/speedbar/m-mac.webp",
+   "/media/cases/speedbar/m-phones-angle.webp",
+   "/media/cases/speedbar/m-cover.webp"
+  ],
+  "notes": "Kept the strongest of six near-identical hero laptop renders (S2, S9), one studio-front and one tablet pair; dropped cropped SPEED cover, old m-* mockups and duplicate stands; site hero video stays."
+ },
+ "electriffy": {
+  "project": "electriffy",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/electriffy/v-04-screen-detail.webp",
+   "from": "v2",
+   "kind": "screen-detail"
+  },
+  "heroVideo": {
+   "video": "/media/cases/electriffy/v-motion-03-pages.mp4",
+   "poster": "/media/cases/electriffy/v-motion-03-pages.webp",
+   "from": "v2",
+   "kind": "pages"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/electriffy/v-04-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/electriffy/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/electriffy/v-02-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/electriffy/v-09-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/electriffy/v-05-display-and-phone.webp",
+    "from": "v2",
+    "kind": "display-and-phone"
+   },
+   {
+    "src": "/media/cases/electriffy/v-11-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/electriffy/r-05-d03-flatlay-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/electriffy/v-03-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "video": "/media/cases/electriffy/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/electriffy/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/electriffy/v-10-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/electriffy/r-16-d17-ipads-lean-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/electriffy/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/electriffy/v-08-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "video": "/media/cases/electriffy/v-motion-01-browser-scroll.mp4",
+    "poster": "/media/cases/electriffy/v-motion-01-browser-scroll.webp",
+    "from": "v2",
+    "kind": "browser-scroll"
+   },
+   {
+    "src": "/media/cases/electriffy/r-04-d07-phone-stone-b.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/electriffy/r-cover.webp",
+   "/media/cases/electriffy/r-01-d08-ipad-stand-b.webp",
+   "/media/cases/electriffy/r-02-d09-ipad-keyboard-c.webp",
+   "/media/cases/electriffy/r-07-d02-mac-top-a.webp",
+   "/media/cases/electriffy/r-08-d18-mac-profile-b.webp",
+   "/media/cases/electriffy/r-10-d03-flatlay-a.webp",
+   "/media/cases/electriffy/r-13-d14-billboard-a.webp",
+   "/media/cases/electriffy/r-14-d09-ipad-keyboard-b.webp",
+   "/media/cases/electriffy/r-17-d05-phone-lean-a.webp",
+   "/media/cases/electriffy/m-ipad.webp",
+   "/media/cases/electriffy/m-phones.webp",
+   "/media/cases/electriffy/m-detail.webp",
+   "/media/cases/electriffy/m-mac.webp",
+   "/media/cases/electriffy/m-phones-angle.webp",
+   "/media/cases/electriffy/m-cover.webp"
+  ],
+  "notes": "Same 'Go beyond energy' hero was on a dozen renders; kept V4 plus a few distinct compositions, added the varied V pages and brand pieces; dropped faint emboss and old m-* mockups."
+ },
+ "your-earth": {
+  "project": "yourearth",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/your-earth/v-03-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "heroVideo": {
+   "video": "/media/cases/your-earth/v-motion-01-zoom-in.mp4",
+   "poster": "/media/cases/your-earth/v-motion-01-zoom-in.webp",
+   "from": "v2",
+   "kind": "zoom-in"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/your-earth/v-03-floating-ui.webp",
+    "from": "v2",
+    "kind": "floating-ui"
+   },
+   {
+    "src": "/media/cases/your-earth/v-05-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/your-earth/r-13-d19-studio-front-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/your-earth/v-12-business-cards.webp",
+    "from": "v2",
+    "kind": "business-cards"
+   },
+   {
+    "src": "/media/cases/your-earth/v-04-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/your-earth/v-07-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/your-earth/v-10-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/your-earth/v-02-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/your-earth/r-10-d04-phone-trio-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/your-earth/v-09-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "video": "/media/cases/your-earth/v-motion-03-pages.mp4",
+    "poster": "/media/cases/your-earth/v-motion-03-pages.webp",
+    "from": "v2",
+    "kind": "pages"
+   },
+   {
+    "src": "/media/cases/your-earth/v-06-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/your-earth/v-11-typography.webp",
+    "from": "v2",
+    "kind": "typography"
+   },
+   {
+    "src": "/media/cases/your-earth/r-11-d10-tablets-iso-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/your-earth/v-08-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/your-earth/v-13-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "video": "/media/cases/your-earth/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/your-earth/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/your-earth/r-cover.webp",
+   "/media/cases/your-earth/r-02-d14-billboard-b.webp",
+   "/media/cases/your-earth/r-04-d02-mac-top-a.webp",
+   "/media/cases/your-earth/r-07-d03-flatlay-a.webp",
+   "/media/cases/your-earth/r-08-d14-billboard-c.webp",
+   "/media/cases/your-earth/r-14-d15-mac-phone-desk-b.webp",
+   "/media/cases/your-earth/r-16-d06-phone-linen-b.webp",
+   "/media/cases/your-earth/r-17-d11-ui-panels-a.webp",
+   "/media/cases/your-earth/m-ipad.webp",
+   "/media/cases/your-earth/m-phones.webp",
+   "/media/cases/your-earth/m-detail.webp",
+   "/media/cases/your-earth/m-display.webp",
+   "/media/cases/your-earth/m-phones-angle.webp",
+   "/media/cases/your-earth/m-cover.webp"
+  ],
+  "notes": "Hero screen limited to V3 and V6; kept distinct site renders (studio front, phone trio, tablets iso); dropped duplicate flatlays/billboards, S11 with sliced panel text and old m-* mockups."
+ },
+ "jalo-energy": {
+  "project": "jalo",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/jalo-energy/v-05-screen-detail.webp",
+   "from": "v2",
+   "kind": "screen-detail"
+  },
+  "heroVideo": {
+   "video": "/media/cases/jalo-energy/v-motion-01-floating-ui.mp4",
+   "poster": "/media/cases/jalo-energy/v-motion-01-floating-ui.webp",
+   "from": "v2",
+   "kind": "floating-ui"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/jalo-energy/v-05-screen-detail.webp",
+    "from": "v2",
+    "kind": "screen-detail"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-15-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-04-laptop-closeup.webp",
+    "from": "v2",
+    "kind": "laptop-closeup"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-09-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-14-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/jalo-energy/r-16-d10-tablets-iso-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jalo-energy/r-02-d11-ui-panels-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-11-posters.webp",
+    "from": "v2",
+    "kind": "posters"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-02-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "video": "/media/cases/jalo-energy/v-motion-03-brand-system.mp4",
+    "poster": "/media/cases/jalo-energy/v-motion-03-brand-system.webp",
+    "from": "v2",
+    "kind": "brand-system"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-10-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-08-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-06-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-12-logo-cover.webp",
+    "from": "v2",
+    "kind": "logo-cover"
+   },
+   {
+    "src": "/media/cases/jalo-energy/v-01-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   },
+   {
+    "video": "/media/cases/jalo-energy/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/jalo-energy/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/jalo-energy/r-cover.webp",
+   "/media/cases/jalo-energy/r-01-d05-phone-lean-a.webp",
+   "/media/cases/jalo-energy/r-04-d03-flatlay-b.webp",
+   "/media/cases/jalo-energy/r-05-d16-phone-plinth-a.webp",
+   "/media/cases/jalo-energy/r-07-d08-ipad-stand-b.webp",
+   "/media/cases/jalo-energy/r-08-d06-phone-linen-b.webp",
+   "/media/cases/jalo-energy/r-10-d09-ipad-keyboard-c.webp",
+   "/media/cases/jalo-energy/r-11-d16-phone-plinth-b.webp",
+   "/media/cases/jalo-energy/r-13-d05-phone-lean-b.webp",
+   "/media/cases/jalo-energy/r-14-d11-ui-panels-a.webp",
+   "/media/cases/jalo-energy/r-17-d09-ipad-keyboard-b.webp",
+   "/media/cases/jalo-energy/m-ipad.webp",
+   "/media/cases/jalo-energy/m-phones.webp",
+   "/media/cases/jalo-energy/m-detail.webp",
+   "/media/cases/jalo-energy/m-display.webp",
+   "/media/cases/jalo-energy/m-phones-angle.webp",
+   "/media/cases/jalo-energy/m-cover.webp"
+  ],
+  "notes": "New V set shows far more pages than the same-hero site renders; kept S12 tablets iso and S3 panels from the site; dropped V3 (same screen as V4), faint emboss, duplicate phone/tablet renders and m-* mockups."
+ },
+ "martello": {
+  "project": "martello",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/martello/v-02-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/martello/v-motion-01-laptop-scroll.mp4",
+   "poster": "/media/cases/martello/v-motion-01-laptop-scroll.webp",
+   "from": "v2",
+   "kind": "laptop-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/martello/r-13-d13-macro-mac-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/martello/v-06-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/martello/v-04-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/martello/v-14-stationery.webp",
+    "from": "v2",
+    "kind": "stationery"
+   },
+   {
+    "src": "/media/cases/martello/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/martello/r-02-d10-tablets-iso-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/martello/v-10-colour-palette.webp",
+    "from": "v2",
+    "kind": "colour-palette"
+   },
+   {
+    "src": "/media/cases/martello/r-01-d01-desk-studio-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/martello/v-05-device-panels.webp",
+    "from": "v2",
+    "kind": "device-panels"
+   },
+   {
+    "video": "/media/cases/martello/v-motion-03-phones-scroll.mp4",
+    "poster": "/media/cases/martello/v-motion-03-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/martello/r-10-t2-closeup.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/martello/v-13-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "src": "/media/cases/martello/v-03-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/martello/r-cover.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/martello/v-11-colour-chips.webp",
+    "from": "v2",
+    "kind": "colour-chips"
+   },
+   {
+    "src": "/media/cases/martello/v-08-phones-flatlay.webp",
+    "from": "v2",
+    "kind": "phones-flatlay"
+   },
+   {
+    "video": "/media/cases/martello/v-motion-05-logo-emboss.mp4",
+    "poster": "/media/cases/martello/v-motion-05-logo-emboss.webp",
+    "from": "v2",
+    "kind": "logo-emboss"
+   },
+   {
+    "src": "/media/cases/martello/v-01-screen-wall.webp",
+    "from": "v2",
+    "kind": "screen-wall"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/martello/r-04-d07-phone-stone-a.webp",
+   "/media/cases/martello/r-05-d04-phone-trio-a.webp",
+   "/media/cases/martello/r-07-d08-ipad-stand-c.webp",
+   "/media/cases/martello/r-08-d20-gravity-alt-b.webp",
+   "/media/cases/martello/r-11-d14-billboard-a.webp",
+   "/media/cases/martello/r-14-d11-ui-panels-b.webp",
+   "/media/cases/martello/r-16-d18-mac-profile-b.webp",
+   "/media/cases/martello/r-17-d17-ipads-lean-a.webp",
+   "/media/cases/martello/m-ipad.webp",
+   "/media/cases/martello/m-phones.webp",
+   "/media/cases/martello/m-detail.webp",
+   "/media/cases/martello/m-display.webp",
+   "/media/cases/martello/m-phones-angle.webp",
+   "/media/cases/martello/m-cover.webp"
+  ],
+  "notes": "Hero screen kept only in the best site renders (macro, desk studio, closeup, gravity); dropped S7 duplicate, S11 sliced panel text, cropped MARTEL cover, repeat stands/billboard and m-* mockups."
+ },
+ "steddion": {
+  "project": "steddion",
+  "newCase": false,
+  "cover": {
+   "src": "/media/cases/steddion/v-02-display-and-phone.webp",
+   "from": "v2",
+   "kind": "display-and-phone"
+  },
+  "heroVideo": {
+   "video": "/media/cases/steddion/v-motion-01-display-scroll.mp4",
+   "poster": "/media/cases/steddion/v-motion-01-display-scroll.webp",
+   "from": "v2",
+   "kind": "display-scroll"
+  },
+  "gallery": [
+   {
+    "src": "/media/cases/steddion/r-05-d13-macro-mac-a.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/steddion/v-01-lifted-components.webp",
+    "from": "v2",
+    "kind": "lifted-components"
+   },
+   {
+    "src": "/media/cases/steddion/v-07-phone-row.webp",
+    "from": "v2",
+    "kind": "phone-row"
+   },
+   {
+    "src": "/media/cases/steddion/v-10-brandbook.webp",
+    "from": "v2",
+    "kind": "brandbook"
+   },
+   {
+    "src": "/media/cases/steddion/v-04-page-columns.webp",
+    "from": "v2",
+    "kind": "page-columns"
+   },
+   {
+    "src": "/media/cases/steddion/v-09-imagery.webp",
+    "from": "v2",
+    "kind": "imagery"
+   },
+   {
+    "src": "/media/cases/steddion/v-05-phone-closeup.webp",
+    "from": "v2",
+    "kind": "phone-closeup"
+   },
+   {
+    "src": "/media/cases/steddion/v-03-browser-components.webp",
+    "from": "v2",
+    "kind": "browser-components"
+   },
+   {
+    "src": "/media/cases/steddion/r-01-d10-tablets-iso-b.webp",
+    "from": "site"
+   },
+   {
+    "src": "/media/cases/steddion/v-11-logo-on-paper.webp",
+    "from": "v2",
+    "kind": "logo-on-paper"
+   },
+   {
+    "video": "/media/cases/steddion/v-motion-02-phones-scroll.mp4",
+    "poster": "/media/cases/steddion/v-motion-02-phones-scroll.webp",
+    "from": "v2",
+    "kind": "phones-scroll"
+   },
+   {
+    "src": "/media/cases/steddion/v-06-phones-duo.webp",
+    "from": "v2",
+    "kind": "phones-duo"
+   },
+   {
+    "src": "/media/cases/steddion/r-11-d01-desk-studio-a.webp",
+    "from": "site"
+   },
+   {
+    "video": "/media/cases/steddion/v-motion-04-colours.mp4",
+    "poster": "/media/cases/steddion/v-motion-04-colours.webp",
+    "from": "v2",
+    "kind": "colours"
+   },
+   {
+    "src": "/media/cases/steddion/v-08-tablet.webp",
+    "from": "v2",
+    "kind": "tablet"
+   },
+   {
+    "src": "/media/cases/steddion/r-17-t2-closeup.webp",
+    "from": "site"
+   }
+  ],
+  "removeFromGallery": [
+   "/media/cases/steddion/r-cover.webp",
+   "/media/cases/steddion/r-02-d07-phone-stone-a.webp",
+   "/media/cases/steddion/r-04-d08-ipad-stand-c.webp",
+   "/media/cases/steddion/r-06-d14-billboard-a.webp",
+   "/media/cases/steddion/r-07-d15-mac-phone-desk-c.webp",
+   "/media/cases/steddion/r-08-d06-phone-linen-a.webp",
+   "/media/cases/steddion/r-10-d11-ui-panels-a.webp",
+   "/media/cases/steddion/r-14-d05-phone-lean-b.webp",
+   "/media/cases/steddion/r-16-d02-mac-top-a.webp",
+   "/media/cases/steddion/m-ipad.webp",
+   "/media/cases/steddion/m-phones.webp",
+   "/media/cases/steddion/m-detail.webp",
+   "/media/cases/steddion/m-display.webp",
+   "/media/cases/steddion/m-phones-angle.webp",
+   "/media/cases/steddion/m-cover.webp"
+  ],
+  "notes": "Same 'Pak de regie' hero limited to macro mac, desk studio, tablet3d and closeup; new pages, imagery collage and brand pieces add range; dropped S6 duplicate, repeat stands/phones, S9 overlapping panels, emboss and m-* mockups."
+ }
+}
