@@ -590,7 +590,7 @@
   position: relative;
   display: block;
   overflow: hidden;
-  background: #fff;
+  background: #16161a;
 }
 .wa__snip--still .wa__screen {
   aspect-ratio: 3 / 2;
@@ -662,31 +662,31 @@
 .wa__snip--tl {
   left: -8%;
   top: -15%;
-  --sx: -1;
-  --sy: -0.6;
+  --sx: -0.3;
+  --sy: -1;
   --dz: 16;
   --rot: -4deg;
 }
 .wa__snip--tr {
   right: -4%;
   top: -19%;
-  --sx: 1;
-  --sy: -0.8;
+  --sx: 0.6;
+  --sy: -1;
   --dz: 9;
   --rot: 3deg;
 }
 .wa__snip--bl {
   left: -6%;
   bottom: -16%;
-  --sx: -1;
-  --sy: 0.8;
+  --sx: -0.3;
+  --sy: 1;
   --dz: 20;
   --rot: 3deg;
 }
 .wa__snip--br {
   right: -5%;
   bottom: -16%;
-  --sx: 1;
+  --sx: 0.6;
   --sy: 1;
   --dz: 24;
   --rot: -3deg;
@@ -1538,7 +1538,6 @@
   .wh__float:nth-child(4) {
     left: 88%;
     top: 86%;
-    width: 34vw;
   }
   .wh__player .srp__inner {
     left: 18px;
@@ -1697,9 +1696,12 @@
     font-size: 2.4rem;
   }
   .wb__copy .wsh__text,
-  .wb__case,
+  .wb__case span,
   .wb__more {
     display: none;
+  }
+  .wb__case strong {
+    font-size: 1rem;
   }
   /* één raster van twee kolommen, zonder parallax */
   .wbw__cols {
@@ -1749,24 +1751,24 @@
     position: relative;
     inset: auto;
     order: 2;
-    height: 132vw;
+    height: 152vw;
   }
   .we__card {
     top: 50%;
-    width: 64vw;
+    width: 66vw;
   }
   .we__card--0 {
-    --tx: -14vw;
-    --ty: -40vw;
+    --tx: -13vw;
+    --ty: -53vw;
     --rz: -5deg;
   }
   .we__card--2 {
-    --tx: 14vw;
-    --ty: 42vw;
+    --tx: 13vw;
+    --ty: 53vw;
     --rz: 5deg;
   }
   .we__card--tall {
-    width: 52vw;
+    width: 50vw;
   }
   .we__card figcaption {
     display: none;
@@ -1863,10 +1865,15 @@
   .ww__dim::after {
     opacity: 0;
   }
+  .ww__dim {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0) 70%);
+  }
   .ww__hero-cap {
     opacity: 1;
     left: 18px;
+    right: 18px;
     bottom: 16px;
+    max-width: none;
   }
   .ww__hero-cap strong {
     font-size: 1.5rem;
@@ -1897,6 +1904,30 @@
 }
 
 @media (max-width: 760px) {
+  /* interactiefilms: de kop staat erboven, alleen de films swipen */
+  .wf__track {
+    display: block;
+    overflow: visible;
+    padding-inline: 0;
+    scroll-snap-type: none;
+  }
+  .wf__head {
+    width: auto;
+    padding: 0 var(--gutter) 28px;
+  }
+  .wf__list {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .wf__list::-webkit-scrollbar {
+    display: none;
+  }
   .wt__card {
     top: calc(var(--header-h) + 8px + var(--i) * 10px);
     height: min(70svh, 600px);

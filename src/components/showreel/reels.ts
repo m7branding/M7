@@ -49,37 +49,32 @@ export interface Reel {
   film: boolean;
 }
 
-export type DisciplineKey = "branding" | "websites" | "apps" | "content";
+type DisciplineKey = "branding" | "websites" | "apps" | "content";
 
 /**
- * Disciplines voor de reels en de hoofdstukken op World of M7. Samen dekken ze alle
+ * Disciplines voor de terugval-reels (zonder gerenderde films). Samen dekken ze alle
  * tien diensten; een case hoort bij een discipline als één van de diensten erin valt.
- * `hint` herkent een gerenderde showreel aan zijn slug.
  */
-export const DISCIPLINES: { key: DisciplineKey; title: T; services: ServiceSlug[]; hint: RegExp }[] = [
+const DISCIPLINES: { key: DisciplineKey; title: T; services: ServiceSlug[] }[] = [
   {
     key: "branding",
     title: { nl: "Branding", en: "Branding" },
     services: ["branding-rebranding", "grafisch-ontwerp-print"],
-    hint: /brand|identit|logo|print/i,
   },
   {
     key: "websites",
     title: { nl: "Websites & platforms", en: "Websites & platforms" },
     services: ["websites-webshops", "seo-aeo-geo"],
-    hint: /web|site|platform|shop/i,
   },
   {
     key: "apps",
     title: { nl: "Apps & tools", en: "Apps & tools" },
     services: ["web-apps-portals-apps", "configurators-lead-tools-widgets", "automation-funnels", "ai-consultancy"],
-    hint: /app|tool|software|config|portal|saas/i,
   },
   {
     key: "content",
     title: { nl: "Content & video", en: "Content & video" },
     services: ["content-marketing-online-ads", "foto-video-3d-animatie"],
-    hint: /content|video|film|motion|campaign|ads|3d/i,
   },
 ];
 
@@ -92,14 +87,14 @@ const MASTERPIECES_TITLE: T = { nl: "Masterpieces", en: "Masterpieces" };
 /** Gerenderde showreels waarvan het bestand er echt staat (een geregistreerde maar nog niet geleverde film telt niet). */
 const films = () => showreels.filter((s) => onDisk(s.src) && onDisk(s.poster));
 
-export const hasFilms = () => films().length > 0;
+const hasFilms = () => films().length > 0;
 
 /* ---------------- cases ---------------- */
 
 /** Cases met een hero-clip, in de volgorde van het overzicht. */
 const withClip = () => allCases().filter((c) => c.heroVideo?.src && onDisk(c.heroVideo.src));
 
-export const inDiscipline = (c: Pick<Case, "services">, key: DisciplineKey) => {
+const inDiscipline = (c: Pick<Case, "services">, key: DisciplineKey) => {
   const d = DISCIPLINES.find((x) => x.key === key)!;
   return c.services.some((s) => d.services.includes(s));
 };
@@ -130,7 +125,7 @@ function sequence(slug: string, title: string, list: Case[], used: Set<string>, 
 }
 
 /** Cases van een discipline met een clip: hoofddienst eerst, uitgelicht eerst bij gelijke stand. */
-export function disciplineCases(key: DisciplineKey, list: Case[] = withClip()) {
+function disciplineCases(key: DisciplineKey, list: Case[] = withClip()) {
   return list
     .filter((c) => inDiscipline(c, key))
     .map((c, i) => ({ c, i }))
@@ -153,23 +148,6 @@ function film(s: Showreel, locale: Locale): Reel {
   };
 }
 
-/** Welk deel van de cases in een showreel bij de discipline hoort (0–1). */
-function fit(s: Showreel, key: DisciplineKey) {
-  const cs = s.cases.map((slug) => getCase(slug)).filter((c): c is Case => Boolean(c));
-  if (!cs.length) return 0;
-  return cs.filter((c) => inDiscipline(c, key)).length / cs.length;
-}
-
-/** De gerenderde showreel die het best bij een discipline past (slug eerst, dan de cases), of niets. */
-function filmFor(key: DisciplineKey, used: Set<string>): Showreel | undefined {
-  const d = DISCIPLINES.find((x) => x.key === key)!;
-  const free = films().filter((s) => !used.has(s.slug));
-  const byHint = free.find((s) => d.hint.test(s.slug) || d.hint.test(s.title.en));
-  if (byHint) return byHint;
-  const best = free.map((s) => ({ s, f: fit(s, key) })).sort((a, b) => b.f - a.f)[0];
-  return best && best.f >= 0.6 ? best.s : undefined;
-}
-
 /* ---------------- publiek ---------------- */
 
 /**
@@ -186,56 +164,6 @@ export function casesReels(locale: Locale): Reel[] {
   for (const d of DISCIPLINES) {
     const r = sequence(d.key, tr(d.title, locale), disciplineCases(d.key, all), used);
     if (r) out.push(r);
-  }
-  return out;
-}
-
-/** Welke gerenderde showreel bij welk hoofdstuk hoort (elke film hooguit één keer). */
-function chapterFilms(): Partial<Record<DisciplineKey, Showreel>> {
-  const used = new Set<string>();
-  const out: Partial<Record<DisciplineKey, Showreel>> = {};
-  for (const d of DISCIPLINES) {
-    const f = filmFor(d.key, used);
-    if (f) {
-      used.add(f.slug);
-      out[d.key] = f;
-    }
-  }
-  return out;
-}
-
-/**
- * Openingsreel van World of M7: de films die geen hoofdstuk hebben (bv. "highlights"),
- * anders de eerste film; zonder films de uitgelichte cases.
- */
-export function introReels(locale: Locale): Reel[] {
-  if (hasFilms()) {
-    const taken = new Set(Object.values(chapterFilms()).map((f) => f!.slug));
-    const free = films().filter((s) => !taken.has(s.slug));
-    return (free.length ? free : films().slice(0, 1)).map((s) => film(s, locale));
-  }
-  const all = withClip();
-  const used = new Set<string>();
-  const hl = sequence("highlights", tr(HIGHLIGHTS, locale), all.filter((c) => c.featured), used, 6);
-  return hl ? [hl] : [];
-}
-
-/**
- * Per discipline één reel voor de hoofdstukken op World of M7: de best passende gerenderde
- * showreel, anders een reeks clips uit die discipline (zonder de cases van de openingsreel).
- */
-export function disciplineReels(locale: Locale): Record<DisciplineKey, Reel | null> {
-  const films = hasFilms() ? chapterFilms() : {};
-  const used = new Set<string>(introReels(locale).flatMap((r) => r.cases.map((c) => c.slug)));
-  const all = withClip();
-  const out = {} as Record<DisciplineKey, Reel | null>;
-  for (const d of DISCIPLINES) {
-    const f = films[d.key];
-    if (f) {
-      out[d.key] = { ...film(f, locale), title: tr(d.title, locale) };
-    } else {
-      out[d.key] = sequence(d.key, tr(d.title, locale), disciplineCases(d.key, all), used, 4);
-    }
   }
   return out;
 }

@@ -415,9 +415,10 @@
     gap: 14px;
     padding-bottom: 14px;
   }
+  /* "Masterpieces" moet op één regel passen (geen afbreekstreepje) */
   .srh__title {
-    max-width: 9ch;
-    font-size: clamp(2.7rem, 13.4vw, 4.2rem);
+    max-width: none;
+    font-size: clamp(2.3rem, 11.4vw, 4rem);
     line-height: 0.96;
   }
   .srh__sub {

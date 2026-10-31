@@ -143,13 +143,9 @@ const BRAND_SHEETS: { slug: string; src: string; alt: T }[] = [
   { slug: "fairlink", src: "fairlink/s-postcard-mark.webp", alt: { nl: "beeldmerk op een kaart", en: "brand mark on a card" } },
 ];
 
-/** Merk-renders (logo in reliëf, op een wand, als sticker) uit de galerij van een case. */
-const BRAND_RENDER = /\/r-\d+-b(05|06|10)-[^/]+\.webp$/;
-const BRAND_ALT: Record<string, T> = {
-  "05": { nl: "logo in reliëf", en: "embossed logo" },
-  "06": { nl: "logo op een wand", en: "logo on a wall" },
-  "10": { nl: "logo als sticker", en: "logo as a sticker" },
-};
+/** Merk-render (logo op een wand) uit de galerij van een case; de zwakkere sticker- en reliëfscènes zijn weg. */
+const BRAND_RENDER = /\/r-\d+-b06-[^/]+\.webp$/;
+const BRAND_ALT: T = { nl: "logo op een wand", en: "logo on a wall" };
 
 /** Eredivisietoppers: de aangeleverde animaties, elk met een korte omschrijving van wat je ziet. */
 const SPOTLIGHT = {
@@ -289,8 +285,7 @@ export function worldData(locale: Locale) {
   const renders: Tile[] = brandMembers.flatMap((c) => {
     const g = (c.gallery ?? []).find((x) => BRAND_RENDER.test(x) && onDisk(x));
     if (!g) return [];
-    const k = g.match(/-b(05|06|10)-/)?.[1] ?? "06";
-    return [{ ...spotOf(c, locale), image: g, alt: `${c.client}: ${L(BRAND_ALT[k])}` }];
+    return [{ ...spotOf(c, locale), image: g, alt: `${c.client}: ${L(BRAND_ALT)}` }];
   });
   // eerst elk merk één keer (sheets voorop), dan de rest; nooit twee keer hetzelfde beeld
   const pool = [...sheets, ...renders];
@@ -345,9 +340,12 @@ export function worldData(locale: Locale) {
     if (!img) return [];
     return [{ ...spotOf(c, locale), image: img, alt: c.client, video: heroVideoOf(c) }];
   });
-  // midden: het eerste masterpiece met een eigen hero-film
+  // midden: het eerste masterpiece met een eigen hero-film; eromheen eerst de projecten
+  // die nog in geen enkele scène stonden, zodat alle masterpieces op de pagina voorkomen
   const center = tiles.find((t) => t.video) ?? null;
-  const wall = tiles.filter((t) => t.slug !== center?.slug);
+  flows.forEach((f) => used.add(f.slug));
+  const rest = tiles.filter((t) => t.slug !== center?.slug);
+  const wall = [...rest.filter((t) => !used.has(t.slug)), ...rest.filter((t) => used.has(t.slug))];
 
   return {
     reel,
