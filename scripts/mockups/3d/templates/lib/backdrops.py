@@ -38,6 +38,10 @@ VARIANTS = {
     'graphite-dune':      dict(group='dark', base='#28292D', tex='dune'),
     'navy-glow':          dict(group='navy', base='#070C1A'),
     'navy-nebula':        dict(group='navy', base='#060B18', tex='nebula'),
+    # round 13: darkened brand colour (base given per project)
+    'brand-dark':         dict(group='dark', base='#202124'),
+    'brand-dark-dune':    dict(group='dark', base='#202124', tex='dune'),
+    'brand-dark-plaster': dict(group='dark', base='#202124', tex='plaster'),
 }
 GROUPS = {g: [k for k, v in VARIANTS.items() if v['group'] == g] for g in ('light', 'dark', 'navy')}
 
@@ -155,11 +159,11 @@ LEAF_SIZE = (1.2, 0.8)           # metres covered by the gobo render (2.4 x 1.6 
 LEAF_XFORM = dict(offset=(-0.80, -0.20), rot=math.radians(0.0))   # leaf cluster on the far-left floor
 
 
-def backdrop(variant, cam, W, H, alpha=None, phase=0.0):
+def backdrop(variant, cam, W, H, alpha=None, phase=0.0, base=None):
     """Linear RGB backdrop (H, W, 3) + display-space grain amplitude. phase in [0, 1) drives a slow, seamless drift
     of the light pool / glow (video)."""
     v = VARIANTS[variant]
-    base = lin(v['base'])
+    base = lin(base if base else v['base'])
     X, Y, dist = floor_coords(cam, W, H)
     cx = POOL_CENTRE[0] + 0.05 * math.sin(2 * math.pi * phase)
     cy = POOL_CENTRE[1] + 0.03 * math.sin(4 * math.pi * phase)

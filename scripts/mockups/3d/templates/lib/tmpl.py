@@ -37,12 +37,14 @@ def glass_rects():
 
 
 GLASS = {'iphone': '_glass', 'ipad': '_glass', 'mac': '_lidglass', 'studio': '_glass'}
+_EXTRA_GLASS = {}   # extra screen types (panels, billboards): name -> glass rect (UV 0..1 = display)
 _SCREENS = {}   # id -> dict(type, role, object)
 
 
 def reset():
     R.reset()
     _SCREENS.clear()
+    _PRINTS.clear(); _TINTS.clear()
 
 
 def setup(w, h, samples=64, threshold=0.02, transparent=False, bounces=(8, 3, 4, 8, 16), clamp=6.0):
@@ -52,6 +54,9 @@ def setup(w, h, samples=64, threshold=0.02, transparent=False, bounces=(8, 3, 4,
     for a in list(vl.aovs): vl.aovs.remove(a)
     a = vl.aovs.add(); a.name = 'scr_uv'; a.type = 'COLOR'
     a = vl.aovs.add(); a.name = 'scr_cov'; a.type = 'VALUE'
+    # round 13: recolourable (tint) and printable (prn) surfaces
+    for n, t in (('prn_uv', 'COLOR'), ('prn_cov', 'VALUE'), ('tnt', 'VALUE'), ('tnt_cov', 'VALUE')):
+        a = vl.aovs.add(); a.name = n; a.type = t
     for g in ('screen', 'env'):
         if g not in vl.lightgroups: vl.lightgroups.add(name=g)
     vl.use_pass_emit = False
@@ -66,7 +71,9 @@ def setup(w, h, samples=64, threshold=0.02, transparent=False, bounces=(8, 3, 4,
     ng.links.new(rl.outputs['Denoising Normal'], dn.inputs['Normal'])
     outs = [('rgb', rl.outputs['Image'], 'RGBA', '16'), ('scr', rl.outputs['Combined_screen'], 'RGBA', '16'),
             ('env', dn.outputs['Image'], 'RGBA', '16'), ('uv', rl.outputs['scr_uv'], 'RGBA', '32'),
-            ('cov', rl.outputs['scr_cov'], 'FLOAT', '16')]
+            ('cov', rl.outputs['scr_cov'], 'FLOAT', '16'),
+            ('prnuv', rl.outputs['prn_uv'], 'RGBA', '32'), ('prncov', rl.outputs['prn_cov'], 'FLOAT', '16'),
+            ('tnt', rl.outputs['tnt'], 'FLOAT', '16'), ('tntcov', rl.outputs['tnt_cov'], 'FLOAT', '16')]
     if transparent:
         outs.append(('sc', rl.outputs['Shadow Catcher'], 'RGBA', '16'))
     for key, sock, typ, depth in outs:
@@ -152,7 +159,9 @@ def meta_only():
 def write_meta(name, extra=None):
     sc = bpy.context.scene
     d = dict(name=name, w=sc.render.resolution_x, h=sc.render.resolution_y, transparent=sc.render.film_transparent,
-             screens={str(k): dict(type=v['type'], role=v['role']) for k, v in _SCREENS.items()}, glass=glass_rects())
+             screens={str(k): dict(type=v['type'], role=v['role']) for k, v in _SCREENS.items()}, glass=glass_rects(),
+             prints={str(k): v for k, v in _PRINTS.items()}, tints={str(k): v for k, v in _TINTS.items()})
+    d['glass'].update(_EXTRA_GLASS)
     if sc.camera is not None:
         d['camera'] = cam_info()
     if extra: d.update(extra)
@@ -257,3 +266,94 @@ def soft_fill(target, power=6.0, loc=(0.0, -1.6, 0.9), size=(2.0, 1.4)):
     f = R.area_light('fill', loc, target, size=size, power=power, color=(0.95, 0.97, 1.0))
     f.visible_glossy = False
     return f
+
+
+
+# ================================================================== round 13: print + tint surfaces
+_PRINTS = {}   # pid -> dict(role, w, h (mm), light (x, y) in design space, emboss)
+_TINTS = {}    # tid -> dict(role)
+ALBEDO = 0.8   # white albedo of print / tint surfaces (the compositor multiplies by design / colour / ALBEDO)
+
+
+def _aov(N, L, name, sock=None, value=None):
+    a = N.new('ShaderNodeOutputAOV'); a.aov_name = name
+    if sock is not None:
+        L.new(sock, a.inputs['Color'] if a.inputs.get('Color') is not None and name == 'prn_uv' else a.inputs['Value'])
+    elif value is not None:
+        a.inputs['Value'].default_value = value
+    return a
+
+
+def print_material(role, w_mm, h_mm, rough=0.55, spec=0.25, light=(-0.6, -0.8), emboss=0.0, sheen=0.0):
+    """Printable surface: white diffuse (albedo ALBEDO) + AOVs (u, v, pid). The compositor multiplies the lighting by
+    the project's design (logo / card / poster ...) sampled at (u, v). light: direction the light comes FROM in the
+    design image (x right, y down) for embossing."""
+    pid = len(_PRINTS) + 1
+    m = bpy.data.materials.new(f'print_{pid}_{role}'); nt, N, L, out = R._nodes(m)
+    p = R.principled(N, base=(ALBEDO, ALBEDO, ALBEDO), rough=rough, spec=spec, sheen=sheen)
+    L.new(p.outputs['BSDF'], out.inputs['Surface'])
+    uv = N.new('ShaderNodeUVMap'); uv.uv_map = 'UVMap'
+    sep = N.new('ShaderNodeSeparateXYZ'); L.new(uv.outputs['UV'], sep.inputs['Vector'])
+    cmb = N.new('ShaderNodeCombineColor')
+    L.new(sep.outputs['X'], cmb.inputs[0]); L.new(sep.outputs['Y'], cmb.inputs[1]); cmb.inputs[2].default_value = float(pid)
+    a1 = N.new('ShaderNodeOutputAOV'); a1.aov_name = 'prn_uv'; L.new(cmb.outputs['Color'], a1.inputs['Color'])
+    a2 = N.new('ShaderNodeOutputAOV'); a2.aov_name = 'prn_cov'; a2.inputs['Value'].default_value = 1.0
+    _PRINTS[pid] = dict(role=role, w=w_mm, h=h_mm, light=list(light), emboss=emboss)
+    return m
+
+
+def tint_material(role, tex=None, scale=1.0, rough=0.85, spec=0.3, bump=0.3, box=False, contrast=1.0):
+    """Recolourable surface (floor / wall / plinth): neutral albedo around ALBEDO (optionally a desaturated PBR
+    texture for structure), AOV tnt = id. The compositor multiplies by the chosen colour / ALBEDO."""
+    tid = len(_TINTS) + 1
+    if tex:
+        m = R.mat_pbr(f'tint_{tid}_{role}', tex, scale=scale, sat=0.0, val=1.0, bump=bump, rough_mul=1.0, box=box)
+        nt = m.node_tree; N = nt.nodes; L = nt.links
+        p = next(n for n in N if n.type == 'BSDF_PRINCIPLED')
+        # normalise the texture around ALBEDO: albedo = ALBEDO * (1 + contrast * (tex - mean))
+        src = p.inputs['Base Color'].links[0].from_socket
+        bw = N.new('ShaderNodeRGBToBW'); L.new(src, bw.inputs['Color'])
+        sub = N.new('ShaderNodeMath'); sub.operation = 'SUBTRACT'; sub.inputs[1].default_value = 0.5
+        L.new(bw.outputs['Val'], sub.inputs[0])
+        mul = N.new('ShaderNodeMath'); mul.operation = 'MULTIPLY_ADD'; mul.inputs[1].default_value = 0.35 * contrast; mul.inputs[2].default_value = ALBEDO
+        L.new(sub.outputs['Value'], mul.inputs[0])
+        cl = N.new('ShaderNodeClamp'); L.new(mul.outputs['Value'], cl.inputs['Value'])
+        cc = N.new('ShaderNodeCombineColor')
+        for i in range(3): L.new(cl.outputs['Result'], cc.inputs[i])
+        L.new(cc.outputs['Color'], p.inputs['Base Color'])
+        p.inputs['Specular IOR Level'].default_value = spec
+    else:
+        m = bpy.data.materials.new(f'tint_{tid}_{role}'); nt, N, L, out = R._nodes(m)
+        p = R.principled(N, base=(ALBEDO, ALBEDO, ALBEDO), rough=rough, spec=spec)
+        L.new(p.outputs['BSDF'], out.inputs['Surface'])
+    a1 = N.new('ShaderNodeOutputAOV'); a1.aov_name = 'tnt'; a1.inputs['Value'].default_value = float(tid)
+    a2 = N.new('ShaderNodeOutputAOV'); a2.aov_name = 'tnt_cov'; a2.inputs['Value'].default_value = 1.0
+    _TINTS[tid] = dict(role=role)
+    return m
+
+
+def extra_meta():
+    return dict(prints={str(k): v for k, v in _PRINTS.items()}, tints={str(k): v for k, v in _TINTS.items()})
+
+
+def make_flat_screen(obj, dtype, role, px, radius=0.0, mat_index=None):
+    """A flat emissive 'screen' that is not a device (floating UI panel, billboard, poster screen): UV 0..1 of the
+    object = the whole display. px: content resolution (w, h); radius: corner radius as a fraction of the height."""
+    from PIL import Image, ImageDraw
+    os.makedirs(MASKS, exist_ok=True)
+    mp = mask_path(dtype)
+    if not os.path.exists(mp):
+        W, H = 1600, max(8, int(1600 * px[1] / px[0]))
+        ss = 3; m = Image.new('L', (W * ss, H * ss), 0)
+        ImageDraw.Draw(m).rounded_rectangle([0, 0, W * ss - 1, H * ss - 1], radius=int(radius * H * ss), fill=255)
+        m.resize((W, H), Image.LANCZOS).save(mp)
+    sid = len(_SCREENS) + 1
+    mat = screen_material(dtype, sid)
+    if mat_index is None:
+        obj.data.materials.clear(); obj.data.materials.append(mat)
+    else:
+        obj.data.materials[mat_index] = mat
+    obj.lightgroup = 'screen'
+    _SCREENS[sid] = dict(type=dtype, role=role, object=obj.name)
+    _EXTRA_GLASS[dtype] = dict(gw=1.0, gh=1.0, x0=0.0, y0=0.0, dw=1.0, dh=1.0, px=list(px))
+    return sid

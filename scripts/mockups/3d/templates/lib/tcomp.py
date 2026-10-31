@@ -45,7 +45,7 @@ def oetf(x):
     x = np.clip(np.asarray(x, np.float32), 0, 1)
     try:
         import cv2
-        p = cv2.pow(np.ascontiguousarray(x), 1 / 2.4)
+        p = cv2.pow(np.ascontiguousarray(x), 1 / 2.4).reshape(x.shape)
     except ImportError:
         p = np.power(x, 1 / 2.4)
     return np.where(x <= 0.0031308, x * 12.92, 1.055 * p - 0.055).astype(np.float32)
@@ -87,6 +87,28 @@ class Frame:
         uv = read_exr(p('uv'), list('RGB'))
         cov = read_exr(p('cov'), ['R'])[..., 0]
         self.sc = read_exr(p('sc'), list('RGB')) if os.path.exists(p('sc')) else None
+        # round 13: print (u, v, pid) and tint (id) surfaces
+        self.prints, self.tints = {}, {}
+        if os.path.exists(p('prncov')):
+            pcov = read_exr(p('prncov'), ['R'])[..., 0]
+            puv = read_exr(p('prnuv'), list('RGB'))
+            ok = pcov > 0.02
+            pid = np.zeros(pcov.shape, np.int32); pid[ok] = np.rint(puv[..., 2][ok] / pcov[ok]).astype(np.int32)
+            for k, pm in (meta.get('prints') or {}).items():
+                k = int(k); msk = ok & (pid == k)
+                if not msk.any(): continue
+                du = np.full(pcov.shape, np.nan, np.float32); dv = np.full(pcov.shape, np.nan, np.float32)
+                du[msk] = puv[..., 0][msk] / pcov[msk]; dv[msk] = 1.0 - puv[..., 1][msk] / pcov[msk]
+                self.prints[k] = dict(role=pm['role'], du=du, dv=dv, m=np.clip(pcov, 0, 1) * msk)
+        if os.path.exists(p('tntcov')):
+            tcov = read_exr(p('tntcov'), ['R'])[..., 0]
+            tid = read_exr(p('tnt'), ['R'])[..., 0]
+            ok = tcov > 0.02
+            ids = np.zeros(tcov.shape, np.int32); ids[ok] = np.rint(tid[ok] / tcov[ok]).astype(np.int32)
+            for k, tm in (meta.get('tints') or {}).items():
+                k = int(k); msk = ok & (ids == k)
+                if msk.any():
+                    self.tints[k] = dict(role=tm['role'], m=(np.clip(tcov, 0, 1) * msk).astype(np.float32))
         self.H, self.Wd = self.W.shape
         self.base_other = self.rgb - self.W[..., None]          # still contains env (tinted later)
         valid = cov > 0.02
@@ -160,12 +182,15 @@ class Pyramid:
             top = len(self.levels) - 1
             lod = np.clip(lod, 0, top).astype(np.float32)
             l0 = np.floor(lod).astype(np.int32); fr = (lod - l0)[:, None]
-            lo, hi = int(l0.min()), min(int(l0.max()) + 1, top)
-            stack = np.stack([self.remap(L, x, y) for L in range(lo, hi + 1)])     # (levels, n, C)
-            ar = np.arange(x.shape[0])
-            a = stack[l0 - lo, ar]
-            b = stack[np.minimum(l0 + 1, hi) - lo, ar]
-            return a + (b - a) * fr
+            out = np.empty((x.shape[0], self.levels[0].shape[2]), np.float32)
+            for L in np.unique(l0):                 # each pixel: only its two levels
+                sel = np.flatnonzero(l0 == L)
+                a = self.remap(L, x[sel], y[sel])
+                if L < top:
+                    b = self.remap(L + 1, x[sel], y[sel])
+                    a += (b - a) * fr[sel]
+                out[sel] = a
+            return out
         out = np.zeros((x.shape[0], self.levels[0].shape[2]), np.float32)
         lod = np.clip(lod, 0, len(self.levels) - 1)
         l0 = np.floor(lod).astype(np.int32); fr = (lod - l0)[:, None]
@@ -201,6 +226,14 @@ class Display:
         self.offset = offset                              # content scroll (content texels)
         self.max_offset = max(0.0, content.shape[0] - (H - top) * self.cscale)
         self.overlay = Pyramid(to_lin(overlay)) if overlay is not None else None
+        self.ov_rows = None
+        if overlay is not None:     # display rows where the overlay has anything (status bar, toolbar, pill)
+            al = np.asarray(overlay)[..., 3] if np.asarray(overlay).shape[-1] == 4 else None
+            if al is not None:
+                r = al.max(1) > 0
+                k = len(r) / H
+                rows = np.array([r[int(i * k):max(int((i + 1) * k), int(i * k) + 1)].any() for i in range(H)])
+                self.ov_rows = np.convolve(rows.astype(np.float32), np.ones(9), 'same') > 0      # a few px margin
 
     def shade(self, dx, dy, jac, aniso=6):
         """dx, dy: display px of the lit pixels; jac: (n,2,2) d(display px)/d(image px)."""
@@ -210,13 +243,13 @@ class Display:
             if pyr is None:
                 continue
             k = self.cscale if which == 'content' else pyr.w / self.W
-            tx = dx * k
-            ty = ((dy - self.top) * k + self.offset) if which == 'content' else dy * k
-            col = sample_aniso(pyr, tx, ty, jac * k, aniso)
             if which == 'content':
-                out = col[:, :3]
+                tx = dx * k; ty = (dy - self.top) * k + self.offset
+                out = sample_aniso(pyr, tx, ty, jac * k, aniso)[:, :3]
             else:
-                out = col[:, :3] + out * (1 - col[:, 3:4])
+                sel = slice(None) if self.ov_rows is None else np.flatnonzero(self.ov_rows[np.clip(dy.astype(np.int64), 0, self.H - 1)])
+                col = sample_aniso(pyr, dx[sel] * k, dy[sel] * k, jac[sel] * k, aniso)
+                out[sel] = col[:, :3] + out[sel] * (1 - col[:, 3:4])
         return out
 
 
@@ -349,6 +382,17 @@ def prepare(fr, exposure=0.0, look='AgX - Medium High Contrast', vignette=0.0):
     transparent = bool(fr.meta.get('transparent'))
     a = fr.alpha if transparent else np.ones((H, Wd), np.float32)
     ou = np.maximum(fr.base_other / np.maximum(a, 1e-4)[..., None], 0)
+    if (fr.prints or fr.tints) and fr.meta.get('auto_exposure', True):
+        # expose for the light on the printable / recolourable surfaces: their lit part (90th percentile of the
+        # irradiance) lands at ~0.89 display for a 0.85 albedo, whatever colour the project puts there
+        m = np.zeros(a.shape, bool)
+        for t in list(fr.prints.values()) + list(fr.tints.values()):
+            m |= t['m'] > 0.9
+        if m.sum() > 500:
+            E = ou[m].mean(-1) / 0.8
+            e90 = float(np.percentile(E, 90))
+            target = 1.8 if 'Medium' in look else 1.3
+            exposure = float(np.clip(exposure + np.log2(target / max(0.85 * e90, 1e-4)), -3.0, 1.5))
     dev = agx(ou * 2.0 ** exposure, look)
     m = np.clip(fr.W, 0, 1)
     vg = None
@@ -356,7 +400,23 @@ def prepare(fr, exposure=0.0, look='AgX - Medium High Contrast', vignette=0.0):
         yy, xx = np.mgrid[0:H, 0:Wd]
         dd = np.sqrt(((xx - Wd / 2) / (Wd / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2) / np.sqrt(2)
         vg = (1 - vignette * np.clip(dd, 0, 1) ** 2.2).astype(np.float32)
-    P = dict(H=H, W=Wd, transparent=transparent, dev=dev.astype(np.float32), vg=vg)
+    P = dict(H=H, W=Wd, transparent=transparent, dev=dev.astype(np.float32), vg=vg,
+             exposure=float(exposure), look=look)
+    if fr.prints or fr.tints:
+        P['ou'] = ou.astype(np.float32)
+        P['tints'] = []
+        for k, t in fr.tints.items():
+            idx = np.flatnonzero(t['m'] > 1e-3)
+            P['tints'].append(dict(role=t['role'], idx=idx, m=t['m'].reshape(-1)[idx]))
+        P['prints'] = []
+        for k, pr in fr.prints.items():
+            idx = np.flatnonzero(pr['m'] > 1e-3)
+            pm = fr.meta['prints'][str(k)]
+            # derivative of the design coords per image pixel (for mip / aniso sampling)
+            J = jacobian(pr['du'], pr['dv'], 1.0, 1.0)
+            P['prints'].append(dict(role=pr['role'], idx=idx, du=pr['du'].reshape(-1)[idx], dv=pr['dv'].reshape(-1)[idx],
+                                    jac=J.reshape(-1, 2, 2)[idx], m=pr['m'].reshape(-1)[idx].astype(np.float32),
+                                    light=pm.get('light', [-0.6, -0.8]), aspect=pm['w'] / pm['h']))
     if transparent:
         P['a'] = a.astype(np.float32)
         P['sc'] = (fr.sc if fr.sc is not None else np.ones((H, Wd, 3), np.float32)).astype(np.float32)
@@ -378,23 +438,104 @@ def prepare(fr, exposure=0.0, look='AgX - Medium High Contrast', vignette=0.0):
     return P
 
 
-def finish(P, displays, bg_srgb=None, refl=0.25, aniso=6, bg=None):
+def finish(P, displays, bg_srgb=None, refl=0.25, aniso=6, bg=None, tints=None, prints=None, dev=None):
     """Project part: screen contents + background. Returns uint8 HxWx3.
     bg: optional (linear HxWx3 backdrop, grain amplitude in 8-bit levels) from backdrops.backdrop(); otherwise a
-    flat bg_srgb colour."""
-    return over(P, foreground(P, displays, refl, aniso), bg_srgb=bg_srgb, bg=bg)
+    flat bg_srgb colour. tints / prints: per-project colours and designs for recolourable / printable surfaces
+    (or pass a pre-developed `dev` from develop_set for video)."""
+    if dev is None and (tints or prints):
+        dev = develop_set(P, tints, prints)
+    return over(P, foreground(P, displays, refl, aniso, dev=dev), bg_srgb=bg_srgb, bg=bg)
 
 
-def foreground(P, displays, refl=0.25, aniso=6):
+ALBEDO = 0.8
+
+
+def develop_set(P, tints=None, prints=None, aniso=4):
+    """Re-develop the set with per-project tints ({role: linear rgb}) and print designs ({role: PrintDesign}).
+    Tints go through the scene light + AgX like any surface. Prints are applied after the view transform, as a
+    multiplier on the developed (white, ALBEDO) surface in display-linear light: like a photo of a print, the
+    brand colours keep their saturation instead of being desaturated by AgX."""
+    if 'ou' not in P or (not tints and not prints):
+        return P['dev']
+    ou = P['ou'].reshape(-1, 3).copy()
+    # albedo factor per pixel = coverage-weighted mix of the surfaces in it (edge pixels shared by a tinted wall
+    # and a print in front of it must not get both factors multiplied)
+    acc_m = np.zeros(ou.shape[0], np.float32); acc_f = np.zeros_like(ou)
+    for t in P.get('tints', []):
+        c = (tints or {}).get(t['role'])
+        if c is None: continue
+        f = np.asarray(c, np.float32) / ALBEDO
+        acc_m[t['idx']] += t['m']; acc_f[t['idx']] += t['m'][:, None] * f
+    for pr in P.get('prints', []):
+        dsg = (prints or {}).get(pr['role'])
+        if dsg is None or getattr(dsg, 'post', True): continue
+        alb = dsg.shade(pr['du'], pr['dv'], pr['jac'], pr['light'], aniso)
+        acc_m[pr['idx']] += pr['m']; acc_f[pr['idx']] += pr['m'][:, None] * (alb / ALBEDO)
+    sel = np.flatnonzero(acc_m > 0)
+    if sel.size:
+        k = np.maximum(acc_m[sel], 1.0)[:, None]
+        ou[sel] *= (1 - np.minimum(acc_m[sel], 1.0))[:, None] + acc_f[sel] / k
+    ou = ou.reshape(P['H'], P['W'], 3)
+    dev = agx(np.maximum(ou, 0) * 2.0 ** P.get('exposure', 0.0), P.get('look', 'AgX - Medium High Contrast')).astype(np.float32)
+    if prints:
+        flat = dev.reshape(-1, 3)
+        for pr in P.get('prints', []):
+            dsg = prints.get(pr['role'])
+            if dsg is None or not getattr(dsg, 'post', True): continue
+            alb = dsg.shade(pr['du'], pr['dv'], pr['jac'], pr['light'], aniso)       # linear albedo x relief, n x 3
+            base = eotf(np.clip(flat[pr['idx']], 0, 1))
+            col = oetf(np.clip(base * (alb / ALBEDO), 0, 1)).reshape(-1, 3)
+            mm = pr['m'][:, None]
+            flat[pr['idx']] = mm * col + (1 - mm) * flat[pr['idx']]
+        dev = flat.reshape(P['H'], P['W'], 3)
+    return dev
+
+
+class PrintDesign:
+    """A design printed on a surface: linear albedo image (+ optional height for emboss / deboss)."""
+
+    def __init__(self, rgb_u8, height=None, relief=0.0, post=True):
+        """post: apply after the view transform (colour-true print); False: through the scene light + AgX like a
+        painted surface (used where the design must blend into a tinted set surface, e.g. a raised wall logo)."""
+        self.post = post
+        a = to_lin(np.asarray(rgb_u8)[..., :3])
+        ch = [a]
+        self.relief = relief
+        if height is not None and relief:
+            hgt = np.asarray(height, np.float32)
+            gy, gx = np.gradient(hgt)
+            ch += [gx[..., None] * 1.0, gy[..., None] * 1.0]
+        self.pyr = Pyramid(np.concatenate(ch, -1).astype(np.float32))
+        self.h, self.w = a.shape[:2]
+
+    def shade(self, du, dv, jac, light, aniso=4):
+        x = du * self.w; y = dv * self.h
+        J = jac * np.array([self.w, self.h], np.float32)[:, None]
+        s = sample_aniso(self.pyr, x, y, J, aniso)
+        alb = s[:, :3]
+        if s.shape[1] > 3:
+            lx, ly = light; n = (lx * lx + ly * ly) ** 0.5 + 1e-6
+            # light comes FROM (lx, ly): a slope facing it gets brighter
+            k = self.relief * (-(s[:, 3] * lx + s[:, 4] * ly) / n)
+            alb = alb * np.clip(1.0 + k, 0.35, 1.8)[:, None]
+        return alb
+
+
+def foreground(P, displays, refl=0.25, aniso=6, dev=None):
     """Device layer with the project's screens (display-referred, H x W x 3 float)."""
     H, Wd = P['H'], P['W']
-    out = P['dev'].reshape(-1, 3).copy()
+    out = (P['dev'] if dev is None else dev).reshape(-1, 3).copy()
     for s in P['screens']:
         d = displays.get(s['role'])
         if d is None:
             continue
-        jac = s['jac'] * np.array([d.W, d.H], np.float32)[:, None]
-        tex = d.shade(s['du'] * d.W, s['dv'] * d.H, jac, aniso)
+        du, dv, jac = s['du'], s['dv'], s['jac']
+        if getattr(d, 'rot', 0) == 90:          # portrait content on a device held in portrait
+            du, dv = dv, 1.0 - du
+            jac = np.stack([jac[:, 1, :], -jac[:, 0, :]], 1)
+        jac = jac * np.array([d.W, d.H], np.float32)[:, None]
+        tex = d.shade(du * d.W, dv * d.H, jac, aniso)
         sd = oetf(tex * s['Wn'][:, None] + refl * s['ou'])
         mm = s['m'][:, None]
         out[s['idx']] = mm * sd + (1 - mm) * out[s['idx']]
@@ -402,6 +543,133 @@ def foreground(P, displays, refl=0.25, aniso=6):
     if P['vg'] is not None:
         out = out * P['vg'][..., None]
     return out
+
+
+def screen_layer(P, displays, refl=0.25, aniso=6):
+    """Just the screens: [(pixel idx, coverage, display-referred colour)] (for video: the rest of the frame is
+    static and composited once)."""
+    res = []
+    for s in P['screens']:
+        d = displays.get(s['role'])
+        if d is None:
+            continue
+        du, dv, jac = s['du'], s['dv'], s['jac']
+        if getattr(d, 'rot', 0) == 90:
+            du, dv = dv, 1.0 - du
+            jac = np.stack([jac[:, 1, :], -jac[:, 0, :]], 1)
+        jac = jac * np.array([d.W, d.H], np.float32)[:, None]
+        tex = d.shade(du * d.W, dv * d.H, jac, aniso)
+        res.append((s['idx'], s['m'][:, None], oetf(tex * s['Wn'][:, None] + refl * s['ou'])))
+    return res
+
+
+class StaticFrame:
+    """A template frame whose only moving part is the screen content (scrolling site): the set, backdrop and
+    shadows are composited once; each frame only re-samples the screen pixels."""
+
+    def __init__(self, P, bg=None, dev=None, bg_srgb=None):
+        self.P = P
+        fg = foreground(P, {}, dev=dev)                       # the set without screen content (with vignette)
+        H, Wd = P['H'], P['W']
+        self.fg = fg.reshape(-1, 3)
+        self.vg = P['vg'].reshape(-1) if P['vg'] is not None else None
+        self.a = self.bgl = None
+        if P['transparent']:
+            if bg is not None:
+                from backdrops import grain
+                bl, amp = bg
+                bgl = oetf(bl * P['sc']) + grain(H, Wd, amp)
+            else:
+                bgl = oetf(background_lin(H, Wd, bg_srgb) * P['sc'])
+            self.bgl = bgl.reshape(-1, 3); self.a = P['a'].reshape(-1)
+            out = self.a[:, None] * self.fg + (1 - self.a[:, None]) * self.bgl
+        else:
+            out = self.fg
+        self.base = (np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8)
+
+    def _plan(self, displays, aniso):
+        """Per screen: everything that does not change while the content scrolls (sampling footprints, mip
+        levels, the static overlay colour)."""
+        self.plans = []
+        for s in self.P['screens']:
+            d = displays.get(s['role'])
+            if d is None:
+                continue
+            du, dv, jac = s['du'], s['dv'], s['jac']
+            if getattr(d, 'rot', 0) == 90:
+                du, dv = dv, 1.0 - du
+                jac = np.stack([jac[:, 1, :], -jac[:, 0, :]], 1)
+            J = jac * np.array([d.W, d.H], np.float32)[:, None]
+            X, Y = du * d.W, dv * d.H
+            k = d.cscale
+            Jc = J * k
+            ax = Jc[:, :, 0]; ay = Jc[:, :, 1]
+            lx = np.linalg.norm(ax, axis=1); ly = np.linalg.norm(ay, axis=1)
+            major = np.maximum(lx, ly); minor = np.maximum(np.minimum(lx, ly), 1e-6)
+            n = np.clip(np.ceil(major / minor), 1, aniso).astype(np.int32)
+            lod = np.log2(np.maximum(major / n, 1e-6))
+            dirv = np.where((lx >= ly)[:, None], ax, ay)
+            taps = []
+            top = len(d.content.levels) - 1
+            for N in np.unique(n):
+                sel = np.flatnonzero(n == N)
+                lo = np.clip(lod[sel], 0, top); l0 = np.floor(lo).astype(np.int32); fr = (lo - l0)[:, None].astype(np.float32)
+                groups = [(L, np.flatnonzero(l0 == L)) for L in np.unique(l0)]
+                for i in range(N):
+                    t = (i + 0.5) / N - 0.5
+                    taps.append((sel, 1.0 / N, X[sel] * k + dirv[sel, 0] * t, (Y[sel] - d.top) * k + dirv[sel, 1] * t, fr, groups))
+            ov = None
+            if d.overlay is not None:
+                osel = slice(None) if d.ov_rows is None else np.flatnonzero(d.ov_rows[np.clip(Y.astype(np.int64), 0, d.H - 1)])
+                ko = d.overlay.w / d.W
+                col = sample_aniso(d.overlay, X[osel] * ko, Y[osel] * ko, J[osel] * ko, aniso)
+                ov = (osel, col[:, :3], col[:, 3:4])
+            self.plans.append(dict(s=s, d=d, taps=taps, ov=ov, top=top))
+
+    def frame(self, displays, refl=0.25, aniso=4):
+        """Fast path: screens whose content only scrolls (same displays every call)."""
+        if getattr(self, 'plans', None) is None:
+            self._plan(displays, aniso)
+        out = self.base.copy()
+        for pl in self.plans:
+            s, d = pl['s'], pl['d']
+            n = s['idx'].shape[0]
+            tex = np.zeros((n, 3), np.float32)
+            for sel, w, tx, ty0, fr, groups in pl['taps']:
+                ty = ty0 + d.offset
+                acc = np.empty((sel.shape[0], 3), np.float32)
+                for L, g in groups:
+                    a = d.content.remap(L, tx[g], ty[g])[:, :3]
+                    if L < pl['top']:
+                        b = d.content.remap(L + 1, tx[g], ty[g])[:, :3]
+                        a += (b - a) * fr[g]
+                    acc[g] = a
+                tex[sel] += acc * w
+            if pl['ov'] is not None:
+                osel, orgb, oa = pl['ov']
+                tex[osel] = orgb + tex[osel] * (1 - oa)
+            sd = oetf(tex * s['Wn'][:, None] + refl * s['ou'])
+            idx, mm = s['idx'], s['m'][:, None]
+            if self.vg is not None:
+                sd = sd * self.vg[idx][:, None]
+            v = mm * sd + (1 - mm) * self.fg[idx]
+            if self.a is not None:
+                a = self.a[idx][:, None]
+                v = a * v + (1 - a) * self.bgl[idx]
+            out[idx] = (np.clip(v, 0, 1) * 255 + 0.5).astype(np.uint8)
+        return out.reshape(self.P['H'], self.P['W'], 3)
+
+    def frame_slow(self, displays, refl=0.25, aniso=4):
+        out = self.base.copy()
+        for idx, mm, sd in screen_layer(self.P, displays, refl, aniso):
+            if self.vg is not None:
+                sd = sd * self.vg[idx][:, None]
+            v = mm * sd + (1 - mm) * self.fg[idx]
+            if self.a is not None:
+                a = self.a[idx][:, None]
+                v = a * v + (1 - a) * self.bgl[idx]
+            out[idx] = (np.clip(v, 0, 1) * 255 + 0.5).astype(np.uint8)
+        return out.reshape(self.P['H'], self.P['W'], 3)
 
 
 def over(P, fg, bg_srgb=None, bg=None):
@@ -421,11 +689,22 @@ def over(P, fg, bg_srgb=None, bg=None):
 
 
 def save_prepared(P, path):
-    d = {k: v for k, v in P.items() if k not in ('screens',) and v is not None and not isinstance(v, (bool, int))}
+    d = {k: v for k, v in P.items() if k not in ('screens', 'tints', 'prints', 'exposure', 'look', 'ou') and v is not None
+         and not isinstance(v, (bool, int, float, str))}
     for k in ('dev', 'sc'):
         if k in d: d[k] = d[k].astype(np.float16)
     meta = dict(H=P['H'], W=P['W'], transparent=P['transparent'], has_vg=P['vg'] is not None,
-                screens=[dict(role=s['role'], type=s['type']) for s in P['screens']])
+                screens=[dict(role=s['role'], type=s['type']) for s in P['screens']],
+                exposure=P.get('exposure', 0.0), look=P.get('look', 'AgX - Medium High Contrast'),
+                tints=[dict(role=t['role']) for t in P.get('tints', [])],
+                prints=[dict(role=p['role'], light=p['light'], aspect=p['aspect']) for p in P.get('prints', [])])
+    if 'ou' in P:
+        d['ou'] = P['ou'].astype(np.float16)
+        for i, t in enumerate(P.get('tints', [])):
+            d[f't{i}_idx'] = t['idx'].astype(np.int32); d[f't{i}_m'] = t['m'].astype(np.float16)
+        for i, pr in enumerate(P.get('prints', [])):
+            for k in ('idx', 'du', 'dv', 'jac', 'm'):
+                d[f'p{i}_{k}'] = pr[k].astype(np.int32 if k == 'idx' else np.float32)
     small = dict(idx=np.int32, jac=np.float16, m=np.float16, Wn=np.float16, ou=np.float16)
     if 'a' in d: d['a'] = d['a'].astype(np.float16)
     for i, s in enumerate(P['screens']):
@@ -443,6 +722,12 @@ def load_prepared(path):
              vg=z['vg'] if meta['has_vg'] else None)
     if meta['transparent']:
         P['a'] = z['a'].astype(np.float32); P['sc'] = z['sc'].astype(np.float32)
+    P['exposure'] = meta.get('exposure', 0.0); P['look'] = meta.get('look', 'AgX - Medium High Contrast')
+    if 'ou' in z.files:
+        P['ou'] = z['ou'].astype(np.float32)
+        P['tints'] = [dict(role=t['role'], idx=z[f't{i}_idx'], m=z[f't{i}_m'].astype(np.float32)) for i, t in enumerate(meta.get('tints', []))]
+        P['prints'] = [dict(role=p['role'], light=p['light'], aspect=p['aspect'], idx=z[f'p{i}_idx'], du=z[f'p{i}_du'], dv=z[f'p{i}_dv'],
+                            jac=z[f'p{i}_jac'], m=z[f'p{i}_m']) for i, p in enumerate(meta.get('prints', []))]
     P['screens'] = []
     for i, s in enumerate(meta['screens']):
         e = dict(s)

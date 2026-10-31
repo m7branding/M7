@@ -126,8 +126,8 @@ def studio_overlay(url):
     return ov, mb + tb
 
 
-def ipad_overlay(url):
-    W, H = IPADPRO13['px']; sb, tb = IPADPRO13['status_px'], IPADPRO13['toolbar_px']; s = 2
+def ipad_overlay(url, W=None, H=None):
+    W, H = (W, H) if W else IPADPRO13['px']; sb, tb = IPADPRO13['status_px'], IPADPRO13['toolbar_px']; s = 2
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
     d.rectangle([0, 0, W, sb], fill=(246, 246, 246, 255))
     d.text((22 * s, sb / 2 + 2), '9:41  do 30 okt', font=SC.font('SemiBold', 12 * s), fill=(20, 20, 22, 255), anchor='lm')
@@ -166,17 +166,80 @@ ROLE_SOURCES = {
     'tablet_c': ('ipad', 'full-desktop', 'full-desktop', 1.0),
     'mac': ('mac', 'hero-desktop', 'full-desktop', 0.0),
     'studio': ('studio', 'hero-desktop', 'full-desktop', 0.0),
+    # round 13
+    'phone_c': ('iphone', 'full-mobile', 'full-mobile', 2.2),
+    'phone_d': ('iphone', 'full-mobile', 'full-mobile', 3.4),
+    'mac_b': ('mac', 'full-desktop', 'full-desktop', 1.1),
+    'studio_b': ('studio', 'full-desktop', 'full-desktop', 0.9),
+    'tablet_d': ('ipad', 'full-desktop', 'full-desktop', 3.2),
+    'tablet_p': ('ipad_p', 'full-desktop', 'full-desktop', 0.0),
+    'billboard': ('flat', 'hero-desktop', 'full-desktop', 0.0),
+    'panel_1': ('flat', 'full-desktop', 'full-desktop', 0.0),
+    'panel_2': ('flat', 'full-desktop', 'full-desktop', 0.0),
+    'panel_3': ('flat', 'full-desktop', 'full-desktop', 0.0),
+    'panel_4': ('flat', 'full-desktop', 'full-desktop', 0.0),
+    'panel_5': ('flat', 'full-mobile', 'full-mobile', 0.0),
+    'social': ('social', 'hero-mobile', 'hero-mobile', 0.0),
 }
+# panel crops: (x0, y0, w) as fractions of the capture width, the height follows the panel aspect
+PANEL_CROP = {'panel_1': (0.0, 0.0, 1.0), 'panel_2': (0.05, 1.1, 0.55), 'panel_3': (0.45, 1.9, 0.5),
+              'panel_4': (0.0, 2.8, 1.0), 'panel_5': (0.0, 0.0, 1.0)}
 
 
-def displays_for(p, roles, video=False, caps=None):
+def flat_display(role, src, px):
+    """Content for a flat screen (panel / billboard) of px = (w, h): a crop of the capture, no chrome."""
+    W, H = px
+    if role.startswith('panel'):
+        x0, y0, wf = PANEL_CROP.get(role, (0, 0, 1))
+        cw = int(src.width * wf); ch = int(cw * H / W)
+        y = int(y0 * src.width * 0.62)
+        y = max(0, min(y, src.height - ch)) if src.height > ch else 0
+        crop = src.crop((int(x0 * src.width), y, int(x0 * src.width) + cw, y + ch))
+    else:
+        ar = W / H
+        crop = src.crop((0, 0, src.width, min(src.height, int(src.width / ar))))
+    crop = crop.resize((W, int(crop.height * W / crop.width)), Image.LANCZOS)
+    return Display(W, H, np.asarray(crop), 0, None)
+
+
+def displays_for(p, roles, video=False, caps=None, glass=None, brand=None):
+    """glass: template meta['glass'] (needed for flat screens to know their content resolution).
+    brand: designs.Brand (needed for the 'social' screen)."""
     caps = caps or captures(p)
     url = domain(p)
     out = {}
     for r in roles:
         dtype, still, vid, off = ROLE_SOURCES[r]
+        if dtype == 'social':
+            if brand is None: continue
+            import designs as DS
+            W, H = IPHONE17PRO['px']; sb = IPHONE17PRO['status_h']
+            grid = DS.social_grid(brand, W, H, sb)
+            ov, top = iphone_overlay((250, 250, 250), url)
+            ov = np.asarray(ov).copy(); ov[top:] = 0          # status bar only (no Safari pill)
+            out[r] = Display(W, H, np.asarray(grid), 0, ov)
+            continue
         src = caps[vid if video else still]
         if src is None:
             continue
-        out[r] = make_display(dtype, src, url, off)
+        if dtype == 'flat':
+            px = (glass or {}).get(r, {}).get('px') or (2400, 1500)
+            out[r] = flat_display(r, src, px)
+        elif dtype == 'ipad_p':
+            d = ipad_portrait_display(src, url)
+            d.offset = min(d.max_offset, off * (d.H - d.top) * d.cscale)
+            out[r] = rotated(d)
+        else:
+            out[r] = make_display(dtype, src, url, off)
     return out
+
+
+def ipad_portrait_display(src, url):
+    W, H = IPADPRO13['px'][1], IPADPRO13['px'][0]
+    ov, top = ipad_overlay(url, W=W, H=H)
+    return Display(W, H, np.asarray(src), top, np.asarray(ov))
+
+
+def rotated(d):
+    d.rot = 90
+    return d
