@@ -64,7 +64,7 @@ export const suppliedMedia: Record<string, SuppliedSet> = {
     hero: "/media/cases/eredivisietoppers/s-eredivisie-07-eredivisie-pack-opening.mp4",
     cover: "/media/cases/eredivisietoppers/s-eredivisie-01-eredivisie-hero.webp",
     images: [
-      { src: "/media/cases/eredivisietoppers/s-eredivisie-01-eredivisie-hero.webp", title: "Eredivisietoppers — Hero: logo, floating iPhone & flying player cards" },
+      { src: "/media/cases/eredivisietoppers/s-eredivisie-01-eredivisie-hero.webp", title: "Eredivisietoppers — Hero: badge, floating iPhone & flying cards" },
       { src: "/media/cases/eredivisietoppers/s-eredivisie-02-eredivisie-collection.webp", title: "Eredivisietoppers — Card collection fan" },
       { src: "/media/cases/eredivisietoppers/s-eredivisie-03-eredivisie-lineup.webp", title: "Eredivisietoppers — Line-up on a 3D pitch" },
       { src: "/media/cases/eredivisietoppers/s-eredivisie-04-eredivisie-live-duel.webp", title: "Eredivisietoppers — Live duel report" },
@@ -72,7 +72,7 @@ export const suppliedMedia: Record<string, SuppliedSet> = {
       { src: "/media/cases/eredivisietoppers/s-eredivisie-06-eredivisie-grid.webp", title: "Eredivisietoppers — Grid on pink with phone & cards" },
       { src: "/media/cases/eredivisietoppers/s-pitchdecks-02-eredivisie-macbook-hero.webp", title: "Eredivisietoppers — App presentation on MacBook" },
       { src: "/media/cases/eredivisietoppers/s-pitchdecks-07-eredivisie-card-fan.webp", title: "Eredivisietoppers — Printed slide cards" },
-      { src: "/media/cases/eredivisietoppers/s-pitchdecks-08-pitchdecks-overview.webp", title: "Pitch decks by M7 — Overview" },
+      { src: "/media/cases/eredivisietoppers/s-pitchdecks-08-pitchdecks-overview.webp", title: "Pitch decks — Three-deck overview" },
     ],
     films: [
       { src: "/media/cases/eredivisietoppers/s-eredivisie-07-eredivisie-pack-opening.mp4", poster: "/media/cases/eredivisietoppers/s-eredivisie-07-eredivisie-pack-opening.webp", w: 1920, h: 1080, title: "Eredivisietoppers — Pack opening" },
@@ -95,7 +95,7 @@ export const suppliedMedia: Record<string, SuppliedSet> = {
       { src: "/media/cases/expociety-app/s-pitchdecks-01-expociety-ipad-hero.webp", title: "Expociety — Investor deck cover on iPad Pro" },
       { src: "/media/cases/expociety-app/s-pitchdecks-04-expociety-booklet.webp", title: "Expociety — Printed landscape booklet" },
       { src: "/media/cases/expociety-app/s-pitchdecks-05-expociety-slide-wall.webp", title: "Expociety — Slide wall" },
-      { src: "/media/cases/expociety-app/s-pitchdecks-08-pitchdecks-overview.webp", title: "Pitch decks by M7 — Overview" },
+      { src: "/media/cases/expociety-app/s-pitchdecks-08-pitchdecks-overview.webp", title: "Pitch decks — Three-deck overview" },
     ],
     films: [
       { src: "/media/cases/expociety-app/s-expociety-08-expociety-phones-cycle.mp4", poster: "/media/cases/expociety-app/s-expociety-08-expociety-phones-cycle.webp", w: 1920, h: 1080, title: "Expociety — Three phones, screens cycling" },
@@ -131,7 +131,7 @@ export const suppliedMedia: Record<string, SuppliedSet> = {
       { src: "/media/cases/infrai/s-infra-citex-05-infraxpec-ar-closeup.webp", title: "InfraXpec — AR inspection close-up" },
       { src: "/media/cases/infrai/s-pitchdecks-03-infrai-ipad-hero.webp", title: "InfrAI — Pitch deck cover on iPad Pro" },
       { src: "/media/cases/infrai/s-pitchdecks-06-infrai-presentation-room.webp", title: "InfrAI — Deck on stage screen" },
-      { src: "/media/cases/infrai/s-pitchdecks-08-pitchdecks-overview.webp", title: "Pitch decks by M7 — Overview" },
+      { src: "/media/cases/infrai/s-pitchdecks-08-pitchdecks-overview.webp", title: "Pitch decks — Three-deck overview" },
     ],
     films: [
       { src: "/media/cases/infrai/s-infra-citex-06-infraxpec-phones-float.mp4", poster: "/media/cases/infrai/s-infra-citex-06-infraxpec-phones-float.webp", w: 1920, h: 1080, title: "InfraXpec — Floating iPhones, screens switching" },
@@ -175,9 +175,7 @@ export const suppliedMedia: Record<string, SuppliedSet> = {
     ],
   },
   "mindyourpass": {
-    cover: "/media/cases/mindyourpass/s-projects-06-mindyourpass.webp",
     images: [
-      { src: "/media/cases/mindyourpass/s-projects-06-mindyourpass.webp", title: "MindYourPass — Password Generator & Cyber Dashboard" },
       { src: "/media/cases/mindyourpass/s-phones.webp" },
       { src: "/media/cases/mindyourpass/s-phone-clean.webp" },
       { src: "/media/cases/mindyourpass/s-dashboard.webp" },
