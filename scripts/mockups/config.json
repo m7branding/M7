@@ -4,11 +4,14 @@
     "repairlab",
     "jurgh-detailing",
     "buitenstate",
-    "kippenkar"
+    "kippenkar",
+    "maarschall",
+    "expociety-app",
+    "esmailly-bouw",
+    "nktv"
   ],
   "noScreens": [],
   "exclude": [
-    "expociety-branding",
     "plenty-planet-content"
   ],
   "heroVideo": {
