@@ -1303,8 +1303,10 @@ html.js [data-reveal="cx"].is-in > img {
     #0b0b0e;
 }
 .cx-media--stage .cx-media__el {
-  inset: 7% auto;
+  top: 7%;
+  bottom: 7%;
   left: 50%;
+  right: auto;
   width: auto;
   height: 86%;
   object-fit: contain;
@@ -1320,7 +1322,8 @@ html.js [data-reveal="cx"].is-in > img {
     aspect-ratio: 4 / 5;
   }
   .cx-media--stage .cx-media__el {
-    inset: 5% auto;
+    top: 5%;
+    bottom: 5%;
     height: 90%;
   }
 }
