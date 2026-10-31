@@ -997,6 +997,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     screens: { desktop: "/media/cases/misterglass/screen-desktop.webp", mobile: "/media/cases/misterglass/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/misterglass/r-hero-a.mp4", poster: "/media/cases/misterglass/r-hero-a.webp" },
     logo: "/media/cases/misterglass/logo-white.svg",
+    next: "/media/cases/misterglass/r-next.webp",
   },
   "monvy": {
     cover: "/media/cases/monvy/m-cover.webp",
