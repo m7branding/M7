@@ -7,14 +7,22 @@
      (/media/cases/<slug>/r-hero*.mp4 + poster): per reel een handvol projecten
      uit één discipline, één clip per case, met een link naar de case.
    De overstap gaat vanzelf: zodra `showreels` niet leeg is, wint de echte film.
+   Een film telt pas mee als zijn bestand ook echt in public/ staat (onDisk).
+
+   De cases-hero en de opening van World of M7 spelen de reel "masterpieces"
+   (M7's top-25, content/masterpieces.ts) zodra die geregistreerd is én de
+   bestanden er staan; tot dan de hoogtepunten (cases) of een reeks hero-clips
+   van de masterpieces zelf (World of M7).
    ============================================================ */
 
+import { MASTERPIECE_SLUGS } from "@/content/masterpieces";
 import type { ServiceSlug } from "@/content/registry";
 import { showreels, type Showreel } from "@/content/showreels";
 import type { Case, Locale, T } from "@/content/types";
 import { allCases, getCase } from "@/lib/content";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
+import { onDisk } from "./onDisk";
 
 /** Eén videobestand in een reel. */
 export interface ReelClip {
@@ -79,12 +87,17 @@ const HIGHLIGHTS: T = { nl: "Uitgelicht", en: "Highlights" };
 /** Clips per terugval-reel: ±6–10 s per clip, samen ongeveer een halve minuut. */
 const PER_REEL = 5;
 
-export const hasFilms = () => showreels.length > 0;
+const MASTERPIECES_TITLE: T = { nl: "Masterpieces", en: "Masterpieces" };
+
+/** Gerenderde showreels waarvan het bestand er echt staat (een geregistreerde maar nog niet geleverde film telt niet). */
+const films = () => showreels.filter((s) => onDisk(s.src) && onDisk(s.poster));
+
+export const hasFilms = () => films().length > 0;
 
 /* ---------------- cases ---------------- */
 
 /** Cases met een hero-clip, in de volgorde van het overzicht. */
-const withClip = () => allCases().filter((c) => c.heroVideo?.src);
+const withClip = () => allCases().filter((c) => c.heroVideo?.src && onDisk(c.heroVideo.src));
 
 export const inDiscipline = (c: Pick<Case, "services">, key: DisciplineKey) => {
   const d = DISCIPLINES.find((x) => x.key === key)!;
@@ -129,10 +142,12 @@ export function disciplineCases(key: DisciplineKey, list: Case[] = withClip()) {
 
 function film(s: Showreel, locale: Locale): Reel {
   const cases = s.cases.map((slug) => getCase(slug)).filter((c): c is Case => Boolean(c));
+  // varianten alleen als ze er staan; anders speelt overal de hoofdversie
+  const opt = (src?: string) => (onDisk(src) ? src : undefined);
   return {
     slug: s.slug,
     title: tr(s.title, locale),
-    clips: [{ src: s.src, srcMobile: s.srcMobile, srcPortrait: s.srcPortrait, poster: s.poster, posterPortrait: s.posterPortrait }],
+    clips: [{ src: s.src, srcMobile: opt(s.srcMobile), srcPortrait: opt(s.srcPortrait), poster: s.poster, posterPortrait: opt(s.posterPortrait) }],
     cases: cases.map(caseRef),
     film: true,
   };
@@ -148,7 +163,7 @@ function fit(s: Showreel, key: DisciplineKey) {
 /** De gerenderde showreel die het best bij een discipline past (slug eerst, dan de cases), of niets. */
 function filmFor(key: DisciplineKey, used: Set<string>): Showreel | undefined {
   const d = DISCIPLINES.find((x) => x.key === key)!;
-  const free = showreels.filter((s) => !used.has(s.slug));
+  const free = films().filter((s) => !used.has(s.slug));
   const byHint = free.find((s) => d.hint.test(s.slug) || d.hint.test(s.title.en));
   if (byHint) return byHint;
   const best = free.map((s) => ({ s, f: fit(s, key) })).sort((a, b) => b.f - a.f)[0];
@@ -162,7 +177,7 @@ function filmFor(key: DisciplineKey, used: Set<string>): Showreel | undefined {
  * uitgelichte cases plus één per discipline, telkens met andere projecten.
  */
 export function casesReels(locale: Locale): Reel[] {
-  if (hasFilms()) return showreels.map((s) => film(s, locale));
+  if (hasFilms()) return films().map((s) => film(s, locale));
   const all = withClip();
   const used = new Set<string>();
   const out: Reel[] = [];
@@ -196,8 +211,8 @@ function chapterFilms(): Partial<Record<DisciplineKey, Showreel>> {
 export function introReels(locale: Locale): Reel[] {
   if (hasFilms()) {
     const taken = new Set(Object.values(chapterFilms()).map((f) => f!.slug));
-    const free = showreels.filter((s) => !taken.has(s.slug));
-    return (free.length ? free : showreels.slice(0, 1)).map((s) => film(s, locale));
+    const free = films().filter((s) => !taken.has(s.slug));
+    return (free.length ? free : films().slice(0, 1)).map((s) => film(s, locale));
   }
   const all = withClip();
   const used = new Set<string>();
@@ -223,4 +238,35 @@ export function disciplineReels(locale: Locale): Record<DisciplineKey, Reel | nu
     }
   }
   return out;
+}
+
+/* ---------------- masterpieces ---------------- */
+
+/** De gerenderde masterpieces-reel: alleen als hij in generated/showreels.ts staat én het bestand er is. */
+const masterpiecesFilm = () => films().find((s) => s.slug === "masterpieces");
+
+/**
+ * Achtergrond van de cases-hero: één reel, zonder hoofdstukken. De masterpieces-reel zodra
+ * die er is, tot dan de hoogtepunten; zonder films de eerste terugval-reel.
+ */
+export function casesHeroReel(locale: Locale): Reel | null {
+  const f = masterpiecesFilm() ?? films().find((s) => s.slug === "highlights");
+  if (f) return film(f, locale);
+  return casesReels(locale)[0] ?? null;
+}
+
+/** De overige reels (de "hoofdstukken"), voor de knoppen onder de cases-hero. */
+export function chapterReels(locale: Locale, without?: string): Reel[] {
+  return casesReels(locale).filter((r) => r.film && r.slug !== without);
+}
+
+/**
+ * Opening van World of M7: de masterpieces-reel zodra die er is; tot dan een reeks
+ * hero-clips van de masterpieces zelf (in M7's volgorde), zodat de pagina alleen topwerk toont.
+ */
+export function masterpiecesReel(locale: Locale, n = 6): Reel | null {
+  const f = masterpiecesFilm();
+  if (f) return film(f, locale);
+  const list = MASTERPIECE_SLUGS.map((slug) => getCase(slug)).filter((c): c is Case => Boolean(c?.heroVideo?.src && onDisk(c.heroVideo.src) && onDisk(c.heroVideo.poster)));
+  return sequence("masterpieces", tr(MASTERPIECES_TITLE, locale), list, new Set(), n);
 }

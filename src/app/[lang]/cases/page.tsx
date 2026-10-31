@@ -4,6 +4,9 @@ import { CasesFilter } from "@/components/sections/CasesFilter";
 import { LevelUp } from "@/components/sections/Home";
 import { LogoWall } from "@/components/sections/LogoWall";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { HERO_COPY, showreelLabels } from "@/components/showreel/copy";
+import { ReelChips } from "@/components/showreel/ReelChips";
+import { casesHeroReel, chapterReels } from "@/components/showreel/reels";
 import { ShowreelHero } from "@/components/showreel/ShowreelHero";
 import { CaseCard } from "@/components/ui/CaseCard";
 import { Icon } from "@/components/ui/Icon";
@@ -45,6 +48,9 @@ export default function CasesPage({ params }: P) {
   });
   const usedServices = allServices().filter((s) => cases.some((c) => c.services.includes(s.slug)));
   const usedSectors = allSectors().filter((s) => cases.some((c) => c.sector === s.slug));
+  // hero: één reel (masterpieces zodra die er is); de andere reels als knoppen boven het filter
+  const reel = casesHeroReel(locale);
+  const chapters = chapterReels(locale, reel?.slug);
 
   return (
     <>
@@ -55,23 +61,29 @@ export default function CasesPage({ params }: P) {
           { name: d.nav.cases, path: paths.cases },
         ]}
         crumbsLabel={d.misc.breadcrumbs}
-        title={[{ t: "A grasp of our " }, { t: "masterpieces.", c: "g-stars" }]}
-        count={[
-          { value: cases.length, label: "cases" },
-          { value: usedSectors.length, label: d.nav.sectors.toLowerCase() },
-        ]}
-        line={d.cases.intro}
+        reel={reel}
+        words="Masterpieces by"
+        sub={tr(HERO_COPY.sub, locale)}
       >
-        <a href="#alle-cases" className="link-dash">
-          {locale === "nl" ? "Bekijk het werk" : "See the work"}
-        </a>
         <TLink href={paths.world} className="srh__world">
           {d.nav.world}
-          <Icon name="arrowUpRight" size={16} stroke={2.2} />
+          <Icon name="arrowUpRight" size={15} stroke={2.2} />
         </TLink>
       </ShowreelHero>
       <section className="section section--tight ov-body" id="alle-cases" aria-label={d.nav.allCases}>
         <div className="container">
+          {/* feiten en de overige showreels (de "hoofdstukken"), bewust uit de hero gehaald */}
+          <div className="cbar" data-reveal="up">
+            <p className="cbar__facts">
+              <span className="cbar__fact">
+                <span className="count-pill">{cases.length}</span> cases
+              </span>
+              <span className="cbar__fact">
+                <strong>{usedSectors.length}</strong> {d.nav.sectors.toLowerCase()}
+              </span>
+            </p>
+            <ReelChips reels={chapters} labels={showreelLabels(locale)} title={tr(HERO_COPY.reels, locale)} close={tr(HERO_COPY.close, locale)} />
+          </div>
           <CasesFilter
             services={usedServices.map((s) => ({ slug: s.slug, label: tr(s.short, locale), color: s.color }))}
             sectors={usedSectors.map((s) => ({ slug: s.slug, label: tr(s.title, locale) }))}

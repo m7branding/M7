@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-import { M7EmblemDraw } from "@/components/brand/M7Logo";
+import { M7DrawTitle } from "@/components/brand/M7DrawTitle";
 import { OverlayButton } from "@/components/overlay/OverlayButton";
 import { Avatars } from "@/components/support/Avatars";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -26,54 +25,11 @@ export function teamCount(locale: Locale) {
 }
 
 /**
- * H1 "Welcome to the world of [M7]." (Engels, zoals de andere H1's). Zelfde
- * woord-reveal als SplitText (.split/.w), maar "M7" is het echte emblem dat
- * zich tekent als technische tekening (zie aboutHeroMark.css). De naam voor
- * schermlezers en zoekmachines blijft "Welcome to the world of M7."
+ * H1 "Welcome to the world of [M7]." (Engels, zoals de andere H1's): woord-reveal met
+ * het echte emblem dat zich tekent als technische tekening (gedeeld: M7DrawTitle).
  */
 function WorldTitle() {
-  const words = ["Welcome", "to", "the", "world"];
-  return (
-    <>
-      <svg className="ah-m7__gdef" aria-hidden="true" focusable="false">
-        <defs>
-          {/* zelfde verloop als --g-pixels (95deg), in de coördinaten van het emblem (89 × 51) */}
-          <linearGradient id="ahm-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="89" y2="7.8">
-            <stop offset="0" stopColor="#3affff" />
-            <stop offset="0.45" stopColor="#22ffb4" />
-            <stop offset="1" stopColor="#18ff59" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <h1
-        id="ah-title"
-        className="split h-hero ah__title ah__title--world"
-        data-reveal=""
-        style={{ ["--d" as string]: "0.1s" }}
-        aria-label="Welcome to the world of M7."
-      >
-        {words.map((w, i) => (
-          <Fragment key={w}>
-            <span className="w" aria-hidden="true">
-              <span style={{ ["--i" as string]: i }}>{w}</span>
-            </span>{" "}
-          </Fragment>
-        ))}
-        <span className="ah-of">
-          <span className="w" aria-hidden="true">
-            <span style={{ ["--i" as string]: words.length }}>of</span>
-          </span>{" "}
-          <span className="ah-m7">
-            <M7EmblemDraw />
-            <span className="visually-hidden">M7</span>
-          </span>
-          <span className="ah-m7__dot g-pixels" aria-hidden="true">
-            .
-          </span>
-        </span>
-      </h1>
-    </>
-  );
+  return <M7DrawTitle id="ah-title" className="h-hero ah__title ah__title--world" words="Welcome to the world of" dot delay={0.1} />;
 }
 
 /**

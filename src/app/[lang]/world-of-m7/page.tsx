@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { ClientMap } from "@/components/about/ClientMap";
-import { LogoMarquee } from "@/components/sections/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { worldData } from "@/components/world/data";
-import { WorldChapters, WorldCta, WorldIntro, WorldManifest, WorldStrip, WorldWall } from "@/components/world/World";
+import { WorldScenes } from "@/components/world/World";
 import { site } from "@/content/site";
 import type { Locale } from "@/content/types";
 import { getDict } from "@/lib/dict";
@@ -14,13 +12,13 @@ import { abs, breadcrumbLd, buildMetadata, orgId } from "@/lib/seo";
 type P = { params: { lang: Locale } };
 
 function meta(locale: Locale) {
-  const s = worldData(locale).stats;
+  const n = worldData(locale).stats.masterpieces;
   const nl = locale === "nl";
   return {
-    title: nl ? "World of M7 | Showreels en werk in beweging | M7" : "World of M7 | Showreels and work in motion | M7",
+    title: nl ? "World of M7 | Onze masterpieces in beweging | M7" : "World of M7 | Our masterpieces in motion | M7",
     description: nl
-      ? `Stap in de wereld van M7: een scrollende reis langs showreels van ${s.cases} cases, van branding en websites tot apps en content, voor klanten in ${s.countries} landen.`
-      : `Step into the world of M7: a scrolling journey through showreels of ${s.cases} cases, from branding and websites to apps and content, for clients in ${s.countries} countries.`,
+      ? `Stap in de wereld van M7: onze ${n} masterpieces op hun mooiste momenten, van apps en een brandbook dat openslaat tot interacties en websites.`
+      : `Step into the world of M7: our ${n} masterpieces at their finest moments, from apps and a brandbook that opens to interactions and websites.`,
   };
 }
 
@@ -29,9 +27,10 @@ export function generateMetadata({ params }: P): Metadata {
 }
 
 /**
- * World of M7: schermvullende, scrollgestuurde ervaring met showreels van het werk.
- * Opening (showreel + "Welcome to the world of M7."), manifest, horizontale reel-strip,
- * hoofdstukken per discipline, projectwand, klantlogo's, de klantenkaart en een afsluitende CTA.
+ * World of M7: een scrollgestuurde reis langs M7's masterpieces (content/masterpieces.ts).
+ * Opening ("Welcome to the world of M7", het emblem tekent zich), quotes in M7's eigen stem,
+ * en per hoofdstuk het mooiste moment: apps, het brandbook, Eredivisietoppers, interactiefilms
+ * en websites; dan alle masterpieces en een afsluitende CTA. Wat erin staat: components/world/data.ts.
  */
 export default function WorldPage({ params }: P) {
   const locale = params.lang;
@@ -42,16 +41,7 @@ export default function WorldPage({ params }: P) {
 
   return (
     <>
-      <WorldIntro locale={locale} data={data} />
-      <WorldManifest locale={locale} data={data} />
-      <WorldStrip locale={locale} data={data} />
-      <WorldChapters locale={locale} data={data} />
-      <WorldWall locale={locale} data={data} />
-      <div className="wl">
-        <LogoMarquee />
-      </div>
-      <ClientMap locale={locale} variant="home" />
-      <WorldCta locale={locale} />
+      <WorldScenes locale={locale} data={data} />
       <JsonLd
         data={[
           {

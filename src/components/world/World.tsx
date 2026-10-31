@@ -1,14 +1,20 @@
 /* ============================================================
-   World of M7: een schermvullende, scrollgestuurde reis door het
-   werk van M7. Elke scène is een vastgepinde sectie (ScrollStage)
-   waarvan de beweging in world.css zit (transform/opacity uit --p).
-   Mobiel en bij reduced motion: rustige, niet-vastgepinde varianten.
+   World of M7: een scrollgestuurde reis langs M7's masterpieces, op
+   hun mooiste momenten. Elke scène is een vastgepinde sectie
+   (ScrollStage) waarvan de beweging in world.css zit (transform en
+   opacity uit --p). Tussen de scènes: korte quotes in M7's eigen stem.
+   Mobiel en bij reduced motion: rustige, ontworpen varianten zonder pin
+   (behalve de opening en de quotes, die zijn licht genoeg).
+   Wat er in elke scène staat: data.ts.
    ============================================================ */
 
+import { Fragment } from "react";
+import { M7DrawTitle } from "@/components/brand/M7DrawTitle";
 import { Aurora } from "@/components/motion/Aurora";
 import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
 import { IntakeCta } from "@/components/overlay/OverlayButton";
+import { DesignersHouseBook } from "@/components/showcase/DesignersHouseBook";
 import { showreelLabels } from "@/components/showreel/copy";
 import { ShowreelPlayer } from "@/components/showreel/ShowreelPlayer";
 import { Btn } from "@/components/ui/Button";
@@ -18,7 +24,7 @@ import type { Locale, T } from "@/content/types";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
-import type { WorldChapter, WorldData, WorldTile } from "./data";
+import type { AppScene, Snip, WorldData } from "./data";
 import { LazyVideo } from "./LazyVideo";
 import { ScrollStage } from "./ScrollStage";
 import { WhenNear } from "./WhenNear";
@@ -27,26 +33,32 @@ import "./world.css";
 
 const COPY = {
   introSub: {
-    nl: "Een reis door ons werk. Scroll mee langs de merken, websites, apps en content die we bouwden.",
-    en: "A journey through our work. Scroll past the brands, websites, apps and content we've built.",
+    nl: "Onze {n} masterpieces op hun mooiste momenten. Apps, merken en interacties, van dichtbij.",
+    en: "Our {n} masterpieces at their finest moments. Apps, brands and interactions, up close.",
   },
   scroll: { nl: "Scroll", en: "Scroll" },
-  sectors: { nl: "sectoren", en: "sectors" },
-  services: { nl: "diensten", en: "services" },
-  countries: { nl: "landen", en: "countries" },
-  manifest: {
-    nl: "Elk merk is een eigen wereld. Wij bouwen ze, van logo tot platform en van campagne tot app. {cases} cases in {sectors} sectoren, voor klanten in {countries} landen. Allemaal vanuit Nistelrode.",
-    en: "Every brand is a world of its own. We build them, from logo to platform and from campaign to app. {cases} cases in {sectors} sectors, for clients in {countries} countries. All from Nistelrode.",
+  appsText: {
+    nl: "Interfaces die je wilt gebruiken. Van dashboard tot app, in beweging.",
+    en: "Interfaces people want to use. From dashboard to app, in motion.",
   },
-  stripKicker: { nl: "Op de rol", en: "On the reel" },
-  stripText: {
-    nl: "{n} projecten uit {s} sectoren, elk met een eigen clip. Klik er een aan voor het hele verhaal.",
-    en: "{n} projects from {s} sectors, each with its own clip. Click one for the full story.",
+  brandText: {
+    nl: "Een merk dat je kunt vastpakken. Scroll en blader door het brandbook van {client}.",
+    en: "A brand you can hold. Scroll to leaf through the {client} brandbook.",
   },
-  chapterCases: { nl: "cases", en: "cases" },
-  more: { nl: "Meer over", en: "More about" },
-  wallTitleA: { nl: "Eén project.", en: "One project." },
-  wallTitleB: { nl: "En nog {n}.", en: "And {n} more." },
+  brandMore: { nl: "Meer merken in deze wereld", en: "More brands in this world" },
+  brandWall: { nl: "Merken die blijven hangen.", en: "Brands that stay with you." },
+  filmsKicker: { nl: "UI in beweging", en: "UI in motion" },
+  filmsTitle: { nl: "Interactie, van dichtbij.", en: "Interaction, up close." },
+  filmsText: {
+    nl: "Echte flows uit onze websites en tools: zoeken, kiezen, aanvragen. Klik een film voor de hele case.",
+    en: "Real flows from our websites and tools: searching, choosing, requesting. Click a film for the full case.",
+  },
+  sitesText: {
+    nl: "Websites met karakter, tot in het kleinste detail. Scroll door de stapel.",
+    en: "Websites with character, down to the smallest detail. Scroll through the stack.",
+  },
+  wallTitleA: { nl: "{n} masterpieces.", en: "{n} masterpieces." },
+  wallTitleB: { nl: "En nog veel meer.", en: "And plenty more." },
   wallCta: { nl: "Bekijk alle {n} cases", en: "View all {n} cases" },
   ctaKicker: { nl: "Jouw project", en: "Your project" },
   ctaLead: {
@@ -55,50 +67,83 @@ const COPY = {
   },
 } satisfies Record<string, T>;
 
-const LINES: Record<WorldChapter["key"], T> = {
-  branding: { nl: "Logo's, huisstijlen, rebrandings en print.", en: "Logos, identities, rebrands and print." },
-  websites: { nl: "Websites, webshops en platforms, van eerste schets tot livegang.", en: "Websites, web shops and platforms, from first sketch to launch." },
-  apps: { nl: "Web-apps, portalen, configurators en automations op maat.", en: "Custom web apps, portals, configurators and automations." },
-  content: { nl: "Campagnes, fotografie, video en 3D die het verhaal vertellen.", en: "Campaigns, photography, video and 3D that tell the story." },
-};
+/** Quotes over merken, in M7's eigen stem (bewust zonder naam erbij). */
+export const QUOTES = {
+  attention: {
+    nl: "Een sterk merk vraagt geen aandacht. Het krijgt hem.",
+    en: "A strong brand doesn't ask for attention. It earns it.",
+  },
+  feel: {
+    nl: "Goed ontwerp zie je niet. Je voelt het, bij elke klik.",
+    en: "You don't see good design. You feel it, with every click.",
+  },
+  world: {
+    nl: "Elk merk begint als een idee. Wij geven het een wereld om in te leven.",
+    en: "Every brand starts as an idea. We give it a world to live in.",
+  },
+} satisfies Record<string, T>;
 
 const fill = (s: string, vars: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ""));
 const pad = (n: number) => String(n).padStart(2, "0");
 
-/* ---------------- 1. Opening: schermvullende showreel ---------------- */
-export function WorldIntro({ locale, data }: { locale: Locale; data: WorldData }) {
+/**
+ * Plekken voor de zwevende UI in de opening: x/y (% van het scherm), breedte (vw), diepte, draaiing.
+ * Renders (3:2) en telefoons (staand) hebben elk hun eigen plekken, rond de kop en onder de navigatie.
+ */
+const FLOAT_SLOTS = {
+  still: [
+    { x: 12, y: 31, w: 15, z: 1.25, r: -6 },
+    { x: 88, y: 77, w: 15, z: 1.15, r: -4 },
+    { x: 25, y: 85, w: 11, z: 0.8, r: 3 },
+    { x: 75, y: 21, w: 9, z: 0.65, r: 5 },
+  ],
+  phone: [
+    { x: 89, y: 35, w: 6.4, z: 1, r: 6 },
+    { x: 8, y: 71, w: 6, z: 1.4, r: 5 },
+    { x: 65, y: 87, w: 5.4, z: 0.75, r: -7 },
+    { x: 37, y: 21, w: 4.8, z: 0.6, r: -4 },
+  ],
+};
+
+/* ---------------- Opening: "Welcome to the world of M7" ---------------- */
+export function WorldHero({ locale, data }: { locale: Locale; data: WorldData }) {
   const L = (t: T) => tr(t, locale);
-  const s = data.stats;
-  const facts = [
-    { v: s.cases, l: "cases" },
-    { v: s.sectors, l: L(COPY.sectors) },
-    { v: s.services, l: L(COPY.services) },
-    { v: s.countries, l: L(COPY.countries) },
-  ];
   return (
-    <ScrollStage className="wi" aria-labelledby="wi-title">
-      <div className="wi__pin">
-        <div className="wi__frame">
-          <ShowreelPlayer reels={data.intro} labels={showreelLabels(locale)} ui="caption" className="wi__player" priority />
-        </div>
-        <div className="wi__text">
-          <p className="kicker kicker--center wi__kicker" data-reveal="fade">
+    <ScrollStage className="wh" aria-labelledby="wh-title">
+      <div className="wh__pin">
+        <div className="wh__sky" aria-hidden="true" />
+        {data.reel ? (
+          <div className="wh__portal">
+            <ShowreelPlayer reels={[data.reel]} labels={showreelLabels(locale)} ui="caption" className="wh__player" priority />
+          </div>
+        ) : null}
+        <ul className="wh__floats">
+          {data.heroFloats.map((f, i) => {
+            const s = FLOAT_SLOTS[f.kind][data.heroFloats.slice(0, i).filter((x) => x.kind === f.kind).length];
+            if (!s) return null;
+            return (
+              <li
+                key={f.src}
+                className={`wh__float wh__float--${f.kind}`}
+                style={{ ["--x" as string]: s.x, ["--y" as string]: s.y, ["--w" as string]: s.w, ["--z" as string]: s.z, ["--r" as string]: `${s.r}deg`, ["--k" as string]: i }}
+              >
+                <span className="wh__bob">
+                  <img src={f.src} alt={f.alt} loading={i < 4 ? "eager" : "lazy"} decoding="async" />
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="wh__text">
+          <p className="kicker kicker--center wh__kicker" data-reveal="fade">
             World of M7
           </p>
-          <SplitText as="h1" id="wi-title" className="h-hero wi__title" parts={[{ t: "Welcome to the world of " }, { t: "M7.", c: "g-pixels" }]} delay={0.15} />
-          <p className="wi__sub" data-reveal="up" style={{ ["--d" as string]: "0.6s" }}>
-            {L(COPY.introSub)}
+          <M7DrawTitle id="wh-title" className="h-hero wh__title" words="Welcome to the world of" dot delay={0.15} />
+          <p className="wh__sub" data-reveal="up" style={{ ["--d" as string]: "0.6s" }}>
+            {fill(L(COPY.introSub), { n: data.stats.masterpieces })}
           </p>
         </div>
-        <ul className="wi__facts" aria-label="M7">
-          {facts.map((f) => (
-            <li key={f.l}>
-              <strong>{f.v}</strong>
-              <span>{f.l}</span>
-            </li>
-          ))}
-        </ul>
-        <span className="wi__cue" aria-hidden="true">
+        <span className="wh__cue" aria-hidden="true">
           <span>{L(COPY.scroll)}</span>
           <i />
         </span>
@@ -107,123 +152,233 @@ export function WorldIntro({ locale, data }: { locale: Locale; data: WorldData }
   );
 }
 
-/* ---------------- 2. Manifest: woorden lichten op bij het scrollen ---------------- */
-export function WorldManifest({ locale, data }: { locale: Locale; data: WorldData }) {
-  const s = data.stats;
-  const nums = new Set([String(s.cases), String(s.sectors), String(s.countries)]);
-  const text = fill(tr(COPY.manifest, locale), { cases: s.cases, sectors: s.sectors, countries: s.countries });
-  const words = text.split(" ");
+/* ---------------- Quote: woorden lichten op bij het scrollen ---------------- */
+export function WorldQuote({ locale, quote, id }: { locale: Locale; quote: T; id: string }) {
+  const words = tr(quote, locale).split(" ");
   return (
-    <ScrollStage className="wm" aria-label={locale === "nl" ? "Over de wereld van M7" : "About the world of M7"}>
-      <div className="wm__pin">
-        <p className="wm__text" style={{ ["--n" as string]: words.length }}>
-          {words.map((w, i) => (
-            <span key={i} className={nums.has(w) ? "wm__w wm__w--num g-pixels" : "wm__w"} style={{ ["--i" as string]: i }}>
-              {w}{" "}
-            </span>
+    <ScrollStage className="wq" aria-label={locale === "nl" ? "Quote van M7" : "Quote by M7"} id={id}>
+      <div className="wq__pin">
+        <figure className="wq__fig">
+          <span className="wq__mark g-pixels" aria-hidden="true">
+            “
+          </span>
+          <blockquote className="wq__text" style={{ ["--n" as string]: words.length }}>
+            <p>
+              {words.map((w, i) => (
+                <span key={i} className="wq__w" style={{ ["--i" as string]: i }}>
+                  {w}{" "}
+                </span>
+              ))}
+            </p>
+          </blockquote>
+        </figure>
+      </div>
+    </ScrollStage>
+  );
+}
+
+/** Scènekop: hoofdstuknummer, titel, korte regel. */
+function SceneHead({ n, id, title, text, className }: { n: number; id: string; title: React.ReactNode; text?: string; className?: string }) {
+  return (
+    <header className={`wsh${className ? " " + className : ""}`}>
+      <p className="wsh__n">
+        <span>{pad(n)}</span>
+        <i aria-hidden="true" />
+      </p>
+      <h2 id={id} className="wsh__title">
+        {title}
+      </h2>
+      {text ? <p className="wsh__text">{text}</p> : null}
+    </header>
+  );
+}
+
+/* ---------------- 01 Apps & portalen: per app een paneel, vastgepind ---------------- */
+export function WorldApps({ locale, data, n }: { locale: Locale; data: WorldData; n: number }) {
+  if (!data.apps.length) return null;
+  const L = (t: T) => tr(t, locale);
+  const d = getDict(locale);
+  const count = data.apps.length;
+  return (
+    <ScrollStage className="wa" steps={count} aria-labelledby="wa-title" style={{ ["--n" as string]: count }}>
+      <div className="wa__pin">
+        <SceneHead n={n} id="wa-title" title={data.groups.apps} text={L(COPY.appsText)} className="wa__head" />
+        <ol className="wa__dots" aria-hidden="true">
+          {data.apps.map((a, i) => (
+            <li key={a.slug} style={{ ["--i" as string]: i }}>
+              <span>{a.client}</span>
+            </li>
           ))}
-        </p>
-      </div>
-    </ScrollStage>
-  );
-}
-
-/* ---------------- 3. Reel strip: horizontaal, scrubt mee met de scroll ---------------- */
-export function WorldStrip({ locale, data }: { locale: Locale; data: WorldData }) {
-  const L = (t: T) => tr(t, locale);
-  const sectors = new Set(data.strip.map((t) => t.sector)).size;
-  return (
-    <ScrollStage className="ws" track=".ws__track" aria-labelledby="ws-title">
-      <div className="ws__pin">
-        <div className="ws__track">
-          <div className="ws__head">
-            <p className="kicker">{L(COPY.stripKicker)}</p>
-            <h2 id="ws-title" className="h1 ws__title">
-              Work in <span className="g-pixels">motion.</span>
-            </h2>
-            <p className="ws__text">{fill(L(COPY.stripText), { n: data.strip.length, s: sectors })}</p>
-          </div>
-          <ul className="ws__list">
-            {data.strip.map((t, i) => (
-              <li key={t.slug} className="ws__item" style={{ ["--i" as string]: i }}>
-                <StripTile t={t} i={i} label={getDict(locale).cta.viewCase} />
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="ws__bar" aria-hidden="true">
-          <span />
+        </ol>
+        <div className="wa__panels">
+          {data.apps.map((a, i) => (
+            <AppPanel key={a.slug} a={a} i={i} count={count} label={d.cta.viewCase} />
+          ))}
         </div>
       </div>
     </ScrollStage>
   );
 }
 
-function StripTile({ t, i, label }: { t: WorldTile; i: number; label: string }) {
+function AppPanel({ a, i, count, label }: { a: AppScene; i: number; count: number; label: string }) {
   return (
-    <TLink href={t.href} className="ws__tile" data-cursor={label} style={{ ["--accent" as string]: t.color }}>
-      <span className="ws__media">
-        <img src={t.video?.poster || t.image} alt="" loading="lazy" decoding="async" />
-        {t.video ? <LazyVideo src={t.video.src} srcMobile={t.video.srcMobile} className="ws__video" play={0.55} /> : null}
-      </span>
-      <span className="ws__cap">
-        <span className="ws__num">{pad(i + 1)}</span>
-        <span className="ws__client">{t.client}</span>
-        <span className="ws__sector">{t.sector}</span>
-      </span>
-      <span className="ws__name">{t.title}</span>
-    </TLink>
-  );
-}
-
-/* ---------------- 4. Hoofdstukken per discipline ---------------- */
-export function WorldChapters({ locale, data }: { locale: Locale; data: WorldData }) {
-  return (
-    <>
-      {data.chapters.map((ch, i) => (
-        <WorldChapterScene key={ch.key} locale={locale} ch={ch} i={i} n={data.chapters.length} />
-      ))}
-    </>
-  );
-}
-
-function WorldChapterScene({ locale, ch, i, n }: { locale: Locale; ch: WorldChapter; i: number; n: number }) {
-  const L = (t: T) => tr(t, locale);
-  const id = `wc-${ch.key}`;
-  return (
-    <ScrollStage className="wc" aria-labelledby={id}>
-      <div className="wc__pin" style={{ ["--accent" as string]: ch.color }}>
-        <div className="wc__win">
-          {ch.reel ? <ShowreelPlayer reels={[ch.reel]} labels={showreelLabels(locale)} ui="mini" className="wc__player" /> : null}
-        </div>
-        <p className="wc__idx" aria-hidden="true">
-          <span>{pad(i + 1)}</span> / {pad(n)}
+    <article className="wa__panel" data-i={i} style={{ ["--i" as string]: i, ["--accent" as string]: a.color }} aria-labelledby={`wa-${a.slug}`}>
+      <div className="wa__glow" aria-hidden="true" />
+      <div className="wa__copy">
+        <p className="wa__idx">
+          {pad(i + 1)} <span>/ {pad(count)}</span>
         </p>
-        <div className="wc__head">
-          <h2 id={id} className="wc__title">
-            {ch.title}
-          </h2>
+        <h3 id={`wa-${a.slug}`} className="wa__client">
+          {a.client}
+        </h3>
+        <p className="wa__title">{a.title}</p>
+        <p className="wa__moment">
+          <i aria-hidden="true" />
+          {a.moment}
+        </p>
+        <TLink href={a.href} className="link-dash wa__link">
+          {label}
+        </TLink>
+      </div>
+      <div className="wa__stage">
+        <div className="wa__film">
+          <img src={a.film.poster} alt={`${a.client}: ${a.moment}`} loading="lazy" decoding="async" />
+          <LazyVideo src={a.film.src} className="wa__video" play={0.3} step={i} />
         </div>
-        <div className="wc__info">
-          <p className="wc__line">
-            <span className="wc__n">
-              <span className="count-pill wc__count">{ch.count}</span> {L(COPY.chapterCases)}
-            </span>
-            <span className="wc__sep" aria-hidden="true" />
-            <span>{L(LINES[ch.key])}</span>
+        {a.snippets.map((s, k) => (
+          <SnipCard key={s.src} s={s} k={k} />
+        ))}
+      </div>
+    </article>
+  );
+}
+
+/** Zwevend UI-fragment: telefoon of browser met een echte (lange) screenshot die meescrolt, of een render. */
+function SnipCard({ s, k }: { s: Snip; k: number }) {
+  return (
+    <figure className={`wa__snip wa__snip--${s.kind} wa__snip--${s.at}${k > 1 ? " wa__snip--extra" : ""}`} style={{ ["--k" as string]: k }}>
+      <span className="wa__snip-in">
+        {s.kind === "screen" ? (
+          <span className="wa__bar" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </span>
+        ) : null}
+        <span className="wa__screen">
+          <img src={s.src} alt={s.alt} loading="lazy" decoding="async" />
+        </span>
+      </span>
+    </figure>
+  );
+}
+
+/* ---------------- 02 Branding: het brandbook slaat open, bladzijde voor bladzijde ---------------- */
+export function WorldBrand({ locale, data, n }: { locale: Locale; data: WorldData; n: number }) {
+  const b = data.brandbook;
+  if (!b) return null;
+  const L = (t: T) => tr(t, locale);
+  const d = getDict(locale);
+  return (
+    <ScrollStage className="wb" aria-labelledby="wb-title" style={{ ["--accent" as string]: b.color }}>
+      <div className="wb__pin">
+        <div className="wb__glow" aria-hidden="true" />
+        <div className="wb__copy">
+          <SceneHead n={n} id="wb-title" title={data.groups.branding} text={fill(L(COPY.brandText), { client: b.client })} />
+          <p className="wb__case">
+            <strong>{b.client}</strong>
+            <span>{b.title}</span>
           </p>
-          <ul className="wc__cases">
-            {ch.cases.map((c) => (
-              <li key={c.href}>
-                <TLink href={c.href}>
-                  {c.client}
-                  <Icon name="arrowUpRight" size={13} stroke={2.2} />
-                </TLink>
-              </li>
-            ))}
-          </ul>
-          <TLink href={ch.service.href} className="link-dash wc__more">
-            {L(COPY.more)} {ch.service.title}
+          <TLink href={b.href} className="link-dash">
+            {d.cta.viewCase}
+          </TLink>
+          {data.brandMembers.length ? (
+            <div className="wb__more">
+              <p>{L(COPY.brandMore)}</p>
+              <ul>
+                {data.brandMembers.slice(0, 8).map((m) => (
+                  <li key={m.slug}>
+                    <TLink href={m.href} style={{ ["--accent" as string]: m.color }}>
+                      <span className="wb__dot" aria-hidden="true" />
+                      {m.client}
+                    </TLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+        <div className="wb__book">
+          <div className="show" role="img" aria-label={`${b.client}: ${b.label}`}>
+            <DesignersHouseBook />
+          </div>
+        </div>
+      </div>
+    </ScrollStage>
+  );
+}
+
+/** Merk-renders en (later) brand sheets van de masterpieces uit de groep Branding, in drie kolommen met parallax. */
+export function WorldBrandWall({ locale, data }: { locale: Locale; data: WorldData }) {
+  if (data.brandWall.length < 3) return null;
+  const L = (t: T) => tr(t, locale);
+  const d = getDict(locale);
+  const n = data.brandWall.length >= 6 ? 3 : 2;
+  const cols = Array.from({ length: n }, (_, c) => data.brandWall.filter((_, i) => i % n === c));
+  return (
+    <ScrollStage className="wbw" pass aria-labelledby="wbw-title">
+      <div className="wbw__in">
+        <h2 id="wbw-title" className="wbw__title" data-reveal="up">
+          {L(COPY.brandWall)}
+        </h2>
+        <div className="wbw__cols" style={{ ["--cols" as string]: n }}>
+          {cols.map((col, c) => (
+            <ul key={c} className="wbw__col" style={{ ["--c" as string]: c - (n - 1) / 2 }}>
+              {col.map((t) => (
+                <li key={t.slug}>
+                  <TLink href={t.href} className="wbw__tile" data-cursor={d.cta.viewCase} style={{ ["--accent" as string]: t.color }}>
+                    <img src={t.image} alt={t.alt} loading="lazy" decoding="async" />
+                    <span className="wbw__cap">{t.client}</span>
+                  </TLink>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
+    </ScrollStage>
+  );
+}
+
+/* ---------------- 03 Spotlight (Eredivisietoppers): drie animaties waaieren uit ---------------- */
+export function WorldSpotlight({ locale, data, n }: { locale: Locale; data: WorldData; n: number }) {
+  const s = data.spotlight;
+  if (!s) return null;
+  const d = getDict(locale);
+  return (
+    <ScrollStage className="we" aria-labelledby="we-title" style={{ ["--accent" as string]: s.color }}>
+      <div className="we__pin">
+        <div className="we__glow" aria-hidden="true" />
+        <p className="we__word" aria-hidden="true">
+          {s.client}
+        </p>
+        <ul className="we__fan">
+          {s.films.map((f, i) => (
+            <li key={f.src} className={`we__card we__card--${i}${/social|4x5/i.test(f.src) ? " we__card--tall" : ""}`} style={{ ["--k" as string]: i }}>
+              <figure>
+                <span className="we__media">
+                  <img src={f.poster} alt={`${s.client}: ${f.label}`} loading="lazy" decoding="async" />
+                  <LazyVideo src={f.src} className="we__video" play={0.35} />
+                </span>
+                <figcaption>{f.label}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+        <div className="we__copy">
+          <SceneHead n={n} id="we-title" title={s.client} text={s.title} />
+          <TLink href={s.href} className="link-dash">
+            {d.cta.viewCase}
           </TLink>
         </div>
       </div>
@@ -231,7 +386,95 @@ function WorldChapterScene({ locale, ch, i, n }: { locale: Locale; ch: WorldChap
   );
 }
 
-/* ---------------- 5. Projectwand: van één project naar heel veel ---------------- */
+/* ---------------- 04 Interactie: horizontale rij films, scrubt mee met de scroll ---------------- */
+export function WorldFilms({ locale, data, n }: { locale: Locale; data: WorldData; n: number }) {
+  if (!data.flows.length) return null;
+  const L = (t: T) => tr(t, locale);
+  const d = getDict(locale);
+  return (
+    <ScrollStage className="wf" track=".wf__track" aria-labelledby="wf-title">
+      <div className="wf__pin">
+        <div className="wf__track">
+          <div className="wf__head">
+            <SceneHead n={n} id="wf-title" title={L(COPY.filmsTitle)} text={L(COPY.filmsText)} />
+            <p className="wf__kicker">
+              <span className="wf__rec" aria-hidden="true" />
+              {L(COPY.filmsKicker)}
+            </p>
+          </div>
+          <ul className="wf__list">
+            {data.flows.map((f, i) => (
+              <li key={f.src} className="wf__item" style={{ ["--i" as string]: i, ["--accent" as string]: f.color }}>
+                <TLink href={f.href} className="wf__tile" data-cursor={d.cta.viewCase}>
+                  <span className="wf__media">
+                    <img src={f.poster} alt={`${f.client}: ${f.label}`} loading="lazy" decoding="async" />
+                    <LazyVideo src={f.src} className="wf__video" play={0.55} />
+                  </span>
+                  <span className="wf__cap">
+                    <span className="wf__num">{pad(i + 1)}</span>
+                    <span className="wf__client">{f.client}</span>
+                  </span>
+                  <span className="wf__name">{f.label}</span>
+                </TLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="wf__bar" aria-hidden="true">
+          <span />
+        </div>
+      </div>
+    </ScrollStage>
+  );
+}
+
+/* ---------------- 05 Websites & platforms: kaarten stapelen zich op (sticky) ---------------- */
+export function WorldSites({ locale, data, n }: { locale: Locale; data: WorldData; n: number }) {
+  if (!data.sites.length) return null;
+  const L = (t: T) => tr(t, locale);
+  const d = getDict(locale);
+  return (
+    <section className="wt" aria-labelledby="wt-title">
+      <div className="wt__in">
+        <SceneHead n={n} id="wt-title" title={data.groups.websites} text={L(COPY.sitesText)} className="wt__head" />
+        <ol className="wt__stack">
+          {data.sites.map((s, i) => (
+            <li key={s.slug} className="wt__card" style={{ ["--i" as string]: i, ["--accent" as string]: s.color }}>
+              <TLink href={s.href} className="wt__link" data-cursor={d.cta.viewCase}>
+                <span className="wt__media">
+                  <picture>
+                    {s.video!.posterMobile ? <source media="(max-width: 760px)" srcSet={s.video!.posterMobile} /> : null}
+                    <img src={s.video!.poster} alt="" loading="lazy" decoding="async" />
+                  </picture>
+                  <LazyVideo src={s.video!.src} srcMobile={s.video!.srcMobile} className="wt__video" play={0.45} />
+                </span>
+                <span className="wt__shade" aria-hidden="true" />
+                <span className="wt__info">
+                  <span className="wt__n">
+                    {pad(i + 1)} <span>/ {pad(data.sites.length)}</span>
+                  </span>
+                  <strong className="wt__client">{s.client}</strong>
+                  <span className="wt__title">{s.title}</span>
+                  <span className="wt__go">
+                    {d.cta.viewCase}
+                    <Icon name="arrowUpRight" size={14} stroke={2.2} />
+                  </span>
+                </span>
+                {s.image !== s.video!.poster ? (
+                  <span className="wt__float">
+                    <img src={s.image} alt={s.alt} loading="lazy" decoding="async" />
+                  </span>
+                ) : null}
+              </TLink>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Finale: van één masterpiece naar allemaal ---------------- */
 /**
  * Plekken rond het middelste project (x, y in % van het scherm, breedte in vw, diepte):
  * een losse collage, ruim buiten het midden (dat is 30–70% breed en hoog).
@@ -256,7 +499,6 @@ export function WorldWall({ locale, data }: { locale: Locale; data: WorldData })
   const L = (t: T) => tr(t, locale);
   const d = getDict(locale);
   const c = data.center;
-  const total = data.stats.cases;
   return (
     <ScrollStage className="ww" aria-labelledby="ww-title">
       <div className="ww__pin">
@@ -270,7 +512,7 @@ export function WorldWall({ locale, data }: { locale: Locale; data: WorldData })
                 style={{ ["--x" as string]: s.x, ["--y" as string]: s.y, ["--w" as string]: s.w, ["--z" as string]: s.z, ["--accent" as string]: t.color }}
               >
                 <TLink href={t.href} data-cursor={d.cta.viewCase} aria-label={`${t.client}: ${t.title}`}>
-                  <img src={t.image} alt="" loading="lazy" decoding="async" />
+                  <img src={t.image} alt={t.alt} loading="lazy" decoding="async" />
                   <span className="ww__cap" aria-hidden="true">
                     {t.client}
                   </span>
@@ -294,10 +536,10 @@ export function WorldWall({ locale, data }: { locale: Locale; data: WorldData })
         ) : null}
         <div className="ww__end">
           <h2 id="ww-title" className="ww__title">
-            {L(COPY.wallTitleA)} <span className="g-stars ww__more">{fill(L(COPY.wallTitleB), { n: total - 1 })}</span>
+            {fill(L(COPY.wallTitleA), { n: data.stats.masterpieces })} <span className="g-stars ww__more">{L(COPY.wallTitleB)}</span>
           </h2>
           <Btn href={paths.cases} variant="light" size="sm">
-            {fill(L(COPY.wallCta), { n: total })}
+            {fill(L(COPY.wallCta), { n: data.stats.cases })}
           </Btn>
         </div>
       </div>
@@ -305,7 +547,7 @@ export function WorldWall({ locale, data }: { locale: Locale; data: WorldData })
   );
 }
 
-/* ---------------- 6. Afsluiter: sterke CTA ---------------- */
+/* ---------------- Afsluiter: sterke CTA ---------------- */
 export function WorldCta({ locale }: { locale: Locale }) {
   const L = (t: T) => tr(t, locale);
   const d = getDict(locale);
@@ -338,5 +580,33 @@ export function WorldCta({ locale }: { locale: Locale }) {
         </div>
       </div>
     </section>
+  );
+}
+
+/** Alle scènes in volgorde; hoofdstuknummers tellen alleen de scènes die er echt zijn. */
+export function WorldScenes({ locale, data }: { locale: Locale; data: WorldData }) {
+  const order = [
+    data.apps.length ? "apps" : null,
+    data.brandbook ? "brand" : null,
+    data.spotlight ? "spot" : null,
+    data.flows.length ? "films" : null,
+    data.sites.length ? "sites" : null,
+  ].filter(Boolean) as string[];
+  const num = (k: string) => order.indexOf(k) + 1;
+  return (
+    <Fragment>
+      <WorldHero locale={locale} data={data} />
+      <WorldQuote locale={locale} quote={QUOTES.attention} id="quote-1" />
+      <WorldApps locale={locale} data={data} n={num("apps")} />
+      <WorldBrand locale={locale} data={data} n={num("brand")} />
+      <WorldBrandWall locale={locale} data={data} />
+      <WorldQuote locale={locale} quote={QUOTES.feel} id="quote-2" />
+      <WorldSpotlight locale={locale} data={data} n={num("spot")} />
+      <WorldFilms locale={locale} data={data} n={num("films")} />
+      <WorldQuote locale={locale} quote={QUOTES.world} id="quote-3" />
+      <WorldSites locale={locale} data={data} n={num("sites")} />
+      <WorldWall locale={locale} data={data} />
+      <WorldCta locale={locale} />
+    </Fragment>
   );
 }

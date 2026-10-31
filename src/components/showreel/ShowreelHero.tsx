@@ -1,57 +1,50 @@
-import { SplitText } from "@/components/motion/SplitText";
+import { M7DrawTitle } from "@/components/brand/M7DrawTitle";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import type { Locale } from "@/content/types";
 import { showreelLabels } from "./copy";
-import { casesReels } from "./reels";
+import type { Reel } from "./reels";
 import { ShowreelPlayer } from "./ShowreelPlayer";
 import "./showreel.css";
 
-type Seg = string | { t: string; c?: string };
-
 /**
  * Compacte showreel-hero bovenaan /cases: een afgeronde, ingesprongen beeldsectie van
- * ongeveer min(78vh, 780px), zodat de catalogus eronder al in beeld komt. De showreel
- * speelt muted in een lus (eerst de poster); rechtsonder wissel je tussen de reels,
- * met voortgangslijnen. Linksonder over een donker verloop: H1, het aantal cases en een korte regel.
- * Welke reels: zie reels.ts (gerenderde showreels, anders hero-clips van cases).
+ * ongeveer min(78vh, 780px), zodat de catalogus eronder al in beeld komt. Bewust eenvoudig:
+ * één reel als achtergrond (muted, in een lus, eerst de poster; geen hoofdstukken) met
+ * alleen een pauzeknop, en linksonder de kop "<woorden> [M7]" waarin het M7-emblem zich
+ * tekent (M7DrawTitle), een korte ondertitel en een kleine glazen knop (children).
+ * Welke reel: casesHeroReel (reels.ts). De feiten en de overige reels staan onder de hero.
  */
 export function ShowreelHero({
   locale,
   crumbs,
   crumbsLabel,
-  title,
-  count,
-  line,
+  reel,
+  words,
+  sub,
   children,
 }: {
   locale: Locale;
   crumbs: { name: string; path: string }[];
   crumbsLabel: string;
-  title: Seg[] | string;
-  /** Feitjes naast elkaar, bv. ["86 cases", "16 sectoren"]; het eerste getal krijgt een pill. */
-  count: { value: number; label: string }[];
-  line?: string;
+  reel: Reel | null;
+  /** De woorden vóór het M7-emblem, bv. "Masterpieces by". */
+  words: string;
+  sub?: string;
   children?: React.ReactNode;
 }) {
-  const reels = casesReels(locale);
   return (
     <section className="srh" aria-labelledby="srh-title">
-      <ShowreelPlayer reels={reels} labels={showreelLabels(locale)} className="srh__frame" priority>
+      <ShowreelPlayer reels={reel ? [reel] : []} labels={showreelLabels(locale)} ui="mini" className="srh__frame" priority>
         <div className="srh__top">
           <Breadcrumbs items={crumbs} locale={locale} label={crumbsLabel} />
         </div>
         <div className="srh__main">
-          <SplitText as="h1" id="srh-title" className="h-hero srh__title" parts={title} delay={0.1} />
-          <p className="srh__line" data-reveal="up" style={{ ["--d" as string]: "0.3s" }}>
-            <span className="srh__facts">
-              {count.map((c, i) => (
-                <span key={c.label} className="srh__fact">
-                  {i === 0 ? <span className="count-pill srh__pill">{c.value}</span> : <strong>{c.value}</strong>} {c.label}
-                </span>
-              ))}
-            </span>
-            {line ? <span className="srh__lead">{line}</span> : null}
-          </p>
+          <M7DrawTitle id="srh-title" className="h-hero srh__title" words={words} delay={0.1} />
+          {sub ? (
+            <p className="srh__sub" data-reveal="up" style={{ ["--d" as string]: "0.3s" }}>
+              {sub}
+            </p>
+          ) : null}
           {children ? (
             <div className="srh__cta" data-reveal="up" style={{ ["--d" as string]: "0.42s" }}>
               {children}

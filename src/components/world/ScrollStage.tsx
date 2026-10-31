@@ -14,17 +14,28 @@ import { useScroll } from "@/components/motion/SmoothScroll";
  * data-end="1" zodra de scène voor 60% doorlopen is (links in het eindbeeld pas dan klikbaar).
  * `track`: selector van een horizontale rij; de overloop (px) komt in --dist,
  * zodat de CSS de sectie precies zo hoog maakt als de rij lang is.
+ * `steps`: de scène heeft zoveel panelen na elkaar; data-step (0 … steps-1) staat op de sectie
+ * zolang hij vastgepind is (niet op mobiel of bij reduced motion). LazyVideo speelt daarop
+ * alleen het actieve paneel; een paneel ([data-i]) dat focus krijgt, scrollt in beeld.
+ * `pass`: niet vastgepind; --p loopt van 0 → 1 terwijl de sectie door het beeld schuift
+ * (onderkant scherm → bovenkant), voor parallax.
  */
 export function ScrollStage({
   as: Tag = "section",
   className,
   track,
+  steps,
+  pass = false,
+  style,
   children,
   ...rest
 }: {
   as?: "section" | "div";
   className?: string;
   track?: string;
+  steps?: number;
+  pass?: boolean;
+  style?: React.CSSProperties;
   children: React.ReactNode;
   id?: string;
   "aria-label"?: string;
@@ -33,18 +44,27 @@ export function ScrollStage({
   const ref = useRef<HTMLElement>(null);
   const geo = useRef({ top: 0, len: 1 });
   const last = useRef(-1);
+  /** Stappen actief (vastgepind, breed scherm, met beweging)? */
+  const stepping = useRef(false);
 
-  const update = useCallback((y: number) => {
-    const el = ref.current;
-    if (!el) return;
-    const { top, len } = geo.current;
-    const p = Math.min(1, Math.max(0, (y - top) / len));
-    if (Math.abs(p - last.current) < 0.0004) return;
-    const end = p >= 0.6;
-    if (end !== last.current >= 0.6 || last.current < 0) el.dataset.end = end ? "1" : "0";
-    last.current = p;
-    el.style.setProperty("--p", p.toFixed(4));
-  }, []);
+  const update = useCallback(
+    (y: number) => {
+      const el = ref.current;
+      if (!el) return;
+      const { top, len } = geo.current;
+      const p = Math.min(1, Math.max(0, (y - top) / len));
+      if (Math.abs(p - last.current) < 0.0004) return;
+      const end = p >= 0.6;
+      if (end !== last.current >= 0.6 || last.current < 0) el.dataset.end = end ? "1" : "0";
+      last.current = p;
+      el.style.setProperty("--p", p.toFixed(4));
+      if (steps && stepping.current) {
+        const s = String(Math.min(steps - 1, Math.floor(p * steps)));
+        if (el.dataset.step !== s) el.dataset.step = s;
+      }
+    },
+    [steps],
+  );
 
   const measure = useCallback(() => {
     const el = ref.current;
@@ -54,10 +74,16 @@ export function ScrollStage({
       if (t) el.style.setProperty("--dist", String(Math.max(0, Math.round(t.scrollWidth - el.clientWidth))));
     }
     const top = el.getBoundingClientRect().top + window.scrollY;
-    geo.current = { top, len: Math.max(1, el.offsetHeight - window.innerHeight) };
+    geo.current = pass
+      ? { top: top - window.innerHeight, len: Math.max(1, el.offsetHeight + window.innerHeight) }
+      : { top, len: Math.max(1, el.offsetHeight - window.innerHeight) };
+    if (steps) {
+      stepping.current = !window.matchMedia("(max-width: 760px), (prefers-reduced-motion: reduce)").matches;
+      if (!stepping.current) delete el.dataset.step;
+    }
     last.current = -1;
     update(window.scrollY);
-  }, [track, update]);
+  }, [track, update, pass, steps]);
 
   useScroll((s) => update(s));
 
@@ -81,6 +107,24 @@ export function ScrollStage({
     return () => el.removeEventListener("focusin", onFocus);
   }, [track]);
 
+  // toetsenbord in een scène met stappen: het paneel met de focus wordt de actieve stap
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !steps) return;
+    const onFocus = (e: FocusEvent) => {
+      if (!stepping.current) return;
+      const panel = (e.target as HTMLElement).closest<HTMLElement>("[data-i]");
+      if (!panel || !el.contains(panel)) return;
+      const i = Number(panel.dataset.i);
+      const y = geo.current.top + ((i + 0.5) / steps) * geo.current.len;
+      const l = (window as unknown as { __lenis?: { scrollTo: (y: number, o?: object) => void } }).__lenis;
+      if (l) l.scrollTo(y, { immediate: true });
+      else window.scrollTo(0, y);
+    };
+    el.addEventListener("focusin", onFocus);
+    return () => el.removeEventListener("focusin", onFocus);
+  }, [steps]);
+
   useEffect(() => {
     measure();
     // alles erboven kan nog van hoogte veranderen (lazy beelden, fonts): dan opnieuw meten
@@ -101,7 +145,7 @@ export function ScrollStage({
   }, [measure]);
 
   return (
-    <Tag ref={ref as React.Ref<HTMLElement & HTMLDivElement>} className={className} {...rest}>
+    <Tag ref={ref as React.Ref<HTMLElement & HTMLDivElement>} className={className} style={style} data-steps={steps} {...rest}>
       {children}
     </Tag>
   );
