@@ -2,7 +2,7 @@ import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); 
 """D05 iPhone leaning against a concrete block on a recolourable floor."""
 def build():
     SK.env(0.25)
-    SK.floor('floor', tex='concrete_wall_006', scale=1.0)
+    SK.cyc('floor', tex='concrete_wall_006', y=0.55, radius=0.35, width=20.0)      # sweep: no horizon in the low camera
     blk = T.tint_material('block', tex='concrete_wall_006', scale=0.5, contrast=0.9)
     SK.block('block', (0.20, 0.09, 0.11), blk, loc=(0.0, 0.05, 0.0))
     ph = R.iphone17pro('Phone', screen='iphone-home.png', finish='spaceblack')

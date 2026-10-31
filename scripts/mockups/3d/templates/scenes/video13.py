@@ -52,7 +52,8 @@ HERO_BRAND = ['b03_poster_wall__a', 'b06_wall_logo__b', 'b04_posters_lean__a', '
               'b03_poster_wall__b', 'b04_posters_lean__b', 'b07_aframe__b', 'b08_flags__a', 'b01_cards__b', 'b02_letterhead__a',
               'b12_letter_mac__b', 'b11_cards_phone__b', 'b09_brochure__b', 'b05_emboss__b', 'b06_wall_logo__a', 'b10_sticker__a',
               'b10_sticker__b', 'b13_social_phone__a', 'b13_social_phone__b']
-SMALL = ('phone', 'tablet')       # device classes for variety between shot A and B
+SMALL = ('phone', 'tablet')
+MACRO = {'d12_macro_phone__a', 'd12_macro_phone__b', 'd13_macro_mac__a', 'd13_macro_mac__b', 't2_closeup', 'd14_billboard__b'}       # device classes for variety between shot A and B
 
 
 def h(s):
@@ -67,7 +68,7 @@ def dev_class(t, lib):
 
 
 # ---------------------------------------------------------------------------------------------- plan
-def make_plan():
+def make_plan(keep=None):
     """3 shots per project: A = a strong device composition (not the cover), C = a branding scene (or a device
     shot on the darkened brand colour), B = another device class. Templates that are already used by many hero
     videos are penalised, and no two projects get the same combination."""
@@ -75,8 +76,13 @@ def make_plan():
     plan = json.load(open(os.path.join(B13.R13, 'plan.json')))
     lib = B13.library(final=False)
     used = set(); out = {}; cnt = Counter()
+    keep = keep or {}
+    for slug, shots in keep.items():              # already rendered: keep as they are
+        ts = tuple(x['st']['t'] for x in shots); used.add(frozenset(ts)); cnt.update(ts)
     for slug, pl in plan.items():
         if slug in B13.PRESERVE: continue
+        if slug in keep:
+            out[slug] = keep[slug]; continue
         sts = {s['t']: s for s in pl['stills'] if s['t'] in lib and not lib[s['t']]['portrait']}
         rank = lambda L: (lambda t: (L.index(t) if t in L else 99) + 6 * cnt[t])
         dev = sorted((t for t in sts if lib[t]['roles']), key=rank(HERO_DEV))
@@ -92,12 +98,13 @@ def make_plan():
             brd = [t for t in brd if cnt[t] < 5]
         cands = []
         if dev:
-            for a in dev[:4]:
+            # A is a wide, readable composition; at most one macro close-up per hero
+            for a in [t for t in dev if t not in MACRO][:4] or dev[:4]:
                 bs = [t for t in dev if t != a and dev_class(t, lib) != dev_class(a, lib)] or [t for t in dev if t != a]
                 cs = [t for t in brd if t != a] or [t for t in dev if t != a]
                 for c in cs[:4]:
                     for b in bs[:4]:
-                        if b != c: cands.append((a, c, b))
+                        if b != c and sum(t in MACRO for t in (a, b, c)) <= 1: cands.append((a, c, b))
         else:
             for i, a in enumerate(brd[:4]):
                 for c in brd[i + 1:i + 5]:
@@ -155,6 +162,8 @@ def crop_rect(W, H, aspect, z, tx, ty, fx, fy, sw=0.0, sh=0.0):
 class Shot:
     def __init__(self, slug, case, caps, brand, spec, dcache):
         self.spec = spec; st = spec['st']
+        if not os.path.exists(os.path.join(C.TPL, st['t'], 'still_rgb.exr')):
+            raise RuntimeError(f"{slug}: no final render for {st['t']}")
         self.S = B13.setup_still(slug, case, st, caps, brand, dcache, {}, video=spec['scroll'])
         pp = self.S['pp']
         (cx, cy, bw, bh), (mx, my, mw, mh) = subject(pp)
@@ -312,7 +321,13 @@ if __name__ == '__main__':
     j = next((int(a[2:]) for a in sys.argv[1:] if a.startswith('-j')), 1)
     cmd = args[0]; t0 = time.time()
     if cmd == 'plan':
-        pl = make_plan(); print('hero plans', len(pl))
+        keep = {}
+        if '--keep-done' in args:        # projects whose hero is rendered keep their shots
+            old = json.load(open(os.path.join(B13.R13, 'hero_plan.json')))
+            log = os.path.join(B13.R13, 'logs', 'hero.log')
+            done = {l.split()[1] for l in open(log) if l.startswith('hero ')} if os.path.exists(log) else set()
+            keep = {s: old[s] for s in done if s in old and s not in args}
+        pl = make_plan(keep); print('hero plans', len(pl), 'kept', len(keep))
     else:
         pl = json.load(open(os.path.join(B13.R13, 'hero_plan.json')))
         sel = list(pl) if len(args) < 2 or args[1] == 'all' else args[1].split(',')

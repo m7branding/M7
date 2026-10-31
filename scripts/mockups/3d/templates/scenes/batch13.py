@@ -32,15 +32,17 @@ COVER_RANK = ['d01_desk_studio__a', 'd02_mac_top__b', 'd04_phone_trio__a', 't1_g
               'd11_ui_panels__a', 'd19_studio_front__b', 'd10_tablets_iso__a', 'd17_ipads_lean__a', 'd08_ipad_stand__b',
               'd09_ipad_keyboard__a', 'b12_letter_mac__a', 'd05_phone_lean__a', 'd18_mac_profile__b', 't3_plinth', 'd14_billboard__a',
               'b11_cards_phone__b', 'd20_gravity_alt__a', 'd02_mac_top__a', 'd03_flatlay__a', 'd06_phone_linen__b', 'd13_macro_mac__a',
-              'd01_desk_studio__b', 'd15_mac_phone_desk__b', 'd04_phone_trio__b', 'd07_phone_stone__a', 'b10_sticker__b',
+              'd01_desk_studio__b', 'd15_mac_phone_desk__b', 'd04_phone_trio__b', 'd07_phone_stone__a', 
               't5_ipads_dark', 'd10_tablets_iso__b', 'd11_ui_panels__b', 'd16_phone_plinth__b', 'd17_ipads_lean__b', 'd19_studio_front__a',
               'd09_ipad_keyboard__b', 'd20_gravity_alt__b', 'd14_billboard__b', 'd05_phone_lean__b', 'd06_phone_linen__a',
               'd07_phone_stone__b', 'd12_macro_phone__a', 'd13_macro_mac__b', 'd18_mac_profile__a', 'd08_ipad_stand__a',
-              'b13_social_phone__a', 'b11_cards_phone__a', 'b12_letter_mac__b', 'b10_sticker__a', 't2_closeup',
+              'd19_studio_front__c', 'd15_mac_phone_desk__c', 'd17_ipads_lean__c', 'd09_ipad_keyboard__c', 'd10_tablets_iso__c',
+              'd18_mac_profile__c', 'd08_ipad_stand__c', 'd11_ui_panels__c', 'd14_billboard__c',
+              'b13_social_phone__a', 'b11_cards_phone__a', 'b12_letter_mac__b', 't2_closeup',
               'b01_cards__a', 'b02_letterhead__b', 'b03_poster_wall__b', 'b04_posters_lean__a', 'b06_wall_logo__b', 'b07_aframe__a',
               'b08_flags__a', 'b09_brochure__b', 'b05_emboss__a', 'b06_wall_logo__c', 'b02_letterhead__a', 'b01_cards__b',
               'b09_brochure__a', 'b03_poster_wall__a', 'b04_posters_lean__b', 'b06_wall_logo__a', 'b07_aframe__b', 'b08_flags__b',
-              'b05_emboss__b', 'b13_social_phone__b', 'd12_macro_phone__b']
+              'b05_emboss__b', 'b10_sticker__b', 'b10_sticker__a', 'b13_social_phone__b', 'd12_macro_phone__b']
 NEUTRAL = {'light': ['#ECEBE7', '#E3E4E6', '#D7D5D0', '#CDCFD2'], 'dark': ['#2A2B2F', '#1D1E21', '#141518'], 'navy': ['#0B1426', '#0D1830']}
 FAM_TO_BG = {'light': ['white', 'light-grey', 'white-leaves', 'mid-grey', 'grey-plaster', 'white-dune', 'white-linen'],
              'dark': ['graphite', 'anthracite', 'near-black', 'anthracite-plaster', 'graphite-dune'],
@@ -48,7 +50,7 @@ FAM_TO_BG = {'light': ['white', 'light-grey', 'white-leaves', 'mid-grey', 'grey-
 
 
 # cases with a hand-made set from an earlier round: keep it, add only branding stills after it, no new cover / hero
-PRESERVE = {'misterglass': dict(offset=10, max=8, keep=lambda f: f[:5] in {f'r-{i:02d}' for i in range(1, 11)} or f.startswith('r-hero'))}
+PRESERVE = {'misterglass': dict(offset=10, max=8, keep=lambda f: f[:4] in {f'r-{i:02d}' for i in range(1, 11)} or f.startswith('r-hero'))}
 
 
 def h(s):
@@ -163,7 +165,7 @@ _PP = {}
 def prepared(t):
     """Developed template (cached on disk); falls back to the preview render while the final one is not there yet."""
     if t not in _PP:
-        if len(_PP) > 6: _PP.clear()
+        if len(_PP) > 1: _PP.clear()          # a developed template is ~1-1.5 GB in memory: keep few
         base = 'still' if os.path.exists(os.path.join(C.TPL, t, 'still_rgb.exr')) else 'pv'
         B.prep_one((t, base))
         _PP[t] = C.load_prepared(os.path.join(B.cache_dir(t), base + '.npz'))
@@ -175,11 +177,15 @@ def brand_for(slug, case, caps):
     if mono is None:
         return None
     p = P.projects().get(slug)
-    site = case.get('url') or ''
-    if not p and not site:
-        try: site = json.load(open(os.path.join(R13, 'brand', slug, 'meta.json'))).get('site') or ''
+    # URL printed on stationery: the case's verified URL, else the BRAND kit's site, else the captured site's
+    # domain; never a staging domain (*.webflow.io) — then no URL at all
+    dom = lambda u: (u or '').replace('https://', '').replace('http://', '').replace('www.', '').split('/')[0]
+    site = dom(case.get('url'))
+    if not site:
+        try: site = dom(json.load(open(os.path.join(R13, 'brand', slug, 'meta.json'))).get('site'))
         except Exception: site = ''
-    url = P.domain(p) if p else site.replace('https://', '').replace('http://', '').replace('www.', '').split('/')[0]
+    if not site and p: site = P.domain(p)
+    url = '' if site.endswith('webflow.io') else site
     b = D.Brand(slug, case['color'], url, mono, rgba=rgba, captures=caps)
     try:
         im = json.load(open(os.path.join(R13, 'brand', slug, 'imagery.json')))['images']
@@ -270,6 +276,9 @@ def stills_one(args):
     p = P.projects().get(slug)
     caps = P.captures(p) if p else {}
     brand = brand_for(slug, case, caps)
+    missing = [st['t'] for st in plan['stills'] if not os.path.exists(os.path.join(C.TPL, st['t'], 'still_rgb.exr'))]
+    if missing:      # never ship a preview-size render
+        raise RuntimeError(f'{slug}: no final render for {missing}')
     d = os.path.join(OUT, slug); src = os.path.join(d, 'src'); os.makedirs(src, exist_ok=True)
     for f in glob.glob(os.path.join(d, 'r-*.webp')) + glob.glob(os.path.join(src, 'r-*.png')):
         if 'r-hero' not in f: os.remove(f)
@@ -299,6 +308,21 @@ def sheet(slugs=None):
         if os.path.exists(f):
             im = Image.open(f).convert('RGB'); im.thumbnail((400, 260)); cells.append((im, f"{s}  [{plan[s].get('cover')}]"))
     _grid(cells, os.path.join(R13, 'sheet-covers.jpg'), F, cols=6, cw=410, chh=290)
+    # cases with their own cover: current cover next to the r-cover (to decide replaceCover)
+    cs = cases(); cells = []
+    pub = SITE.split('/media/cases')[0]
+    for s in slugs:
+        cur = cs[s].get('cover') or ''
+        f = os.path.join(OUT, s, 'r-cover.webp')
+        if not cur or cur.endswith('r-cover.webp') or not os.path.exists(f): continue
+        try:
+            a = Image.open(pub + cur).convert('RGB'); a.thumbnail((300, 200))
+        except Exception:
+            continue
+        b = Image.open(f).convert('RGB'); b.thumbnail((300, 200))
+        c = Image.new('RGB', (610, 200), (24, 24, 26)); c.paste(a, (0, 0)); c.paste(b, (310, 0))
+        cells.append((c, f"{s}: now {Image.open(pub + cur).size} | r-cover"))
+    _grid(cells, os.path.join(R13, 'sheet-cover-compare.jpg'), F, cols=3, cw=620, chh=230)
     # per-project directory sheets, 6 projects per page
     for k in range(0, len(slugs), 6):
         rows = []

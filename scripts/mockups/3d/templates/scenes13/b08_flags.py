@@ -22,7 +22,7 @@ def banner(name, w=0.6, h=1.8, amp=0.025, loc=(0, 0, 0), phase=0.0):
 def build():
     SK.env(0.18)
     SK.floor('floor', tex='concrete_floor_01', scale=3.0, size=14, contrast=0.6)
-    SK.wall('wall', y=2.5, size=14, h=6, tex='concrete_wall_006', scale=2.0)
+    SK.wall('wall', y=2.5, size=40, h=16, tex='concrete_wall_006', scale=2.0)
     for i, x in enumerate((-0.85, 0.0, 0.85)):
         banner(f'flag{i}', loc=(x, 0.4 + 0.15 * (i % 2), 2.1), phase=i * 1.7)
     k = R.area_light('key', (-3, -3, 4), (0, 0.5, 2.0), size=(3, 3), power=2500); k.visible_glossy = False

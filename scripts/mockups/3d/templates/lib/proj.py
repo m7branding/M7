@@ -35,6 +35,15 @@ def domain(p):
                     return re.sub(r'^https?://(www\.)?', '', d['url']).split('/')[0]
             except Exception:
                 pass
+    # the case's own (verified) URL
+    cj = os.path.join(SCR, 'r13', 'cases.json')
+    if os.path.exists(cj):
+        try:
+            u = next((c.get('url') for c in json.load(open(cj)) if c['slug'] == p['slug']), '')
+            if u:
+                return re.sub(r'^https?://(www\.)?', '', u).split('/')[0]
+        except Exception:
+            pass
     return p['slug'] + '.nl'
 
 

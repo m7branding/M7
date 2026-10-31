@@ -78,24 +78,30 @@ def make_plan():
         # round robin over projects, never the same template twice; alternate device / branding in 'mix'
         rnd = np.random.default_rng(h(R['slug']))
         rnd.shuffle(cands)
-        used_t, shots = set(), []
+        used_t, shots = {}, []
         want_brand = False
         seq = cands + [c for c in cands if len(cands) < R['n']]      # small pools: a project may come back once
         for slug, sts in seq:
             if len(shots) >= R['n']: break
             if shots and shots[-1]['slug'] == slug: continue
-            pref = [s for s in sts if s['t'] not in used_t]
+            lim = 2 if R['kind'] == 'brand' else 1          # one camera per scene per reel (two in the branding reel)
+            pref = [s for s in sts if s['t'] not in used_t and used_t.get(s['t'].split('__')[0], 0) < lim]
             if R['kind'] == 'mix':
                 pb = [s for s in pref if bool(lib[s['t']]['prints']) == want_brand and not (want_brand and lib[s['t']]['roles'])]
                 pref = pb or pref
             if not pref: continue
             st = pref[h(R['slug'] + slug) % len(pref)]
-            used_t.add(st['t'])
+            used_t[st['t']] = 1; sc = st['t'].split('__')[0]; used_t[sc] = used_t.get(sc, 0) + 1
             if R['kind'] == 'mix' and lib[st['t']]['prints'] and not lib[st['t']]['roles']: want_brand = False
             else: want_brand = (len(shots) % 3 == 1)
             shots.append(dict(slug=slug, st=st, move=RMOVES[len(shots) % len(RMOVES)], scroll=bool(lib[st['t']]['roles'])))
         n = len(shots)
         if not n: continue
+        if R['kind'] in ('mix', 'device'):      # open on a strong, wide device composition (it is also the poster)
+            best = [i for i, sh in enumerate(shots) if sh['st']['t'] in V.HERO_DEV[:14]]
+            if best and best[0] != 0:
+                i = best[0]; shots[0], shots[i] = shots[i], shots[0]
+                for k, sh in enumerate(shots): sh['move'] = RMOVES[k % len(RMOVES)]
         beats = [BEAT[i % len(BEAT)] for i in range(n)]
         k = 30.0 / sum(beats)
         for sh, b in zip(shots, beats):
@@ -142,9 +148,12 @@ def render(slug):
         if s not in brands: brands[s] = B13.brand_for(s, cs[s], caps)
         return V.Shot(s, cs[s], caps, brands[s], dict(st=sp['st'], move=sp['move'], scroll=sp['scroll']), {})
     tl = timeline([sp['dur'] for sp in R['shots']])
-    raw = os.path.join(OUTD, slug + '.raw')
+    raw = os.path.join(OUTD, slug + '.lossless.mkv')     # lossless intermediate (a raw dump would be ~4.5 GB)
     live = {}          # only the shots on screen are kept in memory
-    with open(raw, 'wb') as fh:
+    enc = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{RW}x{RH}', '-r', str(FPS),
+                            '-i', '-', '-c:v', 'libx264', '-preset', 'ultrafast', '-qp', '0', '-pix_fmt', 'yuv444p', raw], stdin=subprocess.PIPE)
+    fh = enc.stdin
+    if True:
         for f, items in enumerate(tl):
             need = {i for i, _, _ in items}
             for i in list(live):
@@ -159,12 +168,13 @@ def render(slug):
                 Image.fromarray(fr).save(os.path.join(OUTD, slug + '.webp'), quality=80, method=6)
             fh.write(fr.tobytes())
     live.clear()
+    fh.close(); enc.wait()
     sizes = {}
     for tag, W, H, out, crf0 in (('d', RW, RH, slug + '.mp4', 25), ('m', MW, MH, slug + '-m.mp4', 26)):
         mp4 = os.path.join(OUTD, out)
         for crf in (crf0, crf0 + 2, crf0 + 4, crf0 + 6, crf0 + 8):
             vf = [] if tag == 'd' else ['-vf', f'scale={MW}:{MH}:flags=lanczos']
-            cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{RW}x{RH}', '-r', str(FPS), '-i', raw,
+            cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-i', raw,
                    *vf, '-c:v', 'libx264', '-preset', 'slow', '-crf', str(crf), '-g', '96', '-bf', '3', '-x264-params', 'aq-mode=3',
                    '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', mp4]
             subprocess.run(cmd, check=True)

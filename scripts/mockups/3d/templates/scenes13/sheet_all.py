@@ -23,12 +23,12 @@ for k, (t, L) in enumerate(sorted(lib.items())):
         slug = ['jurgh-detailing', 'atl-plus', 'kippenkar', 'bernheze-makelaars-rebranding'][k % 4]
     else:
         slug = DEV[i_dev % len(DEV)]; i_dev += 1
-    fam = FAMS[k % len(FAMS)]
+    fam = os.environ.get('FORCE_FAM') or FAMS[k % len(FAMS)]
     st = dict(t=t, fam=fam)
     if L['transparent']:
         opts = B13.FAM_TO_BG[fam]; st['bg'] = opts[k % len(opts)]
     else:
-        st['tint'] = None if fam == 'brand' else B13.NEUTRAL[fam][k % len(B13.NEUTRAL[fam])]
+        st['tint'] = os.environ.get('FORCE_TINT') or (None if fam == 'brand' else B13.NEUTRAL[fam][k % len(B13.NEUTRAL[fam])])
     p = P.projects().get(slug); caps = P.captures(p) if p else {}
     try:
         im = B13.render_still(slug, cs[slug], st, caps, B13.brand_for(slug, cs[slug], caps), {}, {})

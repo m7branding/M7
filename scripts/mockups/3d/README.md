@@ -120,9 +120,9 @@ cd scripts/mockups/3d/templates/scenes13
 ./run_q.sh d01_desk_studio d02_mac_top … b13_social_phone   # finals, ~1,5–4 min per camera op 4 cores
 cd ../scenes
 ../../venv/bin/python batch13.py plan                        # r13/plan.json: 18 stills per project + unieke covers
-../../venv/bin/python batch13.py stills all -j3              # composieten + WebP binnen het budget (fit)
+../../venv/bin/python batch13.py stills all -j2              # composieten + WebP binnen het budget (fit); ~5 GB RAM per worker
 ../../venv/bin/python batch13.py sheet all && ../../venv/bin/python batch13.py install all
-../../venv/bin/python video13.py plan && ../../venv/bin/python video13.py hero all -j2
+../../venv/bin/python video13.py plan && ../../venv/bin/python video13.py hero all     # ~2 min per project, ~3 GB RAM
 ../../venv/bin/python reel13.py plan && ../../venv/bin/python reel13.py render && ../../venv/bin/python reel13.py install
 node scripts/mockups/write-manifest.mjs                      # vanaf de repo-root
 ```
@@ -144,3 +144,15 @@ node scripts/mockups/write-manifest.mjs                      # vanaf de repo-roo
   `src/content/generated/showreels.ts`.
 - `write-manifest.mjs` schrijft daarnaast `heroVideo.srcMobile` / `posterMobile` (`<naam>-m.mp4`) en `logo`
   (logo-white.svg|png, anders logo.svg|png).
+
+Praktisch (ronde 13):
+- 81 finals ≈ 1,5–4 min per camera op 4 cores (samen ~4 h); compositen daarna: stills ~1 min per project, hero ~2 min,
+  showreel ~4–7 min. Een ontwikkeld sjabloon kost in het geheugen ~1–1,5 GB: `batch13.prepared()` houdt er maar 2 vast;
+  meer workers dan het geheugen toelaat → de OOM-killer haalt een worker weg en `Pool` blijft hangen.
+- `stills` en `hero` weigeren een sjabloon zonder finale render (geen previews van 480×320 op de site).
+- Lage camera's staan op een sweep (`scenekit.cyc`, 20 m breed) of een vloer/wand van 20 m, zodat er nooit een
+  horizon of ongekleurde wereld in beeld komt; het wandlogo (b06) ligt 0,3 mm voor de wand (geen zichtbare plaatrand).
+- Showreels: slugs `highlights` (opent World of M7), `web`, `branding` (alleen printscènes, max. 2 camera's per scène),
+  `apps`, `content`, `brand-colour`; per reel één camera per scène; gemengde reels openen op een sterk toestelbeeld
+  (dat is ook de poster). Tussenbestand lossless x264 (geen rauwe dump van ~4,5 GB).
+- Logo-only cases zonder site krijgen geen hero-video (hun eigen film/foto blijft de hero).

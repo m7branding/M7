@@ -15,5 +15,5 @@ def build():
     SK.lights_soft(target=(0, 0, 1.2), key=(-1.5, -2.0, 2.2), key_power=500, fill_power=180, rim=False)
 SK.run('b03_poster_wall', build, {
     'a': dict(loc=(0.20, -2.5, 1.30), target=(0.22, 0.0, 1.18), lens=45),
-    'b': dict(loc=(-1.25, -1.9, 1.20), target=(0.12, 0.0, 1.30), lens=50),
+    'b': dict(loc=(-1.25, -1.9, 1.20), target=(0.12, 0.0, 1.40), lens=46),
 })

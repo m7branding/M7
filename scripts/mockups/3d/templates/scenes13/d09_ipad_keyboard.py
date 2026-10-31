@@ -2,7 +2,7 @@ import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); 
 """D09 iPad Pro on a keyboard folio (laptop pose) on a recolourable desk, dark mood."""
 def build():
     SK.env(0.10)
-    SK.floor('floor', tex='concrete_wall_006', scale=1.1, contrast=0.6)
+    SK.cyc('floor', tex='concrete_wall_006', y=0.75, radius=0.5, width=20.0)       # sweep: no horizon in the low camera
     kb = SK.keyboard_folio('kb', loc=(0, 0, 0))
     ip = R.ipad_pro13('iPad', screen='ipad-home.png', finish='spaceblack', back=True)
     a = math.radians(68)

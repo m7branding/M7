@@ -24,12 +24,12 @@ def floor(role='floor', tex='concrete_wall_006', scale=1.2, size=20.0, z=0.0, bu
     return R.plane(role, size, size, mat=m, loc=(0, 0, z))
 
 
-def wall(role='wall', y=0.6, tex='white_plaster_02', scale=1.0, size=6.0, h=3.0, bump=0.35, contrast=0.6, mat=None):
+def wall(role='wall', y=0.6, tex='white_plaster_02', scale=1.0, size=20.0, h=3.0, bump=0.35, contrast=0.6, mat=None):
     m = mat or (T.tint_material(role, tex=tex, scale=scale, bump=bump, contrast=contrast) if tex else T.tint_material(role))
     return R.plane(role, size, h, mat=m, loc=(0, y, h / 2), rot=(math.radians(90), 0, 0))
 
 
-def cyc(role='floor', tex=None, y=0.8, radius=0.6, width=6.0):
+def cyc(role='floor', tex=None, y=0.8, radius=0.6, width=20.0):
     m = T.tint_material(role, tex=tex, scale=1.2, bump=0.2, contrast=0.5) if tex else T.tint_material(role)
     return R.sweep(role, width=width, depth=4, height=3, radius=radius, mat=m, loc=(0, y, 0))
 
