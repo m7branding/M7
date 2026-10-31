@@ -95,6 +95,10 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Eén plek voor je cashflow.", en: "One place for your cash flow." },
         body: [
           {
+            nl: "Ook de marketingwebsite bouwden we, in Webflow. Animaties en device-mockups laten het platform al zien voordat je inlogt.",
+            en: "We also built the marketing website, in Webflow. Animations and device mockups show the platform before you even log in.",
+          },
+          {
             nl: "Monvy heeft nu één merk en één platform waarin facturen, opvolging en financiering samenkomen. Ondernemers werken met actuele gegevens van hun klanten en zien in één oogopslag wat er openstaat.",
             en: "Monvy now has one brand and one platform where invoicing, follow-up and financing come together. Business owners work with up-to-date customer data and see at a glance what is still outstanding.",
           },
@@ -108,8 +112,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "repairlab": {
     intro: {
-      nl: "Wij repareren. Jij blijft verbonden. Voor Repairlab, Apple Authorized Service Provider, maakten we die belofte zichtbaar: in het merk, op straat en online.",
-      en: "We repair. You stay connected. For Repairlab, an Apple Authorized Service Provider, we made that promise visible: in the brand, on the street and online.",
+      nl: "Wij repareren. Jij blijft verbonden. Voor Repairlab, Apple Authorized Service Provider in Eindhoven, maakten we die belofte zichtbaar: in het merk, op straat en online.",
+      en: "We repair. You stay connected. For Repairlab, an Apple Authorized Service Provider in Eindhoven, we made that promise visible: in the brand, on the street and online.",
     },
     chapters: [
       {
@@ -134,12 +138,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Kies je toestel, plan je afspraak.", en: "Pick your device, book your slot." },
         body: [
           {
-            nl: "Op de site kies je eerst het merk: iPhone, MacBook, iPad of Apple Watch, maar ook Samsung, Huawei en andere merken. Daarna je model, en dan zie je welke reparaties er zijn. Een afspraakformulier in een paar stappen legt het type reparatie, de schade en je gegevens vast.",
-            en: "On the site you first pick the brand: iPhone, MacBook, iPad or Apple Watch, but also Samsung, Huawei and others. Then your model, and you see which repairs are available. A booking form in a few steps captures the type of repair, the damage and your details.",
+            nl: "Op de site kies je eerst het merk: iPhone, MacBook, iPad of Apple Watch, maar ook Samsung, Huawei en andere merken. Daarna je model, en dan zie je welke reparaties er zijn. Een afspraakformulier in een paar stappen legt het type reparatie, de schade en je gegevens vast. Daarna stuurt de flow je automatisch e-mails.",
+            en: "On the site you first pick the brand: iPhone, MacBook, iPad or Apple Watch, but also Samsung, Huawei and others. Then your model, and you see which repairs are available. A booking form in a few steps captures the type of repair, the damage and your details. The flow then sends you automated emails.",
           },
           {
-            nl: "We bouwden de website in Webflow en richtten hem in op lokale vindbaarheid, samen met het Google Bedrijfsprofiel. Want wie een kapot scherm heeft, zoekt dichtbij.",
-            en: "We built the website in Webflow and set it up for local search, together with the Google Business Profile. Because anyone with a broken screen looks close to home.",
+            nl: "We bouwden de website in Webflow, met interacties, scroll-animaties en geanimeerde schermvullende modals die net dat beetje extra geven. En we richtten hem in op lokale vindbaarheid, samen met het Google Bedrijfsprofiel. Want wie een kapot scherm heeft, zoekt dichtbij.",
+            en: "We built the website in Webflow, with interactions, scroll animations and animated full-screen modals that add that little extra. And we set it up for local search, together with the Google Business Profile. Because anyone with a broken screen looks close to home.",
           },
         ],
       },
@@ -232,8 +236,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Achter de schermen net zo strak.", en: "Just as sharp behind the scenes." },
         body: [
           {
-            nl: "Een offerteaanvraag loopt via een eigen flow, gekoppeld aan de offertesoftware van JURGH. Klanten hebben een eigen klantportaal, en automatiseringen zetten de werkorders klaar. Ook het drukwerk ontwierpen we in dezelfde stijl, zodat het merk klopt van website tot visitekaartje.",
-            en: "A quote request runs through a dedicated flow, connected to JURGH's quoting software. Customers have their own portal, and automations prepare the work orders. We designed the print in the same style too, so the brand holds together from website to business card.",
+            nl: "Informatie en aanvragen zijn per dienst geordend, en de leads komen binnen in een gekoppeld CRM-systeem. Een offerteaanvraag loopt via een eigen flow, gekoppeld aan de offertesoftware van JURGH. Klanten hebben een eigen klantportaal, en automatiseringen zetten de werkorders klaar. Ook het drukwerk ontwierpen we in dezelfde stijl, zodat het merk klopt van website tot visitekaartje.",
+            en: "Information and requests are organised per service, and the leads arrive in a connected CRM system. A quote request runs through a dedicated flow, connected to JURGH's quoting software. Customers have their own portal, and automations prepare the work orders. We designed the print in the same style too, so the brand holds together from website to business card.",
           },
         ],
       },
@@ -333,8 +337,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Meer dan een woningsite.", en: "More than a property site." },
         body: [
           {
-            nl: "Wie landelijk wil wonen, zoekt niet alleen een huis. Je zoekt een plek, een landschap, een manier van leven. Buitenstate wilde aanbod en inspiratie op één plek bij elkaar brengen, en de aangesloten makelaars moesten hun aanbod en campagnes zelf kunnen beheren.",
-            en: "People who want to live in the countryside aren't just looking for a house. They're looking for a place, a landscape, a way of life. Buitenstate wanted to bring listings and inspiration together in one place, and the member agents needed to manage their own listings and campaigns.",
+            nl: "Wie landelijk wil wonen, zoekt niet alleen een huis. Je zoekt een plek, een landschap, een manier van leven. Buitenstate, met meer dan 50 aangesloten makelaars, wilde makelaars en kopers bij elkaar brengen, met aanbod en inspiratie op één plek. En de makelaars moesten hun aanbod en campagnes zelf kunnen beheren.",
+            en: "People who want to live in the countryside aren't just looking for a house. They're looking for a place, a landscape, a way of life. Buitenstate, with more than 50 member agents, wanted to bring agents and buyers together, with listings and inspiration in one place. And the agents needed to manage their own listings and campaigns.",
           },
         ],
       },
@@ -345,14 +349,18 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             nl: "We bouwden in Webflow een metasearch-platform voor landelijke woningen, met een flexibel CMS voor aanbod, verhalen en uitgebreide blogs. Expertblogs nemen je mee naar West-Friesland, het rivierengebied of de Achterhoek, en in het magazine vertellen bewoners en makelaars hun verhaal. Video's maken de verhalen af.",
             en: "We built a meta-search platform for rural homes in Webflow, with a flexible CMS for listings, stories and long-form blogs. Expert blogs take you to West Friesland, the river region or the Achterhoek, and in the magazine residents and agents tell their stories. Videos complete the picture.",
           },
+          {
+            nl: "Het aanbod van de makelaars komt binnen via API-koppelingen. Met uitgebreide filters zoek je gericht, een bezichtiging vraag je direct aan, en wie wil kopen of verkopen vindt een Buitenstate-makelaar bij hem in de buurt.",
+            en: "The agents' listings come in through API integrations. Advanced filters help you search with focus, you request a viewing directly, and anyone looking to buy or sell finds a Buitenstate agent nearby.",
+          },
         ],
       },
       {
         title: { nl: "Een eigen cockpit voor makelaars.", en: "A cockpit for the agents." },
         body: [
           {
-            nl: "Achter de schermen kregen de makelaars een eigen CMS, inclusief een tool om e-mailcampagnes te versturen. Een nieuwsbriefflow maakt van bezoekers abonnees, en funnels en automations volgen bezoekers en aanvragen op.",
-            en: "Behind the scenes the agents got their own CMS, including a tool for sending email campaigns. A newsletter flow turns visitors into subscribers, and funnels and automations follow up on visitors and requests.",
+            nl: "Achter de schermen kregen de makelaars een eigen CMS, inclusief een tool om e-mailcampagnes te versturen. Daar komen ook alle aanvragen samen. Een nieuwsbriefflow maakt van bezoekers abonnees, en funnels en automations volgen bezoekers en aanvragen op. Zo blijft Buitenstate betrokken, ook als de zoektocht naar een droomhuis langer duurt.",
+            en: "Behind the scenes the agents got their own CMS, including a tool for sending email campaigns. All requests come together there too. A newsletter flow turns visitors into subscribers, and funnels and automations follow up on visitors and requests. That keeps Buitenstate involved, even when the search for a dream home takes longer.",
           },
         ],
       },
@@ -865,8 +873,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Kennis op één plek.", en: "Expertise in one place." },
         body: [
           {
-            nl: "De Atletiekunie wil clubs sterker maken en trainers helpen met goede trainingsmethodieken. Daarvoor is een visuele ontwikkelmethodiek bedacht: per atletiekonderdeel een leerlijn in duidelijke stappen. Die kennis moest op één plek komen, voor iedereen die met atletiektalent werkt.",
-            en: "The Atletiekunie, the Dutch athletics federation, wants to strengthen clubs and help coaches with effective training methods. For that, a visual development method was created: a learning pathway in clear steps for each athletics event. That knowledge had to come together in one place, for everyone working with athletics talent.",
+            nl: "De Atletiekunie wil clubs sterker maken en trainers helpen met goede trainingsmethodieken. Daarvoor is een visuele ontwikkelmethodiek bedacht: per atletiekonderdeel een leerlijn in duidelijke stappen. Die kennis moest op één plek komen: een nieuw, nationaal e-learningplatform voor iedereen die met atletiektalent werkt.",
+            en: "The Atletiekunie, the Dutch athletics federation, wants to strengthen clubs and help coaches with effective training methods. For that, a visual development method was created: a learning pathway in clear steps for each athletics event. That knowledge had to come together in one place: a new, national e-learning platform for everyone working with athletics talent.",
           },
         ],
       },
@@ -874,8 +882,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Onderzoek voor het ontwerp.", en: "Research before design." },
         body: [
           {
-            nl: "We begonnen met UX-onderzoek, inclusief groepssessies. Daarna gaven we ATL+ een eigen logo en huisstijl, in blauw met oranje als accent. Het platform bouwden we in Webflow.",
-            en: "We started with UX research, including group sessions. Then we gave ATL+ its own logo and visual identity, in blue with orange as the accent. We built the platform in Webflow.",
+            nl: "We begonnen met UX-onderzoek, inclusief groepssessies. Daarna gaven we ATL+ samen met het team van de Atletiekunie een eigen logo en huisstijl, in blauw met oranje als accent. Modern en verzorgd, passend bij de ambities van de bond. Het platform bouwden we in Webflow.",
+            en: "We started with UX research, including group sessions. Then, together with the Atletiekunie team, we gave ATL+ its own logo and visual identity, in blue with orange as the accent. Modern and refined, in line with the federation's ambitions. We built the platform in Webflow.",
           },
         ],
       },
@@ -883,12 +891,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Elke stap in beeld.", en: "Every step on screen." },
         body: [
           {
-            nl: "Elke leerlijn is opgedeeld in genummerde stappen, van de basis tot wedstrijdtechniek, met bij elke stap een instructievideo. Van de afzet met een staande landing tot de acceleratie naar de eerste horde. Met een gratis account bekijk je alles.",
-            en: "Every learning pathway is split into numbered steps, from the basics to competition technique, with an instruction video for each step. From the take-off with a standing landing to the acceleration towards the first hurdle. A free account gives you access to everything.",
+            nl: "Elke leerlijn is opgedeeld in genummerde stappen, van de basis tot wedstrijdtechniek, met bij elke stap een instructievideo. Van de afzet met een staande landing tot de acceleratie naar de eerste horde. Met een gratis account bekijk je alles. Na het inloggen toont je dashboard e-learning op maat, en elke gebruiker krijgt de juiste rol of rollen.",
+            en: "Every learning pathway is split into numbered steps, from the basics to competition technique, with an instruction video for each step. From the take-off with a standing landing to the acceleration towards the first hurdle. A free account gives you access to everything. After logging in, your dashboard shows personalised e-learning, and every user is given the right role or roles.",
           },
           {
-            nl: "De instructievideo's namen we zelf op en monteerden we zelf. Ook het beheer van de aanmeldomgeving en de website ligt bij ons.",
-            en: "We recorded and edited the instruction videos ourselves. We also manage the sign-up environment and the website.",
+            nl: "Meer dan 100 leervideo's in meer dan 10 leerlijnen staan in het Webflow CMS, zodat het beheer overzichtelijk blijft. De instructievideo's namen we zelf op en monteerden we zelf. Ook het beheer van de aanmeldomgeving en de website ligt bij ons.",
+            en: "More than 100 learning videos across more than 10 learning pathways live in the Webflow CMS, which keeps content management clear. We recorded and edited the instruction videos ourselves. We also manage the sign-up environment and the website.",
           },
         ],
       },
@@ -996,8 +1004,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Groen, in elk opzicht.", en: "Green, in every sense." },
         body: [
           {
-            nl: "We werkten de branding uit en ontwierpen en bouwden de website in Webflow. Oplossingen, diensten en cases hebben elk een eigen plek, zodat een bezoeker snel ziet wat er voor zijn situatie kan. Groen voert de boventoon, met grote beelden van installaties in het landschap.",
-            en: "We developed the branding and designed and built the website in Webflow. Solutions, services and cases each have their own place, so visitors quickly see what is possible for their situation. Green sets the tone, with large images of installations in the landscape.",
+            nl: "We verfijnden het merk met een vernieuwd kleurenpalet en beeldsysteem, en ontwierpen en bouwden de website in Webflow. Oplossingen, diensten en cases hebben elk een eigen plek, zodat een bezoeker snel ziet wat er voor zijn situatie kan. Groen voert de boventoon, met grote beelden van installaties in het landschap.",
+            en: "We refined the brand with a renewed colour palette and visual system, and designed and built the website in Webflow. Solutions, services and cases each have their own place, so visitors quickly see what is possible for their situation. Green sets the tone, with large images of installations in the landscape.",
+          },
+          {
+            nl: "De content zetten we opnieuw neer. Laadinfrastructuur, energieopslag en oplossingen voor netcongestie staan nu helder op een rij. Dat maakt de site prettiger in gebruik en beter vindbaar, in zoekmachines en op AI-platforms.",
+            en: "We restructured the content. Charging infrastructure, energy storage and solutions for grid congestion are now clearly laid out. That makes the site easier to use and easier to find, in search engines and on AI platforms.",
           },
         ],
       },
@@ -1007,6 +1019,10 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           {
             nl: "Met de configurator geeft een bezoeker stap voor stap zijn situatie en wensen door. Via een koppeling gaan die aanvragen direct naar Odoo CRM. Zo ligt bij elk eerste gesprek de juiste informatie al op tafel.",
             en: "With the configurator, visitors share their situation and wishes step by step. Through an integration, those requests go straight into Odoo CRM. So the right information is already on the table at every first conversation.",
+          },
+          {
+            nl: "Interactieve calculators, leadflows en modulaire pop-ups helpen bezoekers bij een opstelling met zon en batterij. Opt-in-funnels met whitepapers ondersteunen de conversie.",
+            en: "Interactive calculators, lead flows and modular pop-ups guide visitors through a solar and battery setup. Opt-in funnels with whitepapers support conversion.",
           },
         ],
       },
@@ -1298,14 +1314,35 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             nl: "We werkten de branding van beide scholen uit en bouwden de websites in Webflow, op een gedeelde basis. Zo zijn ze familie van elkaar en heeft elke school toch een eigen uitstraling. Pine Street School kreeg diep groen, een klassieke letter en warme foto's uit de klas.",
             en: "We developed the branding for both schools and built the websites in Webflow, on a shared foundation. That makes them family, while each school keeps its own look. Pine Street School got deep green, a classic typeface and warm photos from the classroom.",
           },
+          {
+            nl: "Het werk is onderdeel van een bredere samenwerking, waarin we het digitale landschap van een grotere scholengroep opnieuw vormgeven.",
+            en: "The work is part of a wider collaboration in which we are redesigning the digital landscape of a larger school group.",
+          },
         ],
       },
       {
         title: { nl: "Een menu dat meedenkt.", en: "A menu that thinks ahead." },
         body: [
           {
-            nl: "De navigatie doet meer dan een gewoon menu. Je zoekt direct, en snelle links brengen je in een paar klikken bij toelating, rondleidingen of het lesprogramma. Bij elk onderdeel staat een korte uitleg, zodat je weet waar je terechtkomt.",
-            en: "The navigation does more than an ordinary menu. You can search right away, and quick links take you to admissions, tours or the curriculum in a few clicks. Every section comes with a short description, so you know where you'll land.",
+            nl: "De navigatie doet meer dan een gewoon menu. In het interactieve megamenu zoek je direct, en snelle links brengen je in een paar klikken bij toelating, rondleidingen of het lesprogramma. Bij elk onderdeel staat een korte uitleg, zodat je weet waar je terechtkomt.",
+            en: "The navigation does more than an ordinary menu. In the interactive mega menu you can search right away, and quick links take you to admissions, tours or the curriculum in a few clicks. Every section comes with a short description, so you know where you'll land.",
+          },
+          {
+            nl: "Op de site van Pine Street School gaat het daarna verder met dynamische subnavigatie, instelbare zijbalken, CTA's en modulaire contentblokken. Zo is er ruimte voor alles over de vroege jaren, elementary en middle school, het lesprogramma, toelating, het schoolleven en de schoolgemeenschap.",
+            en: "On the Pine Street School site, dynamic sub-navigation, configurable sidebars, CTAs and modular content blocks take it from there. That leaves room for everything about the early years, elementary and middle school, academics, admissions, student life and the school community.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Vindbaar, en klaar voor contact.", en: "Findable, and ready for contact." },
+        body: [
+          {
+            nl: "Een schaalbare contentstructuur versterkt SEO en AEO. Zoekmachines en AI-platforms begrijpen zo beter welke programma's er zijn, voor welke leeftijden en hoe de toelating werkt.",
+            en: "A scalable content structure strengthens SEO and AEO. It helps search engines and AI platforms understand which programmes there are, for which ages and how admissions work.",
+          },
+          {
+            nl: "Koppelingen met HubSpot en Calendly ondersteunen vragen van ouders, CRM-workflows en het inplannen van afspraken. Zo loopt de weg van eerste bezoek tot afspraak soepel door.",
+            en: "HubSpot and Calendly integrations support enquiries from parents, CRM workflows and appointment scheduling. That keeps the journey from first visit to appointment running smoothly.",
           },
         ],
       },
@@ -1333,8 +1370,21 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een wereld van fragmenten.", en: "A world of fragments." },
         body: [
           {
-            nl: "Daarna ontwierpen we de branding en vertaalden we alles naar een website. Donker, met een gloeiende aarde en een kaart die je zelf verkent. In drie stappen zie je hoe het werkt: ontdekken, een fragment claimen en een spoor achterlaten voor wie na je komt.",
-            en: "Then we designed the branding and translated it all into a website. Dark, with a glowing earth and a map you explore yourself. Three steps show how it works: discover, claim a fragment and leave a mark for those who come after you.",
+            nl: "Daarna ontwierpen we de branding en zetten we de art direction neer, met eigen graphics en filmische animaties. De website is donker, met een gloeiende aarde en een dynamische 2D-wereldkaart waarop je Icewall zelf verkent en losse fragmenten ontdekt. In drie stappen zie je hoe het werkt: ontdekken, een fragment claimen en een spoor achterlaten voor wie na je komt.",
+            en: "Then we designed the branding and set the art direction, with custom graphics and cinematic animations. The website is dark, with a glowing earth and a dynamic 2D world map where you explore Icewall yourself and discover individual fragments. Three steps show how it works: discover, claim a fragment and leave a mark for those who come after you.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van kiezen tot claimen.", en: "From choosing to claiming." },
+        body: [
+          {
+            nl: "We bouwden de volledige bestel- en claimflow. Je kiest een fragment, interactieve statussen laten zien waar je bent, en na een bevestiging volgen automatische e-mails.",
+            en: "We built the complete order and claim flow. You choose a fragment, interactive states show where you are, and a confirmation is followed by automated emails.",
+          },
+          {
+            nl: "We keken ook verder dan de lancering. Voor wat nog komt maakten we de visuele en strategische roadmap: nieuwe eilanden die opengaan, digitale collectibles, communityfuncties en fysieke producten.",
+            en: "We also looked beyond the launch. For what comes next we created the visual and strategic roadmap: new islands to unlock, digital collectibles, community features and physical products.",
           },
         ],
       },
@@ -1400,9 +1450,18 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Vijf stappen naar Teamleader.", en: "Five steps to Teamleader." },
         body: [
           {
-            nl: "De website bouwden we in Webflow. De aanvraagflow in vijf stappen begint bij de vraag welk voertuig je wilt verzilveren: een auto, bestelwagen, vrachtwagen of camper. Elke aanvraag loopt direct door naar Teamleader, zodat het team meteen aan de slag kan.",
-            en: "We built the website in Webflow. The five-step application starts by asking which vehicle you want to cash in: a car, van, truck or camper. Every application goes straight into Teamleader, so the team can get to work right away.",
+            nl: "De website bouwden we in Webflow. De kern is een interactieve calculator in vijf stappen, die begint bij de vraag welk voertuig je wilt verzilveren: een auto, bestelwagen, vrachtwagen of camper. Bij elke stap wordt de aanvraag persoonlijker, in realtime.",
+            en: "We built the website in Webflow. At its core is an interactive five-step calculator that starts by asking which vehicle you want to cash in: a car, van, truck or camper. With every step the application becomes more personal, in real time.",
           },
+          {
+            nl: "Elke aanvraag loopt direct door naar Teamleader. CRM-automatiseringen verrijken de leadgegevens en sturen persoonlijke e-mailreeksen, zodat het team meteen aan de slag kan. Zo vangt de site leads niet alleen op, maar kwalificeert en volgt hij ze ook op.",
+            en: "Every application goes straight into Teamleader. CRM automations enrich the lead data and send personalised email sequences, so the team can get to work right away. That way the site doesn't just capture leads, it qualifies and nurtures them too.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Uitleg in beeld.", en: "Explained on screen." },
+        body: [
           {
             nl: "Een explainervideo legt het concept uit, voor wie liever kijkt dan leest. Zo snap je een nieuw idee in één keer.",
             en: "An explainer video covers the concept, for those who'd rather watch than read. It turns a new idea into something you understand in one go.",
@@ -1610,6 +1669,19 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         ],
       },
       {
+        title: { nl: "Achter de check.", en: "Behind the check." },
+        body: [
+          {
+            nl: "De intake is een onboarding in meerdere stappen, gekoppeld aan Odoo CRM. Hij splitst zich in drie geautomatiseerde flows, elk met eigen CRM-logica, opvolgmails en afhandeling. Zo komt elke aanvraag gekwalificeerd en geordend binnen.",
+            en: "The intake is a multi-step onboarding flow, integrated with Odoo CRM. It splits into three automated flows, each with its own CRM logic, follow-up emails and handling. That way every request arrives qualified and organised.",
+          },
+          {
+            nl: "Klantcases laten zien wat het oplevert. De site rekent de huurverlaging automatisch uit als percentage, op basis van de oorspronkelijke en de gecorrigeerde huurprijs. Je ziet het in het overzicht en op elke detailpagina.",
+            en: "Customer cases show what it delivers. The site automatically calculates the rent reduction as a percentage, based on the original and the corrected rent. You see it in the overview and on every detail page.",
+          },
+        ],
+      },
+      {
         title: { nl: "Zelf verder, in dezelfde stijl.", en: "Carrying on, in the same style." },
         body: [
           {
@@ -1677,11 +1749,24 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         ],
       },
       {
+        title: { nl: "Trust the layer.", en: "Trust the layer." },
+        body: [
+          {
+            nl: "We ontwikkelden de branding rond één idee: trust the layer. Monospace-typografie, details die aan een terminal doen denken, diep navy en signaalgroen als accent. Een merk dat in code lijkt te denken, zonder de gebruikelijke clichés uit de cybersecurity. Alles legden we vast in een compact brandbook.",
+            en: "We developed the branding around one idea: trust the layer. Monospace typography, terminal-inspired details, deep navy and signal green as the accent. A brand that seems to think in code, without the usual cybersecurity clichés. We captured it all in a compact brandbook.",
+          },
+        ],
+      },
+      {
         title: { nl: "Europa op de kaart.", en: "Europe on the map." },
         body: [
           {
-            nl: "We ontwikkelden de branding en legden die vast in een compact brandbook. Daarna ontwierpen en bouwden we de website: donkerblauw, met een felgroene kaart van Europa waarover het netwerk oplicht. Zo zie je in één beeld waar je data blijft.",
-            en: "We developed the branding and captured it in a compact brandbook. Then we designed and built the website: dark blue, with a bright green map of Europe on which the network lights up. One image shows you where your data stays.",
+            nl: "Daarna ontwierpen en bouwden we de website volledig op maat in Webflow: donkerblauw, met een felgroene kaart van Europa waarover het netwerk oplicht. Na een eigen laadsequentie pulseren de knooppunten zacht en lichten de verbindingslijnen subtiel op. Zo zie je in één beeld waar je data blijft.",
+            en: "Then we designed and built a fully custom website in Webflow: dark blue, with a bright green map of Europe on which the network lights up. After its own loading sequence, the nodes pulse softly and the connection lines light up subtly. One image shows you where your data stays.",
+          },
+          {
+            nl: "Elke interactie is ingetogen en precies. Beweging heeft een doel, en de site werkt op elk scherm.",
+            en: "Every interaction is understated and precise. Motion has a purpose, and the site works on every screen.",
           },
         ],
       },
@@ -1771,8 +1856,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Serieus, maar niet zwaar.", en: "Serious, not heavy." },
         body: [
           {
-            nl: "VeriChecks doet verificatie- en compliancechecks: van zakelijke checks tot achtergrondcontroles bij nieuwe medewerkers, leveranciers en klanten. Daar komt veel bij kijken. Het merk moest betrouwbaar zijn, zonder af te schrikken.",
-            en: "VeriChecks runs verification and compliance checks: from business checks to background screening of new employees, suppliers and customers. There's a lot involved. The brand had to be trustworthy without being intimidating.",
+            nl: "VeriChecks is een SaaS-platform voor KYC en compliance: van identiteitsverificatie en zakelijke checks tot achtergrondcontroles bij nieuwe medewerkers, leveranciers en klanten. Daar komt veel bij kijken. Het merk moest betrouwbaar zijn, zonder af te schrikken.",
+            en: "VeriChecks is a SaaS platform for KYC and compliance: from identity verification and business checks to background screening of new employees, suppliers and customers. There's a lot involved. The brand had to be trustworthy without being intimidating.",
           },
         ],
       },
@@ -1786,6 +1871,19 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           {
             nl: "Elke toepassing krijgt een eigen uitleg, van screening bij werving tot due diligence. Zo herkent elke bezoeker zijn eigen situatie.",
             en: "Every use case gets its own explanation, from screening during recruitment to due diligence. That way every visitor recognises their own situation.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Ingewikkeld, maar zichtbaar.", en: "Complex, but visible." },
+        body: [
+          {
+            nl: "Strakke softwaremockups en eigen infographics laten zien hoe KYC-workflows, onboardingstappen en complianceprocessen lopen. Zo snap je snel hoe VeriChecks verificatie stroomlijnt en controles automatiseert.",
+            en: "Sleek software mockups and custom infographics show how KYC workflows, onboarding steps and compliance processes run. That way you quickly understand how VeriChecks streamlines verification and automates checks.",
+          },
+          {
+            nl: "De opbouw is gericht op conversie, met sterke boodschappen, een verfijnde UI en subtiele animaties. En de site is geoptimaliseerd voor zoektermen als KYC-software, complianceplatform en identiteitsverificatie.",
+            en: "The structure is built for conversion, with strong messaging, a refined UI and subtle animations. And the site is optimised for search terms such as KYC software, compliance platform and identity verification.",
           },
         ],
       },
@@ -1815,6 +1913,23 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           {
             nl: "We ontwierpen de website in Webflow en zetten die over naar WordPress, in het Nederlands en Engels. De opbouw volgt de vragen van de bezoeker: waarom nu, wat is het, voor wie is het en hoe werkt het? Rustige beelden van patiënten thuis en een duidelijke weg naar een demo maken het af.",
             en: "We designed the website in Webflow and moved it to WordPress, in Dutch and English. The structure follows the visitor's questions: why now, what is it, who is it for and how does it work? Calm images of patients at home and a clear path to a demo complete it.",
+          },
+          {
+            nl: "De site laadt snel en is opgebouwd voor SEO. Zo wordt complexe techniek begrijpelijk voor iedereen die meebeslist.",
+            en: "The site loads fast and is structured for SEO. That makes complex technology understandable for everyone involved in the decision.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Meerdere beslissers, één route.", en: "Several decision-makers, one route." },
+        body: [
+          {
+            nl: "Een eigen leadwidget voor de verschillende doelgroepen stroomlijnt het beslisproces en verstuurt automatisch transactionele e-mails.",
+            en: "A custom lead widget for the different stakeholders streamlines the decision process and sends automated transactional emails.",
+          },
+          {
+            nl: "Strakke 3D-productanimaties en device-mockups van de whitelabel-software maken het product tastbaar, nog voor de eerste demo.",
+            en: "Sleek 3D product animations and device mockups of the white-label software make the product tangible, even before the first demo.",
           },
         ],
       },
@@ -2305,8 +2420,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Twee kanten, één ecosysteem.", en: "Two sides, one ecosystem." },
         body: [
           {
-            nl: "Expociety wilde een digitaal ecosysteem waarin influencers en venues makkelijk samenwerken rond events. De app moest werken voor gebruikers met elke technische achtergrond. Met een onboarding die soepel loopt.",
-            en: "Expociety wanted a digital ecosystem where influencers and venues easily work together around events. The app had to work for users of every technical background. With an onboarding that runs smoothly.",
+            nl: "Expociety wilde een digitaal ecosysteem waarin influencers en venues makkelijk samenwerken rond events, met heldere afspraken over influencermarketing. De app is bedoeld voor eigenaren van venues, restaurants en bars die meer willen doen met influencer- en socialmediamarketing. Hij moest werken voor gebruikers met elke technische achtergrond. Met een onboarding die soepel loopt.",
+            en: "Expociety wanted a digital ecosystem where influencers and venues easily work together around events, with clear agreements on influencer marketing. The app is made for owners of venues, restaurants and bars who want to do more with influencer and social media marketing. It had to work for users of every technical background. With an onboarding that runs smoothly.",
           },
         ],
       },
@@ -2314,8 +2429,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Begrijpen wie het gebruikt.", en: "Understanding who uses it." },
         body: [
           {
-            nl: "We begonnen met een analyse van gebruikersbehoeften en trends, en schreven user stories. Daarop ontwierpen we een interface met een heldere navigatie. Een kaart toont events in de buurt, filters helpen je zoeken en bij elk event zie je wie er is uitgenodigd.",
-            en: "We started with an analysis of user needs and trends, and wrote user stories. On that basis we designed an interface with clear navigation. A map shows events nearby, filters help you search and for every event you see who has been invited.",
+            nl: "We begonnen met een analyse van gebruikersbehoeften en trends, en schreven user stories. Daarop ontwierpen we een interface met een heldere navigatie, in honderden schermen en componenten in Figma. Een kaart toont events in de buurt, filters helpen je zoeken en bij elk event zie je wie er is uitgenodigd.",
+            en: "We started with an analysis of user needs and trends, and wrote user stories. On that basis we designed an interface with clear navigation, in hundreds of screens and components in Figma. A map shows events nearby, filters help you search and for every event you see who has been invited.",
           },
         ],
       },
@@ -2327,8 +2442,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "Then we built the iOS app: creating, managing and promoting events, inviting influencers, collaborating, analytics dashboards and secure messaging. After thorough testing for stability, security and performance, the app went live in the App Store.",
           },
           {
-            nl: "De architectuur is gebouwd om mee te groeien. Zo blijft de app met nieuwe updates doorgroeien.",
-            en: "The architecture is built to grow. So the app keeps evolving with every new update.",
+            nl: "De architectuur is gebouwd om mee te groeien. Zo blijft de app met nieuwe updates doorgroeien. Een API-koppeling synchroniseert de events uit de app met het Webflow CMS van de website, zodat app en site altijd hetzelfde laten zien.",
+            en: "The architecture is built to grow. So the app keeps evolving with every new update. An API integration syncs the events from the app with the website's Webflow CMS, so app and site always show the same thing.",
           },
         ],
       },
@@ -2367,6 +2482,10 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           {
             nl: "Daarna zetten we het merk door: in de website, op social media, in een giveaway-campagne en in animaties. Beelden met 'Discover, Connect, Influence' en 'Unlock your influence' zetten de toon. Ook de app ontwierpen en bouwden we, zodat merk en product één verhaal vertellen.",
             en: "Then we carried the brand through: on the website, on social media, in a giveaway campaign and in animations. Visuals with 'Discover, Connect, Influence' and 'Unlock your influence' set the tone. We also designed and built the app, so brand and product tell one story.",
+          },
+          {
+            nl: "De interactieve website bouwden we in Webflow. Hij neemt verschillende componenten over uit de app, zodat Expociety er op elk kanaal hetzelfde uitziet.",
+            en: "We built the interactive website in Webflow. It reuses several components from the app, so Expociety looks the same on every channel.",
           },
         ],
       },
@@ -2580,6 +2699,19 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           {
             nl: "Ook de aankondigingen voor events, zoals een dag met karting en een toerrit, kregen dezelfde strakke stijl. Mede dankzij dat materiaal groeide de achterban op social media snel.",
             en: "Event announcements, such as a day of karting and a scenic drive, got the same sharp style. Partly thanks to that material, the following on social media grew fast.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een website die je hoort.", en: "A website you can hear." },
+        body: [
+          {
+            nl: "Voor SUBLIME CARS, dat supercars aan- en verkoopt, bouwden we de website in Webflow. Op de homepage zit een interactie met een Ferrari 458, met AI in beeld gebracht in de Franse Alpen.",
+            en: "For SUBLIME CARS, which buys and sells supercars, we built the website in Webflow. The homepage features an interaction with a Ferrari 458, rendered with AI in the French Alps.",
+          },
+          {
+            nl: "Elke auto uit de collectie krijgt een eigen presentatie, met het geluid van de uitlaat en meerdere fotogalerijen. En bij de events schrijf je je in via een formulier in een paar stappen.",
+            en: "Every car in the collection gets its own presentation, with the sound of its exhaust and several image galleries. And for the events, you sign up through a multi-step form.",
           },
         ],
       },

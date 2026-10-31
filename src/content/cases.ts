@@ -128,14 +128,14 @@ export const cases: Case[] = [
       en: "Monvy: from brandbook to an invoicing and debt management platform",
     },
     summary: {
-      nl: "Voor Monvy legden we het merk vast in een brandbook en ontwierpen en bouwden we het platform: facturen, automatische opvolging, werkkapitaal, factoring en koppelingen met KVK, VIES en CreditSafe.",
-      en: "For Monvy we captured the brand in a brandbook and designed and built the platform: invoicing, automated follow-up, working capital, factoring and integrations with KVK, VIES and CreditSafe.",
+      nl: "Voor Monvy legden we het merk vast in een brandbook en ontwierpen en bouwden we het platform voor cashflowbeheer: facturen, automatische opvolging, workflows, werkkapitaal, factoring en koppelingen met KVK, VIES en CreditSafe. De marketingwebsite bouwden we in Webflow.",
+      en: "For Monvy we captured the brand in a brandbook and designed and built the cash flow management platform: invoicing, automated follow-up, workflows, working capital, factoring and integrations with KVK, VIES and CreditSafe. We built the marketing website in Webflow.",
     },
     year: 2023,
     sector: "tech-saas-startups",
-    services: ["branding-rebranding", "web-apps-portals-apps", "ai-consultancy"],
-    applications: ["brandbook", "huisstijl", "tone-of-voice", "ux-ui-app-design", "saas-platform", "api-koppelingen", "ai-chatbots"],
-    tools: ["figma", "illustrator"],
+    services: ["branding-rebranding", "web-apps-portals-apps", "websites-webshops", "ai-consultancy"],
+    applications: ["brandbook", "huisstijl", "tone-of-voice", "ux-ui-app-design", "saas-platform", "api-koppelingen", "webflow-website", "ai-chatbots"],
+    tools: ["figma", "illustrator", "webflow"],
     cover: "/media/cases/monvy/01.webp",
     // beelden van de vorige website (m7branding.com): brandbook + platform
     gallery: [
@@ -155,8 +155,8 @@ export const cases: Case[] = [
       en: "Monvy wants to give businesses one place for invoices, payments and financing. That calls for a brand people trust, and software that makes complex financial processes simple.",
     },
     approach: {
-      nl: "We begonnen met gesprekken over de visie van Monvy en legden het merk vast in een brandbook: de positionering als betrouwbare partner in financieel beheer, een tone of voice die informeert zonder afstand te nemen, blauw en groen als kleuren, driehoeken en cirkels als merkvormen en strakke, goed leesbare typografie. Daarna ontwierpen we de gebruikerservaring en bouwden we het platform: een eenvoudig factuurproces, automatische opvolging van betalingen, aanvragen voor werkkapitaal, factoring en factuurfinanciering, eigen API-koppelingen met KVK, VIES en CreditSafe en een supportbot op basis van ChatGPT.",
-      en: "We started with conversations about Monvy's vision and captured the brand in a brandbook: positioning as a trusted partner in financial management, a tone of voice that informs while staying approachable, blues and greens as brand colours, triangles and circles as brand shapes and clean, highly readable typography. Then we designed the user experience and built the platform: a simple invoicing flow, automated payment follow-up, working capital requests, factoring and invoice financing, custom API integrations with KVK, VIES and CreditSafe, and a support bot built on ChatGPT.",
+      nl: "We begonnen met gesprekken over de visie van Monvy en legden het merk vast in een brandbook: de positionering als betrouwbare partner in financieel beheer, een tone of voice die informeert zonder afstand te nemen, blauw en groen als kleuren, driehoeken en cirkels als merkvormen en strakke, goed leesbare typografie. Daarna ontwierpen we de gebruikerservaring en bouwden we het platform: een eenvoudig factuurproces, automatische opvolging van betalingen, aanvragen voor werkkapitaal, factoring en factuurfinanciering, eigen API-koppelingen met KVK, VIES en CreditSafe en een supportbot op basis van ChatGPT. De marketingwebsite bouwden we in Webflow, met animaties en device-mockups die het platform laten zien.",
+      en: "We started with conversations about Monvy's vision and captured the brand in a brandbook: positioning as a trusted partner in financial management, a tone of voice that informs while staying approachable, blues and greens as brand colours, triangles and circles as brand shapes and clean, highly readable typography. Then we designed the user experience and built the platform: a simple invoicing flow, automated payment follow-up, working capital requests, factoring and invoice financing, custom API integrations with KVK, VIES and CreditSafe, and a support bot built on ChatGPT. We built the marketing website in Webflow, with animations and device mockups that show the platform.",
     },
     result: {
       nl: "Eén merk en één platform waarin facturen, opvolging en financiering samenkomen, met actuele bedrijfsgegevens uit KVK, VIES en CreditSafe.",
@@ -179,8 +179,8 @@ export const cases: Case[] = [
     },
     year: 2023,
     sector: "food-retail",
-    services: ["branding-rebranding", "websites-webshops", "seo-aeo-geo", "grafisch-ontwerp-print"],
-    applications: ["rebranding", "huisstijl", "webflow-website", "lokale-seo", "boekingswidget", "visitekaartjes-drukwerk"],
+    services: ["branding-rebranding", "websites-webshops", "seo-aeo-geo", "grafisch-ontwerp-print", "automation-funnels", "configurators-lead-tools-widgets"],
+    applications: ["rebranding", "huisstijl", "webflow-website", "lokale-seo", "boekingswidget", "visitekaartjes-drukwerk", "e-mailmarketing"],
     tools: ["figma", "webflow", "googlebusiness", "ga4"],
     cover: "/media/cases/repairlab.webp",
     // + beelden van de vorige website (m7branding.com)
@@ -197,12 +197,12 @@ export const cases: Case[] = [
     ],
     color: "#E30512",
     challenge: {
-      nl: "Repairlab wilde zich onderscheiden als premium reparatiepartner, met een website die klanten in een paar klikken naar de juiste reparatie leidt.",
-      en: "Repairlab wanted to stand out as a premium repair partner, with a website that guides customers to the right repair in a few clicks.",
+      nl: "Repairlab, Apple Authorized Service Provider in Eindhoven, wilde zich onderscheiden als premium reparatiepartner, met een website die serviceaanvragen makkelijk maakt en klanten in een paar klikken naar de juiste reparatie leidt.",
+      en: "Repairlab, an Apple Authorized Service Provider in Eindhoven, wanted to stand out as a premium repair partner, with a website that makes service requests easy and guides customers to the right repair in a few clicks.",
     },
     approach: {
-      nl: "Een frisse merkidentiteit, een device-zoeker per merk en model en een heldere afspraakflow, gebouwd in Webflow en geoptimaliseerd voor lokale vindbaarheid. De nieuwe huisstijl zetten we ook door in het drukwerk.",
-      en: "A fresh identity, a device finder per brand and model and a clear booking flow, built in Webflow and optimised for local search. We carried the new identity through to print as well.",
+      nl: "Een frisse merkidentiteit, een device-zoeker per merk en model en een heldere afspraakflow, gebouwd in Webflow en geoptimaliseerd voor lokale vindbaarheid. Interacties, scroll-animaties en geanimeerde schermvullende modals geven de site net dat beetje extra, en de aanvraagflow stuurt klanten automatisch e-mails. De nieuwe huisstijl zetten we ook door in het drukwerk.",
+      en: "A fresh identity, a device finder per brand and model and a clear booking flow, built in Webflow and optimised for local search. Interactions, scroll animations and animated full-screen modals give the site that little extra, and the request flow sends customers automated emails. We carried the new identity through to print as well.",
     },
     result: {
       nl: "Een merk en website die vertrouwen uitstralen en klanten snel naar een reparatieafspraak leiden.",
@@ -281,6 +281,7 @@ export const cases: Case[] = [
       "klantportaal",
       "workflow-automatisering",
       "visitekaartjes-drukwerk",
+      "crm-implementatie",
     ],
     tools: ["webflow", "figma", "lightroom", "premiere"],
     cover: "/media/cases/jurgh.webp",
@@ -304,8 +305,8 @@ export const cases: Case[] = [
       en: "Exclusive clients expect an online presence that is as polished as their car. And behind the scenes things need to run just as smoothly: from quote request to work order.",
     },
     approach: {
-      nl: "We begonnen bij de branding en bouwden daarna een cinematische website met grote beelden, rustige animaties en een directe weg naar een afspraak. Een offerteaanvraag loopt via een eigen flow, gekoppeld aan de offertesoftware van JURGH. Klanten krijgen een eigen klantportaal, en automatiseringen zetten werkorders klaar. Ook het drukwerk ontwierpen we in dezelfde stijl.",
-      en: "We started with the branding and then built a cinematic website with large imagery, calm animations and a direct path to booking. Quote requests run through a dedicated flow, connected to JURGH's quoting software. Customers get their own portal, and automations prepare the work orders. We also designed the print in the same style.",
+      nl: "We begonnen bij de branding en bouwden daarna een cinematische website met grote beelden, rustige animaties en een directe weg naar een afspraak. Informatie en aanvragen zijn per dienst geordend, en de leads komen binnen in een gekoppeld CRM-systeem. Een offerteaanvraag loopt via een eigen flow, gekoppeld aan de offertesoftware van JURGH. Klanten krijgen een eigen klantportaal, en automatiseringen zetten werkorders klaar. Ook het drukwerk ontwierpen we in dezelfde stijl.",
+      en: "We started with the branding and then built a cinematic website with large imagery, calm animations and a direct path to booking. Information and requests are organised per service, and the leads arrive in a connected CRM system. Quote requests run through a dedicated flow, connected to JURGH's quoting software. Customers get their own portal, and automations prepare the work orders. We also designed the print in the same style.",
     },
     result: {
       nl: "Een premium merk en website die passen bij het niveau van de dienstverlening, met een offerteflow, klantportaal en werkorder-automatiseringen erachter.",
@@ -410,8 +411,8 @@ export const cases: Case[] = [
       en: "A content platform for rural living and business",
     },
     summary: {
-      nl: "Een metasearch-platform voor landelijk wonen: woningaanbod van aangesloten makelaars, verhalen en blogs, funnels en automations, een eigen CMS voor makelaars met e-mailcampagnetool, video's en tools zoals de zoekers-check en de waardebepalingsaanvraag.",
-      en: "A meta-search platform for rural living: listings from member agents, stories and blogs, funnels and automations, a dedicated CMS for agents with an email campaign tool, videos and tools such as the searcher check and the valuation request.",
+      nl: "Een metasearch-platform voor landelijk wonen: woningaanbod van meer dan 50 aangesloten makelaars via API-koppelingen, uitgebreide filters en bezichtigingsaanvragen, verhalen en blogs, funnels en automations, een eigen CMS voor makelaars met e-mailcampagnetool, video's en tools zoals de zoekers-check en de waardebepalingsaanvraag.",
+      en: "A meta-search platform for rural living: listings from more than 50 member agents through API integrations, advanced filters and viewing requests, stories and blogs, funnels and automations, a dedicated CMS for agents with an email campaign tool, videos and tools such as the searcher check and the valuation request.",
     },
     year: 2022,
     sector: "vastgoed-makelaardij",
@@ -434,6 +435,7 @@ export const cases: Case[] = [
       "klantportaal",
       "check-tools",
       "website-widgets",
+      "api-koppelingen",
     ],
     tools: ["webflow", "mailchimp", "ga4"],
     cover: "/media/cases/buitenstate.webp",
@@ -446,12 +448,12 @@ export const cases: Case[] = [
     ],
     color: "#3A4510",
     challenge: {
-      nl: "Buitenstate brengt vrijstaande woningen, boerderijen en landgoederen in het buitengebied samen, aangeboden door een selectie NVM-makelaars. Aanbod en inspiratie moesten samenkomen op één plek die bezoekers terug laat komen. En de aangesloten makelaars moesten hun eigen aanbod en campagnes zelf kunnen beheren.",
-      en: "Buitenstate brings together detached homes, farmhouses and estates in the countryside, offered by a selection of NVM estate agents. Listings and inspiration had to come together in one place that keeps visitors coming back. And the member agents needed to manage their own listings and campaigns themselves.",
+      nl: "Buitenstate brengt vrijstaande woningen, boerderijen en landgoederen in het buitengebied samen, aangeboden door een selectie NVM-makelaars. Meer dan 50 makelaars zijn aangesloten. Het platform moest hen en kopers bij elkaar brengen: aanbod en inspiratie op één plek die bezoekers terug laat komen. En de aangesloten makelaars moesten hun eigen aanbod en campagnes zelf kunnen beheren.",
+      en: "Buitenstate brings together detached homes, farmhouses and estates in the countryside, offered by a selection of NVM estate agents. More than 50 agents are members. The platform had to bring them and buyers together: listings and inspiration in one place that keeps visitors coming back. And the member agents needed to manage their own listings and campaigns themselves.",
     },
     approach: {
-      nl: "We bouwden een metasearch-platform voor landelijke woningen, met een flexibel CMS voor verhalen, uitgebreide blogs en aanbod, en een nieuwsbriefflow die bezoekers omzet in abonnees. Achter de schermen kregen de makelaars een eigen CMS, inclusief een tool om e-mailcampagnes te versturen. Funnels en automations volgen bezoekers en aanvragen op. Video's maken de verhalen af, en tools op de site, zoals het formulier 'Hoeveel zoekers zijn er voor mijn woning?' en de aanvraag voor een gratis waardebepaling, zetten bezoekers aan tot actie.",
-      en: "We built a meta-search platform for rural homes, with a flexible CMS for stories, long-form blogs and listings, and a newsletter flow that turns visitors into subscribers. Behind the scenes, the agents got their own CMS, including a tool for sending email campaigns. Funnels and automations follow up on visitors and requests. Videos complete the stories, and on-site tools, such as the 'how many searchers are there for my home?' form and the free valuation request, prompt visitors to take action.",
+      nl: "We bouwden een metasearch-platform voor landelijke woningen, met een flexibel CMS voor verhalen, uitgebreide blogs en aanbod, en een nieuwsbriefflow die bezoekers omzet in abonnees. Het aanbod komt binnen via API-koppelingen met het woningaanbod van de makelaars. Bezoekers zoeken met uitgebreide filters, vragen direct een bezichtiging aan en vinden een Buitenstate-makelaar bij hen in de buurt. Achter de schermen kregen de makelaars een eigen CMS, inclusief een tool om e-mailcampagnes te versturen, en daar komen ook alle aanvragen samen. Funnels en automations volgen bezoekers en aanvragen op. Video's maken de verhalen af, en tools op de site, zoals het formulier 'Hoeveel zoekers zijn er voor mijn woning?' en de aanvraag voor een gratis waardebepaling, zetten bezoekers aan tot actie.",
+      en: "We built a meta-search platform for rural homes, with a flexible CMS for stories, long-form blogs and listings, and a newsletter flow that turns visitors into subscribers. Listings come in through API integrations with the agents' own listings. Visitors search with advanced filters, request a viewing directly and find a Buitenstate agent near them. Behind the scenes, the agents got their own CMS, including a tool for sending email campaigns, where all requests come together too. Funnels and automations follow up on visitors and requests. Videos complete the stories, and on-site tools, such as the 'how many searchers are there for my home?' form and the free valuation request, prompt visitors to take action.",
     },
     result: {
       nl: "Eén platform waar woningaanbod, verhalen, video en tools samenkomen, met een eigen back-end waarin makelaars hun aanbod en e-mailcampagnes beheren.",

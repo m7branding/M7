@@ -3,6 +3,8 @@
    (m7branding.com, Webflow-collectie "Projects").
    De teksten zijn vertaald en ingekort uit de projectbeschrijvingen
    die daar stonden; niets toegevoegd aan feiten of resultaten.
+   Expociety en SUBLIME zijn aangevuld met M7's eigen beschrijvingen
+   uit het Webflow-showcaseprofiel (webflow.com/@m7-branding-design).
    Beelden: /public/media/cases/<slug>/ (cover.webp, 01.webp, …),
    gemaakt met het script in de scratch-map van ronde 9.
    Projecten die al als uitgewerkte case in cases.ts staan
@@ -199,24 +201,24 @@ export const archiveCases: Case[] = [
       en: "Expociety: the app that connects influencers and venues",
     },
     summary: {
-      nl: "UI/UX en ontwikkeling van de iOS-app van Expociety: events maken, influencers uitnodigen en samen meer bereik halen. Onderdeel van een breder traject met branding, website, socials, een giveaway-campagne en animaties.",
-      en: "UI/UX and development of the Expociety iOS app: create events, invite influencers and reach more people together. Part of a wider project with branding, website, socials, a giveaway campaign and animations.",
+      nl: "UI/UX en ontwikkeling van de iOS-app van Expociety: events maken, influencers uitnodigen, afspraken stroomlijnen en samen meer bereik halen. Met een API-koppeling die de events uit de app synchroniseert met het Webflow CMS van de website. Onderdeel van een breder traject met branding, website, socials, een giveaway-campagne en animaties.",
+      en: "UI/UX and development of the Expociety iOS app: create events, invite influencers, streamline agreements and reach more people together. With an API integration that syncs the events from the app with the website's Webflow CMS. Part of a wider project with branding, website, socials, a giveaway campaign and animations.",
     },
     year: 2023,
     sector: "tech-saas-startups",
     services: ["web-apps-portals-apps"],
-    applications: ["mobiele-app", "ux-ui-app-design", "dashboards"],
-    tools: ["appstore"],
+    applications: ["mobiele-app", "ux-ui-app-design", "dashboards", "api-koppelingen"],
+    tools: ["appstore", "figma", "webflow"],
     cover: cover("expociety-app"),
     gallery: gallery("expociety-app", 5),
     color: "#9A32D1",
     challenge: {
-      nl: "Expociety wilde een digitaal ecosysteem waarin influencers en venues makkelijk samenwerken rond events. De app moest werken voor gebruikers met elke technische achtergrond, met een soepele onboarding.",
-      en: "Expociety wanted a digital ecosystem where influencers and venues work together on events with ease. The app had to work for users of any technical background, with smooth onboarding.",
+      nl: "Expociety wilde een digitaal ecosysteem waarin influencers en venues makkelijk samenwerken rond events, en hun afspraken over influencermarketing helder vastleggen. De app is bedoeld voor eigenaren van venues, restaurants en bars die meer willen doen met influencer- en socialmediamarketing. Hij moest werken voor gebruikers met elke technische achtergrond, met een soepele onboarding.",
+      en: "Expociety wanted a digital ecosystem where influencers and venues work together on events with ease, and keep their influencer marketing agreements clear. The app is made for owners of venues, restaurants and bars who want to do more with influencer and social media marketing. It had to work for users of any technical background, with smooth onboarding.",
     },
     approach: {
-      nl: "We begonnen met een analyse van gebruikersbehoeften en trends, schreven user stories en ontwierpen een intuïtieve interface met een heldere navigatie. Daarna bouwden we de iOS-app: events aanmaken, beheren en promoten, samenwerken, analytics-dashboards en veilige communicatie, op een architectuur die kan meegroeien. Na uitgebreid testen op stabiliteit, veiligheid en prestaties ging de app live in de App Store.",
-      en: "We started with an analysis of user needs and trends, wrote user stories and designed an intuitive interface with clear navigation. Then we built the iOS app: creating, managing and promoting events, collaboration tools, analytics dashboards and secure communication, on an architecture built to grow. After extensive testing for stability, security and performance, the app went live in the App Store.",
+      nl: "We begonnen met een analyse van gebruikersbehoeften en trends, schreven user stories en ontwierpen een intuïtieve interface met een heldere navigatie. Het volledige UI/UX- en appdesign telt honderden schermen en componenten in Figma. Daarna bouwden we de iOS-app: events aanmaken, beheren en promoten, samenwerken, analytics-dashboards en veilige communicatie, op een architectuur die kan meegroeien. Na uitgebreid testen op stabiliteit, veiligheid en prestaties ging de app live in de App Store. Een API-koppeling synchroniseert de events uit de app met het Webflow CMS van de marketingwebsite.",
+      en: "We started with an analysis of user needs and trends, wrote user stories and designed an intuitive interface with clear navigation. The full UI/UX and app design runs to hundreds of screens and components in Figma. Then we built the iOS app: creating, managing and promoting events, collaboration tools, analytics dashboards and secure communication, on an architecture built to grow. After extensive testing for stability, security and performance, the app went live in the App Store. An API integration syncs the events from the app with the Webflow CMS of the marketing website.",
     },
     result: {
       nl: "Een iOS-app die influencers en venues bij elkaar brengt, en die met nieuwe updates blijft doorgroeien.",
@@ -245,8 +247,8 @@ export const archiveCases: Case[] = [
       "content-marketing-online-ads",
       "foto-video-3d-animatie",
     ],
-    applications: ["huisstijl", "logo-ontwerp", "brandbook", "ux-ui-webdesign", "social-media-marketing", "motion-design"],
-    tools: [],
+    applications: ["huisstijl", "logo-ontwerp", "brandbook", "ux-ui-webdesign", "webflow-website", "social-media-marketing", "motion-design"],
+    tools: ["webflow", "figma"],
     cover: cover("expociety-branding"),
     gallery: gallery("expociety-branding", 4),
     color: "#9A32D1",
@@ -255,8 +257,8 @@ export const archiveCases: Case[] = [
       en: "Expociety brings influencers and venues together for extraordinary events. The brand had to radiate that innovative, connecting energy and stand out in a crowded market.",
     },
     approach: {
-      nl: "We vertaalden de visie en waarden van Expociety naar een complete identiteit: een pakkend logo, een levendig kleurenpalet en moderne, toegankelijke typografie. Alles legden we vast in een brandbook, zodat het merk overal hetzelfde verhaal vertelt. Daarna zetten we het merk door: in de website, op social media, in een giveaway-campagne en in animaties. En ook de app ontwierpen en bouwden we, van UI/UX tot ontwikkeling.",
-      en: "We translated Expociety's vision and values into a complete identity: a catchy logo, a vibrant colour palette and modern, approachable typography. Everything is captured in a brandbook, so the brand tells the same story everywhere. Then we carried the brand through: in the website, on social media, in a giveaway campaign and in animations. And we designed and built the app as well, from UI/UX to development.",
+      nl: "We vertaalden de visie en waarden van Expociety naar een complete identiteit: een pakkend logo, een levendig kleurenpalet en moderne, toegankelijke typografie. Alles legden we vast in een brandbook, zodat het merk overal hetzelfde verhaal vertelt. Daarna zetten we het merk door: in de website, op social media, in een giveaway-campagne en in animaties. De interactieve website in Webflow neemt verschillende componenten over uit de app, zodat Expociety er op elk kanaal hetzelfde uitziet. En ook de app ontwierpen en bouwden we, van UI/UX tot ontwikkeling.",
+      en: "We translated Expociety's vision and values into a complete identity: a catchy logo, a vibrant colour palette and modern, approachable typography. Everything is captured in a brandbook, so the brand tells the same story everywhere. Then we carried the brand through: in the website, on social media, in a giveaway campaign and in animations. The interactive Webflow website reuses several components from the app, so Expociety looks the same on every channel. And we designed and built the app as well, from UI/UX to development.",
     },
     result: {
       nl: "Een samenhangend, herkenbaar merkbeeld dat de doelgroep aanspreekt en de kernwaarden van Expociety helder overbrengt.",
@@ -453,13 +455,13 @@ export const archiveCases: Case[] = [
       en: "SUBLIME: the brand that skyrocketed",
     },
     summary: {
-      nl: "Complete branding en communicatie voor de events en het nieuwe online businessmodel van SUBLIME, tot en met de kauwgomverpakking.",
-      en: "Full branding and communication for SUBLIME's events and new online business model, right down to the chewing gum packaging.",
+      nl: "Complete branding en communicatie voor de events en het nieuwe online businessmodel van SUBLIME, tot en met de kauwgomverpakking. En de website van SUBLIME CARS, met de collectie, de events en een Ferrari 458 in de Franse Alpen.",
+      en: "Full branding and communication for SUBLIME's events and new online business model, right down to the chewing gum packaging. And the SUBLIME CARS website, with the collection, the events and a Ferrari 458 in the French Alps.",
     },
     year: 2020,
     sector: "automotive-mobiliteit",
-    services: ["branding-rebranding", "grafisch-ontwerp-print", "content-marketing-online-ads", "websites-webshops"],
-    applications: ["logo-ontwerp", "huisstijl", "verpakkingsontwerp", "beurs-signing", "flyers-posters", "social-media-marketing", "webflow-website"],
+    services: ["branding-rebranding", "grafisch-ontwerp-print", "content-marketing-online-ads", "websites-webshops", "foto-video-3d-animatie"],
+    applications: ["logo-ontwerp", "huisstijl", "verpakkingsontwerp", "beurs-signing", "flyers-posters", "social-media-marketing", "webflow-website", "ai-beeld-video"],
     tools: ["instagram", "webflow"],
     cover: cover("sublime-branding"),
     gallery: gallery("sublime-branding", 8),
@@ -469,8 +471,8 @@ export const archiveCases: Case[] = [
       en: "SUBLIME stands for... well, the word says it all. Founded in 2019, the brand grew into a community of more than 100 Dutch supercar owners and wanted to keep growing.",
     },
     approach: {
-      nl: "We ontwikkelden een herkenbaar logo en een zwart-witte huisstijl, plus merkproducten en content om met de eigenaren in contact te komen. Geen detail bleef liggen: beachflags, banners, nummerplaten en stickers, tot eigen kauwgomverpakkingen en polsbandjes voor de deelnemers.",
-      en: "We developed a recognisable logo and a black-and-white identity, plus branded products and content to engage with the owners. No detail was left out: beach flags, banners, licence plates and stickers, all the way to custom chewing gum packaging and wristbands for participants.",
+      nl: "We ontwikkelden een herkenbaar logo en een zwart-witte huisstijl, plus merkproducten en content om met de eigenaren in contact te komen. Geen detail bleef liggen: beachflags, banners, nummerplaten en stickers, tot eigen kauwgomverpakkingen en polsbandjes voor de deelnemers. Voor SUBLIME CARS, dat supercars aan- en verkoopt, bouwden we ook de website in Webflow. Op de homepage zit een interactie met een Ferrari 458, met AI in beeld gebracht in de Franse Alpen. Elke auto uit de collectie krijgt een eigen presentatie, met het geluid van de uitlaat en meerdere fotogalerijen. En bij de events schrijf je je in via een formulier in een paar stappen.",
+      en: "We developed a recognisable logo and a black-and-white identity, plus branded products and content to engage with the owners. No detail was left out: beach flags, banners, licence plates and stickers, all the way to custom chewing gum packaging and wristbands for participants. For SUBLIME CARS, which buys and sells supercars, we also built the website in Webflow. The homepage features an interaction with a Ferrari 458, rendered with AI in the French Alps. Every car in the collection gets its own presentation, with the sound of its exhaust and several image galleries. And for the events, you sign up through a multi-step form.",
     },
     result: {
       nl: "Mede dankzij dit promotiemateriaal groeide de achterban van SUBLIME op social media snel naar meer dan 25.000 mensen.",

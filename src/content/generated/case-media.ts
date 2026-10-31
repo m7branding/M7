@@ -106,6 +106,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/atl-plus/screen-desktop.webp", mobile: "/media/cases/atl-plus/screen-mobile.webp" },
     logo: "/media/cases/atl-plus/logo-white.png",
+    next: "/media/cases/atl-plus/r-next.webp",
   },
   "bernheze-makelaars-rebranding": {
     cover: "/media/cases/bernheze-makelaars-rebranding/m-cover.webp",
@@ -187,6 +188,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/buitenstate/screen-desktop.webp", mobile: "/media/cases/buitenstate/screen-mobile.webp" },
     logo: "/media/cases/buitenstate/logo-white.svg",
+    next: "/media/cases/buitenstate/r-next.webp",
     replaceCover: true,
   },
   "buitenstate-tools": {
@@ -891,6 +893,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/maarschall/screen-desktop.webp", mobile: "/media/cases/maarschall/screen-mobile.webp" },
     logo: "/media/cases/maarschall/logo-white.svg",
+    next: "/media/cases/maarschall/r-next.webp",
     replaceCover: true,
   },
   "martello": {
