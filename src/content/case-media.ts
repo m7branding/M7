@@ -19,6 +19,8 @@ export interface CaseMediaEntry {
   heroVideo?: Case["heroVideo"];
   /** Logo van de klant (public/media/cases/<slug>/logo*.svg|png), voor de hero. */
   logo?: string;
+  /** Brede render voor de strook "volgende case" (r-next.webp). */
+  next?: string;
   /** true: deze cover vervangt een bestaande cover van de case. */
   replaceCover?: boolean;
 }
@@ -37,5 +39,6 @@ export function withMedia(c0: Case): Case {
     screens: c.screens ?? m.screens,
     heroVideo: c.heroVideo ?? m.heroVideo,
     logo: c.logo ?? m.logo,
+    next: c.next ?? m.next,
   };
 }

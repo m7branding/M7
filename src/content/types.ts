@@ -268,6 +268,8 @@ export interface Case {
    * device-hero; tekst links, video rechts in een afgerond kader (mobiel eronder).
    */
   heroVideo?: { src: string; poster?: string; /** Staande versie voor mobiel (bv. 720×1280). */ srcMobile?: string; posterMobile?: string };
+  /** Brede render voor de strook "volgende case" (r-next.webp, ±2,2:1, onderwerp rechts van het midden). */
+  next?: string;
   gallery?: string[];
   color: string;
   challenge: T;

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { CaseFacts } from "@/components/case/CaseFacts";
 import { CaseHero } from "@/components/case/CaseHero";
 import { CaseLightbox } from "@/components/case/CaseLightbox";
+import { CaseNext } from "@/components/case/CaseNext";
 import "@/components/case/case.css";
 import { TLink } from "@/components/motion/TLink";
 import { CaseStory } from "@/components/sections/CaseStory";
@@ -10,8 +11,7 @@ import { LevelUp } from "@/components/sections/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Btn } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/Cards";
-import { CaseCard, CaseCover } from "@/components/ui/CaseCard";
-import { Icon } from "@/components/ui/Icon";
+import { CaseCard } from "@/components/ui/CaseCard";
 import { LOCALES, type Locale } from "@/content/types";
 import { allCases, applicationsBySlugs, casesForService, getCase, getSector, getService, nextCase } from "@/lib/content";
 import { getDict } from "@/lib/dict";
@@ -80,20 +80,7 @@ export default function CasePage({ params }: P) {
         </section>
       ) : null}
 
-      <section className="next-case">
-        <TLink href={paths.case(next)} className="next-case__link" data-cursor={d.cta.viewCase}>
-          <span className="next-case__media">
-            <CaseCover c={next} sizes="100vw" />
-          </span>
-          <span className="container next-case__inner">
-            <span className="kicker">{d.cases.nextCase}</span>
-            <span className="next-case__title">
-              {next.client}
-              <Icon name="arrowRight" size={48} stroke={1.6} />
-            </span>
-          </span>
-        </TLink>
-      </section>
+      <CaseNext c={next} locale={locale} kicker={d.cases.nextCase} cursor={d.cta.viewCase} />
 
       <div className="container center" style={{ paddingBlock: 40 }}>
         <Btn href={paths.contact}>{d.cta.call}</Btn>
