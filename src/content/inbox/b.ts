@@ -76,6 +76,555 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       concept: true,
       shape: "wide",
     },
+    /* ================= Nieuwe projecten (FigmaAssets, groep B) ================= */
+    {
+      slug: "laserlux",
+      client: "LaserLux",
+      title: {
+        nl: "LaserLux: jouw lijnen, in materiaal vastgelegd",
+        en: "LaserLux: your lines, captured in material",
+      },
+      summary: {
+        nl: "Logo en brandbook voor LaserLux, een bedrijf in lasergraveren en -snijden: het beeldmerk, de logovarianten, oranje en zwart als merkkleuren, de typografie en de toon.",
+        en: "Logo and brandbook for LaserLux, a laser engraving and cutting company: the brand mark, the logo variants, orange and black as brand colours, the typography and the tone.",
+      },
+      sector: "industrie-techniek",
+      services: ["branding-rebranding"],
+      applications: ["logo-ontwerp", "brandbook", "huisstijl", "tone-of-voice"],
+      tools: [],
+      cover: "/media/cases/laserlux/s-fa-brandbook-02.webp",
+      color: "#E09952",
+      challenge: {
+        nl: "LaserLux graveert en snijdt met de laser in verschillende materialen. De vraag aan de klant is eenvoudig: wil je jouw woorden, vormen en lijnen harder vastleggen dan op papier of op je computer? Daar hoorde een merk bij dat net zo precies is als het werk zelf.",
+        en: "LaserLux engraves and cuts a range of materials with a laser. The question to the customer is simple: do you want to capture your words, shapes and lines more permanently than on paper or on your computer? That called for a brand as precise as the work itself.",
+      },
+      approach: {
+        nl: "We ontwierpen het logo met een eigen beeldmerk en de ondertitel 'lasergraveren en -snijden', met varianten op oranje, zwart en wit. In het brandbook legden we de visie vast, de logovarianten, de merkkleuren, de typografie en de toon, met als belofte: jouw lijnen, in materiaal vastgelegd. Beeld van de laser aan het werk laat zien waar het merk over gaat.",
+        en: "We designed the logo with its own brand mark and the subline 'laser engraving and cutting', with variants on orange, black and white. In the brandbook we set down the vision, the logo variants, the brand colours, the typography and the tone, with the promise: your lines, captured in material. Imagery of the laser at work shows what the brand is about.",
+      },
+      result: {
+        nl: "Een warm, technisch merk met vaste afspraken over logo, kleur, typografie en toon.",
+        en: "A warm, technical brand with clear rules for logo, colour, typography and tone.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "loftdeur",
+      client: "Loftdeur",
+      title: {
+        nl: "Loftdeur: stalen deuren, overzichtelijk online",
+        en: "Loftdeur: steel doors, clearly laid out online",
+      },
+      summary: {
+        nl: "Webshopontwerp voor Loftdeur, met stalen binnen-, taats- en schuifdeuren: vier productlijnen naast elkaar, populaire deuren met prijs en een menu met alle productgroepen in beeld.",
+        en: "Webshop design for Loftdeur, with steel interior, pivot and sliding doors: four product lines side by side, popular doors with prices and a menu that shows every product group.",
+      },
+      sector: "interieur-architectuur",
+      services: ["websites-webshops"],
+      applications: ["webshop", "ux-ui-webdesign"],
+      tools: [],
+      cover: "/media/cases/loftdeur/s-fa-webshop-01.webp",
+      color: "#B4A88B",
+      challenge: {
+        nl: "Loftdeur verkoopt stalen deuren in veel uitvoeringen: binnendeuren, taatsdeuren, schuifdeuren en deuren op maat. Wie zo'n deur zoekt, moet snel zien welke lijn bij hem past en wat die kost.",
+        en: "Loftdeur sells steel doors in many versions: interior doors, pivot doors, sliding doors and made-to-measure doors. Anyone looking for such a door needs to see quickly which line suits them and what it costs.",
+      },
+      approach: {
+        nl: "We ontwierpen de webshop rond de vier productlijnen, Smartline, Slimline, Colorline en Expertline, elk met een eigen kaart: sfeerbeeld, de belangrijkste kenmerken en een vanaf-prijs. Daaronder staan de populaire deuren met prijs. Het menu opent op een overzicht met per categorie de productgroepen in beeld, met een uitgelichte deur ernaast.",
+        en: "We designed the webshop around the four product lines, Smartline, Slimline, Colorline and Expertline, each with its own card: a lifestyle image, the key features and a starting price. Below them sit the popular doors with their prices. The menu opens onto an overview showing the product groups per category, with a featured door alongside.",
+      },
+      result: {
+        nl: "Een rustige, lichte webshop waarin je per lijn en per categorie snel bij de juiste deur komt.",
+        en: "A calm, light webshop in which you quickly reach the right door by line and by category.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "mp-car-care",
+      client: "MP Car Care",
+      title: {
+        nl: "MP Car Care: detailing in het donker uitgelicht",
+        en: "MP Car Care: detailing, lit up in the dark",
+      },
+      summary: {
+        nl: "Webdesign voor MP Car Care, een car detailing shop in Breda: een donkerblauwe pagina met de auto's groot in beeld en een klassieker op een zwarte achtergrond als hero.",
+        en: "Web design for MP Car Care, a car detailing shop in Breda: a dark blue page with the cars shown large and a classic car on a black background as the hero.",
+      },
+      sector: "automotive-mobiliteit",
+      services: ["websites-webshops"],
+      applications: ["ux-ui-webdesign"],
+      tools: [],
+      cover: "/media/cases/mp-car-care/s-fa-design-01.webp",
+      color: "#0F1821",
+      challenge: {
+        nl: "Bij car detailing draait alles om afwerking en details. De website van MP Car Care moest dat zelf ook uitstralen: rustig, donker en met de auto's als hoofdrolspeler.",
+        en: "Car detailing is all about finish and detail. MP Car Care's website had to radiate that too: calm, dark and with the cars in the leading role.",
+      },
+      approach: {
+        nl: "We ontwierpen een donkerblauwe pagina met een sierlijke serif voor de koppen en goud als accent. De hero zet de shop en Breda centraal, met daaronder een strook met werk in de studio. Voor de hero maakten we ook een versie met een klassieker die uit het donker oplicht.",
+        en: "We designed a dark blue page with an elegant serif for the headings and gold as an accent. The hero puts the shop and Breda centre stage, followed by a strip of work in the studio. For the hero we also made a version with a classic car emerging from the dark.",
+      },
+      result: {
+        nl: "Een ingetogen ontwerp waarin het werk van MP Car Care voor zichzelf spreekt.",
+        en: "A restrained design in which MP Car Care's work speaks for itself.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "mainsail",
+      client: "Mainsail",
+      title: {
+        nl: "Mainsail: een merk voor Metalvisor",
+        en: "Mainsail: a brand for Metalvisor",
+      },
+      summary: {
+        nl: "Logo's, beeldstijl, een landingspagina en een brochurecover voor Mainsail en Metalvisor, de hypervisor voor mission critical workloads.",
+        en: "Logos, visual style, a landing page and a brochure cover for Mainsail and Metalvisor, the hypervisor for mission-critical workloads.",
+      },
+      sector: "tech-saas-startups",
+      services: ["branding-rebranding", "websites-webshops", "grafisch-ontwerp-print"],
+      applications: ["logo-ontwerp", "huisstijl", "ux-ui-webdesign", "landingspaginas", "brochures-magazines"],
+      tools: [],
+      cover: "/media/cases/mainsail/s-fa-visual-style.webp",
+      color: "#1273E8",
+      challenge: {
+        nl: "Mainsail ontwikkelt Metalvisor, een hypervisor voor mission critical workloads, tot aan de tactical edge. Diepe techniek voor een publiek dat veel ziet. Merk en website moesten het product helder en zelfverzekerd neerzetten.",
+        en: "Mainsail develops Metalvisor, a hypervisor for mission-critical workloads, right up to the tactical edge. Deep technology for an audience that sees a lot. Brand and website had to present the product clearly and confidently.",
+      },
+      approach: {
+        nl: "We werkten het merk uit voor Mainsail en Metalvisor samen: de twee logo's naast elkaar op wit, donker en blauw, met varianten voor het Metalvisor-beeldmerk. De beeldstijl combineert helder blauw met diagonale lijnen en fotografie. Op de landingspagina staan de boodschap en een isometrische chip centraal. Voor de brochure ontwierpen we een donkerblauwe cover met een golvend draadmodel.",
+        en: "We developed the brand for Mainsail and Metalvisor together: the two logos side by side on white, dark and blue, with variants for the Metalvisor brand mark. The visual style combines bright blue with diagonal lines and photography. The landing page puts the message and an isometric chip centre stage. For the brochure we designed a dark blue cover with a rolling wireframe landscape.",
+      },
+      result: {
+        nl: "Een strak, technisch merk dat op het scherm en op papier hetzelfde verhaal vertelt.",
+        en: "A clean, technical brand that tells the same story on screen and on paper.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "megensbouw",
+      client: "MegensBouw",
+      title: {
+        nl: "MegensBouw: een bedrijfspand in 3D, voordat het er staat",
+        en: "MegensBouw: a commercial building in 3D, before it is built",
+      },
+      summary: {
+        nl: "3D-renders van een bedrijfspand met kantoor en laaddocks voor MegensBouw: vanaf de straat, bij het hek en van bovenaf, in het licht van verschillende momenten van de dag.",
+        en: "3D renders of a commercial building with offices and loading docks for MegensBouw: from the street, by the fence and from above, in the light of different times of day.",
+      },
+      sector: "bouw-architectuur",
+      services: ["foto-video-3d-animatie"],
+      applications: ["3d-visualisatie"],
+      tools: [],
+      cover: "/media/cases/megensbouw/s-fa-render-01.webp",
+      color: "#4C413D",
+      challenge: {
+        nl: "Een nieuw bedrijfspand bestaat eerst alleen op tekening. MegensBouw wilde laten zien hoe het gebouw er straks echt uitziet, met de gevels, de laaddocks en de omgeving erbij.",
+        en: "A new commercial building first exists only on paper. MegensBouw wanted to show what the building will really look like, with the facades, the loading docks and the surroundings included.",
+      },
+      approach: {
+        nl: "Vanuit de bouwtekeningen maakten we 3D-renders van het pand. We lieten het gebouw zien vanaf verschillende standpunten: frontaal vanaf de straat, schuin langs het hek, bij de laaddocks en van bovenaf. Vrachtwagens, auto's, mensen en bomen maken het beeld levendig, en strijklicht van een laagstaande zon geeft de gevels diepte.",
+        en: "Working from the construction drawings, we made 3D renders of the building. We showed it from several viewpoints: head-on from the street, at an angle along the fence, at the loading docks and from above. Trucks, cars, people and trees bring the image to life, and raking light from a low sun gives the facades depth.",
+      },
+      result: {
+        nl: "Een reeks fotorealistische beelden van een pand dat er nog niet staat.",
+        en: "A series of photorealistic images of a building that has yet to be built.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "munjz-connect",
+      client: "Munjz Connect",
+      title: {
+        nl: "Munjz Connect: facilitair beheer, per branche en per rol",
+        en: "Munjz Connect: facility management, by industry and by role",
+      },
+      summary: {
+        nl: "Webdesign voor Munjz Connect, software voor facilitair en vastgoedbeheer: een homepage met het product in beeld, een overzicht van oplossingen per branche en menu's per oplossing en functie.",
+        en: "Web design for Munjz Connect, software for facility and property management: a homepage that shows the product, an overview of solutions by industry and menus per solution and feature.",
+      },
+      sector: "tech-saas-startups",
+      services: ["websites-webshops"],
+      applications: ["ux-ui-webdesign"],
+      tools: [],
+      cover: "/media/cases/munjz-connect/s-fa-design-01.webp",
+      color: "#1878E8",
+      challenge: {
+        nl: "Munjz Connect is één platform voor commercieel en residentieel facilitair beheer. Dezelfde software moet aanspreken bij een kantoor, een ziekenhuis, een school of een hotel, en bij de facility manager net zo goed als bij de IT-manager.",
+        en: "Munjz Connect is one platform for commercial and residential facility management. The same software has to appeal to an office, a hospital, a school or a hotel, and to the facility manager as much as to the IT manager.",
+      },
+      approach: {
+        nl: "We ontwierpen de website rond die twee ingangen: per branche en per rol. Een schakelaar op de oplossingenpagina wisselt tussen beide. Per branche is er een kaart met een eigen sfeerbeeld. De homepage toont het product in een dashboard en op de laptop, met tabbladen voor beheren, onderhouden, volgen en rapporteren. De menu's openen op overzichtelijke panelen, met aparte kaarten voor commercieel en residentieel beheer.",
+        en: "We designed the website around those two entry points: by industry and by role. A toggle on the solutions page switches between them. Each industry gets a card with its own image. The homepage shows the product in a dashboard and on a laptop, with tabs for manage, maintain, track and report. The menus open onto clear panels, with separate cards for commercial and residential management.",
+      },
+      result: {
+        nl: "Een heldere SaaS-website waarop elke bezoeker snel zijn eigen ingang vindt.",
+        en: "A clear SaaS website on which every visitor quickly finds their own way in.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "pwt-gears",
+      client: "PWT Gears",
+      title: {
+        nl: "PWT Gears: het verhaal van één tandwiel",
+        en: "PWT Gears: the story of a single gear",
+      },
+      summary: {
+        nl: "Een swipe-post en templates voor social media voor PWT Gears: van een onrustige wereld naar de mijnbouw, naar dat ene kritieke onderdeel dat moet blijven draaien.",
+        en: "A swipe post and social media templates for PWT Gears: from an unsettled world to mining, to that one critical component that has to keep turning.",
+      },
+      sector: "industrie-techniek",
+      services: ["content-marketing-online-ads"],
+      applications: ["social-media-marketing"],
+      tools: [],
+      cover: "/media/cases/pwt-gears/s-fa-carousel.webp",
+      color: "#005D82",
+      challenge: {
+        nl: "PWT Gears maakt tandwielen voor zware industrie. Een technisch product, dat online pas gaat leven als je laat zien waarom het ertoe doet.",
+        en: "PWT Gears makes gears for heavy industry. A technical product that only comes alive online when you show why it matters.",
+      },
+      approach: {
+        nl: "We schreven en ontwierpen een swipe-post in acht slides. Het verhaal begint breed, bij een wereld die onrustiger wordt, en zoomt in: wat betekent dat voor de industrie, voor de mijnbouw, en voor het ene onderdeel waar alles van afhangt: the gear. Het eindigt bij PWT Gears: quality isn't optional. Daarnaast maakten we templates in dezelfde blauwe stijl, met het gebouw en het logo als beeld, ook in het Nederlands.",
+        en: "We wrote and designed an eight-slide swipe post. The story starts wide, with a world that is becoming more unsettled, and zooms in: what does that mean for industry, for mining, and for the one component everything depends on: the gear. It ends with PWT Gears: quality isn't optional. We also made templates in the same blue style, with the building and the logo as imagery, in Dutch as well.",
+      },
+      result: {
+        nl: "Social content die een technisch product een verhaal geeft, in een herkenbare eigen stijl.",
+        en: "Social content that gives a technical product a story, in a recognisable style of its own.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "porsche-centrum-amsterdam",
+      client: "Porsche Centrum Amsterdam",
+      title: {
+        nl: "Porsche Centrum Amsterdam: de Secret Rooftop Party in beeld",
+        en: "Porsche Centrum Amsterdam: the Secret Rooftop Party on film",
+      },
+      summary: {
+        nl: "Een aftermovie voor Porsche Centrum Amsterdam: gasten, auto's, muziek en hapjes op het dak, in twintig seconden.",
+        en: "An aftermovie for Porsche Centrum Amsterdam: guests, cars, music and food on the roof, in twenty seconds.",
+      },
+      sector: "automotive-mobiliteit",
+      services: ["foto-video-3d-animatie"],
+      applications: ["bedrijfsfilm", "social-video"],
+      tools: [],
+      cover: "/media/cases/porsche-centrum-amsterdam/s-fa-still-01.webp",
+      color: "#A42828",
+      challenge: {
+        nl: "Porsche Centrum Amsterdam organiseerde een Secret Rooftop Party. De sfeer van die middag moest in een korte film te voelen zijn.",
+        en: "Porsche Centrum Amsterdam hosted a Secret Rooftop Party. The atmosphere of that afternoon had to come across in a short film.",
+      },
+      approach: {
+        nl: "We filmden de middag en monteerden er een aftermovie van: de aankomst langs de Porsches, de weg naar boven, gasten op het dak, een saxofonist, sushi en een klassieke 356 in de zon. Korte shots, warm licht en veel beweging, met het logo van Porsche Centrum Amsterdam als afsluiter.",
+        en: "We filmed the afternoon and edited it into an aftermovie: the arrival past the Porsches, the way up, guests on the roof, a saxophonist, sushi and a classic 356 in the sun. Short shots, warm light and plenty of movement, closing with the Porsche Centrum Amsterdam logo.",
+      },
+      result: {
+        nl: "Een korte, zonnige film die de middag in één keer terugbrengt.",
+        en: "A short, sunny film that brings the afternoon back in one go.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "privacy-company",
+      client: "Privacy Company",
+      title: {
+        nl: "Privacy Company: PrivacyNexus in beeld",
+        en: "Privacy Company: PrivacyNexus in view",
+      },
+      summary: {
+        nl: "Beeld voor PrivacyNexus van Privacy Company: een banner met het woordmerk op een zacht paars verloop en losse grafische vormen.",
+        en: "Visuals for PrivacyNexus by Privacy Company: a banner with the wordmark on a soft purple gradient and separate graphic shapes.",
+      },
+      sector: "zakelijke-dienstverlening",
+      services: ["grafisch-ontwerp-print"],
+      applications: ["illustraties-iconen"],
+      tools: [],
+      cover: "/media/cases/privacy-company/s-fa-privacynexus-banner.webp",
+      color: "#DB7257",
+      challenge: {
+        nl: "Privacy Company zocht beeld voor PrivacyNexus dat rustig en herkenbaar is.",
+        en: "Privacy Company was looking for visuals for PrivacyNexus that are calm and recognisable.",
+      },
+      approach: {
+        nl: "We maakten een banner met het woordmerk PrivacyNexus en 'by Privacy Company' op een zacht verloop van paars naar grijs, en losse diagonale vormen in de oranje accentkleur voor op de website.",
+        en: "We made a banner with the PrivacyNexus wordmark and 'by Privacy Company' on a soft gradient from purple to grey, plus separate diagonal shapes in the orange accent colour for the website.",
+      },
+      result: {
+        nl: "Rustig, herkenbaar beeld voor PrivacyNexus.",
+        en: "Calm, recognisable visuals for PrivacyNexus.",
+      },
+      concept: true,
+      draft: true,
+      shape: "wide",
+    },
+    {
+      slug: "pysport",
+      client: "PySport",
+      title: {
+        nl: "PySport: één logo voor de community, de conferentie en de playground",
+        en: "PySport: one logo for the community, the conference and the playground",
+      },
+      summary: {
+        nl: "Logo voor PySport, met varianten voor PySport Conference en PySport Playground, en een conferentiebanner met het logo op fotografie.",
+        en: "Logo for PySport, with variants for PySport Conference and PySport Playground, and a conference banner with the logo on photography.",
+      },
+      sector: "sport-media",
+      services: ["branding-rebranding"],
+      applications: ["logo-ontwerp", "huisstijl"],
+      tools: [],
+      cover: "/media/cases/pysport/s-fa-conference-banner.webp",
+      color: "#4BA3DA",
+      challenge: {
+        nl: "PySport brengt sport en Python samen, met een conferentie en een playground. Daar hoorde één herkenbaar logo bij dat in alle onderdelen werkt.",
+        en: "PySport brings sport and Python together, with a conference and a playground. That called for one recognisable logo that works across every part.",
+      },
+      approach: {
+        nl: "We ontwierpen een beeldmerk in lagen van blauw dat uitloopt in een zachte kleurovergang, met een strak, vriendelijk woordmerk ernaast. Onder het woordmerk komt de naam van het onderdeel: conference of playground. Op de conferentiebanner staat het logo in wit op een donkerblauw getinte foto van de zaal.",
+        en: "We designed a brand mark in layers of blue that runs into a soft colour gradient, with a clean, friendly wordmark beside it. Beneath the wordmark goes the name of the part: conference or playground. On the conference banner the logo sits in white on a dark blue tinted photo of the venue.",
+      },
+      result: {
+        nl: "Een logofamilie waarmee PySport overal hetzelfde gezicht laat zien.",
+        en: "A logo family that gives PySport the same face everywhere.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "thingsix",
+      client: "ThingsIX",
+      title: {
+        nl: "ThingsIX: een merk voor een gedecentraliseerd netwerk",
+        en: "ThingsIX: a brand for a decentralised network",
+      },
+      summary: {
+        nl: "Logo en brandbook voor ThingsIX, een gedecentraliseerd LoRaWAN-netwerk: het beeldmerk, groen op zwart, Manrope en Inter als letters, een archetype en een bestelflow voor de evaluatiekit.",
+        en: "Logo and brandbook for ThingsIX, a decentralised LoRaWAN network: the brand mark, green on black, Manrope and Inter as typefaces, an archetype and an order flow for the evaluation kit.",
+      },
+      sector: "tech-saas-startups",
+      services: ["branding-rebranding", "websites-webshops"],
+      applications: ["logo-ontwerp", "brandbook", "huisstijl", "ux-ui-webdesign"],
+      tools: [],
+      cover: "/media/cases/thingsix/s-fa-brandbook-01.webp",
+      color: "#2FF7A6",
+      challenge: {
+        nl: "ThingsIX is een gedecentraliseerd LoRaWAN-netwerk dat dataleveranciers beloont voor betrouwbare data aan eindgebruikers. Een technisch en abstract idee, dat een merk nodig had met een eigen, herkenbaar beeld.",
+        en: "ThingsIX is a decentralised LoRaWAN network that rewards data providers for delivering reliable data to end users. A technical and abstract idea that needed a brand with its own recognisable look.",
+      },
+      approach: {
+        nl: "We ontwierpen een beeldmerk van vier ruiten en legden het merk vast in een brandbook: de logovarianten op zwart, groen en licht, signaalgroen als kleur, Manrope en Inter als letters en een archetype dat de toon bepaalt. Golvende velden van stippen geven het netwerk een beeld. Voor de bestelling van de evaluatiekit ontwierpen we een eenvoudig formulier, met de doos in 3D ernaast.",
+        en: "We designed a brand mark of four diamonds and captured the brand in a brandbook: the logo variants on black, green and light, signal green as the colour, Manrope and Inter as typefaces and an archetype that sets the tone. Rolling fields of dots give the network an image. For ordering the evaluation kit we designed a simple form, with the box in 3D alongside.",
+      },
+      result: {
+        nl: "Een donker, technisch merk met één heldere kleur, van logo tot bestelflow.",
+        en: "A dark, technical brand with one bright colour, from logo to order flow.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "tristo",
+      client: "Tristo",
+      title: {
+        nl: "Tristo: werk en begeleiding voor statushouders",
+        en: "Tristo: work and guidance for status holders",
+      },
+      summary: {
+        nl: "Een herovideo voor de website, een brochure en visitekaartjes voor Tristo in Helmond, dat werk en begeleiding biedt aan statushouders.",
+        en: "A hero video for the website, a brochure and business cards for Tristo in Helmond, which offers work and guidance to status holders.",
+      },
+      sector: "zakelijke-dienstverlening",
+      services: ["foto-video-3d-animatie", "grafisch-ontwerp-print"],
+      applications: ["bedrijfsfilm", "brochures-magazines", "visitekaartjes-drukwerk"],
+      tools: [],
+      cover: "/media/cases/tristo/s-fa-print.webp",
+      color: "#0D3E33",
+      challenge: {
+        nl: "Tristo biedt werk en begeleiding aan statushouders. Dat verhaal gaat over mensen en over echt werk, en moest ook zo in beeld komen: op de website en op papier.",
+        en: "Tristo offers work and guidance to status holders. That story is about people and about real work, and it had to be shown that way too: on the website and on paper.",
+      },
+      approach: {
+        nl: "We filmden bij Tristo in Helmond en maakten er een herovideo voor de website van: het pand met de gevelreclame, het magazijn met heftrucks en pallets en de medewerkers aan het werk in hun groene polo's. In dezelfde lijn ontwierpen we de brochure, met een portret op de cover, en visitekaartjes in donkergroen en oranje.",
+        en: "We filmed at Tristo in Helmond and turned it into a hero video for the website: the building with its signage, the warehouse with forklifts and pallets and the employees at work in their green polos. In the same style we designed the brochure, with a portrait on the cover, and business cards in dark green and orange.",
+      },
+      result: {
+        nl: "Beeld dat laat zien wie er bij Tristo werken en wat ze doen, op het scherm en op papier.",
+        en: "Visuals that show who works at Tristo and what they do, on screen and on paper.",
+      },
+      url: "https://www.tristo.nl",
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "wizardframe",
+      client: "WizardFrame",
+      title: {
+        nl: "WizardFrame: beeld, geluid en design in één frame",
+        en: "WizardFrame: image, sound and design in one frame",
+      },
+      summary: {
+        nl: "Logo, brandbook en een online configurator voor WizardFrame, een designframe waarin beeldscherm, geluid en techniek samenkomen. Plus een uitlegbeeld en de herovideo voor de website.",
+        en: "Logo, brandbook and an online configurator for WizardFrame, a design frame that brings screen, sound and technology together. Plus an explainer visual and the hero video for the website.",
+      },
+      sector: "interieur-architectuur",
+      services: ["branding-rebranding", "configurators-lead-tools-widgets", "foto-video-3d-animatie"],
+      applications: ["logo-ontwerp", "brandbook", "huisstijl", "productconfigurator", "bedrijfsfilm"],
+      tools: [],
+      cover: "/media/cases/wizardframe/s-fa-brandbook-02.webp",
+      color: "#211A33",
+      challenge: {
+        nl: "WizardFrame integreert beeld, geluid, techniek en design in één frame of wall. Een product dat je op maat samenstelt, en dat dus een merk vraagt met allure en een configurator die het samenstellen eenvoudig maakt.",
+        en: "WizardFrame integrates image, sound, technology and design in one frame or wall. A product you put together to measure, which calls for a brand with allure and a configurator that makes putting it together easy.",
+      },
+      approach: {
+        nl: "We ontwierpen het logo, met een variant voor WizardWall, en legden het merk vast in een brandbook: diep paars met goud, de productlijnen WizardFrame, AtelierFrame, BoardFrame en OutdoorFrame, en de materiaal- en meubelpartners. Een uitlegbeeld laat zien wat er in het frame zit. In de configurator kies je in vier stappen het type, het model, de opties en controleer je het overzicht: geluidspakket, kleur en extra's als ambient light of een HDMI-poort, met een beeld dat direct meeverandert.",
+        en: "We designed the logo, with a variant for WizardWall, and captured the brand in a brandbook: deep purple with gold, the product lines WizardFrame, AtelierFrame, BoardFrame and OutdoorFrame, and the material and furniture partners. An explainer visual shows what is inside the frame. In the configurator you choose the type, the model and the options in four steps and check the overview: sound package, colour and extras such as ambient light or an HDMI port, with an image that changes along with you.",
+      },
+      result: {
+        nl: "Een luxe merk en een configurator waarmee je je eigen frame samenstelt en direct ziet.",
+        en: "A luxurious brand and a configurator that lets you put together your own frame and see it straight away.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "wrap-720s",
+      client: "Duff Brothers",
+      title: {
+        nl: "McLaren 720S: een wrap voor The Challenge 2023",
+        en: "McLaren 720S: a wrap for The Challenge 2023",
+      },
+      summary: {
+        nl: "Een volledige wrap voor een McLaren 720S, met de Duff Brothers, het logo van The Challenge 2023 en de partners, uitgewerkt voor voor, achter en beide zijkanten.",
+        en: "A full wrap for a McLaren 720S, with the Duff Brothers, The Challenge 2023 logo and the partners, worked out for the front, rear and both sides.",
+      },
+      sector: "automotive-mobiliteit",
+      services: ["grafisch-ontwerp-print"],
+      applications: ["beurs-signing"],
+      tools: [],
+      cover: "/media/cases/wrap-720s/s-fa-wrap-views.webp",
+      color: "#CB7C40",
+      challenge: {
+        nl: "Een oranje McLaren 720S ging als de auto van de Duff Brothers mee in The Challenge 2023. De wrap moest opvallen, het team neerzetten en ruimte geven aan alle partners.",
+        en: "An orange McLaren 720S joined The Challenge 2023 as the Duff Brothers' car. The wrap had to stand out, present the team and make room for every partner.",
+      },
+      approach: {
+        nl: "We bouwden de wrap rond de foto's van het team in Schotse outfit, met het groene logo van The Challenge 2023 als blikvanger. Op de motorkap staat 'We are who we are', op de flanken lopen de foto's over in een Schotse vlag en een tartanpatroon. De logo's van de partners kregen elk een vaste plek. We werkten het ontwerp uit voor alle vier de aanzichten.",
+        en: "We built the wrap around photos of the team in Scottish outfits, with the green The Challenge 2023 logo as the eye-catcher. The bonnet carries 'We are who we are', and on the flanks the photos blend into a Scottish flag and a tartan pattern. Each partner logo got a fixed place. We worked out the design for all four views.",
+      },
+      result: {
+        nl: "Een wrap die van elke kant herkenbaar is, met team en partners goed in beeld.",
+        en: "A wrap that is recognisable from every side, with team and partners clearly in view.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+
+    /* ================= Terug (eerder verwijderd wegens te weinig beeld) ================= */
+    {
+      slug: "mission-critical-nutrition",
+      client: "Mission Critical Nutrition",
+      title: {
+        nl: "Mission Critical Nutrition: OMNI-1 online",
+        en: "Mission Critical Nutrition: OMNI-1 online",
+      },
+      summary: {
+        nl: "Webdesign voor Mission Critical Nutrition en OMNI-1, een supplement voor militairen en tactische professionals: een donkere, groene homepage met het product, de werking in grafieken en een aanvraag voor de brochure.",
+        en: "Web design for Mission Critical Nutrition and OMNI-1, a supplement for the military and tactical professionals: a dark, green homepage with the product, how it works in charts and a request for the brochure.",
+      },
+      sector: "food-retail",
+      services: ["websites-webshops"],
+      applications: ["ux-ui-webdesign"],
+      tools: [],
+      cover: "/media/cases/mission-critical-nutrition/s-fa-design-01.webp",
+      color: "#B8E400",
+      challenge: {
+        nl: "Mission Critical Nutrition ontwikkelde OMNI-1, een supplement voor wie onder zware omstandigheden moet presteren. De website moest het product serieus en overtuigend neerzetten voor een kritisch, professioneel publiek.",
+        en: "Mission Critical Nutrition developed OMNI-1, a supplement for people who have to perform under tough conditions. The website had to present the product seriously and convincingly to a critical, professional audience.",
+      },
+      approach: {
+        nl: "We ontwierpen een homepage in donker groen en zwart met limoengroen als accent. De hero zet de flessen OMNI-1 groot in beeld, met energie, vitamines en hydratatie als kernwoorden. Twee grafieken laten het verschil zien tussen een snelle piek en een gelijkmatige afgifte. Bezoekers vragen accreditatie of de brochure aan via een formulier.",
+        en: "We designed a homepage in dark green and black with lime green as the accent. The hero shows the OMNI-1 bottles large, with energy, vitamins and hydration as key words. Two charts show the difference between a quick spike and an even release. Visitors request accreditation or the brochure through a form.",
+      },
+      result: {
+        nl: "Een stoer, rustig ontwerp dat het product en de werking helder uitlegt.",
+        en: "A tough yet calm design that clearly explains the product and how it works.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "phoenix-green-hydrogen",
+      client: "Phoenix",
+      title: {
+        nl: "Phoenix: groene waterstof, van Texas naar Europa",
+        en: "Phoenix: green hydrogen, from Texas to Europe",
+      },
+      summary: {
+        nl: "Webdesign, presentatiebeeld, geanimeerde kaarten en een 3D-vlucht over Phoenix One, voor Phoenix: een partner in duurzame waterstof.",
+        en: "Web design, presentation visuals, animated maps and a 3D flight over Phoenix One, for Phoenix: a partner in sustainable hydrogen.",
+      },
+      sector: "energie-duurzaamheid",
+      services: ["websites-webshops", "grafisch-ontwerp-print", "foto-video-3d-animatie"],
+      applications: ["ux-ui-webdesign", "presentaties-pitchdecks", "motion-design", "3d-visualisatie"],
+      tools: [],
+      cover: "/media/cases/phoenix-green-hydrogen/s-fa-slide-01.webp",
+      color: "#3AD9A0",
+      challenge: {
+        nl: "Phoenix wil groene waterstof maken met wind- en zonne-energie en die vanuit Texas naar Europa brengen. Een groot plan op een plek die nog leeg is. Het moest voorstelbaar worden: hoe ziet het eruit, en hoe loopt de route?",
+        en: "Phoenix aims to produce green hydrogen with wind and solar energy and bring it from Texas to Europe. A big plan in a place that is still empty. It had to become imaginable: what does it look like, and how does the route run?",
+      },
+      approach: {
+        nl: "We begonnen met schetsen van de sitemap en ontwierpen de website in donkerblauw met mintgroen: een hero met windmolens, de projecten en de missie. Voor de presentatie maakten we de cover en kaartbeelden. Geanimeerde kaarten volgen de route: van de Phoenix-site via Corpus Christi over de oceaan naar Rotterdam en Antwerpen, en van daar het achterland in. Een 3D-vlucht over Phoenix One laat de wegen, windmolens en zonnevelden zien.",
+        en: "We started by sketching the sitemap and designed the website in dark blue with mint green: a hero with wind turbines, the projects and the mission. For the presentation we made the cover and map visuals. Animated maps follow the route: from the Phoenix site via Corpus Christi across the ocean to Rotterdam and Antwerp, and from there into the hinterland. A 3D flight over Phoenix One shows the roads, wind turbines and solar fields.",
+      },
+      result: {
+        nl: "Beeld en beweging die een plan op de tekentafel tastbaar maken, op de website en in de presentatie.",
+        en: "Visuals and motion that make a plan on the drawing board tangible, on the website and in the presentation.",
+      },
+      concept: true,
+      shape: "wide",
+    },
+    {
+      slug: "velorum",
+      client: "Velorum",
+      title: {
+        nl: "Velorum: trusted security, independent by design",
+        en: "Velorum: trusted security, independent by design",
+      },
+      summary: {
+        nl: "Logo, brandbook en website voor Velorum, dat cryptografische en securityoplossingen adviseert en bouwt: een vinkje in drie lagen, diep blauw en een rustige website rond een wereldbol van punten.",
+        en: "Logo, brandbook and website for Velorum, which advises on and builds cryptographic and security solutions: a three-layer check mark, deep blue and a calm website around a globe of dots.",
+      },
+      sector: "tech-saas-startups",
+      services: ["branding-rebranding", "websites-webshops"],
+      applications: ["logo-ontwerp", "brandbook", "huisstijl", "ux-ui-webdesign"],
+      tools: [],
+      cover: "/media/cases/velorum/s-fa-brandbook-02.webp",
+      color: "#1A2E5C",
+      challenge: {
+        nl: "Velorum adviseert en bouwt cryptografische en securityoplossingen voor organisaties die aantoonbaar vertrouwen, aansluiting op regelgeving en autonomie op de lange termijn nodig hebben. Een merk in security moet vooral één ding uitstralen: betrouwbaarheid.",
+        en: "Velorum advises on and builds cryptographic and security solutions for organisations that need verifiable trust, regulatory alignment and long-term autonomy. A brand in security has to radiate one thing above all: reliability.",
+      },
+      approach: {
+        nl: "We ontwierpen een beeldmerk als vinkje in drie lagen, met de payoff 'Trusted security. Independent by design.' Het brandbook legt de logovarianten vast, een palet van diep blauw tot zacht grijs en Inter als letter. De website opent met een wereldbol van punten, gevolgd door de diensten consultancy en automation, de cases, veelgestelde vragen en een contactformulier. Een LinkedIn-cover zet de payoff boven dezelfde wereldbol.",
+        en: "We designed a brand mark as a three-layer check mark, with the payoff 'Trusted security. Independent by design.' The brandbook sets down the logo variants, a palette from deep blue to soft grey and Inter as the typeface. The website opens with a globe of dots, followed by the consultancy and automation services, the cases, frequently asked questions and a contact form. A LinkedIn cover places the payoff above the same globe.",
+      },
+      result: {
+        nl: "Een sober, betrouwbaar merk dat online en op LinkedIn hetzelfde zegt.",
+        en: "A sober, reliable brand that says the same thing online and on LinkedIn.",
+      },
+      concept: true,
+      shape: "wide",
+    },
   ],
   media: {
     /* ---------- MindYourPass (+ Ads + Mockups) ---------- */
@@ -146,6 +695,7 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
     /* ---------- Plenty Planet ---------- */
     "plenty-planet": {
       images: [
+        { src: "/media/cases/plenty-planet/s-fa-whitepaper.webp", title: "Plenty Planet — Brochure" },
         { src: "/media/cases/plenty-planet/s-fa-wireframe.webp", title: "Plenty Planet — Wireframe oplossingspagina met meescrollende widget" },
       ],
       films: [
@@ -158,6 +708,7 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       cover: "/media/cases/plenty-planet-content/s-fa-posts.webp",
       images: [
         { src: "/media/cases/plenty-planet-content/s-fa-posts.webp", title: "Plenty Planet — LinkedIn-posts" },
+        { src: "/media/cases/plenty-planet-content/s-fa-swipe-cover.webp", title: "Plenty Planet — Swipe-post: strategic independence" },
         { src: "/media/cases/plenty-planet-content/s-fa-carousel.webp", title: "Plenty Planet — Carrousel: bodem en waterstress" },
       ],
       films: [
@@ -168,7 +719,6 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
     /* ---------- Repairlab ---------- */
     "repairlab": {
       images: [
-        { src: "/media/cases/repairlab/s-fa-brandbook-01.webp", title: "Repairlab — Copybook: strategie en guidelines" },
         { src: "/media/cases/repairlab/s-fa-brandbook-02.webp", title: "Repairlab — Merkpersoonlijkheid" },
         { src: "/media/cases/repairlab/s-fa-brandbook-03.webp", title: "Repairlab — Tone of voice in vier dimensies" },
         { src: "/media/cases/repairlab/s-fa-brandbook-04.webp", title: "Repairlab — Wie we zijn, en wie niet" },
@@ -408,6 +958,206 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
         { src: "/media/cases/your-earth/s-fa-brandbook-08.webp", title: "YOUR.earth — Every landscape has a plan" },
       ],
       films: [],
+    },
+
+    /* ---------- Jalo (opname uit Several/, zonder de pagina's met investeringscijfers) ---------- */
+    "jalo-energy": {
+      images: [],
+      films: [
+        // Several/Screen Recording 2026-09-10 at 3.43.16 PM: 0,3–5 s + 7,3–12,9 s
+        { src: "/media/cases/jalo-energy/s-fa-website-hero-pellets.mp4", poster: "/media/cases/jalo-energy/s-fa-website-hero-pellets.webp", w: 1656, h: 1032, title: "Website: Energy that goes further en Nederpellets" },
+      ],
+    },
+
+    /* ================= Media van de nieuwe en teruggekeerde projecten ================= */
+    "laserlux": {
+      cover: "/media/cases/laserlux/s-fa-brandbook-02.webp",
+      images: [
+        { src: "/media/cases/laserlux/s-fa-brandbook-02.webp", title: "LaserLux — Jouw lijnen. In materiaal vastgelegd." },
+        { src: "/media/cases/laserlux/s-fa-brandbook-01.webp", title: "LaserLux — Logo" },
+        { src: "/media/cases/laserlux/s-fa-brandbook-04.webp", title: "LaserLux — Logovarianten" },
+        { src: "/media/cases/laserlux/s-fa-brandbook-03.webp", title: "LaserLux — Visie" },
+        { src: "/media/cases/laserlux/s-fa-brandbook-05.webp", title: "LaserLux — Merkkleuren" },
+        { src: "/media/cases/laserlux/s-fa-brandbook-06.webp", title: "LaserLux — Typografie" },
+      ],
+      films: [],
+    },
+    "loftdeur": {
+      cover: "/media/cases/loftdeur/s-fa-webshop-01.webp",
+      images: [
+        { src: "/media/cases/loftdeur/s-fa-webshop-01.webp", title: "Loftdeur — Vier productlijnen" },
+        { src: "/media/cases/loftdeur/s-fa-webshop-02.webp", title: "Loftdeur — Menu met productgroepen" },
+        { src: "/media/cases/loftdeur/s-fa-webshop-03.webp", title: "Loftdeur — Populair op dit moment" },
+      ],
+      films: [],
+    },
+    "mp-car-care": {
+      cover: "/media/cases/mp-car-care/s-fa-design-01.webp",
+      images: [
+        { src: "/media/cases/mp-car-care/s-fa-design-01.webp", title: "MP Car Care — Webdesign" },
+        { src: "/media/cases/mp-car-care/s-fa-hero-classic.webp", title: "MP Car Care — Hero met klassieker" },
+      ],
+      films: [],
+    },
+    "mainsail": {
+      cover: "/media/cases/mainsail/s-fa-visual-style.webp",
+      images: [
+        { src: "/media/cases/mainsail/s-fa-visual-style.webp", title: "Mainsail — Beeldstijl" },
+        { src: "/media/cases/mainsail/s-fa-brochure-cover.webp", title: "Metalvisor — Brochurecover" },
+        { src: "/media/cases/mainsail/s-fa-logo.webp", title: "Mainsail en Metalvisor — Logo's" },
+        { src: "/media/cases/mainsail/s-fa-design-01.webp", title: "Mainsail — Landingspagina" },
+      ],
+      films: [],
+    },
+    "megensbouw": {
+      cover: "/media/cases/megensbouw/s-fa-render-01.webp",
+      images: [
+        { src: "/media/cases/megensbouw/s-fa-render-01.webp", title: "MegensBouw — Gevel met laaddocks" },
+        { src: "/media/cases/megensbouw/s-fa-render-02.webp", title: "MegensBouw — Entree en laaddock" },
+        { src: "/media/cases/megensbouw/s-fa-render-06.webp", title: "MegensBouw — Van bovenaf" },
+        { src: "/media/cases/megensbouw/s-fa-render-03.webp", title: "MegensBouw — Frontaal vanaf de straat" },
+        { src: "/media/cases/megensbouw/s-fa-render-04.webp", title: "MegensBouw — Langs het hek" },
+        { src: "/media/cases/megensbouw/s-fa-render-05.webp", title: "MegensBouw — Bij de laaddeur" },
+        { src: "/media/cases/megensbouw/s-fa-render-07.webp", title: "MegensBouw — Parkeerplaats" },
+      ],
+      films: [],
+    },
+    "munjz-connect": {
+      cover: "/media/cases/munjz-connect/s-fa-design-02.webp",
+      images: [
+        { src: "/media/cases/munjz-connect/s-fa-design-02.webp", title: "Munjz Connect — Homepage" },
+        { src: "/media/cases/munjz-connect/s-fa-design-01.webp", title: "Munjz Connect — Oplossingen per branche" },
+        { src: "/media/cases/munjz-connect/s-fa-design-03.webp", title: "Munjz Connect — Beheren, onderhouden, volgen, rapporteren" },
+        { src: "/media/cases/munjz-connect/s-fa-design-04.webp", title: "Munjz Connect — Menu: features" },
+      ],
+      films: [],
+    },
+    "pwt-gears": {
+      cover: "/media/cases/pwt-gears/s-fa-carousel.webp",
+      images: [
+        { src: "/media/cases/pwt-gears/s-fa-carousel.webp", title: "PWT Gears — Swipe-post: The world is on fire" },
+        { src: "/media/cases/pwt-gears/s-fa-templates.webp", title: "PWT Gears — Templates" },
+      ],
+      films: [],
+    },
+    "porsche-centrum-amsterdam": {
+      hero: "/media/cases/porsche-centrum-amsterdam/s-fa-aftermovie.mp4",
+      cover: "/media/cases/porsche-centrum-amsterdam/s-fa-still-01.webp",
+      images: [
+        { src: "/media/cases/porsche-centrum-amsterdam/s-fa-still-01.webp", title: "Porsche Centrum Amsterdam — Een 356 op het dak" },
+        { src: "/media/cases/porsche-centrum-amsterdam/s-fa-still-02.webp", title: "Porsche Centrum Amsterdam — Secret Rooftop Party" },
+        { src: "/media/cases/porsche-centrum-amsterdam/s-fa-still-03.webp", title: "Porsche Centrum Amsterdam — Detail" },
+      ],
+      films: [
+        { src: "/media/cases/porsche-centrum-amsterdam/s-fa-aftermovie.mp4", poster: "/media/cases/porsche-centrum-amsterdam/s-fa-aftermovie.webp", w: 1920, h: 1080, title: "Aftermovie: Secret Rooftop Party" },
+      ],
+    },
+    "privacy-company": {
+      cover: "/media/cases/privacy-company/s-fa-privacynexus-banner.webp",
+      images: [
+        { src: "/media/cases/privacy-company/s-fa-privacynexus-banner.webp", title: "PrivacyNexus by Privacy Company — Banner" },
+      ],
+      films: [],
+    },
+    "pysport": {
+      cover: "/media/cases/pysport/s-fa-conference-banner.webp",
+      images: [
+        { src: "/media/cases/pysport/s-fa-logos.webp", title: "PySport — Logo en PySport Playground" },
+        { src: "/media/cases/pysport/s-fa-conference-banner.webp", title: "PySport Conference — Banner" },
+      ],
+      films: [],
+    },
+    "thingsix": {
+      cover: "/media/cases/thingsix/s-fa-brandbook-01.webp",
+      images: [
+        { src: "/media/cases/thingsix/s-fa-brandbook-01.webp", title: "ThingsIX — Brandbook" },
+        { src: "/media/cases/thingsix/s-fa-brandbook-02.webp", title: "ThingsIX — Logovarianten" },
+        { src: "/media/cases/thingsix/s-fa-brandbook-05.webp", title: "ThingsIX — Het netwerk in beeld" },
+        { src: "/media/cases/thingsix/s-fa-brandbook-03.webp", title: "ThingsIX — Kleuren" },
+        { src: "/media/cases/thingsix/s-fa-brandbook-04.webp", title: "ThingsIX — Typografie: Manrope en Inter" },
+        { src: "/media/cases/thingsix/s-fa-brandbook-06.webp", title: "ThingsIX — Archetype" },
+        { src: "/media/cases/thingsix/s-fa-logo.webp", title: "ThingsIX — Logo" },
+        { src: "/media/cases/thingsix/s-fa-design-01.webp", title: "ThingsIX — Bestelflow evaluatiekit" },
+      ],
+      films: [],
+    },
+    "tristo": {
+      hero: "/media/cases/tristo/s-fa-hero-video.mp4",
+      cover: "/media/cases/tristo/s-fa-still-02.webp",
+      images: [
+        { src: "/media/cases/tristo/s-fa-print.webp", title: "Tristo — Brochure en visitekaartje" },
+        { src: "/media/cases/tristo/s-fa-still-01.webp", title: "Tristo — Het pand in Helmond" },
+        { src: "/media/cases/tristo/s-fa-still-02.webp", title: "Tristo — Aan het werk" },
+      ],
+      films: [
+        { src: "/media/cases/tristo/s-fa-hero-video.mp4", poster: "/media/cases/tristo/s-fa-hero-video.webp", w: 1920, h: 1080, title: "Herovideo voor de website" },
+      ],
+    },
+    "wizardframe": {
+      cover: "/media/cases/wizardframe/s-fa-brandbook-02.webp",
+      images: [
+        { src: "/media/cases/wizardframe/s-fa-brandbook-02.webp", title: "WizardFrame — WizardWall" },
+        { src: "/media/cases/wizardframe/s-fa-uitleg.webp", title: "WizardFrame — Wat er in het frame zit" },
+        { src: "/media/cases/wizardframe/s-fa-brandbook-01.webp", title: "WizardFrame — Brandbook" },
+        { src: "/media/cases/wizardframe/s-fa-brandbook-03.webp", title: "WizardFrame — Beeld, geluid, tech en design" },
+        { src: "/media/cases/wizardframe/s-fa-brandbook-04.webp", title: "WizardFrame — Alles in één designframe" },
+        { src: "/media/cases/wizardframe/s-fa-brandbook-05.webp", title: "WizardFrame — Productlijnen" },
+      ],
+      films: [
+        { src: "/media/cases/wizardframe/s-fa-configurator.mp4", poster: "/media/cases/wizardframe/s-fa-configurator.webp", w: 1130, h: 1204, title: "Configurator: type, model, opties en overzicht" },
+        { src: "/media/cases/wizardframe/s-fa-hero.mp4", poster: "/media/cases/wizardframe/s-fa-hero.webp", w: 1280, h: 720, title: "Herovideo van de website" },
+      ],
+    },
+    "wrap-720s": {
+      cover: "/media/cases/wrap-720s/s-fa-wrap-views.webp",
+      images: [
+        { src: "/media/cases/wrap-720s/s-fa-wrap-views.webp", title: "McLaren 720S — De wrap van alle kanten" },
+        { src: "/media/cases/wrap-720s/s-fa-wrap-front.webp", title: "McLaren 720S — Voorkant: We are who we are" },
+        { src: "/media/cases/wrap-720s/s-fa-wrap-side.webp", title: "McLaren 720S — Zijkant" },
+      ],
+      films: [],
+    },
+    "mission-critical-nutrition": {
+      cover: "/media/cases/mission-critical-nutrition/s-fa-design-01.webp",
+      images: [
+        { src: "/media/cases/mission-critical-nutrition/s-fa-design-01.webp", title: "Mission Critical Nutrition — Homepage: OMNI-1" },
+        { src: "/media/cases/mission-critical-nutrition/s-fa-design-02.webp", title: "Mission Critical Nutrition — De werking in grafieken" },
+        { src: "/media/cases/mission-critical-nutrition/s-fa-logo.webp", title: "Mission Critical Nutrition — Logo" },
+      ],
+      films: [],
+    },
+    "phoenix-green-hydrogen": {
+      hero: "/media/cases/phoenix-green-hydrogen/s-fa-phoenix-one-road.mp4",
+      cover: "/media/cases/phoenix-green-hydrogen/s-fa-slide-01.webp",
+      images: [
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-slide-01.webp", title: "Phoenix One — Presentatie: cover" },
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-design-01.webp", title: "Phoenix — Website: hero" },
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-render-wind-solar.webp", title: "Phoenix — Wind en zon" },
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-design-02.webp", title: "Phoenix — Website: projecten en missie" },
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-slide-02.webp", title: "Phoenix — Presentatie: van de site naar de kust" },
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-sketch-sitemap.webp", title: "Phoenix — Schetsen van de sitemap" },
+      ],
+      films: [
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-phoenix-one-road.mp4", poster: "/media/cases/phoenix-green-hydrogen/s-fa-phoenix-one-road.webp", w: 1920, h: 1080, title: "Phoenix One in 3D: de toegangsweg" },
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-phoenix-one-solar.mp4", poster: "/media/cases/phoenix-green-hydrogen/s-fa-phoenix-one-solar.webp", w: 1920, h: 1080, title: "Phoenix One in 3D: de zonnevelden" },
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-map-texas.mp4", poster: "/media/cases/phoenix-green-hydrogen/s-fa-map-texas.webp", w: 960, h: 1080, title: "Kaart: van de site naar Corpus Christi" },
+        { src: "/media/cases/phoenix-green-hydrogen/s-fa-map-europe.mp4", poster: "/media/cases/phoenix-green-hydrogen/s-fa-map-europe.webp", w: 1920, h: 1080, title: "Kaart: via Rotterdam en Antwerpen het achterland in" },
+      ],
+    },
+    "velorum": {
+      cover: "/media/cases/velorum/s-fa-brandbook-02.webp",
+      images: [
+        { src: "/media/cases/velorum/s-fa-brandbook-02.webp", title: "Velorum — Logovarianten" },
+        { src: "/media/cases/velorum/s-fa-mark.webp", title: "Velorum — Beeldmerk" },
+        { src: "/media/cases/velorum/s-fa-brandbook-01.webp", title: "Velorum — Brandbook" },
+        { src: "/media/cases/velorum/s-fa-brandbook-03.webp", title: "Velorum — Kleurpalet" },
+        { src: "/media/cases/velorum/s-fa-brandbook-04.webp", title: "Velorum — Typografie: Inter" },
+        { src: "/media/cases/velorum/s-fa-brandbook-05.webp", title: "Velorum — Logo-uitleg" },
+        { src: "/media/cases/velorum/s-fa-linkedin-cover.webp", title: "Velorum — LinkedIn-cover" },
+      ],
+      films: [
+        { src: "/media/cases/velorum/s-fa-website-scroll.mp4", poster: "/media/cases/velorum/s-fa-website-scroll.webp", w: 1780, h: 1138, title: "Website: van de hero naar contact" },
+      ],
     },
   },
 };

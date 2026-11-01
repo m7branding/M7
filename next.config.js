@@ -24,14 +24,10 @@ const nextConfig = {
       "designershouse",
       "impeco-chauffeurshandboek",
       "kds-intranet",
-      "plenty-planet-content",
       "soesoe",
       "helloflow",
-      "mission-critical-nutrition",
-      "velorum",
       "gmu",
       "spoedfix",
-      "phoenix-green-hydrogen",
     ];
     // losse url's van een deel van de storyline van een klant → de pagina van de host, bij dat hoofdstuk
     const familyParts = caseFamilies.flatMap(([host, ...parts]) => parts.map((part) => [part, host]));

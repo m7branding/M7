@@ -8,5 +8,7 @@
   ["sublime-branding", "sublime-video"],
   ["bctn", "bctn-qhse"],
   ["digital-newsgroup", "digital-newsgroup-platform"],
-  ["architectenbureau-koppens", "architectenbureau-koppens-branding"]
+  ["architectenbureau-koppens", "architectenbureau-koppens-branding"],
+  ["monvy", "monvy-branding"],
+  ["plenty-planet", "plenty-planet-content"]
 ]
