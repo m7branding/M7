@@ -168,10 +168,13 @@
   }
 }
 .logos__img {
-  opacity: 0.75;
-  filter: grayscale(1);
+  opacity: 0.78;
   transition: opacity 0.4s;
-  max-height: 46px;
+  max-height: 52px;
+}
+/* gekleurde bron (png) als wit silhouet, zoals de andere logo's */
+.logos__img--sil {
+  filter: brightness(0) invert(1);
 }
 .logos__img:hover {
   opacity: 1;

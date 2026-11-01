@@ -112,15 +112,18 @@ export function LogoMarquee() {
   return (
     <section className="logos" aria-label="Klanten">
       <Marquee speed={46}>
-        {clients.map((c) =>
-          c.logo ? (
-            <img key={c.name} src={c.logo} alt={c.name} style={{ width: c.width, height: "auto" }} className="logos__img" loading="lazy" />
-          ) : (
-            <span key={c.name} className="logos__word">
-              {c.name}
-            </span>
-          ),
-        )}
+        {clients.map((c) => (
+          <img
+            key={c.name}
+            src={c.logo}
+            alt={c.name}
+            width={c.width}
+            style={{ width: c.width, height: "auto" }}
+            className={`logos__img${c.silhouette ? " logos__img--sil" : ""}`}
+            loading="lazy"
+            decoding="async"
+          />
+        ))}
       </Marquee>
     </section>
   );

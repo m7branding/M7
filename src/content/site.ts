@@ -72,16 +72,45 @@ export const stats: { value: number; suffix: string; label: { nl: string; en: st
   { value: 250, suffix: "+", label: { nl: "Klanten wereldwijd", en: "Clients worldwide" } },
 ];
 
-/** Klantlogo's voor de logo-marquee. Zonder `logo` tonen we een woordmerk. */
-export const clients: { name: string; logo?: string; width?: number }[] = [
-  { name: "Sami", logo: "/media/clients/sami.png", width: 40 },
-  { name: "trivago", logo: "/media/clients/trivago.png", width: 142 },
-  { name: "PIP", logo: "/media/clients/pip.png", width: 66 },
-  { name: "Atletiekunie", logo: "/media/clients/atletiekunie.png", width: 104 },
-  { name: "Intrador", logo: "/media/clients/intrador.png", width: 134 },
-  { name: "NKTV", logo: "/media/clients/nktv.png", width: 100 },
-  { name: "JURGH Detailing" },
-  { name: "TeamTV" },
-  { name: "Repairlab" },
-  { name: "Debiteurnet" },
+/**
+ * Klantlogo's voor de logo-marquee (home, over M7, sectoren): de belangrijkste klanten,
+ * met hun echte logo in wit. `width` is optisch gelijk getrokken (gelijk oppervlak, hooguit
+ * 50 px hoog). `silhouette`: een gekleurd bronbestand dat via CSS wit wordt.
+ */
+export const clients: { name: string; logo: string; width: number; silhouette?: boolean }[] = [
+  { name: "trivago", logo: "/media/clients/trivago.png", width: 135, silhouette: true },
+  { name: "Monvy", logo: "/media/cases/monvy/logo-white.svg", width: 138 },
+  { name: "Atletiekunie", logo: "/media/clients/atletiekunie.png", width: 115, silhouette: true },
+  { name: "TeamTV", logo: "/media/cases/teamtv/logo-white.png", width: 159 },
+  { name: "Gemeente Gouda", logo: "/media/cases/gemeente-gouda/logo-white.svg", width: 133 },
+  { name: "Repairlab", logo: "/media/cases/repairlab/logo-white.svg", width: 101 },
+  { name: "Expociety", logo: "/media/cases/expociety-app/logo-white.svg", width: 150 },
+  { name: "Silvr", logo: "/media/cases/silvr/logo-white.png", width: 132 },
+  { name: "Steddion", logo: "/media/cases/steddion/logo-white.svg", width: 82 },
+  { name: "Bernheze Makelaars", logo: "/media/cases/bernheze-makelaars-rebranding/logo-white.svg", width: 103 },
+  { name: "Fairlink", logo: "/media/cases/fairlink/logo-white.svg", width: 140 },
+  { name: "The Digital Clinic", logo: "/media/cases/the-digital-clinic/logo-white.svg", width: 112 },
+  { name: "Plenty Planet", logo: "/media/cases/plenty-planet/logo-white.svg", width: 157 },
+  { name: "Sparta", logo: "/media/cases/sparta-blue-hydrogen/logo-white.svg", width: 190 },
+  { name: "Mind Your Pass", logo: "/media/cases/mindyourpass/logo-white.svg", width: 99 },
+  { name: "Nexis", logo: "/media/cases/nexis-group/logo-white.png", width: 114 },
+  { name: "ATL+", logo: "/media/cases/atl-plus/logo-white.png", width: 103 },
+  { name: "Hela", logo: "/media/cases/hela/logo-white.svg", width: 70 },
+  { name: "Intrador", logo: "/media/cases/intrador/logo-white.svg", width: 176 },
+  { name: "NKTV", logo: "/media/cases/nktv/logo-white.png", width: 115 },
+  { name: "Boutique Hotels Gelderland", logo: "/media/cases/boutique-hotels-gelderland/logo-white.svg", width: 128 },
+  { name: "Calvin Vlaanderen", logo: "/media/cases/calvin-vlaanderen/logo-white.svg", width: 137 },
+  { name: "Pine Street School", logo: "/media/cases/pine-street-school/logo-white.svg", width: 142 },
+  { name: "SUBLIME", logo: "/media/cases/sublime-branding/logo-white.svg", width: 178 },
+  { name: "Impeco", logo: "/media/cases/impeco/logo-white.svg", width: 148 },
+  { name: "Huurfix", logo: "/media/cases/huurfix/logo-white.svg", width: 151 },
+  { name: "KDS", logo: "/media/cases/kds-stansvormen/logo-white.svg", width: 125 },
+  { name: "Sami", logo: "/media/clients/sami.png", width: 45, silhouette: true },
+  { name: "Mister Glass", logo: "/media/cases/misterglass/logo-white.svg", width: 115 },
+  { name: "The Sandt", logo: "/media/cases/the-sandt/logo-white.png", width: 109 },
+  { name: "PIP", logo: "/media/clients/pip.png", width: 93, silhouette: true },
+  { name: "Aigora", logo: "/media/cases/aigora/logo-white.svg", width: 118 },
+  { name: "Digital Newsgroup", logo: "/media/cases/digital-newsgroup/logo-white.svg", width: 113 },
+  { name: "Foodbars Gelderland", logo: "/media/cases/foodbars-gelderland/logo-white.svg", width: 66 },
+  { name: "Solid Layer", logo: "/media/cases/solidlayer/logo-white.svg", width: 103 },
 ];
