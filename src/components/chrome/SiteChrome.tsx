@@ -19,7 +19,7 @@ import { MegaPanels, type MegaPanel } from "./Mega";
 import type { NavData } from "./types";
 
 type Panel = MegaPanel | null;
-type MenuKey = "sectors" | "services" | "cases" | "world" | "about" | "contact";
+type MenuKey = "sectors" | "services" | "cases" | "world" | "about";
 
 export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
   const locale = useLocale();
@@ -283,7 +283,6 @@ function FullMenu({
     { key: "cases", label: dict.nav.cases, href: paths.cases, count: nav.caseCount, sub: false },
     { key: "world", label: dict.nav.world, href: paths.world, sub: false },
     { key: "about", label: dict.nav.about, href: paths.about, sub: false },
-    { key: "contact", label: dict.nav.contact, href: paths.contact, sub: false },
   ];
 
   const toggleSub = useCallback((k: MenuKey, e: React.MouseEvent) => {
@@ -422,18 +421,6 @@ function FullMenu({
             <TLink href={nav.contact.answers} className="link-dash" tabIndex={open && active === "about" ? 0 : -1}>
               {dict.nav.answers}
             </TLink>
-          </div>
-          <div className={`fm__pane${active === "contact" ? " is-on" : ""}`}>
-            <p className="kicker">{dict.nav.contact}</p>
-            <a className="fm__mail" href={`mailto:${nav.contact.email}`} tabIndex={open && active === "contact" ? 0 : -1}>
-              {nav.contact.email}
-            </a>
-            {nav.contact.phone ? (
-              <a className="fm__phone" href={`tel:${nav.contact.phone.replace(/\s/g, "")}`}>
-                {nav.contact.phone}
-              </a>
-            ) : null}
-            <p className="fm__addr">{nav.contact.address}</p>
           </div>
         </div>
       </div>

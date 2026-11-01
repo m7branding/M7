@@ -11,16 +11,47 @@ export type CaseBlock = StoryBlock | { type: "showcase"; slug: ServiceSlug } | {
 /** YouTube-id uit de projectlink (youtu.be/… of youtube.com/watch?v=…), anders undefined. */
 const youtubeId = (url?: string) => url?.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([\w-]{11})/)?.[1];
 
-/** Wat de hero schermvullend toont: een eigen beeld/video, de gerenderde hero-video, de cover of de gegenereerde cover. */
+/**
+ * Wat de hero schermvullend toont: een eigen beeld/video, de beste film, de gerenderde hero-video,
+ * de cover of de gegenereerde cover. `fit: "film"`: een liggende film zonder staande versie; op mobiel
+ * staat die dan in zijn geheel (scherp) bovenin, op een vervaagde versie van zichzelf.
+ */
 export type HeroMedia =
-  | { kind: "video"; src: string; poster?: string; srcMobile?: string; posterMobile?: string; position?: string }
+  | { kind: "video"; src: string; poster?: string; srcMobile?: string; posterMobile?: string; position?: string; fit?: "film" }
   | { kind: "image"; src: string; position?: string }
   | { kind: "gen" };
 
+type Film = NonNullable<Case["films"]>[number];
+const fileOf = (src: string) => src.slice(src.lastIndexOf("/") + 1);
+/** De in Blender gerenderde hero-video (3D-devices met de interface als textuur): de fallback, niet de eerste keus. */
+const isRender = (src: string) => /^r-hero[^/]*\.mp4$/.test(fileOf(src));
+
+/**
+ * De film die het mooist schermvullend staat (scherper en vloeiender dan de gerenderde hero-video):
+ * M7's eigen film, dan de interactiefilm van de homepage, dan een andere interactiefilm (niet die
+ * op alleen een telefoon), dan een portfoliofilm. Alleen liggende films.
+ */
+export function heroFilm(c: Case): Film | undefined {
+  const land = (c.films ?? []).filter((f) => f.w / f.h >= 1.5);
+  const flow = (f: Film) => /^r-flow/.test(fileOf(f.src));
+  const phone = (f: Film) => /telefoon|phone/i.test(f.title ?? "");
+  return (
+    land.find((f) => /^s-/.test(fileOf(f.src))) ??
+    land.find((f) => flow(f) && !phone(f) && /^home\b/i.test(f.title ?? "")) ??
+    land.find((f) => flow(f) && !phone(f)) ??
+    land.find((f) => /^v-/.test(fileOf(f.src))) ??
+    land[0]
+  );
+}
+
 export function heroOf(c: Case): HeroMedia {
-  if (c.hero?.video) return { kind: "video", src: c.hero.video, poster: c.hero.poster, position: c.hero.position };
+  if (c.hero?.video) return { kind: "video", src: c.hero.video, poster: c.hero.poster, position: c.hero.position, fit: "film" };
   if (c.hero?.image) return { kind: "image", src: c.hero.image, position: c.hero.position };
-  if (c.heroVideo) return { kind: "video", ...c.heroVideo };
+  // een aangeleverde hero-video (bv. de webclip uit het portfolio) gaat voor; de gerenderde pas na de films
+  if (c.heroVideo && !isRender(c.heroVideo.src)) return { kind: "video", ...c.heroVideo, fit: c.heroVideo.srcMobile ? undefined : "film" };
+  const f = heroFilm(c);
+  if (f) return { kind: "video", src: f.src, poster: f.poster, fit: "film" };
+  if (c.heroVideo) return { kind: "video", ...c.heroVideo, fit: c.heroVideo.srcMobile ? undefined : "film" };
   if (c.cover) return { kind: "image", src: c.cover };
   return { kind: "gen" };
 }
@@ -67,15 +98,33 @@ export function storyFor(c: Case): CaseBlock[] {
     ...(show ? [{ type: "showcase" as const, slug: show }] : []),
     ...(yt ? [{ type: "youtube" as const, id: yt, poster: imageSize(ytPoster) ? ytPoster : undefined }] : []),
   ];
+  const hero = heroOf(c);
+  const heroSrc = hero.kind === "gen" ? undefined : hero.src;
+  // films (aangeleverd, interactiefilms, portfolio): in hun eigen verhouding (liggend) of op een podium (staand);
+  // de film in de hero niet nog eens. De beste staat direct na de intro, de rest hoger dan de losse beelden.
+  const films: StoryBlock[] = (c.films ?? [])
+    .filter((f) => f.src !== heroSrc)
+    .map((f) => ({
+      type: "media",
+      video: f.src,
+      poster: f.poster,
+      fit: f.h > f.w ? "stage" : "native",
+      ratio: f.w / f.h,
+      alt: f.title,
+    }));
+  const [leadFilm, ...moreFilms] = films;
+
   if (c.story?.length) {
     const [first, ...rest] = c.story;
-    return first.type === "intro" ? [first, ...showBlock, ...rest] : [...showBlock, ...c.story];
+    // eigen verhaal: de eerste film na de intro, de volgende telkens na een tekstblok
+    const queue = [...moreFilms];
+    const body = rest.flatMap((b) => (b.type === "text" && queue.length ? [b, queue.shift()!] : [b]));
+    const lead = leadFilm ? [leadFilm] : [];
+    return first.type === "intro" ? [first, ...showBlock, ...lead, ...body, ...queue] : [...showBlock, ...lead, first, ...body, ...queue];
   }
 
   const nl = getDict("nl").cases;
   const en = getDict("en").cases;
-  const hero = heroOf(c);
-  const heroSrc = hero.kind === "gen" ? undefined : hero.src;
 
   // eerst wat M7 zelf aanlevert (s-*) en de portfolio-mockups (v-*), dan de gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline),
   // dan de cover en de rest
@@ -101,7 +150,8 @@ export function storyFor(c: Case): CaseBlock[] {
   let media: StoryBlock | undefined;
   if (c.reveal) {
     media = { type: "media", video: c.reveal.video, image: c.reveal.image, poster: c.reveal.poster, position: c.reveal.position };
-  } else if (c.heroVideo && heroSrc !== c.heroVideo.src) {
+  } else if (c.heroVideo && heroSrc !== c.heroVideo.src && (!isRender(c.heroVideo.src) || !films.length)) {
+    // de gerenderde hero-video alleen als er geen (scherpere) films zijn
     media = { type: "media", video: c.heroVideo.src, poster: c.heroVideo.poster };
   } else {
     media = takeWide(/\/r-0\d-closeup\./);
@@ -122,23 +172,15 @@ export function storyFor(c: Case): CaseBlock[] {
     ...(c.narrative?.statements ?? []).map((text) => ({ type: "quote" as const, text })),
   ];
   const first = quotes[0] ?? (imgs.length >= 7 ? takeWide(/\/r-0\d-gravity\./) : undefined);
-  // aangeleverde films: in hun eigen verhouding (liggend) of op een podium (staand), om en om met de rest
-  const films: StoryBlock[] = (c.films ?? []).map((f) => ({
-    type: "media",
-    video: f.src,
-    poster: f.poster,
-    fit: f.h > f.w ? "stage" : "native",
-    ratio: f.w / f.h,
-    alt: f.title,
-  }));
+  // de overige films vóór de quotes en losse beelden, om en om
   const rest = [media, ...quotes.slice(1)].filter((x): x is StoryBlock => !!x);
-  const extras = [first, ...interleave(films, rest)].filter((x): x is StoryBlock => !!x);
+  const extras = [...interleave(moreFilms, first ? [first, ...rest] : rest)].filter((x): x is StoryBlock => !!x);
 
   // zoveel masonry-secties dat de films en quotes ertussen passen (met minstens twee beelden per sectie)
   const k = Math.min(Math.max(sections(imgs.length), extras.length), Math.floor(imgs.length / 2) || sections(imgs.length));
   const galleries: StoryBlock[] = chunk(imgs, k).map((list) => ({ type: "masonry", images: list.map((src) => ({ src })) }));
 
-  const out: CaseBlock[] = [{ type: "intro", text: c.narrative?.intro ?? c.challenge }, ...showBlock];
+  const out: CaseBlock[] = [{ type: "intro", text: c.narrative?.intro ?? c.challenge }, ...showBlock, ...(leadFilm ? [leadFilm] : [])];
   const rounds = Math.max(galleries.length, chapters.length);
   for (let i = 0; i < rounds; i++) {
     if (galleries[i]) out.push(galleries[i]);

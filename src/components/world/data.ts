@@ -22,6 +22,7 @@ import type { Case, Locale, T } from "@/content/types";
 import { allCases, getCase } from "@/lib/content";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
+import { heroFilm } from "@/lib/story";
 
 /** "monvy/r-hero.mp4" → "/media/cases/monvy/r-hero.mp4" (volledige paden blijven staan). */
 const M = (p: string) => (p.startsWith("/") ? p : `/media/cases/${p}`);
@@ -229,7 +230,16 @@ const SNIP_ALT: Record<SnipKind, T> = {
   still: { nl: "ontwerp in 3D", en: "design in 3D" },
 };
 
-const heroVideoOf = (c: Case) =>
+/**
+ * Film voor een tegel: de scherpe film uit de hero van de case (zie heroFilm), tenzij die al elders op
+ * de pagina staat (`skip`); anders de gerenderde hero-video.
+ */
+const heroVideoOf = (c: Case, skip?: Set<string>) => {
+  const f = heroFilm(c);
+  if (f && !skip?.has(f.src) && onDisk(f.src) && onDisk(f.poster)) return { src: f.src, poster: f.poster, srcMobile: undefined, posterMobile: undefined };
+  return renderVideoOf(c);
+};
+const renderVideoOf = (c: Case) =>
   c.heroVideo?.src && onDisk(c.heroVideo.src) && onDisk(c.heroVideo.poster)
     ? {
         src: c.heroVideo.src,
@@ -315,7 +325,7 @@ export function worldData(locale: Locale) {
   const spotlight = spotCase && spotFilms.length ? { ...spotOf(spotCase, locale), films: spotFilms } : null;
   if (spotlight) used.add(spotlight.slug);
 
-  /* ---------- 04 Interactie, van dichtbij (r-flow-films uit de manifest) ---------- */
+  /* ---------- 04 De reis van de klant (r-flow-films uit de manifest) ---------- */
   const flows = masters
     .flatMap((c, rank) =>
       (c.films ?? [])
@@ -337,11 +347,14 @@ export function worldData(locale: Locale) {
     .filter((f, i, list) => !f.generic || list.findIndex((x) => x.generic && x.slug === f.slug) === i)
     .slice(0, FLOW_MAX);
 
+  // films die al in de reis van de klant staan, niet nog eens in een tegel
+  const shown = new Set(flows.map((f) => f.src));
+
   /* ---------- 05 Websites & platforms: hero-film + zwevende UI ---------- */
   const sites: Tile[] = masters
     .filter((c) => !used.has(c.slug) && inGroup(c, "websites"))
     .flatMap((c) => {
-      const v = heroVideoOf(c);
+      const v = heroVideoOf(c, shown);
       if (!v) return [];
       const f = floatOf(c);
       return [{ ...spotOf(c, locale), image: f ?? v.poster, alt: `${c.client}: ${L(SNIP_ALT.still)}`, video: v }];
@@ -354,7 +367,7 @@ export function worldData(locale: Locale) {
     // kleine tegels: de lichtste goede still van het project (cover, render-cover of hero-poster)
     const img = lightest([c.cover, `/media/cases/${c.slug}/r-cover.webp`, c.heroVideo?.poster]);
     if (!img) return [];
-    return [{ ...spotOf(c, locale), image: img, alt: c.client, video: heroVideoOf(c) }];
+    return [{ ...spotOf(c, locale), image: img, alt: c.client, video: heroVideoOf(c, shown) }];
   });
   // midden: het eerste masterpiece met een eigen hero-film; eromheen eerst de projecten
   // die nog in geen enkele scène stonden, zodat alle masterpieces op de pagina voorkomen

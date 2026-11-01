@@ -33,8 +33,8 @@ import "./world.css";
 
 const COPY = {
   introSub: {
-    nl: "Onze {n} masterpieces op hun mooiste momenten. Apps, merken en interacties, van dichtbij.",
-    en: "Our {n} masterpieces at their finest moments. Apps, brands and interactions, up close.",
+    nl: "Branding, websites, apps, marketing en AI. Scroll om te zien waar wij in uitblinken.",
+    en: "Branding, websites, apps, marketing and AI. Scroll to see what we excel at.",
   },
   scroll: { nl: "Scroll", en: "Scroll" },
   appsText: {
@@ -48,17 +48,17 @@ const COPY = {
   brandMore: { nl: "Meer merken in deze wereld", en: "More brands in this world" },
   brandWall: { nl: "Merken die blijven hangen.", en: "Brands that stay with you." },
   filmsKicker: { nl: "UI in beweging", en: "UI in motion" },
-  filmsTitle: { nl: "Interactie, van dichtbij.", en: "Interaction, up close." },
+  filmsTitle: { nl: "De reis van de klant", en: "The customer journey" },
   filmsText: {
-    nl: "Echte flows uit onze websites en tools: zoeken, kiezen, aanvragen. Klik een film voor de hele case.",
-    en: "Real flows from our websites and tools: searching, choosing, requesting. Click a film for the full case.",
+    nl: "Dat is waar sterke merken het verschil maken. Zeker in een wereld waar gebruikers beslissen binnen enkele interacties.",
+    en: "That's where strong brands make the difference. Especially in a world where users decide within a few interactions.",
   },
   sitesText: {
     nl: "Websites met karakter, tot in het kleinste detail. Scroll door de stapel.",
     en: "Websites with character, down to the smallest detail. Scroll through the stack.",
   },
-  wallTitleA: { nl: "{n} masterpieces.", en: "{n} masterpieces." },
-  wallTitleB: { nl: "En nog veel meer.", en: "And plenty more." },
+  wallTitleA: { nl: "Join the club of", en: "Join the club of" },
+  wallTitleB: { nl: "winning brands", en: "winning brands" },
   wallCta: { nl: "Bekijk alle {n} cases", en: "View all {n} cases" },
   ctaKicker: { nl: "Jouw project", en: "Your project" },
   ctaLead: {
@@ -70,12 +70,12 @@ const COPY = {
 /** Quotes over merken, in M7's eigen stem (bewust zonder naam erbij). */
 export const QUOTES = {
   attention: {
-    nl: "Een sterk merk vraagt geen aandacht. Het krijgt hem.",
-    en: "A strong brand doesn't ask for attention. It earns it.",
+    nl: "In a world full of choices, it's the strong brands that win.",
+    en: "In a world full of choices, it's the strong brands that win.",
   },
   feel: {
-    nl: "Goed ontwerp zie je niet. Je voelt het, bij elke klik.",
-    en: "You don't see good design. You feel it, with every click.",
+    nl: "Wat we ook ontwerpen, wij zetten de beleving centraal.",
+    en: "Whatever we design, we put the experience first.",
   },
   world: {
     nl: "Elk merk begint als een idee. Wij geven het een wereld om in te leven.",
@@ -541,7 +541,7 @@ export function WorldWall({ locale, data }: { locale: Locale; data: WorldData })
         ) : null}
         <div className="ww__end">
           <h2 id="ww-title" className="ww__title">
-            {fill(L(COPY.wallTitleA), { n: data.stats.masterpieces })} <span className="g-stars ww__more">{L(COPY.wallTitleB)}</span>
+            {L(COPY.wallTitleA)} <span className="g-stars ww__more">{L(COPY.wallTitleB)}</span>
           </h2>
           <Btn href={paths.cases} variant="light" size="sm">
             {fill(L(COPY.wallCta), { n: data.stats.cases })}

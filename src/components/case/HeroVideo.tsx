@@ -7,7 +7,8 @@ import { useEffect, useRef, useState } from "react";
    - Eerst de poster (een gewone <img> met hoge prioriteit: dat is de LCP),
      de video faded er pas overheen als hij echt speelt.
    - Mobiel (≤ 760px): de staande versie (srcMobile/posterMobile) als die er
-     is, anders de liggende video met object-position.
+     is; een liggende film (film) staat er dan in zijn geheel bovenin, op een
+     vervaagde versie van de poster; anders de liggende video met object-position.
    - Gedempt, in een lus, inline; speelt alleen in beeld en niet bij
      prefers-reduced-motion of databesparing (dan blijft de poster staan).
    ============================================================ */
@@ -20,6 +21,7 @@ export function HeroVideo({
   srcMobile,
   posterMobile,
   position,
+  film,
   label,
 }: {
   src: string;
@@ -27,6 +29,8 @@ export function HeroVideo({
   srcMobile?: string;
   posterMobile?: string;
   position?: string;
+  /** Liggende film zonder staande versie: op mobiel in zijn geheel, op een vervaagde versie van de poster. */
+  film?: boolean;
   label: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -90,6 +94,7 @@ export function HeroVideo({
 
   return (
     <>
+      {film && poster ? <img className="cx-hero__ambient" src={poster} alt="" aria-hidden="true" decoding="async" /> : null}
       {poster ? (
         <picture>
           {posterMobile ? <source media={MOBILE} srcSet={posterMobile} /> : null}

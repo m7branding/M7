@@ -23,10 +23,10 @@ export function CaseHero({ c, locale, media, services }: { c: Case; locale: Loca
   const title = tr(c.title, locale);
   const label = locale === "nl" ? `3D-mockup van het werk voor ${c.client}` : `3D mockup of the work for ${c.client}`;
   return (
-    <section className="cx-hero" aria-labelledby="cx-title">
+    <section className={`cx-hero${media.kind === "video" && media.fit === "film" ? " cx-hero--film" : ""}`} aria-labelledby="cx-title">
       <div className="cx-hero__frame">
         <HeroScene>
-          <div className={`cx-hero__media cx-hero__media--${media.kind}`}>
+          <div className={`cx-hero__media cx-hero__media--${media.kind}${media.kind === "video" && media.fit === "film" ? " cx-hero__media--film" : ""}`}>
             {media.kind === "video" ? (
               <HeroVideo
                 src={media.src}
@@ -34,6 +34,7 @@ export function CaseHero({ c, locale, media, services }: { c: Case; locale: Loca
                 srcMobile={media.srcMobile}
                 posterMobile={media.posterMobile}
                 position={media.position}
+                film={media.fit === "film"}
                 label={label}
               />
             ) : media.kind === "image" ? (

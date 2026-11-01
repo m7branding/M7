@@ -64,6 +64,33 @@
 .cx-hero__media video.is-on {
   opacity: 1;
 }
+/* liggende film zonder staande versie: op mobiel heel en scherp bovenin, op een vervaagde versie van zichzelf */
+.cx-hero__media .cx-hero__ambient {
+  display: none;
+}
+@media (max-width: 760px) {
+  .cx-hero__media--film .cx-hero__ambient {
+    display: block;
+    inset: -12%;
+    width: 124%;
+    height: 124%;
+    animation: none;
+    filter: blur(28px) saturate(1.15) brightness(0.55);
+  }
+  /* iets breder dan het scherm (de devices staan in het midden van de film), net boven de titel */
+  .cx-hero__media--film picture img,
+  .cx-hero__media--film video {
+    left: -8%;
+    width: 116%;
+    object-fit: contain;
+    object-position: 50% 27%;
+  }
+  /* de vervaging achter de titel blijft onder de film */
+  .cx-hero--film .cx-hero__shade::before {
+    -webkit-mask-image: linear-gradient(0deg, #000 0%, #000 30%, transparent 52%);
+    mask-image: linear-gradient(0deg, #000 0%, #000 30%, transparent 52%);
+  }
+}
 @keyframes cx-zoom {
   from {
     transform: scale(1.12);
