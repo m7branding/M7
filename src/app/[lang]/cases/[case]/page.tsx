@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Fragment } from "react";
 import { CaseFacts } from "@/components/case/CaseFacts";
 import { CaseHero } from "@/components/case/CaseHero";
 import { CaseLightbox } from "@/components/case/CaseLightbox";
+import { CaseLine } from "@/components/case/CaseLine";
 import { CaseNext } from "@/components/case/CaseNext";
+import { CasePart } from "@/components/case/CasePart";
 import "@/components/case/case.css";
 import { TLink } from "@/components/motion/TLink";
 import { CaseStory } from "@/components/sections/CaseStory";
@@ -12,7 +15,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Btn } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/Cards";
 import { CaseCard } from "@/components/ui/CaseCard";
-import { LOCALES, type Locale } from "@/content/types";
+import { familyOf, isHost } from "@/content/families";
+import { LOCALES, type Case, type Locale } from "@/content/types";
 import { allCases, applicationsBySlugs, casesForService, getCase, getSector, getService, nextCase } from "@/lib/content";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
@@ -24,7 +28,8 @@ type P = { params: { lang: Locale; case: string } };
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return LOCALES.flatMap((lang) => allCases().map((c) => ({ lang, case: c.slug })));
+  // de andere delen van een klant hebben geen eigen pagina (redirect naar de host, zie next.config.js)
+  return LOCALES.flatMap((lang) => allCases().filter((c) => isHost(c.slug)).map((c) => ({ lang, case: c.slug })));
 }
 
 export function generateMetadata({ params }: P): Metadata {
@@ -47,7 +52,13 @@ export default function CasePage({ params }: P) {
   const services = c.services.map((s) => getService(s)!).filter(Boolean);
   const sector = getSector(c.sector);
   const apps = applicationsBySlugs(c.applications);
-  const more = casesForService(c.services[0]).filter((x) => x.slug !== c.slug).slice(0, 3);
+  // storyline van de klant: deze case (de host) en de andere delen, elk als eigen hoofdstuk
+  const family = familyOf(c.slug) ?? [c.slug];
+  const parts = family.map((s) => getCase(s)).filter((x): x is Case => !!x);
+  const rest = parts.slice(1);
+  const more = casesForService(c.services[0])
+    .filter((x) => !family.includes(x.slug))
+    .slice(0, 3);
   const next = nextCase(c.slug);
   const title = tr(c.title, locale);
   const story = storyFor(c);
@@ -58,10 +69,29 @@ export default function CasePage({ params }: P) {
       <CaseHero c={c} locale={locale} media={heroOf(c)} services={services} />
 
       {/* ---------- Samenvatting + specificaties ---------- */}
+      <span id={c.slug} className="cx-anchor" aria-hidden="true" />
       <CaseFacts c={c} locale={locale} sector={sector} apps={apps} />
+
+      {/* ---------- Meerdere projecten voor deze klant: de storyline ---------- */}
+      {rest.length ? <CaseLine parts={parts} locale={locale} /> : null}
 
       {/* ---------- Het verhaal: intro, masonry, hoofdstukken, quotes, beeld ---------- */}
       <CaseStory blocks={story} c={c} locale={locale} />
+
+      {/* ---------- De volgende delen van de storyline, elk met een eigen opening en verhaal ---------- */}
+      {rest.map((p, k) => (
+        <Fragment key={p.slug}>
+          <CasePart
+            c={p}
+            n={k + 2}
+            total={parts.length}
+            locale={locale}
+            services={p.services.map((s) => getService(s)!).filter(Boolean)}
+            media={heroOf(p)}
+          />
+          <CaseStory blocks={storyFor(p)} c={p} locale={locale} idPrefix={`${p.slug}-`} />
+        </Fragment>
+      ))}
 
       {more.length ? (
         <section className="section cx-more">
@@ -94,7 +124,12 @@ export default function CasePage({ params }: P) {
             : { dialog: `${c.client}: images`, close: "Close", prev: "Previous", next: "Next", of: "of" }
         }
       />
-      <JsonLd data={creativeWorkLd({ name: title, description: tr(c.summary, locale), path: paths.case(c), image: c.cover, locale, client: c.client, year: c.year })} />
+      {parts.map((p) => (
+        <JsonLd
+          key={p.slug}
+          data={creativeWorkLd({ name: `${p.client}: ${tr(p.title, locale)}`, description: tr(p.summary, locale), path: paths.case(p), image: p.cover, locale, client: p.client, year: p.year })}
+        />
+      ))}
     </article>
   );
 }

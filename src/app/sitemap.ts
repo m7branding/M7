@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { isHost } from "@/content/families";
 import { site } from "@/content/site";
 import { allApplications, allCases, allSectors, allServices } from "@/lib/content";
 import { localize } from "@/lib/i18n";
@@ -20,7 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...allServices().map((s) => ({ path: paths.service(s), priority: 0.9, freq: "monthly" as const })),
     ...allApplications().map((a) => ({ path: paths.application(a), priority: 0.7, freq: "monthly" as const })),
     ...allSectors().map((s) => ({ path: paths.sector(s), priority: 0.6, freq: "monthly" as const })),
-    ...allCases().map((c) => ({ path: paths.case(c), priority: 0.6, freq: "yearly" as const })),
+    // een deel van de storyline van een klant staat op de pagina van de host (geen eigen url)
+    ...allCases()
+      .filter((c) => isHost(c.slug))
+      .map((c) => ({ path: paths.case(c), priority: 0.6, freq: "yearly" as const })),
   ];
   return entries.flatMap((e) =>
     (["nl", "en"] as const).map((l) => ({

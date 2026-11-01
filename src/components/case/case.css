@@ -1369,3 +1369,168 @@ html.js [data-reveal="cx"].is-in > img {
     height: 90%;
   }
 }
+
+/* ---------------- Storyline van een klant met meerdere projecten ---------------- */
+.cx-anchor,
+.cx-part {
+  scroll-margin-top: calc(var(--header-h, 72px) + 16px);
+}
+.cx-line {
+  padding-block: clamp(24px, 4vw, 56px) 0;
+}
+.cx-line__kicker {
+  margin-bottom: clamp(16px, 2vw, 24px);
+}
+.cx-line__list {
+  display: grid;
+  grid-template-columns: repeat(min(var(--n, 2), 4), minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 20px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cx-line__item {
+  display: grid;
+  grid-template-columns: clamp(84px, 9vw, 128px) minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
+  column-gap: clamp(14px, 1.6vw, 20px);
+  row-gap: 6px;
+  height: 100%;
+  padding: 12px;
+  border-radius: clamp(16px, 1.6vw, 22px);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  color: #fff;
+  text-decoration: none;
+  transition:
+    background 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+}
+.cx-line__item:hover,
+.cx-line__item:focus-visible {
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.cx-line__media {
+  grid-row: 1 / -1;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  align-self: start;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.cx-line__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-out);
+}
+.cx-line__item:hover .cx-line__media img {
+  transform: scale(1.05);
+}
+.cx-line__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 2px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.55);
+}
+.cx-line__n {
+  color: var(--cc, #fff);
+}
+.cx-line__title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+.cx-line__tags {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+@media (max-width: 760px) {
+  .cx-line__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* opening van een volgend deel: nummer, titel groot, diensten en samenvatting, daarna het beste beeld */
+.cx-part {
+  position: relative;
+  padding-block: clamp(120px, 16vw, 260px) clamp(40px, 6vw, 96px);
+}
+.cx-part::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(var(--container, 1280px), calc(100% - 2 * var(--gutter, 20px)));
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16) 20%, rgba(255, 255, 255, 0.16) 80%, transparent);
+}
+.cx-part__n {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: clamp(20px, 2.4vw, 32px);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.5);
+}
+.cx-part__n > span:first-child {
+  color: var(--cc, #fff);
+}
+.cx-part__n i {
+  width: 34px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+}
+.cx-part__year {
+  margin-left: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.cx-part__title {
+  max-width: 17ch;
+  font-size: clamp(2.3rem, 5.4vw, 5.6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: #fff;
+  text-wrap: balance;
+}
+.cx-part__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: clamp(24px, 5vw, 96px);
+  align-items: start;
+  margin-top: clamp(28px, 4vw, 56px);
+}
+.cx-part__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cx-part__lead {
+  max-width: 46ch;
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+}
+@media (max-width: 760px) {
+  .cx-part__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

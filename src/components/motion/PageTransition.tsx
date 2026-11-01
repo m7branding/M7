@@ -73,12 +73,25 @@ export function PageTransition() {
     return () => document.removeEventListener("click", onClick, true);
   }, [router]);
 
-  // Nieuwe route gerenderd → naar boven en wegvegen
+  // Nieuwe route gerenderd → naar boven (of naar het anker, bv. een hoofdstuk in de storyline van een klant) en wegvegen
   useEffect(() => {
     if (!pending.current) return;
     pending.current = null;
-    const l = (window as unknown as { __lenis?: { scrollTo: (n: number, o?: object) => void } }).__lenis;
-    l ? l.scrollTo(0, { immediate: true, force: true }) : window.scrollTo(0, 0);
+    const l = (window as unknown as { __lenis?: { scrollTo: (n: number | HTMLElement, o?: object) => void } }).__lenis;
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+    const toTarget = () => {
+      if (!target) return;
+      if (l) l.scrollTo(target, { immediate: true, force: true, offset: -96 });
+      else window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - 96);
+    };
+    if (target) {
+      toTarget();
+      // beeld boven het anker kan nog van hoogte veranderen: nog één keer bijstellen
+      window.setTimeout(toTarget, 420);
+    } else {
+      l ? l.scrollTo(0, { immediate: true, force: true }) : window.scrollTo(0, 0);
+    }
     const t1 = window.setTimeout(() => {
       setPhase("reveal");
       ready();

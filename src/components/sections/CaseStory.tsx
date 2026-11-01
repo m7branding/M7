@@ -20,7 +20,8 @@ const plain = (s: string) => s.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, 
  * masonry-secties, grote hoofdstukken, schermvullende quotes/statements en beeld, de showcase,
  * beeld naast tekst, tijdlijn/checklist en de cijfers.
  */
-export function CaseStory({ blocks, c, locale }: { blocks: CaseBlock[]; c: Case; locale: Locale }) {
+/** `idPrefix`: bij meerdere delen op één pagina (storyline van een klant) blijven de ankers uniek. */
+export function CaseStory({ blocks, c, locale, idPrefix = "" }: { blocks: CaseBlock[]; c: Case; locale: Locale; idPrefix?: string }) {
   // per masonry: welke sectie (ritme) en het nummer van het eerste beeld (doorlopende alt-teksten)
   let gallery = 0;
   let shown = 0;
@@ -30,13 +31,13 @@ export function CaseStory({ blocks, c, locale }: { blocks: CaseBlock[]; c: Case;
         const seed = b.type === "masonry" ? gallery++ : 0;
         const start = shown;
         if (b.type === "masonry") shown += b.images.length;
-        return <Block key={i} b={b} c={c} locale={locale} i={i} seed={seed} start={start} />;
+        return <Block key={i} b={b} c={c} locale={locale} i={i} seed={seed} start={start} idPrefix={idPrefix} />;
       })}
     </>
   );
 }
 
-function Block({ b, c, locale, i, seed, start }: { b: CaseBlock; c: Case; locale: Locale; i: number; seed: number; start: number }) {
+function Block({ b, c, locale, i, seed, start, idPrefix }: { b: CaseBlock; c: Case; locale: Locale; i: number; seed: number; start: number; idPrefix: string }) {
   switch (b.type) {
     case "intro":
       return (
@@ -54,7 +55,7 @@ function Block({ b, c, locale, i, seed, start }: { b: CaseBlock; c: Case; locale
       return <CaseYouTube id={b.id} poster={b.poster} title={`${c.client}: ${tr(c.title, locale)}`} label={locale === "nl" ? "Bekijk de video" : "Watch the video"} />;
 
     case "text":
-      return <CaseChapter title={b.h} body={b.body} quote={b.quote} locale={locale} id={`story-${i}`} />;
+      return <CaseChapter title={b.h} body={b.body} quote={b.quote} locale={locale} id={`${idPrefix}story-${i}`} />;
 
     case "masonry":
       return <CaseGallery images={b.images} client={c.client} locale={locale} seed={seed} start={start} />;

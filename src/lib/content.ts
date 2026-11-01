@@ -6,6 +6,7 @@
    ============================================================ */
 
 import { applications, cases, reviews, sectors, services } from "@/content";
+import { familyOf, isHost } from "@/content/families";
 import { APPLICATIONS_BY_SERVICE, type ApplicationSlug, type SectorSlug, type ServiceSlug } from "@/content/registry";
 import { TOOLS, type ToolSlug } from "@/content/tools";
 import type { Application, Case, Review, Sector, Service } from "@/content/types";
@@ -54,8 +55,14 @@ export const casesForApplicationOrService = (app: Application): Case[] => {
   const rest = casesForService(app.service).filter((c) => !exact.includes(c));
   return [...exact, ...rest];
 };
+/** De volgende case met een eigen pagina, nooit een ander deel van dezelfde klant (die staat al op deze pagina). */
 export const nextCase = (slug: string): Case => {
+  const family = familyOf(slug) ?? [slug];
   const i = cases.findIndex((c) => c.slug === slug);
+  for (let k = 1; k < cases.length; k++) {
+    const c = cases[(i + k) % cases.length];
+    if (!family.includes(c.slug) && isHost(c.slug)) return c;
+  }
   return cases[(i + 1) % cases.length];
 };
 
