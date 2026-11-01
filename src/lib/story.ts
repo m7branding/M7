@@ -35,12 +35,15 @@ export function heroFilm(c: Case): Film | undefined {
   const land = (c.films ?? []).filter((f) => f.w / f.h >= 1.5);
   const flow = (f: Film) => /^r-flow/.test(fileOf(f.src));
   const phone = (f: Film) => /telefoon|phone/i.test(f.title ?? "");
+  // films uit M7's eigen map (s-fa-: merkanimaties, reels, trailers met tekst) alleen als er niets anders is;
+  // als hero gekozen worden ze expliciet (inbox `hero`, dan staan ze in c.hero)
+  const fa = (f: Film) => /^s-fa-/.test(fileOf(f.src));
   return (
-    land.find((f) => /^s-/.test(fileOf(f.src))) ??
+    land.find((f) => /^s-/.test(fileOf(f.src)) && !fa(f)) ??
     land.find((f) => flow(f) && !phone(f) && /^home\b/i.test(f.title ?? "")) ??
     land.find((f) => flow(f) && !phone(f)) ??
     land.find((f) => /^v-/.test(fileOf(f.src))) ??
-    land[0]
+    (c.heroVideo || c.cover ? undefined : land.find(fa))
   );
 }
 
