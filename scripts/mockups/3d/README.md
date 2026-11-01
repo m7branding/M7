@@ -256,3 +256,13 @@ Bron: CAPTURE-agent (`r14/cap/<slug>/`: `hero-*.png`, `screen-<n>-<device>.png`,
 - **Interactiefilms uit CAPTURE r15** (`flows15.py`): 2×-opnames op 30 fps met virtuele tijd; elke opname loopt al naadloos,
   de film speelt hem één keer. Floating-UI-stills uit de r15-close-ups en -snippets (`ui15.py`, `snips.load` leest
   `r15/cap/<slug>/stills.json` als `r15/<bestand>`).
+
+## Ronde 16
+
+- **Interactiefilms voor cases met een live site maar nog zonder film** (`flows16.py`, zelfde recorder en filmlook als
+  ronde 15): opnames uit `r16/films/cap/<slug>/` (2×, 30 fps, virtuele tijd), de gekeurde keuze per case in
+  `r16/films/pick.json` (overzichtsfilm eerst, titel begint met "Home" zodat de hero hem kiest). Opnames die niet in hun
+  beginstand eindigen krijgen een overvloeier van 0,5 s naar beeld 1.
+- `snips.load` leest naast `r15/cap` ook `r16/films/cap/<slug>/stills.json` (sleutels `r16/<bestand>`); `ui15.py` voegt
+  daaruit zwevende-UI-stills toe zoals in ronde 15. Kaarten zijn hooguit 1100 css-px breed, dus brede sectie-close-ups
+  worden eerst tot één leesbaar stuk bijgesneden.

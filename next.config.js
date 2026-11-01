@@ -23,12 +23,10 @@ const nextConfig = {
     const removedCases = [
       "designershouse",
       "impeco-chauffeurshandboek",
-      "bctn-qhse",
       "kds-intranet",
       "plenty-planet-content",
       "soesoe",
       "helloflow",
-      "berkley-investments",
       "mission-critical-nutrition",
       "velorum",
       "gmu",
