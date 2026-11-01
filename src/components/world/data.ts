@@ -143,8 +143,9 @@ const BRAND_SHEETS: { slug: string; src: string; alt: T }[] = [
   { slug: "fairlink", src: "fairlink/s-postcard-mark.webp", alt: { nl: "beeldmerk op een kaart", en: "brand mark on a card" } },
 ];
 
-/** Brand sheets per case (public/media/cases/<slug>/), in deze volgorde in de merkenwand. */
+/** Brand sheets en het 3D-booklet per case (public/media/cases/<slug>/); de volgorde draait per merk mee. */
 const BRAND_BOARDS: { file: string; alt: T }[] = [
+  { file: "r-61-brand-booklet.webp", alt: { nl: "brand booklet met logo, kleuren en typografie", en: "brand booklet with logo, colours and type" } },
   { file: "r-62-brand-sheet-logos.webp", alt: { nl: "brand sheet met logovarianten", en: "brand sheet with logo variants" } },
   { file: "r-63-brand-sheet-colours.webp", alt: { nl: "brand sheet met kleuren en typografie", en: "brand sheet with colours and typography" } },
 ];
@@ -289,8 +290,9 @@ export function worldData(locale: Locale) {
     return [{ ...spotOf(c, locale), image: src, alt: `${c.client}: ${L(b.alt)}` }];
   });
   // brand sheets uit de render-pipeline: logovarianten en kleuren & typografie, alleen uit echte assets
-  const boards: Tile[] = brandMembers.flatMap((c) =>
-    BRAND_BOARDS.flatMap((b) => {
+  // per merk een andere volgorde, zodat de wand niet negen keer dezelfde compositie toont
+  const boards: Tile[] = brandMembers.flatMap((c, i) =>
+    [...BRAND_BOARDS.slice(i % BRAND_BOARDS.length), ...BRAND_BOARDS.slice(0, i % BRAND_BOARDS.length)].flatMap((b) => {
       const src = M(`${c.slug}/${b.file}`);
       return onDisk(src) ? [{ ...spotOf(c, locale), image: src, alt: `${c.client}: ${L(b.alt)}` }] : [];
     }),

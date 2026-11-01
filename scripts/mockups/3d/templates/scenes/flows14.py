@@ -140,7 +140,7 @@ def render_one(args):
     p = project(slug); case = B13.cases()[slug]
     caps = P.captures(p)
     if slug in EXTRA:
-        scr = sorted(f for f in os.listdir(p['captures']) if f.startswith('screen-') and f.endswith('-desktop.png'))
+        scr = sorted(f for f in os.listdir(p['captures']) if f.startswith('screen-') and f.endswith('-desktop.png')) if os.path.isdir(p['captures']) else []
         if scr: caps['full-desktop'], _ = P.r14_stack([os.path.join(p['captures'], f) for f in scr], 1440)
         _orig = P.projects; P.projects = lambda: dict(_orig(), **{slug: p})
     brand = B13.brand_for(slug, case, caps)

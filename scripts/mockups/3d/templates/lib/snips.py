@@ -43,6 +43,7 @@ def rgb(css):
 
 
 R15CAP = os.path.join(os.path.dirname(os.path.dirname(CAP)), 'r15', 'cap')
+R15_SKIP = {'cta-button', 'dropdown-trigger', 'chip', 'stapknop', 'button'}
 
 
 def load(slug, fresh=True):
@@ -67,6 +68,7 @@ def load(slug, fresh=True):
             for k, s in enumerate(xs15):
                 p = os.path.join(R15CAP, slug, s['file'])
                 if not os.path.exists(p): continue
+                if not kind and (s.get('kind') or '') in SKIP_KINDS | R15_SKIP: continue      # hero copy is on the screen already; lone buttons / chips are too thin for a card
                 w, h = s['size']
                 if min(w, h) < 60 or w / 2 < 120 or h / 2 < 36: continue
                 out.append(dict(s, file='r15/' + s['file'], kind=kind or s.get('kind') or 'snippet', desc=s.get('title', ''),

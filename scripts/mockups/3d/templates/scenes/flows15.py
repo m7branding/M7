@@ -21,7 +21,29 @@ PICK = {
     'silvr': ['flow-1-voertuigenslider-desktop', 'flow-2-aanvraag-voertuig-kenteken-desktop', 'flow-5-kentekencheck-mobile'],
     'hela': ['flow-1-home-lottie-scroll-desktop', 'flow-3-kruidenketchup-hero-desktop', 'flow-4-home-lottie-scroll-mobile'],
     'nexis-group': ['flow-1-tabs-3d-apparaten-desktop', 'flow-2-scroll-effecten-desktop'],
+    # batch 3: the other masterpieces with public takes (1-2 films; the mobile menu only where it is the only mobile take)
+    'monvy': ['flow-1-mega-menu-desktop', 'flow-2-home-scroll-desktop'],
+    'atl-plus': ['flow-1-zoeken-desktop', 'flow-2-leerlijnen-hover-desktop'],
+    'buitenstate': ['flow-2-home-scroll-desktop', 'flow-3-zoeken-desktop'],
+    'designers-house': ['flow-1-home-scroll-desktop', 'flow-2-menu-mobile'],
+    'expociety-app': ['flow-1-app-scroll-desktop'],
+    'teamtv': ['flow-1-mega-menu-desktop', 'flow-2-home-scroll-desktop'],
+    'bernheze-makelaars-rebranding': ['flow-1-afdeling-menu-desktop', 'flow-2-home-scroll-desktop'],
+    'mindyourpass': ['flow-1-nav-dropdowns-desktop', 'flow-2-home-scroll-desktop'],
+    'fairlink': ['flow-1-scroll-kaarten-desktop'],
+    'calvin-vlaanderen': ['flow-1-home-scroll-desktop', 'flow-2-menu-mobile'],
+    'pine-street-school': ['flow-1-mega-menu-desktop', 'flow-2-home-scroll-desktop'],
+    'the-digital-clinic': ['r14:1', 'flow-1-home-scroll-desktop'],          # the r14 intake film shows what no r15 take does
+    'the-sandt': ['flow-2-investeren-menu-desktop', 'flow-1-home-scroll-desktop'],
+    'impeco': ['flow-1-home-scroll-desktop'],
+    'plenty-planet': ['flow-1-cases-slider-desktop', 'flow-2-hero-wisselende-kop-desktop'],
+    'boutique-hotels-gelderland': ['flow-1-hero-zoeken-desktop', 'flow-2-home-scroll-desktop'],
+    'sparta-blue-hydrogen': ['flow-1-tijdlijn-desktop', 'flow-2-home-scroll-desktop'],
 }
+BATCH3 = [k for k in PICK if k not in ('steddion-tools', 'repairlab', 'silvr', 'hela', 'nexis-group')]
+OLD = os.path.join(os.path.dirname(B13.R13), 'r15', 'r3d', 'flows_plan_before_r15.json')
+# cases without a project (no r14 captures): only single-device compositions, so no other screen needs a capture
+NOPROJ = {'designers-house': 'https://www.designershouse.nl'}
 # film length grows with the take: keep the bitrate of the r14 films (2.6 MB for ~8 s)
 F14.BUDGET = 2.6 * 1048576
 
@@ -34,13 +56,17 @@ def plan(slugs):
         for f in v: cnt[f['st']['t']] = cnt.get(f['st']['t'], 0) + 1
     for slug in slugs:
         fl = {os.path.basename(x['file'])[:-4]: x for x in json.load(open(os.path.join(CAP, slug, 'flows.json')))}
-        rok = P.roles_ok(P.projects()[slug]) if slug in P.projects() else {'mac', 'studio', 'phone_a'}
+        single = slug not in P.projects()
+        rok = P.roles_ok(P.projects()[slug]) if not single else {'mac', 'studio_b', 'phone_a'}
         films = []
         for i, key in enumerate(PICK[slug]):
+            if key.startswith('r14:'):          # keep an r14 film (re-rendered with the same composition)
+                f = dict(json.load(open(OLD))[slug][int(key[4:]) - 1]); f['n'] = i + 1; films.append(f); continue
             x = fl[key]; dev = x['device']
             order = F14.MOB if dev == 'mobile' else F14.DESK
             roles = V_ROLES[dev]
-            el = [t for t in order if t in lib and set(lib[t]['roles']) - {'social'} <= rok | {'studio_b'} and any(r in lib[t]['roles'] for r in roles)]
+            el = [t for t in order if t in lib and set(lib[t]['roles']) - {'social'} <= rok | {'studio_b'} and any(r in lib[t]['roles'] for r in roles)
+                  and (not single or len(set(lib[t]['roles']) - {'social'}) == 1)]
             used = {f['st']['t'] for f in films}
             t = min([t for t in el if t not in used] or el, key=lambda t: (cnt.get(t, 0), order.index(t)))
             cnt[t] = cnt.get(t, 0) + 1
@@ -61,6 +87,7 @@ V_ROLES = V.FLOW_ROLES
 
 
 def render(slugs):
+    F14.EXTRA.update(NOPROJ)
     for slug in slugs:
         for d in (B13.OUT, B13.SITE):          # the new set replaces the r14 films of this case
             for f in glob.glob(os.path.join(d, slug, 'r-flow-*')): os.remove(f)

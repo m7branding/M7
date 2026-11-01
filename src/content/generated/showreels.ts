@@ -22,7 +22,7 @@ export const showreels: Showreel[] = [
     posterPortrait: "/media/showreels/web-p.webp",
     poster: "/media/showreels/web.webp",
     duration: 30.0,
-    cases: ["nexis-group", "fairlink", "nova-funeral-cars", "edgeway-commodities", "ecos", "the-digital-clinic", "nktv", "issa", "icewall", "foodbars-gelderland", "pine-street-school", "calvin-vlaanderen", "jalo-energy", "solidlayer", "cryptocointalk"],
+    cases: ["edgeway-commodities", "issa", "the-digital-clinic", "jalo-energy", "verichecks", "buitenstate", "nktv", "chavore", "pine-street-school", "boutique-hotels-gelderland", "hela", "icewall", "your-earth", "cryptocointalk", "huurfix"],
   },
   {
     slug: "apps",
@@ -55,7 +55,7 @@ export const showreels: Showreel[] = [
     posterPortrait: "/media/showreels/brand-colour-p.webp",
     poster: "/media/showreels/brand-colour.webp",
     duration: 30.2,
-    cases: ["huurfix", "cj-privacy-legal", "infrai", "aigora", "calvin-vlaanderen", "solidlayer", "toy4participation", "pine-street-school", "impeco", "buitenstate-tools", "your-earth", "steddion-tools", "steddion", "foodbars-gelderland", "atl-plus"],
+    cases: ["steddion-tools", "your-earth", "solidlayer", "foodbars-gelderland", "impeco", "toy4participation", "infrai", "expociety-app", "steddion", "martello", "nova-funeral-cars", "buitenstate-tools", "atl-plus", "issa", "nktv"],
   },
   {
     slug: "masterpieces",
