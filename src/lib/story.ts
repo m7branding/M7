@@ -134,6 +134,12 @@ export function storyFor(c: Case): CaseBlock[] {
   // een gerenderde cover (r-cover) is een uitsnede van een van de renders: niet nog eens in de galerij
   const cover = c.cover && /\/r-cover\.webp$/.test(c.cover) ? undefined : c.cover;
   let imgs = Array.from(new Set([...supplied, ...renders, cover, ...gallery])).filter((x): x is string => !!x && x !== heroSrc);
+  // het scherpste werk bovenaan: kleine beelden (lange zijde < 1400 px) achteraan, als er genoeg grote zijn
+  const small = (s: string) => {
+    const z = imageSize(s);
+    return !!z && Math.max(z.w, z.h) < 1400;
+  };
+  if (imgs.filter((s) => !small(s)).length >= 4) imgs = [...imgs.filter((s) => !small(s)), ...imgs.filter(small)];
 
   // schermvullende beelden die meegroeien: de eigen reveal, de hero-video als de hero iets anders toont,
   // anders liggende renders (bij voorkeur de close-up) die dan niet ook in de masonry staan
