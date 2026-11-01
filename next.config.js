@@ -1,3 +1,6 @@
+// klanten met meerdere projecten: één pagina (host), de andere delen als hoofdstuk (#slug)
+const caseFamilies = require("./src/content/case-families.json");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -32,7 +35,13 @@ const nextConfig = {
       "spoedfix",
       "phoenix-green-hydrogen",
     ];
+    // losse url's van een deel van de storyline van een klant → de pagina van de host, bij dat hoofdstuk
+    const familyParts = caseFamilies.flatMap(([host, ...parts]) => parts.map((part) => [part, host]));
     return [
+      ...familyParts.flatMap(([part, host]) => [
+        { source: `/cases/${part}`, destination: `/cases/${host}#${part}`, permanent: true },
+        { source: `/en/cases/${part}`, destination: `/en/cases/${host}#${part}`, permanent: true },
+      ]),
       ...mergedCases.flatMap(([from, to]) => [
         { source: `/cases/${from}`, destination: `/cases/${to}`, permanent: true },
         { source: `/en/cases/${from}`, destination: `/en/cases/${to}`, permanent: true },
