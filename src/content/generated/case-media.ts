@@ -68,9 +68,15 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     heroVideo: { src: "/media/cases/aigora/r-hero.mp4", poster: "/media/cases/aigora/r-hero.webp", srcMobile: "/media/cases/aigora/r-hero-m.mp4", posterMobile: "/media/cases/aigora/r-hero-m.webp" },
     films: [
       {"src":"/media/cases/aigora/r-flow-1.mp4","poster":"/media/cases/aigora/r-flow-1.webp","w":1920,"h":1080,"title":"Navigatie met uitklapmenu’s"},
+      {"src":"/media/cases/aigora/r-flow-2.mp4","poster":"/media/cases/aigora/r-flow-2.webp","w":1920,"h":1080,"title":"Datasets van Aigora: carrousel met moleculaire, beeld- en klinische data"},
     ],
     logo: "/media/cases/aigora/logo-white.svg",
     next: "/media/cases/aigora/r-next.webp",
+  },
+  "albertx": {
+    gallery: [
+      "/media/cases/albertx/r-65-device-1.webp",
+    ],
   },
   "alpacafarm-vorstenbosch": {
     cover: "/media/cases/alpacafarm-vorstenbosch/r-cover.webp",
@@ -105,6 +111,11 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/alpacafarm-vorstenbosch/logo-white.svg",
     next: "/media/cases/alpacafarm-vorstenbosch/r-next.webp",
   },
+  "alpen-experience-hotel": {
+    gallery: [
+      "/media/cases/alpen-experience-hotel/r-64-brandbook-open.webp",
+    ],
+  },
   "architectenbureau-koppens": {
     cover: "/media/cases/architectenbureau-koppens/r-cover.webp",
     gallery: [
@@ -127,6 +138,11 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     logo: "/media/cases/architectenbureau-koppens/logo-white.png",
     next: "/media/cases/architectenbureau-koppens/r-next.webp",
+  },
+  "architectenbureau-koppens-branding": {
+    gallery: [
+      "/media/cases/architectenbureau-koppens-branding/r-64-brandbook-open.webp",
+    ],
   },
   "atl-plus": {
     cover: "/media/cases/atl-plus/r-cover.webp",
@@ -159,9 +175,16 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     films: [
       {"src":"/media/cases/atl-plus/r-flow-1.mp4","poster":"/media/cases/atl-plus/r-flow-1.webp","w":1920,"h":1080,"title":"Zoeken op leerlijn of instructievideo"},
       {"src":"/media/cases/atl-plus/r-flow-2.mp4","poster":"/media/cases/atl-plus/r-flow-2.webp","w":1920,"h":1080,"title":"Alle leerlijnen: videokaarten met hover"},
+      {"src":"/media/cases/atl-plus/r-flow-3.mp4","poster":"/media/cases/atl-plus/r-flow-3.webp","w":1920,"h":1080,"title":"Ingelogd in ATL+: via het menu naar de leerlijn Hoogspringen"},
     ],
     logo: "/media/cases/atl-plus/logo-white.png",
     next: "/media/cases/atl-plus/r-next.webp",
+  },
+  "berkley-investments": {
+    gallery: [
+      "/media/cases/berkley-investments/r-65-device-1.webp",
+      "/media/cases/berkley-investments/r-65-device-2.webp",
+    ],
   },
   "bernheze-makelaars-rebranding": {
     cover: "/media/cases/bernheze-makelaars-rebranding/m-cover.webp",
@@ -186,6 +209,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/bernheze-makelaars-rebranding/r-61-brand-booklet.webp",
       "/media/cases/bernheze-makelaars-rebranding/r-62-brand-sheet-logos.webp",
       "/media/cases/bernheze-makelaars-rebranding/r-63-brand-sheet-colours.webp",
+      "/media/cases/bernheze-makelaars-rebranding/r-64-brandbook-open.webp",
       "/media/cases/bernheze-makelaars-rebranding/m-ipad.webp",
       "/media/cases/bernheze-makelaars-rebranding/m-phones.webp",
       "/media/cases/bernheze-makelaars-rebranding/m-detail.webp",
@@ -351,6 +375,12 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/bus-whisky/logo-white.svg",
     next: "/media/cases/bus-whisky/r-next.webp",
   },
+  "calendarlink": {
+    gallery: [
+      "/media/cases/calendarlink/r-65-device-1.webp",
+      "/media/cases/calendarlink/r-65-device-2.webp",
+    ],
+  },
   "calvin-vlaanderen": {
     cover: "/media/cases/calvin-vlaanderen/r-cover.webp",
     gallery: [
@@ -389,6 +419,11 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/calvin-vlaanderen/logo-white.svg",
     next: "/media/cases/calvin-vlaanderen/r-next.webp",
   },
+  "capilex": {
+    films: [
+      {"src":"/media/cases/capilex/r-flow-1.mp4","poster":"/media/cases/capilex/r-flow-1.webp","w":1920,"h":1080,"title":"Productanimaties: KBO-uittreksel, ID-verificatie en risicomatrix"},
+    ],
+  },
   "chavore": {
     cover: "/media/cases/chavore/r-cover.webp",
     gallery: [
@@ -424,6 +459,12 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
   },
   "cj-privacy-legal": {
     logo: "/media/cases/cj-privacy-legal/logo-white.png",
+  },
+  "consuluisse": {
+    gallery: [
+      "/media/cases/consuluisse/r-65-device-1.webp",
+      "/media/cases/consuluisse/r-65-device-2.webp",
+    ],
   },
   "cryptocointalk": {
     cover: "/media/cases/cryptocointalk/r-cover.webp",
@@ -522,6 +563,13 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     films: [
       {"src":"/media/cases/designers-house/r-flow-1.mp4","poster":"/media/cases/designers-house/r-flow-1.webp","w":1920,"h":1080,"title":"Home: het merk DesignersHouse in beweging"},
       {"src":"/media/cases/designers-house/r-flow-2.mp4","poster":"/media/cases/designers-house/r-flow-2.webp","w":1920,"h":1080,"title":"Mobiel menu van DesignersHouse"},
+      {"src":"/media/cases/designers-house/r-flow-3.mp4","poster":"/media/cases/designers-house/r-flow-3.webp","w":1920,"h":1080,"title":"Partnerportaal: een afspraak in de showroom plannen"},
+    ],
+  },
+  "devakhandel": {
+    gallery: [
+      "/media/cases/devakhandel/r-65-device-1.webp",
+      "/media/cases/devakhandel/r-65-device-2.webp",
     ],
   },
   "digital-newsgroup": {
@@ -563,6 +611,12 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/digital-newsgroup/logo-white.svg",
     next: "/media/cases/digital-newsgroup/r-next.webp",
   },
+  "digital-newsgroup-platform": {
+    gallery: [
+      "/media/cases/digital-newsgroup-platform/r-65-device-1.webp",
+      "/media/cases/digital-newsgroup-platform/r-65-device-2.webp",
+    ],
+  },
   "ecos": {
     cover: "/media/cases/ecos/r-cover.webp",
     gallery: [
@@ -582,6 +636,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/ecos/r-16-d01-desk-studio-a.webp",
       "/media/cases/ecos/r-17-d10-tablets-iso-b.webp",
       "/media/cases/ecos/r-18-d06-phone-linen-b-ui.webp",
+      "/media/cases/ecos/r-64-brandbook-open.webp",
       "/media/cases/ecos/m-ipad.webp",
       "/media/cases/ecos/m-phones.webp",
       "/media/cases/ecos/m-detail.webp",
@@ -737,6 +792,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/expociety-branding/r-61-brand-booklet.webp",
       "/media/cases/expociety-branding/r-62-brand-sheet-logos.webp",
       "/media/cases/expociety-branding/r-63-brand-sheet-colours.webp",
+      "/media/cases/expociety-branding/r-64-brandbook-open.webp",
     ],
     logo: "/media/cases/expociety-branding/logo-white.svg",
   },
@@ -801,6 +857,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/foodbars-gelderland/r-61-brand-booklet.webp",
       "/media/cases/foodbars-gelderland/r-62-brand-sheet-logos.webp",
       "/media/cases/foodbars-gelderland/r-63-brand-sheet-colours.webp",
+      "/media/cases/foodbars-gelderland/r-64-brandbook-open.webp",
       "/media/cases/foodbars-gelderland/m-ipad.webp",
       "/media/cases/foodbars-gelderland/m-phones.webp",
       "/media/cases/foodbars-gelderland/m-detail.webp",
@@ -1025,6 +1082,12 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     logo: "/media/cases/intrador/logo-white.svg",
   },
+  "inzura": {
+    gallery: [
+      "/media/cases/inzura/r-65-device-1.webp",
+      "/media/cases/inzura/r-65-device-2.webp",
+    ],
+  },
   "issa": {
     cover: "/media/cases/issa/r-cover.webp",
     gallery: [
@@ -1096,6 +1159,12 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/jalo-energy/logo-white.svg",
     next: "/media/cases/jalo-energy/r-next.webp",
   },
+  "jesse-rommers": {
+    gallery: [
+      "/media/cases/jesse-rommers/r-65-device-1.webp",
+      "/media/cases/jesse-rommers/r-65-device-2.webp",
+    ],
+  },
   "jmtuning": {
     cover: "/media/cases/jmtuning/r-cover.webp",
     gallery: [
@@ -1118,6 +1187,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/jmtuning/r-61-brand-booklet.webp",
       "/media/cases/jmtuning/r-62-brand-sheet-logos.webp",
       "/media/cases/jmtuning/r-63-brand-sheet-colours.webp",
+      "/media/cases/jmtuning/r-64-brandbook-open.webp",
       "/media/cases/jmtuning/m-ipad.webp",
       "/media/cases/jmtuning/m-phones.webp",
       "/media/cases/jmtuning/m-detail.webp",
@@ -1191,6 +1261,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/kds-stansvormen/r-61-brand-booklet.webp",
       "/media/cases/kds-stansvormen/r-62-brand-sheet-logos.webp",
       "/media/cases/kds-stansvormen/r-63-brand-sheet-colours.webp",
+      "/media/cases/kds-stansvormen/r-64-brandbook-open.webp",
       "/media/cases/kds-stansvormen/m-ipad.webp",
       "/media/cases/kds-stansvormen/m-phones.webp",
       "/media/cases/kds-stansvormen/m-detail.webp",
@@ -1201,6 +1272,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     heroVideo: { src: "/media/cases/kds-stansvormen/r-hero.mp4", poster: "/media/cases/kds-stansvormen/r-hero.webp", srcMobile: "/media/cases/kds-stansvormen/r-hero-m.mp4", posterMobile: "/media/cases/kds-stansvormen/r-hero-m.webp" },
     films: [
       {"src":"/media/cases/kds-stansvormen/r-flow-1.mp4","poster":"/media/cases/kds-stansvormen/r-flow-1.webp","w":1920,"h":1080,"title":"Mobiel menu"},
+      {"src":"/media/cases/kds-stansvormen/r-flow-2.mp4","poster":"/media/cases/kds-stansvormen/r-flow-2.webp","w":1920,"h":1080,"title":"De KDS-site op de telefoon: door de homepage scrollen"},
     ],
     logo: "/media/cases/kds-stansvormen/logo-white.svg",
     next: "/media/cases/kds-stansvormen/r-next.webp",
@@ -1239,6 +1311,11 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/kippenkar/logo-white.png",
     next: "/media/cases/kippenkar/r-next.webp",
     replaceCover: true,
+  },
+  "laserlux": {
+    gallery: [
+      "/media/cases/laserlux/r-64-brandbook-open.webp",
+    ],
   },
   "maarschall": {
     cover: "/media/cases/maarschall/r-cover.webp",
@@ -1279,6 +1356,11 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/maarschall/logo-white.svg",
     next: "/media/cases/maarschall/r-next.webp",
     replaceCover: true,
+  },
+  "mainsail": {
+    gallery: [
+      "/media/cases/mainsail/r-65-device-1.webp",
+    ],
   },
   "martello": {
     cover: "/media/cases/martello/r-cover.webp",
@@ -1341,6 +1423,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/mindyourpass/r-61-brand-booklet.webp",
       "/media/cases/mindyourpass/r-62-brand-sheet-logos.webp",
       "/media/cases/mindyourpass/r-63-brand-sheet-colours.webp",
+      "/media/cases/mindyourpass/r-64-brandbook-open.webp",
       "/media/cases/mindyourpass/m-ipad.webp",
       "/media/cases/mindyourpass/m-detail.webp",
       "/media/cases/mindyourpass/m-mac.webp",
@@ -1353,6 +1436,11 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     logo: "/media/cases/mindyourpass/logo-white.svg",
     next: "/media/cases/mindyourpass/r-next.webp",
+  },
+  "mission-critical-nutrition": {
+    gallery: [
+      "/media/cases/mission-critical-nutrition/r-65-device-1.webp",
+    ],
   },
   "misterglass": {
     cover: "/media/cases/misterglass/m-cover.webp",
@@ -1374,6 +1462,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/misterglass/r-61-brand-booklet.webp",
       "/media/cases/misterglass/r-62-brand-sheet-logos.webp",
       "/media/cases/misterglass/r-63-brand-sheet-colours.webp",
+      "/media/cases/misterglass/r-64-brandbook-open.webp",
       "/media/cases/misterglass/m-ipad.webp",
       "/media/cases/misterglass/m-phones.webp",
       "/media/cases/misterglass/m-detail.webp",
@@ -1412,6 +1501,8 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/monvy/r-61-brand-booklet.webp",
       "/media/cases/monvy/r-62-brand-sheet-logos.webp",
       "/media/cases/monvy/r-63-brand-sheet-colours.webp",
+      "/media/cases/monvy/r-65-device-1.webp",
+      "/media/cases/monvy/r-65-device-2.webp",
       "/media/cases/monvy/m-ipad.webp",
       "/media/cases/monvy/m-phones.webp",
       "/media/cases/monvy/m-detail.webp",
@@ -1426,6 +1517,22 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     logo: "/media/cases/monvy/logo-white.svg",
     next: "/media/cases/monvy/r-next.webp",
+  },
+  "monvy-branding": {
+    gallery: [
+      "/media/cases/monvy-branding/r-64-brandbook-open.webp",
+    ],
+  },
+  "mp-car-care": {
+    gallery: [
+      "/media/cases/mp-car-care/r-65-device-1.webp",
+    ],
+  },
+  "munjz-connect": {
+    gallery: [
+      "/media/cases/munjz-connect/r-65-device-1.webp",
+      "/media/cases/munjz-connect/r-65-device-2.webp",
+    ],
   },
   "nexis-group": {
     cover: "/media/cases/nexis-group/r-cover.webp",
@@ -1479,6 +1586,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/nktv/r-15-d14-billboard-a.webp",
       "/media/cases/nktv/r-16-d19-studio-front-a.webp",
       "/media/cases/nktv/r-18-d15-mac-phone-desk-b.webp",
+      "/media/cases/nktv/r-64-brandbook-open.webp",
     ],
     heroVideo: { src: "/media/cases/nktv/r-hero.mp4", poster: "/media/cases/nktv/r-hero.webp", srcMobile: "/media/cases/nktv/r-hero-m.mp4", posterMobile: "/media/cases/nktv/r-hero-m.webp" },
     films: [
@@ -1541,6 +1649,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/outplay/r-15-d06-phone-linen-a.webp",
       "/media/cases/outplay/r-16-d10-tablets-iso-c.webp",
       "/media/cases/outplay/r-18-d15-mac-phone-desk-c.webp",
+      "/media/cases/outplay/r-64-brandbook-open.webp",
       "/media/cases/outplay/m-ipad.webp",
       "/media/cases/outplay/m-phones.webp",
       "/media/cases/outplay/m-detail.webp",
@@ -1722,6 +1831,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/silvr/r-17-b06-wall-logo-a.webp",
       "/media/cases/silvr/r-18-d15-mac-phone-desk-b-ui.webp",
       "/media/cases/silvr/r-19-d09-ipad-keyboard-c-ui.webp",
+      "/media/cases/silvr/r-64-brandbook-open.webp",
       "/media/cases/silvr/m-ipad.webp",
       "/media/cases/silvr/m-phones.webp",
       "/media/cases/silvr/m-detail.webp",
@@ -1791,6 +1901,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/solidlayer/r-61-brand-booklet.webp",
       "/media/cases/solidlayer/r-62-brand-sheet-logos.webp",
       "/media/cases/solidlayer/r-63-brand-sheet-colours.webp",
+      "/media/cases/solidlayer/r-64-brandbook-open.webp",
       "/media/cases/solidlayer/m-ipad.webp",
       "/media/cases/solidlayer/m-phones.webp",
       "/media/cases/solidlayer/m-detail.webp",
@@ -1806,6 +1917,9 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     next: "/media/cases/solidlayer/r-next.webp",
   },
   "sparked": {
+    gallery: [
+      "/media/cases/sparked/r-64-brandbook-open.webp",
+    ],
     logo: "/media/cases/sparked/logo-white.png",
   },
   "sparta-blue-hydrogen": {
@@ -2151,6 +2265,11 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/the-sandt/logo-white.png",
     next: "/media/cases/the-sandt/r-next.webp",
   },
+  "thingsix": {
+    gallery: [
+      "/media/cases/thingsix/r-64-brandbook-open.webp",
+    ],
+  },
   "toy4participation": {
     cover: "/media/cases/toy4participation/r-cover.webp",
     gallery: [
@@ -2194,6 +2313,14 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     logo: "/media/cases/tue-dcmt/logo-white.svg",
   },
+  "velorum": {
+    gallery: [
+      "/media/cases/velorum/r-64-brandbook-open.webp",
+    ],
+    films: [
+      {"src":"/media/cases/velorum/r-flow-1.mp4","poster":"/media/cases/velorum/r-flow-1.webp","w":1920,"h":1080,"title":"Home: de Velorum-website van hero tot contact"},
+    ],
+  },
   "verichecks": {
     cover: "/media/cases/verichecks/r-cover.webp",
     gallery: [
@@ -2231,6 +2358,14 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/verichecks/logo-white.svg",
     next: "/media/cases/verichecks/r-next.webp",
   },
+  "wizardframe": {
+    gallery: [
+      "/media/cases/wizardframe/r-64-brandbook-open.webp",
+    ],
+    films: [
+      {"src":"/media/cases/wizardframe/r-flow-1.mp4","poster":"/media/cases/wizardframe/r-flow-1.webp","w":1920,"h":1080,"title":"Configurator: geluid, kleur en extra’s kiezen, de preview licht op"},
+    ],
+  },
   "your-earth": {
     cover: "/media/cases/your-earth/r-cover.webp",
     gallery: [
@@ -2255,6 +2390,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       "/media/cases/your-earth/r-61-brand-booklet.webp",
       "/media/cases/your-earth/r-62-brand-sheet-logos.webp",
       "/media/cases/your-earth/r-63-brand-sheet-colours.webp",
+      "/media/cases/your-earth/r-64-brandbook-open.webp",
       "/media/cases/your-earth/m-ipad.webp",
       "/media/cases/your-earth/m-phones.webp",
       "/media/cases/your-earth/m-detail.webp",

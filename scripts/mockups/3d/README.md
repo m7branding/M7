@@ -266,3 +266,41 @@ Bron: CAPTURE-agent (`r14/cap/<slug>/`: `hero-*.png`, `screen-<n>-<device>.png`,
 - `snips.load` leest naast `r15/cap` ook `r16/films/cap/<slug>/stills.json` (sleutels `r16/<bestand>`); `ui15.py` voegt
   daaruit zwevende-UI-stills toe zoals in ronde 15. Kaarten zijn hooguit 1100 css-px breed, dus brede sectie-close-ups
   worden eerst tot één leesbaar stuk bijgesneden.
+
+### Ronde 16, R3D16: premium presentaties van M7's eigen materiaal (`r-64`, `r-65`, extra `r-flow`)
+
+- **Brandbook met echte pagina's** (`templates/scenes13/g03_brandbook.py`, compositor `templates/scenes/book16.py`): een
+  liggend, gebonden brandbook waarvan de pagina's de verhouding van de brandbook-slides hebben (`G03_ASPECT`: 16:9 →
+  `g03_book169`, 1512×982 → `g03_book154`, A-formaat → `g03_book141`). Pagina's duiken in de rug (gebogen bovenkant
+  over een paginablok), een gesloten exemplaar toont de cover, de rug en de rand van de omslag krijgen de kleur van de
+  linkerrand van de cover; zacht raamlicht met bladschaduw (gobo) op een neutrale, herkleurbare vloer. Prints: `l1`/`r1`
+  (de spread), `cover`, `edge#n`. Per case de keuze van de pagina's in `r16/r3d/book_picks.json` (`cover`, `l1`, `r1`,
+  `l2`, `r2`, `bg`); alleen echte `s-fa-brandbook-NN`-pagina's, een kleine verhoudingsafwijking wordt met de eigen
+  randkleur van de pagina opgevuld (nooit uitgerekt of in de inhoud bijgesneden). Still: camera `a`, 3000×2000 →
+  `r-64-brandbook-open.webp` (2000 px).
+- **Bladerfilm**: camera `v` (`G03_ANIM=1`) rendert alleen de omslag van één pagina (56 beelden, 30 fps): de pagina is
+  tweezijdig (`print2_material`: voorkant `r1`, achterkant `l2` gespiegeld via Backfacing), de voorrand gaat bij het
+  optillen voor en blijft bij het neerkomen achter, en raakt de pagina's eronder nooit. `book16.film_frames()` composiet
+  elk beeld één keer voor alle cases, `film_encode()`: 1,2 s stil, de omslag, 1,8 s stil, een trage 2.5D-push van 5 %
+  en 0,5 s overvloeier naar beeld 1. Uitvoer als **`r-flow-<n>.mp4`** + poster (titel "Brandbook: door de echte
+  pagina's bladeren"), omdat `write-manifest.mjs` alleen `r-hero*`/`r-flow-*`-video's opneemt.
+- **Ontwerpen op toestellen** (`templates/scenes/dev16.py`, plan `r16/r3d/dev_plan.json`): de `s-fa-design`/web-
+  ontwerpen op de Studio Display (`d19_studio_front__c`) en een MacBook-close-up (`d13_macro_mac__a`), zonder
+  browserbalk (geen URL geclaimd). Hoge pagina's: de sectie van één schermhoogte vanaf `y0` (standaard de hero);
+  bredere: opgevuld met de eigen paginakleur (`pady`/`padx`) of gelijk aan beide kanten bijgesneden. Namen en
+  portretfoto's in UI's worden vervaagd (`blur`: rechthoeken in bronpixels). `r-65-device-<n>.webp`, 2000 px.
+- **Opnames als toestelfilm** (`templates/scenes/film16.py`, plan `r16/r3d/film_plan.json`): M7's eigen `s-fa-*.mp4`
+  schermopnames op één toestel (flows15-look: 1920×1080, 30 fps, statische camera, 0,5 s overvloeier naar beeld 1).
+  Een bestaande `r-flow` wordt nooit vervangen: de film krijgt het eerstvolgende vrije nummer en de titel gaat erbij in
+  `r-flows.json`. Namen in de opname worden per regio/tijdvak vervaagd.
+
+```bash
+cd scripts/mockups/3d/templates/scenes13       # (scratch: r13/scenes)
+G03_ASPECT=1.7778 G03_TAG=169 R12_PV=0 R12_CAMS=a ../../r11/venv/bin/python g03_brandbook.py         # ~9 min
+G03_ANIM=1 G03_ASPECT=1.7778 G03_TAG=169 R12_PV=0 R12_SPP=24 ../../r11/venv/bin/python g03_brandbook.py
+cd ../scenes                                    # (scratch: r12/scenes)
+../../venv/bin/python book16.py still all       # r-64-brandbook-open.webp per case
+../../venv/bin/python dev16.py render all       # r-65-device-<n>.webp
+../../venv/bin/python film16.py render all      # r-flow-<n>.mp4 + .webp (opnames)
+../../venv/bin/python book16.py film all 169    # bladerfilm r-flow-<n>.mp4 per case (vrije nummer)
+```
