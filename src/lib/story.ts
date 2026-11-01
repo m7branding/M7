@@ -132,11 +132,13 @@ export function storyFor(c: Case): CaseBlock[] {
   // eerst wat M7 zelf aanlevert (s-*) en de portfolio-mockups (v-*), dan de gerenderde 3D-beelden (r-*.webp uit de Blender-pipeline),
   // dan de cover en de rest
   const gallery = c.gallery ?? [];
+  // de 3D-presentaties van M7's eigen materiaal (r-64 brandbook open, r-65 ontwerp op een toestel) gaan voorop
+  const premium = gallery.filter((g) => /\/r-6[4-9]-[^/]+$/.test(g));
   const supplied = gallery.filter((g) => /\/[sv]-[^/]+$/.test(g));
   const renders = gallery.filter((g) => /\/r-[^/]+$/.test(g));
   // een gerenderde cover (r-cover) is een uitsnede van een van de renders: niet nog eens in de galerij
   const cover = c.cover && /\/r-cover\.webp$/.test(c.cover) ? undefined : c.cover;
-  let imgs = Array.from(new Set([...supplied, ...renders, cover, ...gallery])).filter((x): x is string => !!x && x !== heroSrc);
+  let imgs = Array.from(new Set([...premium, ...supplied, ...renders, cover, ...gallery])).filter((x): x is string => !!x && x !== heroSrc);
   // het scherpste werk bovenaan: kleine beelden (lange zijde < 1400 px) achteraan, als er genoeg grote zijn
   const small = (s: string) => {
     const z = imageSize(s);
