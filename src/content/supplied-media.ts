@@ -21,6 +21,8 @@ export interface SuppliedSet {
   hero?: string;
   /** Beeld dat de cover wordt (src). */
   cover?: string;
+  /** Uit FigmaAssets (inbox): true = vóór het eerder aangeleverde beeld en de films (het sterkere werk). */
+  lead?: boolean;
 }
 
 export const suppliedMedia: Record<string, SuppliedSet> = {

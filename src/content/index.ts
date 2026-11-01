@@ -36,12 +36,13 @@ import { suppliedCases } from "./cases-supplied";
 import { newCasesA } from "./cases-new-a";
 import { newCasesB } from "./cases-new-b";
 import { withMedia } from "./case-media";
+import { inboxCases } from "./inbox";
 /**
  * Uitgewerkte cases eerst, dan de nieuwe projecten, dan die van de vorige website; mockups uit de pipeline erbij.
  * Projecten zonder beeld (nog geen mockups of Figma-export) schuiven naar achteren.
  */
 const showDrafts = process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_SHOW_DRAFTS === "1";
-const others = [...newCasesA, ...newCasesB, ...suppliedCases, ...figmaCases, ...archiveCases].map(withMedia);
+const others = [...newCasesA, ...newCasesB, ...suppliedCases, ...inboxCases, ...figmaCases, ...archiveCases].map(withMedia);
 export const cases = [...curatedCases.map(withMedia), ...others.filter((c) => c.cover), ...others.filter((c) => !c.cover)].filter(
   (c) => showDrafts || !c.draft,
 );

@@ -7,7 +7,8 @@
 import { caseNarratives } from "./case-stories";
 import { caseMedia } from "./generated/case-media";
 import { portfolioV2 } from "./portfolio-v2";
-import { suppliedMedia } from "./supplied-media";
+import { inboxMedia } from "./inbox";
+import { suppliedMedia, type SuppliedSet } from "./supplied-media";
 import type { Case } from "./types";
 
 export interface CaseMediaEntry {
@@ -55,9 +56,23 @@ function withPortfolio(c: Case): Case {
   };
 }
 
+/** Eerder aangeleverd beeld en dat uit FigmaAssets (inbox) samen; het inbox-deel vooraan als het `lead` is. */
+function suppliedFor(slug: string): SuppliedSet | undefined {
+  const a = suppliedMedia[slug];
+  const b = inboxMedia[slug];
+  if (!a || !b) return a ?? b;
+  const [first, second] = b.lead ? [b, a] : [a, b];
+  return {
+    images: [...first.images, ...second.images.filter((i) => !first.images.some((x) => x.src === i.src))],
+    films: [...first.films, ...second.films.filter((f) => !first.films.some((x) => x.src === f.src))],
+    hero: b.hero ?? a.hero,
+    cover: b.cover ?? a.cover,
+  };
+}
+
 /** Aangeleverde beelden vooraan, films als eigen blokken; één film kan de hero worden en één beeld de cover. */
 function withSupplied(c: Case): Case {
-  const s = suppliedMedia[c.slug];
+  const s = suppliedFor(c.slug);
   if (!s) return c;
   const heroFilm = s.hero ? s.films.find((f) => f.src === s.hero) : undefined;
   // een eigen hero-beeld dat door de film wordt vervangen, blijft in de galerij

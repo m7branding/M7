@@ -1,4 +1,4 @@
-"""ui15 — round 15: floating-UI stills from CAPTURE's r15 close-ups and snippets (appended to the case's stills, so the
+"""ui15 — round 15 (and 16): floating-UI stills from CAPTURE's r15 / r16 close-ups and snippets (appended to the case's stills, so the
 existing numbering stays). Flat cards over device renders that leave room around the screen (float2d), only r15 cards,
 never the same card twice in one case."""
 import sys, os, json, hashlib
@@ -14,7 +14,7 @@ def add(slug, n_new=2):
     v = pl[slug]; lib = B13.library(final=True)
     v['stills'] = [st for st in v['stills'] if not st.get('r15')]          # idempotent
     used = {f for st in v['stills'] for f in ((st.get('ui2d') or {}).get('files') or []) + list((st.get('snips') or {}).values())}
-    r14 = {s['file'] for s in SN.load(slug) if not s['file'].startswith('r15/')}
+    r14 = {s['file'] for s in SN.load(slug) if not s['file'].startswith(('r15/', 'r16/'))}
     rok = P.roles_ok(P.projects()[slug])
     have = {st['t'] for st in v['stills']}
     bb = PL.bboxes()
