@@ -337,33 +337,99 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       slug: "privacy-company",
       client: "Privacy Company",
       title: {
-        nl: "Privacy Company: PrivacyNexus in beeld",
-        en: "Privacy Company: PrivacyNexus in view",
+        nl: "Privacy Company: website en vacatureportaal",
+        en: "Privacy Company: website and vacancy portal",
       },
       summary: {
-        nl: "Beeld voor PrivacyNexus van Privacy Company: een banner met het woordmerk op een zacht paars verloop en losse grafische vormen.",
-        en: "Visuals for PrivacyNexus by Privacy Company: a banner with the wordmark on a soft purple gradient and separate graphic shapes.",
+        nl: "De website van Privacy Company, met adviesdiensten, trainingen, blogs en een vacatureportaal waar je direct solliciteert. In het Nederlands en het Engels.",
+        en: "The website of Privacy Company, with advisory services, training courses, blogs and a vacancy portal where you apply directly. In Dutch and English.",
       },
       sector: "zakelijke-dienstverlening",
-      services: ["grafisch-ontwerp-print"],
-      applications: ["illustraties-iconen"],
-      tools: [],
-      cover: "/media/cases/privacy-company/s-fa-privacynexus-banner.webp",
+      services: ["websites-webshops"],
+      applications: ["webflow-website", "meertalige-website"],
+      tools: ["webflow"],
+      url: "https://www.privacycompany.eu/nl",
       color: "#DB7257",
       challenge: {
-        nl: "Privacy Company zocht beeld voor PrivacyNexus dat rustig en herkenbaar is.",
-        en: "Privacy Company was looking for visuals for PrivacyNexus that are calm and recognisable.",
+        nl: "Privacy Company adviseert organisaties over privacy en de AVG, geeft trainingen en maakt software voor privacy management. De website moest al die kanten een duidelijke plek geven en tegelijk nieuwe collega's aantrekken.",
+        en: "Privacy Company advises organisations on privacy and the GDPR, runs training courses and makes privacy management software. The website had to give each of those a clear place, and attract new colleagues at the same time.",
       },
       approach: {
-        nl: "We maakten een banner met het woordmerk PrivacyNexus en 'by Privacy Company' op een zacht verloop van paars naar grijs, en losse diagonale vormen in de oranje accentkleur voor op de website.",
-        en: "We made a banner with the PrivacyNexus wordmark and 'by Privacy Company' on a soft gradient from purple to grey, plus separate diagonal shapes in the orange accent colour for the website.",
+        nl: "We maakten de website in een warm verloop van oranje naar perzik op lichtgrijs, met koppen die een schreefletter en een schreefloze letter mengen. De homepage leidt naar de adviesdiensten, de trainingen, de blogs en de software, met klantervaringen en logo's van klanten. Het vacatureportaal zet de open vacatures op een rij. Per vacature lees je wat je gaat doen en wat je meebrengt, en solliciteer je meteen via een formulier: naam, e-mail, LinkedIn of cv, en een motivatie. Privacy Nexus, de software van Privacy Company, kreeg een eigen website in dezelfde lijn.",
+        en: "We made the website in a warm gradient from orange to peach on light grey, with headings that mix a serif and a sans-serif. The homepage leads to the advisory services, the training courses, the blogs and the software, with client stories and client logos. The vacancy portal lists the open positions. Each vacancy explains what you will do and what you bring, and you apply straight away through a form: name, email, LinkedIn or CV, and a motivation. Privacy Nexus, Privacy Company's software, got its own website in the same line.",
       },
       result: {
-        nl: "Rustig, herkenbaar beeld voor PrivacyNexus.",
-        en: "Calm, recognisable visuals for PrivacyNexus.",
+        nl: "Eén plek voor advies, trainingen en software, met een vacatureportaal waar solliciteren een paar velden is.",
+        en: "One place for advice, training and software, with a vacancy portal where applying takes a few fields.",
       },
       concept: true,
-      draft: true,
+      draft: true, // tot de renders van PC17 er zijn
+      shape: "wide",
+    },
+    {
+      slug: "privacy-nexus",
+      client: "Privacy Nexus",
+      title: {
+        nl: "Privacy Nexus: website voor privacy management",
+        en: "Privacy Nexus: website for privacy management",
+      },
+      summary: {
+        nl: "De website van Privacy Nexus, de software voor privacy management van Privacy Company: product, tarieven, blog, changelog en een gratis proefaccount. In het Nederlands en het Engels.",
+        en: "The website of Privacy Nexus, Privacy Company's privacy management software: product, pricing, blog, changelog and a free trial account. In Dutch and English.",
+      },
+      sector: "tech-saas-startups",
+      services: ["websites-webshops"],
+      applications: ["webflow-website", "meertalige-website"],
+      tools: ["webflow"],
+      url: "https://www.privacynexus.io/nl",
+      color: "#623AD5",
+      challenge: {
+        nl: "Met Privacy Nexus regelt een organisatie haar AVG-compliance en toont ze die aan. De website moest laten zien dat dat eenvoudig kan, ook voor collega's zonder juridische achtergrond, en bezoekers naar een gratis proefaccount leiden.",
+        en: "With Privacy Nexus an organisation manages its GDPR compliance and demonstrates it. The website had to show that this can be simple, also for colleagues without a legal background, and lead visitors to a free trial account.",
+      },
+      approach: {
+        nl: "We maakten de website in een paars verloop, met zwevende stukjes interface zoals een wereldkaart en voortgangsringen. Illustraties van mensen die samen een berg op gaan of samen fietsen begeleiden de onderwerpen 'Vliegende start', 'Maak samenwerken makkelijker' en 'Laat zien dat je controle hebt'. Klantlogo's staan op lila tegels, blogs en klantervaringen krijgen zwart-witfoto's, en onderaan start je met je naam en e-mailadres een proefaccount. Een banner met het woordmerk en 'by Privacy Company' hoort bij dezelfde lijn.",
+        en: "We made the website in a purple gradient, with floating pieces of interface such as a world map and progress rings. Illustrations of people climbing a mountain together or riding a tandem accompany the topics 'Flying start', 'Make collaboration easier' and 'Show that you are in control'. Client logos sit on lilac tiles, blogs and client stories get black-and-white photos, and at the bottom you start a trial account with your name and email address. A banner with the wordmark and 'by Privacy Company' belongs to the same line.",
+      },
+      result: {
+        nl: "Een website die privacy management bereikbaar laat voelen en bezoekers rechtstreeks naar een proefaccount brengt.",
+        en: "A website that makes privacy management feel within reach and takes visitors straight to a trial account.",
+      },
+      cover: "/media/cases/privacy-nexus/s-fa-privacynexus-banner.webp",
+      concept: true,
+      draft: true, // tot de renders van PC17 er zijn
+      shape: "wide",
+    },
+    {
+      slug: "samdesk",
+      client: "Samdesk",
+      title: {
+        nl: "Samdesk: een demo waarin elke minuut telt",
+        en: "Samdesk: a demo where every minute counts",
+      },
+      summary: {
+        nl: "Een demopresentatie voor Samdesk, dat wereldwijd verstoringen en crises in realtime signaleert: titelslides met meldingen als losse kaarten, radarpulsen en een stad in 3D waarin het signaal opvalt tussen de ruis.",
+        en: "A demo presentation for Samdesk, which detects disruptions and crises worldwide in real time: title slides with alerts as separate cards, radar pulses and a city in 3D where the signal stands out from the noise.",
+      },
+      sector: "tech-saas-startups",
+      services: ["grafisch-ontwerp-print"],
+      applications: ["presentaties-pitchdecks"],
+      tools: [],
+      color: "#29B365",
+      challenge: {
+        nl: "Samdesk signaleert verstoringen en crises over de hele wereld in realtime, met big data en AI. Voor demo's met nieuwe klanten zocht Samdesk een presentatie die meteen laat voelen waarom snelheid telt.",
+        en: "Samdesk detects disruptions and crises all over the world in real time, using big data and AI. For demos with new clients, Samdesk wanted a presentation that makes you feel straight away why speed matters.",
+      },
+      approach: {
+        nl: "We bouwden de presentatie op een donkere stadskaart. De titelslide zet 'In times of crisis every minute counts.' naast een koerier op een groen vlak, met meldingen als losse kaarten, zoals een ongeluk en een explosie, en rode radarpulsen op de kaart. In 'Signal vs Noise' kantelt de stad in 3D: één melding licht op tussen de rest, reizigers staan er als groene labels in. De presentatie draagt het logo van Samdesk naast dat van de prospect; dat laatste hebben we hier vervaagd.",
+        en: "We built the presentation on a dark city map. The title slide puts 'In times of crisis every minute counts.' next to a courier on a green shape, with alerts as separate cards, such as an accident and an explosion, and red radar pulses on the map. In 'Signal vs Noise' the city tilts into 3D: one alert lights up among the rest, with travellers shown as green labels. The presentation carries Samdesk's logo next to that of the prospect; we have blurred the latter here.",
+      },
+      result: {
+        nl: "Een demo die in een paar slides laat zien waar Samdesk om draait: snel zien wat er gebeurt, tussen alle ruis door.",
+        en: "A demo that shows in a few slides what Samdesk is about: seeing quickly what is happening, through all the noise.",
+      },
+      cover: "/media/cases/samdesk/s-fa-slide-01.webp",
+      concept: true,
       shape: "wide",
     },
     {
@@ -1052,10 +1118,17 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
         { src: "/media/cases/porsche-centrum-amsterdam/s-fa-aftermovie.mp4", poster: "/media/cases/porsche-centrum-amsterdam/s-fa-aftermovie.webp", w: 1920, h: 1080, title: "Aftermovie: Secret Rooftop Party" },
       ],
     },
-    "privacy-company": {
-      cover: "/media/cases/privacy-company/s-fa-privacynexus-banner.webp",
+    "privacy-nexus": {
       images: [
-        { src: "/media/cases/privacy-company/s-fa-privacynexus-banner.webp", title: "PrivacyNexus by Privacy Company — Banner" },
+        { src: "/media/cases/privacy-nexus/s-fa-privacynexus-banner.webp", title: "PrivacyNexus by Privacy Company: banner" },
+      ],
+      films: [],
+    },
+    "samdesk": {
+      images: [
+        { src: "/media/cases/samdesk/s-fa-slide-01.webp", title: "Titelslide: In times of crisis every minute counts" },
+        { src: "/media/cases/samdesk/s-fa-slide-02.webp", title: "Signal vs Noise: de stad in 3D" },
+        { src: "/media/cases/samdesk/s-fa-slide-03.webp", title: "Titelslide met melding en radarpuls" },
       ],
       films: [],
     },
