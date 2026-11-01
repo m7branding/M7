@@ -839,6 +839,10 @@
 .wbw__col:nth-child(2) {
   margin-top: 9svh;
 }
+/* de eerste kolom schuift bij binnenkomst 11svh omhoog: zoveel ruimte, zodat hij nooit over de titel valt */
+.wbw__col:first-child {
+  margin-top: 11svh;
+}
 .wbw__tile {
   position: relative;
   display: block;
