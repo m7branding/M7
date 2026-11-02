@@ -605,37 +605,50 @@
     return { update(t) { const vis = t >= (o.t0 ?? 0) && t <= (o.t1 ?? 1e9); d.style.display = vis ? "block" : "none"; if (vis) { const a = P(t, o.t0 ?? 0, 0.9); d.style.opacity = a.toFixed(3); d.style.transform = `translate3d(0, ${(1 - a) * 24}px, 0)`; } } };
   };
 
-  /* Intro: het M7-logo als technische tekening (hulplijnen + contouren) midden in beeld, over de video; verdwijnt na ~1 s. */
+  /* Intro: het M7-logo als technische tekening (hulplijnen + contouren) midden in beeld, over de video, die uitmondt in
+     het gevulde M7-emblem; dat staat ~1 s en fadet dan uit. */
   LAYERS.m7lines = (o, S) => {
+    // the frost sits on the stage itself: a parent with opacity < 1 would cut its backdrop off
+    const fz = o.frost ? el("div", "L", S.stage) : null;
     const d = el("div", "L", S.stage);
     const size = o.size || 520, cx = S.W / 2, cy = o.cy || S.H / 2;
     const sc = size / 89, ox = cx - size / 2, oy = cy - (51 * sc) / 2;
     const id = "ml" + S.uid++;
-    const guides = [
-      [-60, 0.3, 89 + 60, 0.3], [89 + 60, 49.9, -60, 49.9], [57, -40, 57, 51 + 40], [0, -24, 0, 51 + 24], [88.6, -24, 88.6, 51 + 24],
-    ];
+    const guides = [[-60, 0.3, 89 + 60, 0.3], [89 + 60, 49.9, -60, 49.9], [57, -40, 57, 51 + 40], [0, -24, 0, 51 + 24], [88.6, -24, 88.6, 51 + 24]];
+    // frost: a soft, round backdrop blur behind the emblem (calms whatever runs underneath) instead of a dark scrim;
+    // ink: emblem colour (black on light scenes, white on dark ones)
+    const ink = o.ink || "#fff";
+    if (fz) fz.style.cssText += `;left:${cx - size * 1.2}px;top:${cy - size * 0.95}px;width:${size * 2.4}px;height:${size * 1.9}px;backdrop-filter:blur(${o.frostBlur ?? 22}px) brightness(${o.frostLight ?? 1}) saturate(0.75);-webkit-backdrop-filter:blur(${o.frostBlur ?? 22}px) brightness(${o.frostLight ?? 1}) saturate(0.75);mask-image:radial-gradient(closest-side,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(closest-side,#000 30%,transparent 100%)`;
     d.innerHTML = `<svg width="${S.W}" height="${S.H}" style="position:absolute;left:0;top:0;overflow:visible">
       <defs><radialGradient id="${id}s" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000" stop-opacity="${o.scrim ?? 0.5}"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
-      <ellipse class="scrim" cx="${cx}" cy="${cy}" rx="${size * 1.05}" ry="${size * 0.85}" fill="url(#${id}s)"/>
+      <ellipse class="scrim" cx="${cx}" cy="${cy}" rx="${size * 1.05}" ry="${size * 0.85}" fill="url(#${id}s)" style="display:${o.frost ? "none" : "inline"}"/>
       <g transform="translate(${ox} ${oy}) scale(${sc})" fill="none" stroke-linecap="round">
-        <g class="gd" stroke="rgba(255,255,255,0.55)" stroke-width="${1.1 / sc * 1.5}">${guides.map((g) => `<line x1="${g[0]}" y1="${g[1]}" x2="${g[2]}" y2="${g[3]}" pathLength="1" stroke-dasharray="1 1"/>`).join("")}</g>
-        <g class="ln" stroke="#fff" stroke-width="${2.2 / sc * 1.6}" stroke-linejoin="round">${M7_PATHS.map((p) => `<path d="${p}" pathLength="1" stroke-dasharray="1 1"/>`).join("")}</g>
+        <g class="gd" stroke="${ink}" stroke-opacity="0.55" stroke-width="${1.1 / sc * 1.5}">${guides.map((g) => `<line x1="${g[0]}" y1="${g[1]}" x2="${g[2]}" y2="${g[3]}" pathLength="1" stroke-dasharray="1 1"/>`).join("")}</g>
+        <g class="fl" fill="${ink}" stroke="none" opacity="0">${M7_PATHS.map((p) => `<path d="${p}"/>`).join("")}</g>
+        <g class="ln" stroke="${ink}" stroke-width="${2.2 / sc * 1.6}" stroke-linejoin="round">${M7_PATHS.map((p) => `<path d="${p}" pathLength="1" stroke-dasharray="1 1"/>`).join("")}</g>
       </g></svg>`;
-    const gd = [...d.querySelectorAll(".gd line")], ln = [...d.querySelectorAll(".ln path")], scrim = d.querySelector(".scrim");
+    const gd = [...d.querySelectorAll(".gd line")], ln = [...d.querySelectorAll(".ln path")], fl = d.querySelector(".fl"), gdg = d.querySelector(".gd"), lng = d.querySelector(".ln"), scrim = d.querySelector(".scrim"), frost = fz;
     return {
       update(t) {
-        const t0 = o.t0 ?? 0, dur = o.dur ?? 1.35;
+        const t0 = o.t0 ?? 0, dur = o.dur ?? 2.45;
         const vis = t >= t0 && t <= t0 + dur;
         d.style.display = vis ? "block" : "none";
+        if (fz) fz.style.display = d.style.display;
         if (!vis) return;
         const u = t - t0;
+        // 0–0.8 s: lines draw · 0.75–1.05 s: fill floods in, guides retreat · hold ~1 s filled · last 0.4 s: fade out
         gd.forEach((g, i) => g.setAttribute("stroke-dashoffset", (1 - P(u, i * 0.04, 0.55, "outCubic")).toFixed(4)));
-        ln.forEach((p, i) => p.setAttribute("stroke-dashoffset", (1 - P(u, 0.12 + i * 0.05, 0.6, "inOutCubic")).toFixed(4)));
-        const out = P(u, dur - 0.35, 0.35, "inCubic");
+        ln.forEach((p, i) => p.setAttribute("stroke-dashoffset", (1 - P(u, 0.1 + i * 0.05, 0.6, "inOutCubic")).toFixed(4)));
+        const f = P(u, 0.75, 0.32, "inOutCubic");
+        fl.setAttribute("opacity", f.toFixed(3));
+        gdg.setAttribute("opacity", (1 - P(u, 0.8, 0.35, "inOutCubic")).toFixed(3));
+        lng.setAttribute("opacity", (1 - P(u, 0.95, 0.3, "inOutCubic")).toFixed(3));
+        const out = P(u, dur - 0.4, 0.4, "inCubic");
         d.style.opacity = (P(u, 0, 0.15) * (1 - out)).toFixed(3);
         scrim.setAttribute("opacity", (1 - out).toFixed(3));
-        d.style.transform = `scale(${lerp(1.0, 1.03, out)})`;
+        if (frost) frost.style.opacity = (P(u, 0, 0.35, "outCubic") * (1 - out)).toFixed(3);
         d.style.transformOrigin = `${cx}px ${cy}px`;
+        d.style.transform = `scale(${(lerp(1.0, 1.02, f) * lerp(1, 1.04, out)).toFixed(4)})`;
       },
     };
   };
