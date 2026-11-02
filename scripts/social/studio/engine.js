@@ -558,7 +558,7 @@
     const root = el("div", "L", S.stage);
     const items = o.items.map((it) => {
       const tile = el("div", "L", root);
-      Object.assign(tile.style, { width: S.W + "px", height: S.H + "px", background: it.bg || "#000", backgroundImage: it.tile ? `url("${it.tile}")` : "none", backgroundSize: "cover", backgroundPosition: "center" });
+      Object.assign(tile.style, { width: S.W + "px", height: S.H + "px", background: it.bg || "#000", backgroundImage: it.tile ? `url("${it.tile}")` : "none", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" });
       const im = el("img", "logo L", root);
       im.src = it.src;
       const lw = o.w || 640, lh = o.h || 300;

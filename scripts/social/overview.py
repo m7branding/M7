@@ -24,7 +24,7 @@ def thumb(path, w=200, q=62):
 
 def main(videos):
     data = json.load(open(ART / "thumbs.json"))
-    plan = json.load(open(OUT / "posting-plan.json"))
+    plan = json.load(open(ART / "posting-plan.json"))
     covers = {}
     for f in sorted((ART / "covers").glob("*/*.jpg")):
         covers[f"{f.parent.name}/{f.stem}"] = thumb(f, 180)
@@ -153,7 +153,8 @@ h3 { font-weight: 800; font-size: 20px; letter-spacing: -.02em; margin: 26px 0 1
 .tov div { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px }
 .tov b { display: block; font-size: 17px; margin-bottom: 6px }
 footer { padding-block: 50px 70px; color: var(--faint); font-size: 13px }
-@media (max-width: 560px) { .row { grid-template-columns: 64px 1fr; } .row .day { grid-column: 2; order: -1 } .row .badge { grid-column: 2; justify-self: start } }
+.row > * { min-width: 0 }
+@media (max-width: 560px) { .row { grid-template-columns: 64px minmax(0, 1fr); } .row img, .row .ph { grid-row: span 3 } .row .day { grid-column: 2; order: -1 } .row .badge { grid-column: 2; justify-self: start; white-space: normal; max-width: 100%; display: inline-block; overflow-wrap: anywhere } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important } }
 </style>
 
