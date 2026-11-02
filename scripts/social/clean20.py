@@ -56,6 +56,9 @@ def h(s):
     return int(hashlib.md5(s.encode()).hexdigest()[:8], 16)
 
 
+JOB = {"name": "solo"}       # the reel being rendered: its shots live in their own folder
+
+
 def seq(d, n):
     return {"dir": lib.furl(d), "n": n, "fps": 30}
 
@@ -69,9 +72,13 @@ WEB_VARIANTS = [
 ]
 
 
+PHONE_VARIANT = [("d05_phone_lean__a", "p_push"), ("d04_phone_trio__a", "p_glide"), ("d07_phone_stone__a", "p_lift"), ("d16_phone_plinth__a", "p_pull")]
+MOBILE_ONLY = set(json.load(open(R / "mobile_only.json")))
+
+
 def web_shot(slug, t, move, secs):
     n = int(round(secs * 30))
-    d = SH / f"web-{slug}-{t}-{move}-{secs}"
+    d = SH / JOB["name"] / f"web-{slug}-{t}-{move}-{secs}"
     if not (d.exists() and len(list(d.glob("*.jpg"))) >= n):
         venv(PORTRAIT, "shot", slug, t, move, secs, d, "--scroll", "1")
     return seq(d, n), d
@@ -114,7 +121,7 @@ def book_shot(slug, kind, secs):
     still, geo = book_src(slug)
     a, b = book_moves(geo)[kind]
     n = int(round(secs * 30))
-    d = SH / f"book-{slug}-{kind}-{secs}"
+    d = SH / JOB["name"] / f"book-{slug}-{kind}-{secs}"
     if not (d.exists() and len(list(d.glob("*.jpg"))) >= n):
         venv(B20, "pan", still, secs, d, ",".join(map(str, a)), ",".join(map(str, b)))
     return seq(d, n), d
@@ -154,7 +161,7 @@ def dev_shot(slug, i, move, secs):
     fx, fy = DEV_FOCUS[t]
     a, b = [(fx + dx, fy + dy, w) for dx, dy, w in DEV_MOVES[move]]
     n = int(round(secs * 30))
-    d = SH / f"dev-{slug}-{i}-{move}-{secs}"
+    d = SH / JOB["name"] / f"dev-{slug}-{i}-{move}-{secs}"
     if not (d.exists() and len(list(d.glob("*.jpg"))) >= n):
         venv(B20, "pan", still, secs, d, ",".join(map(str, a)), ",".join(map(str, b)))
     return seq(d, n), d
@@ -181,7 +188,7 @@ def shots_for(slug, kind, k=4):
     """[(callable -> (seq, dir))] for one part and kind."""
     secs = round(SEG + XF + 0.1, 2)
     if kind == "web":
-        v = WEB_VARIANTS[h(slug) % len(WEB_VARIANTS)]
+        v = PHONE_VARIANT if slug in MOBILE_ONLY else WEB_VARIANTS[h(slug) % len(WEB_VARIANTS)]
         return [(lambda t=t, m=m: web_shot(slug, t, m, secs)) for t, m in v[:k]]
     if kind == "brand":
         return [(lambda q=q: book_shot(slug, q, secs)) for q in ("open", "pan", "detail_l", "detail_r")[:k]]
@@ -235,6 +242,7 @@ def bright(d):
 
 
 def reel(job):
+    JOB["name"] = job["name"]
     if job["kind"] == "story":
         calls, lab = [], []
         per = 2 if len(job["items"]) <= 2 else 1
@@ -277,8 +285,7 @@ def reel(job):
     wav.unlink(missing_ok=True)
     poster(tmp, out.with_suffix(".jpg"))
     tmp.rename(out)
-    for d in dirs:
-        shutil.rmtree(d, ignore_errors=True)
+    shutil.rmtree(SH / job["name"], ignore_errors=True)
     return out
 
 
@@ -341,6 +348,8 @@ def story_image(slug, kind, k):
     d.mkdir(parents=True, exist_ok=True)
     if kind == "web":
         t, mv = STORY_WEB[(h(slug) + k) % len(STORY_WEB)]
+        if slug in MOBILE_ONLY:
+            t, mv = PHONE_VARIANT[(h(slug) + k) % len(PHONE_VARIANT)][0], "wide"
         out = d / f"web-{slug}-{t}-{mv}.jpg"
         if not out.exists():
             venv(PORTRAIT, "still", slug, t, out, "--s", "0.3", "--move", mv)
@@ -348,8 +357,12 @@ def story_image(slug, kind, k):
     if kind == "brand":
         still, geo = book_src(slug)
         mv = book_moves(geo)
-        q = ["detail_l", "detail_r", "pan"][(h(slug) + k) % 3]
-        box = mv[q][1] if q != "pan" else ((mv["pan"][0][0] + mv["pan"][1][0]) / 2, mv["pan"][0][1], 860)
+        if geo.get("gen"):
+            q = ["detail_l", "detail_r", "pan"][(h(slug) + k) % 3]
+            box = mv[q][1] if q != "pan" else ((mv["pan"][0][0] + mv["pan"][1][0]) / 2, mv["pan"][0][1], 860)
+        else:
+            q = ["l1", "r1"][(h(slug) + k) % 2]
+            box = (*_mid(geo[q]), 1120)
         return crop_still(still, box, d / f"brand-{slug}-{q}.jpg")
     if kind == "design":
         i = (h(slug) + k) % max(1, len(designs(slug)))

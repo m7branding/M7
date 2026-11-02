@@ -11,7 +11,9 @@ N=${N:-3}
 for i in $(seq 1 $N); do
   (SOCIAL_WORK=$R/work-$i nohup nice -n 5 $P clean20.py reels --part $i/$N > $R/worker-$i.out 2>&1 &)
 done
-if ! pgrep -f 'push2[0]\.sh' >/dev/null; then
-  (nohup bash ./push20.sh > /dev/null 2>&1 &)
+# pusher: tracked by pid file (a pgrep pattern can match the very shell that runs this script)
+if ! { [ -f $R/pusher.pid ] && kill -0 "$(cat $R/pusher.pid)" 2>/dev/null; }; then
+  nohup bash ./push20.sh > /dev/null 2>&1 &
+  echo $! > $R/pusher.pid
 fi
 echo "started $N workers (+ pusher)"

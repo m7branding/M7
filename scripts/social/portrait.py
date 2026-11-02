@@ -25,6 +25,11 @@ V.MOVES.update({
     'glide_l':   dict(z=(1.30, 1.34), f0=(0.66, 0.48), f1=(0.52, 0.48)),
     'glide_r':   dict(z=(1.30, 1.34), f0=(0.52, 0.48), f1=(0.66, 0.48)),
     'lift':      dict(z=(1.26, 1.32), f0=(0.58, 0.42), f1=(0.58, 0.54)),
+    # gentler moves for the phone scenes (landscape templates framed portrait: the phone already fills the frame)
+    'p_push':    dict(z=(1.0, 1.1), f0=(0.5, 0.5), f1=(0.5, 0.5)),
+    'p_glide':   dict(z=(1.06, 1.06), f0=(0.47, 0.5), f1=(0.53, 0.5)),
+    'p_lift':    dict(z=(1.05, 1.07), f0=(0.5, 0.53), f1=(0.5, 0.47)),
+    'p_pull':    dict(z=(1.12, 1.0), f0=(0.5, 0.5), f1=(0.5, 0.5)),
 })
 
 S = '/tmp/claude-0/-home-user-M7/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad'

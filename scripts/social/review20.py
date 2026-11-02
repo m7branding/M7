@@ -36,7 +36,12 @@ for p in samples:
     host = os.path.basename(os.path.dirname(p))
     name = os.path.basename(p)[:-4]
     kind = name.rsplit("-", 1)[-1]
-    rel = put(p, f"v/{name}.mp4")
+    rel = f"v/{name}.mp4"            # a light 720p preview; the full-quality file is in the private repo
+    d = os.path.join(DST, rel)
+    os.makedirs(os.path.dirname(d), exist_ok=True)
+    if not os.path.exists(d):
+        os.system(f'ffmpeg -v error -y -i "{p}" -vf scale=720:1280 -c:v libx264 -preset slow -crf 26 -c:a aac -b:a 128k -movflags +faststart "{d}"')
+    files[rel] = d
     client = hosts.get(host, {}).get("client", host)
     vids.append(f'<figure><figcaption>{html.escape(client)} <span>{KIND.get(kind, kind)}</span></figcaption><video src="{rel}" controls playsinline preload="metadata"></video></figure>')
 
@@ -62,7 +67,12 @@ for hst in order:
 st = sorted(glob.glob(f"{R}/out/stories-v2/*.jpg"))
 thumbs = []
 for f in st:
-    rel = put(f, f"s/{os.path.basename(f)}")
+    rel = f"s/{os.path.basename(f)}"   # 540x960 preview of the 1080x1920 story
+    d = os.path.join(DST, rel)
+    os.makedirs(os.path.dirname(d), exist_ok=True)
+    from PIL import Image
+    Image.open(f).convert("RGB").resize((540, 960), Image.LANCZOS).save(d, quality=84)
+    files[rel] = d
     thumbs.append(f'<a href="{rel}" target="_blank" rel="noopener"><img src="{rel}" alt="{html.escape(os.path.basename(f))}" loading="lazy"></a>')
 
 page = f'''<title>M7 Clean Reels</title>

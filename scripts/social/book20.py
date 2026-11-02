@@ -43,8 +43,11 @@ def book(slug, outd, gen=False):
                 pts[f'{u},{v}'] = [int(xs[k]), int(ys[k])]
         geo[r + '_uv'] = pts
     os.makedirs(outd, exist_ok=True)
-    im.convert('RGB').save(os.path.join(outd, 'still.jpg'), quality=96)
-    json.dump(geo, open(os.path.join(outd, 'geo.json'), 'w'), indent=1)
+    # atomic writes: another worker may be reading these
+    im.convert('RGB').save(os.path.join(outd, 'still.tmp.jpg'), quality=96)
+    os.replace(os.path.join(outd, 'still.tmp.jpg'), os.path.join(outd, 'still.jpg'))
+    json.dump(geo, open(os.path.join(outd, 'geo.tmp'), 'w'), indent=1)
+    os.replace(os.path.join(outd, 'geo.tmp'), os.path.join(outd, 'geo.json'))
     print('book', slug, tag, geo.get('l1'), geo.get('r1'), geo.get('cover'))
 
 
@@ -68,7 +71,8 @@ def dev(slug, t, out, i=0):
     e = dict(e, t=t, src={r: src for r in SCREEN[t]} if t in SCREEN else src)
     im = D.comp(slug, e)
     os.makedirs(os.path.dirname(out), exist_ok=True)
-    im.convert('RGB').save(out, quality=95)
+    im.convert('RGB').save(out + '.tmp.jpg', quality=95)
+    os.replace(out + '.tmp.jpg', out)
     print('dev', slug, t, im.size)
 
 
