@@ -154,10 +154,18 @@ def plan(copy, plist):
     rank = {p["slug"]: p.get("rank") for p in plist}
     used_clean, used_car, used_li = set(), set(), set()
     rows = []
+    pushed_set = run.pushed()
+    def exists(rel):
+        rel = rel.rstrip("/")
+        return (OUT / rel).exists() or rel in pushed_set or any(p.startswith(rel + "/") for p in pushed_set)
     def add(week, day, ch, fmt, title, file, cap):
+        if not exists(file):
+            return
         rows.append({"week": week, "dag": day, "kanaal": ch, "format": fmt, "titel": title, "bestand": file, "caption": cap})
     def clean(week, day, s):
         used_clean.add(s)
+        if not exists(f"reels/01-project-clean/{tag(s)}.mp4"):
+            return
         add(week, day, "Instagram", "Reel", f"{media.cases()[s]['client']}: clean case-reel", f"reels/01-project-clean/{tag(s)}.mp4", f"captions/projects/{tag(s)}.txt")
     def car(week, day, s):
         used_car.add(s)

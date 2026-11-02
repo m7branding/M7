@@ -81,7 +81,7 @@ def clean_reel(slug, copy=None, seed=1):
     c = media.cases()[slug]
     fl = [f for f in media.films(slug) if not f["portrait"]]
     pf = [f for f in media.films(slug) if f["portrait"] and f["w"] >= 700]
-    st = media.stills(slug)
+    st = media.stills(slug) or media.stills(slug, 1200)
     shots = []
     # choose up to 4 shots, alternating film / still
     queue_f, queue_s = list(fl), list(st)
@@ -110,7 +110,7 @@ def clean_reel(slug, copy=None, seed=1):
         if k in ("f", "pf"):
             lay, a = film_layer(m, t0, t1, kind="portrait" if k == "pf" else "wide", y_center=930, enter=en, sheen=(i == 0))
         else:
-            kind = "tall" if m["w"] / m["h"] > 0.9 else "portrait"
+            kind = ("tall" if m["w"] / m["h"] > 0.9 else "portrait") if max(m["w"], m["h"]) >= 1400 else "wide"
             lay, a = still_layer(m, t0, t1, kind=kind, y_center=930, enter=en)
         layers.append(lay)
         amb.append(a)

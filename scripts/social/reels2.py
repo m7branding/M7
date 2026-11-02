@@ -76,10 +76,10 @@ def dynamic_project(slug, copy, seed=1):
     layers, amb, cuts, hits = [], [], [], []
     t = 0.0
     # hook: word by word on the pixels, client name above
-    hook = accent(copy.get("hook") or c["client"], seed)
+    hook_w = accent(_wrap(copy.get("hook") or c["client"], 14), seed)
     hook_beats = 5
-    layers.append({"type": "text", "t0": 0.1, "t1": hook_beats * B - 0.05, "x": 80, "y": 620, "w": 920, "kicker": c["client"], "title": _wrap(hook.replace("*", "").replace("_", "").replace("~", ""), 14) if False else hook, "size": fit_title(_wrap(hook), 920, 124, 70), "stagger": 0.11, "kgap": 30})
-    hits += [0.1 + i * 0.11 for i in range(min(6, len(hook.split())))][:1]
+    layers.append({"type": "text", "t0": 0.1, "t1": hook_beats * B - 0.05, "x": 80, "y": 620, "w": 920, "kicker": c["client"], "title": hook_w, "size": fit_title(hook_w, 920, 124, 60), "stagger": 0.11, "kgap": 30})
+    hits += [0.1]
     t = hook_beats * B
     punches = list(copy.get("punch") or [])[:3]
     plan = [(pool[0], None), (pool[1], None), ("P", 0), (pool[2], None)] + ([(pool[3], None)] if len(pool) > 3 else []) + ([("P", 1)] if len(punches) > 1 else []) + ([(pool[4], None)] if len(pool) > 4 else []) + ([("P", 2)] if len(punches) > 2 else [])

@@ -42,7 +42,7 @@ def esc(s):
 
 def images_for(slug, n):
     """n distinct strong images: stills first, then film posters."""
-    out = [s["path"] for s in media.stills(slug)]
+    out = [s["path"] for s in (media.stills(slug) or media.stills(slug, 1000))]
     for f in media.films(slug):
         if len(out) >= n + 2:
             break
