@@ -64,7 +64,7 @@ for hst in order:
     cards.append(f'<article class="card"><h3>{html.escape(client)}</h3>{"".join(rows)}</article>')
 
 # stories
-st = sorted(glob.glob(f"{R}/out/stories-v2/*.jpg"))
+st = sorted(glob.glob(f"{R}/stories-keep/*.jpg"))   # local copies; the originals are in the private repo
 thumbs = []
 for f in st:
     rel = f"s/{os.path.basename(f)}"   # 540x960 preview of the 1080x1920 story
