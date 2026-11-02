@@ -279,10 +279,10 @@ Bron: CAPTURE-agent (`r14/cap/<slug>/`: `hero-*.png`, `screen-<n>-<device>.png`,
   randkleur van de pagina opgevuld (nooit uitgerekt of in de inhoud bijgesneden). Still: camera `a`, 3000×2000 →
   `r-64-brandbook-open.webp` (2000 px).
 - **Bladerfilm**: camera `v` (`G03_ANIM=1`) rendert alleen de omslag van één pagina (56 beelden, 30 fps): de pagina is
-  tweezijdig (`print2_material`: voorkant `r1`, achterkant `l2` gespiegeld via Backfacing), de voorrand gaat bij het
+  tweezijdig (`print2_material`: voorkant `r1`, achterkant `l2` gespiegeld via Backfacing; onder de pagina ligt `r2`), de voorrand gaat bij het
   optillen voor en blijft bij het neerkomen achter, en raakt de pagina's eronder nooit. `book16.film_frames()` composiet
-  elk beeld één keer voor alle cases, `film_encode()`: 1,2 s stil, de omslag, 1,8 s stil, een trage 2.5D-push van 5 %
-  en 0,5 s overvloeier naar beeld 1. Uitvoer als **`r-flow-<n>.mp4`** + poster (titel "Brandbook: door de echte
+  elk beeld één keer voor alle cases, `film_encode()`: 1,2 s stil, de omslag, 1,8 s stil, een trage 2.5D-push van 3 % die
+  weer terugkomt (de overvloeier van 0,5 s naar beeld 1 gebeurt op één schaal: naadloze loop). Uitvoer als **`r-flow-<n>.mp4`** + poster (titel "Brandbook: door de echte
   pagina's bladeren"), omdat `write-manifest.mjs` alleen `r-hero*`/`r-flow-*`-video's opneemt.
 - **Ontwerpen op toestellen** (`templates/scenes/dev16.py`, plan `r16/r3d/dev_plan.json`): de `s-fa-design`/web-
   ontwerpen op de Studio Display (`d19_studio_front__c`) en een MacBook-close-up (`d13_macro_mac__a`), zonder
@@ -304,3 +304,11 @@ cd ../scenes                                    # (scratch: r12/scenes)
 ../../venv/bin/python film16.py render all      # r-flow-<n>.mp4 + .webp (opnames)
 ../../venv/bin/python book16.py film all 169    # bladerfilm r-flow-<n>.mp4 per case (vrije nummer)
 ```
+
+Praktisch (R3D16): een still-camera kost ~9-13 min (3000×2000, 96 samples), de bladerfilm ~75-80 s per beeld
+(2112×1188, 24 samples; samen ~70 min; kleur-passes als DWAA, ~7 MB per beeld). Alleen `g03_book169__v` is gerenderd:
+de bladerfilms voor de 1512×982-boeken (expociety-branding, jmtuning, monvy-branding) en het A-formaat (foodbars)
+vragen eerst `G03_ANIM=1 G03_TAG=154|141`. Cases met maar 4 pagina's (alpen-experience-hotel,
+architectenbureau-koppens-branding) krijgen geen film (`nofilm`). Eén Blender tegelijk: wacht tot er geen
+`venv/bin/python` meer draait en start onder `flock r17/blender.lock`.
+

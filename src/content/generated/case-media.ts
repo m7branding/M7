@@ -68,7 +68,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     heroVideo: { src: "/media/cases/aigora/r-hero.mp4", poster: "/media/cases/aigora/r-hero.webp", srcMobile: "/media/cases/aigora/r-hero-m.mp4", posterMobile: "/media/cases/aigora/r-hero-m.webp" },
     films: [
       {"src":"/media/cases/aigora/r-flow-1.mp4","poster":"/media/cases/aigora/r-flow-1.webp","w":1920,"h":1080,"title":"Navigatie met uitklapmenu’s"},
-      {"src":"/media/cases/aigora/r-flow-2.mp4","poster":"/media/cases/aigora/r-flow-2.webp","w":1920,"h":1080,"title":"Datasets van Aigora: carrousel met moleculaire, beeld- en klinische data"},
+      {"src":"/media/cases/aigora/r-flow-2.mp4","poster":"/media/cases/aigora/r-flow-2.webp","w":1920,"h":1080,"title":"Datasets van Aigora: carrousel met pathologie, moleculaire data, biobank en beeldvorming"},
     ],
     logo: "/media/cases/aigora/logo-white.svg",
     next: "/media/cases/aigora/r-next.webp",
@@ -221,6 +221,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     films: [
       {"src":"/media/cases/bernheze-makelaars-rebranding/r-flow-1.mp4","poster":"/media/cases/bernheze-makelaars-rebranding/r-flow-1.webp","w":1920,"h":1080,"title":"Kies een afdeling: wonen, nieuwbouw, agrarisch, bedrijven"},
       {"src":"/media/cases/bernheze-makelaars-rebranding/r-flow-2.mp4","poster":"/media/cases/bernheze-makelaars-rebranding/r-flow-2.webp","w":1920,"h":1080,"title":"Home: de vernieuwde Bernheze in één scroll"},
+      {"src":"/media/cases/bernheze-makelaars-rebranding/r-flow-3.mp4","poster":"/media/cases/bernheze-makelaars-rebranding/r-flow-3.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/bernheze-makelaars-rebranding/logo-white.svg",
     next: "/media/cases/bernheze-makelaars-rebranding/r-next.webp",
@@ -648,6 +649,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     films: [
       {"src":"/media/cases/ecos/r-flow-1.mp4","poster":"/media/cases/ecos/r-flow-1.webp","w":1920,"h":1080,"title":"Home: nieuws, cursussen en partners"},
       {"src":"/media/cases/ecos/r-flow-2.mp4","poster":"/media/cases/ecos/r-flow-2.webp","w":1920,"h":1080,"title":"Cursuscatalogus: zoeken naar Stanford FIND"},
+      {"src":"/media/cases/ecos/r-flow-3.mp4","poster":"/media/cases/ecos/r-flow-3.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/ecos/logo-white.png",
     next: "/media/cases/ecos/r-next.webp",
@@ -1273,6 +1275,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     films: [
       {"src":"/media/cases/kds-stansvormen/r-flow-1.mp4","poster":"/media/cases/kds-stansvormen/r-flow-1.webp","w":1920,"h":1080,"title":"Mobiel menu"},
       {"src":"/media/cases/kds-stansvormen/r-flow-2.mp4","poster":"/media/cases/kds-stansvormen/r-flow-2.webp","w":1920,"h":1080,"title":"De KDS-site op de telefoon: door de homepage scrollen"},
+      {"src":"/media/cases/kds-stansvormen/r-flow-3.mp4","poster":"/media/cases/kds-stansvormen/r-flow-3.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/kds-stansvormen/logo-white.svg",
     next: "/media/cases/kds-stansvormen/r-next.webp",
@@ -1315,6 +1318,9 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
   "laserlux": {
     gallery: [
       "/media/cases/laserlux/r-64-brandbook-open.webp",
+    ],
+    films: [
+      {"src":"/media/cases/laserlux/r-flow-1.mp4","poster":"/media/cases/laserlux/r-flow-1.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
   },
   "maarschall": {
@@ -1433,6 +1439,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     films: [
       {"src":"/media/cases/mindyourpass/r-flow-1.mp4","poster":"/media/cases/mindyourpass/r-flow-1.webp","w":1920,"h":1080,"title":"Navigatie: Solutions, About en Resources"},
       {"src":"/media/cases/mindyourpass/r-flow-2.mp4","poster":"/media/cases/mindyourpass/r-flow-2.webp","w":1920,"h":1080,"title":"Home: de wachtwoordmanager in beeld"},
+      {"src":"/media/cases/mindyourpass/r-flow-3.mp4","poster":"/media/cases/mindyourpass/r-flow-3.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/mindyourpass/logo-white.svg",
     next: "/media/cases/mindyourpass/r-next.webp",
@@ -1473,6 +1480,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     heroVideo: { src: "/media/cases/misterglass/r-hero-a.mp4", poster: "/media/cases/misterglass/r-hero-a.webp" },
     films: [
       {"src":"/media/cases/misterglass/r-flow-1.mp4","poster":"/media/cases/misterglass/r-flow-1.webp","w":1920,"h":1080,"title":"Glasconfigurator: opties en maten kiezen, de prijs rekent mee"},
+      {"src":"/media/cases/misterglass/r-flow-2.mp4","poster":"/media/cases/misterglass/r-flow-2.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/misterglass/logo-white.svg",
     next: "/media/cases/misterglass/r-next.webp",
@@ -1591,6 +1599,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     heroVideo: { src: "/media/cases/nktv/r-hero.mp4", poster: "/media/cases/nktv/r-hero.webp", srcMobile: "/media/cases/nktv/r-hero-m.mp4", posterMobile: "/media/cases/nktv/r-hero-m.webp" },
     films: [
       {"src":"/media/cases/nktv/r-flow-1.mp4","poster":"/media/cases/nktv/r-flow-1.webp","w":1920,"h":1080,"title":"Mobiel menu"},
+      {"src":"/media/cases/nktv/r-flow-2.mp4","poster":"/media/cases/nktv/r-flow-2.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/nktv/logo-white.png",
     next: "/media/cases/nktv/r-next.webp",
@@ -1660,6 +1669,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     heroVideo: { src: "/media/cases/outplay/r-hero.mp4", poster: "/media/cases/outplay/r-hero.webp", srcMobile: "/media/cases/outplay/r-hero-m.mp4", posterMobile: "/media/cases/outplay/r-hero-m.webp" },
     films: [
       {"src":"/media/cases/outplay/r-flow-1.mp4","poster":"/media/cases/outplay/r-flow-1.webp","w":1920,"h":1080,"title":"Navigatie met uitklapmenu’s"},
+      {"src":"/media/cases/outplay/r-flow-2.mp4","poster":"/media/cases/outplay/r-flow-2.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/outplay/logo-white.png",
     next: "/media/cases/outplay/r-next.webp",
@@ -1751,6 +1761,74 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/plenty-planet/logo-white.svg",
     next: "/media/cases/plenty-planet/r-next.webp",
   },
+  "privacy-company": {
+    cover: "/media/cases/privacy-company/r-cover.webp",
+    gallery: [
+      "/media/cases/privacy-company/r-01-d01-desk-studio-a.webp",
+      "/media/cases/privacy-company/r-02-t2-closeup.webp",
+      "/media/cases/privacy-company/r-03-f04-ipad-float-a.webp",
+      "/media/cases/privacy-company/r-04-d04-phone-trio-a.webp",
+      "/media/cases/privacy-company/r-05-d12-macro-phone-b.webp",
+      "/media/cases/privacy-company/r-06-d04-phone-trio-b-ui.webp",
+      "/media/cases/privacy-company/r-07-d16-phone-plinth-b.webp",
+      "/media/cases/privacy-company/r-08-d11-ui-panels-b.webp",
+      "/media/cases/privacy-company/r-09-d07-phone-stone-b-ui.webp",
+      "/media/cases/privacy-company/r-10-d01-desk-studio-b.webp",
+      "/media/cases/privacy-company/r-11-d15-mac-phone-desk-c.webp",
+      "/media/cases/privacy-company/r-12-d06-phone-linen-b.webp",
+      "/media/cases/privacy-company/r-13-d03-flatlay-b.webp",
+      "/media/cases/privacy-company/r-14-d10-tablets-iso-c.webp",
+      "/media/cases/privacy-company/r-15-t5-ipads-dark.webp",
+      "/media/cases/privacy-company/r-16-d15-mac-phone-desk-a.webp",
+      "/media/cases/privacy-company/r-17-d09-ipad-keyboard-c.webp",
+      "/media/cases/privacy-company/r-18-d20-gravity-alt-a.webp",
+      "/media/cases/privacy-company/r-60-brand-wall.webp",
+      "/media/cases/privacy-company/r-61-brand-booklet.webp",
+      "/media/cases/privacy-company/r-62-brand-sheet-logos.webp",
+      "/media/cases/privacy-company/r-63-brand-sheet-colours.webp",
+    ],
+    heroVideo: { src: "/media/cases/privacy-company/r-hero.mp4", poster: "/media/cases/privacy-company/r-hero.webp", srcMobile: "/media/cases/privacy-company/r-hero-m.mp4", posterMobile: "/media/cases/privacy-company/r-hero-m.webp" },
+    films: [
+      {"src":"/media/cases/privacy-company/r-flow-1.mp4","poster":"/media/cases/privacy-company/r-flow-1.webp","w":1920,"h":1080,"title":"Home: adviesdiensten, software en trainingen"},
+      {"src":"/media/cases/privacy-company/r-flow-2.mp4","poster":"/media/cases/privacy-company/r-flow-2.webp","w":1920,"h":1080,"title":"Vacatures: van het overzicht naar het sollicitatieformulier"},
+    ],
+    logo: "/media/cases/privacy-company/logo-white.svg",
+    next: "/media/cases/privacy-company/r-next.webp",
+  },
+  "privacy-nexus": {
+    cover: "/media/cases/privacy-nexus/r-cover.webp",
+    gallery: [
+      "/media/cases/privacy-nexus/r-01-d16-phone-plinth-b.webp",
+      "/media/cases/privacy-nexus/r-02-d19-studio-front-a.webp",
+      "/media/cases/privacy-nexus/r-03-d18-mac-profile-a-ui.webp",
+      "/media/cases/privacy-nexus/r-04-d11-ui-panels-a.webp",
+      "/media/cases/privacy-nexus/r-05-d10-tablets-iso-b.webp",
+      "/media/cases/privacy-nexus/r-06-d17-ipads-lean-c-ui.webp",
+      "/media/cases/privacy-nexus/r-07-d03-flatlay-a.webp",
+      "/media/cases/privacy-nexus/r-08-d19-studio-front-c.webp",
+      "/media/cases/privacy-nexus/r-09-d08-ipad-stand-c-ui.webp",
+      "/media/cases/privacy-nexus/r-10-d09-ipad-keyboard-b.webp",
+      "/media/cases/privacy-nexus/r-11-d01-desk-studio-a.webp",
+      "/media/cases/privacy-nexus/r-12-d07-phone-stone-b-ui.webp",
+      "/media/cases/privacy-nexus/r-13-t2-closeup.webp",
+      "/media/cases/privacy-nexus/r-14-d09-ipad-keyboard-a.webp",
+      "/media/cases/privacy-nexus/r-15-t5-ipads-dark.webp",
+      "/media/cases/privacy-nexus/r-16-t1-gravity.webp",
+      "/media/cases/privacy-nexus/r-17-d08-ipad-stand-a.webp",
+      "/media/cases/privacy-nexus/r-18-d12-macro-phone-b.webp",
+      "/media/cases/privacy-nexus/r-60-brand-wall.webp",
+      "/media/cases/privacy-nexus/r-61-brand-booklet.webp",
+      "/media/cases/privacy-nexus/r-62-brand-sheet-logos.webp",
+      "/media/cases/privacy-nexus/r-63-brand-sheet-colours.webp",
+    ],
+    heroVideo: { src: "/media/cases/privacy-nexus/r-hero.mp4", poster: "/media/cases/privacy-nexus/r-hero.webp", srcMobile: "/media/cases/privacy-nexus/r-hero-m.mp4", posterMobile: "/media/cases/privacy-nexus/r-hero-m.webp" },
+    films: [
+      {"src":"/media/cases/privacy-nexus/r-flow-1.mp4","poster":"/media/cases/privacy-nexus/r-flow-1.webp","w":1920,"h":1080,"title":"Home: grip op AVG-compliance"},
+      {"src":"/media/cases/privacy-nexus/r-flow-2.mp4","poster":"/media/cases/privacy-nexus/r-flow-2.webp","w":1920,"h":1080,"title":"Product: dashboard, verwerkingsregister, DPIA’s en datalekken"},
+    ],
+    logo: "/media/cases/privacy-nexus/logo-white.svg",
+    next: "/media/cases/privacy-nexus/r-next.webp",
+  },
   "repairlab": {
     cover: "/media/cases/repairlab/r-cover.webp",
     gallery: [
@@ -1809,6 +1887,12 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
   "rsi-3d-sportvelden": {
     logo: "/media/cases/rsi-3d-sportvelden/logo-white.png",
   },
+  "samdesk": {
+    gallery: [
+      "/media/cases/samdesk/r-65-device-1.webp",
+      "/media/cases/samdesk/r-65-device-2.webp",
+    ],
+  },
   "silvr": {
     cover: "/media/cases/silvr/r-cover.webp",
     gallery: [
@@ -1844,6 +1928,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
       {"src":"/media/cases/silvr/r-flow-1.mp4","poster":"/media/cases/silvr/r-flow-1.webp","w":1920,"h":1080,"title":"Voertuigenslider: per voertuig de belofte"},
       {"src":"/media/cases/silvr/r-flow-2.mp4","poster":"/media/cases/silvr/r-flow-2.webp","w":1920,"h":1080,"title":"Aanvraagflow stap 1–3: voertuig, kenteken-check en staat"},
       {"src":"/media/cases/silvr/r-flow-3.mp4","poster":"/media/cases/silvr/r-flow-3.webp","w":1920,"h":1080,"title":"Kenteken-check op de telefoon"},
+      {"src":"/media/cases/silvr/r-flow-4.mp4","poster":"/media/cases/silvr/r-flow-4.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/silvr/logo-white.png",
     next: "/media/cases/silvr/r-next.webp",
@@ -1912,6 +1997,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     heroVideo: { src: "/media/cases/solidlayer/r-hero.mp4", poster: "/media/cases/solidlayer/r-hero.webp", srcMobile: "/media/cases/solidlayer/r-hero-m.mp4", posterMobile: "/media/cases/solidlayer/r-hero-m.webp" },
     films: [
       {"src":"/media/cases/solidlayer/r-flow-1.mp4","poster":"/media/cases/solidlayer/r-flow-1.webp","w":1920,"h":1080,"title":"Mobiel menu"},
+      {"src":"/media/cases/solidlayer/r-flow-2.mp4","poster":"/media/cases/solidlayer/r-flow-2.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/solidlayer/logo-white.svg",
     next: "/media/cases/solidlayer/r-next.webp",
@@ -1919,6 +2005,9 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
   "sparked": {
     gallery: [
       "/media/cases/sparked/r-64-brandbook-open.webp",
+    ],
+    films: [
+      {"src":"/media/cases/sparked/r-flow-1.mp4","poster":"/media/cases/sparked/r-flow-1.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
     logo: "/media/cases/sparked/logo-white.png",
   },
@@ -2269,6 +2358,9 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     gallery: [
       "/media/cases/thingsix/r-64-brandbook-open.webp",
     ],
+    films: [
+      {"src":"/media/cases/thingsix/r-flow-1.mp4","poster":"/media/cases/thingsix/r-flow-1.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
+    ],
   },
   "toy4participation": {
     cover: "/media/cases/toy4participation/r-cover.webp",
@@ -2319,6 +2411,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     films: [
       {"src":"/media/cases/velorum/r-flow-1.mp4","poster":"/media/cases/velorum/r-flow-1.webp","w":1920,"h":1080,"title":"Home: de Velorum-website van hero tot contact"},
+      {"src":"/media/cases/velorum/r-flow-2.mp4","poster":"/media/cases/velorum/r-flow-2.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
   },
   "verichecks": {
@@ -2364,6 +2457,7 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     films: [
       {"src":"/media/cases/wizardframe/r-flow-1.mp4","poster":"/media/cases/wizardframe/r-flow-1.webp","w":1920,"h":1080,"title":"Configurator: geluid, kleur en extra’s kiezen, de preview licht op"},
+      {"src":"/media/cases/wizardframe/r-flow-2.mp4","poster":"/media/cases/wizardframe/r-flow-2.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
     ],
   },
   "your-earth": {
@@ -2399,6 +2493,9 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     ],
     screens: { desktop: "/media/cases/your-earth/screen-desktop.webp", mobile: "/media/cases/your-earth/screen-mobile.webp" },
     heroVideo: { src: "/media/cases/your-earth/r-hero.mp4", poster: "/media/cases/your-earth/r-hero.webp", srcMobile: "/media/cases/your-earth/r-hero-m.mp4", posterMobile: "/media/cases/your-earth/r-hero-m.webp" },
+    films: [
+      {"src":"/media/cases/your-earth/r-flow-1.mp4","poster":"/media/cases/your-earth/r-flow-1.webp","w":1920,"h":1080,"title":"Brandbook: door de echte pagina’s bladeren"},
+    ],
     logo: "/media/cases/your-earth/logo-white.svg",
     next: "/media/cases/your-earth/r-next.webp",
   },

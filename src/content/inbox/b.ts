@@ -363,7 +363,6 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
         en: "One place for advice, training and software, with a vacancy portal where applying takes a few fields.",
       },
       concept: true,
-      draft: true, // tot de renders van PC17 er zijn
       shape: "wide",
     },
     {
@@ -397,7 +396,6 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       },
       cover: "/media/cases/privacy-nexus/s-fa-privacynexus-banner.webp",
       concept: true,
-      draft: true, // tot de renders van PC17 er zijn
       shape: "wide",
     },
     {

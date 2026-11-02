@@ -148,6 +148,15 @@ if __name__ == '__main__':
         cam = sys.argv[3] if len(sys.argv) > 3 else 'a'
         for s in sel(sys.argv[2]):
             print('still', s, still(s, cam, 'still', out=True), flush=True)
+    elif cmd == 'film':
+        import film16 as F
+        tag = sys.argv[3] if len(sys.argv) > 3 else '169'
+        cases = film_cases(tag) if sys.argv[2] == 'all' else sys.argv[2].split(',')
+        N = film_frames(cases, tag)
+        for s in cases:
+            n = F.next_n(s)
+            print('film', s, film_encode(s, N, n), flush=True)
+            shutil.rmtree(os.path.join(OUTD, 'filmtmp', s), ignore_errors=True)
 
 
 def film_test(slug, frames, base_tpl='g03_book169__v'):
@@ -194,13 +203,13 @@ def film_frames(slugs, tag='169'):
         fr = C.Frame(tdir, f'f_{i:04d}', meta)
         pp = C.prepare(fr, exposure=meta.get('exposure', 0.0), look=meta.get('look', 'AgX - Medium High Contrast'))
         for s in slugs:
-            Image.fromarray(comp(pp, s, pk[s], dsg[s])).save(os.path.join(tmp, s, f'{i:04d}.jpg'), quality=96, subsampling=0)
+            Image.fromarray(comp(pp, s, pk[s], dsg[s])).save(os.path.join(tmp, s, f'{i:04d}.jpg'), quality=93, subsampling=2)
         print('frame', i, flush=True)
     return N
 
 
 def film_encode(slug, N, n):
-    """holdA (turn frame 0) + the turn + holdB, a slow 5 % push-in over the whole film, 0.5 s dissolve into frame 1."""
+    """holdA (turn frame 0) + the turn + holdB, a slow 3 % push-in and back, 0.5 s dissolve into frame 1."""
     import cv2
     sys.path.insert(0, HERE)
     import film16 as F
@@ -216,8 +225,8 @@ def film_encode(slug, N, n):
     def frames():
         for k, i in enumerate(seq):
             img = src(i); H, W = img.shape[:2]
-            s = k / (T - 1); e = 0.5 - 0.5 * np.cos(np.pi * s)
-            z = 1.0 + 0.05 * e
+            s = k / T                                     # loops: frame T would be frame 0 again
+            z = 1.0 + 0.03 * np.sin(np.pi * s) ** 2       # breathes in and out, so the dissolve is at one scale
             cw, ch = W / z, H / z
             cx, cy = W * 0.5, H * 0.56
             x0 = min(max(cx - cw / 2, 0), W - cw); y0 = min(max(cy - ch / 2, 0), H - ch)
