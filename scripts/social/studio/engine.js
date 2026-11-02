@@ -161,7 +161,7 @@
         const en = o.enter || { type: "fade", d: 0.6 }, ex = o.exit || { type: "fade", d: 0.6 };
         const pi = en.type === "none" ? 1 : P(t, o.t0, en.d ?? 0.8, en.ease || "outExpo");
         const po = ex.type === "none" ? 0 : P(t, o.t1 - (ex.d ?? 0.6), ex.d ?? 0.6, ex.ease || "inOutCubic");
-        let op = 1, tx = 0, ty = 0, sc = 1, rx = 0, ry = 0, clip = "none";
+        let op = 1, tx = 0, ty = 0, sc = 1, rx = 0, ry = 0, clip = "none", blur = 0;
         const apply = (type, p, dir) => { // p 0→1 = zichtbaar
           if (type === "fade") op *= p;
           else if (type === "rise") { ty += (1 - p) * 220 * dir; op *= clamp(p * 1.6); }
@@ -171,6 +171,9 @@
           else if (type === "slideL") { tx += (1 - p) * -S.W * dir; }
           else if (type === "slideR") { tx += (1 - p) * S.W * dir; }
           else if (type === "wipeUp") { clip = `inset(${(1 - p) * 100}% 0 0 0 round ${o.radius ?? 34}px)`; }
+          else if (type === "blur") { op *= p; blur = Math.max(blur, (1 - p) * 26); sc *= lerp(1.04, 1, p); }
+          else if (type === "softfade") { op *= p; sc *= lerp(1.035, 1, p); }
+          else if (type === "wipeL") { clip = `inset(0 0 0 ${(1 - p) * 100}%)`; }
           else if (type === "ring") {
             const R = Math.hypot(S.W, S.H) / 2 * p * 1.02;
             const cx = S.W / 2 - r.x, cy = S.H / 2 - r.y;
@@ -198,6 +201,7 @@
         card.style.opacity = op.toFixed(3);
         card.style.transform = `perspective(1800px) translate3d(${tx}px, ${ty}px, 0) rotateX(${rx}deg) rotateY(${ry}deg) scale(${sc})`;
         card.style.clipPath = clip;
+        card.style.filter = blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : "none";
         if (sheen) { const sp = P(t, o.t0 + (o.sheenAt ?? 0.5), 1.3, "inOutCubic"); sheen.style.transform = `translate3d(${lerp(-70, 70, sp)}%, 0, 0)`; sheen.style.opacity = sp > 0 && sp < 1 ? 1 : 0; }
       },
     };
@@ -497,7 +501,9 @@
       const ln = el("span", "ln", pay);
       line.forEach((wd, i) => { const w = el("span", "w", ln); payWords.push(el("span", "wi " + wd.cls, w, esc(wd.w))); if (i < line.length - 1) ln.appendChild(document.createTextNode(" ")); });
     }
-    const url = el("div", "url L", root, esc(o.url || "m7branding.com"));
+    if (o.payoff === "") pay.style.display = "none";
+    const url = el("div", "url L", root, esc(o.url ?? "m7branding.com"));
+    if (o.url === "") url.style.display = "none";
     url.style.top = cy + size / 2 + 90 + (o.paySize || 76) * 1.25 * (o.payoff || "").split("|").length + 46 + "px"; url.style.width = S.W + "px";
     return {
       update(t) {
@@ -597,6 +603,106 @@
     const d = el("div", "txt L", S.stage, o.html);
     Object.assign(d.style, { left: (o.x ?? 80) + "px", top: (o.y ?? 0) + "px", width: (o.w ?? S.W - 160) + "px" }, o.style || {});
     return { update(t) { const vis = t >= (o.t0 ?? 0) && t <= (o.t1 ?? 1e9); d.style.display = vis ? "block" : "none"; if (vis) { const a = P(t, o.t0 ?? 0, 0.9); d.style.opacity = a.toFixed(3); d.style.transform = `translate3d(0, ${(1 - a) * 24}px, 0)`; } } };
+  };
+
+  /* Intro: het M7-logo als technische tekening (hulplijnen + contouren) midden in beeld, over de video; verdwijnt na ~1 s. */
+  LAYERS.m7lines = (o, S) => {
+    const d = el("div", "L", S.stage);
+    const size = o.size || 520, cx = S.W / 2, cy = o.cy || S.H / 2;
+    const sc = size / 89, ox = cx - size / 2, oy = cy - (51 * sc) / 2;
+    const id = "ml" + S.uid++;
+    const guides = [
+      [-60, 0.3, 89 + 60, 0.3], [89 + 60, 49.9, -60, 49.9], [57, -40, 57, 51 + 40], [0, -24, 0, 51 + 24], [88.6, -24, 88.6, 51 + 24],
+    ];
+    d.innerHTML = `<svg width="${S.W}" height="${S.H}" style="position:absolute;left:0;top:0;overflow:visible">
+      <defs><radialGradient id="${id}s" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000" stop-opacity="${o.scrim ?? 0.5}"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
+      <ellipse class="scrim" cx="${cx}" cy="${cy}" rx="${size * 1.05}" ry="${size * 0.85}" fill="url(#${id}s)"/>
+      <g transform="translate(${ox} ${oy}) scale(${sc})" fill="none" stroke-linecap="round">
+        <g class="gd" stroke="rgba(255,255,255,0.55)" stroke-width="${1.1 / sc * 1.5}">${guides.map((g) => `<line x1="${g[0]}" y1="${g[1]}" x2="${g[2]}" y2="${g[3]}" pathLength="1" stroke-dasharray="1 1"/>`).join("")}</g>
+        <g class="ln" stroke="#fff" stroke-width="${2.2 / sc * 1.6}" stroke-linejoin="round">${M7_PATHS.map((p) => `<path d="${p}" pathLength="1" stroke-dasharray="1 1"/>`).join("")}</g>
+      </g></svg>`;
+    const gd = [...d.querySelectorAll(".gd line")], ln = [...d.querySelectorAll(".ln path")], scrim = d.querySelector(".scrim");
+    return {
+      update(t) {
+        const t0 = o.t0 ?? 0, dur = o.dur ?? 1.35;
+        const vis = t >= t0 && t <= t0 + dur;
+        d.style.display = vis ? "block" : "none";
+        if (!vis) return;
+        const u = t - t0;
+        gd.forEach((g, i) => g.setAttribute("stroke-dashoffset", (1 - P(u, i * 0.04, 0.55, "outCubic")).toFixed(4)));
+        ln.forEach((p, i) => p.setAttribute("stroke-dashoffset", (1 - P(u, 0.12 + i * 0.05, 0.6, "inOutCubic")).toFixed(4)));
+        const out = P(u, dur - 0.35, 0.35, "inCubic");
+        d.style.opacity = (P(u, 0, 0.15) * (1 - out)).toFixed(3);
+        scrim.setAttribute("opacity", (1 - out).toFixed(3));
+        d.style.transform = `scale(${lerp(1.0, 1.03, out)})`;
+        d.style.transformOrigin = `${cx}px ${cy}px`;
+      },
+    };
+  };
+
+  /* Glazen labels met de dienstcategorieën onderin. mode: pills (los) | bar (één balk) | chips (links, klein). */
+  LAYERS.glasslabels = (o, S) => {
+    const d = el("div", "L", S.stage);
+    Object.assign(d.style, { left: 0, top: (o.y ?? S.H - 300) + "px", width: S.W + "px", display: "flex", justifyContent: o.mode === "chips" ? "flex-start" : "center", gap: (o.mode === "bar" ? 0 : 14) + "px", padding: o.mode === "chips" ? "0 64px" : "0" });
+    // neutral dark glass: readable on light and dark scenes alike
+    const base = "background:rgba(14,14,18,0.38);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);border:1px solid rgba(255,255,255,0.20);color:#fff;font-weight:600;letter-spacing:0.01em;box-shadow:0 10px 40px rgba(0,0,0,0.20)";
+    if (o.mode === "bar") {
+      d.innerHTML = `<div style="${base};display:flex;align-items:center;border-radius:999px;padding:20px 34px;font-size:${o.size || 30}px">${o.items.map((x, i) => (i ? '<span style="width:1px;height:26px;background:rgba(255,255,255,0.35);margin:0 24px"></span>' : "") + esc(x)).join("")}</div>`;
+    } else {
+      d.innerHTML = o.items.map((x) => `<span class="gl" style="${base};display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:${o.mode === "chips" ? "14px 22px" : "18px 30px"};font-size:${o.size || (o.mode === "chips" ? 26 : 30)}px"><span style="width:10px;height:10px;border-radius:50%;background:linear-gradient(180deg,#3affff,#00ff19)"></span>${esc(x)}</span>`).join("");
+    }
+    const kids = [...d.children];
+    return {
+      update(t) {
+        const vis = t >= o.t0 && t <= o.t1;
+        d.style.display = vis ? "flex" : "none";
+        if (!vis) return;
+        const out = P(t, o.t1 - 0.5, 0.5, "inCubic");
+        kids.forEach((k, i) => { const a = P(t, o.t0 + i * 0.08, 0.8); k.style.opacity = (a * (1 - out)).toFixed(3); k.style.transform = `translate3d(0, ${((1 - a) * 22 + out * 10).toFixed(1)}px, 0)`; });
+      },
+    };
+  };
+
+  /* Filmkorrel + vignet (rustige 'cinematic' grade). */
+  LAYERS.grade = (o, S) => {
+    const v = el("div", "L", S.stage);
+    Object.assign(v.style, { width: S.W + "px", height: S.H + "px", background: `radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(0,0,0,${o.vignette ?? 0.45}) 100%)` });
+    const cv = el("canvas", "px L", S.stage);
+    const gw = 360, gh = 640;
+    cv.width = gw; cv.height = gh;
+    Object.assign(cv.style, { width: S.W + "px", height: S.H + "px", mixBlendMode: "overlay", opacity: o.grain ?? 0.16, imageRendering: "auto" });
+    const ctx = cv.getContext("2d");
+    const img = ctx.createImageData(gw, gh);
+    return {
+      update(t) {
+        const R = rng(Math.floor(t * (o.rate ?? 8)) + 1);   // refreshes a few times a second: film feel without a bitrate storm
+        for (let i = 0; i < img.data.length; i += 4) { const g = 128 + (R() - 0.5) * 150; img.data[i] = img.data[i + 1] = img.data[i + 2] = g; img.data[i + 3] = 255; }
+        ctx.putImageData(img, 0, 0);
+      },
+    };
+  };
+
+  /* Haarlijn-wipe: een dunne lichte lijn die over het beeld gaat (bij een 'wipeL'-overgang). */
+  LAYERS.hairline = (o, S) => {
+    const l = el("div", "L", S.stage);
+    Object.assign(l.style, { width: "2px", height: S.H + "px", background: "linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.9) 80%, rgba(255,255,255,0))", boxShadow: "0 0 24px rgba(255,255,255,0.6)" });
+    return {
+      update(t) {
+        const d = o.d ?? 0.55, vis = t >= o.t && t <= o.t + d;
+        l.style.display = vis ? "block" : "none";
+        if (!vis) return;
+        const p = E[o.ease || "inOutCubic"](clamp((t - o.t) / d));
+        l.style.transform = `translate3d(${(S.W * p).toFixed(1)}px, 0, 0)`;
+        l.style.opacity = Math.sin(p * Math.PI).toFixed(3);
+      },
+    };
+  };
+
+  /* Effen achtergrond (zwart of met één heel zachte gloed), voor de outro. */
+  LAYERS.plain = (o, S) => {
+    const d = el("div", "L", S.stage);
+    Object.assign(d.style, { width: S.W + "px", height: S.H + "px", background: o.glow ? `radial-gradient(70% 45% at 50% ${o.glowY ?? 45}%, rgba(${o.glow},0.16), transparent 70%), ${o.color || "#030304"}` : (o.color || "#030304") });
+    return { update(t) { const vis = t >= (o.t0 ?? 0) && t <= (o.t1 ?? 1e9); d.style.display = vis ? "block" : "none"; if (vis && o.t0 != null) d.style.opacity = P(t, o.t0, o.fade ?? 0.6, "inOutSine").toFixed(3); } };
   };
 
   /* ---------- engine ---------- */
