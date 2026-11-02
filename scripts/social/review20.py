@@ -33,8 +33,8 @@ def put(src, rel):
 # playable samples
 vids = []
 for p in samples:
-    host = os.path.basename(os.path.dirname(p))
-    name = os.path.basename(p)[:-4]
+    base = os.path.basename(p)[:-4]            # kept samples are named <client>__<reel>.mp4
+    host, name = base.split("__", 1) if "__" in base else (os.path.basename(os.path.dirname(p)), base)
     kind = name.rsplit("-", 1)[-1]
     rel = f"v/{name}.mp4"            # a light 720p preview; the full-quality file is in the private repo
     d = os.path.join(DST, rel)
