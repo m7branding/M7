@@ -178,7 +178,9 @@ def plan(copy, plist):
     def story(week, day, n=1):
         for _ in range(n):
             if sidx[0] < len(stories):
-                add(week, day, "Instagram", "Story", stories[sidx[0]].rsplit(".", 1)[0], f"stories/{stories[sidx[0]]}", "zie README: tips per story-type")
+                nm = stories[sidx[0]].rsplit(".", 1)[0]
+                kind = next((k for k in texts.STORY_TIPS if nm[3:].startswith(k)), "manifest")
+                add(week, day, "Instagram", "Story", nm, f"stories/{stories[sidx[0]]}", "Tip: " + texts.STORY_TIPS[kind])
                 sidx[0] += 1
     # week 1: launch
     m7(1, "ma", "01-welcome-to-our-world", "Welcome to our world (manifest)")
@@ -268,6 +270,27 @@ def plan(copy, plist):
         wri.writeheader()
         wri.writerows(rows)
     json.dump(rows, open(OUT / "posting-plan.json", "w"), ensure_ascii=False, indent=1)
+    phases = {1: "Launch: Welcome to our world + de nieuwe website", 2: "Branding-week", 3: "Websites-week", 4: "Apps-week", 5: "Hosting-week", 6: "Marketing-week", 7: "AI-week", 8: "Logo's & brandbooks", 9: "Masterpieces", 10: "Achter de schermen", 11: "From pixels to stars", 12: "From pixels to stars (2)"}
+    md = ["# Posting plan M7", "",
+          "**Doel:** mensen meenemen in wat we kunnen. Laten zien, niet teveel lullen.",
+          "",
+          "**Opbouw:**",
+          "1. **Week 1** is de launch, met Welcome to our world en de nieuwe site.",
+          "2. **Weken 2–7** hebben elk een eigen dienst: Branding, Websites, Apps, Hosting, Marketing en AI.",
+          "3. **Weken 8–12** gaan over logo's en brandbooks, de masterpieces, achter de schermen en from pixels to stars.",
+          "4. **Daarna** volgt een evergreen-rotatie: 3 reels, 2 swipes en 2 LinkedIn-posts per week, tot elk project geweest is.",
+          "",
+          "**Ritme:** Instagram rond 12:00 of 19:30. LinkedIn dinsdag en donderdag rond 8:00. Stories 's ochtends.",
+          "",
+          "Week 1 = de week waarin de nieuwe website live gaat. Bestanden staan relatief aan de map `social/`.", ""]
+    cur = None
+    for r in rows:
+        if r["week"] != cur:
+            cur = r["week"]
+            md += ["", f"## Week {cur}" + (f": {phases[cur]}" if cur in phases else " (evergreen)"), "", "| Dag | Kanaal | Format | Wat | Bestand | Caption |", "|---|---|---|---|---|---|"]
+        md.append(f"| {r['dag']} | {r['kanaal']} | {r['format']} | {r['titel']} | `{r['bestand']}` | `{r['caption']}` |")
+    (OUT / "posting-plan.md").write_text("\n".join(md) + "\n")
+    shutil.copy(HERE / "README_PACKAGE.md", OUT / "README.md")
     print("plan rows", len(rows), "weeks", max(r["week"] for r in rows))
 
 
