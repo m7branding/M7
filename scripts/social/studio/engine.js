@@ -14,6 +14,7 @@
     inOutCubic: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
     outQuint: (t) => 1 - Math.pow(1 - t, 5),
     inOutSine: (t) => -(Math.cos(Math.PI * t) - 1) / 2,
+    spring: (t) => (t >= 1 ? 1 : 1 - Math.exp(-7 * t) * Math.cos(9.5 * t) * (1 - t * 0.15)),
     outBack: (t) => { const c1 = 1.4, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); },
   };
   const P = (t, t0, d, e = "outExpo") => E[e](clamp((t - t0) / Math.max(1e-6, d)));
@@ -173,6 +174,12 @@
           else if (type === "wipeUp") { clip = `inset(${(1 - p) * 100}% 0 0 0 round ${o.radius ?? 34}px)`; }
           else if (type === "blur") { op *= p; blur = Math.max(blur, (1 - p) * 26); sc *= lerp(1.04, 1, p); }
           else if (type === "softfade") { op *= p; sc *= lerp(1.035, 1, p); }
+          // round 21: premium transitions
+          else if (type === "zoomthrough") { op *= clamp(p * 1.25); sc *= lerp(dir > 0 ? 0.9 : 1.16, 1, p); blur = Math.max(blur, (1 - p) * 10); }
+          else if (type === "pushUp") { ty += (1 - p) * S.H * 0.9 * dir; sc *= lerp(dir > 0 ? 1.0 : 0.94, 1, p); op *= dir > 0 ? 1 : clamp(p * 1.4); }
+          else if (type === "iris") { const R = Math.hypot(S.W, S.H) / 2 * E.inOutCubic(p) * 1.02; clip = `circle(${R}px at ${S.W / 2 - r.x}px ${S.H * 0.46 - r.y}px)`; sc *= lerp(1.06, 1, p); }
+          else if (type === "diag") { const k = (1 - p) * 140; clip = `polygon(${k}% 0, 100% 0, 100% 100%, ${k - 40}% 100%)`; sc *= lerp(1.04, 1, p); }
+          else if (type === "focus") { op *= clamp(p * 1.6); blur = Math.max(blur, (1 - p) * 34); sc *= lerp(dir > 0 ? 1.1 : 0.96, 1, p); }
           else if (type === "wipeL") { clip = `inset(0 0 0 ${(1 - p) * 100}%)`; }
           else if (type === "ring") {
             const R = Math.hypot(S.W, S.H) / 2 * p * 1.02;
@@ -649,6 +656,57 @@
         if (frost) frost.style.opacity = (P(u, 0, 0.35, "outCubic") * (1 - out)).toFixed(3);
         d.style.transformOrigin = `${cx}px ${cy}px`;
         d.style.transform = `scale(${(lerp(1.0, 1.02, f) * lerp(1, 1.04, out)).toFixed(4)})`;
+      },
+    };
+  };
+
+  /* Round 21: zwevende kaarten in 3D (echte UI-snippets, logo, kleurswatches) boven een shot. Elke kaart vliegt in
+     (vanuit diepte, gekanteld), landt zacht, zweeft licht mee; de hele 'wereld' draait langzaam (parallax). */
+  LAYERS.float3d = (o, S) => {
+    const wrap = el("div", "L", S.stage);
+    Object.assign(wrap.style, { left: 0, top: 0, width: S.W + "px", height: S.H + "px", perspective: (o.persp ?? 1800) + "px", perspectiveOrigin: `50% ${o.po ?? 46}%` });
+    const world = el("div", null, wrap);
+    Object.assign(world.style, { position: "absolute", left: 0, top: 0, width: S.W + "px", height: S.H + "px", transformStyle: "preserve-3d", transformOrigin: `50% ${o.po ?? 46}% 0` });
+    const sh = o.shadow ?? "0 60px 110px -30px rgba(0,0,0,0.50), 0 22px 44px -18px rgba(0,0,0,0.32)";
+    const cards = (o.cards || []).map((c) => {
+      const d = el("div", null, world);
+      Object.assign(d.style, { position: "absolute", left: (c.x - c.w / 2) + "px", top: (c.y - c.h / 2) + "px", width: c.w + "px", height: c.h + "px",
+        borderRadius: (c.radius ?? 24) + "px", overflow: "hidden", boxShadow: c.shadow === false ? "none" : (c.shadow || sh), background: c.bg || "transparent",
+        transformOrigin: c.origin || "50% 50%", willChange: "transform, opacity", outline: c.ring ? "1px solid rgba(255,255,255,0.35)" : "none", outlineOffset: "-1px" });
+      let img = null;
+      if (c.src) { img = el("img", null, d); Object.assign(img.style, { width: "100%", height: "100%", objectFit: c.fit || "cover", objectPosition: c.pos || "50% 0%", display: "block" }); img.src = c.src; }
+      if (c.html) d.insertAdjacentHTML("beforeend", c.html);
+      return { d, c, img, ready: !img };
+    });
+    const cam = o.camera || {};
+    return {
+      async update(t) {
+        const vis = t >= o.t0 && t <= o.t1;
+        wrap.style.display = vis ? "block" : "none";
+        if (!vis) return;
+        for (const k of cards) if (!k.ready) { try { await k.img.decode(); } catch (e) {} k.ready = true; }
+        const u = clamp((t - o.t0) / Math.max(0.01, o.t1 - o.t0));
+        const cu = E[cam.ease || "inOutSine"](u);
+        world.style.transform = `translateZ(${lerp(cam.z0 ?? 0, cam.z1 ?? 0, cu).toFixed(1)}px) rotateX(${lerp(cam.rx0 ?? 0, cam.rx1 ?? 0, cu).toFixed(3)}deg) rotateY(${lerp(cam.ry0 ?? 0, cam.ry1 ?? 0, cu).toFixed(3)}deg) rotateZ(${lerp(cam.rz0 ?? 0, cam.rz1 ?? 0, cu).toFixed(3)}deg)`;
+        const xo = o.exit || {};
+        const pout = xo.type ? P(t, o.t1 - (xo.d ?? 0.7), xo.d ?? 0.7, xo.ease || "inCubic") : 0;
+        cards.forEach(({ d, c }, i) => {
+          const f = c.from || {};
+          const p = P(t, o.t0 + (c.tin ?? i * 0.18), c.din ?? 1.1, c.ease || "outQuint");
+          const q = 1 - p;
+          const dr = c.drift ?? 1, w = (t - o.t0) * (c.dspeed ?? 0.55) + i * 1.7;
+          let x = (f.x ?? 0) * q + Math.sin(w) * 6 * dr, y = (f.y ?? 120) * q + Math.cos(w * 0.8) * 9 * dr, z = (c.z ?? 0) + (f.z ?? -500) * q;
+          let rx = (c.rx ?? 0) + (f.rx ?? 18) * q + Math.sin(w * 0.7) * 1.2 * dr, ry = (c.ry ?? 0) + (f.ry ?? 0) * q + Math.cos(w * 0.6) * 1.6 * dr, rz = (c.rz ?? 0) + (f.rz ?? 0) * q;
+          let sc = (c.s ?? 1) * lerp(f.s ?? 1, 1, p), op = clamp(p * (c.fade ?? 2.2));
+          if (pout > 0) {  // exit: drift away into depth (scatter) or fall back flat (drop)
+            const k = E.inCubic(clamp(pout * 1.15 - (cards.length - 1 - i) * 0.04));
+            if (xo.type === "scatter") { x += (c.x - S.W / 2) * 0.5 * k; y += (c.y - S.H / 2) * 0.35 * k - 80 * k; z += 520 * k; op *= 1 - k; }
+            else if (xo.type === "drop") { y += 260 * k; rx -= 26 * k; op *= 1 - k; }
+            else op *= 1 - k;
+          }
+          d.style.opacity = op.toFixed(3);
+          d.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg) scale(${sc.toFixed(4)})`;
+        });
       },
     };
   };
