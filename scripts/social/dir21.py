@@ -57,8 +57,8 @@ def palette(slug, n=5):
     p = PAL[slug]
     cols = [p.get("fullBleed")] + list(p["logo"]["colors"]) + list(p.get("accent") or []) + [p["neutrals"].get("dark"), p["neutrals"].get("light")]
     out = []
-    for c in cols:
-        if c and c.upper() not in [x.upper() for x in out]:
+    for c in cols:                     # skip near-duplicates (#FFFFFF next to #F8F8F8 reads as the same chip)
+        if c and all(sum((a - b) ** 2 for a, b in zip(rgb(c), rgb(x))) > 18 ** 2 for x in out):
             out.append(c.upper())
     return out[:n]
 
@@ -86,7 +86,8 @@ def swatch_html(hx):
 def logo_html(slug, bg=None):
     p = PAL[slug]
     mono_white = p["logo"]["colors"] == ["#FFFFFF"]
-    bg = bg or (p.get("fullBleed") if mono_white else "#FFFFFF")
+    # a white-only logo sits on the brand's accent (contrast with a backdrop in the main colour)
+    bg = bg or (((p.get("accent") or [None])[0] or p.get("fullBleed")) if mono_white else "#FFFFFF")
     f = "logo-white.svg" if (mono_white or not light(bg)) else "logo.svg"
     return (f'<div style="position:absolute;inset:0;background:{bg};display:grid;place-items:center">'
             f'<img src="{lib.furl(CASES / slug / f)}" style="width:64%;max-height:46%;object-fit:contain"></div>')
@@ -392,8 +393,8 @@ def reels():
         # Bernheze: brand-led. The logo on its green, the colours as a row, the real brandbook, then the site: the
         # department menu on an iPad stand, close-ups lifting off, the floating MacBook with the palette in 3D.
         "bernheze-signature": dict(host=bz, tx="iris", txout=False, txease="inOutCubic", music=("calm", 52), labels=["Branding", "Websites", "Print"], shots=[
-            dict(k="brand", secs=3.8, bg="#1D2C25", bg2="#2A3F34", cards=row(bz, palette(bz, 4))),
             dict(k="book", secs=3.8, slug=bz, a=("spread", 0.22, 0.0, 1040), b=("l1", 0.12, 0.02, 760)),
+            dict(k="brand", secs=3.6, bg="#1D2C25", bg2="#2A3F34", cards=row(bz, palette(bz, 4))),
             dict(k="scene", secs=3.8, spec=dict(slug=bz, t="d09_ipad_keyboard__q1", content="flow", flow="flow-1-afdeling-menu-desktop.mp4", ft0=0.6,
                                                 cam=cam((1.34, 1.22), (0.0, -0.03), (0.0, 0.0), (0, 0), "outCubic"))),
             dict(k="float", secs=3.4, bg="frost", cards=hero2([(snip(bz, "closeup-2-afdelingstegels.png"), 860), (snip(bz, "closeup-1-menu-open.png"), 380),
