@@ -60,7 +60,6 @@ def pick_flow(slug, t, kind=None, device=None):
 
 def patch_cards(cards):
     """Fill the f-templates' floating cards with our own images (brand cards) instead of UI snippets."""
-    import compositor as C  # noqa: F401  (pipeline module, loaded by batch13)
     orig = B13.snip_displays
 
     def snip_displays(slug, st, pp, meta):
