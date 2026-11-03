@@ -35,17 +35,32 @@ if (stills) {
 }
 
 const n = Math.round(spec.duration * fps);
-const args = ["-y", "-loglevel", "error", "-f", "image2pipe", "-c:v", "mjpeg", "-framerate", String(fps), "-i", "-"];
+// motion blur (round 21): mb sub-frames per frame over a 180-degree shutter, averaged by ffmpeg (tmix). Only inside
+// mbRanges (the fast moments: cards flying in, transitions); elsewhere one capture is repeated, so it costs nothing.
+const MB = Math.max(1, spec.mb || 1), shutter = spec.shutter ?? 0.5;
+const ranges = spec.mbRanges || null;
+const fast = (t) => MB > 1 && (!ranges || ranges.some(([a, b]) => t >= a - 0.02 && t <= b + 0.02));
+const args = ["-y", "-loglevel", "error", "-f", "image2pipe", "-c:v", "mjpeg", "-framerate", String(fps * MB), "-i", "-"];
 if (audio) args.push("-i", audio);
+if (MB > 1) args.push("-vf", `tmix=frames=${MB},select='eq(mod(n\\,${MB})\\,${MB - 1})',setpts=N/(${fps}*TB)`);
 args.push("-c:v", "libx264", "-preset", "faster", "-crf", String(spec.crf ?? 20), "-pix_fmt", "yuv420p", "-profile:v", "high", "-r", String(fps), "-threads", "3");
 if (audio) args.push("-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest");
 args.push("-movflags", "+faststart", out);
 const ff = spawn("ffmpeg", args, { stdio: ["pipe", "inherit", "inherit"] });
 const t0 = Date.now();
+const put = async (buf) => { if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once("drain", r)); };
 for (let i = 0; i < n; i++) {
-  await page.evaluate((t) => window.M7.render(t), i / fps);
-  const buf = await shot(90);
-  if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once("drain", r));
+  const t = i / fps;
+  if (fast(t)) {
+    for (let k = 0; k < MB; k++) {
+      await page.evaluate((tt) => window.M7.render(tt), t + ((k + 0.5) / MB - 0.5) * shutter / fps);
+      await put(await shot(92));
+    }
+  } else {
+    await page.evaluate((tt) => window.M7.render(tt), t);
+    const buf = await shot(90);
+    for (let k = 0; k < MB; k++) await put(buf);
+  }
 }
 ff.stdin.end();
 await new Promise((r) => ff.on("close", r));

@@ -30,7 +30,7 @@ CAP15 = Path(S) / "r15" / "cap"
 CASES = Path("/home/user/M7/public/media/cases")
 PAL = json.load(open(f"{S}/r14/palette/palettes.json"))
 W, H = 1080, 1920
-XF = 0.7
+XF = 0.8
 
 
 def h(s):
@@ -46,11 +46,41 @@ def venv(*a):
 
 # ---------------------------------------------------------------- assets
 def snip(slug, name):
-    """A reviewed r15 2x close-up / snippet: (file url, w, h, has_alpha)."""
-    from PIL import Image
+    """A reviewed r15 2x close-up / snippet. PNGs with transparency are cleaned for floating: the colour under the
+    transparent pixels is bled from the edge (no white fringes when scaled), and a cut-out element without a body of
+    its own (text on the page) gets a white rounded card baked in. Those float as 'cutouts': no box behind them, a
+    shadow that follows their shape."""
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFilter
     p = CAP15 / slug / name
     im = Image.open(p)
-    return {"src": lib.furl(p), "aw": im.width, "ah": im.height, "alpha": im.mode in ("RGBA", "LA")}
+    if im.mode != "RGBA":
+        return {"src": lib.furl(p), "aw": im.width, "ah": im.height, "alpha": False}
+    out = R / "snips" / slug / name
+    if not out.exists():
+        out.parent.mkdir(parents=True, exist_ok=True)
+        a = np.asarray(im).astype(np.float32)
+        al = a[..., 3] / 255.0
+        h, w = al.shape
+        if al[h // 4:3 * h // 4, w // 4:3 * w // 4].mean() < 0.6:          # a cut-out without its own body
+            pad = int(round(0.06 * min(w, h) + 18))
+            card = Image.new("RGBA", (w + 2 * pad, h + 2 * pad), (0, 0, 0, 0))
+            m = Image.new("L", card.size, 0)
+            ImageDraw.Draw(m).rounded_rectangle((0, 0, card.width - 1, card.height - 1), radius=int(28 + 0.02 * min(w, h)), fill=255)
+            body = Image.new("RGBA", card.size, (255, 255, 255, 255)); body.putalpha(m)
+            body.alpha_composite(im, (pad, pad))
+            im = body
+            a = np.asarray(im).astype(np.float32); al = a[..., 3] / 255.0
+        rgb = a[..., :3]
+        k = 3
+        num = np.stack([np.asarray(Image.fromarray(np.uint8(np.clip(rgb[..., c] * al, 0, 255))).filter(ImageFilter.GaussianBlur(k))).astype(np.float32) for c in range(3)], -1)
+        den = np.asarray(Image.fromarray(np.uint8(al * 255)).filter(ImageFilter.GaussianBlur(k))).astype(np.float32)[..., None]
+        bleed = num / np.maximum(den / 255.0, 1e-3)          # the edge colour, spread under the transparent pixels
+        rgb = np.where(al[..., None] > 0.98, rgb, np.clip(bleed, 0, 255))
+        res = np.concatenate([rgb, al[..., None] * 255.0], -1)
+        Image.fromarray(np.uint8(np.clip(res, 0, 255)), "RGBA").save(out)
+    im2 = Image.open(out)
+    return {"src": lib.furl(out), "aw": im2.width, "ah": im2.height, "alpha": True}
 
 
 def palette(slug, n=5):
@@ -139,10 +169,11 @@ def card_pngs(slug, t, mode, ui=()):
 
 # ---------------------------------------------------------------- float layouts (3D cards, engine float3d)
 def card_from(s, w, **kw):
+    w = min(w, s["aw"])                          # never upscaled: the 2x captures stay crisp
     hgt = round(w * s["ah"] / s["aw"])
-    c = {"src": s["src"], "w": w, "h": hgt, "fit": "contain" if s.get("alpha") else "cover", "radius": 20 if s.get("alpha") else 18}
+    c = {"src": s["src"], "w": w, "h": hgt, "fit": "contain" if s.get("alpha") else "cover", "radius": 18}
     if s.get("alpha"):
-        c["bg"] = kw.pop("bg", "#FFFFFF")
+        c["cutout"] = True
     c.update(kw)
     return c
 
@@ -154,7 +185,7 @@ def cascade(items, seed=0):
         k = i / max(1, n - 1)
         cards.append(card_from(s, w, x=330 + 420 * k, y=560 + 820 * k, z=-160 + 320 * k, rx=9, ry=-17, rz=-2.5,
                                tin=0.15 + i * 0.24, din=1.25, from_={}))
-        cards[-1]["from"] = {"y": 300, "z": -700, "rx": 34, "ry": -8}
+        cards[-1]["from"] = {"y": 180, "z": -420, "rx": 20, "ry": -6}
         cards[-1].pop("from_", None)
     return cards, {"ry0": -6, "ry1": 5, "rx0": 3, "rx1": -2, "z0": -40, "z1": 60}
 
@@ -164,8 +195,8 @@ def stack(items, seed=0):
     cards = []
     for i, (s, w) in enumerate(items):
         cards.append(card_from(s, w, x=540 + (i - (len(items) - 1) / 2) * 26, y=930 + (i - (len(items) - 1) / 2) * 34, z=i * 46,
-                               rz=rz[i % len(rz)], tin=0.12 + i * 0.36, din=1.2, ease="spring",
-                               **{"from": {"y": -1150, "rz": (14 if i % 2 else -14), "z": 200, "rx": -20}}))
+                               rz=rz[i % len(rz)], tin=0.12 + i * 0.36, din=1.5, ease="spring",
+                               **{"from": {"y": -620, "rz": (8 if i % 2 else -8), "z": 80, "rx": -10}}))
     return cards, {"rx0": 14, "rx1": 6, "ry0": -8, "ry1": 6, "z0": -80, "z1": 40}
 
 
@@ -175,18 +206,18 @@ def orbit(items, seed=0):
     for i, (s, w) in enumerate(items):
         x, y, z, ry = pos[i % len(pos)]
         cards.append(card_from(s, w, x=x, y=y, z=z, ry=ry, rx=4, tin=0.1 + i * 0.22, din=1.4,
-                               **{"from": {"x": (x - 540) * 0.9, "y": (y - 960) * 0.6, "z": -900, "s": 0.8, "rx": 0, "ry": ry * 1.5}}))
+                               **{"from": {"x": (x - 540) * 0.5, "y": (y - 960) * 0.35, "z": -520, "s": 0.88, "rx": 0, "ry": ry * 1.3}}))
     return cards, {"ry0": -14, "ry1": 14, "rx0": 2, "rx1": -2, "z0": -60, "z1": 80}
 
 
 def hero2(items, seed=0):
     (big, wb), *rest = items
-    cards = [card_from(big, wb, x=540, y=900, z=-60, rx=6, ry=-8, tin=0.1, din=1.3, **{"from": {"z": -800, "y": 160, "rx": 20}})]
+    cards = [card_from(big, wb, x=540, y=900, z=-60, rx=6, ry=-8, tin=0.1, din=1.3, **{"from": {"z": -480, "y": 120, "rx": 14}})]
     spots = [(250, 1360, 230, -10, 8), (840, 520, 200, 12, -6)]
     for i, (s, w) in enumerate(rest[:2]):
         x, y, z, ry, rz = spots[i]
         cards.append(card_from(s, w, x=x, y=y, z=z, ry=ry, rz=rz, tin=0.65 + i * 0.3, din=1.15,
-                               **{"from": {"x": (540 - x) * 0.8, "y": (900 - y) * 0.8, "z": -300, "s": 0.6, "rx": 0}}))
+                               **{"from": {"x": (540 - x) * 0.5, "y": (900 - y) * 0.5, "z": -260, "s": 0.78, "rx": 0}}))
     return cards, {"ry0": 6, "ry1": -6, "rx0": 4, "rx1": -1, "z0": 0, "z1": 90}
 
 
@@ -196,7 +227,7 @@ def fan(slug, cols, logo_y=520):
     n = len(cols)
     spread = 16.0
     cards = [{"html": logo_html(slug), "w": 780, "h": 430, "x": 540, "y": logo_y, "z": 120, "rx": 4, "radius": 30,
-              "tin": 0.1, "din": 1.2, "from": {"y": -260, "z": -500, "rx": 30}}]
+              "tin": 0.1, "din": 1.5, "from": {"y": -180, "z": -320, "rx": 18}}]
     for i, c in enumerate(cols):
         a = (i - (n - 1) / 2) * spread
         cards.append({"html": swatch_html(c), "w": 360, "h": 760, "x": 540, "y": 1330, "z": i * 2, "rz": a, "origin": "50% 94%",
@@ -209,18 +240,31 @@ def row(slug, cols):
     """Palette chips rising in a row under a big logo card."""
     n = len(cols)
     cards = [{"html": logo_html(slug), "w": 860, "h": 480, "x": 540, "y": 760, "z": 60, "radius": 30, "tin": 0.1, "din": 1.25,
-              "from": {"z": -700, "rx": 24, "y": 120}}]
+              "from": {"z": -420, "rx": 16, "y": 100}}]
     w = 172
     gap = 16
     x0 = 540 - (n * w + (n - 1) * gap) / 2 + w / 2
     for i, c in enumerate(cols):
         cards.append({"html": swatch_html(c).replace("font-size:30px", "font-size:21px").replace("font-size:19px", "font-size:14px").replace("padding:0 26px 22px", "padding:0 14px 14px"),
                       "w": w, "h": 300, "x": x0 + i * (w + gap), "y": 1240, "z": 30, "radius": 18, "tin": 0.55 + i * 0.12, "din": 1.0,
-                      "ease": "spring", "from": {"y": 340, "z": -100, "rx": 40}})
+                      "ease": "spring", "from": {"y": 220, "z": -80, "rx": 28}})
     return cards, {"rx0": 10, "rx1": 4, "ry0": 4, "ry1": -4, "z0": -30, "z1": 50}
 
 
-LAYOUTS = {"cascade": cascade, "stack": stack, "orbit": orbit, "hero2": hero2}
+def deck(items, seed=0):
+    """The stacked view: cards land one by one on a loose pile (biggest at the bottom), each one still readable."""
+    n = len(items)
+    cards = []
+    for i, (s, w) in enumerate(items):
+        k = i / max(1, n - 1)
+        x = 540 + (70 if i % 2 else -70) * (0.4 + 0.6 * k) * (1 if seed % 2 else -1)
+        y = 620 + 700 * k
+        cards.append(card_from(s, w, x=x, y=y, z=i * 70, rz=(2.5 if i % 2 else -2.5), rx=6, tin=0.15 + i * 0.42, din=1.5, ease="spring",
+                               zi=i, **{"from": {"y": -520, "z": 160, "rz": (7 if i % 2 else -7), "rx": -8}}))
+    return cards, {"rx0": 10, "rx1": 4, "ry0": -6, "ry1": 5, "z0": -60, "z1": 40}
+
+
+LAYOUTS = {"cascade": cascade, "stack": stack, "orbit": orbit, "hero2": hero2, "deck": deck}
 
 
 # ---------------------------------------------------------------- shots
@@ -334,7 +378,11 @@ def build(name, R_):
     layers.append({"type": "glasslabels", "t0": 2.55, "t1": min(end - 0.3, 2.55 + 4.4), "items": R_["labels"], "mode": "pills", "y": H - 330})
     layers += outro(end - 0.35)
     dur = end - 0.35 + 3.3
-    spec = {"w": W, "h": H, "fps": 30, "duration": round(dur, 2), "crf": 16, "layers": [{"type": "plain", "color": "#030304"}] + layers}
+    mbr = [[c - 0.05, c + XF + 0.1] for c in cuts[1:]]
+    mbr += [[l["t0"], l["t0"] + 2.8] for l in layers if l.get("type") == "float3d"]
+    mbr += [[end - 0.35, end + 1.6]]
+    spec = {"w": W, "h": H, "fps": 30, "duration": round(dur, 2), "crf": 16, "mb": R_.get("mb", 3), "mbRanges": mbr,
+            "layers": [{"type": "plain", "color": "#030304"}] + layers}
     style, seed = R_["music"]
     wav = R / "work" / f"{name}.wav"
     wav.parent.mkdir(parents=True, exist_ok=True)
@@ -418,6 +466,36 @@ def reels():
                                                 cam=cam((1.24, 1.34), (0.0, 0.0), (0.02, -0.03), (2.0, 0.0)))),
             dict(k="scene", secs=3.6, spec=dict(slug=bs, t="d02_mac_top__q1", content="flow", flow="flow-1-mega-menu-desktop.mp4", ft0=1.2,
                                                 cam=cam((1.24, 1.06), (-0.04, 0.02), (0.0, 0.0), (0, 0), "inOutSine"))),
+        ]),
+        # v2 (round 21b): closer on the screens (new close-up cameras, devices may run off the frame), the stacked
+        # view kept, clean cut-outs, motion blur on the fast moments.
+        "buitenstate-signature-v2": dict(host=bs, tx="diag", txout=False, txease="inOutCubic", music=("clean", 71), labels=["Websites", "Tools", "AI"], shots=[
+            dict(k="scene", secs=4.0, spec=dict(slug=bs, t="d02_mac_top__c1", content="flow", flow="flow-1-mega-menu-desktop.mp4", ft0=1.0,
+                                                cam=cam((1.04, 1.26), (0.03, 0.02), (-0.01, -0.01), (-1.5, 0.0)))),
+            dict(k="float", secs=3.9, bg="frost", cards=deck([(snip(bs, "closeup-3-zoeknetwerk.png"), 820), (snip(bs, "closeup-2-spotlight.png"), 760),
+                                                                (snip(bs, "snippet-2-card.png"), 640), (snip(bs, "snippet-1-cta-button.png"), 394)], seed=1)),
+            dict(k="scene", secs=3.6, spec=dict(slug=bs, t="d17_ipads_lean__c1", content="flow", flow="flow-2-home-scroll-desktop.mp4", ft0=4.0,
+                                                cam=cam((1.1, 1.3), (0.05, 0.0), (-0.04, -0.01), (0, 0)))),
+            dict(k="scene", secs=3.6, spec=dict(slug=bs, t="f04_ipad_float__c1", content="flow", flow="flow-3-zoeken-desktop.mp4", ft0=0.3,
+                                                cards="ui", ui=["closeup-3-zoeknetwerk.png", "snippet-1-cta-button.png"], cam=cam((1.3, 1.12), (0.0, 0.02), (0.0, 0.0), (0, 0), "outCubic"))),
+            dict(k="scene", secs=3.4, spec=dict(slug=bs, t="d04_phone_trio__p", content="flow", flow="flow-4-menu-mobile.mp4", ft0=0.5,
+                                                cam=cam((1.3, 1.34), (0.0, 0.02), (0.0, -0.02), (1.5, 0.0)))),
+            dict(k="scene", secs=3.6, spec=dict(slug=bs, t="d19_studio_front__c1", content="flow", flow="flow-2-home-scroll-desktop.mp4", ft0=9.0,
+                                                cam=cam((1.32, 1.1), (0.0, -0.02), (0.0, 0.0), (0, 0), "inOutSine"))),
+        ]),
+        "steddion-signature-v2": dict(host=st, tx="zoomthrough", txout=True, music=("dynamic", 38), labels=["Tools", "Websites", "Branding"], shots=[
+            dict(k="scene", secs=4.0, spec=dict(slug=st, t="d13_macro_mac__q1", content="flow", flow="flow-1-intake-desktop.mp4", ft0=0.8,
+                                                cam=cam((1.32, 1.12), (0.03, -0.03), (0.0, 0.0), (1.2, 0.0), "inOutQuart"))),
+            dict(k="float", secs=4.0, bg="frost", cards=deck([(snip(st, "closeup-3-jouw-situatie-grafiek.png"), 820), (snip(st, "snippet-6-oplossingkaart.png"), 640),
+                                                                (snip(st, "snippet-1-keuzekaart.png"), 446), (snip(st, "snippet-8-chip.png"), 436),
+                                                                (snip(st, "snippet-3-stapknop.png"), 300)], seed=0)),
+            dict(k="scene", secs=3.6, spec=dict(slug=st, t="d15_mac_phone_desk__c1", content="flow", flow="flow-3-oplossingen-desktop.mp4", ft0=1.0,
+                                                cam=cam((1.08, 1.28), (-0.04, 0.0), (0.03, -0.02), (0, 0)))),
+            dict(k="brand", secs=3.6, bg="#45297A", bg2="#5B3A98", cards=fan("steddion", palette("steddion", 4))),
+            dict(k="scene", secs=3.6, spec=dict(slug=st, t="d18_mac_profile__c1", content="flow", flow="flow-4-samenvatting-desktop.mp4", ft0=1.0,
+                                                cam=cam((1.12, 1.3), (0.04, 0.02), (-0.02, -0.01), (-1.2, 0.2)))),
+            dict(k="scene", secs=3.6, spec=dict(slug=st, t="f01_mac_float__p", content="flow", flow="flow-5-ems-vergelijker-desktop.mp4", ft0=1.2,
+                                                cards="brand", cam=cam((1.2, 1.34), (0.0, 0.02), (0.0, -0.01), (-1.0, 0.3)))),
         ]),
     }
 

@@ -35,5 +35,12 @@ d09_ipad_keyboard q1 0.55,-0.35,0.16   0,0.04,0.11    31
 d02_mac_top       q1 -0.28,-0.62,0.55  0.03,0.04,0.06 26
 d01_desk_studio   q1 -0.55,-0.85,0.32  -0.02,0.15,0.25 28
 d11_ui_panels     q1 0.34,-0.45,0.28   0,0,0.115      27
+# round 21b: close-ups (the screen fills the frame, the device may run off it)
+d19_studio_front  c1 0.40,-1.0,0.34    0,0,0.31       25
+d02_mac_top       c1 -0.20,-0.50,0.30  0.10,0.10,0.11 29
+d17_ipads_lean    c1 0.12,-0.64,0.22   0.04,0.08,0.11 31
+d15_mac_phone_desk c1 -0.18,-0.62,0.28 0.02,0.06,0.13 31
+f04_ipad_float    c1 -0.22,-0.55,0.26  -0.03,0,0.12   29
+d18_mac_profile   c1 0.40,-0.42,0.16   0.07,0.06,0.17 28
 LIST
 echo "CAMS DONE"

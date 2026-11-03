@@ -28,5 +28,5 @@ def run(name, build, cams, **kw):
 
 
 SK.run = run
-os.environ['R12_PV'] = '0'
+os.environ['R12_PV'] = '1' if '--pv' in sys.argv else '0'     # --pv: a quick low-res preview to judge the framing
 runpy.run_path(os.path.join(SC13, scene + '.py'), run_name='__main__')

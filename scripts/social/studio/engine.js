@@ -15,7 +15,7 @@
     outQuint: (t) => 1 - Math.pow(1 - t, 5),
     inOutQuart: (t) => (t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2),
     inOutSine: (t) => -(Math.cos(Math.PI * t) - 1) / 2,
-    spring: (t) => (t >= 1 ? 1 : 1 - Math.exp(-7 * t) * Math.cos(9.5 * t) * (1 - t * 0.15)),
+    spring: (t) => (t >= 1 ? 1 : 1 - Math.exp(-5.5 * t) * Math.cos(8 * t) * (1 - t * 0.15)),
     outBack: (t) => { const c1 = 1.4, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); },
   };
   const P = (t, t0, d, e = "outExpo") => E[e](clamp((t - t0) / Math.max(1e-6, d)));
@@ -177,7 +177,7 @@
           else if (type === "softfade") { op *= p; sc *= lerp(1.035, 1, p); }
           // round 21: premium transitions
           else if (type === "zoomthrough") { op *= clamp(p * 1.25); sc *= lerp(dir > 0 ? 0.9 : 1.16, 1, p); blur = Math.max(blur, (1 - p) * 10); }
-          else if (type === "pushUp") { ty += (1 - p) * S.H * 0.9 * dir; sc *= lerp(dir > 0 ? 1.0 : 0.94, 1, p); op *= dir > 0 ? 1 : clamp(p * 1.4); }
+          else if (type === "pushUp") { ty += (1 - p) * S.H * 0.32 * dir; sc *= lerp(dir > 0 ? 1.02 : 0.96, 1, p); op *= clamp(p * 1.25); }
           else if (type === "iris") { const R = Math.hypot(S.W, S.H) / 2 * E.inOutCubic(p) * 1.02; clip = `circle(${R}px at ${S.W / 2 - r.x}px ${S.H * 0.46 - r.y}px)`; sc *= lerp(1.06, 1, p); }
           else if (type === "diag") { const k = (1 - p) * 140; clip = `polygon(${k}% 0, 100% 0, 100% 100%, ${k - 40}% 100%)`; sc *= lerp(1.04, 1, p); }
           else if (type === "focus") { op *= clamp(p * 1.6); blur = Math.max(blur, (1 - p) * 34); sc *= lerp(dir > 0 ? 1.1 : 0.96, 1, p); }
@@ -664,22 +664,33 @@
   /* Round 21: zwevende kaarten in 3D (echte UI-snippets, logo, kleurswatches) boven een shot. Elke kaart vliegt in
      (vanuit diepte, gekanteld), landt zacht, zweeft licht mee; de hele 'wereld' draait langzaam (parallax). */
   LAYERS.float3d = (o, S) => {
+    // Round 21b: no shared 3D context (preserve-3d made coplanar cards cut through each other). Every card is drawn
+    // in a fixed paint order (z-index = depth, then list order) with its own 3D pose; the slow camera is applied per
+    // card as parallax (near cards move more). Cut-out snippets (buttons, chips) get a shadow that follows their
+    // shape (drop-shadow on the image) and no card box behind them.
     const wrap = el("div", "L", S.stage);
     Object.assign(wrap.style, { left: 0, top: 0, width: S.W + "px", height: S.H + "px", perspective: (o.persp ?? 1800) + "px", perspectiveOrigin: `50% ${o.po ?? 46}%` });
-    const world = el("div", null, wrap);
-    Object.assign(world.style, { position: "absolute", left: 0, top: 0, width: S.W + "px", height: S.H + "px", transformStyle: "preserve-3d", transformOrigin: `50% ${o.po ?? 46}% 0` });
     const sh = o.shadow ?? "0 60px 110px -30px rgba(0,0,0,0.50), 0 22px 44px -18px rgba(0,0,0,0.32)";
-    const cards = (o.cards || []).map((c) => {
-      const d = el("div", null, world);
+    const order = (o.cards || []).map((c, i) => [c.zi ?? (c.z ?? 0), i]).sort((p, q) => p[0] - q[0] || p[1] - q[1]).map((x) => x[1]);
+    const cards = (o.cards || []).map((c, i) => {
+      const d = el("div", null, wrap);
+      const cut = !!c.cutout;
       Object.assign(d.style, { position: "absolute", left: (c.x - c.w / 2) + "px", top: (c.y - c.h / 2) + "px", width: c.w + "px", height: c.h + "px",
-        borderRadius: (c.radius ?? 24) + "px", overflow: "hidden", boxShadow: c.shadow === false ? "none" : (c.shadow || sh), background: c.bg || "transparent",
-        transformOrigin: c.origin || "50% 50%", willChange: "transform, opacity", outline: c.ring ? "1px solid rgba(255,255,255,0.35)" : "none", outlineOffset: "-1px" });
+        borderRadius: cut ? "0" : (c.radius ?? 24) + "px", overflow: cut ? "visible" : "hidden", boxShadow: cut || c.shadow === false ? "none" : (c.shadow || sh),
+        background: cut ? "transparent" : (c.bg || "transparent"), transformOrigin: c.origin || "50% 50%", willChange: "transform, opacity",
+        zIndex: String(order.indexOf(i) + 1), backfaceVisibility: "hidden" });
       let img = null;
-      if (c.src) { img = el("img", null, d); Object.assign(img.style, { width: "100%", height: "100%", objectFit: c.fit || "cover", objectPosition: c.pos || "50% 0%", display: "block" }); img.src = c.src; }
+      if (c.src) {
+        img = el("img", null, d);
+        Object.assign(img.style, { width: "100%", height: "100%", objectFit: c.fit || "cover", objectPosition: c.pos || "50% 0%", display: "block" });
+        if (cut) img.style.filter = c.dshadow || "drop-shadow(0 26px 34px rgba(0,0,0,0.38)) drop-shadow(0 8px 12px rgba(0,0,0,0.22))";
+        img.src = c.src;
+      }
       if (c.html) d.insertAdjacentHTML("beforeend", c.html);
       return { d, c, img, ready: !img };
     });
     const cam = o.camera || {};
+    const rad = Math.PI / 180;
     return {
       async update(t) {
         const vis = t >= o.t0 && t <= o.t1;
@@ -688,25 +699,31 @@
         for (const k of cards) if (!k.ready) { try { await k.img.decode(); } catch (e) {} k.ready = true; }
         const u = clamp((t - o.t0) / Math.max(0.01, o.t1 - o.t0));
         const cu = E[cam.ease || "inOutSine"](u);
-        world.style.transform = `translateZ(${lerp(cam.z0 ?? 0, cam.z1 ?? 0, cu).toFixed(1)}px) rotateX(${lerp(cam.rx0 ?? 0, cam.rx1 ?? 0, cu).toFixed(3)}deg) rotateY(${lerp(cam.ry0 ?? 0, cam.ry1 ?? 0, cu).toFixed(3)}deg) rotateZ(${lerp(cam.rz0 ?? 0, cam.rz1 ?? 0, cu).toFixed(3)}deg)`;
+        const wrx = lerp(cam.rx0 ?? 0, cam.rx1 ?? 0, cu), wry = lerp(cam.ry0 ?? 0, cam.ry1 ?? 0, cu), wrz = lerp(cam.rz0 ?? 0, cam.rz1 ?? 0, cu);
+        const wz = lerp(cam.z0 ?? 0, cam.z1 ?? 0, cu);
         const xo = o.exit || {};
-        const pout = xo.type ? P(t, o.t1 - (xo.d ?? 0.7), xo.d ?? 0.7, xo.ease || "inCubic") : 0;
+        const pout = xo.type ? P(t, o.t1 - (xo.d ?? 0.8), xo.d ?? 0.8, xo.ease || "inOutCubic") : 0;
         cards.forEach(({ d, c }, i) => {
           const f = c.from || {};
-          const p = P(t, o.t0 + (c.tin ?? i * 0.18), c.din ?? 1.1, c.ease || "outQuint");
+          const p = P(t, o.t0 + (c.tin ?? i * 0.2), c.din ?? 1.5, c.ease || "outCubic");
           const q = 1 - p;
-          const dr = c.drift ?? 1, w = (t - o.t0) * (c.dspeed ?? 0.55) + i * 1.7;
-          let x = (f.x ?? 0) * q + Math.sin(w) * 6 * dr, y = (f.y ?? 120) * q + Math.cos(w * 0.8) * 9 * dr, z = (c.z ?? 0) + (f.z ?? -500) * q;
-          let rx = (c.rx ?? 0) + (f.rx ?? 18) * q + Math.sin(w * 0.7) * 1.2 * dr, ry = (c.ry ?? 0) + (f.ry ?? 0) * q + Math.cos(w * 0.6) * 1.6 * dr, rz = (c.rz ?? 0) + (f.rz ?? 0) * q;
-          let sc = (c.s ?? 1) * lerp(f.s ?? 1, 1, p), op = clamp(p * (c.fade ?? 2.2));
-          if (pout > 0) {  // exit: drift away into depth (scatter) or fall back flat (drop)
-            const k = E.inCubic(clamp(pout * 1.15 - (cards.length - 1 - i) * 0.04));
-            if (xo.type === "scatter") { x += (c.x - S.W / 2) * 0.5 * k; y += (c.y - S.H / 2) * 0.35 * k - 80 * k; z += 520 * k; op *= 1 - k; }
-            else if (xo.type === "drop") { y += 260 * k; rx -= 26 * k; op *= 1 - k; }
+          const dr = c.drift ?? 1, w = (t - o.t0) * (c.dspeed ?? 0.5) + i * 1.7;
+          let z = (c.z ?? 0) + (f.z ?? -360) * q + wz;
+          // camera parallax: a card at depth z shifts with the camera's turn, nearer cards more
+          const par = 1 + z / 1400;
+          let x = (f.x ?? 0) * q + Math.sin(w) * 5 * dr + (c.x - S.W / 2) * (par - 1) * 0.25 - Math.sin(wry * rad) * (z + 300) * 0.9;
+          let y = (f.y ?? 90) * q + Math.cos(w * 0.8) * 7 * dr + Math.sin(wrx * rad) * (z + 300) * 0.9;
+          let rx = (c.rx ?? 0) + wrx + (f.rx ?? 14) * q + Math.sin(w * 0.7) * 1.0 * dr, ry = (c.ry ?? 0) + wry + (f.ry ?? 0) * q + Math.cos(w * 0.6) * 1.3 * dr;
+          let rz = (c.rz ?? 0) + wrz + (f.rz ?? 0) * q;
+          let sc = (c.s ?? 1) * lerp(f.s ?? 1, 1, p), op = clamp(p * (c.fade ?? 2.4));
+          if (pout > 0) {
+            const k = E.inOutCubic(clamp(pout * 1.1 - (cards.length - 1 - i) * 0.03));
+            if (xo.type === "scatter") { x += (c.x - S.W / 2) * 0.35 * k; y += -60 * k; z += 260 * k; op *= 1 - k; }
+            else if (xo.type === "drop") { y += 180 * k; rx -= 16 * k; op *= 1 - k; }
             else op *= 1 - k;
           }
           d.style.opacity = op.toFixed(3);
-          d.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg) scale(${sc.toFixed(4)})`;
+          d.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, ${z.toFixed(1)}px) rotateX(${rx.toFixed(3)}deg) rotateY(${ry.toFixed(3)}deg) rotateZ(${rz.toFixed(3)}deg) scale(${sc.toFixed(4)})`;
         });
       },
     };
