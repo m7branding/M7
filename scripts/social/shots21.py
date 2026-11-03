@@ -22,6 +22,7 @@ import flows as FL
 
 S = '/tmp/claude-0/-home-user-M7/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad'
 R15 = os.path.join(S, 'r15', 'cap')
+R21 = os.path.join(S, 'r21', 'cap')
 OW, OH = 1080, 1920
 EASE = {
     'inOutSine': lambda s: 0.5 - 0.5 * math.cos(math.pi * s),
@@ -100,9 +101,10 @@ def make(spec):
     if spec.get('fam'): st = dict(st, fam=spec['fam'], bg=spec.get('bg', st.get('bg')))
     sp = dict(st=st, move='ease', scroll=spec.get('content') == 'scroll')
     if spec.get('content') == 'flow':
-        if spec.get('flow'):            # an r15 2x virtual-time take (2880x1800 desktop, 780x1688 mobile), by file name
-            xs = json.load(open(os.path.join(R15, slug, 'flows.json')))
-            x = dict(next(f for f in xs if f['file'] == spec['flow']), path=os.path.join(R15, slug, spec['flow']))
+        if spec.get('flow'):            # a 2x virtual-time take (r21: 60 fps + cursor track; r15: 30 fps), by file name
+            root = R21 if os.path.exists(os.path.join(R21, slug, spec['flow'])) else R15
+            xs = json.load(open(os.path.join(root, slug, 'flows.json')))
+            x = dict(next(f for f in xs if f['file'] == spec['flow']), path=os.path.join(root, slug, spec['flow']))
             roles = roles_of(t)
             cand = ('phone_a', 'phone_b') if x['device'] == 'mobile' else ('studio', 'studio_b', 'mac', 'mac_b', 'tablet')
             role = next((r for r in cand if r in roles), None)
@@ -115,6 +117,7 @@ def make(spec):
         sp['flow'] = dict(path=x['path'], kind=x.get('kind', 'flow'), device=x['device'], role=role, t0=t0, t1=t1, size=x['size'], trim_top=x.get('trim_top') or 0)
     if spec.get('cards'): patch_cards(spec['cards'])
     sh = V.Shot(slug, cs[slug], caps, brand, sp, {})
+    sh.sp = sp
     return sh
 
 
@@ -184,6 +187,113 @@ class Still:
         return self.img
 
 
+class CursorMap:
+    """Where the recorded cursor is in the scene: css px of the take -> display px of the screen -> template px,
+    through the screen's own texture coordinates (a coarse nearest-pixel grid, interpolated)."""
+
+    def __init__(self, sh):
+        fl = sh.sp['flow']
+        tf = fl['path'][:-4] + '.track.json'
+        self.ok = os.path.exists(tf)
+        if not self.ok: return
+        tj = json.load(open(tf))
+        self.rfps, self.vp, self.tr = tj['fps'], tj['viewport'], tj['track']
+        self.t0, self.t1 = fl['t0'], fl['t1']
+        role = fl['role']
+        d = sh.S['ds'][role]
+        pp = sh.S['pp']
+        scr = next(x for x in pp['screens'] if x['role'] == role)
+        W = pp['W']
+        du, dv, idx = scr['du'], scr['dv'], scr['idx']
+        if du.max() <= 1.5: du, dv = du * d.W, dv * d.H
+        k = max(1, len(idx) // 60000)
+        du, dv, idx = du[::k], dv[::k], idx[::k]
+        self.d = d
+        self.gx = np.linspace(0, d.W, 41); self.gy = np.linspace(0, d.H, 29)
+        px = np.zeros((29, 41)); py = np.zeros((29, 41))
+        for j, y in enumerate(self.gy):
+            dd = (du[None, :] - self.gx[:, None]) ** 2 + (dv[None, :] - y) ** 2
+            a = dd.argmin(1)
+            px[j] = idx[a] % W; py[j] = idx[a] // W
+        self.px, self.py = px, py
+
+    def at(self, s):
+        if not self.ok: return None
+        ft = self.t0 + (self.t1 - self.t0) * s
+        i = int(min(max(round(ft * self.rfps), 0), len(self.tr) - 1))
+        p = self.tr[i]
+        j = i
+        while p is None and j > 0: j -= 1; p = self.tr[j]
+        if p is None: return None
+        d = self.d
+        dx = p[0] * d.W / self.vp[0]
+        dy = d.top + p[1] * (d.W / self.vp[0])
+        fx = np.interp(dx, self.gx, np.arange(41)); fy = np.interp(dy, self.gy, np.arange(29))
+        x0, y0 = int(min(fx, 39)), int(min(fy, 27)); ax, ay = fx - x0, fy - y0
+        bil = lambda g: (g[y0, x0] * (1 - ax) * (1 - ay) + g[y0, x0 + 1] * ax * (1 - ay) + g[y0 + 1, x0] * (1 - ax) * ay + g[y0 + 1, x0 + 1] * ax * ay)
+        return float(bil(self.px)), float(bil(self.py))
+
+
+def gsmooth(a, sig):
+    """Zero-phase gaussian smoothing over time (the camera anticipates a little, like an operator who knows the take)."""
+    if sig <= 0 or len(a) < 3: return a
+    r = int(3 * sig); k = np.exp(-0.5 * (np.arange(-r, r + 1) / sig) ** 2); k /= k.sum()
+    pad = np.pad(a, ((r, r),) + ((0, 0),) * (a.ndim - 1), mode='edge')
+    return np.stack([np.convolve(pad[:, c], k, 'valid') for c in range(a.shape[1])], 1) if a.ndim > 1 else np.convolve(pad, k, 'valid')
+
+
+def camera_path(sh, cam, spec, n, fps):
+    """Per output frame (cx, cy, w, th): the planned move, pulled towards the cursor (follow), a little closer while the
+    cursor rests (clicks, hovers), a lean into fast moves, a breath of handheld; smoothed; never upscaled."""
+    c = spec.get('cam', {})
+    base = np.array([cam.at(i / max(1, n - 1)) for i in range(n)], np.float64)
+    out = base.copy()
+    follow = float(c.get('follow', 0.0))
+    if follow > 0 and spec.get('content') == 'flow':
+        cm = CursorMap(sh)
+        if cm.ok:
+            tg = [cm.at(i / max(1, n - 1)) for i in range(n)]
+            last = None
+            T = np.zeros((n, 2))
+            for i, p in enumerate(tg):
+                last = p if p is not None else last
+                T[i] = last if last is not None else base[i, :2]
+            T = gsmooth(T, 0.18 * fps)
+            v = np.r_[[0.0], np.hypot(*np.diff(T, axis=0).T)] * fps          # template px per second
+            rest = np.clip(1.0 - v / (0.35 * cam.w1), 0, 1)
+            rest = gsmooth(rest, 0.25 * fps)
+            out[:, 0] = base[:, 0] + follow * (T[:, 0] - base[:, 0])
+            out[:, 1] = base[:, 1] + follow * (T[:, 1] - base[:, 1])
+            out[:, 2] = base[:, 2] / (1.0 + float(c.get('dwell', 0.12)) * rest)
+            vx = np.r_[[0.0], np.diff(out[:, 0])] * fps / cam.w1
+            out[:, 3] = base[:, 3] - np.radians(float(c.get('lean', 1.2))) * np.clip(gsmooth(vx, 0.2 * fps), -1, 1)
+    if c.get('handheld', 0):
+        t = np.arange(n) / fps; a = float(c['handheld'])
+        out[:, 0] += a * (2.2 * np.sin(2 * np.pi * 0.31 * t) + 1.1 * np.sin(2 * np.pi * 0.77 * t + 1.3))
+        out[:, 1] += a * (1.8 * np.sin(2 * np.pi * 0.27 * t + 0.6) + 0.9 * np.sin(2 * np.pi * 0.91 * t + 2.1))
+        out[:, 3] += np.radians(a * 0.06 * np.sin(2 * np.pi * 0.23 * t + 0.4))
+    out[:, :2] = gsmooth(out[:, :2], 0.12 * fps); out[:, 2] = gsmooth(out[:, 2], 0.2 * fps); out[:, 3] = gsmooth(out[:, 3], 0.12 * fps)
+    # keep inside the image and never below the output size
+    for i in range(n):
+        cx, cy, w, th = out[i]
+        w = max(w, OW)
+        h = w * OH / OW
+        bw = w * abs(math.cos(th)) + h * abs(math.sin(th)); bh = w * abs(math.sin(th)) + h * abs(math.cos(th))
+        if bw > cam.W or bh > cam.H:
+            k = min(cam.W / bw, cam.H / bh); w *= k; bw *= k; bh *= k
+        out[i] = (min(max(cx, bw / 2), cam.W - bw / 2), min(max(cy, bh / 2), cam.H - bh / 2), w, th)
+    return out
+
+
+def warp_at(img, p):
+    cx, cy, w, th = p
+    k = w / OW
+    c, sn = math.cos(th), math.sin(th)
+    A = np.array([[k * c, -k * sn], [k * sn, k * c]])
+    b = np.array([cx, cy]) - A @ np.array([OW / 2, OH / 2])
+    return cv2.warpAffine(img, np.hstack([A, b[:, None]]), (OW, OH), flags=cv2.INTER_CUBIC | cv2.WARP_INVERSE_MAP, borderMode=cv2.BORDER_REFLECT)
+
+
 def run(spec, outd):
     sh = Still(spec) if spec.get('content') == 'design' else make(spec)
     cam = Cam(sh.S['pp'], spec.get('cam', {}))
@@ -193,11 +303,30 @@ def run(spec, outd):
         fr = cam.warp(sh.image(s), s)
         Image.fromarray(np.clip(fr, 0, 255).astype(np.uint8)).save(os.path.join(outd, 'still.jpg'), quality=95)
         return 1
-    n = int(round(spec['secs'] * 30))
+    fps = int(spec.get('fps', 30))
+    n = int(round(spec['secs'] * fps))
+    path = camera_path(sh, cam, spec, n, fps)
+    mb = int(spec.get('mb', 1))
     for i in range(n):
         s = i / max(1, n - 1)
-        fr = cam.warp(sh.image(s), s)
-        Image.fromarray(np.clip(fr, 0, 255).astype(np.uint8)).save(os.path.join(outd, f'{i + 1:05d}.jpg'), quality=93)
+        img = sh.image(s)
+        k = max(path[max(0, i - 1):i + 2, 2].max() / OW, 1.0)
+        if k > 1.05:                                      # pre-filter once for the down-scale
+            img = cv2.GaussianBlur(img, (0, 0), 0.42 * (k - 1.0) ** 0.5 * 1.6)
+        if mb > 1:                                        # camera motion blur: a 180-degree shutter of the move
+            acc = None
+            for j in range(mb):
+                f = i + ((j + 0.5) / mb - 0.5) * 0.5
+                a, b = int(np.floor(f)), int(np.ceil(f))
+                a, b = min(max(a, 0), n - 1), min(max(b, 0), n - 1)
+                u = f - np.floor(f)
+                p = path[a] * (1 - u) + path[b] * u
+                w = warp_at(img, p).astype(np.float32)
+                acc = w if acc is None else acc + w
+            fr = acc / mb
+        else:
+            fr = warp_at(img, path[i])
+        Image.fromarray(np.clip(fr, 0, 255).astype(np.uint8)).save(os.path.join(outd, f'{i + 1:05d}.jpg'), quality=94)
     return n
 
 

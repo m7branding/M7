@@ -268,14 +268,18 @@ LAYOUTS = {"cascade": cascade, "stack": stack, "orbit": orbit, "hero2": hero2, "
 
 
 # ---------------------------------------------------------------- shots
+FPS = {"v": 30}      # the reel's frame rate (30, or 60 for the top reels)
+
+
 def scene_shot(reel, key, spec, secs):
     if isinstance(spec.get("cards"), str):
         spec = dict(spec, cards=card_pngs(spec["slug"], spec["t"], spec["cards"], spec.get("ui", ())))
+    fps = FPS["v"]
     d = SH / reel / key
-    n = int(round(secs * 30))
+    n = int(round(secs * fps))
     if not (d.exists() and len(list(d.glob("*.jpg"))) >= n):
-        venv(SHOTS, json.dumps(dict(spec, secs=secs)), d)
-    return {"dir": lib.furl(d), "n": n, "fps": 30}, d
+        venv(SHOTS, json.dumps(dict(spec, secs=secs, fps=fps, mb=spec.get("mb", 3 if fps >= 60 else 1))), d)
+    return {"dir": lib.furl(d), "n": n, "fps": fps}, d
 
 
 def book_shot(reel, key, slug, gen, a, b, secs):
@@ -283,12 +287,13 @@ def book_shot(reel, key, slug, gen, a, b, secs):
     if not (src / "geo.json").exists():
         venv(B20, "book", slug, src, *(["--gen"] if gen else []))
     geo = json.load(open(src / "geo.json"))
+    fps = FPS["v"]
     d = SH / reel / key
-    n = int(round(secs * 30))
+    n = int(round(secs * fps))
     if not (d.exists() and len(list(d.glob("*.jpg"))) >= n):
         A, B = [resolve_book(geo, p) for p in (a, b)]
-        venv(B20, "pan", src / "still.jpg", secs, d, ",".join(map(str, A)), ",".join(map(str, B)))
-    return {"dir": lib.furl(d), "n": n, "fps": 30}, d
+        venv(B20, "pan", src / "still.jpg", secs, d, ",".join(map(str, A)), ",".join(map(str, B)), "--fps", fps)
+    return {"dir": lib.furl(d), "n": n, "fps": fps}, d
 
 
 def resolve_book(geo, p):
@@ -333,17 +338,28 @@ def media(src_or_seq, t0, t1, enter, exit_, kb=None):
 
 
 # ---------------------------------------------------------------- the reels
+def blurred_first(d, out):
+    from PIL import Image, ImageFilter, ImageEnhance
+    f = sorted(Path(d).glob("*.jpg"))[0]
+    im = Image.open(f).convert("RGB").filter(ImageFilter.GaussianBlur(46))
+    im = ImageEnhance.Brightness(im).enhance(0.72)
+    im.save(out, quality=94)
+    return out
+
+
 def build(name, R_):
     host = R_["host"]
     tx = R_["tx"]
+    FPS["v"] = R_.get("fps", 30)
     layers, cuts, firstdir, prevdir = [], [], None, None
-    t = 0.0
+    T0 = 2.15 if R_.get("intro") == "blur" else 0.0           # the full-screen intro before the first shot
+    t = T0
     shots = R_["shots"]
     for i, sh in enumerate(shots):
         secs = sh.get("secs", 3.6)
         span = secs + (XF if i < len(shots) - 1 else 0.35)
         key = f"{i + 1:02d}-{sh['k']}"
-        en = {"type": "none"} if i == 0 else {"type": tx, "d": XF, "ease": R_.get("txease", "inOutCubic")}
+        en = ({"type": "focus", "d": 0.95, "ease": "inOutCubic"} if T0 else {"type": "none"}) if i == 0 else {"type": tx, "d": XF, "ease": R_.get("txease", "inOutCubic")}
         ex = {"type": tx, "d": XF, "ease": R_.get("txease", "inOutCubic")} if (i < len(shots) - 1 and R_.get("txout")) else {"type": "none"}
         if sh["k"] == "scene":
             seq, d = scene_shot(name, key, sh["spec"], round(span, 2))
@@ -372,16 +388,22 @@ def build(name, R_):
             firstdir = prevdir
         t += secs
     end = t + 0.35
-    lt = bright(firstdir) > 118 if firstdir else False      # a light screen behind the emblem: black ink
-    layers.append({"type": "m7lines", "t0": 0.12, "dur": 2.45, "size": 480, "cy": H * 0.46, "frost": True,
-                   "ink": "#0B0B0D" if lt else "#FFFFFF", "frostLight": 1.12 if lt else 0.58, "frostBlur": 28})
-    layers.append({"type": "glasslabels", "t0": 2.55, "t1": min(end - 0.3, 2.55 + 4.4), "items": R_["labels"], "mode": "pills", "y": H - 330})
+    if T0:      # full-screen intro: the first shot, fully blurred, the white technical drawing on top, then focus
+        bf = blurred_first(firstdir, SH / name / "intro-blur.jpg")
+        layers.insert(0, media(lib.furl(bf), 0, T0 + 1.0, {"type": "none"}, {"type": "fade", "d": 0.9, "ease": "inOutCubic"}, kb={"s0": 1.07, "s1": 1.0}))
+        layers.append({"type": "m7lines", "t0": 0.2, "dur": 2.6, "size": 520, "cy": H * 0.47, "frost": False, "scrim": 0.0, "ink": "#FFFFFF"})
+    else:
+        lt = bright(firstdir) > 118 if firstdir else False      # a light screen behind the emblem: black ink
+        layers.append({"type": "m7lines", "t0": 0.12, "dur": 2.45, "size": 480, "cy": H * 0.46, "frost": True,
+                       "ink": "#0B0B0D" if lt else "#FFFFFF", "frostLight": 1.12 if lt else 0.58, "frostBlur": 28})
+    lt0 = T0 + 0.6 if T0 else 2.55
+    layers.append({"type": "glasslabels", "t0": lt0, "t1": min(end - 0.3, lt0 + 4.4), "items": R_["labels"], "mode": "pills", "y": H - 330})
     layers += outro(end - 0.35)
     dur = end - 0.35 + 3.3
-    mbr = [[c - 0.05, c + XF + 0.1] for c in cuts[1:]]
+    mbr = [[c - 0.05, c + XF + 0.1] for c in cuts[1:]] + ([[T0 - 0.1, T0 + 1.1]] if T0 else [])
     mbr += [[l["t0"], l["t0"] + 2.8] for l in layers if l.get("type") == "float3d"]
     mbr += [[end - 0.35, end + 1.6]]
-    spec = {"w": W, "h": H, "fps": 30, "duration": round(dur, 2), "crf": 16, "mb": R_.get("mb", 3), "mbRanges": mbr,
+    spec = {"w": W, "h": H, "fps": FPS["v"], "duration": round(dur, 2), "crf": 15 if FPS["v"] >= 60 else 16, "mb": R_.get("mb", 2 if FPS["v"] >= 60 else 3), "mbRanges": mbr,
             "layers": [{"type": "plain", "color": "#030304"}] + layers}
     style, seed = R_["music"]
     wav = R / "work" / f"{name}.wav"
@@ -496,6 +518,40 @@ def reels():
                                                 cam=cam((1.12, 1.3), (0.04, 0.02), (-0.02, -0.01), (-1.2, 0.2)))),
             dict(k="scene", secs=3.6, spec=dict(slug=st, t="f01_mac_float__p", content="flow", flow="flow-5-ems-vergelijker-desktop.mp4", ft0=1.2,
                                                 cards="brand", cam=cam((1.2, 1.34), (0.0, 0.02), (0.0, -0.01), (-1.0, 0.3)))),
+        ]),
+        # v3 (round 21c): the top reels. 60 fps, 4K scene renders, the camera follows the cursor with motion blur, real
+        # hover states and features, a full-screen intro (blurred first frame, white technical drawing, focus pull).
+        "buitenstate-top": dict(host=bs, tx="focus", txout=False, txease="inOutCubic", fps=60, intro="blur", music=("clean", 77),
+                                labels=["Websites", "Tools", "AI"], shots=[
+            dict(k="scene", secs=6.2, spec=dict(slug=bs, t="d19_studio_front__k1", content="flow", flow="flow-21-zoekers-desktop.mp4", ft0=0.3,
+                                                cam=dict(cam((1.35, 1.62), (0.0, 0.0), (0.0, -0.02), (-1.0, 0.0), "inOutSine"), follow=0.7, dwell=0.16, lean=1.4, handheld=1.0))),
+            dict(k="scene", secs=5.6, spec=dict(slug=bs, t="d02_mac_top__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=0.2,
+                                                cam=dict(cam((1.3, 1.55), (0.02, 0.0), (0.0, -0.01), (1.2, 0.0)), follow=0.65, dwell=0.14, lean=1.2, handheld=1.0))),
+            dict(k="float", secs=4.0, bg="frost", cards=deck([(snip(bs, "closeup-3-zoeknetwerk.png"), 820), (snip(bs, "closeup-2-spotlight.png"), 760),
+                                                                (snip(bs, "snippet-2-card.png"), 640), (snip(bs, "snippet-1-cta-button.png"), 394)], seed=1)),
+            dict(k="scene", secs=5.2, spec=dict(slug=bs, t="d17_ipads_lean__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=6.5,
+                                                cam=dict(cam((1.25, 1.5), (0.03, 0.0), (-0.02, -0.01), (0, 0)), follow=0.6, dwell=0.12, handheld=1.0))),
+            dict(k="scene", secs=4.8, spec=dict(slug=bs, t="d18_mac_profile__k1", content="flow", flow="flow-23-spotlight-hover-desktop.mp4", ft0=0.2,
+                                                cam=dict(cam((1.3, 1.5), (0.02, 0.01), (-0.01, -0.01), (-0.8, 0.0)), follow=0.65, dwell=0.14, lean=1.2, handheld=1.0))),
+            dict(k="scene", secs=4.4, spec=dict(slug=bs, t="d15_mac_phone_desk__k1", content="flow", flow="flow-3-zoeken-desktop.mp4", ft0=0.2,
+                                                cam=dict(cam((1.4, 1.2), (0.0, 0.0), (0.0, 0.0), (0, 0), "inOutSine"), follow=0.55, dwell=0.1, handheld=1.0))),
+        ]),
+        "steddion-top": dict(host=st, tx="focus", txout=False, txease="inOutCubic", fps=60, intro="blur", music=("dynamic", 81),
+                             labels=["Tools", "Websites", "Branding"], shots=[
+            dict(k="scene", secs=6.0, spec=dict(slug=st, t="d13_macro_mac__k1", content="flow", flow="flow-1-intake-desktop.mp4", ft0=0.6,
+                                                cam=dict(cam((1.45, 1.75), (0.0, 0.0), (0.0, -0.02), (1.0, 0.0), "inOutSine"), follow=0.75, dwell=0.16, lean=1.4, handheld=1.0))),
+            dict(k="scene", secs=5.4, spec=dict(slug=st, t="d15_mac_phone_desk__k1", content="flow", flow="flow-2-nieuwe-e-behoefte-desktop.mp4", ft0=0.8,
+                                                cam=dict(cam((1.35, 1.6), (0.02, 0.0), (-0.01, -0.01), (0, 0)), follow=0.65, dwell=0.14, lean=1.2, handheld=1.0))),
+            dict(k="float", secs=4.0, bg="frost", cards=deck([(snip(st, "closeup-3-jouw-situatie-grafiek.png"), 820), (snip(st, "snippet-6-oplossingkaart.png"), 640),
+                                                                (snip(st, "snippet-1-keuzekaart.png"), 446), (snip(st, "snippet-8-chip.png"), 436),
+                                                                (snip(st, "snippet-3-stapknop.png"), 300)], seed=0)),
+            dict(k="scene", secs=5.2, spec=dict(slug=st, t="d18_mac_profile__k1", content="flow", flow="flow-3-oplossingen-desktop.mp4", ft0=0.8,
+                                                cam=dict(cam((1.3, 1.55), (0.03, 0.01), (-0.02, -0.01), (-1.0, 0.2)), follow=0.7, dwell=0.15, lean=1.2, handheld=1.0))),
+            dict(k="scene", secs=4.6, spec=dict(slug=st, t="d19_studio_front__k1", content="flow", flow="flow-4-samenvatting-desktop.mp4", ft0=0.8,
+                                                cam=dict(cam((1.4, 1.6), (0.0, 0.0), (0.0, -0.02), (0, 0)), follow=0.6, dwell=0.12, handheld=1.0))),
+            dict(k="brand", secs=3.6, bg="#45297A", bg2="#5B3A98", cards=fan("steddion", palette("steddion", 4))),
+            dict(k="scene", secs=4.6, spec=dict(slug=st, t="d02_mac_top__k1", content="flow", flow="flow-5-ems-vergelijker-desktop.mp4", ft0=1.0,
+                                                cam=dict(cam((1.35, 1.6), (0.02, 0.0), (-0.01, -0.01), (1.0, 0.0)), follow=0.65, dwell=0.14, lean=1.2, handheld=1.0))),
         ]),
     }
 
