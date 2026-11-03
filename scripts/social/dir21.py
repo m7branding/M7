@@ -83,6 +83,13 @@ def snip(slug, name):
     return {"src": lib.furl(out), "aw": im2.width, "ah": im2.height, "alpha": True}
 
 
+def asset(path):
+    """Any image file as a floating card source (r21 captures: listing photos, crops from the takes)."""
+    from PIL import Image
+    im = Image.open(path)
+    return {"src": lib.furl(path), "aw": im.width, "ah": im.height, "alpha": False}
+
+
 def palette(slug, n=5):
     p = PAL[slug]
     cols = [p.get("fullBleed")] + list(p["logo"]["colors"]) + list(p.get("accent") or []) + [p["neutrals"].get("dark"), p["neutrals"].get("light")]
@@ -527,11 +534,11 @@ def reels():
                                                 cam=dict(cam((1.6, 1.95), (0.0, 0.0), (0.0, -0.02), (-1.0, 0.0), "inOutSine"), follow=0.8, dwell=0.14, lean=1.4, handheld=1.0))),
             dict(k="scene", secs=4.6, spec=dict(slug=bs, t="d17_ipads_lean__k1", content="flow", flow="flow-21-zoekers-desktop.mp4", ft0=6.3,
                                                 cam=dict(cam((1.7, 1.95), (0.0, 0.0), (0.0, -0.01), (0.8, 0.0)), follow=0.75, dwell=0.12, lean=1.2, handheld=1.0))),
-            dict(k="scene", secs=5.6, spec=dict(slug=bs, t="d02_mac_top__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=0.2,
+            dict(k="scene", secs=5.0, spec=dict(slug=bs, t="d02_mac_top__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=3.1,
                                                 cam=dict(cam((1.5, 1.8), (0.02, 0.0), (0.0, -0.01), (1.2, 0.0)), follow=0.7, dwell=0.14, lean=1.2, handheld=1.0))),
-            dict(k="float", secs=3.6, bg="frost", cards=deck([(snip(bs, "closeup-3-zoeknetwerk.png"), 820), (snip(bs, "closeup-2-spotlight.png"), 760),
-                                                                (snip(bs, "snippet-2-card.png"), 640), (snip(bs, "snippet-1-cta-button.png"), 394)], seed=1)),
-            dict(k="scene", secs=5.0, spec=dict(slug=bs, t="d18_mac_profile__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=7.2,
+            dict(k="float", secs=3.8, bg="frost", cards=deck([(asset(R / "cap" / bs / "photo-1.jpg"), 880), (asset(R / "cap" / bs / "photo-3.jpg"), 780),
+                                                                (asset(R / "cap" / bs / "crop-price.jpg"), 820), (asset(R / "cap" / bs / "crop-agent.jpg"), 420)], seed=1)),
+            dict(k="scene", secs=4.2, spec=dict(slug=bs, t="d18_mac_profile__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=7.6,
                                                 cam=dict(cam((1.5, 1.8), (0.02, 0.01), (-0.01, -0.01), (-0.8, 0.0)), follow=0.7, dwell=0.14, lean=1.2, handheld=1.0))),
             dict(k="scene", secs=4.6, spec=dict(slug=bs, t="d15_mac_phone_desk__k1", content="flow", flow="flow-23-spotlight-hover-desktop.mp4", ft0=0.2,
                                                 cam=dict(cam((1.55, 1.8), (0.0, 0.0), (0.0, 0.0), (0, 0), "inOutSine"), follow=0.7, dwell=0.12, handheld=1.0))),
