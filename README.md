@@ -19,7 +19,7 @@ met Lenis (smooth scroll), simple-icons (tool-iconen) en lottie-web (eigen Lotti
 
 ```bash
 npm install
-cp .env.example .env.local   # vul GA4-ID, Search Console, webhooks in
+cp .env.example .env.local   # vul GA4-ID, Search Console, Resend in
 npm run dev                  # http://localhost:3000  ·  configurator: /letsgo
 npm run build && npm start   # productie
 ```
@@ -257,15 +257,22 @@ Tip: ±3–5 seconden op 24–30 fps, 16:9, product gecentreerd op een zwarte ac
 - **AnswerLink / answers.m7branding.com**: gekoppeld in menu, footer, FAQ-blokken ("Meer antwoorden"),
   bento-kaart, contactpagina, JSON-LD `sameAs` en llms.txt. Per dienst kun je een `answersPath`
   zetten voor een deeplink. Een eventueel AnswerLink embed-script laad je via `NEXT_PUBLIC_ANSWERLINK_SCRIPT`.
-- **Formulieren** (contact + nieuwsbrief) posten naar `CONTACT_WEBHOOK_URL` / `NEWSLETTER_WEBHOOK_URL`
-  (bv. Make → Odoo/HubSpot/Mailchimp). Zonder webhook tonen ze een mailto-fallback.
+- **E-mail via Resend** (`src/lib/mail/`): met `RESEND_API_KEY` in Vercel gaan contactformulier, korte intake en
+  supporttickets als overzichtelijke mail naar hello@m7branding.com (`MAIL_TO` / `SUPPORT_MAIL_TO`, reply-to = de klant).
+  De klant krijgt een bevestiging in M7-huisstijl met Martijn in cc (`MAIL_CC`). De nieuwsbrief werkt met double opt-in:
+  bevestigingsmail → `/api/newsletter/confirm` → het adres komt in Resend (Contacts, optioneel in `RESEND_SEGMENT_ID`).
+  Rate limit per IP en per ontvanger; alle invoer wordt ge-escaped. Eenmalig: domein m7branding.com verifiëren in
+  Resend (regio EU) en de DNS-records die Resend toont toevoegen bij de DNS-beheerder (subdomeinen `resend._domainkey`
+  en `send`; de bestaande mail blijft werken).
+- **Webhooks** (optioneel, naast of in plaats van Resend): `CONTACT_WEBHOOK_URL` / `NEWSLETTER_WEBHOOK_URL`
+  (bv. Make → Odoo/HubSpot). Zonder Resend én zonder webhook tonen de formulieren een mailto-fallback.
 - **Korte intake** (`#intake`, op de contactpagina, in de footer en op `/letsgo`) post naar `/api/contact`
   met `type: "intake"`, `answers` (doel, situatie, diensten, keuzes, planning, budget) en `callback: true`
   bij een terugbelverzoek. WhatsApp- en belknoppen verschijnen zodra `NEXT_PUBLIC_WHATSAPP` /
   `NEXT_PUBLIC_PHONE` gevuld zijn.
 - **Supportticket** (`#support`, "Support" met live-dot in de footer en op de contactpagina) post naar
-  `/api/support` → `SUPPORT_WEBHOOK_URL` (valt terug op `CONTACT_WEBHOOK_URL`), met `type: "support"` en
-  `to: "support@m7branding.com"`. Zonder webhook: mailto-fallback naar support@m7branding.com.
+  `/api/support`: per mail (Resend) en/of naar `SUPPORT_WEBHOOK_URL` (valt terug op `CONTACT_WEBHOOK_URL`),
+  met `type: "support"`. Zonder beide: mailto-fallback naar support@m7branding.com.
   Team, rollen en foto's staan in `src/content/support.ts`.
 
 ---
@@ -286,7 +293,7 @@ src/
   app/
     [lang]/            website (NL/EN): layout, home, diensten, toepassingen, sectoren, cases, over, contact, juridisch
     letsgo/            de configurator (eigen root layout)
-    api/               contact- en nieuwsbrief-webhooks
+    api/               contact, intake, support en nieuwsbrief (Resend + webhooks)
     sitemap.ts · robots.ts · llms.txt · llms-full.txt · og/
   components/
     brand/             M7-logo's (lined / emblem / badge)

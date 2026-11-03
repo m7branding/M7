@@ -1,13 +1,19 @@
+import { createHash } from "crypto";
 import { NextResponse } from "next/server";
 import { site } from "@/content/site";
 import { support } from "@/content/support";
+import { baseUrl, clientIp, limited } from "@/lib/mail/guard";
+import { mailConfig, sendMail } from "@/lib/mail/resend";
+import { ticketToClient, ticketToTeam, type Ticket } from "@/lib/mail/templates";
 
 /**
  * Supportticket (modal in de footer / op de contactpagina, #support).
- * Stuurt het ticket door naar SUPPORT_WEBHOOK_URL (bv. een Make-, n8n- of
- * helpdesk-webhook), met CONTACT_WEBHOOK_URL als terugval. De webhook regelt
- * de mail naar support@m7branding.com (`to`). Zonder webhook geeft de API 503
- * terug en toont de modal een mailto-fallback met het ticket ingevuld.
+ *
+ * Met RESEND_API_KEY gaat het ticket als mail naar SUPPORT_MAIL_TO (standaard hello@),
+ * reply-to = de klant, en krijgt de klant een bevestiging met Martijn in cc.
+ * Met SUPPORT_WEBHOOK_URL (of CONTACT_WEBHOOK_URL) gaat het daarnaast naar een webhook
+ * (bv. Make, n8n of een helpdesk). Zonder beide geeft de API 503 terug en toont de modal
+ * een mailto-fallback met het ticket ingevuld.
  */
 
 const KINDS = ["problem", "request", "question"] as const;
@@ -57,24 +63,63 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 422 });
   }
 
+  const cfg = mailConfig();
   const webhook = process.env.SUPPORT_WEBHOOK_URL || site.forms.contactWebhook;
-  if (!webhook) {
+  if (!cfg.enabled && !webhook) {
     return NextResponse.json({ ok: false, error: "not_configured" }, { status: 503 });
   }
 
   const urgent = kind === "problem" && ticket.urgency === "urgent";
-  const res = await fetch(webhook, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      type: "support",
-      to: support.email,
-      replyTo: email,
-      subject: `[Support] ${urgent ? "SPOED · " : ""}${ticket.kindLabel || kind} · ${ticket.company}${ticket.ref ? ` (${ticket.ref})` : ""}`,
-      ...ticket,
-      source: "m7branding.com",
-      receivedAt: new Date().toISOString(),
-    }),
-  }).catch(() => null);
-  return NextResponse.json({ ok: !!res?.ok }, { status: res?.ok ? 200 : 502 });
+  const subject = `[Support] ${urgent ? "SPOED · " : ""}${ticket.kindLabel || kind} · ${ticket.company}${ticket.ref ? ` (${ticket.ref})` : ""}`;
+
+  let mailed = false;
+  if (cfg.enabled) {
+    if (limited(`support:${clientIp(req)}`, 6, 10 * 60_000)) {
+      return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
+    }
+    const t: Ticket = { ...ticket, locale: ticket.locale === "en" ? "en" : "nl" };
+    const base = baseUrl(req);
+    const id = createHash("sha256").update([email, kind, ticket.message].join("|")).digest("hex").slice(0, 40);
+
+    const team = ticketToTeam(t, base, subject);
+    mailed = await sendMail({
+      to: cfg.supportTo,
+      replyTo: [email],
+      ...team,
+      idempotencyKey: `support-team-${id}`,
+      tags: [{ name: "form", value: urgent ? "support_urgent" : "support" }],
+    });
+    if (!limited(`to:${email.toLowerCase()}`, 3, 60 * 60_000)) {
+      const client = ticketToClient(t, base, { ccMartijn: cfg.cc.some((c) => /^martijn@/i.test(c)) });
+      await sendMail({
+        to: [email],
+        cc: cfg.cc,
+        replyTo: [site.email],
+        ...client,
+        idempotencyKey: `support-client-${id}`,
+        tags: [{ name: "form", value: "support_confirm" }],
+      });
+    }
+  }
+
+  let hooked = false;
+  if (webhook) {
+    const res = await fetch(webhook, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: "support",
+        to: support.email,
+        replyTo: email,
+        subject,
+        ...ticket,
+        source: "m7branding.com",
+        receivedAt: new Date().toISOString(),
+      }),
+    }).catch(() => null);
+    hooked = !!res?.ok;
+  }
+
+  const ok = mailed || hooked;
+  return NextResponse.json({ ok }, { status: ok ? 200 : 502 });
 }

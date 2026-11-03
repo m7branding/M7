@@ -384,6 +384,12 @@ Behalve waar de wet dit vereist, gebruiken we de persoonsgegevens die je ons gee
 ## Hoe we met je persoonsgegevens omgaan
 We zorgen ervoor dat je persoonsgegevens veilig en vertrouwelijk worden bewaard en niet langer dan nodig. Van tijd tot tijd kunnen we externe dienstverleners vragen ons te helpen met het beheer van onze IT-systemen. Sommige van deze systemen kunnen zich in het buitenland bevinden. We geven je gegevens alleen door aan een externe dienstverlener of naar het buitenland als we ervan overtuigd zijn dat er passende beschermingsmaatregelen zijn om de integriteit en veiligheid van de verwerkte gegevens te waarborgen, en dat de geldende privacy- en gegevensbeschermingswetgeving wordt nageleefd.
 
+## Nieuwsbrief
+Meld je je aan voor onze nieuwsbrief, dan sturen we eerst een bevestigingsmail (double opt-in). Pas na je bevestiging zetten we je e-mailadres op de verzendlijst. We gebruiken het alleen om je de nieuwsbrief te sturen. Uitschrijven kan altijd, via de link onderin elke nieuwsbrief.
+
+## E-mail
+Na het versturen van een formulier ontvang je een bevestiging per e-mail. Voor het versturen van e-mail en het beheren van de verzendlijst van de nieuwsbrief gebruiken we de e-maildienst Resend.
+
 ## Cookies
 Hoe we cookies en vergelijkbare technieken gebruiken, lees je in ons [cookiebeleid](/cookies). Analytische cookies plaatsen we alleen na je toestemming.
 
@@ -425,6 +431,12 @@ Except where required by law, we only use the personal information you provide t
 
 ## How we handle your personal information
 We are committed to ensuring your personal information is kept secure and confidential and not kept for longer than is necessary. From time to time we may ask third-party service providers to help us manage our information technology systems. Some of these systems may be located in countries overseas. We will only transfer your information to a third-party service provider or overseas where we are satisfied that adequate levels of protection are in place to protect the integrity and security of any information being processed and compliance with applicable privacy and data protection laws.
+
+## Newsletter
+When you sign up for our newsletter, we first send you a confirmation email (double opt-in). Only after you confirm do we add your email address to the mailing list. We only use it to send you the newsletter. You can unsubscribe at any time via the link at the bottom of every newsletter.
+
+## Email
+After you submit a form, you receive a confirmation by email. To send email and to manage the newsletter mailing list, we use the email service Resend.
 
 ## Cookies
 How we use cookies and similar technologies is explained in our [cookie policy](/cookies). We only place analytics cookies after you have given consent.

@@ -28,7 +28,7 @@ export function Footer({ locale }: { locale: Locale }) {
         <M7BadgeReveal className="ftr__badge" />
       </div>
       <div className="container ftr__news">
-        <Newsletter label={d.newsletter.label} question={d.newsletter.question} placeholder={d.newsletter.placeholder} thanks={d.newsletter.thanks} />
+        <Newsletter label={d.newsletter.label} question={d.newsletter.question} placeholder={d.newsletter.placeholder} thanks={d.newsletter.thanks} confirm={d.newsletter.confirm} />
         <ul className="news__perks">
           {d.newsletter.perks.map((p) => (
             <li key={p}>

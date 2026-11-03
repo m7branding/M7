@@ -150,6 +150,7 @@ const nl = {
     placeholder: "Je e-mailadres",
     perks: ["AI-ontwikkelingen", "Website tips", "Interessante verhalen en insights", "Tool van de maand"],
     thanks: "Top, je staat op de lijst!",
+    confirm: "Bijna klaar! Check je inbox en bevestig je inschrijving.",
   },
   footer: {
     pillars: "Diensten",
@@ -337,6 +338,7 @@ const en: Dict = {
     placeholder: "Your email address",
     perks: ["AI developments", "Website tips", "Interesting stories and insights", "Tool of the month"],
     thanks: "Great, you're on the list!",
+    confirm: "Almost there! Check your inbox to confirm your subscription.",
   },
   footer: {
     pillars: "Services",
