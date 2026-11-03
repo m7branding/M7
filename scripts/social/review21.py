@@ -7,6 +7,18 @@ S = "/tmp/claude-0/-home-user-M7/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad
 SRC = f"{S}/r21/out"
 DST = "/tmp/claude-0/-home-user/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad/m7-signature"
 REELS = [
+    ("buitenstate/buitenstate-signature-v2", "Buitenstate · v2", "Dichterbij, schoner", [
+        "Nieuwe close-up camera: laptop-scherm met de navigatie vult het beeld, de laptop loopt er uit",
+        "Stacked view: zoeknetwerk, spotlight, blog en de knop vallen één voor één op een stapel",
+        "Close-up van twee leunende iPads, zoeken op een zwevende iPad, mobiel menu op drie telefoons",
+        "Studio Display van dichtbij met de homepage",
+        "Schone knoppen (geen witte randjes), vaste stapelvolgorde, motion blur op de snelle momenten"]),
+    ("steddion-tools/steddion-signature-v2", "Steddion · v2", "Dichterbij, schoner", [
+        "Macro van de intake terwijl die wordt ingevuld, nieuwe hoek",
+        "Stacked view van de configurator: grafiek, zon-PV, pandtype, batterij en stap 1",
+        "Close-up van de oplossingen-stap op het bureau, de samenvatting dicht op een laptop",
+        "De kleurenwaaier zonder doorsnijdingen, de hoofdkleur bovenop",
+        "Zwevende MacBook met brand-kaarten in 3D, dichterbij"]),
     ("monvy/monvy-signature", "Monvy", "Interactie voorop", [
         "Megamenu met echte cursor op een Studio Display, nieuwe 3/4-hoek, push-in met een kanteling die uitloopt",
         "Echte UI-kaarten (dashboard, pricing, CTA) stromen in een cascade uit het scherm",
@@ -75,6 +87,7 @@ video:focus-visible {{ outline:2px solid var(--teal); outline-offset:2px }}
 <div class="wrap">
 <div class="k">M7 social · pilot ronde 21</div>
 <h1>Elk project <span>z'n eigen reel.</span></h1>
+<p class="lead"><b>Nieuw bovenaan: Buitenstate v2 en Steddion v2</b>, met jouw feedback verwerkt: kaarten en kleuren met een vaste stapelvolgorde (niets snijdt meer door elkaar), knoppen zonder witte randjes, motion blur op de snelle momenten, rustiger invliegen, en nieuwe close-up camera's zodat de schermen groot en duidelijk in beeld staan. Daaronder de eerste vijf pilots.</p>
 <p class="lead">Vijf projecten, vijf regies. Elk met eigen camerahoeken (23 nieuwe staande hoeken in de 3D-scènes), eigen camerabewegingen, echte interacties op de schermen (cursor, menu's, configurator, afspraakflow), echte UI-snippets en brand assets die zweven en stapelen in 3D, een eigen overgang, tempo en muziek. De intro, de glazen labels en de outro blijven hetzelfde.</p>
 <div class="grid">{"".join(cards)}</div>
 <footer>Dit zijn previews in 720p. De echte bestanden (1080×1920, scherp, niets opgeschaald) staan in de private repo onder <code>social/reels-v3-pilot/</code>. Alles is echt werk: echte schermen en opnames, echte ontwerpen, echte brandbooks en geverifieerde kleuren.</footer>
