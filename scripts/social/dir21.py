@@ -261,7 +261,10 @@ def frosted(d, out, darken=0.78):
     """The last frame of a shot, frosted: the backdrop behind floating cards (depth of field)."""
     from PIL import Image, ImageFilter, ImageEnhance, ImageStat
     f = sorted(Path(d).glob("*.jpg"))[-1]
-    im = Image.open(f).convert("RGB").filter(ImageFilter.GaussianBlur(42))
+    im = Image.open(f).convert("RGB").filter(ImageFilter.GaussianBlur(64))
+    st = ImageStat.Stat(im)
+    flat = Image.new("RGB", im.size, tuple(int(v) for v in st.mean))
+    im = Image.blend(im, flat, 0.3)                       # softer: no dark smears from a blurred keyboard
     lum = ImageStat.Stat(im.convert("L")).mean[0]
     im = ImageEnhance.Brightness(im).enhance(darken if lum > 90 else 1.0)
     im.save(out, quality=92)
