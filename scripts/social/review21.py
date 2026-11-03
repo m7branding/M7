@@ -7,6 +7,18 @@ S = "/tmp/claude-0/-home-user-M7/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad
 SRC = f"{S}/r21/out"
 DST = "/tmp/claude-0/-home-user/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad/m7-signature"
 REELS = [
+    ("buitenstate/buitenstate-top", "Buitenstate · top reel", "Cinematisch, 60 fps", [
+        "Intro: de eerste shot volledig geblurd, de M7-lijntekening in het wit tekent zich erover, dan scherpstellen",
+        "Zoekers voor mijn woning: hover over de provincies, Utrecht kiezen, de teller loopt op (live opname)",
+        "De camera volgt de cursor met motion blur, dicht op het scherm (4K-render, 1080×1920 in 60 fps)",
+        "Objectpagina: titel, prijs en de makelaarskaart met 'Plan een bezichtiging', de foto's als zwevende kaarten",
+        "De kaart van het object en hover states op de spotlight-kaarten van de homepage"]),
+    ("steddion-tools/steddion-top", "Steddion · top reel", "Features voorop, 60 fps", [
+        "Zelfde witte, geblurde intro",
+        "Intake in macro: pandtype kiezen met hover states, de camera volgt de cursor",
+        "Nieuwe energiebehoefte, profielen en de 3D-pandweergave terwijl er wordt geklikt",
+        "Stacked view met de configurator-snippets, dan oplossingen en de samenvatting van dichtbij",
+        "Kleurenwaaier en de EMS-vergelijker als afsluiter"]),
     ("buitenstate/buitenstate-signature-v2", "Buitenstate · v2", "Dichterbij, schoner", [
         "Nieuwe close-up camera: laptop-scherm met de navigatie vult het beeld, de laptop loopt er uit",
         "Stacked view: zoeknetwerk, spotlight, blog en de knop vallen één voor één op een stapel",
@@ -87,7 +99,7 @@ video:focus-visible {{ outline:2px solid var(--teal); outline-offset:2px }}
 <div class="wrap">
 <div class="k">M7 social · pilot ronde 21</div>
 <h1>Elk project <span>z'n eigen reel.</span></h1>
-<p class="lead"><b>Nieuw bovenaan: Buitenstate v2 en Steddion v2</b>, met jouw feedback verwerkt: kaarten en kleuren met een vaste stapelvolgorde (niets snijdt meer door elkaar), knoppen zonder witte randjes, motion blur op de snelle momenten, rustiger invliegen, en nieuwe close-up camera's zodat de schermen groot en duidelijk in beeld staan. Daaronder de eerste vijf pilots.</p>
+<p class="lead"><b>Nieuw bovenaan: de top reels van Buitenstate en Steddion</b>: cinematischer, 60 fps, een camera die de cursor volgt met motion blur, echte hover states en features, en een witte intro over een geblurde achtergrond. Daarna Buitenstate v2 en Steddion v2, met jouw eerdere feedback verwerkt: kaarten en kleuren met een vaste stapelvolgorde (niets snijdt meer door elkaar), knoppen zonder witte randjes, motion blur op de snelle momenten, rustiger invliegen, en nieuwe close-up camera's zodat de schermen groot en duidelijk in beeld staan. Daaronder de eerste vijf pilots.</p>
 <p class="lead">Vijf projecten, vijf regies. Elk met eigen camerahoeken (23 nieuwe staande hoeken in de 3D-scènes), eigen camerabewegingen, echte interacties op de schermen (cursor, menu's, configurator, afspraakflow), echte UI-snippets en brand assets die zweven en stapelen in 3D, een eigen overgang, tempo en muziek. De intro, de glazen labels en de outro blijven hetzelfde.</p>
 <div class="grid">{"".join(cards)}</div>
 <footer>Dit zijn previews in 720p. De echte bestanden (1080×1920, scherp, niets opgeschaald) staan in de private repo onder <code>social/reels-v3-pilot/</code>. Alles is echt werk: echte schermen en opnames, echte ontwerpen, echte brandbooks en geverifieerde kleuren.</footer>
