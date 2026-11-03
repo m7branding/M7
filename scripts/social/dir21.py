@@ -191,8 +191,9 @@ def hero2(items, seed=0):
 
 def fan(slug, cols, logo_y=520):
     """The verified palette as a fan deck (cards pivot on their foot), the logo card above it."""
+    cols = list(reversed(cols))       # the brand's main colour ends on top of the deck
     n = len(cols)
-    spread = 14.0
+    spread = 16.0
     cards = [{"html": logo_html(slug), "w": 780, "h": 430, "x": 540, "y": logo_y, "z": 120, "rx": 4, "radius": 30,
               "tin": 0.1, "din": 1.2, "from": {"y": -260, "z": -500, "rx": 30}}]
     for i, c in enumerate(cols):
@@ -323,9 +324,9 @@ def build(name, R_):
             firstdir = prevdir
         t += secs
     end = t + 0.35
-    lt = bright(firstdir) > 140 if firstdir else False
+    lt = bright(firstdir) > 118 if firstdir else False      # a light screen behind the emblem: black ink
     layers.append({"type": "m7lines", "t0": 0.12, "dur": 2.45, "size": 480, "cy": H * 0.46, "frost": True,
-                   "ink": "#0B0B0D" if lt else "#FFFFFF", "frostLight": 1.1 if lt else 0.7, "frostBlur": 26})
+                   "ink": "#0B0B0D" if lt else "#FFFFFF", "frostLight": 1.12 if lt else 0.58, "frostBlur": 28})
     layers.append({"type": "glasslabels", "t0": 2.55, "t1": min(end - 0.3, 2.55 + 4.4), "items": R_["labels"], "mode": "pills", "y": H - 330})
     layers += outro(end - 0.35)
     dur = end - 0.35 + 3.3
@@ -393,7 +394,7 @@ def reels():
         "bernheze-signature": dict(host=bz, tx="iris", txout=False, txease="inOutCubic", music=("calm", 52), labels=["Branding", "Websites", "Print"], shots=[
             dict(k="brand", secs=3.8, bg="#1D2C25", bg2="#2A3F34", cards=row(bz, palette(bz, 4))),
             dict(k="book", secs=3.8, slug=bz, a=("spread", 0.22, 0.0, 1040), b=("l1", 0.12, 0.02, 760)),
-            dict(k="scene", secs=3.8, spec=dict(slug=bz, t="d08_ipad_stand__p", content="flow", flow="flow-1-afdeling-menu-desktop.mp4", ft0=0.6,
+            dict(k="scene", secs=3.8, spec=dict(slug=bz, t="d09_ipad_keyboard__q1", content="flow", flow="flow-1-afdeling-menu-desktop.mp4", ft0=0.6,
                                                 cam=cam((1.34, 1.22), (0.0, -0.03), (0.0, 0.0), (0, 0), "outCubic"))),
             dict(k="float", secs=3.4, bg="frost", cards=hero2([(snip(bz, "closeup-2-afdelingstegels.png"), 860), (snip(bz, "closeup-1-menu-open.png"), 380),
                                                                  (snip(bz, "snippet-1-dropdown-trigger.png"), 440)])),
