@@ -118,12 +118,12 @@ export const inboxA: { cases: Case[]; media: Record<string, SuppliedSet> } = {
         en: "Berkley Investments: real estate with social impact",
       },
       summary: {
-        nl: "Webdesign en brochure voor Berkley Investments, een investeringsmaatschappij in vastgoed en energie: groen, goud en grote beelden van monumentale gebouwen.",
-        en: "Web design and brochure for Berkley Investments, an investment company in real estate and energy: green, gold and large images of monumental buildings.",
+        nl: "Webdesign, een brochure en visualisaties van projecten voor Berkley Investments, een investeringsmaatschappij in vastgoed en energie: groen, goud en grote beelden van monumentale gebouwen.",
+        en: "Web design, a brochure and project visualisations for Berkley Investments, an investment company in real estate and energy: green, gold and large images of monumental buildings.",
       },
       sector: "finance-fintech",
-      services: ["websites-webshops", "grafisch-ontwerp-print"],
-      applications: ["ux-ui-webdesign", "brochures-magazines"],
+      services: ["websites-webshops", "grafisch-ontwerp-print", "foto-video-3d-animatie"],
+      applications: ["ux-ui-webdesign", "brochures-magazines", "3d-visualisatie"],
       tools: [],
       color: "#01483A",
       challenge: {
@@ -131,8 +131,8 @@ export const inboxA: { cases: Case[]; media: Record<string, SuppliedSet> } = {
         en: "Berkley Investments invests in real estate, healthcare property and energy, with social impact as its starting point. That tone had to come through in the website and in print: solid, warm and without frills.",
       },
       approach: {
-        nl: "We kozen voor diepgroen met goud, een klassieke schreefletter in kapitalen en veel ruimte voor fotografie van de gebouwen. Op de homepage staan de projecten als grote kaarten in een slider, gevolgd door een blok over energie. In de brochure krijgt het thema Social Impact een eigen spread, met foto's van de gebouwen en hun omgeving.",
-        en: "We chose deep green with gold, a classic serif in capitals and plenty of room for photography of the buildings. On the homepage the projects appear as large cards in a slider, followed by a block on energy. In the brochure the theme of Social Impact gets a spread of its own, with photos of the buildings and their surroundings.",
+        nl: "We kozen voor diepgroen met goud, een klassieke schreefletter in kapitalen en veel ruimte voor fotografie van de gebouwen. Op de homepage staan de projecten als grote kaarten in een slider, gevolgd door een blok over energie. In de brochure krijgt het thema Social Impact een eigen spread, met foto's van de gebouwen en hun omgeving. Daarnaast maakten we uitgebreide visualisaties van projecten.",
+        en: "We chose deep green with gold, a classic serif in capitals and plenty of room for photography of the buildings. On the homepage the projects appear as large cards in a slider, followed by a block on energy. In the brochure the theme of Social Impact gets a spread of its own, with photos of the buildings and their surroundings. We also created extensive visualisations of projects.",
       },
       result: {
         nl: "Een website en brochure die dezelfde rustige, monumentale uitstraling hebben als het vastgoed van Berkley.",

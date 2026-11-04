@@ -136,8 +136,8 @@ export const suppliedCases: Case[] = [
       en: "DesignersHouse: from name to platform for interior professionals",
     },
     summary: {
-      nl: "Een groot brandingproject: concept en naam, logosprints, strategische branding en brand guidelines, een website met twee portalen, drukwerk en eventmaterialen, en contentmarketing op Instagram en LinkedIn.",
-      en: "A major branding project: concept and name, logo sprints, strategic branding and brand guidelines, a website with two portals, print and event materials, and content marketing on Instagram and LinkedIn.",
+      nl: "Een groot brandingproject: concept en naam, logosprints, strategische branding en brand guidelines, een website met portalen voor members, showroompartners en de gastvrouw, afspraakflows met logica, drukwerk en eventmaterialen, visualisaties van de interieurs, en de social media en organische content die we verzorgen.",
+      en: "A major branding project: concept and name, logo sprints, strategic branding and brand guidelines, a website with portals for members, showroom partners and the host team, appointment flows with logic, print and event materials, visualisations of the interiors, and the social media and organic content we look after.",
     },
     sector: "interieur-architectuur",
     services: [
@@ -163,29 +163,30 @@ export const suppliedCases: Case[] = [
       "social-media-marketing",
       "motion-design",
       "ai-beeld-video",
+      "3d-visualisatie",
       "boekingswidget",
       "workflow-automatisering",
     ],
-    tools: ["webflow", "aftereffects"],
+    tools: ["webflow", "aftereffects", "cloudflare", "instagram", "linkedin"],
     color: "#D3C089",
     challenge: {
       nl: "DesignersHouse is de plek waar interieurprofessionals hun klanten meenemen in een totaalbeleving: een showroom met artikelen en materialen van topleveranciers, en ruimte voor ontvangsten, werkafspraken en presentaties. Het begon bij een idee, zonder naam en zonder merk.",
       en: "DesignersHouse is the place where interior professionals take their clients through a complete experience: a showroom with products and materials from top suppliers, and space for receptions, meetings and presentations. It started as an idea, without a name or a brand.",
     },
     approach: {
-      nl: "We werkten van concept en naam via logosprints naar een strategisch merk, vastgelegd in brand guidelines. Daarna volgden de website, twee portalen (voor designers en voor showroompartners), veel drukwerk, brochures en eventmaterialen, en contentmarketing op Instagram en LinkedIn. De richtlijnen leggen kleuren, typografie, iconografie en tone of voice vast. Met After Effects en AI maakten we geanimeerde content en ultrarealistische renders van de ruimtes, nog voordat het concept werkelijkheid was. Het portaal draait op Memberstack, met registratie, inloggen, loyaliteitspunten, afgeschermde content en exclusieve materialen. En een boekingsflow met automatische e-mails en agenda-items, voor interieurprofessionals en hun klanten, volledig in de huisstijl.",
-      en: "We worked from concept and name, through logo sprints, to a strategic brand set down in brand guidelines. Then came the website, two portals (for designers and for showroom partners), lots of print, brochures and event materials, and content marketing on Instagram and LinkedIn. The guidelines set out colours, typography, iconography and tone of voice. With After Effects and AI we created animated content and ultra-realistic renders of the rooms, before the concept was even a reality. The portal runs on Memberstack, with registration, login, loyalty points, gated content and exclusive materials. And a booking flow with automated emails and calendar items, for interior professionals and their clients, fully on brand.",
+      nl: "We werkten van concept en naam via logosprints naar een strategisch merk, vastgelegd in brand guidelines met kleuren, typografie, iconografie en tone of voice. Daarna volgden de website in Webflow, veel drukwerk, brochures en eventmaterialen. De site toont de faciliteiten, de showroompartners, projecten van designers en de evenementen. Achter de site draaien portalen op Memberstack. Interieurprofessionals registreren zich als member, sparen loyaliteitspunten, krijgen toegang tot afgeschermde content en plannen in drie stappen een bezoek: eerst de klant, als je wilt met een automatische bevestiging aan de klant, dan datum, tijd, showroom (residentieel, hospitality of beide) en onderwerp, en tot slot catering en de betrokken partners. Afspraken volg je als komend, bezig, geweest of geannuleerd. Showroompartners hebben een eigen portaal met een afsprakenkalender, een plek om materiaal aan te leveren, een Partner Drive en updates, en de gastvrouw beheert alle afspraken en plant ze ook namens partners. Wie binnenloopt, registreert zijn bezoek ter plekke, met de partners die hij die dag bezoekt. Een eigen afspraken-API zorgt voor de automatische e-mails en agenda-items, volledig in de huisstijl. Met After Effects en AI maakten we geanimeerde content en ultrarealistische visualisaties van de interieurs, nog voordat het concept werkelijkheid was. En op Instagram en LinkedIn verzorgen we de social media en organische content.",
+      en: "We worked from concept and name, through logo sprints, to a strategic brand set down in brand guidelines covering colours, typography, iconography and tone of voice. Then came the Webflow website, lots of print, brochures and event materials. The site presents the facilities, the showroom partners, projects by designers and the events. Behind the site run portals on Memberstack. Interior professionals register as members, collect loyalty points, get access to gated content and book a visit in three steps: first the client, with an automatic confirmation to the client if they like, then date, time, showroom (residential, hospitality or both) and topic, and finally catering and the partners involved. Appointments can be followed as upcoming, in progress, past or cancelled. Showroom partners have a portal of their own with an appointment calendar, a place to deliver material, a Partner Drive and updates, and the host team manages all appointments and also books them on behalf of partners. Walk-in visitors register their visit on the spot, with the partners they are seeing that day. A dedicated appointments API takes care of the automated emails and calendar items, fully on brand. With After Effects and AI we created animated content and ultra-realistic visualisations of the interiors, before the concept was even a reality. And on Instagram and LinkedIn we look after the social media and organic content.",
     },
     result: {
-      nl: "Eén merk van idee tot showroom: online, in print, op events en op social media.",
-      en: "One brand from idea to showroom: online, in print, at events and on social media.",
+      nl: "Eén merk van idee tot showroom: online, in print, op events en op social media, met portalen die afspraken tussen designers, hun klanten en de showroompartners in goede banen leiden.",
+      en: "One brand from idea to showroom: online, in print, at events and on social media, with portals that keep appointments between designers, their clients and the showroom partners on track.",
     },
     url: "https://www.designershouse.nl",
     shape: "wide",
     narrative: {
       intro: {
-        nl: "Een plek voor interieurprofessionals en hun klanten. Bij DesignersHouse bouwden we alles: van de naam tot de portalen.",
-        en: "A place for interior professionals and their clients. For DesignersHouse we built everything: from the name to the portals.",
+        nl: "Een plek voor interieurprofessionals en hun klanten. Bij DesignersHouse bouwden we alles: van de naam tot de portalen. En op social media vertellen we het verhaal verder.",
+        en: "A place for interior professionals and their clients. For DesignersHouse we built everything: from the name to the portals. And on social media we keep telling the story.",
       },
       chapters: [
         {
@@ -201,8 +202,21 @@ export const suppliedCases: Case[] = [
           title: { nl: "Online, in print, op events.", en: "Online, in print, at events." },
           body: [
             {
-              nl: "De website in Webflow is de voordeur, met twee portalen erachter: één voor designers en één voor showroompartners. Daarnaast ontwierpen we veel drukwerk, brochures en eventmaterialen, en verzorgen we contentmarketing op Instagram en LinkedIn.",
-              en: "The Webflow website is the front door, with two portals behind it: one for designers and one for showroom partners. We also designed lots of print, brochures and event materials, and run content marketing on Instagram and LinkedIn.",
+              nl: "De website in Webflow is de voordeur, met de faciliteiten, de showroompartners, projecten van designers en de evenementen. Daarnaast ontwierpen we veel drukwerk, brochures en eventmaterialen, en verzorgen we de social media en organische content op Instagram en LinkedIn.",
+              en: "The Webflow website is the front door, with the facilities, the showroom partners, projects by designers and the events. We also designed lots of print, brochures and event materials, and we look after the social media and organic content on Instagram and LinkedIn.",
+            },
+          ],
+        },
+        {
+          title: { nl: "Afspraken die vanzelf lopen.", en: "Appointments that run themselves." },
+          body: [
+            {
+              nl: "Achter de site draaien portalen op Memberstack. Members sparen loyaliteitspunten en plannen in drie stappen een bezoek: klant, datum en tijd, en showroom, met de betrokken partners erbij en desgewenst een bevestiging aan de klant.",
+              en: "Behind the site run portals on Memberstack. Members collect loyalty points and book a visit in three steps: client, date and time, and showroom, with the partners involved and, if they like, a confirmation to the client.",
+            },
+            {
+              nl: "Showroompartners hebben een eigen portaal met een afsprakenkalender, een plek om materiaal aan te leveren en updates, en de gastvrouw plant afspraken ook namens partners. Een eigen afspraken-API stuurt de e-mails en agenda-items, volledig in de huisstijl.",
+              en: "Showroom partners have a portal of their own with an appointment calendar, a place to deliver material and updates, and the host team also books appointments on behalf of partners. A dedicated appointments API sends the emails and calendar items, fully on brand.",
             },
           ],
         },
@@ -210,12 +224,8 @@ export const suppliedCases: Case[] = [
           title: { nl: "Kamer voor kamer.", en: "Room by room." },
           body: [
             {
-              nl: "DesignersHouse brengt high-end interieurproducten van meer dan 18 partners samen, zodat architecten soepel en in samenwerking materialen kiezen, kamer voor kamer. Met After Effects en AI maakten we geanimeerde content en ultrarealistische renders van de ruimtes, nog voordat het concept werkelijkheid was.",
-              en: "DesignersHouse brings together high-end interior products from more than 18 partners, so architects can source materials smoothly and collaboratively, room by room. With After Effects and AI we created animated content and ultra-realistic renders of the rooms, before the concept was even a reality.",
-            },
-            {
-              nl: "Het portaal draait op Memberstack, met registratie, inloggen, loyaliteitspunten, afgeschermde content en exclusieve materialen. Een boekingsflow stuurt automatische e-mails en agenda-items, aan interieurprofessionals en aan hun klanten, volledig in de huisstijl.",
-              en: "The portal runs on Memberstack, with registration, login, loyalty points, gated content and exclusive materials. A booking flow sends automated emails and calendar items, to interior professionals and to their clients, fully on brand.",
+              nl: "DesignersHouse brengt high-end interieurproducten van een vaste groep showroompartners samen, één per segment, zodat architecten soepel en in samenwerking materialen kiezen, kamer voor kamer. Met After Effects en AI maakten we geanimeerde content en ultrarealistische visualisaties van de interieurs, nog voordat het concept werkelijkheid was.",
+              en: "DesignersHouse brings together high-end interior products from a fixed group of showroom partners, one per segment, so architects can source materials smoothly and collaboratively, room by room. With After Effects and AI we created animated content and ultra-realistic visualisations of the interiors, before the concept was even a reality.",
             },
           ],
         },
