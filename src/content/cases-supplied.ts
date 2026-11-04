@@ -92,8 +92,8 @@ export const suppliedCases: Case[] = [
       en: "Under the old name Budget Hearses, the company looked orange, dated and cheap. That did not fit luxury vehicles, from exclusive passenger vans to wheelchair-accessible solutions.",
     },
     approach: {
-      nl: "Vanuit de nieuwe naam Nova kreeg Nova Special Cars dezelfde premium branding als Nova Funeral Cars, met eigen drukwerk. De website in Webflow toont het aanbod per voertuig en werkt de voorraad automatisch bij.",
-      en: "From the new name Nova, Nova Special Cars received the same premium branding as Nova Funeral Cars, with its own print. The Webflow website shows the range per vehicle and updates the stock automatically.",
+      nl: "Vanuit de nieuwe naam Nova kreeg Nova Special Cars dezelfde premium branding als Nova Funeral Cars, met eigen drukwerk. De website in Webflow toont het aanbod per voertuig en werkt de voorraad automatisch bij. Wie zich aanmeldt, krijgt een melding zodra er nieuw aanbod binnenkomt.",
+      en: "From the new name Nova, Nova Special Cars received the same premium branding as Nova Funeral Cars, with its own print. The Webflow website shows the range per vehicle and updates the stock automatically. Anyone who signs up gets an alert as soon as new stock arrives.",
     },
     result: {
       nl: "Een luxe, prestigieus en vertrouwd merk, met een website waarop nieuwe voorraad vanzelf verschijnt.",
@@ -120,8 +120,8 @@ export const suppliedCases: Case[] = [
           title: { nl: "Voorraad die zichzelf bijwerkt.", en: "Stock that updates itself." },
           body: [
             {
-              nl: "De website in Webflow zet elk voertuig rustig en groot in beeld. Nieuwe voorraad komt er automatisch bij, zodat het aanbod altijd klopt. Het drukwerk volgt dezelfde lijn.",
-              en: "The Webflow website shows every vehicle calmly and large. New stock is added automatically, so the range is always up to date. The print follows the same line.",
+              nl: "De website in Webflow zet elk voertuig rustig en groot in beeld. Nieuwe voorraad komt er automatisch bij, zodat het aanbod altijd klopt, en wie zich aanmeldt krijgt een melding zodra er iets nieuws binnenkomt. Het drukwerk volgt dezelfde lijn.",
+              en: "The Webflow website shows every vehicle calmly and large. New stock is added automatically, so the range is always up to date, and anyone who signs up gets an alert as soon as something new arrives. The print follows the same line.",
             },
           ],
         },
