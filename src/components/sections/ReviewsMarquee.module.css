@@ -1,0 +1,302 @@
+/* ============================================================
+   Reviews-marquee: volledig breed, rustig en eindeloos.
+   ============================================================ */
+
+.root {
+  --gap: clamp(14px, 1.4vw, 20px);
+  --card-w: clamp(300px, 27vw, 410px);
+  position: relative;
+  margin-top: clamp(36px, 5vw, 64px);
+}
+.rows {
+  display: grid;
+  gap: var(--gap);
+}
+.row {
+  display: flex;
+  overflow: hidden;
+  /* zachte randen links en rechts */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.track {
+  display: flex;
+  flex: none;
+  align-items: stretch;
+  gap: var(--gap);
+  padding-right: var(--gap);
+  animation: rv-marquee var(--dur, 120s) linear infinite;
+  will-change: transform;
+}
+.rev .track {
+  animation-direction: reverse;
+}
+.row:hover .track,
+.rows:has(:focus-visible) .track,
+.paused .track {
+  animation-play-state: paused;
+}
+@keyframes rv-marquee {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.item {
+  display: flex;
+  flex: none;
+  width: var(--card-w);
+}
+
+/* ---------- kaart ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  padding: clamp(22px, 2vw, 30px);
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(120% 70% at 0% 0%, rgba(255, 255, 255, 0.045), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    #0a0a0c;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.5s var(--ease-out);
+}
+.card:hover {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+.isDraft {
+  box-shadow: inset 0 0 0 1px rgba(255, 210, 58, 0.3);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 28px;
+}
+.stars {
+  display: inline-flex;
+  gap: 3px;
+}
+.stars svg {
+  fill: rgba(255, 255, 255, 0.14);
+}
+.stars svg.on {
+  fill: #ffc93a;
+}
+.src {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 28px;
+  padding: 0 11px 0 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #cfcfd6;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.draft {
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: rgba(255, 210, 58, 0.14);
+  color: var(--yellow);
+}
+
+.quote {
+  display: grid;
+  gap: 0.8em;
+  font-size: clamp(0.94rem, 1vw, 1rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: #d3d3da;
+}
+.clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+}
+/* afgekapt: alinea's lopen door als één tekst */
+.clamped p {
+  display: inline;
+}
+.clamped p + p::before {
+  content: " ";
+}
+
+.extra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: -6px;
+}
+.more {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: rgba(58, 255, 255, 0.5);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.3s;
+}
+.more:hover {
+  text-decoration-color: var(--teal);
+}
+.more:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.note {
+  font-size: 0.74rem;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--tint) 34%, transparent), transparent 70%),
+    #16161a;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tint) 32%, rgba(255, 255, 255, 0.08));
+}
+.name {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.name strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.name small {
+  font-size: 0.78rem;
+  color: var(--faint);
+}
+
+/* ---------- onderregel: Google + pauze ---------- */
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: clamp(22px, 3vw, 36px);
+}
+.google,
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+.google:hover,
+.toggle:hover {
+  color: var(--text);
+}
+.google:focus-visible,
+.toggle:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+.googleIcon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.toggle svg {
+  width: 28px;
+  height: 28px;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 700px) {
+  .root {
+    --card-w: min(84vw, 340px);
+  }
+  .clamped {
+    -webkit-line-clamp: 8;
+  }
+  .toggle span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* geen beweging: gewone horizontale scrollrij met snap */
+@media (prefers-reduced-motion: reduce) {
+  .row {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    padding-inline: var(--gutter);
+    padding-bottom: 14px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .track {
+    animation: none;
+  }
+  .track[aria-hidden] {
+    display: none;
+  }
+  .item {
+    scroll-snap-align: start;
+  }
+  .toggle {
+    display: none;
+  }
+  .card {
+    transition: none;
+  }
+}

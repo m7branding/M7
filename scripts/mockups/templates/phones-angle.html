@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../src/components/cases/devices.css" />
+    <link rel="stylesheet" href="base.css" />
+    <!-- Drie iPhones in licht perspectief, achter elkaar (met dikte). -->
+    <style>
+      body { --W: 1200px; --H: 800px; --gx: 55%; --gy: 55%; }
+      .scene { perspective: 2200px; perspective-origin: 50% 35%; }
+      .phone { position: absolute; width: 238px; transform: rotateY(-24deg) rotateX(5deg) rotateZ(-1deg); }
+      .phone.a { left: 250px; top: 128px; }
+      .phone.b { left: 495px; top: 112px; }
+      .phone.c { left: 740px; top: 96px; }
+      .drop { position: absolute; height: 34px; width: 250px; border-radius: 50%; filter: blur(16px);
+        background: rgba(var(--dx-shade), calc(var(--dx-contact) * 0.55)); }
+      .drop.a { left: 262px; top: 618px; } .drop.b { left: 507px; top: 602px; } .drop.c { left: 752px; top: 586px; }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="drop a"></div><div class="drop b"></div><div class="drop c"></div>
+    <div class="scene">
+      <div class="phone a" data-dx="phone" data-shot="mob3" data-depth="11" data-floor="0"></div>
+      <div class="phone b" data-dx="phone" data-shot="mob2" data-depth="11" data-floor="0"></div>
+      <div class="phone c" data-dx="phone" data-shot="mob" data-depth="11" data-floor="0"></div>
+    </div>
+    <div class="grain"></div>
+    <script src="devices.js"></script>
+    <script src="stage.js"></script>
+  </body>
+</html>

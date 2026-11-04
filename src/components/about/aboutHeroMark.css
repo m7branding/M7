@@ -1,0 +1,22 @@
+/* ------------------------------------------------------------------
+   Over M7, hero-H1 "Welcome to the world of [M7]." Alleen de maat van de
+   kop staat hier; het tekenende M7-emblem (intro, hover, reduced motion)
+   is gedeeld met /cases en World of M7: zie components/brand/m7Draw.css.
+   ------------------------------------------------------------------ */
+
+.ah__title.ah__title--world {
+  font-size: clamp(2.5rem, 5.6vw, 5.6rem);
+  line-height: 0.98;
+}
+
+@media (max-width: 760px) {
+  .ah__title.ah__title--world {
+    font-size: clamp(2.3rem, 11.6vw, 3.6rem);
+  }
+}
+
+@media (max-height: 700px) and (min-width: 761px) {
+  .ah__title.ah__title--world {
+    font-size: clamp(2.5rem, 4.6vw, 4.6rem);
+  }
+}

@@ -1,0 +1,175 @@
+/* ============================================================
+   LogoWall: "Logo's die we ontwierpen"
+   Witte logo's op een donker raster met haarlijnen; een vak kleurt
+   bij hover/focus (of af en toe vanzelf: .is-lit) rustig in naar
+   het originele merkvlak.
+   ============================================================ */
+
+.lwall__frame {
+  position: relative;
+  margin-top: clamp(28px, 4vw, 48px);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(58, 255, 255, 0.035), transparent 60%),
+    #050506;
+  box-shadow: inset 0 0 0 1px var(--line);
+  isolation: isolate;
+}
+
+.lwall__grid {
+  --cols: 6;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  margin: 0 -1px -1px 0; /* buitenste haarlijnen vallen weg onder de rand van het frame */
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 1100px) {
+  .lwall__grid {
+    --cols: 5;
+  }
+}
+@media (max-width: 760px) {
+  .lwall__grid {
+    --cols: 3;
+  }
+}
+
+.lwall__cell {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+/* rustiger instappen dan de standaard-stagger (30 vakken) */
+html.js .lwall__grid[data-stagger] > * {
+  transform: none;
+  transition: opacity 1.1s var(--ease-out);
+  transition-delay: calc(var(--si, 0) * 0.025s);
+}
+
+.lwall__item {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+.lwall__tile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--bg, #111);
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 1.6s var(--ease-out);
+}
+
+.lwall__logo {
+  position: relative;
+  display: block;
+  width: var(--lw, 40%);
+  height: auto;
+  max-width: 66%;
+  opacity: 0.6;
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 1.2s var(--ease-out);
+}
+
+.lwall__name {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100% - 20px);
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  opacity: 0;
+  transform: translate3d(0, 6px, 0);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.7s var(--ease-out);
+  pointer-events: none;
+}
+.lwall__arrow {
+  color: var(--teal, #3affff);
+}
+
+/* Inkleuren: hover / toetsenbordfocus / spotlight */
+.lwall__cell.is-lit .lwall__tile,
+.lwall__item:hover .lwall__tile,
+.lwall__item:focus-visible .lwall__tile {
+  opacity: 1;
+  transform: scale(1);
+}
+.lwall__cell.is-lit .lwall__logo,
+.lwall__item:hover .lwall__logo,
+.lwall__item:focus-visible .lwall__logo {
+  opacity: 0;
+  transform: scale(0.96);
+}
+.lwall__cell.is-lit .lwall__name,
+.lwall__item:hover .lwall__name,
+.lwall__item:focus-visible .lwall__name {
+  opacity: 1;
+  transform: none;
+}
+.lwall__item:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--teal, #3affff);
+}
+/* de spotlight wijkt zodra je zelf over de wand beweegt */
+.lwall__frame:hover .lwall__cell.is-lit:not(:hover) .lwall__tile {
+  opacity: 0;
+}
+.lwall__frame:hover .lwall__cell.is-lit:not(:hover) .lwall__logo {
+  opacity: 0.6;
+  transform: none;
+}
+.lwall__frame:hover .lwall__cell.is-lit:not(:hover) .lwall__name {
+  opacity: 0;
+}
+
+@media (max-width: 760px) {
+  .lwall__logo {
+    width: min(76%, calc(var(--lw, 40%) * 1.22));
+    max-width: 76%;
+    opacity: 0.68;
+  }
+  .lwall__name {
+    left: 6px;
+    bottom: 6px;
+    max-width: calc(100% - 12px);
+    padding: 3px 8px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lwall__tile,
+  .lwall__logo,
+  .lwall__name {
+    transition: none;
+  }
+}

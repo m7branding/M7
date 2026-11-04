@@ -1,0 +1,320 @@
+/* ============================================================
+   "Combineert goed met": compacte dienstkaarten met showcase in
+   een horizontale slider (onderaan de dienstpagina).
+   ============================================================ */
+
+.section {
+  overflow: hidden;
+}
+
+.root {
+  --gap: clamp(14px, 1.6vw, 22px);
+  /* desktop: drie kaarten in de container, de vierde piept rechts in beeld */
+  --card-w: calc((min(100vw - var(--gutter) * 2, var(--container)) - 2 * var(--gap)) / 3);
+  /* uitlijning met de container */
+  --edge: max(var(--gutter), calc((100% - var(--container)) / 2));
+}
+@media (max-width: 1100px) {
+  .root {
+    --card-w: calc((100vw - var(--gutter) * 2 - var(--gap)) / 2.15);
+  }
+}
+@media (max-width: 700px) {
+  .root {
+    --card-w: calc((100vw - var(--gutter) * 2) / 1.15);
+  }
+}
+
+/* ---------- kop + bediening ---------- */
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 40px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(28px, 3.6vw, 48px);
+}
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.progress {
+  position: relative;
+  width: clamp(90px, 10vw, 150px);
+  height: 2px;
+  margin-right: 14px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.thumb {
+  --w: 0.33;
+  --p: 0;
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--w) * 100%);
+  border-radius: inherit;
+  background: var(--g-pixels);
+  transform: translateX(calc(var(--p) * (100% / var(--w) - 100%)));
+  transition: transform 0.35s var(--ease-out);
+}
+.btn {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  transition:
+    background 0.3s,
+    box-shadow 0.3s,
+    color 0.3s,
+    opacity 0.3s;
+}
+.btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+.btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ---------- scroller ---------- */
+.scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--edge);
+  scrollbar-width: none;
+  cursor: grab;
+  outline: none;
+  /* ruimte voor de schaduw van de kaarten */
+  padding-block: 6px 28px;
+}
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+.scroller:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: -2px;
+  border-radius: var(--r-lg);
+}
+.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+.dragging a {
+  pointer-events: none;
+}
+.track {
+  display: flex;
+  gap: var(--gap);
+  width: max-content;
+  padding-inline: var(--edge);
+}
+.slide {
+  flex: none;
+  width: var(--card-w);
+  scroll-snap-align: start;
+}
+
+/* ---------- kaart (compacte, rustigere peilerkaart) ---------- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 34%, rgba(134, 148, 176, 0.14), rgba(134, 148, 176, 0.04) 50%, transparent 78%),
+    #050506;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 30px 60px -34px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  isolation: isolate;
+  transition: box-shadow 0.6s var(--ease-out);
+}
+.card:hover,
+.card:focus-within {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 30%, rgba(255, 255, 255, 0.08)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 30px 70px -30px rgba(0, 0, 0, 0.85);
+}
+
+.stage {
+  position: relative;
+  /* zelfde verhouding als de mockup-helft van de peilerkaarten op home */
+  aspect-ratio: 12 / 13;
+  overflow: hidden;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  /* zachte accentgloed achter de mockup */
+  background: radial-gradient(60% 50% at 50% 50%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 72%);
+}
+/* onderkant van het podium zacht laten overlopen in de tekst */
+.stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 18%;
+  z-index: 2;
+  background: linear-gradient(180deg, transparent, #050506);
+  pointer-events: none;
+}
+.lazy {
+  display: contents;
+}
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: color-mix(in srgb, var(--accent) 70%, #fff);
+  opacity: 0.35;
+}
+.mockup {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 10%;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9d9da6;
+}
+.tagDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+.tagOn {
+  color: #d6d6dc;
+}
+.tagOn .tagDot {
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  padding: 4px clamp(20px, 2vw, 28px) clamp(20px, 2vw, 26px);
+}
+.title {
+  font-size: clamp(1.15rem, 1.35vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #e9e9ee;
+  text-wrap: balance;
+}
+/* de hele kaart is klikbaar via de titel-link */
+.link {
+  -webkit-user-drag: none;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+.card:has(.link) {
+  cursor: pointer;
+}
+.link:focus-visible {
+  outline: none;
+}
+.card:has(.link:focus-visible) {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+.intro {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #a9a9b2;
+}
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #dcdce2;
+}
+.arrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  transition:
+    background 0.45s var(--ease-out),
+    color 0.45s var(--ease-out),
+    box-shadow 0.45s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+.card:hover .arrow,
+.card:focus-within .arrow {
+  background: var(--accent);
+  color: #050506;
+  box-shadow: none;
+  transform: translateX(3px);
+}
+
+@media (max-width: 700px) {
+  .head {
+    align-items: flex-start;
+  }
+  .controls {
+    display: none;
+  }
+  .scroller {
+    cursor: auto;
+  }
+  .stage {
+    aspect-ratio: 5 / 6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb,
+  .arrow,
+  .card {
+    transition: none;
+  }
+}

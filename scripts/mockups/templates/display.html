@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../src/components/cases/devices.css" />
+    <link rel="stylesheet" href="base.css" />
+    <!-- Studio Display (space grey) recht van voren, met een iPhone ernaast. -->
+    <style>
+      body { --W: 1200px; --H: 800px; --gy: 50%; }
+      .display { position: absolute; left: 196px; top: 92px; width: 740px; }
+      .phone { position: absolute; left: 896px; top: 440px; width: 128px; }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="scene">
+      <div class="display" data-dx="display" data-shot="deskSec"></div>
+      <div class="phone" data-dx="phone" data-shot="mob"></div>
+    </div>
+    <div class="grain"></div>
+    <script src="devices.js"></script>
+    <script src="stage.js"></script>
+  </body>
+</html>

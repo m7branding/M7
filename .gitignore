@@ -5,6 +5,7 @@
 
 # next.js
 /.next/
+/.next-dev/
 /out/
 next-env.d.ts
 
@@ -26,3 +27,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# losse screenshots van agents
+/shots/
+/.next-test/
+/.next-*/

@@ -1,0 +1,322 @@
+/* DesignersHouse brandbook. Scroll: --sp (lineair) 0 → 1 over het hele leven van de kaart
+   (0.74 = vastgezet, sleutelbeeld). Eén doorlopende camerabeweging, alles met smoothstep.
+   Alles schaalt met de kaart via container-units (cqw / cqh). Geen achtergrondvlak:
+   alleen een zachte goudgloed onder het boek. */
+.root {
+  --dir: 1;
+  --gold: #d3c089;
+  --charcoal: #383736;
+  --pw: 50cqw; /* breedte van één (liggende) pagina */
+  /* horizontale camerabaan: dicht → open → drift. Het boek opent altijd naar links, dus gespiegeld
+     is dit geen spiegeling maar een eigen baan (dicht aan de buitenkant, open rechts vrij van de tekst) */
+  --x0: -14cqw;
+  --x1: 23cqw;
+  --x2: 8cqw;
+  /* camera: zijwaarts meeschuiven en kantelen met de kaft (0.04 → 0.5), bijdraaien (0.02 → 0.62) */
+  --x: clamp(0, (var(--sp) - 0.04) / 0.46, 1);
+  --xs: calc(var(--x) * var(--x) * (3 - 2 * var(--x)));
+  --a: clamp(0, (var(--sp) - 0.02) / 0.6, 1);
+  --as: calc(var(--a) * var(--a) * (3 - 2 * var(--a)));
+  /* camera: trage drift/zoom die tot het eind doorloopt (0.38 → 1.2, dus bij 1 nog in beweging) */
+  --d: clamp(0, (var(--sp) - 0.38) / 0.82, 1);
+  --ds: calc(var(--d) * var(--d) * (3 - 2 * var(--d)));
+  /* kaft (0.13 → 0.5), blad 1 (0.48 → 0.735), blad 2 (0.79 → 1.02): elk blad landt zacht terwijl het volgende loskomt */
+  --k0: clamp(0, (var(--sp) - 0.13) / 0.37, 1);
+  --t0: calc(var(--k0) * var(--k0) * (3 - 2 * var(--k0)));
+  --k1: clamp(0, (var(--sp) - 0.48) / 0.255, 1);
+  --t1: calc(var(--k1) * var(--k1) * (3 - 2 * var(--k1)));
+  --k2: clamp(0, (var(--sp) - 0.79) / 0.23, 1);
+  --t2: calc(var(--k2) * var(--k2) * (3 - 2 * var(--k2)));
+  position: absolute;
+  inset: 0;
+}
+:global(.show--flip) .root {
+  --dir: -1;
+  --x0: -26cqw;
+  --x1: 15.5cqw;
+  --x2: -6cqw;
+}
+
+/* warme lichtplas onder het boek; loopt ruim vóór de randen uit naar transparant */
+.glow {
+  position: absolute;
+  left: calc(50cqw + var(--dir) * 11cqw);
+  top: 50cqh;
+  width: 86cqw;
+  height: 70cqh;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(211, 192, 137, 0.2), rgba(211, 192, 137, 0.07) 50%, transparent);
+  opacity: calc(0.35 + var(--as) * 0.65);
+  animation: breathe 10s ease-in-out infinite;
+}
+@keyframes breathe {
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ---------- 3D-boek ---------- */
+.scene {
+  position: absolute;
+  inset: 0;
+  perspective: 2400px;
+  perspective-origin: 50% 0%;
+}
+.book {
+  position: absolute;
+  left: calc(50cqw - var(--pw));
+  top: calc(50cqh - var(--pw) * 9 / 32);
+  width: calc(var(--pw) * 2);
+  aspect-ratio: 32 / 9;
+  transform-style: preserve-3d;
+  /* dicht en schuin → draait bij en schuift naar de buitenrand terwijl hij opengaat, daarna trage drift */
+  transform:
+    translate3d(
+      calc(var(--x0) + var(--xs) * var(--x1) + var(--ds) * var(--x2)),
+      calc(5cqh - var(--as) * 7cqh - var(--ds) * 2cqh),
+      0
+    )
+    rotateX(calc(44deg - var(--xs) * 10deg - var(--ds) * 6deg))
+    rotateZ(calc(var(--dir) * (-24deg + var(--as) * 9.8deg + var(--ds) * 9deg)))
+    scale(calc(0.84 + var(--t0) * var(--t0) * 0.18 + var(--ds) * 0.1));
+}
+.shadow {
+  position: absolute;
+  inset: 6% 2% -4% 2%;
+  background: rgba(0, 0, 0, 0.8);
+  filter: blur(26px);
+  border-radius: 12px;
+  /* schaduw groeit mee naar links als de kaft opengaat */
+  transform-origin: 100% 50%;
+  transform: translateZ(-6px) scaleX(calc(0.48 + var(--t0) * 0.52));
+}
+.right {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+.page,
+.leaf {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: 0 50%;
+}
+.base,
+.leftBlock {
+  overflow: hidden;
+  border-radius: 0 6px 6px 0;
+  background: #2f2e2d;
+  /* dikte van het blok pagina's */
+  box-shadow:
+    2px 2px 0 #e9e5df,
+    4px 4px 0 #d9d3cc,
+    6px 6px 0 #cfc8c0,
+    10px 14px 24px rgba(0, 0, 0, 0.45);
+}
+/* het blok links (omgeslagen bladen) verschijnt pas onder de gelande kaft */
+.leftBlock {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 6px 0 0 6px;
+  box-shadow:
+    -2px 2px 0 #e9e5df,
+    -4px 4px 0 #d9d3cc,
+    -6px 6px 0 #cfc8c0,
+    -10px 14px 24px rgba(0, 0, 0, 0.45);
+  transform: translateZ(-4px);
+  opacity: clamp(0, (var(--t0) - 0.9) / 0.1, 1);
+}
+
+/* bladen draaien om de rug; elk blad ligt een fractie hoger dan het vorige */
+.leaf {
+  transform: rotateY(calc(var(--t) * -180deg)) translateZ(var(--z));
+}
+.cover {
+  --t: var(--t0);
+  --z: 3px;
+}
+.leaf1 {
+  --t: var(--t1);
+  --z: 2px;
+}
+.leaf2 {
+  --t: var(--t2);
+  --z: 1px;
+}
+.face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 0 6px 6px 0;
+  background: #2f2e2d;
+}
+.back {
+  transform: rotateY(180deg);
+  border-radius: 6px 0 0 6px;
+}
+.face img,
+.base img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* een blad dat rechtop staat vangt minder licht: zachte schaduw halverwege de draai */
+.leaf .face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25));
+  opacity: calc(min(var(--t), 1 - var(--t)) * 0.9);
+}
+.leaf .back::before {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25));
+}
+/* rugschaduw (goot) op elke pagina */
+.front::after,
+.base::after,
+.back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0) 9%, rgba(255, 255, 255, 0.04) 60%, rgba(0, 0, 0, 0.12));
+}
+.back::after {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0) 9%, rgba(255, 255, 255, 0.04) 60%, rgba(0, 0, 0, 0.12));
+}
+
+/* ---------- Kaft: charcoal met goudfolie ---------- */
+.coverFront {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 90% at 25% 15%, rgba(255, 255, 255, 0.07), transparent 55%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, #42413f, var(--charcoal) 45%, #2a2928);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+.coverFront::after {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5%, rgba(255, 255, 255, 0.03) 7%, transparent 9%);
+}
+.foil {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  width: 22%;
+  aspect-ratio: 600 / 691;
+  translate: -50% 0;
+  background: linear-gradient(115deg, #a8925c 0%, #d3c089 30%, #f6ebc4 45%, #d3c089 55%, #8f7a48 100%);
+  background-size: 260% 100%;
+  -webkit-mask: url("/media/showcase/designershouse/emblem-mask.webp") center / contain no-repeat;
+  mask: url("/media/showcase/designershouse/emblem-mask.webp") center / contain no-repeat;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.4));
+  animation: foil 7s ease-in-out infinite;
+}
+@keyframes foil {
+  0%,
+  100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0% 0;
+  }
+}
+.coverWord {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  translate: -50% 0;
+  display: grid;
+  justify-items: end;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.2cqw;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #ebe7e1;
+}
+.coverWord small {
+  margin-top: 0.25em;
+  font-family: var(--font);
+  font-size: 0.32em;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+}
+.coverLabel {
+  position: absolute;
+  left: 7%;
+  bottom: 8%;
+  font-size: 1.05cqw;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(235, 231, 225, 0.55);
+}
+
+/* ---------- Kleurstalen: zweven rustig binnen, drijven daarna mee met de camera ---------- */
+.swatches {
+  position: absolute;
+  left: calc(50cqw - var(--dir) * 12cqw);
+  bottom: 4cqh;
+  display: flex;
+  translate: -50% 0;
+  pointer-events: none;
+  transform: translate3d(calc(var(--dir) * var(--ds) * 4cqw), calc(var(--ds) * -3cqh), 0);
+}
+.swatches li {
+  --k: clamp(0, (var(--sp) - 0.42 - var(--n) * 0.045) / 0.2, 1);
+  --ks: calc(var(--k) * var(--k) * (3 - 2 * var(--k)));
+  position: relative;
+  z-index: calc(4 - var(--n)); /* een kaart die nog invaagt ligt achter de vorige */
+  width: 15.5cqw;
+  margin-right: -3.2cqw;
+  border-radius: 1.2cqw;
+  overflow: hidden;
+  background: #fbfaf8;
+  box-shadow: 0 1.6cqw 3cqw rgba(0, 0, 0, 0.5);
+  transform:
+    translate3d(0, calc((1 - var(--ks)) * 16cqh), 0)
+    rotate(calc(var(--dir) * (-14deg + var(--n) * 6deg + (1 - var(--ks)) * -6deg)));
+  opacity: clamp(0, var(--k) * 5, 1);
+  animation: float 8s ease-in-out infinite;
+  animation-delay: calc(var(--n) * -1.9s);
+}
+@keyframes float {
+  50% {
+    translate: 0 -0.7cqh;
+  }
+}
+.chip {
+  display: block;
+  aspect-ratio: 1 / 0.9;
+  background: var(--c);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+.meta {
+  display: grid;
+  gap: 0.2em;
+  padding: 0.9cqw 1cqw 1.1cqw;
+  font-size: 1.25cqw;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #6b6863;
+}
+.meta b {
+  font-family: Georgia, serif;
+  font-size: 1.45cqw;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #2b2a28;
+}
