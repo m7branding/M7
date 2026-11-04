@@ -527,16 +527,16 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "toy4participation": {
     intro: {
-      nl: "Ook de allerjongsten mogen meepraten over wat hen aangaat. TOY4Participation wilde dat verhaal niet alleen vertellen, maar mensen er zelf aan laten meedoen.",
-      en: "Even the youngest children deserve a say in what affects them. TOY4Participation didn't just want to tell that story, but to get people to take part in it.",
+      nl: "Ook de allerjongsten mogen meepraten over wat hen aangaat. TOY4Participation wilde dat verhaal niet alleen vertellen, maar mensen er zelf aan laten meedoen. Dus maakten we er een schattenjacht van.",
+      en: "Even the youngest children deserve a say in what affects them. TOY4Participation didn't just want to tell that story, but to get people to take part in it. So we turned it into a treasure hunt.",
     },
     chapters: [
       {
         title: { nl: "Meedoen in plaats van lezen.", en: "Taking part, not just reading." },
         body: [
           {
-            nl: "TOY4Participation is een Europees project binnen het netwerk van ISSA, de International Step by Step Association. Het zet zich in voor kinderparticipatie, in de kinderopvang en in Play Hubs in de buurt. Dat verhaal moest ouders van jonge kinderen bereiken, het liefst zo dat ze ook echt meedoen.",
-            en: "TOY4Participation is a European project within the network of ISSA, the International Step by Step Association. It champions child participation, in early childhood settings and in local Play Hubs. That story had to reach parents of young children, ideally in a way that gets them to join in.",
+            nl: "TOY4Participation is een Europees project binnen het netwerk van ISSA, de International Step by Step Association. Het zet zich in voor kinderparticipatie, in de kinderopvang en in Play Hubs in de buurt. Dat verhaal moest ouders en iedereen die met jonge kinderen werkt bereiken, het liefst zo dat ze ook echt meedoen.",
+            en: "TOY4Participation is a European project within the network of ISSA, the International Step by Step Association. It champions child participation, in early childhood settings and in local Play Hubs. That story had to reach parents and everyone who works with young children, ideally in a way that gets them to join in.",
           },
         ],
       },
@@ -544,21 +544,30 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een merk om mee te spelen.", en: "A brand to play with." },
         body: [
           {
-            nl: "We gaven TOY4Participation een eigen huisstijl, met fris turquoise, warme gele vormen en beelden van kinderen in actie. Daarna bouwden we de website in Webflow.",
-            en: "We gave TOY4Participation its own visual identity, with fresh turquoise, warm yellow shapes and images of children in action. Then we built the website in Webflow.",
+            nl: "We gaven TOY4Participation een eigen huisstijl, met fris turquoise, warme gele vormen en beelden van kinderen in actie. Daarna bouwden we de website, met Sanity als CMS en animaties in GSAP en Lottie: een zwevende schatkist en sleutels geven al op de homepage aan dat hier iets te ontdekken valt.",
+            en: "We gave TOY4Participation its own visual identity, with fresh turquoise, warm yellow shapes and images of children in action. Then we built the website, with Sanity as the CMS and animations in GSAP and Lottie: a floating treasure chest and keys signal on the homepage already that there is something to discover.",
           },
         ],
       },
       {
-        title: { nl: "Een speurtocht op de kaart.", en: "A treasure hunt on the map." },
+        title: { nl: "Een schattenjacht op de kaart.", en: "A treasure hunt on the map." },
         body: [
           {
-            nl: "Het hart is een interactieve quest. Op een kaart volg je korte hoofdstukken: wat kinderparticipatie is, waarom het ertoe doet, hoe het eruitziet en wat je misschien al doet zonder het zo te noemen. Onderweg deel je je eigen ervaringen.",
-            en: "At its heart is an interactive quest. On a map you follow short chapters: what child participation is, why it matters, what it looks like and what you may already be doing without calling it that. Along the way you share your own experiences.",
+            nl: "Het hart is een interactieve treasure hunt die je spelenderwijs door de pagina's laat avonturen. Op een kaart volg je vier korte hoofdstukken: wat kinderparticipatie is, waarom het ertoe doet, hoe het eruitziet en wat je misschien al doet zonder het zo te noemen. In elk hoofdstuk kies je welke aanpak je al gebruikt en welke je wilt proberen.",
+            en: "At its heart is an interactive treasure hunt that takes you on a playful adventure through the pages. On a map you follow four short chapters: what child participation is, why it matters, what it looks like and what you may already be doing without calling it that. In each chapter you choose which practices you already use and which you want to try.",
+          },
+        ],
+      },
+      {
+        title: { nl: "De schatkist gaat open.", en: "The treasure chest opens." },
+        body: [
+          {
+            nl: "Wie de tocht afrondt, ontgrendelt de schatkist: als dank download je de toolkit van TOY4Participation, met activiteitenkaarten en praktijkvoorbeelden. Op de communitypagina zie je live welke aanpakken anderen al gebruiken en welke ze het liefst willen proberen. Een aparte pagina vertaalt het verhaal naar beleid.",
+            en: "Complete the hunt and you unlock the treasure chest: as a thank-you, you download the TOY4Participation toolkit, with activity cards and case studies. On the community page you see live which practices others already use and which they most want to try. A separate page translates the story into policy.",
           },
           {
-            nl: "Die ervaringen komen samen op een community wall, waar je ziet wat anderen al doen en wat ze willen proberen. Zo werkt de quest als engagement funnel, van eerste klik tot actieve deelnemer, in meerdere talen.",
-            en: "Those experiences come together on a community wall, where you see what others already do and what they would like to try. That makes the quest an engagement funnel, from first click to active participant, in several languages.",
+            nl: "Zo werkt de quest als engagement funnel, van eerste klik tot actieve deelnemer, en dat in negen talen, van Bulgaars en Italiaans tot Lets en Oekraïens.",
+            en: "That makes the quest an engagement funnel, from first click to active participant, in nine languages, from Bulgarian and Italian to Latvian and Ukrainian.",
           },
         ],
       },
@@ -570,8 +579,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "chavore": {
     intro: {
-      nl: "CHAVORE betekent 'kinderen' in het Romani. Voor dit ISSA-initiatief maakten we een korte speurtocht die professionals laat stilstaan bij hun eigen praktijk.",
-      en: "CHAVORE means 'children' in Romani. For this ISSA initiative we built a short treasure hunt that makes professionals stop and reflect on their own practice.",
+      nl: "CHAVORE betekent 'kinderen' in het Romani. Voor dit ISSA-initiatief maakten we een korte schattenjacht die professionals laat stilstaan bij hun eigen praktijk. Explore. Reflect. Unlock.",
+      en: "CHAVORE means 'children' in Romani. For this ISSA initiative we built a short treasure hunt that makes professionals stop and reflect on their own practice. Explore. Reflect. Unlock.",
     },
     chapters: [
       {
@@ -587,8 +596,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een bekende basis, een eigen stijl.", en: "A familiar base, its own style." },
         body: [
           {
-            nl: "We namen de online ervaring van TOY4Participation als basis en maakten er een speurtocht van in de stijl van CHAVORE. Licht, warm en met oranje en geel als kleuren. Zo bouwden we voort op iets dat werkt, zonder dat het een kopie werd.",
-            en: "We took the TOY4Participation online experience as a base and turned it into a treasure hunt in CHAVORE's own style. Light, warm and coloured in orange and yellow. That way we built on something that works, without it becoming a copy.",
+            nl: "We namen de treasure hunt van TOY4Participation als basis en maakten er een eigen quest van in de stijl van CHAVORE. Licht, warm en met oranje en geel als kleuren. Zo bouwden we voort op iets dat werkt, zonder dat het een kopie werd.",
+            en: "We took the TOY4Participation treasure hunt as a base and turned it into a quest of its own in CHAVORE's style. Light, warm and coloured in orange and yellow. That way we built on something that works, without it becoming a copy.",
           },
         ],
       },
@@ -596,12 +605,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Elk hoofdstuk een keuze.", en: "Every chapter a choice." },
         body: [
           {
-            nl: "Op een kaart volg je vijf korte hoofdstukken, van Learning Through Feelings tot Care for the Caregivers. Bij elk hoofdstuk kies je welke aanpak je wilt proberen of vaker wilt doen. De antwoorden komen samen in een community-deel, zodat je ziet hoe anderen het aanpakken.",
-            en: "On a map you follow five short chapters, from Learning Through Feelings to Care for the Caregivers. In each one you choose which practices you would like to try or do more of. The answers come together in a community section, so you see how others approach it.",
+            nl: "Op een kaart avontuur je door vijf korte hoofdstukken, van Learning Through Feelings tot Care for the Caregivers. Bij elk hoofdstuk kies je welke aanpak je al gebruikt en welke je wilt proberen of vaker wilt doen.",
+            en: "On a map you adventure through five short chapters, from Learning Through Feelings to Care for the Caregivers. In each one you choose which practices you already use and which you would like to try or do more of.",
           },
           {
-            nl: "De quest is te volgen in het Engels en in de talen van de partnerlanden. Kort, speels en met ruimte om na te denken over je eigen werk.",
-            en: "The quest is available in English and in the languages of the partner countries. Short, playful and with room to think about your own work.",
+            nl: "Aan het eind gaat de schatkist open: een gratis online training en materialen van CHAVORE. De keuzes van iedereen komen samen op de community wall, met live tellers per aanpak. De quest is te volgen in het Engels, Albanees, Kroatisch, Hongaars, Slowaaks en Sloveens.",
+            en: "At the end the treasure chest opens: a free self-paced CHAVORE training and resources. Everyone's choices come together on the community wall, with live counters per practice. The quest is available in English, Albanian, Croatian, Hungarian, Slovak and Slovenian.",
           },
         ],
       },
@@ -1041,8 +1050,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "electriffy": {
     intro: {
-      nl: "Zonne-energie in Namibië, met een plan om die stroom naar Zambia te brengen. Electriffy ontwikkelt projecten met een regeneratief doel, en had een merk nodig dat dat grote verhaal begrijpelijk maakt.",
-      en: "Solar power in Namibia, with a plan to bring that electricity to Zambia. Electriffy develops projects with a regenerative purpose, and needed a brand that makes that big story easy to grasp.",
+      nl: "Zonne-energie in Namibië, met een plan om die stroom naar Zambia te brengen. Electriffy ontwikkelt projecten met een regeneratief doel, en had een merk nodig dat dat grote verhaal begrijpelijk maakt, en blijft vertellen.",
+      en: "Solar power in Namibia, with a plan to bring that electricity to Zambia. Electriffy develops projects with a regenerative purpose, and needed a brand that makes that big story easy to grasp, and keeps telling it.",
     },
     chapters: [
       {
@@ -1064,11 +1073,24 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         ],
       },
       {
-        title: { nl: "Stap voor stap uitgelegd.", en: "Explained step by step." },
+        title: { nl: "Een route per doelgroep.", en: "A route for every audience." },
         body: [
           {
-            nl: "De site legt uit wat Electriffy doet: zon en batterijopslag, stroomafnamecontracten en projectontwikkeling. Daarna voor wie, in welke regio's en hoe de regeneratieve aanpak samen met YOUR.earth werkt. Zo wordt een groot, technisch project begrijpelijk voor iedereen die erbij betrokken is.",
-            en: "The site explains what Electriffy does: solar and battery storage, power purchase agreements and project development. Then for whom, in which regions and how the regenerative approach works together with YOUR.earth. That way a large, technical project makes sense to everyone involved.",
+            nl: "De site legt uit wat Electriffy doet: zon en batterijopslag, stroomafnamecontracten en projectontwikkeling. Daarna in welke regio's en hoe de regeneratieve aanpak samen met YOUR.earth werkt. Investeerders, overheden en netbeheerders, industrie en datacenters, en grondeigenaren en gemeenschappen hebben elk een eigen pagina.",
+            en: "The site explains what Electriffy does: solar and battery storage, power purchase agreements and project development. Then in which regions and how the regenerative approach works together with YOUR.earth. Investors, governments and utilities, industry and data centres, and landowners and communities each have their own page.",
+          },
+          {
+            nl: "Verhalen verdiepen het project, en het contactformulier vraagt meteen waar je gesprek over gaat. Zo landt elke vraag bij de juiste persoon.",
+            en: "Stories add depth to the project, and the contact form asks straight away what your conversation is about. That way every question reaches the right person.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Het verhaal loopt door.", en: "The story keeps going." },
+        body: [
+          {
+            nl: "Na de lancering bleven we betrokken. We verzorgen de social media en de organische content van Electriffy, zodat het verhaal van zon, opslag en regio ook buiten de website verder wordt verteld.",
+            en: "We stayed involved after the launch. We take care of Electriffy's social media and organic content, so the story of sun, storage and region carries on beyond the website.",
           },
         ],
       },
@@ -1079,8 +1101,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "your-earth": {
     intro: {
-      nl: "Bedrijven dragen bij, YOUR.earth verdubbelt elke euro en investeert hem in het landschap waar die bedrijven zelf actief zijn. Een nieuw model, dat geloofwaardig moest overkomen.",
-      en: "Companies contribute, YOUR.earth doubles every euro and invests it in the landscape where those companies operate. A new model that had to come across as credible.",
+      nl: "Bedrijven dragen bij, YOUR.earth verdubbelt elke euro en investeert hem in het landschap waar die bedrijven zelf actief zijn. Een nieuw model, dat geloofwaardig moest overkomen. En dat lukt alleen als je het kunt narekenen.",
+      en: "Companies contribute, YOUR.earth doubles every euro and invests it in the landscape where those companies operate. A new model that had to come across as credible. And that only works if people can check the numbers themselves.",
     },
     chapters: [
       {
@@ -1096,8 +1118,17 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "De kaart als verteller.", en: "The map tells the story." },
         body: [
           {
-            nl: "We maakten de branding en de website: donkerblauw met fel limoengroen. Een kaart laat de projecten per landschap zien, en terwijl je scrolt, zie je waar het geld terechtkomt.",
-            en: "We created the branding and the website: dark blue with bright lime green. A map shows the projects per landscape, and as you scroll, you see where the money goes.",
+            nl: "We maakten de branding en de website: donkerblauw met fel limoengroen. Op de homepage beweegt een kaart mee terwijl je scrolt, en zie je waar het geld terechtkomt. Op de regiopagina zoom je zelf in op een interactieve kaart, met per regio de projecten.",
+            en: "We created the branding and the website: dark blue with bright lime green. On the homepage a map moves along as you scroll, showing where the money goes. On the regions page you zoom in yourself on an interactive map, with the projects for each region.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Reken het zelf uit.", en: "Do the maths yourself." },
+        body: [
+          {
+            nl: "Voor het model bouwden we een rekenmodule. Vul een contract- of investeringswaarde in en je ziet direct wat de partnerbijdrage, de beoogde match en het totale budget voor natuurherstel worden. Uitgewerkte voorbeelden en de vragen die steeds terugkomen staan er direct onder.",
+            en: "For the model we built a calculator. Enter a contract or investment value and you instantly see the partner commitment, the target match and the total budget for nature restoration. Worked examples and the questions that always come back sit right below it.",
           },
         ],
       },
@@ -1105,14 +1136,19 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Gemeten, niet beloofd.", en: "Measured, not promised." },
         body: [
           {
-            nl: "De site legt stap voor stap uit hoe het model werkt en hoe resultaten worden gemeten. Zo staan de projecten zelf in de hoofdrol, en wordt een nieuw model voor natuurfinanciering concreet.",
-            en: "The site explains step by step how the model works and how results are measured. That puts the projects themselves in the lead role, and makes a new model for financing nature concrete.",
+            nl: "Elke projectpagina kreeg een impactmodule: wat er gebeurt, welke partners welke rol hebben, wat er wordt gemeten en hoe, van nulmeting en satellietbeelden tot eDNA en een jaarlijks rapport, en hoe het geld in lagen wordt opgebouwd en verdeeld. Partners, bijdragers en regio's hebben elk een eigen ingang.",
+            en: "Every project page got an impact module: what happens, which partners play which role, what is measured and how, from baseline and satellite imagery to eDNA and an annual report, and how the money is built up in layers and allocated. Partners, contributors and regions each have their own way in.",
+          },
+          {
+            nl: "Daarnaast verzorgen we de social media en de organische content van YOUR.earth, zodat de projecten ook buiten de website hun verhaal vertellen.",
+            en: "We also take care of YOUR.earth's social media and organic content, so the projects tell their story beyond the website too.",
           },
         ],
       },
     ],
     statements: [
       { nl: "Vertrouwen bouw je met uitleg, niet met grote woorden.", en: "Trust is built with explanation, not big words." },
+      { nl: "Wie het zelf kan narekenen, hoeft het niet te geloven.", en: "If you can check it yourself, you don't have to take it on faith." },
     ],
   },
   "jalo-energy": {
@@ -1134,8 +1170,17 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Het model in delen.", en: "The model, piece by piece." },
         body: [
           {
-            nl: "We gaven JALO een eigen merk en bouwden de website. Die legt het JALO-model in delen uit: Nederpellets, lokale warmte, CO₂-verwijdering en het landschapsprogramma met YOUR.earth. Boeren, investeerders en wie meer wil weten over de techniek vinden elk een eigen pagina.",
-            en: "We gave JALO its own brand and built the website. It explains the JALO model piece by piece: Nederpellets, local heat, carbon removal and the landscape programme with YOUR.earth. Farmers, investors and anyone curious about the technology each find a page of their own.",
+            nl: "We gaven JALO een eigen merk en bouwden de volledige website. Die legt het JALO-model in delen uit: Nederpellets, lokale warmte, CO₂-verwijdering, techniek, grondstoffen en het landschapsprogramma met YOUR.earth. Boeren vinden een eigen pagina over agroforestry, en investeerders een eigen investeerderspagina waar ze een gesprek aanvragen.",
+            en: "We gave JALO its own brand and built the complete website. It explains the JALO model piece by piece: Nederpellets, local heat, carbon removal, technology, feedstock and the landscape programme with YOUR.earth. Farmers find their own page about agroforestry, and investors a dedicated investor page where they request a conversation.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Eerlijk over wat er al staat.", en: "Honest about what is in place." },
+        body: [
+          {
+            nl: "Een pagina over impact laat zien hoe resultaten worden aangetoond, en een pagina met bronnen en projectstatus maakt duidelijk wat een plan is en wat al is afgesproken. Nederpellets vraag je aan in twee stappen, en het contactformulier vraagt eerst waar je vraag over gaat. De website is gekoppeld aan HubSpot.",
+            en: "An impact page shows how results will be demonstrated, and a sources and project status page makes clear what is a plan and what has already been agreed. You request Nederpellets in two steps, and the contact form first asks what your question is about. The website is integrated with HubSpot.",
           },
         ],
       },
@@ -1143,8 +1188,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Ook buiten de website.", en: "Beyond the website." },
         body: [
           {
-            nl: "Daarnaast maakten we social content en een webinar. Zo vertellen merk, website, social en webinar samen één samenhangend verhaal over energie, CO₂ en landschap.",
-            en: "We also created social content and a webinar. Together, brand, website, social and webinar tell one coherent story about energy, CO₂ and landscape.",
+            nl: "Daarnaast maakten we een webinar, met een eigen pagina voor de sprekers en het slidedeck, en verzorgen we de social media en de organische content. Zo vertellen merk, website, social en webinar samen één samenhangend verhaal over energie, CO₂ en landschap.",
+            en: "We also created a webinar, with its own page for the speakers and the slide deck, and we take care of the social media and organic content. Together, brand, website, social and webinar tell one coherent story about energy, CO₂ and landscape.",
           },
         ],
       },
@@ -1235,16 +1280,38 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "alpacafarm-vorstenbosch": {
     intro: {
-      nl: "Wandelen met alpaca's, high tea tussen de dieren, pizza op de farm. Bij Alpacafarm Vorstenbosch, een paar kilometer van ons kantoor, is genoeg te doen. Online moest dat net zo gezellig voelen.",
-      en: "Walking with alpacas, high tea among the animals, pizza on the farm. Alpacafarm Vorstenbosch, a few kilometres from our office, has plenty going on. Online, it had to feel just as welcoming.",
+      nl: "Wandelen met alpaca's, high tea tussen de dieren, pizza op de farm, overnachten in een tent. Bij Alpacafarm Vorstenbosch, een paar kilometer van ons kantoor, is genoeg te doen. Online moest dat net zo gezellig voelen, en net zo makkelijk te boeken zijn.",
+      en: "Walking with alpacas, high tea among the animals, pizza on the farm, a night in a tent. Alpacafarm Vorstenbosch, a few kilometres from our office, has plenty going on. Online, it had to feel just as welcoming, and be just as easy to book.",
     },
     chapters: [
       {
         title: { nl: "Eerst de openingstijden.", en: "Opening hours first." },
         body: [
           {
-            nl: "Bezoekers willen vooral snel weten wanneer ze langs kunnen komen en wat er te doen is. Dus bouwden we de website met een openingstijdenwidget die meteen laat zien wanneer de farm open is. Activiteiten, de Alpacabar en overnachten hebben elk een eigen plek.",
-            en: "Visitors mostly want to know quickly when they can drop by and what there is to do. So we built the website with an opening-hours widget that shows straight away when the farm is open. Activities, the Alpacabar and overnight stays each have their own place.",
+            nl: "Bezoekers willen vooral snel weten wanneer ze langs kunnen komen en wat er te doen is. Dus ontwikkelden we een eigen openingstijdenplugin met een beheerbare module: een maandkalender met per dag de tijden, gesloten en gedeeltelijk geopende dagen en bijzonderheden. De farm past de tijden zelf aan, en de kalender laat ook de seizoensprogramma's zien.",
+            en: "Visitors mostly want to know quickly when they can drop by and what there is to do. So we developed a custom opening-hours plugin with a manageable module: a monthly calendar showing the hours for each day, closed and partly open days and special notes. The farm updates the hours itself, and the calendar shows the seasonal programmes too.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Vier seizoenen, één site.", en: "Four seasons, one site." },
+        body: [
+          {
+            nl: "De farm ziet er in de winter anders uit dan in de zomer, en dat mag je zien. Met de vierseizoenenfunctie wisselen de foto's per activiteit mee met het seizoen, zodat de website het hele jaar laat zien wat er nu te beleven is.",
+            en: "The farm looks different in winter than in summer, and that should show. With the four-seasons feature the photos for each activity change with the season, so all year round the website shows what there is to experience right now.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van kijken naar boeken.", en: "From browsing to booking." },
+        body: [
+          {
+            nl: "De website is gebouwd in WordPress, met activiteiten, de Alpacabar, overnachten, de fokkerij, zakelijke uitjes en de winkel elk op een eigen plek. Op de reserveerpagina kies je een activiteit en boek je direct via de gekoppelde externe boekingsmodule, voor activiteiten en voor lunch en high tea. Elke activiteit heeft eigen veelgestelde vragen, en een centrale FAQ is ingedeeld per thema.",
+            en: "The website is built in WordPress, with activities, the Alpacabar, overnight stays, breeding, company outings and the shop each in their own place. On the booking page you choose an activity and book straight away through the integrated external booking module, for activities as well as lunch and high tea. Every activity has its own frequently asked questions, and a central FAQ is organised by theme.",
+          },
+          {
+            nl: "Achter de site draaien geavanceerde flows met logica, en de webshop van de Alpaca Boutique bouwden we in WooCommerce: alpacawol, dekbedden, knuffels en cadeaubonnen, gewoon online te bestellen.",
+            en: "Advanced flows with logic run behind the site, and we built the Alpaca Boutique web shop in WooCommerce: alpaca wool, duvets, cuddly toys and gift cards, simply ordered online.",
           },
         ],
       },
@@ -1252,14 +1319,15 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "De alpaca's als sterren.", en: "The alpacas as the stars." },
         body: [
           {
-            nl: "We verzorgden de complete social media: de hele feed, reels en alles wat erbij hoort. Daarin spelen de alpaca's vanzelf de hoofdrol. Een goed moment met een nieuwsgierige alpaca zegt meer dan een lange tekst.",
-            en: "We took care of the complete social media: the whole feed, reels and everything around it. The alpacas naturally play the lead role. A good moment with a curious alpaca says more than a long caption.",
+            nl: "We verzorgen de social media en de organische content: de feed, reels en alles wat erbij hoort. Daarin spelen de alpaca's vanzelf de hoofdrol. Een goed moment met een nieuwsgierige alpaca zegt meer dan een lange tekst.",
+            en: "We take care of the social media and organic content: the feed, reels and everything around it. The alpacas naturally play the lead role. A good moment with a curious alpaca says more than a long caption.",
           },
         ],
       },
     ],
     statements: [
       { nl: "Soms is de beste content gewoon een nieuwsgierige alpaca.", en: "Sometimes the best content is simply a curious alpaca." },
+      { nl: "Een website die meegaat met de seizoenen.", en: "A website that changes with the seasons." },
     ],
   },
   "hela": {
@@ -1366,8 +1434,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "icewall": {
     intro: {
-      nl: "Een eindige kaart vol fragmenten, en wie er vroeg bij is, claimt er een. Icewall had een sterk idee. Wij gaven het een concept, een merk en een website.",
-      en: "A finite map full of fragments, and those who arrive early claim one. Icewall had a strong idea. We gave it a concept, a brand and a website.",
+      nl: "Een eindige kaart vol fragmenten, en wie er vroeg bij is, claimt er een. Icewall had een sterk idee. Wij gaven het een concept, een merk, een website en een explorer waarin je die wereld echt betreedt.",
+      en: "A finite map full of fragments, and those who arrive early claim one. Icewall had a strong idea. We gave it a concept, a brand, a website and an explorer where you really step into that world.",
     },
     chapters: [
       {
@@ -1383,21 +1451,30 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een wereld van fragmenten.", en: "A world of fragments." },
         body: [
           {
-            nl: "Daarna ontwierpen we de branding en zetten we de art direction neer, met eigen graphics en filmische animaties. De website is donker, met een gloeiende aarde en een dynamische 2D-wereldkaart waarop je Icewall zelf verkent en losse fragmenten ontdekt. In drie stappen zie je hoe het werkt: ontdekken, een fragment claimen en een spoor achterlaten voor wie na je komt.",
-            en: "Then we designed the branding and set the art direction, with custom graphics and cinematic animations. The website is dark, with a glowing earth and a dynamic 2D world map where you explore Icewall yourself and discover individual fragments. Three steps show how it works: discover, claim a fragment and leave a mark for those who come after you.",
+            nl: "Daarna ontwierpen we de branding en zetten we de art direction neer, met eigen graphics en filmische animaties. De website is donker, met een gloeiende aarde, en vertelt het verhaal: het project, de community, de roadmap, de collectibles en het goede doel. In drie stappen zie je hoe het werkt: ontdekken, een fragment claimen en een spoor achterlaten voor wie na je komt.",
+            en: "Then we designed the branding and set the art direction, with custom graphics and cinematic animations. The website is dark, with a glowing earth, and tells the story: the project, the community, the roadmap, the collectibles and the charity. Three steps show how it works: discover, claim a fragment and leave a mark for those who come after you.",
           },
         ],
       },
       {
-        title: { nl: "Van kiezen tot claimen.", en: "From choosing to claiming." },
+        title: { nl: "Van verkennen tot claimen.", en: "From exploring to claiming." },
         body: [
           {
-            nl: "We bouwden de volledige bestel- en claimflow. Je kiest een fragment, interactieve statussen laten zien waar je bent, en na een bevestiging volgen automatische e-mails.",
-            en: "We built the complete order and claim flow. You choose a fragment, interactive states show where you are, and a confirmation is followed by automated emails.",
+            nl: "De explorer is een uitgebreide, interactieve en visuele kaart. Je sleept, scrollt en zoomt, vindt je eigen fragment terug en ziet wat al geclaimd is. Daar claim je ook je fragment: kiezen, je gegevens invullen en afrekenen via een volledige Stripe-koppeling. Automatische mailings sturen daarna je bevestiging en je digitale bewijs, en elk fragment krijgt een eigen verwijzingslink.",
+            en: "The explorer is an extensive, interactive and visual map. You drag, scroll and zoom, locate your own fragment and see what has already been claimed. That is also where you claim your fragment: choose it, enter your details and pay through a full Stripe integration. Automated emails then send your confirmation and your digital proof, and every fragment gets its own referral link.",
           },
           {
-            nl: "We keken ook verder dan de lancering. Voor wat nog komt maakten we de visuele en strategische roadmap: nieuwe eilanden die opengaan, digitale collectibles, communityfuncties en fysieke producten.",
-            en: "We also looked beyond the launch. For what comes next we created the visual and strategic roadmap: new islands to unlock, digital collectibles, community features and physical products.",
+            nl: "Op de communitypagina lees je de berichten die founders achterlieten, als lijst of op de kaart.",
+            en: "On the community page you read the messages founders left behind, as a list or on the map.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Klaar voor wat komt.", en: "Ready for what comes next." },
+        body: [
+          {
+            nl: "We keken ook verder dan de lancering. We bereidden de stap naar NFT's voor, met een eigen pagina voor de Mint Machine die geclaimde fragmenten later omzet in digitale collectibles. En we maakten de visuele en strategische roadmap: nieuwe eilanden die opengaan, digitale collectibles, communityfuncties en fysieke producten.",
+            en: "We also looked beyond the launch. We prepared the step to NFTs, with a dedicated page for the Mint Machine that will later turn claimed fragments into digital collectibles. And we created the visual and strategic roadmap: new islands to unlock, digital collectibles, community features and physical products.",
           },
         ],
       },
@@ -2161,28 +2238,42 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Begin bij je plan.", en: "Start with your plan." },
         body: [
           {
-            nl: "Merk en website, gebouwd in Webflow, kregen een warme en ingetogen uitstraling, met zand en goud als kleuren. Je zoekt op wat je wilt organiseren, van teambuilding en workshops tot vergaderen of trouwen. Per locatie zie je wat er kan.",
-            en: "Brand and website, built in Webflow, got a warm and understated look, in sand and gold. You search by what you want to organise, from team building and workshops to meetings or a wedding. For each venue you see what's possible.",
+            nl: "Merk en website, gebouwd in Webflow, kregen een warme en ingetogen uitstraling, met zand en goud als kleuren. Je begint niet bij een hotel, maar bij wat je wilt organiseren. Met de zoekbalk 'Ik ben op zoek naar een locatie voor mijn...' kies je je gelegenheid, en per locatie zie je wat er kan.",
+            en: "Brand and website, built in Webflow, got a warm and understated look, in sand and gold. You don't start with a hotel, but with what you want to organise. With the search bar 'I'm looking for a venue for my...' you choose your occasion, and for each venue you see what's possible.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een pagina voor elke gelegenheid.", en: "A page for every occasion." },
+        body: [
+          {
+            nl: "De kern is een GEO- en SEO-geoptimaliseerde contentstructuur rond 'organiseren'. Trouwen, vergaderen, teambuilding, een heisessie, een gala of een afscheid: elke gelegenheid heeft een eigen pagina met dezelfde heldere opbouw, met de locaties waar het kan en per locatie het programma of arrangement.",
+            en: "At its core is a GEO- and SEO-optimised content structure built around 'organising'. A wedding, a meeting, team building, a brainstorm away-day, a gala or a farewell: every occasion has its own page with the same clear structure, showing the venues that can host it and the programme or package at each one.",
+          },
+          {
+            nl: "Elke locatiepagina linkt terug naar de gelegenheden waarvoor die geschikt is, en een pagina over de streken van Gelderland koppelt de omgeving aan de locaties. Zo begrijpen bezoekers, zoekmachines en AI-assistenten in één keer welke plek bij welk plan past.",
+            en: "Every venue page links back to the occasions it suits, and a page on the regions of Gelderland ties the surroundings to the venues. That way visitors, search engines and AI assistants understand at once which place fits which plan.",
           },
         ],
       },
     ],
     statements: [
       { nl: "Elk pand een eigen verhaal. Eén merk dat ze bij elkaar houdt.", en: "Every building its own story. One brand that holds them together." },
+      { nl: "Wie zoekt op een gelegenheid, moet bij een locatie uitkomen.", en: "Search for an occasion, and you should land on a venue." },
     ],
   },
   "foodbars-gelderland": {
     intro: {
-      nl: "Lunch, borrel, diner of een bruiloft. Foodbars Gelderland brengt vier foodbars onder één vlag, en wij maakten er één merk van.",
-      en: "Lunch, drinks, dinner or a wedding. Foodbars Gelderland brings four food bars under one flag, and we turned them into one brand.",
+      nl: "Lunch, borrel, diner of een bruiloft. Foodbars Gelderland brengt vier foodbars onder één vlag, en wij maakten er één merk van, met een website die bij elke gelegenheid de juiste plek vindt.",
+      en: "Lunch, drinks, dinner or a wedding. Foodbars Gelderland brings four food bars under one flag, and we turned them into one brand, with a website that finds the right place for every occasion.",
     },
     chapters: [
       {
         title: { nl: "Vier zaken, één vlag.", en: "Four venues, one flag." },
         body: [
           {
-            nl: "Foodbars Gelderland bestaat uit LEV. Foodbar, LEV. by Mike, Gastrobar de Wereld en JANS'. Van high tea tot walking dinner en van zakelijke borrel tot bruiloft. Elke zaak heeft zijn eigen sfeer, en toch moesten ze samen één merk vormen.",
-            en: "Foodbars Gelderland is made up of LEV. Foodbar, LEV. by Mike, Gastrobar de Wereld and JANS'. From high tea to walking dinner and from business drinks to weddings. Each venue has its own atmosphere, yet together they had to form one brand.",
+            nl: "Foodbars Gelderland bestaat uit LEV. Foodbar in Doetinchem, LEV. by Mike in Winterswijk, Gastrobar de Wereld in Wageningen en JANS' in Arnhem. Van high tea tot walking dinner en van zakelijke borrel tot bruiloft. Elke zaak heeft zijn eigen sfeer, en toch moesten ze samen één merk vormen.",
+            en: "Foodbars Gelderland is made up of LEV. Foodbar in Doetinchem, LEV. by Mike in Winterswijk, Gastrobar de Wereld in Wageningen and JANS' in Arnhem. From high tea to walking dinner and from business drinks to weddings. Each venue has its own atmosphere, yet together they had to form one brand.",
           },
         ],
       },
@@ -2190,8 +2281,17 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Genieten, vieren, zakendoen.", en: "Enjoy, celebrate, do business." },
         body: [
           {
-            nl: "Na de branding bouwden we een website in Webflow met drie ingangen: Enjoy, Celebrate en Business. Je zoekt direct op het soort event, zoals een high tea, een borrel of een verjaardag. Per foodbar zie je wat er kan.",
-            en: "After the branding we built a Webflow site with three entrances: Enjoy, Celebrate and Business. You search straight away by type of event, such as high tea, drinks or a birthday. For each food bar you see what's on offer.",
+            nl: "Na de branding bouwden we een website in Webflow met drie ingangen: Enjoy, Celebrate en Business. Je zoekt direct op het soort gelegenheid, zoals een high tea, een borrel of een verjaardag. Per foodbar zie je wat er kan, en een eventagenda met filters laat zien wat er binnenkort te beleven valt.",
+            en: "After the branding we built a Webflow site with three entrances: Enjoy, Celebrate and Business. You search straight away by type of occasion, such as high tea, drinks or a birthday. For each food bar you see what's on offer, and an events calendar with filters shows what's coming up.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Organiseren, pagina voor pagina.", en: "Organising, page by page." },
+        body: [
+          {
+            nl: "Net als bij Boutique Hotels Gelderland is de kern een GEO- en SEO-geoptimaliseerde contentstructuur met 'organiseren'-pagina's. Lunch, high wine, walking dinner, kookworkshop, jubileum of vergadering: elke gelegenheid heeft een eigen pagina, met de foodbars die het kunnen verzorgen en een aanvraagformulier waarin je meteen je locatie kiest.",
+            en: "As with Boutique Hotels Gelderland, at its core is a GEO- and SEO-optimised content structure of 'organise' pages. Lunch, high wine, walking dinner, cooking workshop, anniversary or meeting: every occasion has its own page, with the food bars that can host it and an enquiry form where you pick your venue straight away.",
           },
         ],
       },

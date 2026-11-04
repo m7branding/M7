@@ -277,8 +277,8 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
         en: "PWT Gears: the story of a single gear",
       },
       summary: {
-        nl: "Een swipe-post en templates voor social media voor PWT Gears: van een onrustige wereld naar de mijnbouw, naar dat ene kritieke onderdeel dat moet blijven draaien.",
-        en: "A swipe post and social media templates for PWT Gears: from an unsettled world to mining, to that one critical component that has to keep turning.",
+        nl: "Doorlopende social media en organische content voor PWT Gears (P. van der Wegen) uit Tilburg, zoals een swipe-post die van een onrustige wereld via de mijnbouw inzoomt op dat ene kritieke onderdeel dat moet blijven draaien, en posttemplates in de eigen blauwe stijl.",
+        en: "Ongoing social media and organic content for PWT Gears (P. van der Wegen) in Tilburg, such as a swipe post that zooms in from an unsettled world, via mining, to the one critical component that has to keep turning, and post templates in its own blue style.",
       },
       sector: "industrie-techniek",
       services: ["content-marketing-online-ads"],
@@ -287,18 +287,17 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       cover: "/media/cases/pwt-gears/s-fa-carousel.webp",
       color: "#005D82",
       challenge: {
-        nl: "PWT Gears maakt tandwielen voor zware industrie. Een technisch product, dat online pas gaat leven als je laat zien waarom het ertoe doet.",
-        en: "PWT Gears makes gears for heavy industry. A technical product that only comes alive online when you show why it matters.",
+        nl: "PWT Gears, de tandwielfabrikant P. van der Wegen in Tilburg en onderdeel van de PWT Group, maakt tandwielen, rondsels en tandwielkasten voor zware industrie, van mijnbouw en cement tot staal en de maritieme sector. Een technisch product, dat online pas gaat leven als je laat zien waarom het ertoe doet. En dat verhaal moet je niet één keer vertellen, maar steeds opnieuw.",
+        en: "PWT Gears, the gear manufacturer P. van der Wegen in Tilburg and part of the PWT Group, makes gears, pinions and gearboxes for heavy industry, from mining and cement to steel and the maritime sector. A technical product that only comes alive online when you show why it matters. And that story isn't told once, but again and again.",
       },
       approach: {
-        nl: "We schreven en ontwierpen een swipe-post in acht slides. Het verhaal begint breed, bij een wereld die onrustiger wordt, en zoomt in: wat betekent dat voor de industrie, voor de mijnbouw, en voor het ene onderdeel waar alles van afhangt: the gear. Het eindigt bij PWT Gears: quality isn't optional. Daarnaast maakten we templates in dezelfde blauwe stijl, met het gebouw en het logo als beeld, ook in het Nederlands.",
-        en: "We wrote and designed an eight-slide swipe post. The story starts wide, with a world that is becoming more unsettled, and zooms in: what does that mean for industry, for mining, and for the one component everything depends on: the gear. It ends with PWT Gears: quality isn't optional. We also made templates in the same blue style, with the building and the logo as imagery, in Dutch as well.",
+        nl: "We verzorgen de social media en de organische content van PWT Gears. Een voorbeeld is een swipe-post in acht slides, die we schreven en ontwierpen. Het verhaal begint breed, bij een wereld die onrustiger wordt, en zoomt in: wat betekent dat voor de industrie, voor de mijnbouw, en voor het ene onderdeel waar alles van afhangt: the gear. Het eindigt bij PWT Gears: quality isn't optional, we build for continuity. Daarnaast maakten we posttemplates in dezelfde blauwe stijl, met het gebouw en het logo als beeld, in het Engels en het Nederlands.",
+        en: "We take care of PWT Gears' social media and organic content. One example is an eight-slide swipe post that we wrote and designed. The story starts wide, with a world that is becoming more unsettled, and zooms in: what does that mean for industry, for mining, and for the one component everything depends on: the gear. It ends with PWT Gears: quality isn't optional, we build for continuity. We also made post templates in the same blue style, with the building and the logo as imagery, in English and Dutch.",
       },
       result: {
-        nl: "Social content die een technisch product een verhaal geeft, in een herkenbare eigen stijl.",
-        en: "Social content that gives a technical product a story, in a recognisable style of its own.",
+        nl: "Doorlopende social content die een technisch product een verhaal geeft, in een herkenbare eigen stijl en in twee talen.",
+        en: "Ongoing social content that gives a technical product a story, in a recognisable style of its own and in two languages.",
       },
-      concept: true,
       shape: "wide",
     },
     {
