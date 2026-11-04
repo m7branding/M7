@@ -7,13 +7,19 @@ S = "/tmp/claude-0/-home-user-M7/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad
 SRC = f"{S}/r21/out"
 DST = "/tmp/claude-0/-home-user/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad/m7-signature"
 REELS = [
+    ("buitenstate/buitenstate-top3", "Buitenstate · final", "De zoekers-flow in één shot", [
+        "Intro met het kleinere M7-logo en de blur die meeloopt",
+        "Eén doorlopend shot: provincies hoveren, Utrecht kiezen, volgende stap, de teller loopt op tot 856",
+        "Objectpagina met 'Plan een bezichtiging', de foto's als rustige stapel",
+        "Op de kaart verschijnt de objectkaart schoon in 2D",
+        "Hover states op de spotlight-kaarten; geen scène meer met een leeg tweede scherm"]),
     ("buitenstate/buitenstate-top2", "Buitenstate · top reel v2", "Rustiger, met jouw feedback", [
         "Intro: het M7-logo half zo groot; de blur neemt al af terwijl de lijnen tekenen en loopt over in scherpstellen",
         "Rustige camera: pant mee met de cursor, zonder schommeling; de klik op 'Volgende stap' en de teller in beeld",
         "Objectpagina met 'Plan een bezichtiging', daarna de foto's als stapel zonder stuiter",
         "Op de kaart verschijnt de objectkaart schoon in 2D, met een lichte schaduw",
         "Hover states op de spotlight-kaarten van de homepage"]),
-    ("steddion-tools/steddion-top2", "Steddion · top reel v2", "Rustiger, met jouw feedback", [
+    ("steddion-tools/steddion-top2", "Steddion · final", "Rustiger, met jouw feedback", [
         "Zelfde nieuwe intro (kleiner logo, blur die meeloopt met de lijnen)",
         "De intake van start tot het profiel en de volgende stap, rustig gevolgd",
         "Stapel met configurator-snippets zonder stuiter",
@@ -111,7 +117,7 @@ video:focus-visible {{ outline:2px solid var(--teal); outline-offset:2px }}
 <div class="wrap">
 <div class="k">M7 social · pilot ronde 21</div>
 <h1>Elk project <span>z'n eigen reel.</span></h1>
-<p class="lead"><b>Nieuw bovenaan: top reels v2</b>, met je feedback verwerkt: een kleiner logo in de intro met de blur die meeloopt, een rustigere camera die wel meepant, interacties die doorklikken naar de volgende stap, en snippets zonder stuiter (soms schoon in 2D op de mockup). Daaronder de eerste top reels: cinematischer, 60 fps, een camera die de cursor volgt met motion blur, echte hover states en features, en een witte intro over een geblurde achtergrond. Daarna Buitenstate v2 en Steddion v2, met jouw eerdere feedback verwerkt: kaarten en kleuren met een vaste stapelvolgorde (niets snijdt meer door elkaar), knoppen zonder witte randjes, motion blur op de snelle momenten, rustiger invliegen, en nieuwe close-up camera's zodat de schermen groot en duidelijk in beeld staan. Daaronder de eerste vijf pilots.</p>
+<p class="lead"><b>Bovenaan de twee finals</b>: Buitenstate met de hele zoekers-flow in één shot (van provincie tot teller), en Steddion. Daarna v2 en de eerdere versies. Top reels v2: met je feedback verwerkt: een kleiner logo in de intro met de blur die meeloopt, een rustigere camera die wel meepant, interacties die doorklikken naar de volgende stap, en snippets zonder stuiter (soms schoon in 2D op de mockup). Daaronder de eerste top reels: cinematischer, 60 fps, een camera die de cursor volgt met motion blur, echte hover states en features, en een witte intro over een geblurde achtergrond. Daarna Buitenstate v2 en Steddion v2, met jouw eerdere feedback verwerkt: kaarten en kleuren met een vaste stapelvolgorde (niets snijdt meer door elkaar), knoppen zonder witte randjes, motion blur op de snelle momenten, rustiger invliegen, en nieuwe close-up camera's zodat de schermen groot en duidelijk in beeld staan. Daaronder de eerste vijf pilots.</p>
 <p class="lead">Vijf projecten, vijf regies. Elk met eigen camerahoeken (23 nieuwe staande hoeken in de 3D-scènes), eigen camerabewegingen, echte interacties op de schermen (cursor, menu's, configurator, afspraakflow), echte UI-snippets en brand assets die zweven en stapelen in 3D, een eigen overgang, tempo en muziek. De intro, de glazen labels en de outro blijven hetzelfde.</p>
 <div class="grid">{"".join(cards)}</div>
 <footer>Dit zijn previews in 720p. De echte bestanden (1080×1920, scherp, niets opgeschaald) staan in de private repo onder <code>social/reels-v3-pilot/</code>. Alles is echt werk: echte schermen en opnames, echte ontwerpen, echte brandbooks en geverifieerde kleuren.</footer>
