@@ -476,12 +476,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Elk voertuig in het juiste licht.", en: "Every vehicle in the right light." },
         body: [
           {
-            nl: "De website is sober vormgegeven, met een heldere structuur per voertuig en in meerdere talen. De fotografie maakten we zelf, zodat elke auto rustig en tot in detail in beeld komt.",
-            en: "The website has a sober design, with a clear structure per vehicle and in several languages. We did the photography ourselves, so every car is shown calmly and in detail.",
+            nl: "De website is sober vormgegeven, met een heldere structuur per voertuig, in het Nederlands, Engels en Frans. De fotografie maakten we zelf, zodat elke auto rustig en tot in detail in beeld komt.",
+            en: "The website has a sober design, with a clear structure per vehicle, in Dutch, English and French. We did the photography ourselves, so every car is shown calmly and in detail.",
           },
           {
-            nl: "Wie zich aanmeldt, krijgt automatisch een e-mail zodra er nieuwe voorraad binnenkomt. Zo missen uitvaartondernemers geen nieuw aanbod.",
-            en: "Anyone who signs up automatically gets an email as soon as new stock arrives. That way funeral directors never miss a new vehicle.",
+            nl: "Elke auto heeft een eigen pagina met specificaties, afmetingen, de indeling achterin en een leasevoorbeeld. Uitvaartondernemers geven aan naar welke rouwauto ze zoeken, en zodra er een voertuig binnenkomt dat aan hun criteria voldoet, krijgen ze automatisch een e-mail in de stijl van Nova. Zo missen ze de auto die ze zoeken niet.",
+            en: "Every car has its own page with specifications, dimensions, the layout in the back and a lease example. Funeral directors say which hearse they are looking for, and as soon as a vehicle arrives that meets their criteria, they automatically get an email in Nova's style. That way they don't miss the car they are after.",
           },
         ],
       },
@@ -1308,8 +1308,21 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "We brought that story back to its core and built a brand around it: calm, trustworthy and human. Then came the website in Webflow.",
           },
           {
-            nl: "Op de website heeft elke doelgroep een eigen route. Werknemers lezen over hun rechten en krijgen eenvoudige uitleg, werkgevers zien hoe ze grip houden op werving in andere landen en overheden vinden wat zij nodig hebben.",
-            en: "On the website, every audience has its own route. Workers read about their rights and get simple guidance, employers see how to stay in control of recruitment in other countries, and governments find what they need.",
+            nl: "Op de website heeft elke doelgroep een eigen route. Werknemers lezen over hun rechten en krijgen eenvoudige uitleg, werkgevers zien hoe ze grip houden op werving in andere landen, overheden vinden wat zij nodig hebben en partners zien hoe ze arbeidsmigranten op een eerlijke manier bereiken. Elke pagina heeft zijn eigen veelgestelde vragen.",
+            en: "On the website, every audience has its own route. Workers read about their rights and get simple guidance, employers see how to stay in control of recruitment in other countries, governments find what they need and partners see how to reach migrant workers in a fair way. Every page has its own FAQs.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Eerst de vraag: wie ben je?", en: "First the question: who are you?" },
+        body: [
+          {
+            nl: "Wie een demo aanvraagt, kiest eerst wie hij is: recruiter, werkgever of partner. Vanaf dat moment past de flow zich aan. Een recruiter vertelt over zijn plaatsingen en hoe hij voldoet aan de ILO-principes voor eerlijke werving, een werkgever over de schaal van zijn werving en zijn grootste uitdagingen, een partner over zijn dienst en hoe die geprijsd is.",
+            en: "Anyone requesting a demo first chooses who they are: recruiter, employer or partner. From that moment the flow adapts. A recruiter describes their placements and how they meet the ILO principles for fair recruitment, an employer the scale of their recruitment and their biggest challenges, a partner their service and how it is priced.",
+          },
+          {
+            nl: "Vijf stappen, elk met de vragen die voor die doelgroep tellen, en aan het eind een eigen bevestiging met de volgende stappen. Zo begint elk gesprek met Fairlink met de juiste context.",
+            en: "Five steps, each with the questions that matter for that audience, and at the end a confirmation of its own with the next steps. That way every conversation with Fairlink starts with the right context.",
           },
         ],
       },
@@ -1669,27 +1682,41 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Per investeerder een eigen weg.", en: "A path for every investor." },
         body: [
           {
-            nl: "De website in Webflow zet de investeringsmogelijkheden per type investeerder op een rij, van particulier tot family office, en toont het trackrecord. Donkerblauw en goud, met de gebouwen zelf groot in beeld.",
-            en: "The Webflow website lays out the investment options per type of investor, from private individual to family office, and shows the track record. Dark blue and gold, with the buildings themselves shown large.",
-          },
-          {
-            nl: "Op de landingspagina Onderbouwd Investeren vraag je de brochure aan in een paar velden. Per mail krijg je een persoonlijke toegangslink, zodat de brochure precies bij de juiste persoon terechtkomt.",
-            en: "On the Onderbouwd Investeren landing page you request the brochure in a few fields. You then receive a personal access link by email, so the brochure reaches exactly the right person.",
+            nl: "De website in Webflow geeft elk type investeerder een eigen pagina: particulier, professioneel en private / family office. Daarnaast het trackrecord, projectupdates en een FAQ die per onderwerp is ingedeeld, van risico's en zekerheden tot fiscaliteit. Donkerblauw en goud, met de gebouwen zelf groot in beeld, en via Weglot ook in andere talen.",
+            en: "The Webflow website gives each type of investor a page of its own: private, professional and private / family office. Alongside it sit the track record, project updates and an FAQ organised by topic, from risks and safeguards to tax. Dark blue and gold, with the buildings themselves shown large, and via Weglot in other languages too.",
           },
         ],
       },
       {
-        title: { nl: "Klaar voor AI-zoekmachines.", en: "Ready for AI search." },
+        title: { nl: "Eerst de brochure, dan de details.", en: "First the brochure, then the details." },
         body: [
           {
-            nl: "We bouwden de content zo op dat AI-zoekmachines The Sandt als bron kunnen noemen. Duidelijke vragen, duidelijke antwoorden en een structuur die machines net zo goed lezen als mensen. Dat is AEO en GEO in de praktijk.",
-            en: "We structured the content so AI search engines can cite The Sandt as a source. Clear questions, clear answers and a structure machines read as easily as people do. That is AEO and GEO in practice.",
+            nl: "Op de landingspagina Onderbouwd Investeren vraag je de brochure aan in een paar velden. Een weggevertje maakt die stap aantrekkelijk. Per mail krijg je een persoonlijke toegangslink en een downloadlink, en een relatiemanager neemt persoonlijk contact op. Elk type investeerder heeft een eigen formulier, en particuliere en professionele investeerders komen elk in een eigen mailfunnel.",
+            en: "On the Onderbouwd Investeren landing page you request the brochure in a few fields. A giveaway makes that step attractive. You receive a personal access link and a download link by email, and a relationship manager gets in touch personally. Each type of investor has its own form, and private and professional investors each enter an email funnel of their own.",
+          },
+          {
+            nl: "Na de aanvraag gaan de eerst geblurde inzichten open in For Your Eyes Only, de besloten omgeving van The Sandt. Daar staan plattegronden, rapporten, 3D-renders, video's en een interactieve kaart van de projectlocatie. Zo krijgt wie echt interesse heeft precies de diepgang die hij zoekt.",
+            en: "After the request, the insights that were blurred at first open up in For Your Eyes Only, The Sandt's private environment. It holds floor plans, reports, 3D renders, videos and an interactive map of the project location. That way anyone who is genuinely interested gets exactly the depth they are looking for.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Gevonden door mensen en machines.", en: "Found by people and machines." },
+        body: [
+          {
+            nl: "We bouwden de content zo op dat AI-zoekmachines The Sandt als bron kunnen noemen. Duidelijke vragen, duidelijke antwoorden, gestructureerde FAQ-data en een opbouw die machines net zo goed lezen als mensen. Dat is AEO en GEO in de praktijk.",
+            en: "We structured the content so AI search engines can cite The Sandt as a source. Clear questions, clear answers, structured FAQ data and a layout machines read as easily as people do. That is AEO and GEO in practice.",
+          },
+          {
+            nl: "Daarnaast beheren we de campagnes op Google en LinkedIn. Ze brengen investeerders op de juiste landingspagina, waarna de funnel het verhaal verder vertelt.",
+            en: "We also manage the campaigns on Google and LinkedIn. They bring investors to the right landing page, after which the funnel takes the story further.",
           },
         ],
       },
     ],
     statements: [
       { nl: "Schrijf voor mensen, structureer voor machines.", en: "Write for people, structure for machines." },
+      { nl: "Een goede funnel geeft eerst, en vraagt pas daarna.", en: "A good funnel gives first, and only then asks." },
     ],
   },
   "aigora": {
@@ -1749,14 +1776,107 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Kiezen zoals in een webshop.", en: "Choose like in any web shop." },
         body: [
           {
-            nl: "De shop biedt een selectie uit de applicatie, zonder login of account. Een adapter haalt alle websites automatisch op, met hun domain ratings, favicon en een screenshot. Je filtert op categorie, ziet per site de cijfers en de prijs, en bestelt meteen. De contentdetails vul je later in.",
-            en: "The shop offers a selection from the application, with no login or account. An adapter automatically fetches every website, with its domain ratings, favicon and a screenshot. You filter by category, see each site's figures and price, and order right away. The content details come later.",
+            nl: "De shop draait op een API en biedt een selectie uit de applicatie, zonder login of account. Alle websites komen automatisch binnen, met hun domain ratings, favicon en een screenshot. Je filtert op prijs, verkeer, domain rating, categorie en taal, ziet per site de cijfers en de prijs, en bestelt meteen. De contentdetails vul je later in.",
+            en: "The shop runs on an API and offers a selection from the application, with no login or account. Every website comes in automatically, with its domain ratings, favicon and a screenshot. You filter by price, traffic, domain rating, category and language, see each site's figures and price, and order right away. The content details come later.",
+          },
+          {
+            nl: "Bestellen gaat in drie stappen: websites kiezen, online betalen en je tekst aanleveren of laten schrijven. De shop is er in vijf talen, met een kennisbank vol SEO-begrippen en pagina's over digitale PR en de white-label software van DNG.",
+            en: "Ordering takes three steps: choose your websites, pay online and supply your text or have it written. The shop is available in five languages, with a knowledge base full of SEO terms and pages on digital PR and DNG's white-label software.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Eén look, shop en platform.", en: "One look, shop and platform." },
+        body: [
+          {
+            nl: "De nieuwe look en feel bleef niet bij de shop. In een apart UI/UX-project herontwierpen we ook het platform waarin klanten hun plaatsingen bestellen en volgen. Zo voelen shop en platform als één product.",
+            en: "The new look and feel didn't stop at the shop. In a separate UI/UX project we also redesigned the platform where clients order and track their placements. That way shop and platform feel like one product.",
           },
         ],
       },
     ],
     statements: [
       { nl: "Een ingewikkeld aanbod wordt simpel als je het als een winkel inricht.", en: "A complicated offer becomes simple when you set it up like a shop." },
+    ],
+  },
+  "loftdeur": {
+    intro: {
+      nl: "Een stalen deur kies je niet zomaar. Je wilt de lijn zien, de maat kennen en weten wat hij kost. Voor Loftdeur bouwden we een webshop die die keuze makkelijk maakt, van het eerste menu tot de checkout.",
+      en: "You don't choose a steel door on a whim. You want to see the line, know the size and know what it costs. For Loftdeur we built a webshop that makes that choice easy, from the first menu to the checkout.",
+    },
+    chapters: [
+      {
+        title: { nl: "Honderden deuren, één overzicht.", en: "Hundreds of doors, one overview." },
+        body: [
+          {
+            nl: "Loftdeur verkoopt stalen binnendeuren, taatsdeuren en schuifdeuren, standaard en op maat, plus schuifdeursystemen, deurbeslag en woonaccessoires. Het megamenu zet per categorie een korte omschrijving, een aanrader van klanten en alle productgroepen bij elkaar, zodat je in één blik ziet waar je moet zijn.",
+            en: "Loftdeur sells steel interior doors, pivot doors and sliding doors, standard and made to measure, plus sliding door systems, door hardware and home accessories. For each category, the mega menu brings together a short description, a customer favourite and every product group, so you see at a glance where you need to be.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Vier lijnen naast elkaar.", en: "Four lines side by side." },
+        body: [
+          {
+            nl: "Op de homepage staan Smartline, Slimline, Colorline en Expertline naast elkaar, elk met een eigen kaart. Daaronder de populaire en best verkochte deuren met prijs, en de redenen om voor Loftdeur te kiezen: persoonlijk advies, een montageservice en de mogelijkheid om je eigen deur samen te stellen.",
+            en: "The homepage puts Smartline, Slimline, Colorline and Expertline side by side, each with a card of its own. Below them sit the popular and best-selling doors with their prices, and the reasons to choose Loftdeur: personal advice, an installation service and the option to put your own door together.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Samenstellen zonder twijfel.", en: "Configure without doubt." },
+        body: [
+          {
+            nl: "Op de productpagina stel je je deur samen, met opties zoals de greep en een keuzehulp ernaast. Specificaties, een montagehandleiding met video en reviews nemen de laatste vragen weg, en wie een andere maat nodig heeft, gaat direct door naar maatwerk.",
+            en: "On the product page you put your door together, with options such as the handle and a selection guide alongside. Specifications, an installation guide with video and reviews take away the last questions, and anyone who needs a different size goes straight on to made-to-measure.",
+          },
+          {
+            nl: "Met live zoeken, een offerteaanvraag, de showrooms en een verbeterde checkout werkten we de hele shop bij. En we beheren de advertenties van Loftdeur op Meta en Instagram, zodat shop en campagnes één verhaal vertellen.",
+            en: "With live search, a quote request, the showrooms and an improved checkout, we upgraded the whole shop. And we manage Loftdeur's advertising on Meta and Instagram, so the shop and the campaigns tell one story.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Een goede productpagina beantwoordt de vraag voordat je hem stelt.", en: "A good product page answers the question before you ask it." },
+    ],
+  },
+  "devakhandel": {
+    intro: {
+      nl: "Van afrastering tot snoeischaar en van graszaad tot robotmaaier. De Vakhandel heeft alles voor tuin en groenonderhoud, en de webshop moest dat grote aanbod overzichtelijk en makkelijk bestelbaar maken.",
+      en: "From fencing to pruning shears and from grass seed to robotic mower. De Vakhandel has everything for gardens and green maintenance, and the webshop had to make that large range clear and easy to order.",
+    },
+    chapters: [
+      {
+        title: { nl: "Een groot assortiment, snel gevonden.", en: "A large range, found fast." },
+        body: [
+          {
+            nl: "Het megamenu zet per categorie een korte omschrijving, een tip van klanten en alle productgroepen met het aantal producten bij elkaar. Live zoeken en filters per categorie helpen wie al weet wat hij zoekt. Op de homepage staan acties, combinatiedeals en de populairste producten.",
+            en: "For each category, the mega menu brings together a short description, a customer tip and every product group with its number of products. Live search and filters per category help anyone who already knows what they want. The homepage shows offers, bundle deals and the most popular products.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Alles op de productpagina.", en: "Everything on the product page." },
+        body: [
+          {
+            nl: "Op de productpagina zie je meteen de prijs, de voorraad en wanneer je bestelling vertrekt. Daaronder de reviews, de omschrijving, de gebruiksaanwijzing en de technische gegevens, met producten die je bestelling compleet maken en de vragen die klanten het vaakst stellen.",
+            en: "On the product page you immediately see the price, the stock and when your order ships. Below that come the reviews, the description, the instructions for use and the technical data, with products that complete your order and the questions customers ask most often.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Afrekenen zonder omwegen.", en: "Checkout without detours." },
+        body: [
+          {
+            nl: "De winkelwagen schuift naast de pagina open, en de checkout loopt in duidelijke stappen, met onder meer iDEAL via Mollie. Professionals hebben een eigen ingang met een contactformulier, voor advies op maat.",
+            en: "The cart slides open beside the page, and the checkout runs in clear steps, including iDEAL via Mollie. Professionals have an entrance of their own with a contact form, for tailored advice.",
+          },
+        ],
+      },
+    ],
+    statements: [
+      { nl: "Hoe groter het assortiment, hoe belangrijker de weg erdoorheen.", en: "The bigger the range, the more the route through it matters." },
     ],
   },
   "martello": {
@@ -1853,8 +1973,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Toe aan een frisse start.", en: "Ready for a fresh start." },
         body: [
           {
-            nl: "CryptoCoinTalk helpt traders en investeerders met cursussen, een community en educatie. Het abonnementsmodel was niet meer helder genoeg. En ook het platform, de website en het merk konden een opfrisbeurt gebruiken.",
-            en: "CryptoCoinTalk helps traders and investors with courses, a community and education. The subscription model was no longer clear enough. And the platform, the website and the brand could all use a refresh.",
+            nl: "CryptoCoinTalk helpt traders en investeerders met cursussen, een educatiegroep, een community en de University. Het abonnementsmodel was niet meer helder genoeg, en ook het platform, de website en het merk konden een opfrisbeurt gebruiken. Daarom gaven we de klantreis een uitgebreide UX-slag, van de eerste gratis kennismaking tot lid zijn.",
+            en: "CryptoCoinTalk helps traders and investors with courses, an education group, a community and the University. The subscription model was no longer clear enough, and the platform, the website and the brand could all use a refresh too. So we gave the customer journey an extensive UX overhaul, from the first free introduction to membership.",
           },
         ],
       },
@@ -1862,8 +1982,21 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Abonnementen die kloppen.", en: "Subscriptions that make sense." },
         body: [
           {
-            nl: "We richtten de abonnementen opnieuw in en gaven het platform een UI/UX-redesign. Van de gratis cursus tot de trade- en investeringscursus: je ziet beter wat je krijgt en waar je bent.",
-            en: "We restructured the subscriptions and gave the platform a UI/UX redesign. From the free course to the trading and investing courses, you see more clearly what you get and where you are.",
+            nl: "We bouwden de abonnementen opnieuw op in WordPress met WooCommerce. De educatiegroep neem je per maand, kwartaal, half jaar of jaar, na een gratis proefperiode als je wilt. Daarnaast staan de gratis cursus, de tradecursus, de investeringscursus, 1-op-1-sessies en cadeaukaarten. Van de gratis cursus tot het jaarabonnement: je ziet beter wat je krijgt en waar je bent.",
+            en: "We rebuilt the subscriptions in WordPress with WooCommerce. You take the education group per month, quarter, half year or year, after a free trial if you like. Alongside it sit the free course, the trading course, the investing course, one-to-one sessions and gift cards. From the free course to the annual subscription, you see more clearly what you get and where you are.",
+          },
+          {
+            nl: "Een abonnement geeft toegang tot de University, het leerplatform met cursussen, video's, livestreams, een tradingjournal en een portfolio. Het platform kreeg een UI/UX-redesign.",
+            en: "A subscription gives access to the University, the learning platform with courses, videos, livestreams, a trading journal and a portfolio. The platform got a UI/UX redesign.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Van gratis naar meer.", en: "From free to more." },
+        body: [
+          {
+            nl: "Rond de abonnementen zetten we uitgebreide funnels. E-mails met kortingscodes en andere zetjes stimuleren leden om stap voor stap naar een hoger abonnement te gaan.",
+            en: "Around the subscriptions we set up extensive funnels. Emails with discount codes and other nudges encourage members to move step by step to a higher subscription.",
           },
         ],
       },
@@ -1879,6 +2012,7 @@ export const caseNarratives: Record<string, CaseNarrative> = {
     ],
     statements: [
       { nl: "Een helder abonnement is ook goede UX.", en: "A clear subscription is good UX too." },
+      { nl: "De beste upsell voelt als de logische volgende stap.", en: "The best upsell feels like the logical next step." },
     ],
   },
   "solidlayer": {
@@ -1987,6 +2121,10 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             nl: "Voor campagnes maakten we advertentiebanners, zoals die voor het gratis aanvragen van een publiek laadpunt bij je woning. Eén boodschap, één actie, en meteen duidelijk wat je moet doen.",
             en: "For campaigns we made ad banners, such as the one for requesting a free public charging point near your home. One message, one action, and instantly clear what to do.",
           },
+          {
+            nl: "Die campagnes lopen door: we beheren de advertenties van GRID op Meta, zodat de app en de shop steeds opnieuw bij nieuwe rijders in beeld komen.",
+            en: "Those campaigns keep running: we manage GRID's advertising on Meta, so the app and the shop keep showing up for new drivers.",
+          },
         ],
       },
     ],
@@ -2076,8 +2214,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "On the homepage you use tabs to pick a part of the Telebox: the AnyHub (the 4G gateway), the blood pressure monitor, the scales, the pulse oximeter and the glucose meter. Each device turns there as a 3D model, next to a short explanation of what it measures and sends on. Together with device mockups of the white-label software, that makes the product tangible, even before the first demo.",
           },
           {
-            nl: "Een eigen leadwidget voor de verschillende doelgroepen stroomlijnt het beslisproces en verstuurt automatisch transactionele e-mails.",
-            en: "A custom lead widget for the different stakeholders streamlines the decision process and sends automated transactional emails.",
+            nl: "Een eigen leadflow, de Nexis Configurator, vraagt eerst wat voor organisatie je bent: ziekenhuis, kliniek, verpleeghuis of thuiszorgorganisatie. Daarna passen de vragen zich aan. Een ziekenhuis krijgt andere uitdagingen voorgelegd dan een verpleeghuis of een thuiszorgorganisatie. In vier stappen en een laatste stap met je gegevens ligt er een complete aanvraag, die via Zapier bij het team binnenkomt. Zo gaat de demo meteen over jouw situatie, en transactionele e-mails gaan automatisch de deur uit.",
+            en: "A custom lead flow, the Nexis Configurator, first asks what kind of organisation you are: hospital, clinic, nursing home or home care organisation. The questions then adapt. A hospital is shown different challenges than a nursing home or a home care organisation. Four steps and a final step with your details produce a complete request, which reaches the team via Zapier. That way the demo is about your situation from the start, and transactional emails go out automatically.",
           },
         ],
       },
@@ -2201,8 +2339,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Vakwerk voor liefhebbers.", en: "Craft for enthusiasts." },
         body: [
           {
-            nl: "Maarschall maakt handgemaakte, personaliseerbare titanium uitlaatsystemen, voor onder meer McLaren, Ferrari, Lamborghini en Audi. Ze leveren zelf en via resellers. Een topproduct voor liefhebbers, dat online meteen dezelfde klasse moest laten zien.",
-            en: "Maarschall makes handmade, customisable titanium exhaust systems for McLaren, Ferrari, Lamborghini and Audi, among others. They sell direct and through resellers. A top product for enthusiasts, which had to show the same class online from the very first second.",
+            nl: "Maarschall maakt handgemaakte, personaliseerbare titanium uitlaatsystemen, voor onder meer McLaren, Ferrari, Lamborghini, Porsche en Audi. Ze leveren zelf en via resellers. Een topproduct voor liefhebbers, dat online meteen dezelfde klasse moest laten zien.",
+            en: "Maarschall makes handmade, customisable titanium exhaust systems for McLaren, Ferrari, Lamborghini, Porsche and Audi, among others. They sell direct and through resellers. A top product for enthusiasts, which had to show the same class online from the very first second.",
           },
         ],
       },
@@ -2219,12 +2357,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Vind jouw uitlaat.", en: "Find your exhaust." },
         body: [
           {
-            nl: "Het hart van de site is 'Vind jouw uitlaat'. Je filtert op merk, kiest je model en bouwjaar en ziet meteen welk systeem er is voor jouw auto. Staat je auto er niet tussen, dan is contact één klik verder.",
-            en: "The heart of the site is 'Find your exhaust'. You filter by make, choose your model and year and see straight away which system exists for your car. If your car isn't listed, getting in touch is one click away.",
+            nl: "Het hart van de site is 'Vind jouw uitlaat', een dynamische merkencatalogus. Je filtert op merk, kiest je model en bouwjaar en ziet meteen welk systeem er is voor jouw auto. Iedere auto kreeg een eigen beeld, gemaakt met AI, zodat de hele catalogus er even strak uitziet. Staat je auto er niet tussen, dan is contact één klik verder.",
+            en: "The heart of the site is 'Find your exhaust', a dynamic catalogue of makes. You filter by make, choose your model and year and see straight away which system exists for your car. Every car got its own image, made with AI, so the whole catalogue looks equally sharp. If your car isn't listed, getting in touch is one click away.",
           },
           {
-            nl: "Zo staat het vakmanschap voorop en vinden liefhebbers hun uitlaat zonder te zoeken. Een donkere, krachtige site die past bij het product.",
-            en: "That way the craftsmanship comes first and enthusiasts find their exhaust without searching. A dark, powerful site that suits the product.",
+            nl: "Elk model heeft een eigen detailpagina voor de uitlaatmogelijkheden. Daar vraag je een offerte aan en kies je een reseller, waarna de aanvraag direct bij die dealer terechtkomt. Zo staat het vakmanschap voorop en vinden liefhebbers hun uitlaat, en hun dealer, zonder te zoeken.",
+            en: "Each model has its own detail page for the exhaust options. There you request a quote and choose a reseller, after which the request goes straight to that dealer. That way the craftsmanship comes first and enthusiasts find their exhaust, and their dealer, without searching.",
           },
         ],
       },
@@ -2499,6 +2637,10 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           {
             nl: "We verzorgden ook de branding, met lichtblauw, mintgroen en het oog uit het logo als terugkerend beeld. Die stijl zetten we door in advertentiebanners, social posts en drukwerk. De website werd het belangrijkste informatiepunt voor nieuwe klanten en gebruikers, met downloads, veelgestelde vragen en prijzen.",
             en: "We also took care of the branding, with light blue, mint green and the eye from the logo as a recurring image. We carried that style through to ad banners, social posts and print. The website became the main information hub for new customers and users, with downloads, FAQs and pricing.",
+          },
+          {
+            nl: "En het werk loopt door: we beheren de LinkedIn-advertenties van MindYourPass, zodat het verhaal ook buiten de website bij zakelijke klanten terechtkomt.",
+            en: "And the work carries on: we manage MindYourPass's LinkedIn advertising, so the story reaches business customers beyond the website too.",
           },
         ],
       },

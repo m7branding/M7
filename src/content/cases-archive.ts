@@ -64,8 +64,8 @@ export const archiveCases: Case[] = [
       en: "On-the-fly passwords: the new wave in cyber security",
     },
     summary: {
-      nl: "Branding, website, browserplug-in en native app voor MindYourPass: ontwerp voor een nieuwe generatie cybersecurity. Plus advertentiebanners, social posts en drukwerk.",
-      en: "Branding, website, browser plug-in and native app for MindYourPass: design for a new generation of cyber security. Plus ad banners, social posts and print.",
+      nl: "Branding, website, browserplug-in en native app voor MindYourPass: ontwerp voor een nieuwe generatie cybersecurity. Plus advertentiebanners, social posts, drukwerk en LinkedIn-campagnes die we beheren.",
+      en: "Branding, website, browser plug-in and native app for MindYourPass: design for a new generation of cyber security. Plus ad banners, social posts, print and LinkedIn campaigns that we manage.",
     },
     year: 2020,
     sector: "tech-saas-startups",
@@ -83,9 +83,10 @@ export const archiveCases: Case[] = [
       "ux-ui-webdesign",
       "huisstijl",
       "social-media-marketing",
+      "linkedin-ads",
       "visitekaartjes-drukwerk",
     ],
-    tools: ["youtube"],
+    tools: ["youtube", "linkedin"],
     cover: cover("mindyourpass"),
     gallery: gallery("mindyourpass", 9),
     color: "#46A7CB",
@@ -94,8 +95,8 @@ export const archiveCases: Case[] = [
       en: "MindYourPass uses a patented technology to generate strong passwords on the fly: a complete security solution for organisations that goes beyond a password manager. Complex and intangible, and yet it had to be clear to everyone.",
     },
     approach: {
-      nl: "Samen met het managementteam brachten we de belangrijkste stakeholders in kaart en ontwierpen we de secties en flows van de website daarop. Ondersteunende visuals maken het concept duidelijk voor eindgebruikers én zakelijke klanten. Voor de browserplug-in en de native app ontwierpen we de complete UI/UX: meer dan 10 scenario's en userflows, met feedforward en feedback voor de gebruiker en soepele overgangen. Daarnaast verzorgden we de branding en zetten we die door in advertentiebanners, social posts en drukwerk.",
-      en: "Together with the management team we mapped the key stakeholders and designed the website's sections and flows around them. Supporting visuals make the concept clear for end users and business customers alike. For the browser plug-in and the native app we designed the complete UI/UX: more than 10 scenarios and user flows, with feedforward and feedback for the user and smooth transitions. We also took care of the branding and carried it through to ad banners, social posts and print.",
+      nl: "Samen met het managementteam brachten we de belangrijkste stakeholders in kaart en ontwierpen we de secties en flows van de website daarop. Ondersteunende visuals maken het concept duidelijk voor eindgebruikers én zakelijke klanten. Voor de browserplug-in en de native app ontwierpen we de complete UI/UX: meer dan 10 scenario's en userflows, met feedforward en feedback voor de gebruiker en soepele overgangen. Daarnaast verzorgden we de branding en zetten we die door in advertentiebanners, social posts en drukwerk. En we beheren de LinkedIn-advertenties van MindYourPass, zodat het verhaal ook buiten de website bij zakelijke klanten terechtkomt.",
+      en: "Together with the management team we mapped the key stakeholders and designed the website's sections and flows around them. Supporting visuals make the concept clear for end users and business customers alike. For the browser plug-in and the native app we designed the complete UI/UX: more than 10 scenarios and user flows, with feedforward and feedback for the user and smooth transitions. We also took care of the branding and carried it through to ad banners, social posts and print. And we manage MindYourPass's LinkedIn advertising, so the story reaches business customers beyond the website too.",
     },
     result: {
       nl: "De website werd het belangrijkste informatiepunt voor nieuwe klanten en gebruikers, met downloads, veelgestelde vragen en productinformatie zoals prijzen. En de plug-in en app zijn gewoon fijn om te gebruiken.",
