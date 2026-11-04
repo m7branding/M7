@@ -622,6 +622,22 @@ def reels():
             dict(k="scene", secs=4.6, spec=dict(slug=bs, t="d15_mac_phone_desk__k1", content="flow", flow="flow-23-spotlight-hover-desktop.mp4", ft0=0.2,
                                                 cam=dict(cam((1.55, 1.75), (0.0, 0.0), (0.0, 0.0), (0, 0), "inOutSine"), **CALM))),
         ]),
+        # v5 (round 21e): the seeker tool in one take, from picking the province to the next step with the count, so the
+        # whole flow reads; no two-iPad scene (its second screen stays dark), the spotlight hover on the desk laptop.
+        "buitenstate-top3": dict(host=bs, tx="focus", txout=False, txease="inOutSine", fps=60, intro="ramp", logo=260, music=("clean", 77),
+                                 labels=["Websites", "Tools", "AI"], shots=[
+            dict(k="scene", secs=8.9, spec=dict(slug=bs, t="d19_studio_front__k1", content="flow", flow="flow-21-zoekers-desktop.mp4", ft0=1.0,
+                                                cam=dict(cam((1.6, 1.85), (0.0, 0.0), (0.0, -0.02), (-0.6, 0.0), "inOutSine"), **CALM))),
+            dict(k="scene", secs=2.6, spec=dict(slug=bs, t="d02_mac_top__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=1.2,
+                                                cam=dict(cam((1.5, 1.7), (0.02, 0.0), (0.0, -0.01), (0.6, 0.0)), **CALM))),
+            dict(k="float", secs=3.8, bg="frost", cards=deck([(asset(R / "cap" / bs / "photo-1.jpg"), 880), (asset(R / "cap" / bs / "photo-3.jpg"), 780),
+                                                                (asset(R / "cap" / bs / "crop-price.jpg"), 820), (asset(R / "cap" / bs / "crop-agent.jpg"), 420)], seed=1, calm=True)),
+            dict(k="scene", secs=4.4, spec=dict(slug=bs, t="d18_mac_profile__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=7.6,
+                                                cam=dict(cam((1.5, 1.75), (0.02, 0.01), (-0.01, -0.01), (-0.5, 0.0)), **CALM)),
+                 reveal=[dict(src=asset(R / "cap" / bs / "crop-price.jpg"), w=760, y=1440, tin=1.0)]),
+            dict(k="scene", secs=4.6, spec=dict(slug=bs, t="d15_mac_phone_desk__k1", content="flow", flow="flow-23-spotlight-hover-desktop.mp4", ft0=0.2,
+                                                cam=dict(cam((1.55, 1.75), (0.0, 0.0), (0.0, 0.0), (0, 0), "inOutSine"), **CALM))),
+        ]),
         "steddion-top2": dict(host=st, tx="focus", txout=False, txease="inOutSine", fps=60, intro="ramp", logo=260, music=("dynamic", 81),
                               labels=["Tools", "Websites", "Branding"], shots=[
             dict(k="scene", secs=7.0, spec=dict(slug=st, t="d13_macro_mac__k1", content="flow", flow="flow-1-intake-desktop.mp4", ft0=0.6,
