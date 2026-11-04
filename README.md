@@ -277,12 +277,22 @@ Tip: ±3–5 seconden op 24–30 fps, 16:9, product gecentreerd op een zwarte ac
 
 ---
 
-## Deployen (Vercel)
+## Deployen (Vercel, alleen DNS-records bij Vimexx)
 
-1. Importeer de repo in Vercel (framework: Next.js).
-2. Zet de environment variables uit `.env.example`.
-3. Koppel **m7branding.com** (+ `www`) én **letsgo.m7branding.com** aan hetzelfde project.
-4. Search Console: dien `https://m7branding.com/sitemap.xml` in.
+De site draait op Vercel (Pro, commercieel gebruik); de webserver bij Zxcs/Vimexx wordt niet gebruikt, dus geen
+opslag of bandbreedte daar. Gewoon uploaden naar `public_html` werkt niet: formulieren/mail, NL/EN-routering,
+redirects, de 404 en het letsgo-subdomein hebben de Next.js-server nodig.
+
+1. Importeer de repo `m7branding/M7` in Vercel (framework: Next.js, production branch `main`).
+2. Environment variables (Production): `NEXT_PUBLIC_SITE_URL=https://m7branding.com`, en voor de mail
+   `SMTP_HOST` (uitgaande server uit Vimexx, bv. `mail.zxcs.nl`), `SMTP_PORT=465`, `SMTP_USER=hello@m7branding.com`,
+   `SMTP_PASS`. GA4, KvK, BTW en telefoon hebben al standaardwaarden (zie `.env.example`).
+3. Deploy en test op de `.vercel.app`-URL (contactformulier met een eigen adres).
+4. Domains in Vercel: `m7branding.com`, `www.m7branding.com` (redirect naar de apex) en `letsgo.m7branding.com`.
+5. DNS bij Vimexx: A `@` → `76.76.21.21`, CNAME `www` → `cname.vercel-dns.com`, CNAME `letsgo` →
+   `cname.vercel-dns.com` (het oude A-record van letsgo weg). Laat MX, SPF, DMARC, `answers` en de
+   google-site-verification staan. Volg de waarden die Vercel zelf toont als die afwijken.
+6. Search Console: dien `https://m7branding.com/sitemap.xml` in.
 
 ---
 
