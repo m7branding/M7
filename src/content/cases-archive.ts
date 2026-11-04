@@ -114,8 +114,8 @@ export const archiveCases: Case[] = [
       en: "A website for the ultimate chicken wagon",
     },
     summary: {
-      nl: "Branding en een nieuwe website voor de Kippenkar van Wijkamp Farming Solutions: sterke productpresentatie, drie talen en een opt-in die vanaf dag één aanvragen opleverde. Met een dealerportaal, digitale brochures en video.",
-      en: "Branding and a new website for the Kippenkar by Wijkamp Farming Solutions: strong product presentation, three languages and an opt-in that delivered requests from day one. With a dealer portal, digital brochures and video.",
+      nl: "Branding en een nieuwe website voor de Kippenkar van Wijkamp Farming Solutions: sterke productpresentatie, een terugverdientijdcalculator, meerdere talen en een opt-in die vanaf dag één aanvragen opleverde. Met een dealerportaal dat aanvragen via een automatische geofence bij de juiste dealer legt, lead- en marketingtools voor dealers, digitale brochures en video.",
+      en: "Branding and a new website for the Kippenkar by Wijkamp Farming Solutions: strong product presentation, a payback-time calculator, several languages and an opt-in that delivered requests from day one. With a dealer portal that routes requests to the right dealer through an automatic geofence, lead and marketing tools for dealers, digital brochures and video.",
     },
     year: 2022,
     sector: "agrarisch-natuur",
@@ -125,6 +125,7 @@ export const archiveCases: Case[] = [
       "seo-aeo-geo",
       "branding-rebranding",
       "web-apps-portals-apps",
+      "configurators-lead-tools-widgets",
       "grafisch-ontwerp-print",
       "foto-video-3d-animatie",
     ],
@@ -136,6 +137,8 @@ export const archiveCases: Case[] = [
       "seo",
       "huisstijl",
       "klantportaal",
+      "dashboards",
+      "keuzehulp-quiz",
       "brochures-magazines",
       "bedrijfsfilm",
     ],
@@ -148,8 +151,8 @@ export const archiveCases: Case[] = [
       en: "The Kippenkar by Wijkamp Farming Solutions is a sturdy chicken shelter on wheels that farmers use to produce and sell eggs. We built the first websites years earlier. Now it was time for a facelift and better performance.",
     },
     approach: {
-      nl: "De Kippenkar, in een paar jaar al meer dan 75 keer verkocht en in varianten voor verschillende klanten, verdiende een sterke presentatie. Vanaf de tekentafel werkten we samen aan een high-end site. In een uitgebreide CMS-structuur in Webflow koppelden we elke variant aan de optionele accessoires, zodat bezoekers zien wat er te configureren valt. Een opt-in geeft toegang tot de productbrochures, met automatische, persoonlijke e-mails. Alles in drie talen (Nederlands, Duits en Engels), met de vertalingen op subdomeinen en uitgebreide SEO op elke pagina. Daarnaast verzorgden we de branding, ontwierpen we de digitale brochures, maakten we video en bouwden we een dealerportaal waar dealers van de Kippenkar inloggen.",
-      en: "The Kippenkar, sold more than 75 times in a couple of years and available in variants for different customers, deserved a strong presentation. Starting at the drawing table, we worked together on a high-end site. In an extensive CMS structure in Webflow we linked every variant to its optional accessories, so visitors can see the configuration options. An opt-in gives access to the product brochures, with automated, personal emails. All in three languages (Dutch, German and English), with the translations on subdomains and extensive SEO on every page. We also took care of the branding, designed the digital brochures, made video and built a dealer portal where Kippenkar dealers log in.",
+      nl: "De Kippenkar, in een paar jaar al meer dan 75 keer verkocht en in varianten voor verschillende klanten, verdiende een sterke presentatie. Vanaf de tekentafel werkten we samen aan een high-end site. In een uitgebreide CMS-structuur in Webflow koppelden we elke variant aan de optionele accessoires, zodat bezoekers zien wat er te configureren valt. Met de terugverdientijdcalculator, die vanaf elke pagina opent, kiezen boeren het type eieren, het aantal kippen en hun verkoopprijs per ei, en zien ze welke Kippenkar bij hen past en in hoeveel jaar die zich terugverdient. Een opt-in geeft toegang tot de productbrochures, met automatische, persoonlijke e-mails. Wie een brochure aanvraagt, geeft zijn locatie op, en een automatische geofence koppelt de aanvraag aan de dealer in dat gebied. Alles in meerdere talen: eerst Nederlands, Duits en Engels, inmiddels ook Frans, met de vertalingen op subdomeinen en uitgebreide SEO op elke pagina. Een dealerkaart toont alle dealers. Daarnaast verzorgden we de branding, ontwierpen we de digitale brochures, maakten we video en bouwden we een dealerportaal waar dealers van de Kippenkar inloggen. Daar vinden ze hun documenten, marketingmateriaal zoals foto's, video's en brochures, en een lead-cockpit waarin ze hun aanvragen filteren, prioriteren en opvolgen.",
+      en: "The Kippenkar, sold more than 75 times in a couple of years and available in variants for different customers, deserved a strong presentation. Starting at the drawing table, we worked together on a high-end site. In an extensive CMS structure in Webflow we linked every variant to its optional accessories, so visitors can see the configuration options. With the payback-time calculator, which opens from every page, farmers choose the type of eggs, the number of hens and their selling price per egg, and see which Kippenkar suits them and in how many years it pays for itself. An opt-in gives access to the product brochures, with automated, personal emails. Anyone requesting a brochure enters their location, and an automatic geofence links the request to the dealer for that area. All in several languages: first Dutch, German and English, now French as well, with the translations on subdomains and extensive SEO on every page. A dealer map shows every dealer. We also took care of the branding, designed the digital brochures, made video and built a dealer portal where Kippenkar dealers log in. There they find their documents, marketing material such as photos, videos and brochures, and a lead cockpit in which they filter, prioritise and follow up their requests.",
     },
     result: {
       nl: "Op de eerste dag na de lancering kwamen er meer dan 50 brochureaanvragen binnen. De website is sindsdien het belangrijkste informatiepunt en leadkanaal van Wijkamp Farming Solutions.",

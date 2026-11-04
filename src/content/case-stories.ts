@@ -129,8 +129,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een merk met een rode draad.", en: "A brand with a red thread." },
         body: [
           {
-            nl: "We gaven Repairlab een frisse identiteit in zwart en wit, met rood als scherp accent. Die stijl zetten we door in het drukwerk, van visitekaartje tot brochure. Ook de polo's, sweaters en de belettering van de bedrijfsauto kregen een plek in de huisstijl, zodat het merk overal hetzelfde verhaal vertelt.",
-            en: "We gave Repairlab a fresh identity in black and white, with red as a sharp accent. We carried that style through to print, from business cards to brochure. Polo shirts, sweaters and the company car livery also found their place in the identity, so the brand tells the same story everywhere.",
+            nl: "We gaven Repairlab een frisse identiteit in zwart en wit, met rood als scherp accent, en hielden ons daarbij strikt aan de richtlijnen van Apple. Een heldere typografie, eigen iconen en een betrouwbare tone of voice met korte, krachtige zinnen geven klanten het gevoel dat hun toestel in de juiste handen is. Die stijl zetten we door in visitekaartjes, de belettering van de bedrijfsauto en het drukwerk, en in beelden die stap voor stap uitleggen hoe een reparatie verloopt.",
+            en: "We gave Repairlab a fresh identity in black and white, with red as a sharp accent, sticking strictly to Apple's guidelines. Clear typography, custom icons and a reliable tone of voice with short, powerful lines give customers the feeling that their device is in the right hands. We carried that style through to business cards, the company car livery and print, and to visuals that explain step by step how a repair works.",
           },
         ],
       },
@@ -138,16 +138,25 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Kies je toestel, plan je afspraak.", en: "Pick your device, book your slot." },
         body: [
           {
-            nl: "Op de site kies je eerst het merk: iPhone, MacBook, iPad of Apple Watch, maar ook Samsung, Huawei en andere merken. Of je typt je toestel in de zoekbalk en ziet meteen de resultaten. Elk model heeft een eigen pagina met de reparaties die Repairlab eraan uitvoert, van batterij en scherm tot camera, elk met een vanaf-prijs.",
-            en: "On the site you first pick the brand: iPhone, MacBook, iPad or Apple Watch, but also Samsung, Huawei and others. Or you type your device into the search bar and see the results straight away. Every model has its own page with the repairs Repairlab carries out on it, from battery and screen to camera, each with a starting price.",
+            nl: "Onder de site ligt een gestructureerde database van toestellen, reparaties en prijzen. Op de site kies je eerst het merk en de serie: iPhone, MacBook, iPad of Apple Watch, maar ook Samsung, Huawei, Lenovo, Dell en andere merken. Of je typt je toestel in de zoekbalk en ziet meteen de resultaten. Elk model heeft een eigen pagina met de reparaties die Repairlab eraan uitvoert, van batterij en scherm tot camera, elk met een prijs.",
+            en: "Underneath the site is a structured database of devices, repairs and prices. On the site you first pick the brand and series: iPhone, MacBook, iPad or Apple Watch, but also Samsung, Huawei, Lenovo, Dell and others. Or you type your device into the search bar and see the results straight away. Every model has its own page with the repairs Repairlab carries out on it, from battery and screen to camera, each with a price.",
           },
           {
             nl: "Kies je een reparatie, dan opent de afspraakflow. Je bevestigt merk, model en reparatie, en voegt er zo nodig nog een reparatie aan toe. Daarna kies je hoe je toestel bij Repairlab komt: je brengt het langs in Eindhoven, laat het ophalen of vraagt een verzendpakket aan. Of je vraagt eerst een prijsindicatie per mail. Kom je langs of laat je het ophalen, dan kies je meteen een datum en een tijdslot. Je laat je gegevens achter, en daarna stuurt de flow je automatisch e-mails.",
             en: "Pick a repair and the booking flow opens. You confirm the brand, model and repair, and add another repair if you need to. Then you choose how your device gets to Repairlab: you drop it off in Eindhoven, have it collected or request a shipping box. Or you ask for a price indication by email first. Dropping it off or having it collected? Then you pick a date and a time slot right away. You leave your details, and the flow then sends you automated emails.",
           },
+        ],
+      },
+      {
+        title: { nl: "Alles eromheen geregeld.", en: "Everything around it, sorted." },
+        body: [
           {
-            nl: "We bouwden de website in Webflow, met interacties, scroll-animaties en geanimeerde schermvullende modals die net dat beetje extra geven. En we richtten hem in op lokale vindbaarheid, samen met het Google Bedrijfsprofiel. Want wie een kapot scherm heeft, zoekt dichtbij.",
-            en: "We built the website in Webflow, with interactions, scroll animations and animated full-screen modals that add that little extra. And we set it up for local search, together with the Google Business Profile. Because anyone with a broken screen looks close to home.",
+            nl: "Via een API-koppeling komt elke aanmelding direct in het centrale systeem van Repairlab, zonder losse afspraak of lange mailwisseling. Met je ordernummer en achternaam volg je daarna je reparatie online.",
+            en: "Through an API integration, every sign-up goes straight into Repairlab's central system, without a separate appointment or a long email exchange. With your order number and surname you then track your repair online.",
+          },
+          {
+            nl: "Daaromheen bouwden we pagina's voor de ophaalservice, het verzendpakket, reparaties via je verzekering en zakelijke klanten. Veelgestelde vragen, het werkproces en een blog beantwoorden de rest, in het Nederlands en het Engels. Interacties en geanimeerde schermvullende vensters geven de site net dat beetje extra.",
+            en: "Around it we built pages for the pick-up service, the shipping box, repairs through your insurer and business customers. FAQs, the work process and a blog answer the rest, in Dutch and English. Interactions and animated full-screen overlays give the site that little extra.",
           },
         ],
       },
@@ -231,8 +240,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Elke behandeling een eigen podium.", en: "Every treatment its own stage." },
         body: [
           {
-            nl: "Glascoating en Paint Protection Film hebben elk een eigen pagina die uitlegt wat de behandeling doet. In het portfolio staan auto's als een Porsche 918 Spyder en een Aston Martin DB11 groot in beeld. En op de over-ons-pagina zie je wie er aan je auto werkt.",
-            en: "Ceramic coating and paint protection film each have their own page explaining what the treatment does. The portfolio shows cars like a Porsche 918 Spyder and an Aston Martin DB11 in full size. And the about page shows who works on your car.",
+            nl: "Paint Protection Film, glascoating, detailing en Upgrade your car hebben elk een eigen pagina die uitlegt wat de behandeling doet, met daaronder subdiensten als wrapping, schadeherstel en ramen tinten. In het portfolio staan auto's als een Porsche 918 Spyder en een Aston Martin DB11 groot in beeld. Veelgestelde vragen zijn doorzoekbaar en in drie groepen verdeeld, en op de over-ons-pagina zie je wie er aan je auto werkt.",
+            en: "Paint protection film, ceramic coating, detailing and Upgrade your car each have their own page explaining what the treatment does, with sub-services such as wrapping, damage repair and window tinting below them. The portfolio shows cars like a Porsche 918 Spyder and an Aston Martin DB11 in full size. The FAQs are searchable and split into three groups, and the about page shows who works on your car.",
+          },
+          {
+            nl: "De aanvraag werkt in lagen. Op elke dienstpagina kies je eerst een pakket, van Silver tot Platinum bij de folie, en daarna de opties: extra delen zoals koplampen, instaplijsten of de voorruit. Merk, model en kenteken vul je er meteen bij in. Elk pakket en elke subdienst heeft ook een eigen offerteformulier, en landingspagina's per automerk en per regio leiden naar dezelfde aanvraag.",
+            en: "The request works in layers. On every service page you first choose a package, from Silver to Platinum for the film, and then the options: extra parts such as headlights, door sills or the windscreen. You add the make, model and licence plate straight away. Every package and sub-service also has its own quote form, and landing pages per car brand and per region lead to the same request.",
           },
         ],
       },
@@ -240,8 +253,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Achter de schermen net zo strak.", en: "Just as sharp behind the scenes." },
         body: [
           {
-            nl: "Informatie en aanvragen zijn per dienst geordend, en de leads komen binnen in een gekoppeld CRM-systeem. Een offerteaanvraag loopt via een eigen flow, gekoppeld aan de offertesoftware van JURGH. Klanten hebben een eigen klantportaal, en automatiseringen zetten de werkorders klaar. Ook het drukwerk ontwierpen we in dezelfde stijl, zodat het merk klopt van website tot visitekaartje.",
-            en: "Information and requests are organised per service, and the leads arrive in a connected CRM system. A quote request runs through a dedicated flow, connected to JURGH's quoting software. Customers have their own portal, and automations prepare the work orders. We designed the print in the same style too, so the brand holds together from website to business card.",
+            nl: "Elke aanvraag loopt door naar de systemen van JURGH. Via koppelingen met Offorte en Enormail komen leads in het CRM en gaan offertes de deur uit. Klanten hebben een eigen klantportaal, en een koppeling met de werkbonnen zet het werk in de werkplaats klaar. Ook het drukwerk ontwierpen we in dezelfde stijl, zodat het merk klopt van website tot visitekaartje.",
+            en: "Every request flows on into JURGH's systems. Through integrations with Offorte and Enormail, leads land in the CRM and quotes go out. Customers have their own portal, and an integration with the work orders gets the job ready in the workshop. We designed the print in the same style too, so the brand holds together from website to business card.",
           },
         ],
       },
@@ -396,11 +409,6 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             nl: "The Digital Clinic biedt een volledig online behandeling tegen haaruitval: intake, behandeling op recept en levering aan huis, samen met een huisarts en een apotheek. Losse tools zouden dat proces versnipperen. Er was een eigen platform nodig, waarin iedereen zijn eigen rol heeft.",
             en: "The Digital Clinic offers fully online hair-loss treatment: intake, prescription treatment and home delivery, together with a GP and a pharmacy. Loose tools would fragment that process. It needed a platform of its own, where everyone has their own role.",
           },
-        ],
-      },
-      {
-        title: { nl: "Gebouwd in sprints.", en: "Built in sprints." },
-        body: [
           {
             nl: "We ontwierpen en bouwden de website en het platform in sprints, met Next.js en Supabase en koppelingen naar bestaande systemen. Het platform kent drie soorten gebruikers: de cliënt, de huisarts en de apotheek. Ook de regie over het project lag bij ons, van planning tot oplevering.",
             en: "We designed and built the website and the platform in sprints, with Next.js and Supabase and integrations with existing systems. The platform has three types of user: the client, the GP and the pharmacy. We also ran the project itself, from planning to delivery.",
@@ -411,8 +419,17 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van intake tot voordeur.", en: "From intake to front door." },
         body: [
           {
-            nl: "De website laat in vier stappen zien hoe het werkt: een online intake, een behandeling op basis van je profiel, discrete levering en een portaal voor je abonnement. Cliënten doen hun intake online en beheren daarna alles in hun persoonlijke omgeving. Daar chatten ze ook met het team als ze een vraag hebben.",
-            en: "The website shows how it works in four steps: an online intake, a treatment based on your profile, discreet delivery and a portal for your subscription. Clients complete their intake online and then manage everything in their personal environment. That is also where they chat with the team when they have a question.",
+            nl: "De website laat in vier stappen zien hoe het werkt: een online intake, een behandeling op basis van je profiel, discrete levering en een portaal voor je abonnement. De intake is een vragenlijst die zich aanpast aan je antwoorden en waar nodig waarschuwt. Daarna beheren cliënten alles in hun persoonlijke omgeving: hun behandeling en abonnement, losse bestellingen, maandelijkse checklists en checkups over hoe het gaat, en hun leveringen met track & trace. Daar chatten ze ook met het team als ze een vraag hebben.",
+            en: "The website shows how it works in four steps: an online intake, a treatment based on your profile, discreet delivery and a portal for your subscription. The intake is a questionnaire that adapts to your answers and warns you where needed. After that, clients manage everything in their personal environment: their treatment and subscription, one-off orders, monthly checklists and checkups on how things are going, and their deliveries with track & trace. That is also where they chat with the team when they have a question.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een eigen omgeving voor arts en apotheek.", en: "An environment for doctor and pharmacy." },
+        body: [
+          {
+            nl: "Huisartsen en apotheken loggen in met tweestapsverificatie, in een omgeving die alleen voor hen is. Een dashboard zet de aanvragen op een rij, met wat actie vraagt apart van het archief. Ze beoordelen intakes, checkups en evaluaties, en zien per maand wat er is behandeld. Pas na akkoord gaat een bestelling de deur uit, zodat levering en logistiek netjes in lijn lopen met de behandeling.",
+            en: "GPs and pharmacies log in with two-step verification, to an environment that is theirs alone. A dashboard lists the requests, with those needing action kept apart from the archive. They review intakes, checkups and evaluations, and see per month what has been handled. Only after approval does an order go out, so delivery and logistics stay in line with the treatment.",
           },
         ],
       },
@@ -420,8 +437,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Weten wat werkt.", en: "Knowing what works." },
         body: [
           {
-            nl: "Daarnaast verzorgden we de marketing en de tracking, zodat ze weten waar cliënten vandaan komen. Zo heeft The Digital Clinic één centrale omgeving voor cliënten, huisarts, apotheek en team, en een website die de online behandeling in gewone taal uitlegt.",
-            en: "We also took care of marketing and tracking, so they know where clients come from. The Digital Clinic now has one central environment for clients, GP, pharmacy and team, and a website that explains the online treatment in plain language.",
+            nl: "Op de website kwamen ook een kennisbank met antwoorden op de vragen die mensen over haaruitval hebben, en een tweede intake, voor erectieproblemen. Daarnaast verzorgden we de marketing en de tracking, zodat ze weten waar cliënten vandaan komen. Zo heeft The Digital Clinic één centrale omgeving voor cliënten, huisarts, apotheek en team, en een website die de online behandeling in gewone taal uitlegt.",
+            en: "The website also gained a knowledge base that answers the questions people have about hair loss, and a second intake, for erectile problems. We also took care of marketing and tracking, so they know where clients come from. The Digital Clinic now has one central environment for clients, GP, pharmacy and team, and a website that explains the online treatment in plain language.",
           },
         ],
       },
@@ -747,14 +764,24 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van bezoek naar aanvraag.", en: "From visit to request." },
         body: [
           {
-            nl: "Daarna ontwierpen we de nieuwe website in Webflow, in diep paars en met beelden van het werk achter de schermen. 'Moving Goods, Powering Experiences' zet de toon, en daaronder staan Sports & Events en Transport naast elkaar. Per dienst leidt een aanvraagflow bezoekers naar een concrete aanvraag.",
-            en: "Then we designed the new website in Webflow, in deep purple with images of the work behind the scenes. 'Moving Goods, Powering Experiences' sets the tone, with Sports & Events and Transport side by side below it. For each service, a request flow guides visitors to a concrete request.",
+            nl: "Daarna ontwierpen we de nieuwe website in Webflow, in diep paars en met beelden van het werk achter de schermen. 'Moving Goods, Powering Experiences' zet de toon, en daaronder staan Sports & Events en Transport naast elkaar. De afdelingen zitten samen onder één menu, naast nieuws, het verhaal van IMPECO en een vaste knop om contact op te nemen.",
+            en: "Then we designed the new website in Webflow, in deep purple with images of the work behind the scenes. 'Moving Goods, Powering Experiences' sets the tone, with Sports & Events and Transport side by side below it. The departments sit together under one menu, next to news, the IMPECO story and a fixed button to get in touch.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een configurator die meedenkt.", en: "A configurator that thinks along." },
+        body: [
+          {
+            nl: "Logistiek voor een beurs vraagt andere informatie dan een spoedzending of een sportevenement. Daarom bouwden we een dienstconfigurator met logica. Bezoekers kiezen wat ze nodig hebben, en de flow stelt per dienst de juiste vervolgvragen. Zo komt elke aanvraag compleet binnen, en kan het team van IMPECO meteen aan de slag.",
+            en: "Logistics for a trade fair needs different information than an urgent shipment or a sports event. That's why we built a service configurator with built-in logic. Visitors choose what they need, and the flow asks the right follow-up questions for each service. Every request arrives complete, so the IMPECO team can get started right away.",
           },
         ],
       },
     ],
     statements: [
       { nl: "No worries begint bij een duidelijk merk.", en: "No worries starts with a clear brand." },
+      { nl: "Logistiek is maatwerk. De aanvraag dus ook.", en: "Logistics is custom work. So is the request." },
     ],
   },
   "kds-stansvormen": {
@@ -776,17 +803,25 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Scherp tot in de rand.", en: "Sharp to the edge." },
         body: [
           {
-            nl: "We werkten de branding uit en vertaalden die naar drukwerk en een nieuwe website in Webflow. Donker en strak, met rood als accent. De producten en de expertises stansen, uitbreken en separeren staan helder op een rij.",
-            en: "We developed the branding and carried it through to print and a new website in Webflow. Dark and clean, with red as the accent. The products and the core skills of cutting, stripping and separating are laid out clearly.",
+            nl: "We werkten de branding uit en vertaalden die naar drukwerk en een nieuwe website in Webflow. Donker en strak, met rood als accent. De producten staan helder op een rij onder de drie expertises stansen, uitbreken en separeren, van stansvorm tot ondersepareer.",
+            en: "We developed the branding and carried it through to print and a new website in Webflow. Dark and clean, with red as the accent. The products are laid out clearly under the three core skills of cutting, stripping and separating, from cutting die to lower separator.",
+          },
+          {
+            nl: "Een scrollanimatie laat het werkproces zien: van karton en contouren tot het wegdrukken van restafval en het separeren van de verpakkingen. Veelgestelde vragen over levertijden, bestandstypes en aanpassingen beantwoorden de eerste vragen, en wie liever praat, laat zijn nummer achter en wordt teruggebeld.",
+            en: "A scroll animation shows the work process: from cardboard and contours to pushing out the waste and separating the packaging. FAQs about delivery times, file types and modifications answer the first questions, and anyone who would rather talk leaves their number and gets a call back.",
           },
         ],
       },
       {
-        title: { nl: "Offertes zonder omweg.", en: "Quotes without detours." },
+        title: { nl: "Rekenen zonder omweg.", en: "Calculating without detours." },
         body: [
           {
-            nl: "Daarnaast bouwden we een offerte- en klantportaal. Klanten vragen er een offerte aan en loggen in op hun eigen omgeving. Zo heeft KDS een strak merk, drukwerk in dezelfde lijn, een website zonder franje en een portaal voor offertes en klanten.",
-            en: "We also built a quote and customer portal. Customers request quotes there and log in to their own environment. KDS now has a sharp brand, print in the same style, a no-nonsense website and a portal for quotes and customers.",
+            nl: "Daarnaast bouwden we een offerteportaal waar klanten van KDS inloggen. Een calculatieaanvraag loopt in stappen: eerst je gegevens en je aanvraag, daarna de calculatiegegevens. Per onderdeel vul je de artikelcodes in, van stansvorm en reservemessen tot uitbreekplank en rilmatrijs, met het hout- en mesformaat, de lijnlengtes in millimeters, de staalhoogte en de complexiteit.",
+            en: "We also built a quotation portal where KDS customers log in. A calculation request runs in steps: first your details and your request, then the calculation data. For each part you enter the article codes, from cutting die and spare knives to stripping board and crease matrix, with the board and knife format, the line lengths in millimetres, the steel height and the complexity.",
+          },
+          {
+            nl: "Achter de schermen rekent het portaal dat door op basis van een uitgebreide prijzensheet met klantcodes. In hun dashboard zien klanten hun aanvragen terug en bevestigen ze een order. Zo heeft KDS een strak merk, drukwerk in dezelfde lijn, een website zonder franje en een portaal dat complexe calculaties eenvoudig maakt.",
+            en: "Behind the scenes, the portal works it out based on an extensive price sheet with customer codes. In their dashboard, customers see their requests and confirm an order. KDS now has a sharp brand, print in the same style, a no-nonsense website and a portal that makes complex calculations simple.",
           },
         ],
       },
@@ -928,8 +963,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Elke doelgroep een eigen ingang.", en: "A way in for every audience." },
         body: [
           {
-            nl: "We zetten het merk Steddion neer en ontwierpen de website in Webflow, in diep paars met geel als accent. De oplossingen en de doelgroepen hebben elk een eigen, overzichtelijke plek. Zo vindt een beheerder net zo snel zijn antwoord als een belegger.",
-            en: "We established the Steddion brand and designed the website in Webflow, in deep purple with yellow as the accent. The solutions and the audiences each have their own place. A property manager finds their answer as quickly as an investor does.",
+            nl: "We zetten het merk Steddion neer en ontwierpen de website in Webflow, in diep paars met geel als accent, in het Nederlands en het Engels. De vijf oplossingen lopen van analyseren en adviseren via investeren, ontwikkelen en beheren tot optimaliseren en groeien. Daarnaast heeft elke doelgroep een eigen pagina: vastgoedontwikkelaars, beheerders, huurders en gebruikers, beleggers en eigenaren, en bouwers. Zo vindt een beheerder net zo snel zijn antwoord als een belegger.",
+            en: "We established the Steddion brand and designed the website in Webflow, in deep purple with yellow as the accent, in Dutch and English. The five solutions run from analysing and advising through investing, developing and managing to optimising and growing. On top of that, every audience has its own page: property developers, property managers, tenants and users, investors and owners, and builders. A property manager finds their answer as quickly as an investor does.",
+          },
+          {
+            nl: "Projecten laten zien hoe dat in de praktijk uitpakt, en vanuit het menu stap je direct door naar de online tools: de EMS-vergelijker en de Energy Property Configurator.",
+            en: "Projects show how that works out in practice, and from the menu you step straight through to the online tools: the EMS comparison tool and the Energy Property Configurator.",
           },
         ],
       },
@@ -937,14 +976,24 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Kennis die bijblijft.", en: "Knowledge that keeps up." },
         body: [
           {
-            nl: "Voor de kennisbank Energy Insights bouwden we een scraper die realtime thema's en marktontwikkelingen ophaalt. Zo blijft de kennisbank gevoed met wat er in de markt speelt. Daarnaast maakten we landingspagina's en video's.",
-            en: "For the Energy Insights knowledge base we built a scraper that collects themes and market developments in real time. That keeps the knowledge base fed with what is happening in the market. We also made landing pages and videos.",
+            nl: "Voor de kennisbank Energy Insights bouwden we een scraper die realtime thema's en marktontwikkelingen ophaalt. Zo blijft de kennisbank gevoed met wat er in de markt speelt. Bezoekers doorzoeken artikelen, podcasts en video's en filteren op nieuws, projecten, blogs en video's. Veelgestelde vragen en de pagina's voor events en masterclasses maken het af.",
+            en: "For the Energy Insights knowledge base we built a scraper that collects themes and market developments in real time. That keeps the knowledge base fed with what is happening in the market. Visitors search articles, podcasts and videos and filter by news, projects, blogs and videos. FAQs and pages for events and masterclasses complete it.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een pagina per campagne.", en: "A page for every campaign." },
+        body: [
+          {
+            nl: "Voor gerichte campagnes maakten we landingspagina's. Steddion Asset Care zet de servicepakketten Basis, Premium en Ultimate naast elkaar, voor batterijen, laders of allebei, met een HubSpot-formulier erbij. En voor transporteurs die e-trucks hebben besteld, is er een pagina die in vier stappen laat zien hoe ze binnen drie maanden een werkend laadplein hebben, met een aanvraagformulier dat meteen vraagt hoeveel trucks er komen. Daarnaast maakten we video's.",
+            en: "For targeted campaigns we made landing pages. Steddion Asset Care puts the Basis, Premium and Ultimate service packages side by side, for batteries, chargers or both, with a HubSpot form alongside. And for transport companies that have ordered e-trucks, there is a page that shows in four steps how they get a working charging hub within three months, with a request form that asks straight away how many trucks are coming. We also made videos.",
           },
         ],
       },
     ],
     statements: [
       { nl: "Een rustige website brengt orde in een drukke markt.", en: "A calm website brings order to a busy market." },
+      { nl: "Elke doelgroep verdient een eigen ingang.", en: "Every audience deserves its own way in." },
     ],
   },
   "steddion-tools": {
@@ -966,12 +1015,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Je pand op het scherm.", en: "Your building on screen." },
         body: [
           {
-            nl: "De EPC Energy Property Configurator begint met een korte intake: welk type pand heb je, en welk verbruiksprofiel past erbij? Daarna staat je pand in 3D midden in beeld, met de netaansluiting en de zon erbij. Bij 'Mijn situatie' stel je met schuifjes en schakelaars je gecontracteerde vermogen, teruglevering, blokstroom en zonnepanelen in. Of je uploadt je eigen kwartierdata.",
-            en: "The EPC Energy Property Configurator starts with a short intake: what type of building do you have, and which consumption profile fits it? Then your building appears in 3D in the middle of the screen, with the grid connection and the sun alongside. Under 'My situation' you use sliders and switches to set your contracted capacity, feed-in, block power and solar panels. Or you upload your own quarter-hourly data.",
+            nl: "De EPC Energy Property Configurator begint met een intake van ongeveer een minuut: welk type pand heb je, en welk verbruiksprofiel past erbij? Daarna staat je pand in 3D midden in beeld, met de netaansluiting en de zon erbij. Bij 'Mijn situatie' stel je met schuifjes en schakelaars je gecontracteerde vermogen, teruglevering, blokstroom en zonnepanelen in. Of je uploadt je eigen kwartierdata.",
+            en: "The EPC Energy Property Configurator starts with an intake of about a minute: what type of building do you have, and which consumption profile fits it? Then your building appears in 3D in the middle of the screen, with the grid connection and the sun alongside. Under 'My situation' you use sliders and switches to set your contracted capacity, feed-in, block power and solar panels. Or you upload your own quarter-hourly data.",
           },
           {
-            nl: "Bij 'Nieuwe e-behoefte' voeg je extra stroomvraag en laadbehoefte toe, voor auto's, busjes en trucks, en zie je je verwachte verbruik over een etmaal, op een zonnige zomerdag en op een donkere winterdag. Bij 'Oplossingen' zet je zon-pv en batterijopslag op je pand, of je laat Steddion een oplossing voorstellen. Een balk onderin houdt intussen je piekvraag en jaarverbruik bij, en bij de oplossingen ook je zelfvoorziening en de vermeden CO₂. Aan het eind staat alles in een samenvatting bij elkaar.",
-            en: "Under 'New energy demand' you add extra power demand and charging needs, for cars, vans and trucks, and see your expected consumption over a full day, on a sunny summer day and on a dark winter day. Under 'Solutions' you place solar PV and battery storage on your building, or let Steddion propose a solution. Meanwhile a bar along the bottom keeps track of your peak demand and annual consumption, and with the solutions also your self-sufficiency and the CO₂ you avoid. At the end, everything comes together in a summary.",
+            nl: "Bij 'Nieuwe e-behoefte' voeg je extra stroomvraag en laadbehoefte toe, voor auto's, busjes en trucks, en zie je je verwachte verbruik over een etmaal, op een zonnige zomerdag en op een donkere winterdag. Bij 'Oplossingen' zet je zon-pv en batterijopslag op je pand, of je laat Steddion een oplossing voorstellen. Een balk onderin houdt intussen je piekvraag en jaarverbruik bij, en bij de oplossingen ook je zelfvoorziening en de vermeden CO₂. Aan het eind staat alles in een samenvatting bij elkaar. Wie inlogt, bewaart zijn projecten, mailt simulaties naar zichzelf en deelt rapporten met zijn team.",
+            en: "Under 'New energy demand' you add extra power demand and charging needs, for cars, vans and trucks, and see your expected consumption over a full day, on a sunny summer day and on a dark winter day. Under 'Solutions' you place solar PV and battery storage on your building, or let Steddion propose a solution. Meanwhile a bar along the bottom keeps track of your peak demand and annual consumption, and with the solutions also your self-sufficiency and the CO₂ you avoid. At the end, everything comes together in a summary. Log in and you save your projects, email simulations to yourself and share reports with your team.",
           },
         ],
       },
@@ -979,8 +1028,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Vergelijken, en recht in HubSpot.", en: "Compare, then straight into HubSpot." },
         body: [
           {
-            nl: "Met de EMS-vergelijker vind je leveranciers van energiemanagementsystemen die bij jouw situatie passen. In drie stappen kies je je sector, zie je welke leveranciers passen en vraag je meteen contact aan.",
-            en: "The EMS comparison tool helps you find energy management system suppliers that suit your situation. In three steps you choose your sector, see which suppliers fit and request contact straight away.",
+            nl: "Met de EMS-vergelijker vind je leveranciers van energiemanagementsystemen die bij jouw situatie passen. Eerst legt de tool kort uit wat een EMS doet. Daarna beantwoord je twee vragen: in welke sector je actief bent, productie, logistiek of transport, en welke installaties er zijn of komen, van batterij, zonnestroom en laadpalen tot generator, WKK, wind en warmte-opslag. Je krijgt een selectie van passende leveranciers, filtert verder op functies en diensten en vraagt meteen contact aan.",
+            en: "The EMS comparison tool helps you find energy management system suppliers that suit your situation. First the tool briefly explains what an EMS does. Then you answer two questions: which sector you work in, production, logistics or transport, and which installations are there or on the way, from battery, solar power and charging points to generator, CHP, wind and heat storage. You get a selection of matching suppliers, filter further by features and services and request contact straight away.",
           },
           {
             nl: "Beide tools zijn ingericht als leadfunnel en gekoppeld aan HubSpot. Aanvragen komen direct in het CRM terecht, zodat het team ze meteen kan opvolgen.",
@@ -1467,8 +1516,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "We built the website in Webflow. On the homepage you slide past the vehicles you can cash in: the van, the company car, the truck and any other business vehicle with a licence plate. Each card sums up in one sentence what Silvr means for that vehicle.",
           },
           {
-            nl: "Daarna begint de aanvraagflow: een interactieve calculator in vijf stappen. Eerst kies je welk voertuig je wilt verzilveren, een auto, bedrijfswagen, vrachtwagen of camper, en daarna vul je het kenteken in. Bij elke stap wordt de aanvraag persoonlijker, in realtime. Aan het eind controleer je je gegevens nog één keer en verstuur je de aanvraag.",
-            en: "Then the application flow begins: an interactive five-step calculator. First you choose which vehicle you want to cash in, a car, commercial vehicle, truck or camper, and then you enter the licence plate. With every step the application becomes more personal, in real time. At the end you check your details once more and send the application.",
+            nl: "Daarna begint de aanvraagflow: een interactieve calculator in vijf stappen. Eerst kies je welk voertuig je wilt verzilveren, een auto, bedrijfswagen, vrachtwagen of camper, en daarna vul je het kenteken in. Eén klik op 'Check' en via de open data van de RDW staan merk, model, kleur en bouwjaar er al. Jij vult alleen nog de kilometerstand en de staat aan, en kiest met een schuif hoeveel waarde je wilt verzilveren. Bij elke stap wordt de aanvraag persoonlijker, in realtime. Aan het eind controleer je je gegevens nog één keer en verstuur je de aanvraag.",
+            en: "Then the application flow begins: an interactive five-step calculator. First you choose which vehicle you want to cash in, a car, commercial vehicle, truck or camper, and then you enter the licence plate. One click on 'Check' and the RDW's open vehicle data fills in the make, model, colour and year of manufacture. You only add the mileage and condition, and use a slider to choose how much value you want to cash in. With every step the application becomes more personal, in real time. At the end you check your details once more and send the application.",
+          },
+          {
+            nl: "Rond die flow staan pagina's voor elke situatie waarin een ondernemer even ruimte nodig heeft: werkkapitaal voor zzp'ers, voorraad inkopen, salarissen betalen, een tijdelijke overbrugging of de cashflow van een aannemer. Aparte pagina's leggen uit wat je aan het eind van de looptijd kunt doen: verlengen, inleveren of terugkopen. En een blog beantwoordt de vragen die ondernemers vooraf hebben.",
+            en: "Around that flow sit pages for every situation in which a business owner needs some breathing room: working capital for freelancers, buying stock, paying salaries, a temporary bridge or a contractor's cash flow. Separate pages explain what you can do at the end of the term: extend, hand in or buy back. And a blog answers the questions business owners have up front.",
           },
         ],
       },
@@ -2123,17 +2176,21 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Het systeem in de hoofdrol.", en: "The system takes centre stage." },
         body: [
           {
-            nl: "In Webflow bouwden we een site waarin geel de toon zet. Het systeem, de auto en het portfolio krijgen elk de ruimte. Zo zie je wat The Filmcar kan, voordat je één vraag hoeft te stellen.",
-            en: "In Webflow we built a site where yellow sets the tone. The system, the car and the portfolio each get room to breathe. You see what The Filmcar can do before you need to ask a single question.",
+            nl: "In Webflow bouwden we een site waarin geel de toon zet. Het systeem, de auto en het portfolio krijgen elk de ruimte. Een eigen pagina zet het systeem af tegen een traditionele U-crane, de werkwijze staat in drie stappen uitgelegd, en je ziet op welke terreinen de auto filmt: racecircuits, offroad en de openbare weg. Zo zie je wat The Filmcar kan, voordat je één vraag hoeft te stellen.",
+            en: "In Webflow we built a site where yellow sets the tone. The system, the car and the portfolio each get room to breathe. A dedicated page compares the system with a traditional U-crane, the working method is explained in three steps, and you see the terrains the car films on: race tracks, offroad and public roads. You see what The Filmcar can do before you need to ask a single question.",
           },
         ],
       },
       {
-        title: { nl: "Een offerte in stappen.", en: "A quote, step by step." },
+        title: { nl: "Een configurator voor je opname.", en: "A configurator for your shoot." },
         body: [
           {
-            nl: "De offerteaanvraag loopt in stappen. Je kiest alleen de auto of de hele productie, daarna de apparatuur, de crew en hoe lang je de auto nodig hebt. Zo komt elke aanvraag compleet binnen.",
-            en: "The quote request runs in steps. You choose just the car or the full production, then the equipment, the crew and how long you need the car. Every request arrives complete.",
+            nl: "De offerteaanvraag is een dienstconfigurator met logica, die vanaf elke pagina opent. Je kiest eerst alleen de auto of de hele productie. Wil je alles uitbesteden, dan ga je meteen door naar contact. Huur je alleen de auto, dan kies je de apparatuur, de camera van The Filmcar of je eigen set, de crew, van chauffeur tot focus puller en gimbal operator, en hoe lang je de auto nodig hebt, van een halve dag tot drie dagen of langer.",
+            en: "The quote request is a service configurator with built-in logic that opens from every page. First you choose just the car or the full production. Want to outsource everything? Then you go straight to contact. Hiring just the car? Then you choose the equipment, The Filmcar's camera or your own kit, the crew, from driver to focus puller and gimbal operator, and how long you need the car, from half a day to three days or more.",
+          },
+          {
+            nl: "Met een korte omschrijving van het project en je gegevens erbij komt elke aanvraag compleet binnen, en volgt er binnen 24 uur een offerte op maat.",
+            en: "With a short project description and your details added, every request arrives complete, and a tailor-made quote follows within 24 hours.",
           },
         ],
       },
@@ -2219,8 +2276,21 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Samenstellen in stappen.", en: "Building it, step by step." },
         body: [
           {
-            nl: "Het hart van de Webflow-site is een configurator waarin je in een paar stappen je Speedbar PRO samenstelt en je aanvraag doet. Comfort, sterkte en veiligheid krijgen elk een korte uitleg, zodat je weet waarom elk detail ertoe doet.",
-            en: "At the heart of the Webflow site is a configurator in which you put together your Speedbar PRO in a few steps and submit your request. Comfort, strength and safety each get a short explanation, so you know why every detail matters.",
+            nl: "Het hart van de Webflow-site is een configurator waarin je je Speedbar PRO samenstelt en je aanvraag doet. In drie stappen kies je de grip, de carbon basis en de interface. Bij elke stap kies je standaard of op maat: een standaard grip in twee vormen, of een custom grip die in lengte, hoek en schakelpositie wordt aangepast, en een standaard interface of een 3D-geprinte interface die precies op jouw fiets en houding past. De prijs loopt mee met elke keuze.",
+            en: "At the heart of the Webflow site is a configurator in which you put together your Speedbar PRO and submit your request. In three steps you choose the grip, the carbon base and the interface. At every step you choose standard or custom: a standard grip in two shapes, or a custom grip adjusted in length, angle and shifter position, and a standard interface or a 3D-printed interface that fits your bike and position exactly. The price follows every choice.",
+          },
+          {
+            nl: "Aan het eind zie je je Speedbar in een overzicht en laat je je gegevens achter. Comfort, sterkte en veiligheid krijgen op de site elk een korte uitleg, en elk onderdeel heeft een eigen productpagina, zodat je weet waarom elk detail ertoe doet.",
+            en: "At the end you see your Speedbar in an overview and leave your details. Comfort, strength and safety each get a short explanation on the site, and every component has its own product page, so you know why every detail matters.",
+          },
+        ],
+      },
+      {
+        title: { nl: "En voor de profs: volledig maatwerk.", en: "And for the pros: fully custom." },
+        body: [
+          {
+            nl: "Naast de PRO is er Speedbar Tailor Made, voor tijdrit, baan en triatlon. Dat is geen product uit een configurator. De site legt het bestelproces stap voor stap uit, van de mal van je armen tot de bar op je fiets, en daarna vraag je contact aan.",
+            en: "Alongside the PRO there is Speedbar Tailor Made, for time trial, track and triathlon. That's not a product from a configurator. The site explains the ordering process step by step, from the mould of your arms to the bar on your bike, and then you request contact.",
           },
         ],
       },
@@ -2360,18 +2430,22 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             nl: "Vanaf de tekentafel werkten we samen aan een high-end site in Webflow. In een uitgebreide CMS-structuur koppelden we elke variant aan zijn optionele accessoires, van zonnepaneel tot automatische uitloopdeur. Zo zien bezoekers precies wat er te configureren valt.",
             en: "Starting at the drawing table, we worked together on a high-end site in Webflow. In an extensive CMS structure we linked every variant to its optional accessories, from solar panel to automatic exit door. That way visitors see exactly what can be configured.",
           },
+          {
+            nl: "Welke kar past bij jou? Dat vertelt de terugverdientijdcalculator, die vanaf elke pagina opent. Je kiest of je vrije-uitloop- of biologische eieren wilt verkopen, hoeveel kippen je wilt houden en welke prijs je per ei vraagt. Daarna zie je welke Kippenkar wordt aanbevolen en in hoeveel jaar hij zich terugverdient.",
+            en: "Which wagon suits you? The payback-time calculator tells you, and it opens from every page. You choose whether you want to sell free-range or organic eggs, how many hens you want to keep and what price you charge per egg. Then you see which Kippenkar is recommended and in how many years it pays for itself.",
+          },
         ],
       },
       {
-        title: { nl: "Drie talen, één opvolging.", en: "Three languages, one follow-up." },
+        title: { nl: "Elke aanvraag bij de juiste dealer.", en: "Every request with the right dealer." },
         body: [
           {
-            nl: "Een opt-in geeft toegang tot de productbrochures, en automatische, persoonlijke e-mails volgen elke aanvraag op. De site spreekt Nederlands, Duits en Engels, met de vertalingen op subdomeinen en SEO op elke pagina.",
-            en: "An opt-in unlocks the product brochures, and automated, personal emails follow up every request. The site speaks Dutch, German and English, with the translations on subdomains and SEO on every page.",
+            nl: "Een opt-in geeft toegang tot de productbrochures, en automatische, persoonlijke e-mails volgen elke aanvraag op. Wie een brochure aanvraagt, geeft zijn locatie en voorkeurstaal op. Een automatische geofence koppelt de aanvraag aan de dealer in dat gebied, en de brochure staat meteen online klaar. De site spreekt Nederlands, Duits, Engels en inmiddels ook Frans, met de vertalingen op subdomeinen en SEO op elke pagina. Op een interactieve kaart zoek je een dealer op naam, plaats of land.",
+            en: "An opt-in unlocks the product brochures, and automated, personal emails follow up every request. Anyone requesting a brochure enters their location and preferred language. An automatic geofence links the request to the dealer for that area, and the brochure is ready online straight away. The site speaks Dutch, German, English and now French too, with the translations on subdomains and SEO on every page. On an interactive map you look up a dealer by name, town or country.",
           },
           {
-            nl: "We verzorgden ook de branding, ontwierpen de digitale brochures en maakten video. Dealers loggen in op een eigen dealerportaal.",
-            en: "We also took care of the branding, designed the digital brochures and made video. Dealers log in to their own dealer portal.",
+            nl: "Dealers loggen in op een eigen dealerportaal. Daar vinden ze hun documenten, marketingmateriaal zoals foto's, video's en brochures, en een lead-cockpit: hun aanvragen in de tijd, te filteren op periode, status, prioriteit, type en product, met per lead de details en een tijdlijn. We verzorgden ook de branding, ontwierpen de digitale brochures en maakten video.",
+            en: "Dealers log in to their own dealer portal. There they find their documents, marketing material such as photos, videos and brochures, and a lead cockpit: their requests over time, filterable by period, status, priority, type and product, with the details and a timeline for each lead. We also took care of the branding, designed the digital brochures and made video.",
           },
         ],
       },
