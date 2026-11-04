@@ -79,7 +79,6 @@ export function CaseHero({ c, locale, media, services }: { c: Case; locale: Loca
                     +{services.length - MOBILE_TAGS}
                   </li>
                 ) : null}
-                {c.concept ? <li className="cx-hero__concept">{d.cases.concept}</li> : null}
               </ul>
               <SplitText as="h1" id="cx-title" className={`cx-hero__title${title.length > 56 ? " is-long" : title.length > 38 ? " is-mid" : ""}`} parts={title} delay={0.15} />
             </div>

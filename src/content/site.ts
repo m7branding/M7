@@ -23,9 +23,9 @@ export const site = {
     country: "NL",
     geo: { lat: 51.7048, lng: 5.5519 },
   },
-  kvk: process.env.NEXT_PUBLIC_KVK || "",
+  kvk: process.env.NEXT_PUBLIC_KVK || "81122721",
   /** BTW-identificatienummer (verplicht op de site naast de KvK, art. 3:15d BW), bv. NL123456789B01. */
-  vat: process.env.NEXT_PUBLIC_VAT || "",
+  vat: process.env.NEXT_PUBLIC_VAT || "NL861941342B01",
   foundingYear: 2020,
   partner: {
     label: "Professional Partner",

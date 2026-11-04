@@ -13,7 +13,7 @@ export const HERO_SHOWCASE: Partial<Record<string, ServiceSlug>> = {
   "buitenstate-tools": "automation-funnels",
   steddion: "configurators-lead-tools-widgets", // SteddionConfigurator
   "steddion-tools": "configurators-lead-tools-widgets",
-  "the-sandt": "seo-aeo-geo", // SandtAnswers
+  // niet: the-sandt; daar staat de website bovenin (device-hero), de GEO-showcase blijft op de dienstpagina
   "bernheze-makelaars-rebranding": "grafisch-ontwerp-print", // BernhezePrint
   "designers-house": "branding-rebranding", // DesignersHouseBook (uit hun eigen brandbook)
   // niet: alpacafarm-vorstenbosch (SocialAds zet een GRID-advertentie vooraan, dat is een andere klant)

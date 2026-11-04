@@ -23,6 +23,7 @@ const nextConfig = {
     const mergedCases = [["titanium-exhaust-configurator", "maarschall"]];
     // verwijderde cases zonder beeldmateriaal: naar het overzicht
     const removedCases = [
+      "debiteurnet",
       "designershouse",
       "impeco-chauffeurshandboek",
       "kds-intranet",
