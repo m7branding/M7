@@ -48,8 +48,8 @@ export const newCasesB: Case[] = [
       en: "From Nistelrode to Lower Manhattan: two school websites",
     },
     summary: {
-      nl: "Branding en websites voor Pine Street School en Battery Park Montessori in New York, met een multifunctionele navigatie waarin ouders snel vinden wat ze zoeken. Voor Pine Street School: een contentrijke site met een schaalbare structuur voor SEO en AEO, en koppelingen met HubSpot en Calendly.",
-      en: "Branding and websites for Pine Street School and Battery Park Montessori in New York, with multifunctional navigation that helps parents find what they need, fast. For Pine Street School: a content-rich site with a scalable structure for SEO and AEO, and HubSpot and Calendly integrations.",
+      nl: "Branding en websites voor Pine Street School en Battery Park Montessori in New York, met een multifunctionele navigatie waarin ouders snel vinden wat ze zoeken. Voor Pine Street School: een contentrijke site met een schaalbare structuur voor SEO en AEO. En op beide sites koppelingen met HubSpot en Calendly.",
+      en: "Branding and websites for Pine Street School and Battery Park Montessori in New York, with multifunctional navigation that helps parents find what they need, fast. For Pine Street School: a content-rich site with a scalable structure for SEO and AEO. And HubSpot and Calendly integrations on both sites.",
     },
     sector: "educatie-scholen",
     services: ["branding-rebranding", "websites-webshops", "seo-aeo-geo", "automation-funnels", "configurators-lead-tools-widgets"],
@@ -61,8 +61,8 @@ export const newCasesB: Case[] = [
       en: "Pine Street School is a multilingual IB World School in Lower Manhattan, from the very youngest up to grade 8. Battery Park Montessori, on the Hudson, is a trilingual Montessori school for children aged 1 to 5. Two schools with a lot of information for parents, about the education, admissions, tuition and school life. It all had to be easy to find.",
     },
     approach: {
-      nl: "Het werk is onderdeel van een bredere samenwerking, waarin we het digitale landschap van een grotere scholengroep opnieuw vormgeven. We werkten de branding van beide scholen uit en bouwden de websites in Webflow, op een gedeelde basis. De navigatie doet meer dan een gewoon menu: een interactief megamenu met zoeken en snelle links brengt je in een paar klikken bij toelating, rondleidingen of het lesprogramma. De contentrijke site van Pine Street School heeft daarnaast dynamische subnavigatie, instelbare zijbalken, CTA's en modulaire contentblokken, voor veel informatie over de vroege jaren, elementary en middle school, het lesprogramma, toelating, het schoolleven en de schoolgemeenschap. Een schaalbare contentstructuur helpt zoekmachines en AI-platforms de programma's, leeftijdsgroepen en toelatingsinformatie te begrijpen. Koppelingen met HubSpot en Calendly ondersteunen vragen van ouders, CRM-workflows en het inplannen van afspraken.",
-      en: "The work is part of a wider collaboration in which we are redesigning the digital landscape of a larger school group. We worked out the branding for both schools and built the websites in Webflow, on a shared foundation. The navigation does more than an ordinary menu: an interactive mega menu with search and quick links gets you to admissions, tours or the curriculum in a few clicks. The content-rich Pine Street School site also has dynamic sub-navigation, configurable sidebars, CTAs and modular content blocks, for a wealth of information about the early years, elementary and middle school, academics, admissions, student life and the school community. A scalable content structure helps search engines and AI platforms understand the programmes, age groups and admissions information. HubSpot and Calendly integrations support enquiries from parents, CRM workflows and appointment scheduling.",
+      nl: "Het werk is onderdeel van een bredere samenwerking, waarin we het digitale landschap van een grotere scholengroep opnieuw vormgeven. We werkten de branding van beide scholen uit en bouwden de websites in Webflow, op een gedeelde basis. De navigatie doet meer dan een gewoon menu: een interactief megamenu met zoeken en snelle links brengt je in een paar klikken bij toelating, rondleidingen of het lesprogramma. De contentrijke site van Pine Street School heeft daarnaast dynamische subnavigatie, instelbare zijbalken, CTA's en modulaire contentblokken, voor veel informatie over de vroege jaren, elementary en middle school, het lesprogramma, toelating, het schoolleven en de schoolgemeenschap. Een schaalbare contentstructuur helpt zoekmachines en AI-platforms de programma's, leeftijdsgroepen en toelatingsinformatie te begrijpen. Op beide sites ondersteunen koppelingen met HubSpot en Calendly vragen van ouders, CRM-workflows en het inplannen van afspraken.",
+      en: "The work is part of a wider collaboration in which we are redesigning the digital landscape of a larger school group. We worked out the branding for both schools and built the websites in Webflow, on a shared foundation. The navigation does more than an ordinary menu: an interactive mega menu with search and quick links gets you to admissions, tours or the curriculum in a few clicks. The content-rich Pine Street School site also has dynamic sub-navigation, configurable sidebars, CTAs and modular content blocks, for a wealth of information about the early years, elementary and middle school, academics, admissions, student life and the school community. A scalable content structure helps search engines and AI platforms understand the programmes, age groups and admissions information. On both sites, HubSpot and Calendly integrations support enquiries from parents, CRM workflows and appointment scheduling.",
     },
     result: {
       nl: "Twee rustige, overzichtelijke schoolwebsites uit dezelfde familie, waarop ouders snel vinden wat ze zoeken en makkelijk een vraag stellen of een afspraak plannen.",
@@ -200,8 +200,8 @@ export const newCasesB: Case[] = [
       en: "The Sandt: well-founded investing, in AI answers too",
     },
     summary: {
-      nl: "Website, funnels voor de brochureaanvraag met toegang tot de besloten For Your Eyes Only-omgeving, content die AI-zoekmachines kunnen citeren en campagnes op Google en LinkedIn die we beheren, voor The Sandt Investment Engineers.",
-      en: "Website, brochure-request funnels with access to the private For Your Eyes Only environment, content that AI search engines can cite, and Google and LinkedIn campaigns that we manage, for The Sandt Investment Engineers.",
+      nl: "Website, funnels waarin je de brochure met investeringsgegevens aanvraagt en daarna toegang krijgt tot de besloten For Your Eyes Only-omgeving, content die in de AI-antwoorden van Google als bron wordt genoemd en campagnes op Google en LinkedIn die we beheren, voor The Sandt Investment Engineers.",
+      en: "Website, funnels in which you request the brochure with the investment details and then get access to the private For Your Eyes Only environment, content that Google's AI answers cite as a source, and Google and LinkedIn campaigns that we manage, for The Sandt Investment Engineers.",
     },
     sector: "vastgoed-makelaardij",
     services: ["websites-webshops", "automation-funnels", "seo-aeo-geo", "content-marketing-online-ads"],
@@ -224,8 +224,8 @@ export const newCasesB: Case[] = [
       en: "Since 2015, The Sandt Investment Engineers has been designing real estate investment solutions, with real estate bonds under Dutch management. Investors look ever more closely at risk, return and transparency. So the story had to be clear and well-founded: on the website, in the brochure and in the answers of AI search engines. And anyone interested had to be able to move step by step from a first introduction to a personal conversation.",
     },
     approach: {
-      nl: "We bouwden de website van The Sandt in Webflow, met een eigen pagina per type investeerder (particulier, professioneel en private / family office), het trackrecord, projectupdates en een FAQ die per onderwerp is ingedeeld, in meerdere talen via Weglot. Daaromheen zetten we funnels voor de brochureaanvraag. Op de landingspagina Onderbouwd Investeren vraag je de brochure aan in een paar velden. Je krijgt per mail een persoonlijke toegangslink en een downloadlink, en een relatiemanager volgt de aanvraag persoonlijk op. Een weggevertje maakt de opt-in aantrekkelijk, en na de aanvraag gaan de eerst geblurde inzichten in de besloten For Your Eyes Only-omgeving open: plattegronden, rapporten, 3D-renders en een interactieve kaart van de projectlocatie. Elk type investeerder heeft een eigen brochureformulier, en particuliere en professionele investeerders komen elk in een eigen mailfunnel. De content bouwden we zo op dat AI-zoekmachines The Sandt als bron kunnen noemen (AEO en GEO), met gestructureerde FAQ-data. En we beheren de campagnes op Google en LinkedIn die investeerders naar die funnels brengen.",
-      en: "We built The Sandt's website in Webflow, with a dedicated page per type of investor (private, professional and private / family office), the track record, project updates and an FAQ organised by topic, in several languages via Weglot. Around it we set up funnels for the brochure request. On the Onderbouwd Investeren landing page you request the brochure in a few fields. You receive a personal access link and a download link by email, and a relationship manager follows up on the request personally. A giveaway makes the opt-in attractive, and after the request the insights that were blurred at first open up in the private For Your Eyes Only environment: floor plans, reports, 3D renders and an interactive map of the project location. Each type of investor has its own brochure form, and private and professional investors each enter an email funnel of their own. We structured the content so AI search engines can name The Sandt as a source (AEO and GEO), with structured FAQ data. And we manage the Google and LinkedIn campaigns that bring investors into those funnels.",
+      nl: "We bouwden de website van The Sandt in Webflow, met een eigen pagina per type investeerder (particulier, professioneel en private / family office), het trackrecord, projectupdates en een FAQ die per onderwerp is ingedeeld, in meerdere talen via Weglot. Daaromheen zetten we funnels voor de brochureaanvraag. Op de landingspagina Onderbouwd Investeren vraag je de brochure aan in een paar velden. Het weggevertje is de brochure met de investeringsgegevens: je krijgt per mail een persoonlijke toegangslink en een downloadlink, en een relatiemanager volgt de aanvraag persoonlijk op. Daarna krijg je ook toegang tot de besloten For Your Eyes Only-omgeving, waar de eerst geblurde inzichten opengaan: plattegronden, rapporten, 3D-renders en een interactieve kaart van de projectlocatie. Elk type investeerder heeft een eigen brochureformulier, en particuliere en professionele investeerders komen elk in een eigen mailfunnel. De content bouwden we zo op dat AI-zoekmachines The Sandt als bron kunnen noemen (AEO en GEO), met gestructureerde FAQ-data. En we beheren de campagnes op Google en LinkedIn die investeerders naar die funnels brengen.",
+      en: "We built The Sandt's website in Webflow, with a dedicated page per type of investor (private, professional and private / family office), the track record, project updates and an FAQ organised by topic, in several languages via Weglot. Around it we set up funnels for the brochure request. On the Onderbouwd Investeren landing page you request the brochure in a few fields. The giveaway is the brochure with the investment details: you receive a personal access link and a download link by email, and a relationship manager follows up on the request personally. After that you also get access to the private For Your Eyes Only environment, where the insights that were blurred at first open up: floor plans, reports, 3D renders and an interactive map of the project location. Each type of investor has its own brochure form, and private and professional investors each enter an email funnel of their own. We structured the content so AI search engines can name The Sandt as a source (AEO and GEO), with structured FAQ data. And we manage the Google and LinkedIn campaigns that bring investors into those funnels.",
     },
     result: {
       nl: "Een website die investeerders rustig en onderbouwd informeert, funnels die een brochureaanvraag stap voor stap opvolgen tot een persoonlijk gesprek, en campagnes op Google en LinkedIn die we doorlopend beheren. Plus een merk dat in de AI-antwoorden van Google als bron wordt genoemd.",
@@ -271,8 +271,8 @@ export const newCasesB: Case[] = [
       en: "Digital Newsgroup: ordering backlinks like in a web shop",
     },
     summary: {
-      nl: "Volledige rebranding van rood naar gifgroen en een laagdrempelige WooCommerce-webshop voor persplaatsingen, zonder login of account. De shop draait op een API die alle websites, domain ratings, favicons en screenshots ophaalt, in dezelfde nieuwe look en feel als het platform dat we herontwierpen.",
-      en: "A full rebrand from red to acid green and an easy WooCommerce shop for press placements, with no login or account. The shop runs on an API that fetches every website, domain rating, favicon and screenshot, in the same new look and feel as the platform we redesigned.",
+      nl: "Volledige rebranding van rood naar gifgroen en shop.digitalnewsgroup.com: de marketingwebsite met een laagdrempelige WooCommerce-shop voor persplaatsingen op een selectie aan sites, zonder login of account. De shop draait op een API die alle websites, domain ratings, favicons en screenshots ophaalt, in dezelfde nieuwe look en feel als het platform, waarvan we de volledige UI/UX ontwierpen.",
+      en: "A full rebrand from red to acid green and shop.digitalnewsgroup.com: the marketing website with an easy WooCommerce shop for press placements on a selection of sites, with no login or account. The shop runs on an API that fetches every website, domain rating, favicon and screenshot, in the same new look and feel as the platform, whose complete UI/UX we designed.",
     },
     sector: "zakelijke-dienstverlening",
     services: ["branding-rebranding", "websites-webshops"],
@@ -284,8 +284,8 @@ export const newCasesB: Case[] = [
       en: "Digital Newsgroup (DNG) is an international link building agency with its own software and a large database of blogs and news sites. The old brand was red. Buying placements was only possible in the application, with a login and an account.",
     },
     approach: {
-      nl: "We voerden een volledige rebranding door, van de oude rode huisstijl en het logo naar een gifgroene branding: actief en levendig. Daarna bouwden we shop.digitalnewsgroup.com in WordPress met WooCommerce: een lichte webshop voor persplaatsingen uit een selectie van de applicatie, zonder login of account. Een API-koppeling haalt alle websites en hun domain ratings automatisch op, met favicon en screenshot. Je filtert op prijs, verkeer, domain rating, categorie en taal, elke website heeft een eigen pagina met de cijfers en voorwaarden, en bestellen gaat in drie stappen: websites kiezen, online betalen en je tekst aanleveren of laten schrijven. De shop is er in het Nederlands, Engels, Duits, Frans en Spaans, met een kennisbank vol SEO-begrippen. De nieuwe look en feel komt ook terug in het platform, dat we in een apart UI/UX-project herontwierpen.",
-      en: "We carried out a full rebrand, from the old red identity and logo to an acid-green brand: active and lively. Then we built shop.digitalnewsgroup.com in WordPress with WooCommerce: a lightweight shop for press placements from a selection of the application, with no login or account. An API integration automatically fetches every website and its domain ratings, including favicon and screenshot. You filter by price, traffic, domain rating, category and language, every website has its own page with its figures and conditions, and ordering takes three steps: choose your websites, pay online and supply your text or have it written. The shop is available in Dutch, English, German, French and Spanish, with a knowledge base full of SEO terms. The new look and feel also returns in the platform, which we redesigned in a separate UI/UX project.",
+      nl: "We voerden een volledige rebranding door, van de oude rode huisstijl en het logo naar een gifgroene branding: actief en levendig. Daarna bouwden we shop.digitalnewsgroup.com in WordPress met WooCommerce: de marketingwebsite van DNG, met een lichte shop voor persplaatsingen op een selectie aan sites uit de applicatie, zonder login of account. Een API-koppeling haalt alle websites en hun domain ratings automatisch op, met favicon en screenshot. Je filtert op prijs, verkeer, domain rating, categorie en taal, elke website heeft een eigen pagina met de cijfers en voorwaarden, en bestellen gaat in drie stappen: websites kiezen, online betalen en je tekst aanleveren of laten schrijven. De shop is er in het Nederlands, Engels, Duits, Frans en Spaans, met een kennisbank vol SEO-begrippen. De nieuwe look en feel komt ook terug in het platform, dat live staat en waarvan we in een apart project de volledige UI/UX ontwierpen, in hetzelfde groene thema.",
+      en: "We carried out a full rebrand, from the old red identity and logo to an acid-green brand: active and lively. Then we built shop.digitalnewsgroup.com in WordPress with WooCommerce: DNG's marketing website, with a lightweight shop for press placements on a selection of sites from the application, with no login or account. An API integration automatically fetches every website and its domain ratings, including favicon and screenshot. You filter by price, traffic, domain rating, category and language, every website has its own page with its figures and conditions, and ordering takes three steps: choose your websites, pay online and supply your text or have it written. The shop is available in Dutch, English, German, French and Spanish, with a knowledge base full of SEO terms. The new look and feel also returns in the platform, which is live and whose complete UI/UX we designed in a separate project, in the same green theme.",
     },
     result: {
       nl: "Iedereen kan online laagdrempelig kennismaken met DNG en plaatsingen kopen zoals in elke webshop, in de nieuwe groene uitstraling die ook in het platform terugkomt.",
@@ -371,8 +371,8 @@ export const newCasesB: Case[] = [
       en: "CryptoCoinTalk: subscriptions rebuilt",
     },
     summary: {
-      nl: "Uitgebreide UX, abonnementen in WordPress en WooCommerce met toegang tot de University, funnels met kortingscodes richting een hoger abonnement, een UI/UX-redesign van het platform, een opgefriste branding en een nieuwe website voor CryptoCoinTalk.",
-      en: "Extensive UX, subscriptions in WordPress and WooCommerce with access to the University, funnels with discount codes towards a higher subscription, a UI/UX redesign of the platform, a refreshed brand and a new website for CryptoCoinTalk.",
+      nl: "Uitgebreide UX, abonnementen in WordPress en WooCommerce met toegang tot de University, funnels via MailerLite en Zapier met kortingscodes richting een hoger abonnement, het volledige UI/UX-ontwerp van University 2.0, een opgefriste branding en een nieuwe website voor CryptoCoinTalk.",
+      en: "Extensive UX, subscriptions in WordPress and WooCommerce with access to the University, funnels via MailerLite and Zapier with discount codes towards a higher subscription, the complete UI/UX design of University 2.0, a refreshed brand and a new website for CryptoCoinTalk.",
     },
     sector: "finance-fintech",
     services: ["web-apps-portals-apps", "websites-webshops", "automation-funnels", "branding-rebranding"],
@@ -386,19 +386,19 @@ export const newCasesB: Case[] = [
       "e-mailmarketing",
       "rebranding",
     ],
-    tools: ["wordpress", "woocommerce", "elementor"],
+    tools: ["wordpress", "woocommerce", "elementor", "zapier"],
     color: "#00477F",
     challenge: {
       nl: "CryptoCoinTalk helpt beginnende en gevorderde traders en investeerders met cursussen, een educatiegroep en een community. De manier waarop de abonnementen werkten moest op de schop: leden moesten makkelijk toegang krijgen tot de University, en wie eenmaal lid was, moest de weg naar een uitgebreider abonnement vinden. En het platform, de website en het merk konden ook wel een opfrisbeurt gebruiken.",
       en: "CryptoCoinTalk helps beginner and experienced traders and investors with courses, an education group and a community. The way the subscriptions worked needed an overhaul: members had to get easy access to the University, and anyone who had joined had to find their way to a more extensive subscription. And the platform, the website and the brand could do with a refresh too.",
     },
     approach: {
-      nl: "We gaven de hele klantreis een uitgebreide UX-slag, van de eerste gratis kennismaking tot het abonnement. De abonnementen bouwden we opnieuw op in WordPress met WooCommerce: de educatiegroep per maand, kwartaal, half jaar of jaar, met een gratis proefperiode, naast een gratis cursus, de tradecursus, de investeringscursus, 1-op-1-sessies en cadeaukaarten. Een abonnement geeft toegang tot de University, het leerplatform met cursussen, video's, livestreams, een tradingjournal en een portfolio. Daaromheen zetten we funnels met e-mails en kortingscodes die leden stimuleren om stap voor stap naar een hoger abonnement te gaan. Ook gaven we het platform een UI/UX-redesign, fristen we de branding op en bouwden we een nieuwe website in dezelfde lijn.",
-      en: "We gave the entire customer journey an extensive UX overhaul, from the first free introduction to the subscription. We rebuilt the subscriptions in WordPress with WooCommerce: the education group per month, quarter, half year or year, with a free trial, alongside a free course, the trading course, the investing course, one-to-one sessions and gift cards. A subscription gives access to the University, the learning platform with courses, videos, livestreams, a trading journal and a portfolio. Around it we set up funnels with emails and discount codes that encourage members to move step by step to a higher subscription. We also gave the platform a UI/UX redesign, refreshed the branding and built a new website in the same line.",
+      nl: "We gaven de hele klantreis een uitgebreide UX-slag, van de eerste gratis kennismaking tot het abonnement. De abonnementen bouwden we opnieuw op in WordPress met WooCommerce: de educatiegroep per maand, kwartaal, half jaar of jaar, met een gratis proefperiode, naast een gratis cursus, de tradecursus, de investeringscursus, 1-op-1-sessies en cadeaukaarten. Een abonnement geeft toegang tot de University, het leerplatform met cursussen, video's, livestreams, een tradingjournal en een portfolio. Daaromheen zetten we funnels via MailerLite en Zapier, met kortingsbonnen uit de logica van WooCommerce: e-mails die leden stimuleren om stap voor stap naar een hoger abonnement te gaan. Voor University 2.0 ontwierpen we de volledige UI/UX. Ook fristen we de branding op en bouwden we een nieuwe website in dezelfde lijn.",
+      en: "We gave the entire customer journey an extensive UX overhaul, from the first free introduction to the subscription. We rebuilt the subscriptions in WordPress with WooCommerce: the education group per month, quarter, half year or year, with a free trial, alongside a free course, the trading course, the investing course, one-to-one sessions and gift cards. A subscription gives access to the University, the learning platform with courses, videos, livestreams, a trading journal and a portfolio. Around it we set up funnels via MailerLite and Zapier, with coupons from WooCommerce's logic: emails that encourage members to move step by step to a higher subscription. For University 2.0 we designed the complete UI/UX. We also refreshed the branding and built a new website in the same line.",
     },
     result: {
-      nl: "Een helder abonnementsmodel met directe toegang tot de University, funnels die leden stimuleren om naar een hoger abonnement te gaan, een opgefrist merk en een website in dezelfde lijn.",
-      en: "A clear subscription model with direct access to the University, funnels that encourage members to move to a higher subscription, a refreshed brand and a website in the same line.",
+      nl: "Een helder abonnementsmodel met directe toegang tot de University, funnels die leden stimuleren om naar een hoger abonnement te gaan, een volledig UI/UX-ontwerp voor University 2.0, een opgefrist merk en een website in dezelfde lijn.",
+      en: "A clear subscription model with direct access to the University, funnels that encourage members to move to a higher subscription, a complete UI/UX design for University 2.0, a refreshed brand and a website in the same line.",
     },
     url: "https://cryptocointalk.nl",
   },
@@ -470,25 +470,25 @@ export const newCasesB: Case[] = [
       en: "GRID: charge, fuel and order",
     },
     summary: {
-      nl: "Website, advertentiebanners, de webshop shop.grid.com en Meta-campagnes die we beheren, voor GRID, de app en marketplace rond elektrisch rijden en laden.",
-      en: "Website, ad banners, the shop.grid.com web shop and Meta campaigns that we manage, for GRID, the app and marketplace for electric driving and charging.",
+      nl: "Webdesigns, onder meer voor de webshop shop.grid.com, advertentiecreaties en Meta-campagnes die we beheren, voor GRID, de app en marketplace rond elektrisch rijden en laden. Ook aan het design van grid.com werkten we mee.",
+      en: "Web designs, including for the shop.grid.com web shop, ad creatives and Meta campaigns that we manage, for GRID, the app and marketplace for electric driving and charging. We also contributed to the design of grid.com.",
     },
     sector: "automotive-mobiliteit",
     services: ["websites-webshops", "content-marketing-online-ads"],
-    applications: ["webflow-website", "webshop", "wordpress-website", "meta-ads"],
-    tools: ["webflow", "wordpress", "woocommerce", "elementor", "meta"],
+    applications: ["ux-ui-webdesign", "meta-ads"],
+    tools: ["meta"],
     color: "#05CD8C",
     challenge: {
       nl: "Met de GRID-app vind je laadpunten en tankstations, plan je je route en zie je waar laden of tanken het voordeligst is. Daarnaast levert GRID laadpalen, laadkabels en snelladers, voor particulieren en bedrijven. Dat alles moest online een duidelijk thuis krijgen.",
       en: "With the GRID app you find charging points and fuel stations, plan your route and see where charging or refuelling is cheapest. GRID also supplies charging stations, charging cables and fast chargers, for consumers and businesses. All of that needed a clear home online.",
     },
     approach: {
-      nl: "We bouwden de website in Webflow en de marketplace shop.grid.com in WordPress met WooCommerce, met aparte ingangen voor particulieren en zakelijk. Voor campagnes maakten we advertentiebanners, zoals die voor het gratis aanvragen van een publiek laadpunt bij je woning. En we beheren de advertenties van GRID op Meta.",
-      en: "We built the website in Webflow and the shop.grid.com marketplace in WordPress with WooCommerce, with separate entrances for consumers and businesses. For campaigns we made ad banners, such as the one for requesting a free public charging point near your home. And we manage GRID's advertising on Meta.",
+      nl: "Voor GRID maakten we vooral webdesigns, onder meer voor de webshop shop.grid.com, en we werkten mee aan het design van grid.com. Voor campagnes maakten we advertentiecreaties, zoals de banners voor het gratis aanvragen van een publiek laadpunt bij je woning. En we beheren de advertenties van GRID op Meta.",
+      en: "For GRID we mainly created web designs, including for the shop.grid.com web shop, and we contributed to the design of grid.com. For campaigns we made ad creatives, such as the banners for requesting a free public charging point near your home. And we manage GRID's advertising on Meta.",
     },
     result: {
-      nl: "Een website en een shop die bij elkaar horen, waarin je van laadkabel tot DC-snellader bestelt, banners met een duidelijke oproep en Meta-campagnes die we doorlopend beheren.",
-      en: "A website and a shop that belong together, where you can order anything from a charging cable to a DC fast charger, banners with a clear call to action and Meta campaigns that we manage on an ongoing basis.",
+      nl: "Webdesigns en advertentiecreaties in dezelfde lijn, van shop tot banner, en Meta-campagnes die we doorlopend beheren.",
+      en: "Web designs and ad creatives in the same line, from shop to banner, and Meta campaigns that we manage on an ongoing basis.",
     },
     url: "https://grid.com",
   },
@@ -531,8 +531,8 @@ export const newCasesB: Case[] = [
       en: "Nexis: the patient at home, the care team close by",
     },
     summary: {
-      nl: "Een meertalige website voor Nexis Telebox, het systeem waarmee zorgteams patiënten thuis op afstand monitoren, met een conditionele leadflow per type zorgorganisatie en 3D-productanimaties.",
-      en: "A multilingual website for Nexis Telebox, the system that lets care teams monitor patients remotely at home, with a conditional lead flow for each type of care organisation and 3D product animations.",
+      nl: "Een meertalige website voor Nexis Telebox, het systeem waarmee zorgteams patiënten thuis op afstand monitoren, met een conditionele leadflow per type zorgorganisatie en 3D-animaties van de devices en hardware in tabs.",
+      en: "A multilingual website for Nexis Telebox, the system that lets care teams monitor patients remotely at home, with a conditional lead flow for each type of care organisation and 3D animations of the devices and hardware in tabs.",
     },
     sector: "zorg-welzijn",
     services: ["websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie", "seo-aeo-geo"],
@@ -544,8 +544,8 @@ export const newCasesB: Case[] = [
       en: "With Nexis Telebox, patients measure things like blood pressure, heart rate and oxygen saturation at home. The readings go automatically via 4G to the care team's dashboard. Hospitals and clinics had to understand in one go what it is, who it is for and how it fits into their existing systems.",
     },
     approach: {
-      nl: "We ontwierpen de website in Webflow en zetten die over naar WordPress, in het Nederlands en Engels, met een vertaalwidget voor Duits, Frans en Spaans. Snel, overzichtelijk en opgebouwd voor SEO. De opbouw volgt de vragen van de bezoeker: waarom nu, wat is het, voor wie is het en hoe werkt de oplossing? Zo wordt complexe techniek begrijpelijk voor iedereen die meebeslist. Een eigen leadflow, de Nexis Configurator, vraagt eerst wat voor organisatie je bent: ziekenhuis, kliniek, verpleeghuis of thuiszorgorganisatie. Daarna passen de vragen en antwoorden zich aan die keuze aan, over je grootste uitdaging en wat het meeste verschil zou maken, gevolgd door het aantal patiënten voor een eerste fase en je gegevens. De antwoorden gaan via Zapier mee naar het team, zodat de demo meteen over jouw situatie gaat, en transactionele e-mails gaan automatisch de deur uit. Strakke 3D-productanimaties en device-mockups van de whitelabel-software maken het product tastbaar.",
-      en: "We designed the website in Webflow and moved it over to WordPress, in Dutch and English, with a translation widget for German, French and Spanish. Fast, clear and structured for SEO. The structure follows the visitor's questions: why now, what is it, who is it for and how does the solution work? That makes complex technology understandable for everyone involved in the decision. A custom lead flow, the Nexis Configurator, first asks what kind of organisation you are: hospital, clinic, nursing home or home care organisation. The questions and answers then adapt to that choice, covering your biggest challenge and what would make the most difference, followed by the number of patients for a first phase and your details. The answers go to the team via Zapier, so the demo is about your situation from the start, and transactional emails go out automatically. Sleek 3D product animations and device mockups of the white-label software make the product tangible.",
+      nl: "We ontwierpen de website in Webflow en zetten die over naar WordPress, in het Nederlands en Engels, met een vertaalwidget voor Duits, Frans en Spaans. Snel, overzichtelijk en opgebouwd voor SEO. De opbouw volgt de vragen van de bezoeker: waarom nu, wat is het, voor wie is het en hoe werkt de oplossing? Zo wordt complexe techniek begrijpelijk voor iedereen die meebeslist. Een eigen leadflow, de Nexis Configurator, vraagt eerst wat voor organisatie je bent: ziekenhuis, kliniek, verpleeghuis of thuiszorgorganisatie. Daarna passen de vragen en antwoorden zich aan die keuze aan, over je grootste uitdaging en wat het meeste verschil zou maken, gevolgd door het aantal patiënten voor een eerste fase en je gegevens. De antwoorden gaan via Zapier mee naar het team, zodat de demo meteen over jouw situatie gaat. Op de homepage kies je in tabs een onderdeel van de hardware: de AnyHub, de bloeddrukmeter, de weegschaal, de pulse-oximeter of de glucosemeter. Elk apparaat draait er als 3D-animatie rond, en samen met device-mockups van de whitelabel-software maakt dat het product tastbaar.",
+      en: "We designed the website in Webflow and moved it over to WordPress, in Dutch and English, with a translation widget for German, French and Spanish. Fast, clear and structured for SEO. The structure follows the visitor's questions: why now, what is it, who is it for and how does the solution work? That makes complex technology understandable for everyone involved in the decision. A custom lead flow, the Nexis Configurator, first asks what kind of organisation you are: hospital, clinic, nursing home or home care organisation. The questions and answers then adapt to that choice, covering your biggest challenge and what would make the most difference, followed by the number of patients for a first phase and your details. The answers go to the team via Zapier, so the demo is about your situation from the start. On the homepage you use tabs to pick a piece of the hardware: the AnyHub, the blood pressure monitor, the scales, the pulse oximeter or the glucose meter. Each device turns there as a 3D animation, and together with device mockups of the white-label software that makes the product tangible.",
     },
     result: {
       nl: "Een rustige, heldere website die een technisch zorgproduct begrijpelijk maakt, met een duidelijke weg naar een demo.",
@@ -652,8 +652,8 @@ export const newCasesB: Case[] = [
       en: "Maarschall: titanium with its own sound",
     },
     summary: {
-      nl: "Website en branding voor Maarschall Titanium: handgemaakte titanium uitlaatsystemen, met een dynamische merkencatalogus met AI-beelden van iedere auto, een detailpagina per model en offerteaanvragen die bij de juiste dealer landen.",
-      en: "Website and branding for Maarschall Titanium: handmade titanium exhaust systems, with a dynamic catalogue of makes with AI images of every car, a detail page per model and quote requests that reach the right dealer.",
+      nl: "Website en branding voor Maarschall Titanium: handgemaakte titanium uitlaatsystemen, met een dynamische merkencatalogus en een archief van automodellen met AI-beelden van iedere auto, en offerteaanvragen die per mail bij de gekozen dealer landen.",
+      en: "Website and branding for Maarschall Titanium: handmade titanium exhaust systems, with a dynamic catalogue of makes and an archive of car models with AI images of every car, and quote requests that reach the chosen dealer by email.",
     },
     sector: "automotive-mobiliteit",
     services: ["branding-rebranding", "websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie"],
@@ -668,12 +668,12 @@ export const newCasesB: Case[] = [
       en: "Maarschall makes handmade, customisable titanium exhaust systems for McLaren, Ferrari, Lamborghini, Porsche and Audi, among others, and also sells through resellers. A top product for enthusiasts, which had to show the same class online. And a request had to reach the right dealer.",
     },
     approach: {
-      nl: "We ontwikkelden de branding en bouwden de website in Webflow. Het hart is een dynamische merkencatalogus: met 'Vind jouw uitlaat' filter je op merk en zie je elk model met zijn bouwjaren. Iedere auto kreeg een eigen beeld, gemaakt met AI. Elk model heeft een detailpagina voor de uitlaatmogelijkheden, met een offerteaanvraag waarin je een reseller kiest. Zo gaat de aanvraag meteen naar de juiste dealer.",
-      en: "We developed the branding and built the website in Webflow. At its heart is a dynamic catalogue of makes: with 'Find your exhaust' you filter by make and see every model with its model years. Every car got its own image, made with AI. Each model has a detail page for its exhaust options, with a quote request in which you choose a reseller. That way the request goes straight to the right dealer.",
+      nl: "We ontwikkelden de branding en bouwden de website in Webflow. Het hart is een dynamische merkencatalogus: met 'Vind jouw uitlaat' filter je op merk en blader je door het archief van automodellen, elk met zijn bouwjaren. Iedere auto kreeg een eigen beeld, gemaakt met AI. Bij elk model vraag je een offerte aan en kies je een reseller, en die dealer krijgt de aanvraag meteen per mail.",
+      en: "We developed the branding and built the website in Webflow. At its heart is a dynamic catalogue of makes: with 'Find your exhaust' you filter by make and browse the archive of car models, each with its model years. Every car got its own image, made with AI. For each model you request a quote and choose a reseller, and that dealer receives the request by email straight away.",
     },
     result: {
-      nl: "Een donkere, krachtige website waarop het vakmanschap voorop staat, liefhebbers hun uitlaat snel vinden en aanvragen direct bij de juiste dealer landen.",
-      en: "A dark, powerful website that puts the craftsmanship first, helps enthusiasts find their exhaust fast and sends requests straight to the right dealer.",
+      nl: "Een donkere, krachtige website waarop het vakmanschap voorop staat, liefhebbers hun auto snel terugvinden en aanvragen direct bij de gekozen dealer landen.",
+      en: "A dark, powerful website that puts the craftsmanship first, helps enthusiasts find their car fast and sends requests straight to the chosen dealer.",
     },
     url: "https://www.maarschall.com",
   },
@@ -796,5 +796,39 @@ export const newCasesB: Case[] = [
       en: "A website that presents a top-level product as carefully as it is made, with a configurator for the PRO and a request flow that suits made-to-measure.",
     },
     url: "https://www.speedbar.nl",
+  },
+  // Nieuwe case (ronde 2): M7 werkte aan de website (landingspagina's) en beheert en optimaliseert de Google Ads (owner).
+  // Beeld: live screenshots van de landingspagina /implantaten-esthetisch-duurzaam/ (2026-11-04). Geen resultaten of cijfers.
+  {
+    slug: "mondcleanic",
+    client: "MondCleanic",
+    title: {
+      nl: "MondCleanic: van zoekopdracht naar afspraak",
+      en: "MondCleanic: from search to appointment",
+    },
+    summary: {
+      nl: "Werk aan de website, landingspagina's per behandeling en het beheer en de optimalisatie van de Google Ads-campagnes voor MondCleanic, het centrum voor algemene en specialistische mondzorg in Noordwijk.",
+      en: "Work on the website, landing pages per treatment and the management and optimisation of the Google Ads campaigns for MondCleanic, the centre for general and specialist dental care in Noordwijk.",
+    },
+    sector: "zorg-welzijn",
+    services: ["websites-webshops", "content-marketing-online-ads"],
+    applications: ["landingspaginas", "google-ads"],
+    tools: ["wordpress", "googleads"],
+    cover: "/media/cases/mondcleanic/cover.webp",
+    screens: { desktop: "/media/cases/mondcleanic/screen-desktop.webp", mobile: "/media/cases/mondcleanic/screen-mobile.webp" },
+    color: "#A5CCE8",
+    challenge: {
+      nl: "MondCleanic in Noordwijk brengt algemene en specialistische mondzorg onder één dak: van controles en mondhygiëne tot implantaten, wortelkanaalbehandelingen en complexe zorg. Wie online zoekt naar zo'n behandeling, moet meteen landen op een pagina die over precies die behandeling gaat, en van daaruit makkelijk een afspraak kunnen maken.",
+      en: "MondCleanic in Noordwijk brings general and specialist dental care under one roof: from check-ups and oral hygiene to implants, root canal treatments and complex care. Anyone searching online for such a treatment has to land straight on a page about exactly that treatment, and be able to book an appointment easily from there.",
+    },
+    approach: {
+      nl: "We werkten aan de website van MondCleanic, die op WordPress draait, en maakten landingspagina's per behandeling, zoals voor implantaten, een klikgebit, vullingen en wortelkanaalbehandelingen, en voor de praktijk als geheel. Elke pagina volgt dezelfde heldere opbouw: een duidelijke belofte bovenaan, de redenen om voor MondCleanic te kiezen, de specialisten die de behandeling doen en op meerdere plekken een knop om een afspraak te maken. Daarnaast beheren we de Google Ads-campagnes van MondCleanic en optimaliseren we de advertenties doorlopend, zodat wie zoekt op de juiste pagina terechtkomt.",
+      en: "We worked on MondCleanic's website, which runs on WordPress, and created landing pages per treatment, such as implants, implant-retained dentures, fillings and root canal treatments, and for the practice as a whole. Every page follows the same clear structure: a clear promise at the top, the reasons to choose MondCleanic, the specialists who carry out the treatment and, in several places, a button to book an appointment. We also manage MondCleanic's Google Ads campaigns and keep optimising the ads, so that people who search end up on the right page.",
+    },
+    result: {
+      nl: "Landingspagina's die per behandeling het verhaal vertellen en naar een afspraak leiden, en Google Ads-campagnes die we doorlopend beheren en verbeteren.",
+      en: "Landing pages that tell the story for each treatment and lead to an appointment, and Google Ads campaigns that we manage and improve on an ongoing basis.",
+    },
+    url: "https://www.mondcleanic.nl",
   },
 ];
