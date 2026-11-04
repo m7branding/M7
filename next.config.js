@@ -8,6 +8,12 @@ const nextConfig = {
   reactStrictMode: true,
   // Aparte map voor een dev-server naast een productie-build (NEXT_DIST_DIR=.next-dev npx next dev)
   distDir: process.env.NEXT_DIST_DIR || ".next",
+  // De server-functie hoeft de media niet mee te nemen: beeldafmetingen worden bij de build uit /public gelezen
+  // (zie components/case/imageSize.ts) en de hosting serveert /public zelf. Zonder dit zit alle media (honderden MB)
+  // in de functie en weigert Netlify de upload ("request body too large").
+  experimental: {
+    outputFileTracingExcludes: { "*": ["public/**/*", "scripts/**/*", "shots/**/*"] },
+  },
   // Zet dit aan voor een volledig statische export (handig om te embedden
   // op WordPress/Webflow of te hosten op een CDN):
   // output: "export",
