@@ -535,7 +535,7 @@ def reels():
             dict(k="scene", secs=4.6, spec=dict(slug=bs, t="d17_ipads_lean__k1", content="flow", flow="flow-21-zoekers-desktop.mp4", ft0=6.3,
                                                 cam=dict(cam((1.7, 1.95), (0.0, 0.0), (0.0, -0.01), (0.8, 0.0)), follow=0.75, dwell=0.12, lean=1.2, handheld=1.0))),
             # title, price and the agent card with the viewing button; stops before the specs (raw values on the live site)
-            dict(k="scene", secs=3.0, spec=dict(slug=bs, t="d02_mac_top__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=1.5,
+            dict(k="scene", secs=2.6, spec=dict(slug=bs, t="d02_mac_top__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=1.2,
                                                 cam=dict(cam((1.5, 1.75), (0.02, 0.0), (0.0, -0.01), (1.2, 0.0)), follow=0.6, dwell=0.14, lean=1.2, handheld=1.0))),
             dict(k="float", secs=3.8, bg="frost", cards=deck([(asset(R / "cap" / bs / "photo-1.jpg"), 880), (asset(R / "cap" / bs / "photo-3.jpg"), 780),
                                                                 (asset(R / "cap" / bs / "crop-price.jpg"), 820), (asset(R / "cap" / bs / "crop-agent.jpg"), 420)], seed=1)),
