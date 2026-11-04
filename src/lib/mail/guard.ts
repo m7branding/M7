@@ -46,7 +46,8 @@ export function baseUrl(req: Request): string {
 
 /* ---------- double opt-in */
 
-const secret = () => process.env.NEWSLETTER_SECRET || process.env.RESEND_API_KEY || "";
+// sleutel voor de handtekening: eigen geheim, anders afgeleid van een server-geheim dat er toch al is (HMAC lekt het niet)
+const secret = () => process.env.NEWSLETTER_SECRET || process.env.RESEND_API_KEY || process.env.SMTP_PASS || "";
 const b64 = (s: string) => Buffer.from(s, "utf8").toString("base64url");
 const unb64 = (s: string) => Buffer.from(s, "base64url").toString("utf8");
 const mac = (payload: string) => createHmac("sha256", secret()).update(`m7-newsletter|${payload}`).digest("base64url").slice(0, 32);
