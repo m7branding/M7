@@ -1,6 +1,6 @@
 import { site } from "@/content/site";
 import { readOptin } from "@/lib/mail/guard";
-import { subscribe } from "@/lib/mail/resend";
+import { mailConfig, sendMail, subscribe } from "@/lib/mail/resend";
 import { optinPage } from "@/lib/mail/templates";
 
 /**
@@ -20,7 +20,17 @@ export async function GET(req: Request) {
   const opt = readOptin(q);
   if (!opt) return page(optinPage("invalid", base, q.get("l") === "en" ? "en" : "nl"), 400);
 
-  const ok = await subscribe(opt.email);
+  // Lijst in Resend; zonder Resend gaat de bevestigde inschrijving als mail naar hello@ (niemand gaat verloren)
+  const cfg = mailConfig();
+  const ok = cfg.list
+    ? await subscribe(opt.email)
+    : await sendMail({
+        to: cfg.leadsTo,
+        subject: `Nieuwe nieuwsbrief-inschrijving (bevestigd): ${opt.email}`,
+        text: `${opt.email} heeft de inschrijving voor de M7 nieuwsbrief bevestigd (double opt-in).\nTaal: ${opt.locale}\nTijd: ${new Date().toISOString()}`,
+        html: `<p><b>${opt.email.replace(/[<>&"]/g, "")}</b> heeft de inschrijving voor de M7 nieuwsbrief bevestigd (double opt-in).</p><p>Taal: ${opt.locale}</p>`,
+        tags: [{ name: "form", value: "newsletter_confirmed" }],
+      });
   if (ok && site.forms.newsletterWebhook) {
     await fetch(site.forms.newsletterWebhook, {
       method: "POST",

@@ -1,10 +1,15 @@
 /* ============================================================
-   Resend: transactionele mail (leads, bevestigingen, support) en
-   de nieuwsbrieflijst (contacts + optioneel een segment).
-   Alles via de REST API, zonder extra dependency. De sleutel staat
-   alleen server-side in RESEND_API_KEY (zie .env.example).
+   E-mail van de site: transactionele mail (leads, bevestigingen,
+   support) en de nieuwsbrieflijst.
+   - SMTP (eigen mailserver, bv. mail.zxcs.nl) als SMTP_HOST gezet is,
+     anders Resend (RESEND_API_KEY) voor het versturen.
+   - De nieuwsbrieflijst staat in Resend (Contacts) als RESEND_API_KEY
+     gezet is; zonder Resend krijgt hello@ per bevestigde inschrijving
+     een mail, zodat er niemand verloren gaat.
+   Wachtwoorden en sleutels staan alleen in env vars op de server.
    ============================================================ */
 
+import nodemailer from "nodemailer";
 import { site } from "@/content/site";
 
 const API = process.env.RESEND_API_BASE || "https://api.resend.com";
@@ -15,7 +20,9 @@ const list = (v: string | undefined, fallback: string[]) =>
 /** Waar alles naartoe gaat. Elke waarde is te overschrijven met een env var. */
 export function mailConfig() {
   return {
-    enabled: !!process.env.RESEND_API_KEY,
+    enabled: !!(process.env.SMTP_HOST || process.env.RESEND_API_KEY),
+    /** Nieuwsbrieflijst in Resend beschikbaar. */
+    list: !!process.env.RESEND_API_KEY,
     /** Afzender; het domein moet in Resend geverifieerd zijn. */
     from: process.env.MAIL_FROM || `M7 Branding <${site.email}>`,
     /** Leads uit het contactformulier en de intake. */
@@ -62,8 +69,41 @@ export interface Mail {
   tags?: { name: string; value: string }[];
 }
 
+let smtp: nodemailer.Transporter | null = null;
+function smtpTransport() {
+  if (!smtp) {
+    const port = Number(process.env.SMTP_PORT || 465);
+    smtp = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port,
+      secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === "true" : port === 465,
+      auth: { user: process.env.SMTP_USER || site.email, pass: process.env.SMTP_PASS || "" },
+    });
+  }
+  return smtp;
+}
+
 export async function sendMail(m: Mail): Promise<boolean> {
   const { from } = mailConfig();
+  if (process.env.SMTP_HOST) {
+    try {
+      await smtpTransport().sendMail({
+        from,
+        to: m.to,
+        cc: m.cc?.length ? m.cc : undefined,
+        replyTo: m.replyTo?.length ? m.replyTo : undefined,
+        subject: m.subject,
+        html: m.html,
+        text: m.text,
+        // zelfde sleutel = zelfde Message-ID; voorkomt dubbele weergave bij een retry
+        messageId: m.idempotencyKey ? `<${m.idempotencyKey}@m7branding.com>` : undefined,
+      });
+      return true;
+    } catch (e) {
+      console.error("[smtp] versturen mislukt", (e as Error).message);
+      return false;
+    }
+  }
   const r = await call("/emails", {
     method: "POST",
     headers: m.idempotencyKey ? { "Idempotency-Key": m.idempotencyKey.slice(0, 256) } : undefined,
