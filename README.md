@@ -294,6 +294,15 @@ redirects, de 404 en het letsgo-subdomein hebben de Next.js-server nodig.
    google-site-verification staan. Volg de waarden die Vercel zelf toont als die afwijken.
 6. Search Console: dien `https://m7branding.com/sitemap.xml` in.
 
+**Of op Netlify** (werkt net zo; Netlify herkent Next.js zelf, inclusief middleware, API-routes en redirects):
+1. Add new site → Import from GitHub → `m7branding/M7`, branch `main`. Build command `npm run build`, publish
+   directory `.next` (meestal al ingevuld). Node 20.
+2. Site configuration → Environment variables: dezelfde als hierboven (`NEXT_PUBLIC_SITE_URL`, `SMTP_*`).
+3. Deploy en test op de `.netlify.app`-URL.
+4. Domain management: `m7branding.com` als primary domain, plus `www` en `letsgo.m7branding.com` als domain alias.
+5. DNS bij Vimexx: de waarden die Netlify toont (apex A-record naar de load balancer van Netlify, `www` en
+   `letsgo` als CNAME naar `<site>.netlify.app`). Laat MX, SPF, DMARC en `answers` staan.
+
 ---
 
 ## Structuur

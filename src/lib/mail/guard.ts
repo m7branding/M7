@@ -37,6 +37,8 @@ export function baseUrl(req: Request): string {
     process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`,
     process.env.VERCEL_BRANCH_URL && `https://${process.env.VERCEL_BRANCH_URL}`,
     process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`,
+    // Netlify (deze bevatten al https://): hoofd-URL, branch/preview en deze deploy
+    process.env.URL, process.env.DEPLOY_PRIME_URL, process.env.DEPLOY_URL,
     process.env.NODE_ENV !== "production" && "http://localhost:3000",
   ].filter(Boolean) as string[];
   return own.includes(origin) ? origin : site.url;
