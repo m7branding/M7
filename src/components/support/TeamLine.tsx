@@ -62,7 +62,7 @@ const LINES: Record<Kind, Record<Locale, (a: string, b: string) => React.ReactNo
 
 /**
  * Avatars van het team + een korte regel, bv. onder een CTA:
- * "Martijn, Noud en de rest van het team staan voor je klaar."
+ * "Martijn, Alexander en de rest van het team staan voor je klaar."
  * Namen en aantallen komen uit team.ts (niet hardcoded).
  */
 export function TeamLine({
