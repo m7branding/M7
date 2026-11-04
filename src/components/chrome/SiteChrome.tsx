@@ -13,7 +13,7 @@ import { Btn } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { SocialIcon } from "@/components/ui/Social";
 import type { Dict } from "@/lib/dict";
-import { localize, parsePublicPath } from "@/lib/i18n";
+import { NL_ONLY, localize, parsePublicPath } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 import { MegaPanels, type MegaPanel } from "./Mega";
 import type { NavData } from "./types";
@@ -46,7 +46,8 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
   // Taalwissel-URL's voor de huidige pagina
   useEffect(() => {
     const { path } = parsePublicPath(window.location.pathname);
-    setAlt({ nl: localize(path, "nl"), en: localize(path, "en") });
+    // een NL-only pagina (landingspagina) heeft geen EN-versie: EN wijst naar de Engelse dienstpagina
+    setAlt({ nl: localize(path, "nl"), en: localize(NL_ONLY[path] ?? path, "en") });
     setPanel(null);
   }, [pathname]);
 

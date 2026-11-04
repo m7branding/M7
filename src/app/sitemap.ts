@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 import { isHost } from "@/content/families";
 import { site } from "@/content/site";
 import { allApplications, allCases, allSectors, allServices } from "@/lib/content";
-import { localize } from "@/lib/i18n";
+import { NL_ONLY, localize } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 
-/** Sitemap met NL + EN en hreflang-alternates voor elke pagina. */
+/** Sitemap met NL + EN en hreflang-alternates voor elke pagina; NL-only landingspagina's zonder EN-url. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const entries: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
@@ -26,7 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((c) => isHost(c.slug))
       .map((c) => ({ path: paths.case(c), priority: 0.6, freq: "yearly" as const })),
   ];
-  return entries.flatMap((e) =>
+  const nlOnly: MetadataRoute.Sitemap = Object.keys(NL_ONLY).map((path) => ({
+    url: `${site.url}${path}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+  const both = entries.flatMap((e) =>
     (["nl", "en"] as const).map((l) => ({
       url: `${site.url}${localize(e.path, l) === "/" ? "" : localize(e.path, l)}`,
       lastModified: now,
@@ -40,4 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     })),
   );
+  return [...both, ...nlOnly];
 }
