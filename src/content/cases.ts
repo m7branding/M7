@@ -414,8 +414,8 @@ export const cases: Case[] = [
       en: "A content platform for rural living and business",
     },
     summary: {
-      nl: "Een metasearch-platform voor landelijk wonen: woningaanbod van meer dan 50 aangesloten makelaars via API-koppelingen, uitgebreide filters en bezichtigingsaanvragen, verhalen en blogs, funnels en automations, een eigen CMS voor makelaars met e-mailcampagnetool, video's en tools zoals de zoekers-check en de waardebepalingsaanvraag.",
-      en: "A meta-search platform for rural living: listings from more than 50 member agents through API integrations, advanced filters and viewing requests, stories and blogs, funnels and automations, a dedicated CMS for agents with an email campaign tool, videos and tools such as the searcher check and the valuation request.",
+      nl: "Het platform voor landelijk wonen: woningaanbod van de aangesloten Buitenstate-makelaars via API-koppelingen, uitgebreide filters, verhalen, blogs en video's, tools van bezichtiging plannen tot waardebepaling en bouwkundige keuring, zoekopdrachten met matchmaking-e-mails, een eigen CMS voor makelaars waar aanvragen naartoe gaan, en Google Ads die we in beheer hebben.",
+      en: "The platform for rural living: listings from the member Buitenstate agents through API integrations, advanced filters, stories, blogs and videos, tools from booking a viewing to valuation and structural survey requests, saved searches with matchmaking emails, a dedicated CMS for agents where requests are routed, and Google Ads that we manage.",
     },
     year: 2022,
     sector: "vastgoed-makelaardij",
@@ -439,8 +439,9 @@ export const cases: Case[] = [
       "check-tools",
       "website-widgets",
       "api-koppelingen",
+      "google-ads",
     ],
-    tools: ["webflow", "mailchimp", "ga4"],
+    tools: ["webflow", "mailchimp", "ga4", "googleads"],
     cover: "/media/cases/buitenstate.webp",
     // + beelden van de vorige website (m7branding.com)
     gallery: [
@@ -451,16 +452,16 @@ export const cases: Case[] = [
     ],
     color: "#3A4510",
     challenge: {
-      nl: "Buitenstate brengt vrijstaande woningen, boerderijen en landgoederen in het buitengebied samen, aangeboden door een selectie NVM-makelaars. Meer dan 50 makelaars zijn aangesloten. Het platform moest hen en kopers bij elkaar brengen: aanbod en inspiratie op één plek die bezoekers terug laat komen. En de aangesloten makelaars moesten hun eigen aanbod en campagnes zelf kunnen beheren.",
-      en: "Buitenstate brings together detached homes, farmhouses and estates in the countryside, offered by a selection of NVM estate agents. More than 50 agents are members. The platform had to bring them and buyers together: listings and inspiration in one place that keeps visitors coming back. And the member agents needed to manage their own listings and campaigns themselves.",
+      nl: "Buitenstate brengt vrijstaande woningen, boerderijen en landgoederen in het buitengebied samen, aangeboden door een selectie NVM-makelaars door heel Nederland. Het platform moest kopers, verkopers en makelaars bij elkaar brengen: aanbod en inspiratie op één plek die bezoekers terug laat komen, en elke aanvraag snel bij de juiste makelaar. En de aangesloten makelaars moesten hun eigen aanbod, aanvragen en campagnes zelf kunnen beheren.",
+      en: "Buitenstate brings together detached homes, farmhouses and estates in the countryside, offered by a selection of NVM estate agents across the Netherlands. The platform had to bring buyers, sellers and agents together: listings and inspiration in one place that keeps visitors coming back, and every request quickly with the right agent. And the member agents needed to manage their own listings, requests and campaigns themselves.",
     },
     approach: {
-      nl: "We bouwden een metasearch-platform voor landelijke woningen, met een flexibel CMS voor verhalen, uitgebreide blogs en aanbod, en een nieuwsbriefflow die bezoekers omzet in abonnees. Het aanbod komt binnen via API-koppelingen met het woningaanbod van de makelaars. Bezoekers zoeken met uitgebreide filters, vragen direct een bezichtiging aan en vinden een Buitenstate-makelaar bij hen in de buurt. Achter de schermen kregen de makelaars een eigen CMS, inclusief een tool om e-mailcampagnes te versturen, en daar komen ook alle aanvragen samen. Funnels en automations volgen bezoekers en aanvragen op. Video's maken de verhalen af, en tools op de site, zoals het formulier 'Hoeveel zoekers zijn er voor mijn woning?' en de aanvraag voor een gratis waardebepaling, zetten bezoekers aan tot actie.",
-      en: "We built a meta-search platform for rural homes, with a flexible CMS for stories, long-form blogs and listings, and a newsletter flow that turns visitors into subscribers. Listings come in through API integrations with the agents' own listings. Visitors search with advanced filters, request a viewing directly and find a Buitenstate agent near them. Behind the scenes, the agents got their own CMS, including a tool for sending email campaigns, where all requests come together too. Funnels and automations follow up on visitors and requests. Videos complete the stories, and on-site tools, such as the 'how many searchers are there for my home?' form and the free valuation request, prompt visitors to take action.",
+      nl: "We bouwden in Webflow een metasearch-platform voor landelijke woningen, in het Nederlands en Engels. Het aanbod komt binnen via API-koppelingen met de makelaars. Bezoekers zoeken op locatie met een straal, prijs, perceel- en woonoppervlakte, slaapkamers en type object, van woonboerderij tot paardenobject. Op elke woningpagina plan je direct een bezichtiging, zie je de woning op de kaart en lees je antwoorden op vragen over landelijk wonen in die plaats. Een flexibel CMS draagt de verhalen, rubrieken, expertblogs en een FAQ per onderwerp, en video's maken de verhalen af. Tools zetten bezoekers aan tot actie: 'Hoeveel zoekers zijn er voor mijn woning?', de aanvraag voor een gratis waardebepaling, de aanvraag voor een bouwkundige keuring, een AI-woningswiper en zoekopdrachten die nieuw aanbod en stille verkoop per e-mail melden. Aanvragen worden via het makelaars-CMS gedelegeerd naar de juiste Buitenstate-makelaar. Daar beheren makelaars ook hun aanbod en versturen ze e-mailcampagnes, en met widgets tonen ze het Buitenstate-aanbod op hun eigen website. Daarnaast hebben we de Google Ads van Buitenstate in beheer.",
+      en: "We built a meta-search platform for rural homes in Webflow, in Dutch and English. Listings come in through API integrations with the agents. Visitors search by location with a radius, price, plot and living area, bedrooms and property type, from farmhouse to equestrian property. On every listing page you book a viewing directly, see the home on the map and read answers to questions about rural living in that place. A flexible CMS carries the stories, sections, expert blogs and an FAQ per topic, and videos complete the stories. Tools prompt visitors to take action: 'how many searchers are there for my home?', the free valuation request, the structural survey request, an AI home swiper and saved searches that email new listings and off-market homes. Requests are delegated to the right Buitenstate agent through the agents' CMS. That is also where agents manage their listings and send email campaigns, and with widgets they show the Buitenstate listings on their own websites. On top of that, we manage Buitenstate's Google Ads.",
     },
     result: {
-      nl: "Eén platform waar woningaanbod, verhalen, video en tools samenkomen, met een eigen back-end waarin makelaars hun aanbod en e-mailcampagnes beheren.",
-      en: "One platform where listings, stories, video and tools come together, with a dedicated back end where agents manage their listings and email campaigns.",
+      nl: "Eén platform waar aanbod, verhalen en tools samenkomen, met een back-end waarin makelaars hun aanbod, aanvragen en e-mailcampagnes beheren, en Google Ads die we doorlopend voor Buitenstate beheren.",
+      en: "One platform where listings, stories and tools come together, with a back end where agents manage their listings, requests and email campaigns, and Google Ads that we manage for Buitenstate on an ongoing basis.",
     },
     url: "https://www.buitenstate.nl",
     shape: "wide",

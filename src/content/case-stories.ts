@@ -354,8 +354,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Meer dan een woningsite.", en: "More than a property site." },
         body: [
           {
-            nl: "Wie landelijk wil wonen, zoekt niet alleen een huis. Je zoekt een plek, een landschap, een manier van leven. Buitenstate, met meer dan 50 aangesloten makelaars, wilde makelaars en kopers bij elkaar brengen, met aanbod en inspiratie op één plek. En de makelaars moesten hun aanbod en campagnes zelf kunnen beheren.",
-            en: "People who want to live in the countryside aren't just looking for a house. They're looking for a place, a landscape, a way of life. Buitenstate, with more than 50 member agents, wanted to bring agents and buyers together, with listings and inspiration in one place. And the agents needed to manage their own listings and campaigns.",
+            nl: "Wie landelijk wil wonen, zoekt niet alleen een huis. Je zoekt een plek, een landschap, een manier van leven. Buitenstate wilde makelaars, kopers en verkopers bij elkaar brengen, met aanbod en inspiratie op één plek. En de makelaars moesten hun aanbod, aanvragen en campagnes zelf kunnen beheren.",
+            en: "People who want to live in the countryside aren't just looking for a house. They're looking for a place, a landscape, a way of life. Buitenstate wanted to bring agents, buyers and sellers together, with listings and inspiration in one place. And the agents needed to manage their own listings, requests and campaigns.",
           },
         ],
       },
@@ -363,12 +363,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Verhalen uit het buitengebied.", en: "Stories from the countryside." },
         body: [
           {
-            nl: "We bouwden in Webflow een metasearch-platform voor landelijke woningen, met een flexibel CMS voor aanbod, verhalen en uitgebreide blogs. Expertblogs nemen je mee naar West-Friesland, het rivierengebied of de Achterhoek, en in het magazine vertellen bewoners en makelaars hun verhaal. Video's maken de verhalen af.",
-            en: "We built a meta-search platform for rural homes in Webflow, with a flexible CMS for listings, stories and long-form blogs. Expert blogs take you to West Friesland, the river region or the Achterhoek, and in the magazine residents and agents tell their stories. Videos complete the picture.",
+            nl: "We bouwden in Webflow een metasearch-platform voor landelijke woningen, in het Nederlands en Engels, met een flexibel CMS voor aanbod, verhalen en uitgebreide blogs. Expertblogs nemen je mee naar West-Friesland, het rivierengebied of de Achterhoek, en in de rubrieken vertellen bewoners en makelaars hun verhaal. Video's maken de verhalen af.",
+            en: "We built a meta-search platform for rural homes in Webflow, in Dutch and English, with a flexible CMS for listings, stories and long-form blogs. Expert blogs take you to West Friesland, the river region or the Achterhoek, and in the regular sections residents and agents tell their stories. Videos complete the picture.",
           },
           {
-            nl: "Het aanbod van de makelaars komt binnen via API-koppelingen. Met uitgebreide filters zoek je gericht, een bezichtiging vraag je direct aan, en wie wil kopen of verkopen vindt een Buitenstate-makelaar bij hem in de buurt.",
-            en: "The agents' listings come in through API integrations. Advanced filters help you search with focus, you request a viewing directly, and anyone looking to buy or sell finds a Buitenstate agent nearby.",
+            nl: "Het aanbod van de makelaars komt binnen via API-koppelingen. Je zoekt op locatie met een straal, prijs, perceel, woonoppervlakte en type object. Op elke woningpagina plan je direct een bezichtiging, zie je de woning op de kaart en lees je antwoorden op vragen over landelijk wonen in die plaats.",
+            en: "The agents' listings come in through API integrations. You search by location with a radius, price, plot, living area and property type. On every listing page you book a viewing directly, see the home on the map and read answers to questions about rural living in that place.",
           },
         ],
       },
@@ -376,8 +376,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een eigen cockpit voor makelaars.", en: "A cockpit for the agents." },
         body: [
           {
-            nl: "Achter de schermen kregen de makelaars een eigen CMS, inclusief een tool om e-mailcampagnes te versturen. Daar komen ook alle aanvragen samen. Een nieuwsbriefflow maakt van bezoekers abonnees, en funnels en automations volgen bezoekers en aanvragen op. Zo blijft Buitenstate betrokken, ook als de zoektocht naar een droomhuis langer duurt.",
-            en: "Behind the scenes the agents got their own CMS, including a tool for sending email campaigns. All requests come together there too. A newsletter flow turns visitors into subscribers, and funnels and automations follow up on visitors and requests. That keeps Buitenstate involved, even when the search for a dream home takes longer.",
+            nl: "Achter de schermen kregen de makelaars een eigen CMS, inclusief een tool om e-mailcampagnes te versturen. Aanvragen van de site worden daar gedelegeerd naar de juiste Buitenstate-makelaar. Met widgets tonen makelaars het Buitenstate-aanbod ook op hun eigen website.",
+            en: "Behind the scenes the agents got their own CMS, including a tool for sending email campaigns. Requests from the site are delegated there to the right Buitenstate agent. With widgets, agents also show the Buitenstate listings on their own websites.",
+          },
+          {
+            nl: "Een nieuwsbriefflow maakt van bezoekers abonnees, en funnels en automations volgen bezoekers en aanvragen op. Zo blijft Buitenstate betrokken, ook als de zoektocht naar een droomhuis langer duurt.",
+            en: "A newsletter flow turns visitors into subscribers, and funnels and automations follow up on visitors and requests. That keeps Buitenstate involved, even when the search for a dream home takes longer.",
           },
         ],
       },
@@ -385,8 +389,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van lezen naar doen.", en: "From reading to doing." },
         body: [
           {
-            nl: "Tools op de site zetten bezoekers aan tot actie. Verkopers vragen een gratis waardebepaling aan of ontdekken hoeveel zoekers er zijn voor hun woning. Zo komen aanbod, verhalen, video en tools samen op één platform.",
-            en: "Tools on the site prompt visitors to take action. Sellers request a free valuation or find out how many buyers are searching for a home like theirs. That way listings, stories, video and tools come together on one platform.",
+            nl: "Tools op de site zetten bezoekers aan tot actie. Verkopers ontdekken hoeveel zoekers er zijn voor hun woning en vragen een gratis waardebepaling aan. Kopers maken een zoekopdracht en krijgen matchmaking-e-mails, swipen met AI door passende woningen of vragen een bouwkundige keuring aan.",
+            en: "Tools on the site prompt visitors to take action. Sellers find out how many searchers there are for their home and request a free valuation. Buyers save a search and receive matchmaking emails, swipe through matching homes with AI or request a structural survey.",
+          },
+          {
+            nl: "En om die tools heen hebben we de Google Ads van Buitenstate in beheer, zodat mensen die landelijk willen wonen of verkopen het platform ook vinden.",
+            en: "And around those tools, we manage Buitenstate's Google Ads, so people who want to live or sell in the countryside find the platform too.",
           },
         ],
       },
@@ -841,16 +849,16 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "buitenstate-tools": {
     intro: {
-      nl: "Een verkoper wil weten of er vraag is naar zijn woning. Een koper zoekt iets dat zich niet in een paar filters laat vangen. Voor Buitenstate bouwden we tools die ze allebei verder helpen.",
-      en: "A seller wants to know if there is demand for their home. A buyer is looking for something a few filters can't capture. For Buitenstate we built tools that help both of them along.",
+      nl: "Een verkoper wil weten of er vraag is naar zijn woning. Een koper zoekt iets dat zich niet in een paar filters laat vangen. Voor Buitenstate bouwden we tools die ze allebei verder helpen, en die elke aanvraag bij de juiste makelaar brengen.",
+      en: "A seller wants to know if there is demand for their home. A buyer is looking for something a few filters can't capture. For Buitenstate we built tools that help both of them along, and that bring every request to the right agent.",
     },
     chapters: [
       {
         title: { nl: "Twee kanten van de markt.", en: "Two sides of the market." },
         body: [
           {
-            nl: "Buitenstate is het platform voor landelijk wonen, met aanbod van een selectie NVM-makelaars. Verkopers willen weten of er belangstelling is voor hun woning. Kopers zoeken vaak iets heel specifieks, dat zich slecht laat vangen in een rij vinkjes.",
-            en: "Buitenstate is the platform for rural living, with listings from a select group of NVM estate agents. Sellers want to know if there is interest in their home. Buyers are often after something very specific, which a row of checkboxes struggles to capture.",
+            nl: "Buitenstate is het platform voor landelijk wonen, met aanbod van een selectie NVM-makelaars. Verkopers willen weten of er belangstelling is voor hun woning. Kopers zoeken vaak iets heel specifieks, dat zich slecht laat vangen in een rij vinkjes. En de makelaars willen aanvragen snel en compleet binnen hebben.",
+            en: "Buitenstate is the platform for rural living, with listings from a select group of NVM estate agents. Sellers want to know if there is interest in their home. Buyers are often after something very specific, which a row of checkboxes struggles to capture. And the agents want requests in quickly and complete.",
           },
         ],
       },
@@ -858,8 +866,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Inzicht voor verkopers.", en: "Insight for sellers." },
         body: [
           {
-            nl: "Met 'Zoekers voor mijn woning' ziet een verkoper hoeveel actieve zoekers er in zijn regio zijn. Daarna vraagt hij meteen een gratis waardebepaling aan bij een Buitenstate-makelaar. Zo werkt de tool als leadfunnel voor verkopers van landelijke woningen.",
-            en: "With 'Zoekers voor mijn woning' a seller sees how many active searchers there are in their region. They can then request a free valuation from a Buitenstate agent right away. That makes the tool a lead funnel for sellers of rural homes.",
+            nl: "'Hoeveel zoekers zijn er voor mijn woning?' is een zoekersmatch in vier stappen: provincie, zoekers, gegevens en resultaat. Daarna vraagt een verkoper meteen een gratis waardebepaling aan bij een Buitenstate-makelaar. Zo werkt de tool als leadfunnel voor verkopers van landelijke woningen.",
+            en: "'How many searchers are there for my home?' is a four-step searcher match: province, searchers, details and result. A seller can then request a free valuation from a Buitenstate agent right away. That makes the tool a lead funnel for sellers of rural homes.",
           },
         ],
       },
@@ -867,12 +875,21 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Swipen naar je plek.", en: "Swipe to your place." },
         body: [
           {
-            nl: "Bij Woning Swipe vertel je in je eigen woorden wat je zoekt. AI vertaalt die vrije zoekvraag naar passende woningen, waar je doorheen swipet. Dat voelt meer als bladeren dan als een formulier invullen.",
-            en: "With Woning Swipe you describe in your own words what you are looking for. AI turns that free-text request into matching homes for you to swipe through. It feels more like browsing than filling in a form.",
+            nl: "Bij de woningswiper vertel je in je eigen woorden wat je zoekt. AI vertaalt die vrije zoekvraag naar passende woningen, waar je doorheen swipet, à la Tinder. Elke kaart toont een matchscore en de wensen waarop de woning matcht, en wat je bewaart, komt in je top 10. Dat voelt meer als bladeren dan als een formulier invullen.",
+            en: "With the home swiper you describe in your own words what you are looking for. AI turns that free-text request into matching homes for you to swipe through, Tinder-style. Every card shows a match score and the wishes the home matches, and what you save goes into your top 10. It feels more like browsing than filling in a form.",
           },
           {
-            nl: "Het AI-zoekprofiel houdt het aanbod daarna voor je in de gaten. Komt er iets passends langs, dan krijg je meteen een melding, met een matchscore per woning.",
-            en: "After that, the AI search profile keeps an eye on the listings for you. When something suitable comes along you get a notification straight away, with a match score for each home.",
+            nl: "Wie liever zelf filtert, maakt een zoekopdracht op locatie, prijs, perceel, woonoppervlakte en type object. Komt er iets passends langs, ook uit stille verkoop, dan volgt een matchmaking-e-mail.",
+            en: "Those who prefer to filter themselves save a search by location, price, plot, living area and property type. When something suitable comes along, including off-market homes, a matchmaking email follows.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Altijd bij de juiste makelaar.", en: "Always with the right agent." },
+        body: [
+          {
+            nl: "Op elke woningpagina plan je een bezichtiging, en via de site vraag je ook een bouwkundige keuring aan. Achter al die tools zit het makelaars-CMS: daar komen de aanvragen binnen en worden ze gedelegeerd naar de juiste Buitenstate-makelaar.",
+            en: "On every listing page you book a viewing, and through the site you can also request a structural survey. Behind all those tools sits the agents' CMS: that is where requests come in and are delegated to the right Buitenstate agent.",
           },
         ],
       },
@@ -1070,8 +1087,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Groen, in elk opzicht.", en: "Green, in every sense." },
         body: [
           {
-            nl: "We verfijnden het merk met een vernieuwd kleurenpalet en beeldsysteem, en ontwierpen en bouwden de website in Webflow. Oplossingen, diensten en cases hebben elk een eigen plek, zodat een bezoeker snel ziet wat er voor zijn situatie kan. Groen voert de boventoon, met grote beelden van installaties in het landschap.",
-            en: "We refined the brand with a renewed colour palette and visual system, and designed and built the website in Webflow. Solutions, services and cases each have their own place, so visitors quickly see what is possible for their situation. Green sets the tone, with large images of installations in the landscape.",
+            nl: "We verfijnden het merk met een vernieuwd kleurenpalet en beeldsysteem, en ontwierpen en bouwden de website in Webflow. Oplossingen, diensten en cases hebben elk een eigen plek, zodat een bezoeker snel ziet wat er voor zijn situatie kan. Voor projecten maken we uitgebreide visualisaties.",
+            en: "We refined the brand with a renewed colour palette and visual system, and designed and built the website in Webflow. Solutions, services and cases each have their own place, so visitors quickly see what is possible for their situation. For projects we create extensive visualisations.",
           },
           {
             nl: "De content zetten we opnieuw neer. Laadinfrastructuur, energieopslag en oplossingen voor netcongestie staan nu helder op een rij. Dat maakt de site prettiger in gebruik en beter vindbaar, in zoekmachines en op AI-platforms.",
@@ -1083,12 +1100,25 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van configurator naar CRM.", en: "From configurator to CRM." },
         body: [
           {
-            nl: "Met de configurator geeft een bezoeker stap voor stap zijn situatie en wensen door. Via een koppeling gaan die aanvragen direct naar Odoo CRM. Zo ligt bij elk eerste gesprek de juiste informatie al op tafel.",
-            en: "With the configurator, visitors share their situation and wishes step by step. Through an integration, those requests go straight into Odoo CRM. So the right information is already on the table at every first conversation.",
+            nl: "Met de configurator geeft een bezoeker stap voor stap zijn situatie en wensen door. De oplossing staat al ingevuld vanaf de pagina waar hij vandaan komt, en zijn antwoorden bepalen een leadscore. Via een koppeling gaat de aanvraag direct naar Odoo CRM, met kans en prioriteit erbij. Zo ligt bij elk eerste gesprek de juiste informatie al op tafel.",
+            en: "With the configurator, visitors share their situation and wishes step by step. The solution is pre-filled from the page they came from, and their answers determine a lead score. Through an integration, the request goes straight into Odoo CRM, with probability and priority attached. So the right information is already on the table at every first conversation.",
           },
           {
             nl: "Interactieve calculators, leadflows en modulaire pop-ups helpen bezoekers bij een opstelling met zon en batterij. Opt-in-funnels met whitepapers ondersteunen de conversie.",
             en: "Interactive calculators, lead flows and modular pop-ups guide visitors through a solar and battery setup. Opt-in funnels with whitepapers support conversion.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Subsidie als eerste stap.", en: "Subsidy as a first step." },
+        body: [
+          {
+            nl: "Voor subsidies bouwen we aanvraagflows met een eigen landingspagina. Bij de Noord-Hollandse regeling voor zonnepanelen boven parkeerterreinen lees je wat de regeling biedt, zie je een teller tot de deadline en voor wie het relevant is, en doe je een subsidiecheck van vier vragen, met de uitslag per e-mail.",
+            en: "For subsidies we build application flows with a landing page of their own. For the North Holland scheme for solar panels above car parks you read what the scheme offers, see a countdown to the deadline and who it is relevant for, and take a four-question subsidy check, with the outcome sent by email.",
+          },
+          {
+            nl: "Op social media vertellen we het verhaal verder, met posts, carrousels en korte video's in dezelfde huisstijl.",
+            en: "On social media we carry the story further, with posts, carousels and short videos in the same identity.",
           },
         ],
       },
@@ -1394,25 +1424,42 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "hela": {
     intro: {
-      nl: "Satésaus, ketchup, dressings en kaassaus. Hela maakt eten lekkerder, en wij zorgden dat je dat online al bijna proeft.",
-      en: "Satay sauce, ketchup, dressings and cheese sauce. Hela makes food taste better, and we made sure you can almost taste it online.",
+      nl: "Satésaus, ketchup, dressings en kaassaus. Hela maakt eten lekkerder, en wij zorgden dat je dat online al bijna proeft, of je nu thuis kookt of in een professionele keuken staat.",
+      en: "Satay sauce, ketchup, dressings and cheese sauce. Hela makes food taste better, and we made sure you can almost taste it online, whether you cook at home or in a professional kitchen.",
     },
     chapters: [
       {
         title: { nl: "Smakelijk, ook op een scherm.", en: "Tasty, even on a screen." },
         body: [
           {
-            nl: "Hela is de smaakmaker met sauzen, ketchups en dressings, voor thuis en voor de foodprofessional. Het assortiment moest online net zo smakelijk ogen als op tafel. En bestellen moest makkelijk zijn.",
-            en: "Hela is the flavour maker behind sauces, ketchups and dressings, for home cooks and food professionals. The range had to look as tasty online as it does on the table. And ordering had to be easy.",
+            nl: "Hela is de smaakmaker met sauzen, ketchups, dressings en kruiden, voor thuis en voor de foodprofessional. Het assortiment moest online net zo smakelijk ogen als op tafel. En bestellen moest makkelijk zijn, voor allebei.",
+            en: "Hela is the flavour maker behind sauces, ketchups, dressings and seasonings, for home cooks and food professionals. The range had to look as tasty online as it does on the table. And ordering had to be easy, for both of them.",
           },
         ],
       },
       {
-        title: { nl: "Een webshop vol recepten.", en: "A web shop full of recipes." },
+        title: { nl: "Twee shops, één voorraad.", en: "Two shops, one stock." },
         body: [
           {
-            nl: "We bouwden een website met webshop in WordPress en WooCommerce, in het Nederlands, Engels en Frans. Naast de shop vind je recepten die laten zien wat een flinke scheut Hela met een simpele maaltijd doet. Foodprofessionals hebben een eigen ingang.",
-            en: "We built a website with a web shop in WordPress and WooCommerce, in Dutch, English and French. Alongside the shop you'll find recipes that show what a generous splash of Hela does for a simple meal. Food professionals have their own way in.",
+            nl: "We bouwden een website met webshop in WordPress en WooCommerce, in het Nederlands, Engels en Frans, met een eigen shop voor consumenten en een voor foodprofessionals. De shop is gekoppeld aan voorraad en magazijn, en aan de productinformatie.",
+            en: "We built a website with a web shop in WordPress and WooCommerce, in Dutch, English and French, with a shop for consumers and one for food professionals. The shop is integrated with stock and warehouse, and with the product information.",
+          },
+          {
+            nl: "Zo toont elke productpagina ingrediënten, voedingswaarden, allergenen, verpakking en specificaties, en filter je in de professionele shop op allergieën.",
+            en: "So every product page shows ingredients, nutritional values, allergens, packaging and specifications, and in the professional shop you can filter by allergies.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Recepten die gevonden worden.", en: "Recipes that get found." },
+        body: [
+          {
+            nl: "Naast de shop vind je recepten die laten zien wat een flinke scheut Hela met een simpele maaltijd doet. Ze zijn gekoppeld aan de producten en te filteren op product, toepassing, gerecht en dieetwensen.",
+            en: "Alongside the shop you'll find recipes that show what a generous splash of Hela does for a simple meal. They are linked to the products and can be filtered by product, application, dish and dietary needs.",
+          },
+          {
+            nl: "Met gestructureerde receptgegevens zijn ze beter vindbaar in zoekmachines en AI-antwoorden. En ze maken de shop meer een beleving.",
+            en: "With structured recipe data they are easier to find in search engines and AI answers. And they make the shop more of an experience.",
           },
         ],
       },
@@ -1910,8 +1957,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "huurfix": {
     intro: {
-      nl: "Betaal je te veel huur, dan wil je dat weten. Maar gedoe met je verhuurder, daar zit niemand op te wachten. Huurfix regelt het voor je, en wij zorgden dat dat aanbod simpel en betrouwbaar overkomt.",
-      en: "If you're paying too much rent, you want to know. But nobody wants a fight with their landlord. Huurfix sorts it out for you, and we made sure that offer comes across as simple and trustworthy.",
+      nl: "Betaal je te veel huur, dan wil je dat weten. Maar gedoe met je verhuurder, daar zit niemand op te wachten. Huurfix regelt het voor je, en wij zorgden dat dat aanbod simpel en betrouwbaar overkomt, van de eerste check tot het laatste bestand.",
+      en: "If you're paying too much rent, you want to know. But nobody wants a fight with their landlord. Huurfix sorts it out for you, and we made sure that offer comes across as simple and trustworthy, from the first check to the last file.",
     },
     chapters: [
       {
@@ -1927,31 +1974,35 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een gezicht en een check.", en: "A face and a check." },
         body: [
           {
-            nl: "Na de branding volgde een tweetalige website in Webflow, in het Nederlands en Engels. Licht en warm, met geel als accent en de jurist zelf in beeld, zodat je weet met wie je te maken hebt.",
-            en: "After the branding came a bilingual website in Webflow, in Dutch and English. Light and warm, with yellow as the accent and the legal specialist himself in view, so you know who you're dealing with.",
+            nl: "Na de branding volgde een nieuwe, tweetalige website in Webflow, rond de klantreis van een huurder: hoe het werkt, prijzen, veelgestelde vragen, klantverhalen en een kennisbank. Licht en warm, met geel als accent en de jurist zelf in beeld, zodat je weet met wie je te maken hebt.",
+            en: "After the branding came a new bilingual website in Webflow, built around a tenant's customer journey: how it works, pricing, FAQs, customer stories and a knowledge base. Light and warm, with yellow as the accent and the legal specialist himself in view, so you know who you're dealing with.",
           },
           {
-            nl: "Alles op de site leidt naar de gratis huurprijscheck. Je vult je postcode en huisnummer in, en de aanvraag loopt verder.",
-            en: "Everything on the site leads to the free rent check. You enter your postcode and house number, and the application takes it from there.",
+            nl: "Alles op de site leidt naar de gratis huurprijscheck. Je vult je postcode en huisnummer in, bouwjaar, energielabel, oppervlakte en WOZ-waarde worden opgezocht, en een paar vragen over de woning maken het beeld compleet.",
+            en: "Everything on the site leads to the free rent check. You enter your postcode and house number, the year of construction, energy label, floor area and WOZ value are looked up, and a few questions about the home complete the picture.",
           },
         ],
       },
       {
-        title: { nl: "Achter de check.", en: "Behind the check." },
+        title: { nl: "Van check naar dossier.", en: "From check to case file." },
         body: [
           {
-            nl: "De intake is een onboarding in meerdere stappen, gekoppeld aan Odoo CRM. Hij splitst zich in drie geautomatiseerde flows, elk met eigen CRM-logica, opvolgmails en afhandeling. Zo komt elke aanvraag gekwalificeerd en geordend binnen.",
-            en: "The intake is a multi-step onboarding flow, integrated with Odoo CRM. It splits into three automated flows, each with its own CRM logic, follow-up emails and handling. That way every request arrives qualified and organised.",
+            nl: "Voor de check ontwierpen we de UI/UX van de web-app. Na de uitslag lever je in dezelfde app je huurcontract en andere bestanden aan, geef je je machtiging en ga je later verder waar je was gebleven.",
+            en: "For the check we designed the UI/UX of the web app. After the outcome you upload your tenancy agreement and other files in the same app, give your authorisation and pick up later where you left off.",
           },
+          {
+            nl: "De intake is gekoppeld aan Odoo CRM en splitst zich in drie geautomatiseerde flows, elk met eigen CRM-logica, opvolgmails en afhandeling. Zo komt elke aanvraag gekwalificeerd en geordend binnen.",
+            en: "The intake is integrated with Odoo CRM and splits into three automated flows, each with its own CRM logic, follow-up emails and handling. That way every request arrives qualified and organised.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Laten zien wat het oplevert.", en: "Showing what it delivers." },
+        body: [
           {
             nl: "Klantcases laten zien wat het oplevert. De site rekent de huurverlaging automatisch uit als percentage, op basis van de oorspronkelijke en de gecorrigeerde huurprijs. Je ziet het in het overzicht en op elke detailpagina.",
             en: "Customer cases show what it delivers. The site automatically calculates the rent reduction as a percentage, based on the original and the corrected rent. You see it in the overview and on every detail page.",
           },
-        ],
-      },
-      {
-        title: { nl: "Zelf verder, in dezelfde stijl.", en: "Carrying on, in the same style." },
-        body: [
           {
             nl: "Daarnaast maakten we templates voor social media en een e-book. Zo kan Huurfix zelf verder met content, in dezelfde stijl als de website.",
             en: "We also made social media templates and an e-book. That way Huurfix can keep creating content itself, in the same style as the website.",
@@ -2962,15 +3013,28 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         ],
       },
       {
-        title: { nl: "Van te-koopbord tot portaal.", en: "From for-sale sign to portal." },
+        title: { nl: "Van te-koopbord tot website.", en: "From for-sale sign to website." },
         body: [
           {
             nl: "Kleuren, typografie, iconen en beeldgebruik legden we vast in een brandbook. In de nieuwe stijl ontwierpen we de te-koopborden, visitekaartjes, briefpapier, presentatiekits, roll-upbanners, flyers en investment memorandums.",
             en: "We captured colours, typography, icons and imagery in a brandbook. In the new style we designed the for-sale signs, business cards, stationery, presentation kits, roll-up banners, flyers and investment memorandums.",
           },
           {
-            nl: "Daarna bouwden we de website, met een eigen plek voor elke afdeling en een waardebepalingsportaal voor klanten. Zo staat het merk online net zo stevig als op straat.",
-            en: "Then we built the website, with a place for every department and a valuation portal for clients. The brand now stands as firmly online as it does on the street.",
+            nl: "Daarna bouwden we de website in Webflow, met een eigen plek voor wonen, agrarisch, bedrijven, taxaties en vastgoedbeheer. Elke afdeling heeft haar diensten, aanbod, veelgestelde vragen en zoekopdrachten. Voor projecten maakten we uitgebreide visualisaties.",
+            en: "Then we built the website in Webflow, with a place of its own for residential, agricultural, commercial, valuations and property management. Every department has its services, listings, FAQs and saved searches. For projects we created extensive visualisations.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Een portaal voor taxaties.", en: "A portal for valuations." },
+        body: [
+          {
+            nl: "Voor zakelijke taxaties bouwden we een eigen portaal. Klanten loggen in met een code per e-mail en zien hun dossiers met status. Per dossier staat welke bestanden verwacht worden: uploaden, of aangeven dat iets niet van toepassing is.",
+            en: "For commercial valuations we built a portal of its own. Clients log in with a code sent by email and see their files with a status. Each file lists the documents that are expected: upload them, or mark one as not applicable.",
+          },
+          {
+            nl: "Zijn de bestanden compleet, dan bieden ze het dossier aan, en later bekijken ze er ook het rapport. Zo komt alles wat een taxateur nodig heeft op één plek, en staat het merk online net zo stevig als op straat.",
+            en: "Once the files are complete, they submit the file, and later they view the report there too. That way everything a valuer needs comes together in one place, and the brand stands as firmly online as it does on the street.",
           },
         ],
       },
