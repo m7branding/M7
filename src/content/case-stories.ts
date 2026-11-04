@@ -160,6 +160,19 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           },
         ],
       },
+      {
+        title: { nl: "Van zuil tot sweater.", en: "From kiosk to sweater." },
+        body: [
+          {
+            nl: "Het begon in 2019, en het bleef niet bij een merk en een website. We ontwierpen de customer journey en een kioskflow voor de zuil, en bouwden allerlei interactieve scrollpagina's.",
+            en: "It started in 2019, and it didn't stop at a brand and a website. We designed the customer journey and a kiosk flow, and built all sorts of interactive scroll pages.",
+          },
+          {
+            nl: "Daarnaast maakten we social content, drukwerk, de wrap van de bedrijfswagen en merchandise zoals polo's en sweaters. Zo is Repairlab overal herkenbaar: online, op straat en op papier.",
+            en: "We also made social content, print, the wrap for the company vehicle and merchandise such as polo shirts and sweaters. That makes Repairlab recognisable everywhere: online, on the street and on paper.",
+          },
+        ],
+      },
     ],
     statements: [
       { nl: "Van kapot scherm naar afspraak, zonder gedoe.", en: "From cracked screen to booked repair, without the hassle." },
@@ -253,8 +266,17 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Achter de schermen net zo strak.", en: "Just as sharp behind the scenes." },
         body: [
           {
-            nl: "Elke aanvraag loopt door naar de systemen van JURGH. Via koppelingen met Offorte en Enormail komen leads in het CRM en gaan offertes de deur uit. Klanten hebben een eigen klantportaal, en een koppeling met de werkbonnen zet het werk in de werkplaats klaar. Ook het drukwerk ontwierpen we in dezelfde stijl, zodat het merk klopt van website tot visitekaartje.",
-            en: "Every request flows on into JURGH's systems. Through integrations with Offorte and Enormail, leads land in the CRM and quotes go out. Customers have their own portal, and an integration with the work orders gets the job ready in the workshop. We designed the print in the same style too, so the brand holds together from website to business card.",
+            nl: "Elke aanvraag loopt door naar de systemen van JURGH. Op basis van de aanvraag staat er in Offorte een offerte klaar, en de klant komt in Enormail, het CRM waarmee JURGH zijn klantmailings verstuurt. Het werkbonnensysteem bouwden we zelf: het JURGH Portaal. En klanten hebben een eigen klantportaal.",
+            en: "Every request flows on into JURGH's systems. Based on the request, a quote is ready in Offorte, and the customer goes into Enormail, the CRM JURGH uses to send its customer mailings. We built the work-order system ourselves: the JURGH Portaal. And customers have a portal of their own.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Ook op papier en in de feed.", en: "On paper and in the feed, too." },
+        body: [
+          {
+            nl: "Het merk houdt niet op bij het scherm. We ontwerpen veel drukwerk, van visitekaartje tot magazine, en daarnaast social banners en acties. Alles in dezelfde stijl, zodat JURGH overal net zo verzorgd overkomt als de auto's die er binnenkomen.",
+            en: "The brand doesn't stop at the screen. We design plenty of print, from business cards to magazines, plus social banners and promotions. All in the same style, so JURGH comes across as polished everywhere as the cars that come through its doors.",
           },
         ],
       },
@@ -380,8 +402,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "Behind the scenes the agents got their own CMS, including a tool for sending email campaigns. Requests from the site are delegated there to the right Buitenstate agent. With widgets, agents also show the Buitenstate listings on their own websites.",
           },
           {
-            nl: "Een nieuwsbriefflow maakt van bezoekers abonnees, en funnels en automations volgen bezoekers en aanvragen op. Zo blijft Buitenstate betrokken, ook als de zoektocht naar een droomhuis langer duurt.",
-            en: "A newsletter flow turns visitors into subscribers, and funnels and automations follow up on visitors and requests. That keeps Buitenstate involved, even when the search for a dream home takes longer.",
+            nl: "De funnels op de site, zoals die vanuit de blogs, lopen via koppelingen met ActiveCampaign naar audiences en tags. Zo verstuurt Buitenstate mailings per persona, en blijft het betrokken, ook als de zoektocht naar een droomhuis langer duurt.",
+            en: "The funnels on the site, such as those from the blogs, run through ActiveCampaign integrations into audiences and tags. That lets Buitenstate send mailings per persona, and keeps it involved, even when the search for a dream home takes longer.",
           },
         ],
       },
@@ -389,8 +411,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van lezen naar doen.", en: "From reading to doing." },
         body: [
           {
-            nl: "Tools op de site zetten bezoekers aan tot actie. Verkopers ontdekken hoeveel zoekers er zijn voor hun woning en vragen een gratis waardebepaling aan. Kopers maken een zoekopdracht en krijgen matchmaking-e-mails, swipen met AI door passende woningen of vragen een bouwkundige keuring aan.",
-            en: "Tools on the site prompt visitors to take action. Sellers find out how many searchers there are for their home and request a free valuation. Buyers save a search and receive matchmaking emails, swipe through matching homes with AI or request a structural survey.",
+            nl: "Tools op de site zetten bezoekers aan tot actie. Verkopers ontdekken hoeveel zoekers er zijn voor hun woning, krijgen dat aantal ook per mail, en vragen een gratis waardebepaling aan. Kopers maken een zoekopdracht en krijgen matchmaking-e-mails, of vragen een bouwkundige keuring aan. Die mails gaan via onze eigen mailserver en automations, in dezelfde look and feel als de site. En een AI-woningswiper is in ontwikkeling.",
+            en: "Tools on the site prompt visitors to take action. Sellers find out how many searchers there are for their home, get that number by email too, and request a free valuation. Buyers save a search and receive matchmaking emails, or request a structural survey. Those emails go out through our own mail server and automations, in the same look and feel as the site. And an AI home swiper is in development.",
           },
           {
             nl: "En om die tools heen hebben we de Google Ads van Buitenstate in beheer, zodat mensen die landelijk willen wonen of verkopen het platform ook vinden.",
@@ -418,8 +440,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "The Digital Clinic offers fully online hair-loss treatment: intake, prescription treatment and home delivery, together with a GP and a pharmacy. Loose tools would fragment that process. It needed a platform of its own, where everyone has their own role.",
           },
           {
-            nl: "We ontwierpen en bouwden de website en het platform in sprints, met Next.js en Supabase en koppelingen naar bestaande systemen. Het platform kent drie soorten gebruikers: de cliënt, de huisarts en de apotheek. Ook de regie over het project lag bij ons, van planning tot oplevering.",
-            en: "We designed and built the website and the platform in sprints, with Next.js and Supabase and integrations with existing systems. The platform has three types of user: the client, the GP and the pharmacy. We also ran the project itself, from planning to delivery.",
+            nl: "We ontwierpen en bouwden de website en het platform in sprints: in Webflow, met Wized voor de logica van het portaal en Make voor de automatiseringen en de koppelingen met bestaande systemen. Het platform kent drie soorten gebruikers: de cliënt, de huisarts en de apotheek. Ook de regie over het project lag bij ons, van planning tot oplevering.",
+            en: "We designed and built the website and the platform in sprints: in Webflow, with Wized for the portal logic and Make for the automations and the integrations with existing systems. The platform has three types of user: the client, the GP and the pharmacy. We also ran the project itself, from planning to delivery.",
           },
         ],
       },
@@ -427,8 +449,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van intake tot voordeur.", en: "From intake to front door." },
         body: [
           {
-            nl: "De website laat in vier stappen zien hoe het werkt: een online intake, een behandeling op basis van je profiel, discrete levering en een portaal voor je abonnement. De intake is een vragenlijst die zich aanpast aan je antwoorden en waar nodig waarschuwt. Daarna beheren cliënten alles in hun persoonlijke omgeving: hun behandeling en abonnement, losse bestellingen, maandelijkse checklists en checkups over hoe het gaat, en hun leveringen met track & trace. Daar chatten ze ook met het team als ze een vraag hebben.",
-            en: "The website shows how it works in four steps: an online intake, a treatment based on your profile, discreet delivery and a portal for your subscription. The intake is a questionnaire that adapts to your answers and warns you where needed. After that, clients manage everything in their personal environment: their treatment and subscription, one-off orders, monthly checklists and checkups on how things are going, and their deliveries with track & trace. That is also where they chat with the team when they have a question.",
+            nl: "De website laat in vier stappen zien hoe het werkt: een online intake, een behandeling op basis van je profiel, discrete levering en een portaal voor je abonnement. De intake is een vragenlijst die zich aanpast aan je antwoorden en waar nodig waarschuwt. Daarna beheren cliënten alles in hun persoonlijke omgeving: hun behandeling en abonnement, losse bestellingen, de check die ze elke drie maanden invullen over hoe het gaat, en hun leveringen met track & trace. Daar chatten ze ook met het team als ze een vraag hebben.",
+            en: "The website shows how it works in four steps: an online intake, a treatment based on your profile, discreet delivery and a portal for your subscription. The intake is a questionnaire that adapts to your answers and warns you where needed. After that, clients manage everything in their personal environment: their treatment and subscription, one-off orders, the check they fill in every three months on how things are going, and their deliveries with track & trace. That is also where they chat with the team when they have a question.",
           },
         ],
       },
@@ -436,8 +458,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een eigen omgeving voor arts en apotheek.", en: "An environment for doctor and pharmacy." },
         body: [
           {
-            nl: "Huisartsen en apotheken loggen in met tweestapsverificatie, in een omgeving die alleen voor hen is. Een dashboard zet de aanvragen op een rij, met wat actie vraagt apart van het archief. Ze beoordelen intakes, checkups en evaluaties, en zien per maand wat er is behandeld. Pas na akkoord gaat een bestelling de deur uit, zodat levering en logistiek netjes in lijn lopen met de behandeling.",
-            en: "GPs and pharmacies log in with two-step verification, to an environment that is theirs alone. A dashboard lists the requests, with those needing action kept apart from the archive. They review intakes, checkups and evaluations, and see per month what has been handled. Only after approval does an order go out, so delivery and logistics stay in line with the treatment.",
+            nl: "Huisartsen en apotheken loggen in met tweestapsverificatie, in een omgeving die alleen voor hen is. Een dashboard zet de aanvragen op een rij, met wat actie vraagt apart van het archief. Ze beoordelen intakes, checks en evaluaties, en zien per maand wat er is behandeld. Pas na akkoord gaat een bestelling de deur uit, zodat levering en logistiek netjes in lijn lopen met de behandeling.",
+            en: "GPs and pharmacies log in with two-step verification, to an environment that is theirs alone. A dashboard lists the requests, with those needing action kept apart from the archive. They review intakes, checks and evaluations, and see per month what has been handled. Only after approval does an order go out, so delivery and logistics stay in line with the treatment.",
           },
         ],
       },
@@ -781,8 +803,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van bezoek naar aanvraag.", en: "From visit to request." },
         body: [
           {
-            nl: "Daarna ontwierpen we de nieuwe website in Webflow, in diep paars en met beelden van het werk achter de schermen. 'Moving Goods, Powering Experiences' zet de toon, en daaronder staan Sports & Events en Transport naast elkaar. De afdelingen zitten samen onder één menu, naast nieuws, het verhaal van IMPECO en een vaste knop om contact op te nemen.",
-            en: "Then we designed the new website in Webflow, in deep purple with images of the work behind the scenes. 'Moving Goods, Powering Experiences' sets the tone, with Sports & Events and Transport side by side below it. The departments sit together under one menu, next to news, the IMPECO story and a fixed button to get in touch.",
+            nl: "Daarna maakten we de nieuwe website in Webflow, in diep paars en met beelden van het werk achter de schermen. 'Moving Goods, Powering Experiences' zet de toon, en daaronder staan Sports & Events en Transport naast elkaar. De afdelingen zitten samen onder één menu, elk met een eigen pagina en eigen dienstpagina's met veelgestelde vragen. Use-casepagina's, zoals een groot evenement in het buitenland, laten zien voor wie IMPECO het verschil maakt. De site staat klaar en gaat binnenkort live.",
+            en: "Then we made the new website in Webflow, in deep purple with images of the work behind the scenes. 'Moving Goods, Powering Experiences' sets the tone, with Sports & Events and Transport side by side below it. The departments sit together under one menu, each with a page of its own and service pages with FAQs. Use-case pages, such as hosting a major event abroad, show who IMPECO makes the difference for. The site is ready and goes live soon.",
           },
         ],
       },
@@ -790,8 +812,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een configurator die meedenkt.", en: "A configurator that thinks along." },
         body: [
           {
-            nl: "Logistiek voor een beurs vraagt andere informatie dan een spoedzending of een sportevenement. Daarom bouwden we een dienstconfigurator met logica. Bezoekers kiezen wat ze nodig hebben, en de flow stelt per dienst de juiste vervolgvragen. Zo komt elke aanvraag compleet binnen, en kan het team van IMPECO meteen aan de slag.",
-            en: "Logistics for a trade fair needs different information than an urgent shipment or a sports event. That's why we built a service configurator with built-in logic. Visitors choose what they need, and the flow asks the right follow-up questions for each service. Every request arrives complete, so the IMPECO team can get started right away.",
+            nl: "Logistiek voor een evenement vraagt andere informatie dan een spoedzending. Daarom bouwden we een dienstconfigurator met logica, op de afdelingspagina's en onderaan elke dienstpagina. Voor Sports & Events is het een projectintake in zes stappen, van de diensten die je nodig hebt tot een overzicht om te controleren. Voor Transport is het een offerteaanvraag in vier stappen: het soort transport, de route en het volume, extra's en je gegevens. Zo komt elke aanvraag compleet binnen, en kan het team van IMPECO meteen aan de slag.",
+            en: "Logistics for an event needs different information than an urgent shipment. That's why we built a service configurator with built-in logic, on the department pages and at the bottom of every service page. For Sports & Events it is a six-step project intake, from the services you need to an overview to review. For Transport it is a four-step quote request: the type of transport, route and volume, add-ons and your details. Every request arrives complete, so the IMPECO team can get started right away.",
           },
         ],
       },
@@ -837,8 +859,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "We also built a quotation portal where KDS customers log in. A calculation request runs in steps: first your details and your request, then the calculation data. For each part you enter the article codes, from cutting die and spare knives to stripping board and crease matrix, with the board and knife format, the line lengths in millimetres, the steel height and the complexity.",
           },
           {
-            nl: "Achter de schermen rekent het portaal dat door op basis van een uitgebreide prijzensheet met klantcodes. In hun dashboard zien klanten hun aanvragen terug en bevestigen ze een order. Zo heeft KDS een strak merk, drukwerk in dezelfde lijn, een website zonder franje en een portaal dat complexe calculaties eenvoudig maakt.",
-            en: "Behind the scenes, the portal works it out based on an extensive price sheet with customer codes. In their dashboard, customers see their requests and confirm an order. KDS now has a sharp brand, print in the same style, a no-nonsense website and a portal that makes complex calculations simple.",
+            nl: "Achter de schermen rekent het portaal dat door op basis van een uitgebreide prijzensheet met klantcodes. In hun dashboard zien klanten hun aanvragen terug en bevestigen ze een order, waarna er automatisch een mail met pdf volgt. Zo heeft KDS een strak merk, drukwerk in dezelfde lijn, een website zonder franje en een portaal dat complexe calculaties eenvoudig maakt.",
+            en: "Behind the scenes, the portal works it out based on an extensive price sheet with customer codes. In their dashboard, customers see their requests and confirm an order, after which an email with a PDF follows automatically. KDS now has a sharp brand, print in the same style, a no-nonsense website and a portal that makes complex calculations simple.",
           },
         ],
       },
@@ -866,21 +888,21 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Inzicht voor verkopers.", en: "Insight for sellers." },
         body: [
           {
-            nl: "'Hoeveel zoekers zijn er voor mijn woning?' is een zoekersmatch in vier stappen: provincie, zoekers, gegevens en resultaat. Daarna vraagt een verkoper meteen een gratis waardebepaling aan bij een Buitenstate-makelaar. Zo werkt de tool als leadfunnel voor verkopers van landelijke woningen.",
-            en: "'How many searchers are there for my home?' is a four-step searcher match: province, searchers, details and result. A seller can then request a free valuation from a Buitenstate agent right away. That makes the tool a lead funnel for sellers of rural homes.",
+            nl: "'Hoeveel zoekers zijn er voor mijn woning?' is een zoekersmatch in vier stappen: provincie, zoekers, gegevens en resultaat. Daarna krijgt de verkoper een mail met het aantal zoekers dat de tool voor zijn woning liet zien, in dezelfde look and feel, en vraagt hij meteen een gratis waardebepaling aan bij een Buitenstate-makelaar. Zo werkt de tool als leadfunnel voor verkopers van landelijke woningen.",
+            en: "'How many searchers are there for my home?' is a four-step searcher match: province, searchers, details and result. The seller then gets an email with the number of searchers the tool showed for their home, in the same look and feel, and can request a free valuation from a Buitenstate agent right away. That makes the tool a lead funnel for sellers of rural homes.",
           },
         ],
       },
       {
-        title: { nl: "Swipen naar je plek.", en: "Swipe to your place." },
+        title: { nl: "Matches voor kopers.", en: "Matches for buyers." },
         body: [
           {
-            nl: "Bij de woningswiper vertel je in je eigen woorden wat je zoekt. AI vertaalt die vrije zoekvraag naar passende woningen, waar je doorheen swipet, à la Tinder. Elke kaart toont een matchscore en de wensen waarop de woning matcht, en wat je bewaart, komt in je top 10. Dat voelt meer als bladeren dan als een formulier invullen.",
-            en: "With the home swiper you describe in your own words what you are looking for. AI turns that free-text request into matching homes for you to swipe through, Tinder-style. Every card shows a match score and the wishes the home matches, and what you save goes into your top 10. It feels more like browsing than filling in a form.",
+            nl: "Kopers maken een zoekopdracht op locatie, prijs, perceel, woonoppervlakte en type object. Komt er iets passends langs, ook uit stille verkoop, dan volgt een matchmaking-e-mail. Die mails versturen we via onze eigen mailserver en automations, in dezelfde look and feel als de tools.",
+            en: "Buyers save a search by location, price, plot, living area and property type. When something suitable comes along, including off-market homes, a matchmaking email follows. We send those emails through our own mail server and automations, in the same look and feel as the tools.",
           },
           {
-            nl: "Wie liever zelf filtert, maakt een zoekopdracht op locatie, prijs, perceel, woonoppervlakte en type object. Komt er iets passends langs, ook uit stille verkoop, dan volgt een matchmaking-e-mail.",
-            en: "Those who prefer to filter themselves save a search by location, price, plot, living area and property type. When something suitable comes along, including off-market homes, a matchmaking email follows.",
+            nl: "De volgende stap is in ontwikkeling: een woningswiper. Daar vertel je in je eigen woorden wat je zoekt, en AI vertaalt die vrije zoekvraag naar passende woningen, waar je doorheen swipet, à la Tinder. Elke kaart toont een matchscore en de wensen waarop de woning matcht, en wat je bewaart, komt in je top 10.",
+            en: "The next step is in development: a home swiper. There you describe in your own words what you are looking for, and AI turns that free-text request into matching homes for you to swipe through, Tinder-style. Every card shows a match score and the wishes the home matches, and what you save goes into your top 10.",
           },
         ],
       },
@@ -1100,12 +1122,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van configurator naar CRM.", en: "From configurator to CRM." },
         body: [
           {
-            nl: "Met de configurator geeft een bezoeker stap voor stap zijn situatie en wensen door. De oplossing staat al ingevuld vanaf de pagina waar hij vandaan komt, en zijn antwoorden bepalen een leadscore. Via een koppeling gaat de aanvraag direct naar Odoo CRM, met kans en prioriteit erbij. Zo ligt bij elk eerste gesprek de juiste informatie al op tafel.",
-            en: "With the configurator, visitors share their situation and wishes step by step. The solution is pre-filled from the page they came from, and their answers determine a lead score. Through an integration, the request goes straight into Odoo CRM, with probability and priority attached. So the right information is already on the table at every first conversation.",
+            nl: "Met de configurator ziet een bezoeker welke oplossingen bij hem passen. Stap voor stap geeft hij zijn situatie en wensen door. De oplossing staat al ingevuld vanaf de pagina waar hij vandaan komt, en zijn antwoorden bepalen een leadscore. Via een koppeling gaat de aanvraag direct naar Odoo CRM, met kans en prioriteit erbij. Zo ligt bij elk eerste gesprek de juiste informatie al op tafel.",
+            en: "With the configurator, visitors see which solutions suit them. Step by step they share their situation and wishes. The solution is pre-filled from the page they came from, and their answers determine a lead score. Through an integration, the request goes straight into Odoo CRM, with probability and priority attached. So the right information is already on the table at every first conversation.",
           },
           {
-            nl: "Interactieve calculators, leadflows en modulaire pop-ups helpen bezoekers bij een opstelling met zon en batterij. Opt-in-funnels met whitepapers ondersteunen de conversie.",
-            en: "Interactive calculators, lead flows and modular pop-ups guide visitors through a solar and battery setup. Opt-in funnels with whitepapers support conversion.",
+            nl: "Opt-ins voor de brochure en whitepapers ondersteunen de conversie.",
+            en: "Opt-ins for the brochure and whitepapers support conversion.",
           },
         ],
       },
@@ -1113,8 +1135,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Subsidie als eerste stap.", en: "Subsidy as a first step." },
         body: [
           {
-            nl: "Voor subsidies bouwen we aanvraagflows met een eigen landingspagina. Bij de Noord-Hollandse regeling voor zonnepanelen boven parkeerterreinen lees je wat de regeling biedt, zie je een teller tot de deadline en voor wie het relevant is, en doe je een subsidiecheck van vier vragen, met de uitslag per e-mail.",
-            en: "For subsidies we build application flows with a landing page of their own. For the North Holland scheme for solar panels above car parks you read what the scheme offers, see a countdown to the deadline and who it is relevant for, and take a four-question subsidy check, with the outcome sent by email.",
+            nl: "Voor de Noord-Hollandse regeling voor zonnepanelen boven parkeerterreinen bouwden we een subsidieflow met een eigen landingspagina. Je leest wat de regeling biedt, ziet een teller tot de deadline en voor wie het relevant is, en doet een subsidiecheck van vier vragen, met de uitslag per e-mail.",
+            en: "For the North Holland scheme for solar panels above car parks we built a subsidy flow with a landing page of its own. You read what the scheme offers, see a countdown to the deadline and who it is relevant for, and take a four-question subsidy check, with the outcome sent by email.",
           },
           {
             nl: "Op social media vertellen we het verhaal verder, met posts, carrousels en korte video's in dezelfde huisstijl.",
@@ -1441,8 +1463,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Twee shops, één voorraad.", en: "Two shops, one stock." },
         body: [
           {
-            nl: "We bouwden een website met webshop in WordPress en WooCommerce, in het Nederlands, Engels en Frans, met een eigen shop voor consumenten en een voor foodprofessionals. De shop is gekoppeld aan voorraad en magazijn, en aan de productinformatie.",
-            en: "We built a website with a web shop in WordPress and WooCommerce, in Dutch, English and French, with a shop for consumers and one for food professionals. The shop is integrated with stock and warehouse, and with the product information.",
+            nl: "We bouwden de marketingsite en de webshop in één, in WordPress en WooCommerce, in het Nederlands, Engels en Frans. Een B2C/B2B-structuur geeft consumenten en foodprofessionals elk een eigen shop, en de webshop is opgezet als multi-vendor. Voor voorraad en magazijn is de shop gekoppeld aan PS in Food en Business Central, en ook de productinformatie komt via een koppeling binnen.",
+            en: "We built the marketing site and the web shop as one, in WordPress and WooCommerce, in Dutch, English and French. A B2C/B2B structure gives consumers and food professionals each a shop of their own, and the web shop is set up as multi-vendor. For stock and warehouse the shop is integrated with PS in Food and Business Central, and the product information comes in through an integration too.",
           },
           {
             nl: "Zo toont elke productpagina ingrediënten, voedingswaarden, allergenen, verpakking en specificaties, en filter je in de professionele shop op allergieën.",
@@ -1467,8 +1489,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Elke fles op zijn best.", en: "Every bottle at its best." },
         body: [
           {
-            nl: "Voor het assortiment maakten we productshots, geanimeerde packshots en 3D-renders. Zo staat elke fles strak en herkenbaar in beeld, van de klassieke ketchup tot de nieuwste smaak.",
-            en: "For the range we created product shots, animated packshots and 3D renders. Every bottle is shown sharp and recognisable, from the classic ketchup to the latest flavour.",
+            nl: "Voor het assortiment maakten we productshots, geanimeerde packshots en 3D-modellen van de flessen. Zo staat elke fles strak en herkenbaar in beeld, van de klassieke ketchup tot de nieuwste smaak.",
+            en: "For the range we created product shots, animated packshots and 3D models of the bottles. Every bottle is shown sharp and recognisable, from the classic ketchup to the latest flavour.",
           },
           {
             nl: "Op de homepage komen die flessen in beweging. In de hero draait een 3D-fles Kruiden Ketchup Curry mee terwijl je scrolt, en verderop, bij het assortiment, doen een Honing Mosterd Dressing en een ketchup hetzelfde. Het zijn Lottie-animaties die frame voor frame met je scroll meelopen: scroll je terug, dan draait de fles ook terug.",
@@ -1987,8 +2009,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van check naar dossier.", en: "From check to case file." },
         body: [
           {
-            nl: "Voor de check ontwierpen we de UI/UX van de web-app. Na de uitslag lever je in dezelfde app je huurcontract en andere bestanden aan, geef je je machtiging en ga je later verder waar je was gebleven.",
-            en: "For the check we designed the UI/UX of the web app. After the outcome you upload your tenancy agreement and other files in the same app, give your authorisation and pick up later where you left off.",
+            nl: "Voor de check ontwierpen en bouwden we de web-app, op check.huurfix.nl. Na de uitslag lever je in dezelfde app je huurcontract en andere bestanden aan, geef je je machtiging en ga je later verder waar je was gebleven.",
+            en: "For the check we designed and built the web app, at check.huurfix.nl. After the outcome you upload your tenancy agreement and other files in the same app, give your authorisation and pick up later where you left off.",
           },
           {
             nl: "De intake is gekoppeld aan Odoo CRM en splitst zich in drie geautomatiseerde flows, elk met eigen CRM-logica, opvolgmails en afhandeling. Zo komt elke aanvraag gekwalificeerd en geordend binnen.",
@@ -2455,8 +2477,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "The quote request is a service configurator with built-in logic that opens from every page. First you choose just the car or the full production. Want to outsource everything? Then you go straight to contact. Hiring just the car? Then you choose the equipment, The Filmcar's camera or your own kit, the crew, from driver to focus puller and gimbal operator, and how long you need the car, from half a day to three days or more.",
           },
           {
-            nl: "Met een korte omschrijving van het project en je gegevens erbij komt elke aanvraag compleet binnen, en volgt er binnen 24 uur een offerte op maat.",
-            en: "With a short project description and your details added, every request arrives complete, and a tailor-made quote follows within 24 hours.",
+            nl: "Met een korte omschrijving van het project en je gegevens erbij komt elke aanvraag compleet binnen. Je krijgt automatisch een bevestigingsmail in de huisstijl van The Filmcar, en binnen 24 uur volgt een offerte op maat.",
+            en: "With a short project description and your details added, every request arrives complete. You automatically get a confirmation email in The Filmcar's house style, and a tailor-made quote follows within 24 hours.",
           },
         ],
       },
@@ -2569,8 +2591,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "At the heart of the Webflow site is a configurator in which you put together your Speedbar PRO and submit your request. In three steps you choose the grip, the carbon base and the interface. At every step you choose standard or custom: a standard grip in two shapes, or a custom grip adjusted in length, angle and shifter position, and a standard interface or a 3D-printed interface that fits your bike and position exactly. The price follows every choice.",
           },
           {
-            nl: "Aan het eind zie je je Speedbar in een overzicht en laat je je gegevens achter. Comfort, sterkte en veiligheid krijgen op de site elk een korte uitleg, en elk onderdeel heeft een eigen productpagina, zodat je weet waarom elk detail ertoe doet.",
-            en: "At the end you see your Speedbar in an overview and leave your details. Comfort, strength and safety each get a short explanation on the site, and every component has its own product page, so you know why every detail matters.",
+            nl: "Aan het eind zie je je Speedbar in een overzicht en laat je je gegevens achter, waarna een bevestigingsmail in de stijl van Speedbar volgt. Comfort, sterkte en veiligheid krijgen op de site elk een korte uitleg, en elk onderdeel heeft een eigen productpagina, zodat je weet waarom elk detail ertoe doet.",
+            en: "At the end you see your Speedbar in an overview and leave your details, after which a confirmation email in Speedbar's style follows. Comfort, strength and safety each get a short explanation on the site, and every component has its own product page, so you know why every detail matters.",
           },
         ],
       },
@@ -2587,8 +2609,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Ook in bewegend beeld.", en: "In motion, too." },
         body: [
           {
-            nl: "Daarnaast maakten we een videodocumentaire over Speedbar. Bewegend beeld laat zien wat een productfoto niet kan vertellen.",
-            en: "We also made a video documentary about Speedbar. Moving images show what a product photo can't tell.",
+            nl: "Daarnaast maakten we een videodocumentaire over Speedbar, die ook op de PRO-pagina van de site staat. Bewegend beeld laat zien wat een productfoto niet kan vertellen.",
+            en: "We also made a video documentary about Speedbar, which also features on the PRO page of the site. Moving images show what a product photo can't tell.",
           },
         ],
       },
@@ -2748,6 +2770,10 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           {
             nl: "Op de eerste dag na de lancering kwamen er meer dan vijftig brochureaanvragen binnen. Sindsdien is de website het belangrijkste informatiepunt en leadkanaal van Wijkamp Farming Solutions.",
             en: "On the first day after launch, more than fifty brochure requests came in. Since then the website has been the main information hub and lead channel for Wijkamp Farming Solutions.",
+          },
+          {
+            nl: "Ook de website van Wijkamp zelf, wij-kamp.nl, bouwden we, in WordPress. En sinds 2022 werken we er doorlopend aan verder.",
+            en: "We also built Wijkamp's own website, wij-kamp.nl, in WordPress. And since 2022 we have kept working on it continuously.",
           },
         ],
       },
@@ -2990,8 +3016,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "bernheze-makelaars-rebranding": {
     intro: {
-      nl: "Een huisstijl die al twintig jaar een vertrouwd beeld was, en toch toe aan vernieuwing. Voor Bernheze Makelaars zochten we de kleine verandering met het grote effect.",
-      en: "An identity that had been a familiar sight for twenty years, yet was ready for renewal. For Bernheze Makelaars we looked for the small change with the big effect.",
+      nl: "Een huisstijl die al twintig jaar een vertrouwd beeld was, en toch toe aan vernieuwing. Voor Bernheze Makelaars zochten we in 2018 de kleine verandering met het grote effect.",
+      en: "An identity that had been a familiar sight for twenty years, yet was ready for renewal. In 2018 we looked for the small change with the big effect for Bernheze Makelaars.",
     },
     chapters: [
       {
@@ -3013,34 +3039,86 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         ],
       },
       {
-        title: { nl: "Van te-koopbord tot website.", en: "From for-sale sign to website." },
+        title: { nl: "Van brandbook tot te-koopbord.", en: "From brandbook to for-sale sign." },
         body: [
           {
-            nl: "Kleuren, typografie, iconen en beeldgebruik legden we vast in een brandbook. In de nieuwe stijl ontwierpen we de te-koopborden, visitekaartjes, briefpapier, presentatiekits, roll-upbanners, flyers en investment memorandums.",
-            en: "We captured colours, typography, icons and imagery in a brandbook. In the new style we designed the for-sale signs, business cards, stationery, presentation kits, roll-up banners, flyers and investment memorandums.",
+            nl: "Kleuren, typografie, iconen en beeldgebruik legden we vast in een brandbook. In de nieuwe stijl ontwierpen we de te-koopborden, visitekaartjes, briefpapier, presentatiekits, roll-upbanners en flyers.",
+            en: "We captured colours, typography, icons and imagery in a brandbook. In the new style we designed the for-sale signs, business cards, stationery, presentation kits, roll-up banners and flyers.",
           },
           {
-            nl: "Daarna bouwden we de website in Webflow, met een eigen plek voor wonen, agrarisch, bedrijven, taxaties en vastgoedbeheer. Elke afdeling heeft haar diensten, aanbod, veelgestelde vragen en zoekopdrachten. Voor projecten maakten we uitgebreide visualisaties.",
-            en: "Then we built the website in Webflow, with a place of its own for residential, agricultural, commercial, valuations and property management. Every department has its services, listings, FAQs and saved searches. For projects we created extensive visualisations.",
-          },
-        ],
-      },
-      {
-        title: { nl: "Een portaal voor taxaties.", en: "A portal for valuations." },
-        body: [
-          {
-            nl: "Voor zakelijke taxaties bouwden we een eigen portaal. Klanten loggen in met een code per e-mail en zien hun dossiers met status. Per dossier staat welke bestanden verwacht worden: uploaden, of aangeven dat iets niet van toepassing is.",
-            en: "For commercial valuations we built a portal of its own. Clients log in with a code sent by email and see their files with a status. Each file lists the documents that are expected: upload them, or mark one as not applicable.",
-          },
-          {
-            nl: "Zijn de bestanden compleet, dan bieden ze het dossier aan, en later bekijken ze er ook het rapport. Zo komt alles wat een taxateur nodig heeft op één plek, en staat het merk online net zo stevig als op straat.",
-            en: "Once the files are complete, they submit the file, and later they view the report there too. That way everything a valuer needs comes together in one place, and the brand stands as firmly online as it does on the street.",
+            nl: "Dat brandbook werd het fundament voor alles wat volgde: de website met een eigen gezicht per afdeling, de investment memorandums, de video's van exclusieve woningen en het portaal voor zakelijke taxaties. Elk van die projecten staat hieronder als eigen hoofdstuk.",
+            en: "That brandbook became the foundation for everything that followed: the website with a face of its own for each department, the investment memorandums, the videos of exclusive homes and the portal for commercial valuations. Each of those projects follows below as a chapter of its own.",
           },
         ],
       },
     ],
     statements: [
       { nl: "Een subtiele verandering kan het grootste verschil maken.", en: "A subtle change can make the biggest difference." },
+    ],
+  },
+  "bernheze-makelaars-website": {
+    intro: {
+      nl: "Wonen, agrarisch, bedrijven, taxaties en beheer: vijf afdelingen met elk hun eigen klanten. Op de website van Bernheze Makelaars kreeg elke afdeling een eigen gezicht, binnen één merk.",
+      en: "Residential, agricultural, commercial, valuations and property management: five departments, each with its own clients. On the Bernheze Makelaars website, every department got a face of its own, within one brand.",
+    },
+    chapters: [
+      {
+        title: { nl: "Kies een afdeling.", en: "Choose a department." },
+        body: [
+          {
+            nl: "In 2020 bouwden we de website in Webflow, met multi-department branding. Bovenin kies je een afdeling, en daarna krijg je een eigen accentkleur, een eigen menu en een eigen knop naar het aanbod van die afdeling. Zo voelt een agrariër zich net zo thuis als iemand die een woning zoekt of een bedrijfspand wil verhuren.",
+            en: "In 2020 we built the website in Webflow, with multi-department branding. At the top you choose a department, and from there you get its own accent colour, its own menu and its own button to that department's listings. That way a farmer feels just as at home as someone looking for a house or wanting to let a commercial building.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Aanbod uit Realworks.", en: "Listings from Realworks." },
+        body: [
+          {
+            nl: "Het aanbod van wonen, bedrijven en agrarisch komt binnen via koppelingen met Realworks. Je zoekt en filtert, en laat een zoekopdracht achter als het juiste object er nog niet tussen staat. Nieuwbouwprojecten hebben eigen pagina's, met de kavels en woningtypes per project.",
+            en: "Listings for residential, commercial and agricultural come in through Realworks integrations. You search and filter, and save a search if the right property isn't there yet. New-build projects have pages of their own, with the plots and home types per project.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Antwoord op de vraag.", en: "An answer to the question." },
+        body: [
+          {
+            nl: "Per dienst staat een use-casepagina: een woning verkopen, een agrarisch object pachten, een bedrijfspand laten taxeren. Elke pagina legt in stappen uit hoe het werkt en beantwoordt de veelgestelde vragen. Die pagina's zijn opgebouwd voor GEO, zodat zoekmachines en AI-assistenten het antwoord vinden op precies de vraag die iemand stelt.",
+            en: "Every service has a use-case page: selling a home, leasing an agricultural property, having a commercial building valued. Each page explains step by step how it works and answers the frequently asked questions. Those pages are built for GEO, so search engines and AI assistants find the answer to exactly the question someone asks.",
+          },
+        ],
+      },
+    ],
+  },
+  "bernheze-makelaars-taxatieportaal": {
+    intro: {
+      nl: "Een zakelijke taxatie begint met een stapel stukken. In het taxatieportaal van Bernheze Makelaars leveren klanten ze op één plek aan, en zien ze meteen wat er nog ontbreekt.",
+      en: "A commercial valuation starts with a pile of documents. In the Bernheze Makelaars valuation portal, clients deliver them in one place, and see straight away what is still missing.",
+    },
+    chapters: [
+      {
+        title: { nl: "Inloggen met een code.", en: "Log in with a code." },
+        body: [
+          {
+            nl: "In 2025 bouwden we het portaal in Webflow, met Wized voor de logica en Make voor de automatiseringen. Klanten maken een account aan en loggen in met een code die ze per e-mail krijgen. In hun dashboard staan hun dossiers, elk met een status.",
+            en: "In 2025 we built the portal in Webflow, with Wized for the logic and Make for the automations. Clients create an account and log in with a code they receive by email. Their dashboard lists their files, each with a status.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Compleet, en dan pas aanbieden.", en: "Complete first, then submit." },
+        body: [
+          {
+            nl: "Per dossier staat welke bestanden er verwacht worden. Klanten uploaden ze, of geven aan dat een stuk niet van toepassing is, en het portaal houdt bij of alles compleet is. Pas dan bieden ze het dossier aan. Een activiteitenlog laat zien wat er is gebeurd, en als de taxatie klaar is, bekijken ze er het rapport.",
+            en: "Each file lists the documents that are expected. Clients upload them, or mark a document as not applicable, and the portal keeps track of whether everything is complete. Only then do they submit the file. An activity log shows what has happened, and when the valuation is done, they view the report there.",
+          },
+          {
+            nl: "Aan de kant van Bernheze maken de taxateurs dossiers aan en volgen ze die op in een eigen beheeromgeving. Zo krijgen ze complete dossiers.",
+            en: "On Bernheze's side, the valuers create files and follow them up in an admin environment of their own. That way they receive complete files.",
+          },
+        ],
+      },
     ],
   },
   "bernheze-makelaars-video": {

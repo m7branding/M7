@@ -118,8 +118,8 @@ export const inboxA: { cases: Case[]; media: Record<string, SuppliedSet> } = {
         en: "Berkley Investments: real estate with social impact",
       },
       summary: {
-        nl: "Webdesign, een brochure en visualisaties van projecten voor Berkley Investments, een investeringsmaatschappij in vastgoed en energie: groen, goud en grote beelden van monumentale gebouwen.",
-        en: "Web design, a brochure and project visualisations for Berkley Investments, an investment company in real estate and energy: green, gold and large images of monumental buildings.",
+        nl: "Een webdesign, een brochure en visualisaties van projecten voor Berkley Investments, een investeringsmaatschappij in vastgoed en energie: groen, goud en grote beelden van monumentale gebouwen. De nieuwe website is nog niet live.",
+        en: "A web design, a brochure and project visualisations for Berkley Investments, an investment company in real estate and energy: green, gold and large images of monumental buildings. The new website is not live yet.",
       },
       sector: "finance-fintech",
       services: ["websites-webshops", "grafisch-ontwerp-print", "foto-video-3d-animatie"],
@@ -127,19 +127,18 @@ export const inboxA: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       tools: [],
       color: "#01483A",
       challenge: {
-        nl: "Berkley Investments investeert in vastgoed, zorgvastgoed en energie, met maatschappelijke impact als uitgangspunt. Die toon moest terugkomen in de website en in het drukwerk: degelijk, warm en zonder opsmuk.",
-        en: "Berkley Investments invests in real estate, healthcare property and energy, with social impact as its starting point. That tone had to come through in the website and in print: solid, warm and without frills.",
+        nl: "Berkley Investments investeert in vastgoed en energie, met maatschappelijke impact als uitgangspunt. Die toon moest terugkomen in een nieuwe website en in het drukwerk: degelijk, warm en zonder opsmuk, met de projecten zelf in de hoofdrol.",
+        en: "Berkley Investments invests in real estate and energy, with social impact as its starting point. That tone had to come through in a new website and in print: solid, warm and without frills, with the projects themselves in the leading role.",
       },
       approach: {
-        nl: "We kozen voor diepgroen met goud, een klassieke schreefletter in kapitalen en veel ruimte voor fotografie van de gebouwen. Op de homepage staan de projecten als grote kaarten in een slider, gevolgd door een blok over energie. In de brochure krijgt het thema Social Impact een eigen spread, met foto's van de gebouwen en hun omgeving. Daarnaast maakten we uitgebreide visualisaties van projecten.",
-        en: "We chose deep green with gold, a classic serif in capitals and plenty of room for photography of the buildings. On the homepage the projects appear as large cards in a slider, followed by a block on energy. In the brochure the theme of Social Impact gets a spread of its own, with photos of the buildings and their surroundings. We also created extensive visualisations of projects.",
+        nl: "We kozen voor diepgroen met goud, een klassieke schreefletter in kapitalen en veel ruimte voor beelden van de gebouwen. In het webdesign staat het logo groot over een monumentaal pand, met een rustig raster eroverheen, en bovenin een veld om direct je e-mailadres achter te laten, naast het menu met Who we are, Real estate, Energy en ESG. In het track record staan de projecten als grote kaarten in een slider, zoals Beyart in Maastricht en Hart in Hilvarenbeek, elk met het type gebruik en het type deal erbij. Daarna volgt een blok over energie: 'We believe in blue, but embrace green'. In de brochure krijgt Social Impact een eigen spread, met de zakelijke kant van maatschappelijke impact en het thema inclusiviteit. Voor het webdesign en de brochure maakten we uitgebreide visualisaties van de projecten.",
+        en: "We chose deep green with gold, a classic serif in capitals and plenty of room for images of the buildings. In the web design the logo sits large over a monumental building, with a calm grid over it, and at the top a field to leave your email address straight away, next to the menu with Who we are, Real estate, Energy and ESG. In the track record the projects appear as large cards in a slider, such as Beyart in Maastricht and Hart in Hilvarenbeek, each showing the use type and the deal type. Then comes a block on energy: 'We believe in blue, but embrace green'. In the brochure Social Impact gets a spread of its own, covering the business rationale behind social impact and the theme of inclusivity. For the web design and the brochure we created extensive visualisations of the projects.",
       },
       result: {
-        nl: "Een website en brochure die dezelfde rustige, monumentale uitstraling hebben als het vastgoed van Berkley.",
-        en: "A website and brochure with the same calm, monumental look as Berkley's real estate.",
+        nl: "Een webdesign en een brochure met dezelfde rustige, monumentale uitstraling als het vastgoed van Berkley. De website zelf is nog niet live.",
+        en: "A web design and a brochure with the same calm, monumental look as Berkley's real estate. The website itself is not live yet.",
       },
       cover: M("berkley-investments", "s-fa-website-02.webp"),
-      concept: true,
       shape: "wide",
     },
     {
