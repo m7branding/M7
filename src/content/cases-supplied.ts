@@ -84,7 +84,7 @@ export const suppliedCases: Case[] = [
     },
     sector: "automotive-mobiliteit",
     services: ["branding-rebranding", "websites-webshops", "grafisch-ontwerp-print", "automation-funnels"],
-    applications: ["naamgeving", "huisstijl", "webflow-website", "visitekaartjes-drukwerk", "workflow-automatisering"],
+    applications: ["naamgeving", "huisstijl", "webflow-website", "visitekaartjes-drukwerk", "workflow-automatisering", "e-mailmarketing"],
     tools: ["webflow"],
     color: "#DAB671",
     challenge: {
@@ -92,8 +92,8 @@ export const suppliedCases: Case[] = [
       en: "Under the old name Budget Hearses, the company looked orange, dated and cheap. That did not fit luxury vehicles, from exclusive passenger vans to wheelchair-accessible solutions.",
     },
     approach: {
-      nl: "Vanuit de nieuwe naam Nova kreeg Nova Special Cars dezelfde premium branding als Nova Funeral Cars, met eigen drukwerk. De website in Webflow toont het aanbod per voertuig en werkt de voorraad automatisch bij. Wie zich aanmeldt, krijgt een melding zodra er nieuw aanbod binnenkomt.",
-      en: "From the new name Nova, Nova Special Cars received the same premium branding as Nova Funeral Cars, with its own print. The Webflow website shows the range per vehicle and updates the stock automatically. Anyone who signs up gets an alert as soon as new stock arrives.",
+      nl: "Vanuit de nieuwe naam Nova kreeg Nova Special Cars dezelfde premium branding als Nova Funeral Cars, met eigen drukwerk. De website in Webflow toont het aanbod per voertuig en werkt de voorraad automatisch bij. Wie zijn e-mailadres achterlaat, krijgt een branded melding zodra er nieuw aanbod binnenkomt.",
+      en: "From the new name Nova, Nova Special Cars received the same premium branding as Nova Funeral Cars, with its own print. The Webflow website shows the range per vehicle and updates the stock automatically. Anyone who leaves their email address gets a branded alert as soon as new stock arrives.",
     },
     result: {
       nl: "Een luxe, prestigieus en vertrouwd merk, met een website waarop nieuwe voorraad vanzelf verschijnt.",
@@ -120,8 +120,8 @@ export const suppliedCases: Case[] = [
           title: { nl: "Voorraad die zichzelf bijwerkt.", en: "Stock that updates itself." },
           body: [
             {
-              nl: "De website in Webflow zet elk voertuig rustig en groot in beeld. Nieuwe voorraad komt er automatisch bij, zodat het aanbod altijd klopt, en wie zich aanmeldt krijgt een melding zodra er iets nieuws binnenkomt. Het drukwerk volgt dezelfde lijn.",
-              en: "The Webflow website shows every vehicle calmly and large. New stock is added automatically, so the range is always up to date, and anyone who signs up gets an alert as soon as something new arrives. The print follows the same line.",
+              nl: "De website in Webflow zet elk voertuig rustig en groot in beeld. Nieuwe voorraad komt er automatisch bij, zodat het aanbod altijd klopt, en wie zijn e-mailadres achterlaat, krijgt een branded melding zodra er iets nieuws binnenkomt. Het drukwerk volgt dezelfde lijn.",
+              en: "The Webflow website shows every vehicle calmly and large. New stock is added automatically, so the range is always up to date, and anyone who leaves their email address gets a branded alert as soon as something new arrives. The print follows the same line.",
             },
           ],
         },
@@ -271,25 +271,25 @@ export const suppliedCases: Case[] = [
       en: "Battery Park Montessori: a school site with structure",
     },
     summary: {
-      nl: "Branding voor Green Ivy als organisatie en een rebranding van al hun scholen en websites, met een nieuwe sitemap en contentstructuur, interactieve navigatie, zoekfuncties, AEO en JSON-LD. Het zusterproject van Pine Street School.",
-      en: "Branding for Green Ivy as an organisation and a rebrand of all its schools and websites, with a new sitemap and content structure, interactive navigation, search, AEO and JSON-LD. The sister project of Pine Street School.",
+      nl: "Branding voor Green Ivy als organisatie en een rebranding van al hun scholen en websites, met een nieuwe sitemap en contentstructuur, interactieve navigatie, zoekfuncties, AEO en JSON-LD, en koppelingen met HubSpot en Calendly. Het zusterproject van Pine Street School.",
+      en: "Branding for Green Ivy as an organisation and a rebrand of all its schools and websites, with a new sitemap and content structure, interactive navigation, search, AEO and JSON-LD, and HubSpot and Calendly integrations. The sister project of Pine Street School.",
     },
     sector: "educatie-scholen",
-    services: ["branding-rebranding", "websites-webshops", "seo-aeo-geo"],
-    applications: ["rebranding", "huisstijl", "webflow-website", "ux-ui-webdesign", "contentstructuur", "aeo", "structured-data"],
-    tools: ["webflow"],
+    services: ["branding-rebranding", "websites-webshops", "seo-aeo-geo", "automation-funnels", "configurators-lead-tools-widgets"],
+    applications: ["rebranding", "huisstijl", "webflow-website", "ux-ui-webdesign", "contentstructuur", "aeo", "structured-data", "crm-implementatie", "boekingswidget"],
+    tools: ["webflow", "hubspot", "calendly"],
     color: "#2B5A8A",
     challenge: {
       nl: "Battery Park Montessori, aan de Hudson in Lower Manhattan, is een drietalige Montessorischool voor kinderen van 1 tot 5 jaar. De school hoort bij Green Ivy, net als Pine Street School. Er was veel informatie voor ouders en leerlingen, maar zonder heldere structuur.",
       en: "Battery Park Montessori, on the Hudson in Lower Manhattan, is a trilingual Montessori school for children aged 1 to 5. The school is part of Green Ivy, like Pine Street School. There was a lot of information for parents and students, but no clear structure.",
     },
     approach: {
-      nl: "We gaven Green Ivy als organisatie een merk en voerden een rebranding door voor al hun scholen en websites. De sitemap en contentstructuur gingen op de schop: een CMS-structuur, interactieve en sticky navigatie, zoekfuncties, een dynamische inhoudsopgave en AEO met JSON-LD-schema's.",
-      en: "We gave Green Ivy as an organisation a brand and rebranded all of its schools and websites. The sitemap and content structure were rebuilt: a CMS structure, interactive and sticky navigation, search, a dynamic table of contents and AEO with JSON-LD schemas.",
+      nl: "We gaven Green Ivy als organisatie een merk en voerden een rebranding door voor al hun scholen en websites. De sitemap en contentstructuur gingen op de schop: een CMS-structuur, interactieve en sticky navigatie, zoekfuncties, een dynamische inhoudsopgave en AEO met JSON-LD-schema's. Net als bij Pine Street School ondersteunen koppelingen met HubSpot en Calendly vragen van ouders, CRM-workflows en het inplannen van afspraken.",
+      en: "We gave Green Ivy as an organisation a brand and rebranded all of its schools and websites. The sitemap and content structure were rebuilt: a CMS structure, interactive and sticky navigation, search, a dynamic table of contents and AEO with JSON-LD schemas. As with Pine Street School, HubSpot and Calendly integrations support enquiries from parents, CRM workflows and appointment scheduling.",
     },
     result: {
-      nl: "Gestructureerde schoolsites waarop ouders en leerlingen van de New Yorkse privéscholen snel vinden wat ze zoeken, ook via zoekmachines en AI-assistenten.",
-      en: "Structured school sites where parents and students of the New York private schools quickly find what they need, also through search engines and AI assistants.",
+      nl: "Gestructureerde schoolsites waarop ouders en leerlingen van de New Yorkse privéscholen snel vinden wat ze zoeken, ook via zoekmachines en AI-assistenten, en makkelijk een vraag stellen of een afspraak plannen.",
+      en: "Structured school sites where parents and students of the New York private schools quickly find what they need, also through search engines and AI assistants, and can easily ask a question or book an appointment.",
     },
     url: "https://batteryparkmontessori.com",
     shape: "wide",

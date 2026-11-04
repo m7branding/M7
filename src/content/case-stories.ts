@@ -488,8 +488,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "The website has a sober design, with a clear structure per vehicle, in Dutch, English and French. We did the photography ourselves, so every car is shown calmly and in detail.",
           },
           {
-            nl: "Elke auto heeft een eigen pagina met specificaties, afmetingen, de indeling achterin en een leasevoorbeeld. Uitvaartondernemers geven aan naar welke rouwauto ze zoeken, en zodra er een voertuig binnenkomt dat aan hun criteria voldoet, krijgen ze automatisch een e-mail in de stijl van Nova. Zo missen ze de auto die ze zoeken niet.",
-            en: "Every car has its own page with specifications, dimensions, the layout in the back and a lease example. Funeral directors say which hearse they are looking for, and as soon as a vehicle arrives that meets their criteria, they automatically get an email in Nova's style. That way they don't miss the car they are after.",
+            nl: "Elke auto heeft een eigen pagina met specificaties, afmetingen, de indeling achterin en een leasevoorbeeld. Klanten laten hun e-mailadres achter, en zodra er nieuw aanbod binnenkomt, krijgen ze automatisch een e-mail in de stijl van Nova. Zo missen ze geen enkele nieuwe auto.",
+            en: "Every car has its own page with specifications, dimensions, the layout in the back and a lease example. Customers leave their email address, and as soon as new stock arrives, they automatically get an email in Nova's style. That way they never miss a new car.",
           },
         ],
       },
@@ -569,8 +569,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Een merk om mee te spelen.", en: "A brand to play with." },
         body: [
           {
-            nl: "We gaven TOY4Participation een eigen huisstijl, met fris turquoise, warme gele vormen en beelden van kinderen in actie. Daarna bouwden we de website, met Sanity als CMS en animaties in GSAP en Lottie: een zwevende schatkist en sleutels geven al op de homepage aan dat hier iets te ontdekken valt.",
-            en: "We gave TOY4Participation its own visual identity, with fresh turquoise, warm yellow shapes and images of children in action. Then we built the website, with Sanity as the CMS and animations in GSAP and Lottie: a floating treasure chest and keys signal on the homepage already that there is something to discover.",
+            nl: "We werkten mee aan de huisstijl van TOY4Participation, met fris turquoise, warme gele vormen en beelden van kinderen in actie. Daarna bouwden we de website, met Sanity als CMS en animaties in GSAP en Lottie: een zwevende schatkist en sleutels geven al op de homepage aan dat hier iets te ontdekken valt.",
+            en: "We contributed to TOY4Participation's visual identity, with fresh turquoise, warm yellow shapes and images of children in action. Then we built the website, with Sanity as the CMS and animations in GSAP and Lottie: a floating treasure chest and keys signal on the homepage already that there is something to discover.",
           },
         ],
       },
@@ -1168,8 +1168,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Het verhaal loopt door.", en: "The story keeps going." },
         body: [
           {
-            nl: "Na de lancering bleven we betrokken. We verzorgen de social media en de organische content van Electriffy, zodat het verhaal van zon, opslag en regio ook buiten de website verder wordt verteld.",
-            en: "We stayed involved after the launch. We take care of Electriffy's social media and organic content, so the story of sun, storage and region carries on beyond the website.",
+            nl: "Na de lancering bleven we betrokken. We verzorgen de social media en de organische content van Electriffy op LinkedIn, zodat het verhaal van zon, opslag en regio ook buiten de website verder wordt verteld.",
+            en: "We stayed involved after the launch. We take care of Electriffy's social media and organic content on LinkedIn, so the story of sun, storage and region carries on beyond the website.",
           },
         ],
       },
@@ -1219,8 +1219,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "Every project page got an impact module: what happens, which partners play which role, what is measured and how, from baseline and satellite imagery to eDNA and an annual report, and how the money is built up in layers and allocated. Partners, contributors and regions each have their own way in.",
           },
           {
-            nl: "Daarnaast verzorgen we de social media en de organische content van YOUR.earth, zodat de projecten ook buiten de website hun verhaal vertellen.",
-            en: "We also take care of YOUR.earth's social media and organic content, so the projects tell their story beyond the website too.",
+            nl: "Daarnaast verzorgen we de social media en de organische content van YOUR.earth op LinkedIn, zodat de projecten ook buiten de website hun verhaal vertellen.",
+            en: "We also take care of YOUR.earth's social media and organic content on LinkedIn, so the projects tell their story beyond the website too.",
           },
         ],
       },
@@ -1258,8 +1258,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Eerlijk over wat er al staat.", en: "Honest about what is in place." },
         body: [
           {
-            nl: "Een pagina over impact laat zien hoe resultaten worden aangetoond, en een pagina met bronnen en projectstatus maakt duidelijk wat een plan is en wat al is afgesproken. Nederpellets vraag je aan in twee stappen, en het contactformulier vraagt eerst waar je vraag over gaat. De website is gekoppeld aan HubSpot.",
-            en: "An impact page shows how results will be demonstrated, and a sources and project status page makes clear what is a plan and what has already been agreed. You request Nederpellets in two steps, and the contact form first asks what your question is about. The website is integrated with HubSpot.",
+            nl: "Een pagina over impact laat zien hoe resultaten worden aangetoond, en een pagina met bronnen en projectstatus maakt duidelijk wat een plan is en wat al is afgesproken. Nederpellets vraag je aan in twee stappen, en het contactformulier vraagt eerst waar je vraag over gaat.",
+            en: "An impact page shows how results will be demonstrated, and a sources and project status page makes clear what is a plan and what has already been agreed. You request Nederpellets in two steps, and the contact form first asks what your question is about.",
           },
         ],
       },
@@ -1267,8 +1267,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Ook buiten de website.", en: "Beyond the website." },
         body: [
           {
-            nl: "Daarnaast maakten we een webinar, met een eigen pagina voor de sprekers en het slidedeck, en verzorgen we de social media en de organische content. Zo vertellen merk, website, social en webinar samen één samenhangend verhaal over energie, CO₂ en landschap.",
-            en: "We also created a webinar, with its own page for the speakers and the slide deck, and we take care of the social media and organic content. Together, brand, website, social and webinar tell one coherent story about energy, CO₂ and landscape.",
+            nl: "Daarnaast maakten we een webinar, met een eigen pagina voor de sprekers en het slidedeck, en verzorgen we de social media en de organische content op LinkedIn. Zo vertellen merk, website, social en webinar samen één samenhangend verhaal over energie, CO₂ en landschap.",
+            en: "We also created a webinar, with its own page for the speakers and the slide deck, and we take care of the social media and organic content on LinkedIn. Together, brand, website, social and webinar tell one coherent story about energy, CO₂ and landscape.",
           },
         ],
       },
@@ -1389,6 +1389,10 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Vier seizoenen, één site.", en: "Four seasons, one site." },
         body: [
           {
+            nl: "De activiteiten staan centraal. Elke activiteit heeft een eigen pagina met wat je gaat doen, de belangrijkste gegevens op een rij en eigen veelgestelde vragen. Het overzicht werkt met filters en laat apart zien wat nu niet beschikbaar is.",
+            en: "The activities take centre stage. Every activity has its own page with what you will do, the key details at a glance and its own frequently asked questions. The overview works with filters and shows separately what is not available right now.",
+          },
+          {
             nl: "De farm ziet er in de winter anders uit dan in de zomer, en dat mag je zien. Met de vierseizoenenfunctie wisselen de foto's per activiteit mee met het seizoen, zodat de website het hele jaar laat zien wat er nu te beleven is.",
             en: "The farm looks different in winter than in summer, and that should show. With the four-seasons feature the photos for each activity change with the season, so all year round the website shows what there is to experience right now.",
           },
@@ -1402,8 +1406,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "The website is built in WordPress, with activities, the Alpacabar, overnight stays, breeding, company outings and the shop each in their own place. On the booking page you choose an activity and book straight away through the integrated external booking module, for activities as well as lunch and high tea. Every activity has its own frequently asked questions, and a central FAQ is organised by theme.",
           },
           {
-            nl: "Achter de site draaien geavanceerde flows met logica, en de webshop van de Alpaca Boutique bouwden we in WooCommerce: alpacawol, dekbedden, knuffels en cadeaubonnen, gewoon online te bestellen.",
-            en: "Advanced flows with logic run behind the site, and we built the Alpaca Boutique web shop in WooCommerce: alpaca wool, duvets, cuddly toys and gift cards, simply ordered online.",
+            nl: "Lokale SEO-pagina's helpen bezoekers en bedrijven uit verschillende steden en regio's de farm te vinden, en een kennisbank beantwoordt de vragen over alpaca's. Wie meteen iets wil weten, stelt zijn vraag in de AI-chat van qbud.ai, die we op de site plaatsten.",
+            en: "Local SEO pages help visitors and companies from different cities and regions find the farm, and a knowledge base answers the questions about alpacas. Anyone who wants to know something straight away asks in the qbud.ai AI chat that we added to the site.",
           },
         ],
       },
@@ -1531,8 +1535,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "A scalable content structure strengthens SEO and AEO. It helps search engines and AI platforms understand which programmes there are, for which ages and how admissions work.",
           },
           {
-            nl: "Koppelingen met HubSpot en Calendly ondersteunen vragen van ouders, CRM-workflows en het inplannen van afspraken. Zo loopt de weg van eerste bezoek tot afspraak soepel door.",
-            en: "HubSpot and Calendly integrations support enquiries from parents, CRM workflows and appointment scheduling. That keeps the journey from first visit to appointment running smoothly.",
+            nl: "Op beide sites ondersteunen koppelingen met HubSpot en Calendly vragen van ouders, CRM-workflows en het inplannen van afspraken. Zo loopt de weg van eerste bezoek tot afspraak soepel door.",
+            en: "On both sites, HubSpot and Calendly integrations support enquiries from parents, CRM workflows and appointment scheduling. That keeps the journey from first visit to appointment running smoothly.",
           },
         ],
       },
@@ -1738,12 +1742,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Eerst de brochure, dan de details.", en: "First the brochure, then the details." },
         body: [
           {
-            nl: "Op de landingspagina Onderbouwd Investeren vraag je de brochure aan in een paar velden. Een weggevertje maakt die stap aantrekkelijk. Per mail krijg je een persoonlijke toegangslink en een downloadlink, en een relatiemanager neemt persoonlijk contact op. Elk type investeerder heeft een eigen formulier, en particuliere en professionele investeerders komen elk in een eigen mailfunnel.",
-            en: "On the Onderbouwd Investeren landing page you request the brochure in a few fields. A giveaway makes that step attractive. You receive a personal access link and a download link by email, and a relationship manager gets in touch personally. Each type of investor has its own form, and private and professional investors each enter an email funnel of their own.",
+            nl: "Op de landingspagina Onderbouwd Investeren vraag je de brochure aan in een paar velden. Die brochure, met de investeringsgegevens, is het weggevertje dat de stap aantrekkelijk maakt. Per mail krijg je een persoonlijke toegangslink en een downloadlink, en een relatiemanager neemt persoonlijk contact op. Elk type investeerder heeft een eigen formulier, en particuliere en professionele investeerders komen elk in een eigen mailfunnel.",
+            en: "On the Onderbouwd Investeren landing page you request the brochure in a few fields. That brochure, with the investment details, is the giveaway that makes the step attractive. You receive a personal access link and a download link by email, and a relationship manager gets in touch personally. Each type of investor has its own form, and private and professional investors each enter an email funnel of their own.",
           },
           {
-            nl: "Na de aanvraag gaan de eerst geblurde inzichten open in For Your Eyes Only, de besloten omgeving van The Sandt. Daar staan plattegronden, rapporten, 3D-renders, video's en een interactieve kaart van de projectlocatie. Zo krijgt wie echt interesse heeft precies de diepgang die hij zoekt.",
-            en: "After the request, the insights that were blurred at first open up in For Your Eyes Only, The Sandt's private environment. It holds floor plans, reports, 3D renders, videos and an interactive map of the project location. That way anyone who is genuinely interested gets exactly the depth they are looking for.",
+            nl: "Daarna krijg je ook toegang tot For Your Eyes Only, de besloten omgeving van The Sandt, waar de eerst geblurde inzichten opengaan. Daar staan plattegronden, rapporten, 3D-renders, video's en een interactieve kaart van de projectlocatie. Zo krijgt wie echt interesse heeft precies de diepgang die hij zoekt.",
+            en: "After that you also get access to For Your Eyes Only, The Sandt's private environment, where the insights that were blurred at first open up. It holds floor plans, reports, 3D renders, videos and an interactive map of the project location. That way anyone who is genuinely interested gets exactly the depth they are looking for.",
           },
         ],
       },
@@ -1751,8 +1755,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Gevonden door mensen en machines.", en: "Found by people and machines." },
         body: [
           {
-            nl: "We bouwden de content zo op dat AI-zoekmachines The Sandt als bron kunnen noemen. Duidelijke vragen, duidelijke antwoorden, gestructureerde FAQ-data en een opbouw die machines net zo goed lezen als mensen. Dat is AEO en GEO in de praktijk.",
-            en: "We structured the content so AI search engines can cite The Sandt as a source. Clear questions, clear answers, structured FAQ data and a layout machines read as easily as people do. That is AEO and GEO in practice.",
+            nl: "We bouwden de content zo op dat AI-zoekmachines The Sandt als bron kunnen noemen. Duidelijke vragen, duidelijke antwoorden, gestructureerde FAQ-data en een opbouw die machines net zo goed lezen als mensen. Dat is AEO en GEO in de praktijk, en het werkt: de AI-antwoorden van Google noemen The Sandt als bron.",
+            en: "We structured the content so AI search engines can cite The Sandt as a source. Clear questions, clear answers, structured FAQ data and a layout machines read as easily as people do. That is AEO and GEO in practice, and it works: Google's AI answers cite The Sandt as a source.",
           },
           {
             nl: "Daarnaast beheren we de campagnes op Google en LinkedIn. Ze brengen investeerders op de juiste landingspagina, waarna de funnel het verhaal verder vertelt.",
@@ -1836,8 +1840,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Eén look, shop en platform.", en: "One look, shop and platform." },
         body: [
           {
-            nl: "De nieuwe look en feel bleef niet bij de shop. In een apart UI/UX-project herontwierpen we ook het platform waarin klanten hun plaatsingen bestellen en volgen. Zo voelen shop en platform als één product.",
-            en: "The new look and feel didn't stop at the shop. In a separate UI/UX project we also redesigned the platform where clients order and track their placements. That way shop and platform feel like one product.",
+            nl: "De nieuwe look en feel bleef niet bij de shop. In een apart project ontwierpen we ook de volledige UI/UX van het platform waarin klanten hun plaatsingen bestellen en volgen, in hetzelfde groene thema. Dat platform staat live, en zo voelen shop en platform als één product.",
+            en: "The new look and feel didn't stop at the shop. In a separate project we also designed the complete UI/UX of the platform where clients order and track their placements, in the same green theme. That platform is live, and shop and platform feel like one product.",
           },
         ],
       },
@@ -1848,16 +1852,16 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "loftdeur": {
     intro: {
-      nl: "Een stalen deur kies je niet zomaar. Je wilt de lijn zien, de maat kennen en weten wat hij kost. Voor Loftdeur bouwden we een webshop die die keuze makkelijk maakt, van het eerste menu tot de checkout.",
-      en: "You don't choose a steel door on a whim. You want to see the line, know the size and know what it costs. For Loftdeur we built a webshop that makes that choice easy, from the first menu to the checkout.",
+      nl: "Een stalen deur kies je niet zomaar. Je wilt de lijn zien, de maat kennen en weten wat hij kost. Voor Loftdeur bouwden we de webshop praktisch opnieuw, met een nieuwe front-end, UX en branding die die keuze makkelijk maken, van het eerste menu tot de checkout.",
+      en: "You don't choose a steel door on a whim. You want to see the line, know the size and know what it costs. For Loftdeur we practically rebuilt the webshop, with a new front end, UX and branding that make that choice easy, from the first menu to the checkout.",
     },
     chapters: [
       {
         title: { nl: "Honderden deuren, één overzicht.", en: "Hundreds of doors, one overview." },
         body: [
           {
-            nl: "Loftdeur verkoopt stalen binnendeuren, taatsdeuren en schuifdeuren, standaard en op maat, plus schuifdeursystemen, deurbeslag en woonaccessoires. Het megamenu zet per categorie een korte omschrijving, een aanrader van klanten en alle productgroepen bij elkaar, zodat je in één blik ziet waar je moet zijn.",
-            en: "Loftdeur sells steel interior doors, pivot doors and sliding doors, standard and made to measure, plus sliding door systems, door hardware and home accessories. For each category, the mega menu brings together a short description, a customer favourite and every product group, so you see at a glance where you need to be.",
+            nl: "Loftdeur verkoopt stalen binnendeuren, taatsdeuren en schuifdeuren, standaard en op maat, plus schuifdeursystemen, deurbeslag en woonaccessoires. We bleven in de bestaande WordPress- en WooCommerce-omgeving, maar de front-end, de UX en de branding zijn volledig nieuw. Het megamenu zet per categorie een korte omschrijving, een aanrader van klanten en alle productgroepen bij elkaar, zodat je in één blik ziet waar je moet zijn.",
+            en: "Loftdeur sells steel interior doors, pivot doors and sliding doors, standard and made to measure, plus sliding door systems, door hardware and home accessories. We stayed within the existing WordPress and WooCommerce environment, but the front end, the UX and the branding are completely new. For each category, the mega menu brings together a short description, a customer favourite and every product group, so you see at a glance where you need to be.",
           },
         ],
       },
@@ -1890,8 +1894,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "devakhandel": {
     intro: {
-      nl: "Van afrastering tot snoeischaar en van graszaad tot robotmaaier. De Vakhandel heeft alles voor tuin en groenonderhoud, en de webshop moest dat grote aanbod overzichtelijk en makkelijk bestelbaar maken.",
-      en: "From fencing to pruning shears and from grass seed to robotic mower. De Vakhandel has everything for gardens and green maintenance, and the webshop had to make that large range clear and easy to order.",
+      nl: "Van afrastering tot snoeischaar en van graszaad tot robotmaaier. De Vakhandel heeft alles voor tuin en groenonderhoud. We bouwden de webshop praktisch opnieuw, in de bestaande WordPress- en WooCommerce-omgeving maar met een volledig nieuwe front-end, UX en branding, zodat dat grote aanbod overzichtelijk en makkelijk bestelbaar is.",
+      en: "From fencing to pruning shears and from grass seed to robotic mower. De Vakhandel has everything for gardens and green maintenance. We practically rebuilt the webshop, within the existing WordPress and WooCommerce environment but with a completely new front end, UX and branding, so that large range is clear and easy to order.",
     },
     chapters: [
       {
@@ -2016,8 +2020,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "cryptocointalk": {
     intro: {
-      nl: "Een realistische kijk op crypto, voor beginners en gevorderde traders. Bij CryptoCoinTalk moest de manier waarop abonnementen werkten op de schop, en het platform kon wel een frisse start gebruiken.",
-      en: "A realistic take on crypto, for beginners and experienced traders. At CryptoCoinTalk, the way subscriptions worked needed an overhaul, and the platform could use a fresh start.",
+      nl: "Een realistische kijk op crypto, voor beginners en gevorderde traders. Bij CryptoCoinTalk moest de manier waarop abonnementen werkten op de schop, en het leerplatform kon wel een frisse start gebruiken.",
+      en: "A realistic take on crypto, for beginners and experienced traders. At CryptoCoinTalk, the way subscriptions worked needed an overhaul, and the learning platform could use a fresh start.",
     },
     chapters: [
       {
@@ -2037,8 +2041,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
             en: "We rebuilt the subscriptions in WordPress with WooCommerce. You take the education group per month, quarter, half year or year, after a free trial if you like. Alongside it sit the free course, the trading course, the investing course, one-to-one sessions and gift cards. From the free course to the annual subscription, you see more clearly what you get and where you are.",
           },
           {
-            nl: "Een abonnement geeft toegang tot de University, het leerplatform met cursussen, video's, livestreams, een tradingjournal en een portfolio. Het platform kreeg een UI/UX-redesign.",
-            en: "A subscription gives access to the University, the learning platform with courses, videos, livestreams, a trading journal and a portfolio. The platform got a UI/UX redesign.",
+            nl: "Een abonnement geeft toegang tot de University, het leerplatform met cursussen, video's, livestreams, een tradingjournal en een portfolio. Voor University 2.0 ontwierpen we de volledige UI/UX, van het dashboard tot elk onderdeel van het leerplatform.",
+            en: "A subscription gives access to the University, the learning platform with courses, videos, livestreams, a trading journal and a portfolio. For University 2.0 we designed the complete UI/UX, from the dashboard to every part of the learning platform.",
           },
         ],
       },
@@ -2046,8 +2050,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Van gratis naar meer.", en: "From free to more." },
         body: [
           {
-            nl: "Rond de abonnementen zetten we uitgebreide funnels. E-mails met kortingscodes en andere zetjes stimuleren leden om stap voor stap naar een hoger abonnement te gaan.",
-            en: "Around the subscriptions we set up extensive funnels. Emails with discount codes and other nudges encourage members to move step by step to a higher subscription.",
+            nl: "Rond de abonnementen zetten we uitgebreide funnels, via MailerLite en Zapier. De kortingsbonnen komen uit de logica van WooCommerce, en e-mails met die kortingscodes stimuleren leden om stap voor stap naar een hoger abonnement te gaan.",
+            en: "Around the subscriptions we set up extensive funnels, via MailerLite and Zapier. The coupons come from WooCommerce's logic, and emails with those discount codes encourage members to move step by step to a higher subscription.",
           },
         ],
       },
@@ -2055,8 +2059,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Opgefrist, van merk tot site.", en: "Refreshed, from brand to site." },
         body: [
           {
-            nl: "We fristen de branding op en bouwden een nieuwe website in dezelfde lijn: wit, donkerblauw en groen, met de cursussen netjes op een rij. Zo vormen platform, merk en website weer één geheel.",
-            en: "We refreshed the branding and built a new website in the same style: white, dark blue and green, with the courses neatly laid out. Platform, brand and website form one whole again.",
+            nl: "We fristen de branding op en bouwden een nieuwe website in dezelfde lijn: wit, donkerblauw en groen, met de cursussen netjes op een rij. Zo vormen leerplatform, merk en website weer één geheel.",
+            en: "We refreshed the branding and built a new website in the same style: white, dark blue and green, with the courses neatly laid out. Learning platform, brand and website form one whole again.",
           },
         ],
       },
@@ -2157,11 +2161,11 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         ],
       },
       {
-        title: { nl: "Website en shop, één familie.", en: "Site and shop, one family." },
+        title: { nl: "Ontwerpen voor site en shop.", en: "Designs for site and shop." },
         body: [
           {
-            nl: "We bouwden de website in Webflow en de marketplace shop.grid.com in WordPress met WooCommerce. Licht, met groen als merkkleur, en aparte ingangen voor particulieren en zakelijk. Van laadkabel tot DC-snellader bestel je alles op één plek.",
-            en: "We built the website in Webflow and the shop.grid.com marketplace in WordPress with WooCommerce. Light, with green as the brand colour, and separate entrances for consumers and businesses. From charging cable to DC fast charger, you order everything in one place.",
+            nl: "Voor GRID maakten we vooral webdesigns, onder meer voor de webshop shop.grid.com, waar je van laadkabel tot DC-snellader alles op één plek bestelt. Daarnaast werkten we mee aan het design van grid.com. Licht, met groen als merkkleur.",
+            en: "For GRID we mainly created web designs, including for the shop.grid.com web shop, where you order everything from charging cable to DC fast charger in one place. We also contributed to the design of grid.com. Light, with green as the brand colour.",
           },
         ],
       },
@@ -2169,8 +2173,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Eén boodschap per banner.", en: "One message per banner." },
         body: [
           {
-            nl: "Voor campagnes maakten we advertentiebanners, zoals die voor het gratis aanvragen van een publiek laadpunt bij je woning. Eén boodschap, één actie, en meteen duidelijk wat je moet doen.",
-            en: "For campaigns we made ad banners, such as the one for requesting a free public charging point near your home. One message, one action, and instantly clear what to do.",
+            nl: "Voor campagnes maakten we advertentiecreaties, zoals de banners voor het gratis aanvragen van een publiek laadpunt bij je woning. Eén boodschap, één actie, en meteen duidelijk wat je moet doen.",
+            en: "For campaigns we made ad creatives, such as the banners for requesting a free public charging point near your home. One message, one action, and instantly clear what to do.",
           },
           {
             nl: "Die campagnes lopen door: we beheren de advertenties van GRID op Meta, zodat de app en de shop steeds opnieuw bij nieuwe rijders in beeld komen.",
@@ -2261,12 +2265,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Meerdere beslissers, één route.", en: "Several decision-makers, one route." },
         body: [
           {
-            nl: "Op de homepage kies je in tabs een onderdeel van de Telebox: de AnyHub (de 4G-gateway), de bloeddrukmeter, de weegschaal, de pulse-oximeter en de glucosemeter. Elk apparaat draait er als 3D-model rond, naast een korte uitleg van wat het meet en doorstuurt. Samen met device-mockups van de whitelabel-software maakt dat het product tastbaar, nog voor de eerste demo.",
-            en: "On the homepage you use tabs to pick a part of the Telebox: the AnyHub (the 4G gateway), the blood pressure monitor, the scales, the pulse oximeter and the glucose meter. Each device turns there as a 3D model, next to a short explanation of what it measures and sends on. Together with device mockups of the white-label software, that makes the product tangible, even before the first demo.",
+            nl: "Op de homepage kies je in tabs een onderdeel van de Telebox: de AnyHub (de 4G-gateway), de bloeddrukmeter, de weegschaal, de pulse-oximeter en de glucosemeter. Elk apparaat draait er als 3D-animatie rond, naast een korte uitleg van wat het meet en doorstuurt. Samen met device-mockups van de whitelabel-software maakt dat het product tastbaar, nog voor de eerste demo.",
+            en: "On the homepage you use tabs to pick a part of the Telebox: the AnyHub (the 4G gateway), the blood pressure monitor, the scales, the pulse oximeter and the glucose meter. Each device turns there as a 3D animation, next to a short explanation of what it measures and sends on. Together with device mockups of the white-label software, that makes the product tangible, even before the first demo.",
           },
           {
-            nl: "Een eigen leadflow, de Nexis Configurator, vraagt eerst wat voor organisatie je bent: ziekenhuis, kliniek, verpleeghuis of thuiszorgorganisatie. Daarna passen de vragen zich aan. Een ziekenhuis krijgt andere uitdagingen voorgelegd dan een verpleeghuis of een thuiszorgorganisatie. In vier stappen en een laatste stap met je gegevens ligt er een complete aanvraag, die via Zapier bij het team binnenkomt. Zo gaat de demo meteen over jouw situatie, en transactionele e-mails gaan automatisch de deur uit.",
-            en: "A custom lead flow, the Nexis Configurator, first asks what kind of organisation you are: hospital, clinic, nursing home or home care organisation. The questions then adapt. A hospital is shown different challenges than a nursing home or a home care organisation. Four steps and a final step with your details produce a complete request, which reaches the team via Zapier. That way the demo is about your situation from the start, and transactional emails go out automatically.",
+            nl: "Een eigen leadflow, de Nexis Configurator, vraagt eerst wat voor organisatie je bent: ziekenhuis, kliniek, verpleeghuis of thuiszorgorganisatie. Daarna passen de vragen zich aan. Een ziekenhuis krijgt andere uitdagingen voorgelegd dan een verpleeghuis of een thuiszorgorganisatie. In vier stappen en een laatste stap met je gegevens ligt er een complete aanvraag, die via Zapier bij het team binnenkomt. Zo gaat de demo meteen over jouw situatie.",
+            en: "A custom lead flow, the Nexis Configurator, first asks what kind of organisation you are: hospital, clinic, nursing home or home care organisation. The questions then adapt. A hospital is shown different challenges than a nursing home or a home care organisation. Four steps and a final step with your details produce a complete request, which reaches the team via Zapier. That way the demo is about your situation from the start.",
           },
         ],
       },
@@ -2408,12 +2412,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Vind jouw uitlaat.", en: "Find your exhaust." },
         body: [
           {
-            nl: "Het hart van de site is 'Vind jouw uitlaat', een dynamische merkencatalogus. Je filtert op merk, kiest je model en bouwjaar en ziet meteen welk systeem er is voor jouw auto. Iedere auto kreeg een eigen beeld, gemaakt met AI, zodat de hele catalogus er even strak uitziet. Staat je auto er niet tussen, dan is contact één klik verder.",
-            en: "The heart of the site is 'Find your exhaust', a dynamic catalogue of makes. You filter by make, choose your model and year and see straight away which system exists for your car. Every car got its own image, made with AI, so the whole catalogue looks equally sharp. If your car isn't listed, getting in touch is one click away.",
+            nl: "Het hart van de site is 'Vind jouw uitlaat', een dynamische merkencatalogus. Je filtert op merk en bladert door het archief van automodellen, van McLaren tot Porsche, elk met zijn bouwjaren. Iedere auto kreeg een eigen beeld, gemaakt met AI, zodat de hele catalogus er even strak uitziet.",
+            en: "The heart of the site is 'Find your exhaust', a dynamic catalogue of makes. You filter by make and browse the archive of car models, from McLaren to Porsche, each with its model years. Every car got its own image, made with AI, so the whole catalogue looks equally sharp.",
           },
           {
-            nl: "Elk model heeft een eigen detailpagina voor de uitlaatmogelijkheden. Daar vraag je een offerte aan en kies je een reseller, waarna de aanvraag direct bij die dealer terechtkomt. Zo staat het vakmanschap voorop en vinden liefhebbers hun uitlaat, en hun dealer, zonder te zoeken.",
-            en: "Each model has its own detail page for the exhaust options. There you request a quote and choose a reseller, after which the request goes straight to that dealer. That way the craftsmanship comes first and enthusiasts find their exhaust, and their dealer, without searching.",
+            nl: "Bij elk model vraag je een offerte aan en kies je een reseller. De gekozen dealer krijgt de aanvraag meteen per mail. Zo staat het vakmanschap voorop en vinden liefhebbers hun auto, en hun dealer, zonder te zoeken.",
+            en: "For each model you request a quote and choose a reseller. The chosen dealer receives the request by email straight away. That way the craftsmanship comes first and enthusiasts find their car, and their dealer, without searching.",
           },
         ],
       },
@@ -2692,6 +2696,19 @@ export const caseNarratives: Record<string, CaseNarrative> = {
           {
             nl: "En het werk loopt door: we beheren de LinkedIn-advertenties van MindYourPass, zodat het verhaal ook buiten de website bij zakelijke klanten terechtkomt.",
             en: "And the work carries on: we manage MindYourPass's LinkedIn advertising, so the story reaches business customers beyond the website too.",
+          },
+        ],
+      },
+      {
+        title: { nl: "Per doelgroep een eigen ingang.", en: "A way in for every audience." },
+        body: [
+          {
+            nl: "Ook de huidige website, site.mindyourpass.io, bouwden we, in Webflow en in het Nederlands en Engels. De oplossing staat er in drie stappen: meten, verbeteren en afdwingen. Gemeenten en overheid, het mkb en het onderwijs hebben elk een eigen pagina, die ingaat op hun eigen normen, zoals BIO voor de overheid en IBP voor het onderwijs.",
+            en: "We built the current website, site.mindyourpass.io, too, in Webflow and in Dutch and English. It presents the solution in three steps: measure, improve and enforce. Municipalities and government, SMEs and education each have their own page, addressing their own standards, such as BIO for government and IBP for education.",
+          },
+          {
+            nl: "Wie verder wil, plant direct een demo in of vraagt een gratis proefperiode aan in een korte flow: eerst twee vragen over de organisatie, dan de gegevens, die via Make verder gaan. Prijzen, veelgestelde vragen, klantverhalen en een pagina om te beginnen met meten maken het af.",
+            en: "Anyone who wants to go further books a demo straight away or requests a free trial in a short flow: first two questions about the organisation, then the details, which are passed on via Make. Pricing, FAQs, customer stories and a page for getting started with measuring complete it.",
           },
         ],
       },

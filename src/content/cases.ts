@@ -509,8 +509,8 @@ export const cases: Case[] = [
     client: "Nova Funeral Cars",
     title: { nl: "Website voor Nova Funeral Cars", en: "Website for Nova Funeral Cars" },
     summary: {
-      nl: "Van Budget Hearses naar Nova: een nieuwe naam, brandbook, een ingetogen website, drukwerk en een beursstand, plus branded meldingen zodra er een rouwauto binnenkomt die past bij wat een klant zoekt.",
-      en: "From Budget Hearses to Nova: a new name, brandbook, a restrained website, print and a trade-fair booth, plus branded alerts as soon as a hearse arrives that matches what a customer is looking for.",
+      nl: "Van Budget Hearses naar Nova: een nieuwe naam, brandbook, een ingetogen website, drukwerk en een beursstand, plus branded meldingen van nieuw aanbod voor klanten die hun e-mailadres achterlaten.",
+      en: "From Budget Hearses to Nova: a new name, brandbook, a restrained website, print and a trade-fair booth, plus branded alerts about new stock for customers who leave their email address.",
     },
     year: 2023,
     sector: "automotive-mobiliteit",
@@ -542,12 +542,12 @@ export const cases: Case[] = [
       en: "Nova Funeral Cars from Oss supplies hearses to funeral directors. The company used to be called Budget Hearses and was ready for a name and a brand that suit a range built around elegance and prestige. A sensitive subject that calls for calm, respect and clarity.",
     },
     approach: {
-      nl: "We begonnen bij de naam: van Budget Hearses naar Nova, met Nova Funeral Cars en Nova Special Cars. Het nieuwe merk legden we vast in een brandbook. Daarna volgde de website: een sobere vormgeving met sterke fotografie en een heldere structuur per voertuig, in het Nederlands, Engels en Frans. Elke auto heeft een eigen pagina met specificaties, afmetingen, de indeling achterin en een leasevoorbeeld, en in het aanbod zie je per voertuig of het beschikbaar, in aanbouw of verkocht is. Daarnaast zijn er pagina's voor leasing, een auto aanbieden, nieuwe modellen en elektrische rouwauto's. Uitvaartondernemers geven aan naar welke rouwauto ze zoeken en krijgen automatisch een branded e-mail zodra er een voertuig binnenkomt dat aan hun criteria voldoet. Voor beurzen ontwierpen we de stand, en daarnaast flyers in dezelfde stijl.",
-      en: "We started with the name: from Budget Hearses to Nova, with Nova Funeral Cars and Nova Special Cars. We captured the new brand in a brandbook. Then came the website: a sober design with strong photography and a clear structure per vehicle, in Dutch, English and French. Every car has its own page with specifications, dimensions, the layout in the back and a lease example, and the stock overview shows for each vehicle whether it is available, being built or sold. There are also pages for leasing, offering a car for sale, new models and electric hearses. Funeral directors say which hearse they are looking for and automatically get a branded email as soon as a vehicle arrives that meets their criteria. For trade fairs we designed the booth, plus flyers in the same style.",
+      nl: "We begonnen bij de naam: van Budget Hearses naar Nova, met Nova Funeral Cars en Nova Special Cars. Het nieuwe merk legden we vast in een brandbook. Daarna volgde de website: een sobere vormgeving met sterke fotografie en een heldere structuur per voertuig, in het Nederlands, Engels en Frans. Elke auto heeft een eigen pagina met specificaties, afmetingen, de indeling achterin en een leasevoorbeeld, en in het aanbod zie je per voertuig of het beschikbaar, in aanbouw of verkocht is. Daarnaast zijn er pagina's voor leasing, een auto aanbieden, nieuwe modellen en elektrische rouwauto's. Klanten laten hun e-mailadres achter en krijgen automatisch een branded e-mail zodra er nieuw aanbod binnenkomt. Voor beurzen ontwierpen we de stand, en daarnaast flyers in dezelfde stijl.",
+      en: "We started with the name: from Budget Hearses to Nova, with Nova Funeral Cars and Nova Special Cars. We captured the new brand in a brandbook. Then came the website: a sober design with strong photography and a clear structure per vehicle, in Dutch, English and French. Every car has its own page with specifications, dimensions, the layout in the back and a lease example, and the stock overview shows for each vehicle whether it is available, being built or sold. There are also pages for leasing, offering a car for sale, new models and electric hearses. Customers leave their email address and automatically get a branded email as soon as new stock arrives. For trade fairs we designed the booth, plus flyers in the same style.",
     },
     result: {
-      nl: "Een nieuwe naam en een waardig merk, van website tot beursstand, met branded meldingen die uitvaartondernemers laten weten wanneer de rouwauto die ze zoeken binnenkomt.",
-      en: "A new name and a dignified brand, from website to trade-fair booth, with branded alerts that let funeral directors know when the hearse they are looking for arrives.",
+      nl: "Een nieuwe naam en een waardig merk, van website tot beursstand, met branded meldingen die klanten laten weten wanneer er nieuw aanbod binnenkomt.",
+      en: "A new name and a dignified brand, from website to trade-fair booth, with branded alerts that let customers know when new stock arrives.",
     },
     url: "https://www.novacars.eu",
     shape: "wide",
