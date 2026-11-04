@@ -543,23 +543,6 @@ export const caseMedia: Record<string, CaseMediaEntry> = {
     logo: "/media/cases/db-kiepers/logo-white.svg",
     next: "/media/cases/db-kiepers/r-next.webp",
   },
-  "debiteurnet": {
-    gallery: [
-      "/media/cases/debiteurnet/r-01-d18-mac-profile-a.webp",
-      "/media/cases/debiteurnet/r-02-d09-ipad-keyboard-b.webp",
-      "/media/cases/debiteurnet/r-03-t4-float-ipad.webp",
-      "/media/cases/debiteurnet/r-04-d09-ipad-keyboard-c.webp",
-      "/media/cases/debiteurnet/r-05-d14-billboard-b.webp",
-      "/media/cases/debiteurnet/r-06-t3-plinth.webp",
-      "/media/cases/debiteurnet/r-07-d14-billboard-a.webp",
-      "/media/cases/debiteurnet/r-08-d09-ipad-keyboard-a.webp",
-      "/media/cases/debiteurnet/r-09-d14-billboard-c.webp",
-      "/media/cases/debiteurnet/r-10-d18-mac-profile-c.webp",
-      "/media/cases/debiteurnet/r-11-d18-mac-profile-b.webp",
-    ],
-    heroVideo: { src: "/media/cases/debiteurnet/r-hero.mp4", poster: "/media/cases/debiteurnet/r-hero.webp", srcMobile: "/media/cases/debiteurnet/r-hero-m.mp4", posterMobile: "/media/cases/debiteurnet/r-hero-m.webp" },
-    next: "/media/cases/debiteurnet/r-next.webp",
-  },
   "designers-house": {
     films: [
       {"src":"/media/cases/designers-house/r-flow-1.mp4","poster":"/media/cases/designers-house/r-flow-1.webp","w":1920,"h":1080,"title":"Home: het merk DesignersHouse in beweging"},

@@ -3592,8 +3592,8 @@ export const SEGMENTS_A: Partial<Record<SectorSlug, { segments: SectorSegment[];
           {
             q: { nl: "Hoe geef je opdrachtgevers actueel inzicht in hun dossiers?", en: "How do you give clients up-to-date insight into their cases?" },
             a: {
-              nl: "Met een dashboard waarin ze zelf zien wat er openstaat, wat er is geïnd, welke dossiers lopen en wat de volgende stap is. Voor Debiteurnet ontwierpen we een rustig dashboard waarin ondernemers offertes, facturen, opvolgingen en factoring in één overzicht zien. Met [[dashboards]] die aansluiten op je eigen systemen hoeft niemand meer handmatig rapportages samen te stellen of te mailen. Opdrachtgevers voelen zich beter geïnformeerd, en je accountmanagers besteden hun tijd aan het gesprek in plaats van aan Excel.",
-              en: "With a dashboard where they see for themselves what is outstanding, what has been collected, which cases are running and what the next step is. For Debiteurnet we designed a calm dashboard where business owners see quotes, invoices, follow-ups and factoring in one overview. With [[dashboards]] connected to your own systems, nobody has to compile or email reports by hand anymore. Clients feel better informed, and your account managers spend their time on conversations instead of Excel.",
+              nl: "Met een dashboard waarin ze zelf zien wat er openstaat, wat er is geïnd, welke dossiers lopen en wat de volgende stap is. Met [[dashboards]] die aansluiten op je eigen systemen hoeft niemand meer handmatig rapportages samen te stellen of te mailen. Opdrachtgevers voelen zich beter geïnformeerd, en je accountmanagers besteden hun tijd aan het gesprek in plaats van aan Excel.",
+              en: "With a dashboard where they see for themselves what is outstanding, what has been collected, which cases are running and what the next step is. With [[dashboards]] connected to your own systems, nobody has to compile or email reports by hand anymore. Clients feel better informed, and your account managers spend their time on conversations instead of Excel.",
             },
           },
           {

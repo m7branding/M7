@@ -91,8 +91,7 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${S}/bctn-control-tower.webp`, w: 1600, h: 1075, label: { nl: "BCTN · AI Control Tower (concept)", en: "BCTN · AI Control Tower (concept)" }, pos: "50% 35%", posM: "40% 40%", href: paths.service("ai-consultancy") },
       { src: `${S}/steddion-configurator.webp`, w: 1440, h: 900, label: { nl: "Steddion · Energy Property Configurator", en: "Steddion · Energy Property Configurator" }, pos: "60% 40%", posM: "58% 40%", tone: "light", href: paths.service("configurators-lead-tools-widgets") },
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "TeamTV · web-app en website", en: "TeamTV · web app and website" }, pos: "50% 45%", posM: "58% 45%", href: paths.case("teamtv") },
-      { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Debiteurnet · klantportaal", en: "Debiteurnet · client portal" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.case("debiteurnet") },
-      { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Sami · SaaS-platform", en: "Sami · SaaS platform" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.case("sami") },
+      { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Sami · app en website", en: "Sami · app and website" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.case("sami") },
     ],
   },
   /* /sectoren: per beeld een andere branche */
@@ -107,7 +106,6 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${PP}/greenecocorridor.webp`, w: 1600, h: 893, label: { nl: "Energie & duurzaamheid · Plenty Planet", en: "Energy & sustainability · Plenty Planet" }, pos: "50% 50%", posM: "60% 50%", href: paths.sector("energie-duurzaamheid") },
       { src: `${C}/teamtv-devices.webp`, w: 2400, h: 1600, label: { nl: "Sport & media · TeamTV", en: "Sports & media · TeamTV" }, pos: "50% 45%", posM: "58% 45%", href: paths.sector("sport-media") },
       { src: `${H}/designershouse-interieur.webp`, w: 1034, h: 469, label: { nl: "Interieur & architectuur · DesignersHouse", en: "Interiors & architecture · DesignersHouse" }, pos: "50% 55%", posM: "45% 55%", href: paths.sector("interieur-architectuur") },
-      { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Zakelijke dienstverlening · Debiteurnet", en: "Business services · Debiteurnet" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.sector("zakelijke-dienstverlening") },
       { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Tech & SaaS · Sami", en: "Tech & SaaS · Sami" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.sector("tech-saas-startups") },
       { src: `${S}/bctn-control-tower.webp`, w: 1600, h: 1075, label: { nl: "Transport & logistiek · BCTN (concept)", en: "Transport & logistics · BCTN (concept)" }, pos: "50% 35%", posM: "40% 40%", href: paths.sector("transport-logistiek") },
     ],
@@ -124,7 +122,6 @@ export const heroMedia: Record<HeroMediaPage, { clips: HeroClip[]; stills: HeroS
       { src: `${C}/jurgh-porsche.webp`, w: 2048, h: 1366, label: { nl: "JURGH Detailing", en: "JURGH Detailing" }, pos: "50% 45%", posM: "52% 50%", href: paths.case("jurgh-detailing") },
       { src: `${C}/sami-devices.webp`, w: 1500, h: 1125, label: { nl: "Sami", en: "Sami" }, pos: "50% 40%", posM: "40% 50%", tone: "light", href: paths.case("sami") },
       { src: `${H}/designershouse-showroom.webp`, w: 1034, h: 469, label: { nl: "DesignersHouse", en: "DesignersHouse" }, pos: "50% 55%", posM: "50% 55%", href: paths.sector("interieur-architectuur") },
-      { src: `${C}/debiteurnet-imac.webp`, w: 2400, h: 1800, label: { nl: "Debiteurnet", en: "Debiteurnet" }, pos: "50% 40%", posM: "50% 40%", tone: "light", href: paths.case("debiteurnet") },
     ],
   },
 };
