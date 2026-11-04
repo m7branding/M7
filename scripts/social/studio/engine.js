@@ -133,6 +133,8 @@
     const r = o.rect || { x: 0, y: 0, w: S.W, h: S.H };
     Object.assign(card.style, { left: r.x + "px", top: r.y + "px", width: r.w + "px", height: r.h + "px" });
     if (o.radius != null) card.style.borderRadius = o.radius + "px";
+    if (o.shadow) card.style.boxShadow = o.shadow;          // e.g. a light shadow for a 2D snippet on a mockup
+    if (o.bg) card.style.background = o.bg;
     const img = el("img", null, card);
     if (o.fit) img.style.objectFit = o.fit;
     if (o.pos) img.style.objectPosition = o.pos;
@@ -164,7 +166,7 @@
         const pi = en.type === "none" ? 1 : P(t, o.t0, en.d ?? 0.8, en.ease || "outExpo");
         const po = ex.type === "none" ? 0 : P(t, o.t1 - (ex.d ?? 0.6), ex.d ?? 0.6, ex.ease || "inOutCubic");
         let op = 1, tx = 0, ty = 0, sc = 1, rx = 0, ry = 0, clip = "none", blur = 0;
-        const apply = (type, p, dir) => { // p 0→1 = zichtbaar
+        const apply = (type, p, dir, cfg = {}) => { // p 0→1 = zichtbaar
           if (type === "fade") op *= p;
           else if (type === "rise") { ty += (1 - p) * 220 * dir; op *= clamp(p * 1.6); }
           else if (type === "scale") { sc *= lerp(dir > 0 ? 0.86 : 1.08, 1, p); op *= clamp(p * 1.4); }
@@ -180,7 +182,9 @@
           else if (type === "pushUp") { ty += (1 - p) * S.H * 0.32 * dir; sc *= lerp(dir > 0 ? 1.02 : 0.96, 1, p); op *= clamp(p * 1.25); }
           else if (type === "iris") { const R = Math.hypot(S.W, S.H) / 2 * E.inOutCubic(p) * 1.02; clip = `circle(${R}px at ${S.W / 2 - r.x}px ${S.H * 0.46 - r.y}px)`; sc *= lerp(1.06, 1, p); }
           else if (type === "diag") { const k = (1 - p) * 140; clip = `polygon(${k}% 0, 100% 0, 100% 100%, ${k - 40}% 100%)`; sc *= lerp(1.04, 1, p); }
-          else if (type === "focus") { op *= clamp(p * 1.6); blur = Math.max(blur, (1 - p) * 34); sc *= lerp(dir > 0 ? 1.1 : 0.96, 1, p); }
+          else if (type === "focus") { op *= clamp(p * (cfg.fade ?? 1.6)); blur = Math.max(blur, (1 - p) * (cfg.blur ?? 34)); sc *= lerp(dir > 0 ? (cfg.s0 ?? 1.1) : 0.96, 1, p); }
+          // round 21d: a calm 2D reveal on a mockup (fade + a short lift, no scale, no bounce)
+          else if (type === "lift") { op *= clamp(p * 1.2); ty += (1 - p) * (cfg.dy ?? 26) * dir; }
           else if (type === "wipeL") { clip = `inset(0 0 0 ${(1 - p) * 100}%)`; }
           else if (type === "ring") {
             const R = Math.hypot(S.W, S.H) / 2 * p * 1.02;
@@ -189,8 +193,8 @@
             if (ring && p < 1) { ring.style.display = "block"; const c = ring.querySelector("circle"); c.setAttribute("r", Math.max(1, R)); c.setAttribute("stroke-width", 6 + 14 * (1 - p)); ring.style.opacity = (Math.sin(p * Math.PI)).toFixed(3); }
           }
         };
-        apply(en.type, pi, 1);
-        if (po > 0) apply(ex.type, 1 - po, -1);
+        apply(en.type, pi, 1, en);
+        if (po > 0) apply(ex.type, 1 - po, -1, ex);
         // trage push / pan (kb) over de hele duur
         const kb = o.kb || {};
         const k = E[kb.ease || "inOutSine"](clamp((t - o.t0) / Math.max(0.01, o.t1 - o.t0)));

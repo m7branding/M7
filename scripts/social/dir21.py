@@ -258,16 +258,23 @@ def row(slug, cols):
     return cards, {"rx0": 10, "rx1": 4, "ry0": 4, "ry1": -4, "z0": -30, "z1": 50}
 
 
-def deck(items, seed=0):
-    """The stacked view: cards land one by one on a loose pile (biggest at the bottom), each one still readable."""
+def deck(items, seed=0, calm=False):
+    """The stacked view: cards land one by one on a loose pile (biggest at the bottom), each one still readable.
+    calm (round 21d): no spring overshoot, almost no drift, a shorter fall and a quieter camera."""
     n = len(items)
     cards = []
     for i, (s, w) in enumerate(items):
         k = i / max(1, n - 1)
         x = 540 + (70 if i % 2 else -70) * (0.4 + 0.6 * k) * (1 if seed % 2 else -1)
         y = 620 + 700 * k
-        cards.append(card_from(s, w, x=x, y=y, z=i * 70, rz=(2.5 if i % 2 else -2.5), rx=6, tin=0.15 + i * 0.42, din=1.5, ease="spring",
-                               zi=i, **{"from": {"y": -520, "z": 160, "rz": (7 if i % 2 else -7), "rx": -8}}))
+        if calm:
+            cards.append(card_from(s, w, x=x, y=y, z=i * 50, rz=(1.5 if i % 2 else -1.5), rx=3, tin=0.15 + i * 0.38, din=1.1, ease="outCubic",
+                                   zi=i, drift=0.15, **{"from": {"y": -160, "z": 90, "rz": (2.5 if i % 2 else -2.5), "rx": -3}}))
+        else:
+            cards.append(card_from(s, w, x=x, y=y, z=i * 70, rz=(2.5 if i % 2 else -2.5), rx=6, tin=0.15 + i * 0.42, din=1.5, ease="spring",
+                                   zi=i, **{"from": {"y": -520, "z": 160, "rz": (7 if i % 2 else -7), "rx": -8}}))
+    if calm:
+        return cards, {"rx0": 5, "rx1": 3, "ry0": -2, "ry1": 2, "z0": -30, "z1": 20}
     return cards, {"rx0": 10, "rx1": 4, "ry0": -6, "ry1": 5, "z0": -60, "z1": 40}
 
 
@@ -354,24 +361,55 @@ def blurred_first(d, out):
     return out
 
 
+def blur_ramp(d, outdir, secs, t_sharp, fps=30, r0=46.0, r1=10.0, b0=0.72, b1=0.9):
+    """Round 21d intro: the first frame of shot 1, its blur easing off while the M7 lines draw (r0 → r1 by t_sharp),
+    so the focus pull into the shot continues the same movement instead of starting from a still blur."""
+    import math
+    from PIL import Image, ImageFilter, ImageEnhance
+    outdir = Path(outdir)
+    n = int(round(secs * fps))
+    if outdir.exists() and len(list(outdir.glob("*.jpg"))) >= n:
+        return {"dir": lib.furl(outdir), "n": n, "fps": fps}
+    outdir.mkdir(parents=True, exist_ok=True)
+    src = Image.open(sorted(Path(d).glob("*.jpg"))[0]).convert("RGB")
+    for i in range(n):
+        k = min(1.0, (i / fps) / t_sharp)
+        e = 0.5 - 0.5 * math.cos(math.pi * k)                      # inOutSine
+        im = src.filter(ImageFilter.GaussianBlur(r0 + (r1 - r0) * e))
+        im = ImageEnhance.Brightness(im).enhance(b0 + (b1 - b0) * e)
+        im.save(outdir / f"{i + 1:05d}.jpg", quality=92)
+    return {"dir": lib.furl(outdir), "n": n, "fps": fps}
+
+
 def build(name, R_):
     host = R_["host"]
     tx = R_["tx"]
     FPS["v"] = R_.get("fps", 30)
     layers, cuts, firstdir, prevdir = [], [], None, None
-    T0 = 2.15 if R_.get("intro") == "blur" else 0.0           # the full-screen intro before the first shot
+    T0 = 2.15 if R_.get("intro") in ("blur", "ramp") else 0.0   # the full-screen intro before the first shot
+    ramp = R_.get("intro") == "ramp"
     t = T0
     shots = R_["shots"]
     for i, sh in enumerate(shots):
         secs = sh.get("secs", 3.6)
         span = secs + (XF if i < len(shots) - 1 else 0.35)
         key = f"{i + 1:02d}-{sh['k']}"
-        en = ({"type": "focus", "d": 0.95, "ease": "inOutCubic"} if T0 else {"type": "none"}) if i == 0 else {"type": tx, "d": XF, "ease": R_.get("txease", "inOutCubic")}
+        en = (({"type": "focus", "d": 1.1, "ease": "inOutSine", "blur": 13, "s0": 1.03, "fade": 1.3} if ramp else {"type": "focus", "d": 0.95, "ease": "inOutCubic"})
+              if T0 else {"type": "none"}) if i == 0 else {"type": tx, "d": XF, "ease": R_.get("txease", "inOutCubic")}
         ex = {"type": tx, "d": XF, "ease": R_.get("txease", "inOutCubic")} if (i < len(shots) - 1 and R_.get("txout")) else {"type": "none"}
         if sh["k"] == "scene":
             seq, d = scene_shot(name, key, sh["spec"], round(span, 2))
             layers.append(media(seq, t, t + span, en, ex))
             prevdir = d
+            for rv in sh.get("reveal", []):        # round 21d: a clean 2D snippet revealed on the mockup, light shadow
+                s_, w_ = rv["src"], rv["w"]
+                h_ = round(w_ * s_["ah"] / s_["aw"])
+                m = media(s_["src"], t + rv.get("tin", 0.8), t + min(span, rv.get("tout", secs)) - 0.05,
+                          {"type": "lift", "d": 0.85, "ease": "outCubic", "dy": 24}, {"type": "fade", "d": 0.45, "ease": "inOutCubic"})
+                m.update({"rect": {"x": round(rv.get("x", W / 2) - w_ / 2), "y": round(rv["y"] - h_ / 2), "w": w_, "h": h_}, "frame": "card",
+                          "radius": rv.get("radius", 16), "float": 0, "fit": "contain" if s_.get("alpha") else "cover",
+                          "shadow": "0 22px 60px rgba(0,0,0,0.22), 0 3px 10px rgba(0,0,0,0.10)", "bg": "transparent" if s_.get("alpha") else "#ffffff"})
+                layers.append(m)
         elif sh["k"] == "book":
             seq, d = book_shot(name, key, sh["slug"], sh.get("gen", False), sh["a"], sh["b"], round(span, 2))
             layers.append(media(seq, t, t + span, en, ex))
@@ -395,7 +433,11 @@ def build(name, R_):
             firstdir = prevdir
         t += secs
     end = t + 0.35
-    if T0:      # full-screen intro: the first shot, fully blurred, the white technical drawing on top, then focus
+    if T0 and ramp:   # round 21d: the blur eases off while the (smaller) M7 lines draw, then a soft focus into shot 1
+        rs = blur_ramp(firstdir, SH / name / "intro-ramp", T0 + 1.15, T0)
+        layers.insert(0, media(rs, 0, T0 + 1.15, {"type": "none"}, {"type": "fade", "d": 1.0, "ease": "inOutSine"}, kb={"s0": 1.05, "s1": 1.0}))
+        layers.append({"type": "m7lines", "t0": 0.2, "dur": 2.6, "size": R_.get("logo", 260), "cy": H * 0.47, "frost": False, "scrim": 0.0, "ink": "#FFFFFF"})
+    elif T0:      # full-screen intro: the first shot, fully blurred, the white technical drawing on top, then focus
         bf = blurred_first(firstdir, SH / name / "intro-blur.jpg")
         layers.insert(0, media(lib.furl(bf), 0, T0 + 1.0, {"type": "none"}, {"type": "fade", "d": 0.9, "ease": "inOutCubic"}, kb={"s0": 1.07, "s1": 1.0}))
         layers.append({"type": "m7lines", "t0": 0.2, "dur": 2.6, "size": 520, "cy": H * 0.47, "frost": False, "scrim": 0.0, "ink": "#FFFFFF"})
@@ -561,7 +603,49 @@ def reels():
             dict(k="scene", secs=4.6, spec=dict(slug=st, t="d02_mac_top__k1", content="flow", flow="flow-5-ems-vergelijker-desktop.mp4", ft0=1.0,
                                                 cam=dict(cam((1.5, 1.8), (0.02, 0.0), (-0.01, -0.01), (1.0, 0.0)), follow=0.65, dwell=0.14, lean=1.2, handheld=1.0))),
         ]),
+        # v4 (round 21d, owner feedback on the top reels): smaller M7 lines over a blur that eases off while they draw,
+        # a calmer camera that still pans with the action (no handheld bob, slower follow), interactions clicked through
+        # to the next step, the stacked snippets without bounce, and a clean 2D snippet revealed on a mockup.
+        "buitenstate-top2": dict(host=bs, tx="focus", txout=False, txease="inOutSine", fps=60, intro="ramp", logo=260, music=("clean", 77),
+                                 labels=["Websites", "Tools", "AI"], shots=[
+            dict(k="scene", secs=5.8, spec=dict(slug=bs, t="d19_studio_front__k1", content="flow", flow="flow-21-zoekers-desktop.mp4", ft0=1.0,
+                                                cam=dict(cam((1.6, 1.9), (0.0, 0.0), (0.0, -0.02), (-0.6, 0.0), "inOutSine"), **CALM))),
+            dict(k="scene", secs=4.2, spec=dict(slug=bs, t="d17_ipads_lean__k1", content="flow", flow="flow-21-zoekers-desktop.mp4", ft0=7.1,
+                                                cam=dict(cam((1.7, 1.9), (0.0, 0.0), (0.0, -0.01), (0.5, 0.0)), **CALM))),
+            dict(k="scene", secs=2.6, spec=dict(slug=bs, t="d02_mac_top__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=1.2,
+                                                cam=dict(cam((1.5, 1.7), (0.02, 0.0), (0.0, -0.01), (0.6, 0.0)), **CALM))),
+            dict(k="float", secs=3.8, bg="frost", cards=deck([(asset(R / "cap" / bs / "photo-1.jpg"), 880), (asset(R / "cap" / bs / "photo-3.jpg"), 780),
+                                                                (asset(R / "cap" / bs / "crop-price.jpg"), 820), (asset(R / "cap" / bs / "crop-agent.jpg"), 420)], seed=1, calm=True)),
+            dict(k="scene", secs=4.4, spec=dict(slug=bs, t="d18_mac_profile__k1", content="flow", flow="flow-22-object-desktop.mp4", ft0=7.6,
+                                                cam=dict(cam((1.5, 1.75), (0.02, 0.01), (-0.01, -0.01), (-0.5, 0.0)), **CALM)),
+                 reveal=[dict(src=asset(R / "cap" / bs / "crop-price.jpg"), w=760, y=1440, tin=1.0)]),
+            dict(k="scene", secs=4.6, spec=dict(slug=bs, t="d15_mac_phone_desk__k1", content="flow", flow="flow-23-spotlight-hover-desktop.mp4", ft0=0.2,
+                                                cam=dict(cam((1.55, 1.75), (0.0, 0.0), (0.0, 0.0), (0, 0), "inOutSine"), **CALM))),
+        ]),
+        "steddion-top2": dict(host=st, tx="focus", txout=False, txease="inOutSine", fps=60, intro="ramp", logo=260, music=("dynamic", 81),
+                              labels=["Tools", "Websites", "Branding"], shots=[
+            dict(k="scene", secs=7.0, spec=dict(slug=st, t="d13_macro_mac__k1", content="flow", flow="flow-1-intake-desktop.mp4", ft0=0.6,
+                                                cam=dict(cam((1.6, 1.9), (0.0, 0.0), (0.0, -0.02), (0.6, 0.0), "inOutSine"), **CALM))),
+            dict(k="scene", secs=5.4, spec=dict(slug=st, t="d15_mac_phone_desk__k1", content="flow", flow="flow-2-nieuwe-e-behoefte-desktop.mp4", ft0=0.8,
+                                                cam=dict(cam((1.5, 1.75), (0.02, 0.0), (-0.01, -0.01), (0, 0)), **CALM))),
+            dict(k="float", secs=4.0, bg="frost", cards=deck([(snip(st, "closeup-3-jouw-situatie-grafiek.png"), 820), (snip(st, "snippet-6-oplossingkaart.png"), 640),
+                                                                (snip(st, "snippet-1-keuzekaart.png"), 446), (snip(st, "snippet-8-chip.png"), 436),
+                                                                (snip(st, "snippet-3-stapknop.png"), 300)], seed=0, calm=True)),
+            dict(k="scene", secs=5.2, spec=dict(slug=st, t="d18_mac_profile__k1", content="flow", flow="flow-3-oplossingen-desktop.mp4", ft0=0.8,
+                                                cam=dict(cam((1.5, 1.75), (0.03, 0.01), (-0.02, -0.01), (-0.5, 0.1)), **CALM)),
+                 reveal=[dict(src=snip(st, "snippet-6-oplossingkaart.png"), w=620, y=1430, tin=1.2)]),
+            dict(k="scene", secs=4.6, spec=dict(slug=st, t="d19_studio_front__k1", content="flow", flow="flow-4-samenvatting-desktop.mp4", ft0=0.8,
+                                                cam=dict(cam((1.55, 1.8), (0.0, 0.0), (0.0, -0.02), (0, 0)), **CALM)),
+                 reveal=[dict(src=asset(R / "cap" / st / "closeup-7-kpi-balk.png"), w=900, y=1500, tin=1.0)]),
+            dict(k="brand", secs=3.6, bg="#45297A", bg2="#5B3A98", cards=fan("steddion", palette("steddion", 4))),
+            dict(k="scene", secs=4.6, spec=dict(slug=st, t="d02_mac_top__k1", content="flow", flow="flow-5-ems-vergelijker-desktop.mp4", ft0=1.0,
+                                                cam=dict(cam((1.5, 1.75), (0.02, 0.0), (-0.01, -0.01), (0.5, 0.0)), **CALM))),
+        ]),
     }
+
+
+# round 21d: the calm follow camera (pans with the action, no handheld bob, slow settle)
+CALM = dict(follow=0.55, dwell=0.05, lean=0.4, handheld=0.2, smooth=0.42, settle=0.32)
 
 
 if __name__ == "__main__":

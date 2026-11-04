@@ -258,7 +258,7 @@ def camera_path(sh, cam, spec, n, fps):
             for i, p in enumerate(tg):
                 last = p if p is not None else last
                 T[i] = last if last is not None else base[i, :2]
-            T = gsmooth(T, 0.18 * fps)
+            T = gsmooth(T, float(c.get('smooth', 0.18)) * fps)          # how calmly the camera follows the cursor
             v = np.r_[[0.0], np.hypot(*np.diff(T, axis=0).T)] * fps          # template px per second
             rest = np.clip(1.0 - v / (0.35 * cam.w1), 0, 1)
             rest = gsmooth(rest, 0.25 * fps)
@@ -272,7 +272,8 @@ def camera_path(sh, cam, spec, n, fps):
         out[:, 0] += a * (2.2 * np.sin(2 * np.pi * 0.31 * t) + 1.1 * np.sin(2 * np.pi * 0.77 * t + 1.3))
         out[:, 1] += a * (1.8 * np.sin(2 * np.pi * 0.27 * t + 0.6) + 0.9 * np.sin(2 * np.pi * 0.91 * t + 2.1))
         out[:, 3] += np.radians(a * 0.06 * np.sin(2 * np.pi * 0.23 * t + 0.4))
-    out[:, :2] = gsmooth(out[:, :2], 0.12 * fps); out[:, 2] = gsmooth(out[:, 2], 0.2 * fps); out[:, 3] = gsmooth(out[:, 3], 0.12 * fps)
+    st = float(c.get('settle', 0.12))                                   # final smoothing (round 21d: calmer, less bobbing)
+    out[:, :2] = gsmooth(out[:, :2], st * fps); out[:, 2] = gsmooth(out[:, 2], max(0.2, st * 1.4) * fps); out[:, 3] = gsmooth(out[:, 3], st * fps)
     # keep inside the image and never below the output size
     for i in range(n):
         cx, cy, w, th = out[i]
