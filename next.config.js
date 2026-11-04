@@ -1,5 +1,7 @@
 // klanten met meerdere projecten: één pagina (host), de andere delen als hoofdstuk (#slug)
 const caseFamilies = require("./src/content/case-families.json");
+// url's van de vorige (Webflow-)site → de nieuwe pagina's; Engelstalige pagina's naar /en, Nederlandse landingspagina's naar NL
+const legacyRedirects = require("./src/content/legacy-redirects.json");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -32,6 +34,7 @@ const nextConfig = {
     // losse url's van een deel van de storyline van een klant → de pagina van de host, bij dat hoofdstuk
     const familyParts = caseFamilies.flatMap(([host, ...parts]) => parts.map((part) => [part, host]));
     return [
+      ...legacyRedirects.map(([source, destination]) => ({ source, destination, permanent: true })),
       ...familyParts.flatMap(([part, host]) => [
         { source: `/cases/${part}`, destination: `/cases/${host}#${part}`, permanent: true },
         { source: `/en/cases/${part}`, destination: `/en/cases/${host}#${part}`, permanent: true },

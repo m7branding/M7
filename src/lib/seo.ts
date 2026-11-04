@@ -147,6 +147,7 @@ export function organizationLd(locale: Locale) {
     memberOf: { "@type": "ProgramMembership", programName: `${site.partner.platform} ${site.partner.label}`, url: site.partner.url },
     sameAs,
     ...(site.kvk ? { identifier: { "@type": "PropertyValue", propertyID: "KvK", value: site.kvk } } : {}),
+    ...(site.vat ? { vatID: site.vat } : {}),
   };
 }
 

@@ -112,7 +112,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <div className="ftr__col">
             <h3>{d.footer.social}</h3>
             <div className="ftr__social">
-              {Object.entries(site.socials).map(([k, url]) => (
+              {Object.entries(site.socials).filter(([, url]) => url).map(([k, url]) => (
                 <a key={k} href={url} target="_blank" rel="noopener" aria-label={k}>
                   <SocialIcon name={k} size={20} />
                 </a>
@@ -141,6 +141,7 @@ export function Footer({ locale }: { locale: Locale }) {
             {site.address.street}, {site.address.postalCode} {site.address.city}
           </span>
           {site.kvk ? <span>KvK {site.kvk}</span> : null}
+          {site.vat ? <span>BTW {site.vat}</span> : null}
           <span>{d.footer.rights}</span>
         </p>
       </div>

@@ -26,7 +26,8 @@ import { heroOf, storyFor } from "@/lib/story";
 
 type P = { params: { lang: Locale; case: string } };
 
-export const dynamicParams = false;
+// Onbekende waarden renderen on demand en roepen notFound() aan: zo verschijnt de M7-404 (in de layout) i.p.v. de kale 404.
+export const dynamicParams = true;
 export function generateStaticParams() {
   // de andere delen van een klant hebben geen eigen pagina (redirect naar de host, zie next.config.js)
   return LOCALES.flatMap((lang) => allCases().filter((c) => isHost(c.slug)).map((c) => ({ lang, case: c.slug })));

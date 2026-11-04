@@ -11,7 +11,8 @@ import { buildMetadata } from "@/lib/seo";
 
 type P = { params: { lang: Locale; doc: string } };
 
-export const dynamicParams = false;
+// Onbekende waarden renderen on demand en roepen notFound() aan: zo verschijnt de M7-404 (in de layout) i.p.v. de kale 404.
+export const dynamicParams = true;
 export function generateStaticParams() {
   return LOCALES.flatMap((lang) => Object.keys(legalDocs).map((doc) => ({ lang, doc })));
 }

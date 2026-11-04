@@ -7,6 +7,11 @@ import { SEGMENTS_EN, SEGMENTS_NL } from "@/lib/i18n";
  * - /diensten/...          → intern /nl/diensten/...  (NL zonder prefix)
  * - /nl/...                → 308 naar de URL zonder /nl
  */
+// Losse pagina's op het eerste niveau. Een onbekend eerste segment sturen we naar een dieper pad, zodat de
+// catch-all ([doc]/[...rest]) de M7-404 in de layout toont; anders geeft Next zijn kale standaard-404.
+const TOP_NL = new Set([...Object.keys(SEGMENTS_EN), "world-of-m7", "hosting-webplans"]);
+const TOP_EN = new Set([...Object.values(SEGMENTS_EN), "world-of-m7", "hosting-webplans"]);
+
 export function middleware(req: NextRequest) {
   const url = req.nextUrl;
   const { pathname } = url;
@@ -40,11 +45,16 @@ export function middleware(req: NextRequest) {
       u.pathname = "/en/" + [SEGMENTS_NL[seg], ...parts.slice(2)].join("/");
       return NextResponse.rewrite(u);
     }
+    if (parts.length === 2 && !TOP_EN.has(seg)) {
+      const u = url.clone();
+      u.pathname = `/en/${seg}/404`;
+      return NextResponse.rewrite(u);
+    }
     return NextResponse.next();
   }
 
   const u = url.clone();
-  u.pathname = "/nl" + (pathname === "/" ? "" : pathname);
+  u.pathname = "/nl" + (pathname === "/" ? "" : pathname) + (parts.length === 1 && !TOP_NL.has(parts[0]) ? "/404" : "");
   return NextResponse.rewrite(u);
 }
 

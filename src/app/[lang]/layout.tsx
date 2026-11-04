@@ -112,7 +112,7 @@ export default function LangLayout({ children, params }: { children: React.React
       letsgo: site.letsgo,
       answers: site.answers.url,
     },
-    socials: Object.entries(site.socials).map(([key, url]) => ({ key, url })),
+    socials: Object.entries(site.socials).filter(([, url]) => url).map(([key, url]) => ({ key, url })),
   };
 
   return (

@@ -99,7 +99,7 @@ export default function ContactPage({ params }: P) {
                 </span>
               </address>
               <div className="contact__socials">
-                {Object.entries(site.socials).map(([k, url]) => (
+                {Object.entries(site.socials).filter(([, url]) => url).map(([k, url]) => (
                   <a key={k} href={url} target="_blank" rel="noopener" aria-label={k}>
                     <SocialIcon name={k} size={20} />
                   </a>

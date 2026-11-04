@@ -10,8 +10,8 @@ export const site = {
   legalName: "M7 Branding & Design B.V.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://m7branding.com").replace(/\/$/, ""),
   email: "hello@m7branding.com",
-  /** Vul aan met het juiste nummer (wordt dan ook in JSON-LD gebruikt). */
-  phone: process.env.NEXT_PUBLIC_PHONE || "",
+  /** Telefoon van Martijn (zelfde nummer als op de vorige site en WhatsApp). Te overschrijven met NEXT_PUBLIC_PHONE. */
+  phone: process.env.NEXT_PUBLIC_PHONE || "+31 6 57564847",
   /** WhatsApp van Martijn Roefs (internationaal, zonder +). Te overschrijven met NEXT_PUBLIC_WHATSAPP. */
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "31657564847",
   address: {
@@ -24,18 +24,21 @@ export const site = {
     geo: { lat: 51.7048, lng: 5.5519 },
   },
   kvk: process.env.NEXT_PUBLIC_KVK || "",
+  /** BTW-identificatienummer (verplicht op de site naast de KvK, art. 3:15d BW), bv. NL123456789B01. */
+  vat: process.env.NEXT_PUBLIC_VAT || "",
   foundingYear: 2020,
   partner: {
     label: "Professional Partner",
     platform: "Webflow",
     url: "https://webflow.com/@m7-branding-design",
   },
-  /** Instagram is geverifieerd; controleer de overige URL's. */
+  /** Gecontroleerd bij de lancering: Instagram, LinkedIn, Facebook en Google werken. YouTube alleen met een
+   * geldige kanaal-URL (NEXT_PUBLIC_YOUTUBE_URL); leeg = nergens getoond. */
   socials: {
     instagram: "https://www.instagram.com/m7branding/",
     linkedin: "https://www.linkedin.com/company/m7branding/",
     facebook: "https://www.facebook.com/m7branding/",
-    youtube: "https://www.youtube.com/@m7branding",
+    youtube: process.env.NEXT_PUBLIC_YOUTUBE_URL || "",
     google: "https://g.page/m7branding",
   },
   /** De interactieve configurator (zelfde repo, route /letsgo). */
@@ -48,7 +51,7 @@ export const site = {
   },
   analytics: {
     /** Zelfde GA4-property als de huidige site, bv. G-XXXXXXXXXX */
-    ga4: process.env.NEXT_PUBLIC_GA_ID || "",
+    ga4: process.env.NEXT_PUBLIC_GA_ID || "G-8P2VX3Z6NE",
     /** Optioneel: Google Tag Manager container, bv. GTM-XXXXXXX */
     gtm: process.env.NEXT_PUBLIC_GTM_ID || "",
     /** Search Console HTML-tag verificatie (alleen de content-waarde). */

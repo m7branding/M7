@@ -97,7 +97,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
           { k: "linkedin", url: site.socials.linkedin },
           ...(site.whatsapp ? [{ k: "whatsapp", url: `https://wa.me/${site.whatsapp.replace(/\D/g, "")}` }] : []),
           { k: "youtube", url: site.socials.youtube },
-        ].map(({ k, url }) => (
+        ]
+          .filter(({ url }) => url)
+          .map(({ k, url }) => (
           <a key={k} href={url} target="_blank" rel="noopener" aria-label={k}>
             <SocialIcon name={k} size={19} />
           </a>
