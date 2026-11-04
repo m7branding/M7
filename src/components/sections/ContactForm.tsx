@@ -4,8 +4,22 @@ import { useState } from "react";
 import { Btn } from "@/components/ui/Button";
 import type { Dict } from "@/lib/dict";
 
-/** Contactformulier → /api/contact (webhook naar Make/n8n/Odoo of mailto-fallback). */
-export function ContactForm({ services, labels }: { services: { value: string; label: string }[]; labels: Dict["contact"] }) {
+/**
+ * Contactformulier → /api/contact (webhook naar Make/n8n/Odoo of mailto-fallback).
+ * `form` is de naam in het GA4-event generate_lead (en gaat mee naar de webhook), zodat je per pagina
+ * (bv. een landingspagina voor ads) kunt meten; `preset` vinkt alvast diensten aan.
+ */
+export function ContactForm({
+  services,
+  labels,
+  form: formName = "contact",
+  preset = [],
+}: {
+  services: { value: string; label: string }[];
+  labels: Dict["contact"];
+  form?: string;
+  preset?: string[];
+}) {
   const [state, setState] = useState<"idle" | "busy" | "done" | "error">("idle");
   const [mailto, setMailto] = useState("mailto:hello@m7branding.com");
 
@@ -27,13 +41,13 @@ export function ContactForm({ services, labels }: { services: { value: string; l
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, page: window.location.href }),
+        body: JSON.stringify({ ...data, form: formName, page: window.location.href }),
       });
       if (!res.ok) throw new Error();
       setState("done");
       form.reset();
       const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
-      g?.("event", "generate_lead", { form: "contact" });
+      g?.("event", "generate_lead", { form: formName });
     } catch {
       setState("error");
     }
@@ -75,7 +89,7 @@ export function ContactForm({ services, labels }: { services: { value: string; l
         <div className="chips">
           {services.map((s) => (
             <label key={s.value} className="chip chip--check">
-              <input type="checkbox" name="interest" value={s.value} />
+              <input type="checkbox" name="interest" value={s.value} defaultChecked={preset.includes(s.value)} />
               <span>{s.label}</span>
             </label>
           ))}

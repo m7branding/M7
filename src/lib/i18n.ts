@@ -24,6 +24,15 @@ export const SEGMENTS_NL: Record<string, string> = Object.fromEntries(
   Object.entries(SEGMENTS_EN).map(([nl, en]) => [en, nl]),
 );
 
+/**
+ * Pagina's die alleen in het Nederlands bestaan (landingspagina's), met de pagina waar de taalwissel
+ * naar EN heen gaat. De slugs staan ook in TOP_NL in de middleware en als NL-only url in de sitemap.
+ */
+export const NL_ONLY: Record<string, string> = {
+  "/website-laten-bouwen": "/diensten/websites-webshops",
+  "/branding-voor-je-bedrijf": "/diensten/branding-rebranding",
+};
+
 /** Intern NL-pad ("/diensten/x") → publieke URL voor de locale. */
 export function localize(path: string, locale: Locale): string {
   if (!path.startsWith("/")) return path;

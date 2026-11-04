@@ -11,7 +11,10 @@ import { paths } from "./paths";
 
 export const abs = (p: string) => (p.startsWith("http") ? p : `${site.url}${p === "/" ? "" : p}`);
 
-/** Metadata met canonical, hreflang (nl/en/x-default), Open Graph en Twitter. */
+/**
+ * Metadata met canonical, hreflang (nl/en/x-default), Open Graph en Twitter.
+ * `nlOnly`: pagina zonder Engelse versie (landingspagina): canonical NL, geen en-US-alternate.
+ */
 export function buildMetadata({
   locale,
   path,
@@ -19,6 +22,7 @@ export function buildMetadata({
   description,
   image,
   noindex,
+  nlOnly,
 }: {
   locale: Locale;
   path: string;
@@ -26,19 +30,22 @@ export function buildMetadata({
   description: string;
   image?: string;
   noindex?: boolean;
+  nlOnly?: boolean;
 }): Metadata {
-  const url = abs(localize(path, locale));
+  const url = abs(localize(path, nlOnly ? "nl" : locale));
   const og = image || `/og?title=${encodeURIComponent(title.split(" | ")[0])}&l=${locale}`;
   return {
     title,
     description,
     alternates: {
       canonical: url,
-      languages: {
-        "nl-NL": abs(localize(path, "nl")),
-        "en-US": abs(localize(path, "en")),
-        "x-default": abs(localize(path, "nl")),
-      },
+      languages: nlOnly
+        ? { "nl-NL": url, "x-default": url }
+        : {
+            "nl-NL": abs(localize(path, "nl")),
+            "en-US": abs(localize(path, "en")),
+            "x-default": abs(localize(path, "nl")),
+          },
     },
     openGraph: {
       type: "website",
@@ -47,7 +54,7 @@ export function buildMetadata({
       description,
       siteName: site.legalName,
       locale: locale === "nl" ? "nl_NL" : "en_US",
-      alternateLocale: locale === "nl" ? ["en_US"] : ["nl_NL"],
+      ...(nlOnly ? {} : { alternateLocale: locale === "nl" ? ["en_US"] : ["nl_NL"] }),
       images: [{ url: og, width: 1200, height: 630, alt: title }],
     },
     twitter: { card: "summary_large_image", title, description, images: [og] },

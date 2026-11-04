@@ -9,7 +9,14 @@ import { SEGMENTS_EN, SEGMENTS_NL } from "@/lib/i18n";
  */
 // Losse pagina's op het eerste niveau. Een onbekend eerste segment sturen we naar een dieper pad, zodat de
 // catch-all ([doc]/[...rest]) de M7-404 in de layout toont; anders geeft Next zijn kale standaard-404.
-const TOP_NL = new Set([...Object.keys(SEGMENTS_EN), "world-of-m7", "hosting-webplans"]);
+// NL-only landingspagina's (zie NL_ONLY in lib/i18n) staan alleen in TOP_NL: onder /en tonen ze de 404.
+const TOP_NL = new Set([
+  ...Object.keys(SEGMENTS_EN),
+  "world-of-m7",
+  "hosting-webplans",
+  "website-laten-bouwen",
+  "branding-voor-je-bedrijf",
+]);
 const TOP_EN = new Set([...Object.values(SEGMENTS_EN), "world-of-m7", "hosting-webplans"]);
 
 export function middleware(req: NextRequest) {
