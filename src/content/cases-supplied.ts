@@ -2,9 +2,9 @@ import type { Case } from "./types";
 
 /* ============================================================
    Cases die binnenkwamen met aangeleverde mockups (artifact "M7 Case
-   Mockups" en portfolio-mockups v2). Citex AI en Eredivisietoppers
-   beschrijven alleen wat de beelden laten zien (concept tot M7 ze
-   bevestigt); de andere vier volgen de beschrijving van M7 zelf.
+   Mockups" en portfolio-mockups v2). Citex AI beschrijft alleen wat de
+   beelden laten zien (concept tot M7 het bevestigt); Eredivisietoppers
+   en de andere vier volgen de beschrijving van M7 zelf.
    Beeld en films: supplied-media.ts en portfolio-v2.ts.
    ============================================================ */
 
@@ -44,31 +44,30 @@ export const suppliedCases: Case[] = [
     slug: "eredivisietoppers",
     client: "Eredivisietoppers",
     title: {
-      nl: "Eredivisietoppers: spelerskaarten van de supermarkt naar je app",
-      en: "Eredivisietoppers: player cards from the supermarket to your app",
+      nl: "Eredivisietoppers: een spaaractie met voetbalplaatjes, als creatief concept",
+      en: "Eredivisietoppers: a football-card savings campaign, as a creative concept",
     },
     summary: {
-      nl: "App-presentatie en pitchdeck voor Eredivisietoppers: spelerskaarten van Eredivisie-spelers verzamelen, spelerspakketten openen, je droomopstelling bouwen en duels volgen in live verslagen.",
-      en: "App presentation and pitch deck for Eredivisietoppers: collect player cards of Eredivisie players, open player packs, build your dream line-up and follow duels in live reports.",
+      nl: "Pitchdeck en creatief concept voor Eredivisietoppers, een spaaractie met voetbalplaatjes bij een supermarkt: spelerskaarten verzamelen, pakjes openen, je opstelling bouwen en duels volgen in een app.",
+      en: "Pitch deck and creative concept for Eredivisietoppers, a football-card savings campaign at a supermarket: collecting player cards, opening packs, building your line-up and following duels in an app.",
     },
     sector: "sport-media",
-    services: ["grafisch-ontwerp-print"],
-    applications: ["presentaties-pitchdecks"],
+    services: ["grafisch-ontwerp-print", "web-apps-portals-apps", "foto-video-3d-animatie"],
+    applications: ["presentaties-pitchdecks", "ux-ui-app-design", "motion-design"],
     tools: [],
     color: "#E0306A",
     challenge: {
-      nl: "Eredivisietoppers brengt het verzamelen van spelerskaarten naar een app. Dat idee moest in één presentatie tastbaar worden: wat verzamel je, hoe speel je ermee en waarom blijf je terugkomen?",
-      en: "Eredivisietoppers takes collecting player cards into an app. That idea had to become tangible in a single presentation: what do you collect, how do you play with it and why do you keep coming back?",
+      nl: "Eredivisietoppers is een concept voor een spaaractie met voetbalplaatjes bij een supermarkt, waarbij het verzamelen doorloopt in een app. Dat idee moest in één pitch tastbaar worden: wat verzamel je, hoe speel je ermee en waarom blijf je terugkomen?",
+      en: "Eredivisietoppers is a concept for a football-card savings campaign at a supermarket, in which collecting carries on in an app. That idea had to become tangible in a single pitch: what do you collect, how do you play with it and why do you keep coming back?",
     },
     approach: {
-      nl: "We bouwden de presentatie op rond de momenten die het spel spannend maken: een pakket openen, de kaarten verzamelen, je opstelling kiezen en een duel live volgen. Elke slide toont het echte scherm uit de app, in de rode en roze huisstijl van Eredivisietoppers.",
-      en: "We built the presentation around the moments that make the game exciting: opening a pack, collecting the cards, choosing your line-up and following a duel live. Every slide shows the real screen from the app, in Eredivisietoppers' red and pink identity.",
+      nl: "We ontwikkelden het concept en bouwden de pitchdeck op rond de momenten die het spannend maken: een pakje openen, in brons, zilver of goud, de kaarten verzamelen, je opstelling kiezen op een 3D-veld, met formatie en tactiek, en een duel live volgen, met doelpunten en blessures. De slides tonen de schermen van de app, in rood en roze op donkerblauw. Daarbij maakten we creatieve assets, zoals animaties van een pakje dat opengaat en van kaarten rond een telefoon, en een teaser voor social media.",
+      en: "We developed the concept and built the pitch deck around the moments that make it exciting: opening a pack, in bronze, silver or gold, collecting the cards, choosing your line-up on a 3D pitch, with formation and tactics, and following a duel live, with goals and injuries. The slides show the app's screens, in red and pink on dark blue. Alongside it we made creative assets, such as animations of a pack being opened and of cards circling a phone, and a teaser for social media.",
     },
     result: {
-      nl: "Een app-presentatie die het concept laat zien zoals het voelt om het te spelen, op de iPad, op het grote scherm en geprint.",
-      en: "An app presentation that shows the concept the way it feels to play it, on the iPad, on the big screen and in print.",
+      nl: "Een pitchdeck en concept die laten voelen hoe de spaaractie speelt: op de iPad, op het grote scherm en geprint.",
+      en: "A pitch deck and concept that show how the savings campaign feels to play: on the iPad, on the big screen and in print.",
     },
-    concept: true,
     shape: "wide",
   },
   {

@@ -25,7 +25,6 @@ export const casePalettes: Record<string, { fullBleed: string | null; dark: stri
   "cj-privacy-legal": { fullBleed: "#1BA0BB", dark: "#404041", light: "#E6E6E6" },
   "cryptocointalk": { fullBleed: null, dark: "#2B2B2B", light: "#FFFFFF" },
   "db-kiepers": { fullBleed: "#213724", dark: "#213724", light: "#EEECE9" },
-  "debiteurnet": { fullBleed: "#005F9C", dark: "#404040", light: "#FFFFFF" },
   "digital-newsgroup": { fullBleed: null, dark: "#282828", light: "#FFFFFF" },
   "ecos": { fullBleed: "#F8B21E", dark: "#383736", light: "#F8F8F8" },
   "edgeway-commodities": { fullBleed: "#071B50", dark: "#071B50", light: "#FFFFFF" },

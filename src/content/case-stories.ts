@@ -168,16 +168,16 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "sami": {
     intro: {
-      nl: "Inspecteren zonder dat er iemand langs hoeft te komen. Sami doet het online, en moest in één oogopslag laten zien wat het doet en waarom dat tijd scheelt.",
-      en: "Inspections without anyone needing to visit. Sami does it online, and had to show at a glance what it does and why that saves time.",
+      nl: "De schade aan een toestel bepalen terwijl het nog bij de verzekerde ligt. Sami doet het online. Wij maakten het merk, de customer journey, de UI/UX van de app en de website.",
+      en: "Assessing the damage to a device while it is still with the policyholder. Sami does it online. We created the brand, the customer journey, the UI/UX of the app and the website.",
     },
     chapters: [
       {
-        title: { nl: "Nieuw, dus uitleggen.", en: "New, so it needs explaining." },
+        title: { nl: "Een merk in vier kleuren.", en: "A brand in four colours." },
         body: [
           {
-            nl: "Sami brengt inspecties, rapportages en opvolging samen in één online platform. Dat is nieuw, en wat nieuw is, moet je uitleggen. De website en het product moesten dat in één blik doen.",
-            en: "Sami brings inspections, reporting and follow-up together in one online platform. That is new, and anything new needs explaining. The website and the product had to do it in a single glance.",
+            nl: "We begonnen bij het merk: een woordmerk waarin de letters sa en mi op elkaar staan, elk in een eigen kleur. Licht en vriendelijk, op een klein appscherm net zo goed als op de website.",
+            en: "We started with the brand: a wordmark in which the letters sa and mi are stacked, each in a colour of its own. Light and friendly, on a small app screen as well as on the website.",
           },
         ],
       },
@@ -185,21 +185,21 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Stap voor stap door de test.", en: "Step by step through the test." },
         body: [
           {
-            nl: "In de product-interface loop je de inspectie stap voor stap door. Een voortgangsbalk laat zien waar je bent, een lijst vinkt de onderdelen af: geheugen, trilfunctie, camera en flitser, speaker en microfoon. Bij interactieve tests, zoals het scherm of de knoppen, vertelt de app precies wat je moet doen.",
-            en: "In the product interface you go through the inspection step by step. A progress bar shows where you are, and a list ticks off each part: memory, vibration, camera and flash, speaker and microphone. For interactive tests, like the screen or the buttons, the app tells you exactly what to do.",
+            nl: "We werkten de customer journey uit in schermen en klikbare stappen. In de app loop je de test stap voor stap door. Een voortgangsbalk met percentage laat zien waar je bent, en een lijst vinkt de onderdelen af: geheugen, trilfunctie, camera's en flitser, wifi, gps en bluetooth, opladen en batterij. Bij interactieve tests, zoals het scherm of de volume- en powerknop, vertelt de app precies wat je moet doen.",
+            en: "We worked out the customer journey in screens and clickable steps. In the app you go through the test step by step. A progress bar with a percentage shows where you are, and a list ticks off each part: memory, vibration, cameras and flash, Wi-Fi, GPS and Bluetooth, charging and battery. For interactive tests, like the screen or the volume and power buttons, the app tells you exactly what to do.",
           },
           {
-            nl: "Is er schade, dan meld je die daarna met één knop. Geen formulieren vol vakjargon, maar een route die je zonder uitleg volgt.",
-            en: "If there is damage, you report it afterwards with a single button. No forms full of jargon, but a route you can follow without instructions.",
+            nl: "Daarna meld je de schadeclaim met één knop. Geen formulieren vol vakjargon, maar een route die je zonder uitleg volgt.",
+            en: "Then you report the damage claim with a single button. No forms full of jargon, but a route you can follow without instructions.",
           },
         ],
       },
       {
-        title: { nl: "Hetzelfde gevoel op elk scherm.", en: "The same feel on every screen." },
+        title: { nl: "Uitgelegd op de website.", en: "Explained on the website." },
         body: [
           {
-            nl: "We ontwierpen een heldere website in Webflow en een product-interface die op desktop, tablet en mobiel even prettig werkt. Licht, vriendelijk en met groen voor elke stap die goed gaat. Van eerste bezoek tot dagelijks gebruik voelt het als één product.",
-            en: "We designed a straightforward website in Webflow and a product interface that works equally well on desktop, tablet and mobile. Light, friendly and with green for every step that goes right. From first visit to daily use, it feels like one product.",
+            nl: "Op de website staat Sami als 'de online inspecteur': schades analyseren, makkelijk en intuïtief. Bezoekers lezen de voordelen, het proces en de features, zien wat Sami betekent voor schadeclaims en downloaden de app via de App Store of Google Play. Van eerste bezoek tot de test zelf voelt het als één product.",
+            en: "On the website Sami is 'the online inspector': analysing damage, easily and intuitively. Visitors read about the benefits, the process and the features, see what Sami means for damage claims and download the app from the App Store or Google Play. From the first visit to the test itself, it feels like one product.",
           },
         ],
       },
@@ -264,60 +264,18 @@ export const caseNarratives: Record<string, CaseNarrative> = {
       { nl: "Van offerte tot werkorder in één lijn.", en: "From quote to work order in one line." },
     ],
   },
-  "debiteurnet": {
-    intro: {
-      nl: "Openstaande offertes, onbetaalde facturen, herinneringen die blijven liggen. Debiteurnet wilde ondernemers weer grip geven, met een portaal waarin alle cijfers en acties op één plek staan.",
-      en: "Outstanding quotes, unpaid invoices, reminders that never get sent. Debiteurnet wanted to give business owners their grip back, with a portal that puts every figure and action in one place.",
-    },
-    chapters: [
-      {
-        title: { nl: "Grip op wat openstaat.", en: "A grip on what's outstanding." },
-        body: [
-          {
-            nl: "Ondernemers verliezen tijd en overzicht als offertes en facturen overal verspreid liggen. Wie moet er nog betalen, welke offerte wacht op akkoord, wanneer gaat de volgende herinnering de deur uit? Het portaal moest die complexe data simpel maken.",
-            en: "Business owners lose time and overview when quotes and invoices are scattered everywhere. Who still has to pay, which quote is waiting for approval, when does the next reminder go out? The portal had to make that complex data simple.",
-          },
-        ],
-      },
-      {
-        title: { nl: "Een dashboard dat ademt.", en: "A dashboard that breathes." },
-        body: [
-          {
-            nl: "We ontwierpen een rustig dashboard met heldere KPI's, grafieken en tabbladen. Bovenaan staan de bedragen die ertoe doen: uitstaande offertes en openstaande facturen. Daaronder grafieken per maand en een rij met de laatste gebeurtenissen.",
-            en: "We designed a calm dashboard with clear KPIs, charts and tabs. At the top are the amounts that matter: outstanding quotes and open invoices. Below them, monthly charts and a row of the latest events.",
-          },
-        ],
-      },
-      {
-        title: { nl: "Elke fase een eigen kolom.", en: "Every stage its own column." },
-        body: [
-          {
-            nl: "De opvolging kreeg een eigen overzicht, met per fase een kolom: van ingebrekestelling tot incasso of betalingsregeling. Workflows en e-mailtemplates leggen vast hoe een herinnering verloopt, en factoring heeft een vaste plek in het menu.",
-            en: "Follow-up got its own overview, with a column for each stage: from notice of default to collection or payment plan. Workflows and email templates set how a reminder runs, and factoring has a fixed place in the menu.",
-          },
-          {
-            nl: "De frontend bouwden we als schaalbare web-app in React en Next.js. Zo zien ondernemers direct hoe het staat met uitstaande en geaccepteerde offertes, de gemiddelde doorlooptijd en de opvolging.",
-            en: "We built the front end as a scalable web app in React and Next.js. Business owners see straight away where they stand with outstanding and accepted quotes, average lead time and follow-up.",
-          },
-        ],
-      },
-    ],
-    statements: [
-      { nl: "Rust in een dashboard is geen luxe. Het is overzicht.", en: "Calm in a dashboard isn't a luxury. It's clarity." },
-    ],
-  },
   "architectenbureau-koppens": {
     intro: {
-      nl: "Gebouwen die zuinig zijn met energie en er ook nog prachtig uitzien. Voor Architectenbureau Koppens maakten we een website met dezelfde zorg als hun ontwerpen.",
-      en: "Buildings that are frugal with energy and look beautiful too. For Architectenbureau Koppens we made a website with the same care as their designs.",
+      nl: "Voor Koppens Architecten maakten we het merk en de website. Online staan de gebouwen voorop, met dezelfde rode draad als in het logo.",
+      en: "For Koppens Architecten we created the brand and the website. Online, the buildings come first, with the same red line as in the logo.",
     },
     chapters: [
       {
-        title: { nl: "Een podium voor het portfolio.", en: "A stage for the portfolio." },
+        title: { nl: "Eerst het merk.", en: "The brand first." },
         body: [
           {
-            nl: "Koppens ontwerpt met een duidelijke visie op energieneutraal bouwen. Hun projecten spreken voor zich, als je ze de ruimte geeft. De website moest dat podium bieden, zonder af te leiden van de architectuur.",
-            en: "Koppens designs with a clear vision of energy-neutral building. Their projects speak for themselves, if you give them room. The website had to offer that stage without distracting from the architecture.",
+            nl: "Het beeldmerk verwerkt de handtekening van de oprichter in een uitgesneden stijl, met een rode lijn ernaast: de rode draad door elk project. Het kleurpalet, de logovarianten en de losse merkelementen legden we vast in een brandbook. Die huisstijl vormt de basis voor de website.",
+            en: "The mark incorporates the founder's signature in a cut-out style, with a red line beside it: the common thread through every project. We captured the colour palette, the logo variants and the separate brand elements in a brandbook. That identity is the foundation of the website.",
           },
         ],
       },
@@ -325,23 +283,23 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Ruimte om te kijken.", en: "Room to look." },
         body: [
           {
-            nl: "We kozen voor grote projectbeelden en veel witruimte. Elk project heeft een heldere opbouw, van een moderne villa met zwembad tot de visie erachter. De site draait op WordPress met Elementor, zodat nieuwe projecten eenvoudig een plek krijgen.",
-            en: "We chose large project images and generous white space. Every project follows a clear structure, from a modern villa with a pool to the vision behind it. The site runs on WordPress with Elementor, so new projects are easy to add.",
+            nl: "We kozen voor grote projectbeelden. De homepage opent met een slider van projecten, van een energieneutraal kantoor tot de “Fietsstraat”-villa, elk met een eigen projectcode en een knop naar het project. Daarna volgen de visie van het bureau en een selectie projecten per categorie: woningen en nieuwbouw, sociale woningbouw en horeca.",
+            en: "We chose large project images. The homepage opens with a slider of projects, from an energy-neutral office to the “Fietsstraat” villa, each with its own project code and a button to the project. They are followed by the firm's vision and a selection of projects per category: homes and new builds, social housing and hospitality.",
           },
         ],
       },
       {
-        title: { nl: "Gevonden in de regio.", en: "Found close to home." },
+        title: { nl: "Op elk scherm.", en: "On every screen." },
         body: [
           {
-            nl: "De content zetten we zo neer dat het bureau lokaal goed vindbaar is. Wie in de regio zoekt naar een architect voor energieneutraal bouwen, moet Koppens tegenkomen. Zo laat de site de architectuur spreken, voor bestaande en nieuwe opdrachtgevers.",
-            en: "We set up the content so the firm ranks well locally. Anyone in the region looking for an architect for energy-neutral building should come across Koppens. That way the site lets the architecture speak, for existing and new clients alike.",
+            nl: "Op mobiel opent het menu schermvullend, met Home, Projecten, Nieuws, Het bureau en Contact. De site draait op WordPress, op een eigen thema, met onderaan een contactformulier voor wie plannen heeft voor een nieuw project.",
+            en: "On mobile the menu opens full screen, with Home, Projects, News, The firm and Contact. The site runs on WordPress, on a custom theme, with a contact form at the bottom for anyone with plans for a new project.",
           },
         ],
       },
     ],
     statements: [
-      { nl: "Witruimte is ook architectuur.", en: "White space is architecture too." },
+      { nl: "Laat de gebouwen het woord doen.", en: "Let the buildings do the talking." },
     ],
   },
   "buitenstate": {
@@ -510,16 +468,16 @@ export const caseNarratives: Record<string, CaseNarrative> = {
   },
   "misterglass": {
     intro: {
-      nl: "Glas op maat bestellen klinkt ingewikkeld. Bij MisterGlass kies je je glas, vul je de maten in en zie je meteen wat het kost. Wij maakten het merk en de webshop die het zo eenvoudig houden.",
-      en: "Ordering made-to-measure glass sounds complicated. At MisterGlass you choose your glass, enter the dimensions and see the price straight away. We created the brand and the web shop that keep it that simple.",
+      nl: "Glas op maat bestellen klinkt ingewikkeld. Bij MisterGlass kies je je glas, vul je de maten in en rekent de prijs meteen mee. Wij maakten het merk en de webshop die het zo eenvoudig houden.",
+      en: "Ordering made-to-measure glass sounds complicated. At MisterGlass you choose your glass, enter the dimensions and the price is calculated straight away. We created the brand and the web shop that keep it that simple.",
     },
     chapters: [
       {
         title: { nl: "Maatwerk zonder drempel.", en: "Made to measure, no hurdles." },
         body: [
           {
-            nl: "MisterGlass verkoopt glas op maat online: enkel glas, isolatieglas en triple glas, maar ook interieurglas, spiegels en glasbeslag. Voor vakmensen en voor particulieren. Maatwerk online verkopen vraagt om een merk dat vertrouwen geeft en een webshop die het de klant makkelijk maakt.",
-            en: "MisterGlass sells made-to-measure glass online: single glazing, insulated and triple glazing, but also interior glass, mirrors and glass fittings. For professionals and private customers alike. Selling custom products online takes a brand people trust and a web shop that makes life easy for the customer.",
+            nl: "MisterGlass verkoopt glas op maat online: enkel glas, HR-isolatieglas en triple glas, maar ook interieurglas, spiegels, glasbeslag en gereedschap. Voor vakmensen en voor particulieren.",
+            en: "MisterGlass sells made-to-measure glass online: single glazing, HR insulated glass and triple glazing, but also interior glass, mirrors, glass fittings and tools. For professionals and private customers alike.",
           },
         ],
       },
@@ -527,8 +485,8 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Eerst een gezicht.", en: "First, a face." },
         body: [
           {
-            nl: "We begonnen bij het merk: een nieuw logo en een huisstijl, vastgelegd in een brandbook. Fris, helder en zonder poespas, zoals goed glas hoort te zijn.",
-            en: "We started with the brand: a new logo and visual identity, captured in a brandbook. Fresh, clear and no-nonsense, the way good glass should be.",
+            nl: "We begonnen bij het merk. Een logoverkenning zette de richtingen af tussen speels en zakelijk, eenvoudig en complex. Het nieuwe logo, de kleuren en de typografie legden we vast in een brandbook: groen en lichtgroen, met dieproze voor de knoppen. Het archetype is de Regular Guy, met eerlijkheid als kernwaarde: glas in beeld op een egale achtergrond, zonder poespas.",
+            en: "We started with the brand. A logo exploration mapped out directions between playful and businesslike, simple and complex. We captured the new logo, the colours and the typography in a brandbook: green and light green, with deep pink for the buttons. The archetype is the Regular Guy, with honesty as its core value: glass shown against an even background, no frills.",
           },
         ],
       },
@@ -536,12 +494,12 @@ export const caseNarratives: Record<string, CaseNarrative> = {
         title: { nl: "Samenstellen, opmeten, bestellen.", en: "Configure, measure, order." },
         body: [
           {
-            nl: "Daarna ontwikkelden we de webshop in WooCommerce. Bestellen gaat in drie stappen: je stelt je glassoort en vorm samen, bepaalt de afmetingen en kiest een levertijd die je uitkomt. Een prijscalculator per product rekent direct mee, en via Mollie reken je af met iDEAL.",
-            en: "Then we developed the web shop in WooCommerce. Ordering takes three steps: you choose your type of glass and shape, set the dimensions and pick a delivery time that suits you. A price calculator per product works it out as you go, and Mollie handles checkout with iDEAL.",
+            nl: "Daarna ontwikkelden we de website en webshop in WordPress met WooCommerce. Bestellen gaat in drie stappen: je stelt je glassoort en vorm samen, bepaalt de afmetingen en kiest een levertijd die je uitkomt. In de glasconfigurator kies je opties als spouwbreedte, kader en spouwverdeling, vul je de maten in millimeters in en kies je eventueel een speciale vorm of wienersprossen. De prijs rekent direct mee.",
+            en: "Then we developed the website and web shop in WordPress with WooCommerce. Ordering takes three steps: you put together your type of glass and shape, set the dimensions and pick a delivery time that suits you. In the glass configurator you choose options such as cavity width, spacer frame and cavity layout, enter the dimensions in millimetres and, if you like, choose a special shape or Georgian bars. The price is calculated as you go.",
           },
           {
-            nl: "Campagnes op Google en Meta brengen gericht verkeer naar de shop. Video maakt het verhaal compleet.",
-            en: "Campaigns on Google and Meta bring targeted traffic to the shop. Video completes the story.",
+            nl: "Het merk loopt door buiten de shop: we ontwierpen drukwerk, zoals posters, en de stickering voor de bussen, en maakten een animatievideo over het inmeten van glas.",
+            en: "The brand carries on beyond the shop: we designed print, such as posters, and the livery for the vans, and made an animated video on measuring glass.",
           },
         ],
       },
