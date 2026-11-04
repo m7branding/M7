@@ -138,12 +138,12 @@ export const newCasesB: Case[] = [
       en: "Silvr: turn your company vehicle into cash",
     },
     summary: {
-      nl: "Van naam tot website: een compleet merk voor autofinancieringsplatform Silvr, met een voertuigenslider op de homepage, een aanvraagflow in vijf stappen met bevestigingsmail, een eigen koppeling met Teamleader, persoonlijke e-mailopvolging en een explainervideo.",
-      en: "From name to website: a complete brand for car financing platform Silvr, with a vehicle slider on the homepage, a five-step application flow with a confirmation email, a custom Teamleader integration, personalised email follow-up and an explainer video.",
+      nl: "Van naam tot website: een compleet merk voor autofinancieringsplatform Silvr, met een voertuigenslider op de homepage, een aanvraagflow in vijf stappen met kentekenkoppeling en bevestigingsmail, een eigen koppeling met Teamleader, persoonlijke e-mailopvolging, landingspagina's per situatie en een explainervideo.",
+      en: "From name to website: a complete brand for car financing platform Silvr, with a vehicle slider on the homepage, a five-step application flow with a licence plate lookup and a confirmation email, a custom Teamleader integration, personalised email follow-up, landing pages per situation and an explainer video.",
     },
     sector: "finance-fintech",
     services: ["branding-rebranding", "websites-webshops", "automation-funnels", "configurators-lead-tools-widgets", "foto-video-3d-animatie"],
-    applications: ["naamgeving", "logo-ontwerp", "brandbook", "webflow-website", "offerte-calculator", "salesfunnels", "crm-implementatie", "lead-nurturing", "api-koppelingen"],
+    applications: ["naamgeving", "logo-ontwerp", "brandbook", "webflow-website", "landingspaginas", "offerte-calculator", "salesfunnels", "crm-implementatie", "lead-nurturing", "api-koppelingen"],
     tools: ["webflow", "teamleader", "gsap"],
     color: "#112032",
     challenge: {
@@ -151,8 +151,8 @@ export const newCasesB: Case[] = [
       en: "Sometimes the revenue is there but the cash isn't yet: the invoice only gets paid weeks later. With Silvr you sell your company vehicle, lease it straight back and simply keep driving. No loan and no credit registration. A new concept, so it needed a new brand that makes clear right away how it works.",
     },
     approach: {
-      nl: "We begonnen bij de naam: Silvr, met verzilveren als rode draad in alles wat het merk zegt. Daarna volgden de logo's en een brandbook. De website bouwden we in Webflow, als één systeem van merk, techniek en conversie. Op de homepage schuif je langs de voertuigen die je kunt verzilveren. De kern is een interactieve calculator in vijf stappen, die de aanvraag in realtime persoonlijk maakt en eindigt met een bevestigingsmail in de stijl van Silvr. Via de koppeling die we met Teamleader bouwden, loopt elke aanvraag direct door naar het CRM. Daar zorgen CRM-automatiseringen voor verrijkte leadgegevens en opvolging met persoonlijke e-mailreeksen, zodat het team meteen aan de slag kan. Een explainervideo legt het concept uit.",
-      en: "We started with the name: Silvr, with turning value into cash (verzilveren, in Dutch) as the common thread in everything the brand says. The logos and a brandbook followed. We built the website in Webflow, as one system of brand, technology and conversion. On the homepage you slide past the vehicles you can cash in. At its core is an interactive five-step calculator that personalises the application in real time and ends with a confirmation email in Silvr's style. Through the integration we built with Teamleader, every application goes straight into the CRM. There, CRM automations enrich the lead data and follow up with personalised email sequences, so the team can get to work right away. An explainer video explains the concept.",
+      nl: "We begonnen bij de naam: Silvr, met verzilveren als rode draad in alles wat het merk zegt. Daarna volgden de logo's en een brandbook. De website bouwden we in Webflow, als één systeem van merk, techniek en conversie. Op de homepage schuif je langs de voertuigen die je kunt verzilveren. De kern is een interactieve calculator in vijf stappen, die de aanvraag in realtime persoonlijk maakt en eindigt met een bevestigingsmail in de stijl van Silvr. Je vult je kenteken in, en via een koppeling met de open data van de RDW staan merk, model, kleur en bouwjaar er meteen bij. Via de koppeling die we met Teamleader bouwden, loopt elke aanvraag direct door naar het CRM. Daar zorgen CRM-automatiseringen voor verrijkte leadgegevens en opvolging met persoonlijke e-mailreeksen, zodat het team meteen aan de slag kan. Rond die flow staan pagina's voor elke situatie, van werkkapitaal voor zzp'ers tot salarissen betalen, voor wat je aan het eind van de looptijd doet, en een blog. Een explainervideo legt het concept uit.",
+      en: "We started with the name: Silvr, with turning value into cash (verzilveren, in Dutch) as the common thread in everything the brand says. The logos and a brandbook followed. We built the website in Webflow, as one system of brand, technology and conversion. On the homepage you slide past the vehicles you can cash in. At its core is an interactive five-step calculator that personalises the application in real time and ends with a confirmation email in Silvr's style. You enter your licence plate, and through a link with the RDW's open vehicle data the make, model, colour and year of manufacture appear straight away. Through the integration we built with Teamleader, every application goes straight into the CRM. There, CRM automations enrich the lead data and follow up with personalised email sequences, so the team can get to work right away. Around that flow sit pages for every situation, from working capital for freelancers to paying salaries, pages on what you do at the end of the term, and a blog. An explainer video explains the concept.",
     },
     result: {
       nl: "Een merk met een naam die blijft hangen, een complete website en een aanvraag die in twee minuten is ingevuld en meteen bij het team in Teamleader staat.",
@@ -663,12 +663,12 @@ export const newCasesB: Case[] = [
       en: "The Filmcar: rolling shots, nicely framed",
     },
     summary: {
-      nl: "Een website voor The Filmcar, de camera-auto voor rolling shots, met een offerteaanvraag in een paar stappen.",
-      en: "A website for The Filmcar, the camera car for rolling shots, with a quote request in a few steps.",
+      nl: "Een website voor The Filmcar, de camera-auto voor rolling shots, met een dienstconfigurator waarin je in een paar stappen je opname samenstelt en een offerte aanvraagt.",
+      en: "A website for The Filmcar, the camera car for rolling shots, with a service configurator in which you put together your shoot in a few steps and request a quote.",
     },
     sector: "sport-media",
-    services: ["websites-webshops"],
-    applications: ["webflow-website", "ux-ui-webdesign"],
+    services: ["websites-webshops", "configurators-lead-tools-widgets"],
+    applications: ["webflow-website", "ux-ui-webdesign", "productconfigurator"],
     tools: ["webflow"],
     color: "#FFB200",
     challenge: {
@@ -676,12 +676,12 @@ export const newCasesB: Case[] = [
       en: "The Filmcar delivers rolling shots of anything that moves, with its own camera car and crew. Production companies either hire just the car or outsource the whole production. That difference had to be clear right away, and so did the route to a quote.",
     },
     approach: {
-      nl: "We bouwden de website in Webflow, met het systeem, het portfolio en een offerteaanvraag in stappen: alleen de auto of de hele productie, de apparatuur, de crew en hoe lang je de auto nodig hebt.",
-      en: "We built the website in Webflow, with the system, the portfolio and a step-by-step quote request: just the car or the whole production, the equipment, the crew and how long you need the car.",
+      nl: "We bouwden de website in Webflow, met het systeem, het portfolio, de werkwijze in drie stappen en de terreinen waarop de auto filmt. De offerteaanvraag is een dienstconfigurator met logica, die vanaf elke pagina opent. Wie de hele productie wil uitbesteden, gaat meteen door naar contact. Wie alleen de auto huurt, kiest daarna de apparatuur, eigen camera of die van The Filmcar, de crew, van chauffeur tot focus puller en gimbal operator, en hoe lang de auto nodig is, van een halve dag tot drie dagen of langer.",
+      en: "We built the website in Webflow, with the system, the portfolio, the three-step working method and the terrains the car films on. The quote request is a service configurator with built-in logic that opens from every page. Anyone who wants to outsource the whole production goes straight to contact. Anyone hiring just the car then chooses the equipment, their own camera or The Filmcar's, the crew, from driver to focus puller and gimbal operator, and how long they need the car, from half a day to three days or more.",
     },
     result: {
-      nl: "Een strakke website die laat zien wat The Filmcar kan, met een aanvraag waarop binnen 24 uur een offerte op maat volgt.",
-      en: "A sleek website that shows what The Filmcar can do, with a request that is followed by a tailor-made quote within 24 hours.",
+      nl: "Een strakke website die laat zien wat The Filmcar kan, met een configurator die elke aanvraag compleet maakt en waarop binnen 24 uur een offerte op maat volgt.",
+      en: "A sleek website that shows what The Filmcar can do, with a configurator that makes every request complete and is followed by a tailor-made quote within 24 hours.",
     },
     url: "https://www.thefilmcar.com",
   },
@@ -753,8 +753,8 @@ export const newCasesB: Case[] = [
       en: "Speedbar: tailor-made for time trialists",
     },
     summary: {
-      nl: "Website, een configurator met aanvraag in stappen en een videodocumentaire voor Speedbar, de op maat gemaakte aerobar voor tijdritten.",
-      en: "Website, a step-by-step configurator and request flow, and a video documentary for Speedbar, the made-to-measure time trial aerobar.",
+      nl: "Website, een productconfigurator met een meelopende prijs en aanvraag in stappen, een aparte route voor maatwerk en een videodocumentaire voor Speedbar, de op maat gemaakte aerobar voor tijdritten.",
+      en: "Website, a product configurator with a running price and a step-by-step request, a separate route for custom work and a video documentary for Speedbar, the made-to-measure time trial aerobar.",
     },
     sector: "sport-media",
     services: ["websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie"],
@@ -766,12 +766,12 @@ export const newCasesB: Case[] = [
       en: "Speedbar makes aerobars for time trial bikes, made to measure for every rider. Thanks to 3D printing, the product is now within reach of cyclists outside the pro peloton too. A product that personal isn't sold with a standard order button.",
     },
     approach: {
-      nl: "We bouwden de website in Webflow, met een configurator waarin je in een paar stappen je Speedbar PRO samenstelt en je aanvraag doet. Daarnaast maakten we een videodocumentaire.",
-      en: "We built the website in Webflow, with a configurator where you put together your Speedbar PRO in a few steps and send your request. We also made a video documentary.",
+      nl: "We bouwden de website in Webflow, met twee routes. Voor de Speedbar PRO is er een configurator met logica: in drie stappen kies je de grip, de carbon basis en de interface, telkens standaard of op maat. De prijs loopt mee met elke keuze, en aan het eind zie je je Speedbar in een overzicht en doe je je aanvraag. Voor Speedbar Tailor Made, voor tijdrit, baan en triatlon, legt de site het bestelproces uit en vraag je contact aan. Elk onderdeel heeft een eigen productpagina. Daarnaast maakten we een videodocumentaire.",
+      en: "We built the website in Webflow, with two routes. For the Speedbar PRO there is a configurator with built-in logic: in three steps you choose the grip, the carbon base and the interface, each standard or custom. The price follows every choice, and at the end you see your Speedbar in an overview and send your request. For Speedbar Tailor Made, for time trial, track and triathlon, the site explains the ordering process and you request contact. Every component has its own product page. We also made a video documentary.",
     },
     result: {
-      nl: "Een website die een product van topniveau net zo zorgvuldig presenteert als het gemaakt wordt, met een aanvraag die past bij maatwerk.",
-      en: "A website that presents a top-level product as carefully as it is made, with a request flow that suits made-to-measure.",
+      nl: "Een website die een product van topniveau net zo zorgvuldig presenteert als het gemaakt wordt, met een configurator voor de PRO en een aanvraag die past bij maatwerk.",
+      en: "A website that presents a top-level product as carefully as it is made, with a configurator for the PRO and a request flow that suits made-to-measure.",
     },
     url: "https://www.speedbar.nl",
   },
