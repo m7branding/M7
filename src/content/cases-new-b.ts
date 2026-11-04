@@ -18,8 +18,8 @@ export const newCasesB: Case[] = [
       en: "Hela: sauce you can almost taste online",
     },
     summary: {
-      nl: "Website en B2B- en B2C-webshop voor sauzenmerk Hela, met koppelingen voor voorraad en magazijn en voor productinformatie en allergenen, recepten voor betere vindbaarheid in zoekmachines en AI, en 3D-renders en geanimeerde packshots die de flessen laten glimmen.",
-      en: "Website and B2B and B2C web shop for sauce brand Hela, with integrations for stock and warehouse and for product information and allergens, recipes for better findability in search engines and AI, and 3D renders and animated packshots that make the bottles shine.",
+      nl: "Marketingsite en B2C- en B2B-webshop in één voor sauzenmerk Hela, met een multi-vendor-structuur, een koppeling met PS in Food en Business Central voor voorraad en magazijn, productinformatie met allergenen, recepten voor betere vindbaarheid in zoekmachines en AI, en 3D-modellen en geanimeerde packshots die de flessen laten glimmen.",
+      en: "Marketing site and B2C and B2B web shop in one for sauce brand Hela, with a multi-vendor structure, an integration with PS in Food and Business Central for stock and warehouse, product information with allergens, recipes for better findability in search engines and AI, and 3D models and animated packshots that make the bottles shine.",
     },
     sector: "food-retail",
     services: ["websites-webshops", "foto-video-3d-animatie", "web-apps-portals-apps", "seo-aeo-geo"],
@@ -31,12 +31,12 @@ export const newCasesB: Case[] = [
       en: "Hela is the flavour maker with sauces, ketchups, dressings and seasonings, for the home kitchen and for food professionals. Two audiences, each with their own way of ordering, a large range with a lot of product information, and recipes that show what you can do with it. Online, all of that had to look just as tasty as it does on the table.",
     },
     approach: {
-      nl: "We bouwden een website met webshop in WordPress en WooCommerce, in het Nederlands, Engels en Frans, met een eigen shop voor consumenten en een voor foodprofessionals. De shop is gekoppeld aan voorraad en magazijn en aan de productinformatie: elke productpagina toont ingrediënten, voedingswaarden, allergenen, verpakking en specificaties zoals artikelnummer en aantal per doos, en in de professionele shop filter je op allergieën. Recepten zijn gekoppeld aan de producten en te filteren op product, toepassing, gerecht en dieetwensen. Met gestructureerde receptgegevens zijn ze beter vindbaar in zoekmachines en AI-antwoorden, en ze maken de shop meer een beleving. Voor het assortiment maakten we productshots, geanimeerde packshots en 3D-renders, zodat elke fles strak en herkenbaar in beeld staat.",
-      en: "We built a website with a web shop in WordPress and WooCommerce, in Dutch, English and French, with a shop for consumers and one for food professionals. The shop is integrated with stock and warehouse and with the product information: every product page shows ingredients, nutritional values, allergens, packaging and specifications such as article number and units per box, and in the professional shop you can filter by allergies. Recipes are linked to the products and can be filtered by product, application, dish and dietary needs. With structured recipe data they are easier to find in search engines and AI answers, and they make the shop more of an experience. For the range we made product shots, animated packshots and 3D renders, so every bottle looks crisp and recognisable.",
+      nl: "We bouwden de marketingsite en de webshop in één, in WordPress en WooCommerce, in het Nederlands, Engels en Frans. Een B2C/B2B-structuur geeft consumenten en foodprofessionals elk een eigen shop, en de webshop is opgezet als multi-vendor. Voor voorraad en magazijn is de shop gekoppeld aan PS in Food en Business Central, en ook de productinformatie komt via een koppeling binnen: elke productpagina toont ingrediënten, voedingswaarden, allergenen, verpakking en specificaties zoals artikelnummer en aantal per doos, en in de professionele shop filter je op allergieën. Recepten zijn gekoppeld aan de producten en te filteren op product, toepassing, gerecht en dieetwensen. Met gestructureerde receptgegevens zijn ze beter vindbaar in zoekmachines en AI-antwoorden, en ze maken de shop meer een beleving. Voor het assortiment maakten we productshots, geanimeerde packshots en 3D-modellen van de flessen, zodat elke fles strak en herkenbaar in beeld staat.",
+      en: "We built the marketing site and the web shop as one, in WordPress and WooCommerce, in Dutch, English and French. A B2C/B2B structure gives consumers and food professionals each a shop of their own, and the web shop is set up as multi-vendor. For stock and warehouse the shop is integrated with PS in Food and Business Central, and the product information comes in through an integration too: every product page shows ingredients, nutritional values, allergens, packaging and specifications such as article number and units per box, and in the professional shop you can filter by allergies. Recipes are linked to the products and can be filtered by product, application, dish and dietary needs. With structured recipe data they are easier to find in search engines and AI answers, and they make the shop more of an experience. For the range we made product shots, animated packshots and 3D models of the bottles, so every bottle looks crisp and recognisable.",
     },
     result: {
-      nl: "Eén webshop voor thuis en voor de foodprofessional, in drie talen, met voorraad en productinformatie uit de koppelingen, recepten die je van inspiratie naar bestelling brengen, en productbeelden die passen bij een merk dat draait om lekker eten.",
-      en: "One web shop for the home kitchen and for food professionals, in three languages, with stock and product information from the integrations, recipes that take you from inspiration to order, and product visuals that suit a brand built around good food.",
+      nl: "Eén site voor merk, thuis en foodprofessional, in drie talen, met voorraad en productinformatie uit de koppelingen, recepten die je van inspiratie naar bestelling brengen, en productbeelden die passen bij een merk dat draait om lekker eten.",
+      en: "One site for the brand, the home kitchen and food professionals, in three languages, with stock and product information from the integrations, recipes that take you from inspiration to order, and product visuals that suit a brand built around good food.",
     },
     url: "https://hela.nl",
   },
@@ -332,8 +332,8 @@ export const newCasesB: Case[] = [
       en: "Huurfix: rent reduction without the hassle",
     },
     summary: {
-      nl: "Branding, een nieuwe website rond de klantreis en de UI/UX van de web-app waarin huurders de huurprijscheck doen en hun bestanden aanleveren, gekoppeld aan Odoo CRM. Met klantcases die de huurverlaging automatisch uitrekenen, social templates en een e-book voor Huurfix, dat huurders op no cure no pay-basis helpt aan huurverlaging.",
-      en: "Branding, a new website built around the customer journey and the UI/UX of the web app in which tenants take the rent check and deliver their files, integrated with Odoo CRM. With customer cases that calculate the rent reduction automatically, social templates and an e-book for Huurfix, which helps tenants get their rent reduced on a no cure, no pay basis.",
+      nl: "Branding, een nieuwe website rond de klantreis en de web-app op check.huurfix.nl, die we ontwierpen en bouwden: daar doen huurders de huurprijscheck en leveren ze hun bestanden aan, gekoppeld aan Odoo CRM. Met klantcases die de huurverlaging automatisch uitrekenen, social templates en een e-book voor Huurfix, dat huurders op no cure no pay-basis helpt aan huurverlaging.",
+      en: "Branding, a new website built around the customer journey and the web app at check.huurfix.nl, which we designed and built: that is where tenants take the rent check and deliver their files, integrated with Odoo CRM. With customer cases that calculate the rent reduction automatically, social templates and an e-book for Huurfix, which helps tenants get their rent reduced on a no cure, no pay basis.",
     },
     sector: "zakelijke-dienstverlening",
     services: [
@@ -345,7 +345,7 @@ export const newCasesB: Case[] = [
       "content-marketing-online-ads",
       "grafisch-ontwerp-print",
     ],
-    applications: ["huisstijl", "webflow-website", "meertalige-website", "ux-ui-app-design", "salesfunnels", "crm-implementatie", "marketing-automation", "check-tools", "social-media-marketing", "brochures-magazines"],
+    applications: ["huisstijl", "webflow-website", "meertalige-website", "ux-ui-app-design", "klantportaal", "salesfunnels", "crm-implementatie", "marketing-automation", "check-tools", "social-media-marketing", "brochures-magazines"],
     tools: ["webflow", "odoo"],
     color: "#FFF200",
     challenge: {
@@ -353,8 +353,8 @@ export const newCasesB: Case[] = [
       en: "If you pay too much rent, you want to know. But hassle with your landlord or the Rent Tribunal is something nobody looks forward to. Huurfix sorts it out for you: a lawyer takes over the contact and the procedure, and you only pay afterwards. That offer had to come across as simple and trustworthy, and the step from check to case file had to be just as easy.",
     },
     approach: {
-      nl: "We ontwikkelden de branding en bouwden een nieuwe website in Webflow, in het Nederlands en Engels, rond de klantreis van een huurder: hoe het werkt, prijzen, veelgestelde vragen, klantverhalen en een kennisbank. Alles leidt naar de gratis huurprijscheck. Voor die check ontwierpen we de UI/UX van de web-app: je vult je postcode en huisnummer in, bouwjaar, energielabel, oppervlakte en WOZ-waarde worden opgezocht, en vragen over de ruimtes, de keuken en het sanitair maken het beeld compleet. Daarna lever je in dezelfde app je huurcontract en andere bestanden aan, geef je je machtiging en ga je later verder waar je was gebleven. De intake is gekoppeld aan Odoo CRM en opgesplitst in drie geautomatiseerde flows, elk met eigen CRM-logica, opvolgmails en afhandeling. Klantcases laten zien wat het oplevert: de site rekent de huurverlaging automatisch uit als percentage van de oorspronkelijke en de gecorrigeerde huurprijs, in het overzicht en op elke detailpagina. Daarnaast maakten we templates voor social media en een e-book.",
-      en: "We developed the branding and built a new website in Webflow, in Dutch and English, around a tenant's customer journey: how it works, pricing, FAQs, customer stories and a knowledge base. Everything leads to the free rent check. For that check we designed the UI/UX of the web app: you enter your postcode and house number, the year of construction, energy label, floor area and WOZ value are looked up, and questions about the rooms, the kitchen and the sanitary facilities complete the picture. Then, in the same app, you upload your tenancy agreement and other files, give your authorisation and pick up later where you left off. The intake is integrated with Odoo CRM and split into three automated flows, each with its own CRM logic, follow-up emails and handling. Customer cases show what it delivers: the site automatically calculates the rent reduction as a percentage, based on the original and the corrected rent, in the overview and on every detail page. We also made social media templates and an e-book.",
+      nl: "We ontwikkelden de branding en bouwden een nieuwe website in Webflow, in het Nederlands en Engels, rond de klantreis van een huurder: hoe het werkt, prijzen, veelgestelde vragen, klantverhalen en een kennisbank. Alles leidt naar de gratis huurprijscheck. Voor die check ontwierpen en bouwden we de web-app, op check.huurfix.nl: je vult je postcode en huisnummer in, bouwjaar, energielabel, oppervlakte en WOZ-waarde worden opgezocht, en vragen over de ruimtes, de keuken en het sanitair maken het beeld compleet. Daarna lever je in dezelfde app je huurcontract en andere bestanden aan, geef je je machtiging en ga je later verder waar je was gebleven. De intake is gekoppeld aan Odoo CRM en opgesplitst in drie geautomatiseerde flows, elk met eigen CRM-logica, opvolgmails en afhandeling. Klantcases laten zien wat het oplevert: de site rekent de huurverlaging automatisch uit als percentage van de oorspronkelijke en de gecorrigeerde huurprijs, in het overzicht en op elke detailpagina. Daarnaast maakten we templates voor social media en een e-book.",
+      en: "We developed the branding and built a new website in Webflow, in Dutch and English, around a tenant's customer journey: how it works, pricing, FAQs, customer stories and a knowledge base. Everything leads to the free rent check. For that check we designed and built the web app, at check.huurfix.nl: you enter your postcode and house number, the year of construction, energy label, floor area and WOZ value are looked up, and questions about the rooms, the kitchen and the sanitary facilities complete the picture. Then, in the same app, you upload your tenancy agreement and other files, give your authorisation and pick up later where you left off. The intake is integrated with Odoo CRM and split into three automated flows, each with its own CRM logic, follow-up emails and handling. Customer cases show what it delivers: the site automatically calculates the rent reduction as a percentage, based on the original and the corrected rent, in the overview and on every detail page. We also made social media templates and an e-book.",
     },
     result: {
       nl: "Een merk, een website en een web-app die vertrouwen geven. De check is in een paar minuten klaar, bestanden komen op één plek binnen, en aanvragen staan gekwalificeerd en geordend in Odoo. En met de social templates en het e-book kan Huurfix zelf verder.",
@@ -685,12 +685,12 @@ export const newCasesB: Case[] = [
       en: "The Filmcar: rolling shots, nicely framed",
     },
     summary: {
-      nl: "Een website voor The Filmcar, de camera-auto voor rolling shots, met een dienstconfigurator waarin je in een paar stappen je opname samenstelt en een offerte aanvraagt.",
-      en: "A website for The Filmcar, the camera car for rolling shots, with a service configurator in which you put together your shoot in a few steps and request a quote.",
+      nl: "Een website voor The Filmcar, de camera-auto voor rolling shots, met een dienstconfigurator waarin je in een paar stappen je opname samenstelt en een offerte aanvraagt, gevolgd door een branded bevestigingsmail.",
+      en: "A website for The Filmcar, the camera car for rolling shots, with a service configurator in which you put together your shoot in a few steps and request a quote, followed by a branded confirmation email.",
     },
     sector: "sport-media",
-    services: ["websites-webshops", "configurators-lead-tools-widgets"],
-    applications: ["webflow-website", "ux-ui-webdesign", "productconfigurator"],
+    services: ["websites-webshops", "configurators-lead-tools-widgets", "automation-funnels"],
+    applications: ["webflow-website", "ux-ui-webdesign", "productconfigurator", "e-mailmarketing"],
     tools: ["webflow"],
     color: "#FFB200",
     challenge: {
@@ -698,8 +698,8 @@ export const newCasesB: Case[] = [
       en: "The Filmcar delivers rolling shots of anything that moves, with its own camera car and crew. Production companies either hire just the car or outsource the whole production. That difference had to be clear right away, and so did the route to a quote.",
     },
     approach: {
-      nl: "We bouwden de website in Webflow, met het systeem, het portfolio, de werkwijze in drie stappen en de terreinen waarop de auto filmt. De offerteaanvraag is een dienstconfigurator met logica, die vanaf elke pagina opent. Wie de hele productie wil uitbesteden, gaat meteen door naar contact. Wie alleen de auto huurt, kiest daarna de apparatuur, eigen camera of die van The Filmcar, de crew, van chauffeur tot focus puller en gimbal operator, en hoe lang de auto nodig is, van een halve dag tot drie dagen of langer.",
-      en: "We built the website in Webflow, with the system, the portfolio, the three-step working method and the terrains the car films on. The quote request is a service configurator with built-in logic that opens from every page. Anyone who wants to outsource the whole production goes straight to contact. Anyone hiring just the car then chooses the equipment, their own camera or The Filmcar's, the crew, from driver to focus puller and gimbal operator, and how long they need the car, from half a day to three days or more.",
+      nl: "We bouwden de website in Webflow, met het systeem, het portfolio, de werkwijze in drie stappen en de terreinen waarop de auto filmt. De offerteaanvraag is een dienstconfigurator met logica, die vanaf elke pagina opent. Wie de hele productie wil uitbesteden, gaat meteen door naar contact. Wie alleen de auto huurt, kiest daarna de apparatuur, eigen camera of die van The Filmcar, de crew, van chauffeur tot focus puller en gimbal operator, en hoe lang de auto nodig is, van een halve dag tot drie dagen of langer. Na de aanvraag volgt automatisch een e-mail in de huisstijl van The Filmcar.",
+      en: "We built the website in Webflow, with the system, the portfolio, the three-step working method and the terrains the car films on. The quote request is a service configurator with built-in logic that opens from every page. Anyone who wants to outsource the whole production goes straight to contact. Anyone hiring just the car then chooses the equipment, their own camera or The Filmcar's, the crew, from driver to focus puller and gimbal operator, and how long they need the car, from half a day to three days or more. After the request, an email in The Filmcar's house style follows automatically.",
     },
     result: {
       nl: "Een strakke website die laat zien wat The Filmcar kan, met een configurator die elke aanvraag compleet maakt en waarop binnen 24 uur een offerte op maat volgt.",
@@ -775,12 +775,12 @@ export const newCasesB: Case[] = [
       en: "Speedbar: tailor-made for time trialists",
     },
     summary: {
-      nl: "Website, een productconfigurator met een meelopende prijs en aanvraag in stappen, een aparte route voor maatwerk en een videodocumentaire voor Speedbar, de op maat gemaakte aerobar voor tijdritten.",
-      en: "Website, a product configurator with a running price and a step-by-step request, a separate route for custom work and a video documentary for Speedbar, the made-to-measure time trial aerobar.",
+      nl: "Een documentaire, de website en een productconfigurator voor Speedbar, de op maat gemaakte aerobar voor tijdritten. De configurator heeft een meelopende prijs, een aanvraag in stappen en een branded bevestigingsmail, en voor maatwerk is er een aparte route.",
+      en: "A documentary, the website and a product configurator for Speedbar, the made-to-measure time trial aerobar. The configurator has a running price, a step-by-step request and a branded confirmation email, and there is a separate route for custom work.",
     },
     sector: "sport-media",
-    services: ["websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie"],
-    applications: ["webflow-website", "productconfigurator", "bedrijfsfilm"],
+    services: ["websites-webshops", "configurators-lead-tools-widgets", "foto-video-3d-animatie", "automation-funnels"],
+    applications: ["webflow-website", "productconfigurator", "bedrijfsfilm", "e-mailmarketing"],
     tools: ["webflow"],
     color: "#3D4855",
     challenge: {
@@ -788,8 +788,8 @@ export const newCasesB: Case[] = [
       en: "Speedbar makes aerobars for time trial bikes, made to measure for every rider. Thanks to 3D printing, the product is now within reach of cyclists outside the pro peloton too. A product that personal isn't sold with a standard order button.",
     },
     approach: {
-      nl: "We bouwden de website in Webflow, met twee routes. Voor de Speedbar PRO is er een configurator met logica: in drie stappen kies je de grip, de carbon basis en de interface, telkens standaard of op maat. De prijs loopt mee met elke keuze, en aan het eind zie je je Speedbar in een overzicht en doe je je aanvraag. Voor Speedbar Tailor Made, voor tijdrit, baan en triatlon, legt de site het bestelproces uit en vraag je contact aan. Elk onderdeel heeft een eigen productpagina. Daarnaast maakten we een videodocumentaire.",
-      en: "We built the website in Webflow, with two routes. For the Speedbar PRO there is a configurator with built-in logic: in three steps you choose the grip, the carbon base and the interface, each standard or custom. The price follows every choice, and at the end you see your Speedbar in an overview and send your request. For Speedbar Tailor Made, for time trial, track and triathlon, the site explains the ordering process and you request contact. Every component has its own product page. We also made a video documentary.",
+      nl: "We maakten een videodocumentaire over Speedbar, die ook op de PRO-pagina van de site staat. Daarna bouwden we de website in Webflow, met twee routes. Voor de Speedbar PRO is er een configurator met logica: in drie stappen kies je de grip, de carbon basis en de interface, telkens standaard of op maat. De prijs loopt mee met elke keuze, aan het eind zie je je Speedbar in een overzicht en doe je je aanvraag, en daarna volgt een bevestigingsmail in de stijl van Speedbar. Voor Speedbar Tailor Made, voor tijdrit, baan en triatlon, legt de site het bestelproces uit en vraag je contact aan. Elk onderdeel heeft een eigen productpagina.",
+      en: "We made a video documentary about Speedbar, which also features on the PRO page of the site. Then we built the website in Webflow, with two routes. For the Speedbar PRO there is a configurator with built-in logic: in three steps you choose the grip, the carbon base and the interface, each standard or custom. The price follows every choice, at the end you see your Speedbar in an overview and send your request, and a confirmation email in Speedbar's style follows. For Speedbar Tailor Made, for time trial, track and triathlon, the site explains the ordering process and you request contact. Every component has its own product page.",
     },
     result: {
       nl: "Een website die een product van topniveau net zo zorgvuldig presenteert als het gemaakt wordt, met een configurator voor de PRO en een aanvraag die past bij maatwerk.",

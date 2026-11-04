@@ -208,12 +208,12 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       slug: "megensbouw",
       client: "MegensBouw",
       title: {
-        nl: "MegensBouw: een bedrijfspand in 3D, van straat tot laaddock",
-        en: "MegensBouw: a commercial building in 3D, from street to loading dock",
+        nl: "MegensBouw: van bouwtekening naar 3D, van straat tot laaddock",
+        en: "MegensBouw: from building drawing to 3D, from street to loading dock",
       },
       summary: {
-        nl: "3D-visualisaties van een bedrijfspand met kantoor en laaddocks voor MegensBouw: vanaf de straat, bij het hek en van bovenaf, in het licht van verschillende momenten van de dag.",
-        en: "3D visualisations of a commercial building with offices and loading docks for MegensBouw: from the street, by the fence and from above, in the light of different times of day.",
+        nl: "Uitgebreide 3D-visualisaties van een ontwikkelobject voor MegensBouw, gemaakt op basis van de bouwtekening: een bedrijfspand met kantoor en laaddocks, vanaf de straat, bij het hek en van bovenaf, in het licht van verschillende momenten van de dag.",
+        en: "Extensive 3D visualisations of a development project for MegensBouw, made from the building drawing: a commercial building with offices and loading docks, seen from the street, by the fence and from above, in the light of different times of day.",
       },
       sector: "bouw-architectuur",
       services: ["foto-video-3d-animatie"],
@@ -222,18 +222,17 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       cover: "/media/cases/megensbouw/s-fa-render-01.webp",
       color: "#4C413D",
       challenge: {
-        nl: "Voor MegensBouw maken we uitgebreide visualisaties van projecten. Bij dit bedrijfspand, met kantoor en laaddocks, moesten de beelden laten zien hoe het gebouw er in het echt uitziet: de gevels, de laaddocks en de omgeving erbij.",
-        en: "For MegensBouw we create extensive project visualisations. For this commercial building, with offices and loading docks, the images had to show what the building really looks like: the facades, the loading docks and the surroundings included.",
+        nl: "Een ontwikkelobject van MegensBouw: een bedrijfspand met kantoor en laaddocks. Op tekening is zo'n pand voor veel mensen lastig voor te stellen. De beelden moesten laten zien hoe het gebouw er in het echt uit zou komen te zien: de gevels, de laaddocks en de omgeving erbij.",
+        en: "A development project by MegensBouw: a commercial building with offices and loading docks. On a drawing, a building like that is hard for many people to picture. The images had to show what it would really look like: the facades, the loading docks and the surroundings included.",
       },
       approach: {
-        nl: "We maakten 3D-renders van het pand vanuit verschillende standpunten: frontaal vanaf de straat, schuin langs het hek, bij de entree en de laaddocks, op de parkeerplaats en van bovenaf. Vrachtwagens, auto's, mensen en bomen maken het beeld levendig, en strijklicht van een laagstaande zon geeft de gevels diepte.",
-        en: "We made 3D renders of the building from several viewpoints: head-on from the street, at an angle along the fence, at the entrance and the loading docks, in the car park and from above. Trucks, cars, people and trees bring the image to life, and raking light from a low sun gives the facades depth.",
+        nl: "Op basis van de bouwtekening bouwden we het pand in 3D na en maakten we renders vanuit verschillende standpunten: frontaal vanaf de straat, schuin langs het hek, bij de entree en de laaddocks, op de parkeerplaats en van bovenaf. Vrachtwagens, auto's, mensen en bomen maken het beeld levendig, en strijklicht van een laagstaande zon geeft de gevels diepte.",
+        en: "Working from the building drawing, we recreated the building in 3D and made renders from several viewpoints: head-on from the street, at an angle along the fence, at the entrance and the loading docks, in the car park and from above. Trucks, cars, people and trees bring the image to life, and raking light from a low sun gives the facades depth.",
       },
       result: {
-        nl: "Een reeks fotorealistische beelden van het pand, van de straat tot de laaddeur.",
-        en: "A series of photorealistic images of the building, from the street to the loading door.",
+        nl: "Een reeks fotorealistische beelden van het ontwikkelobject, van de straat tot de laaddeur, rechtstreeks vanaf de bouwtekening.",
+        en: "A series of photorealistic images of the development, from the street to the loading door, straight from the building drawing.",
       },
-      concept: true,
       shape: "wide",
     },
     {
@@ -525,8 +524,8 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
         en: "WizardFrame: image, sound and design in one frame",
       },
       summary: {
-        nl: "Logo, brandbook en een online configurator voor WizardFrame, een designframe waarin beeldscherm, geluid en techniek samenkomen. Plus een uitlegbeeld en de herovideo voor de website.",
-        en: "Logo, brandbook and an online configurator for WizardFrame, a design frame that brings screen, sound and technology together. Plus an explainer visual and the hero video for the website.",
+        nl: "Logo, brandbook en een online productconfigurator voor WizardFrame, een designframe waarin beeldscherm, geluid en techniek samenkomen. Plus een uitlegbeeld en de herovideo voor de website. De configurator staat op configurator.wizardframe.com.",
+        en: "Logo, brandbook and an online product configurator for WizardFrame, a design frame that brings screen, sound and technology together. Plus an explainer visual and the hero video for the website. The configurator lives at configurator.wizardframe.com.",
       },
       sector: "interieur-architectuur",
       services: ["branding-rebranding", "configurators-lead-tools-widgets", "foto-video-3d-animatie"],
@@ -535,18 +534,18 @@ export const inboxB: { cases: Case[]; media: Record<string, SuppliedSet> } = {
       cover: "/media/cases/wizardframe/s-fa-brandbook-02.webp",
       color: "#211A33",
       challenge: {
-        nl: "WizardFrame integreert beeld, geluid, techniek en design in één frame of wall. Een product dat je op maat samenstelt, en dat dus een merk vraagt met allure en een configurator die het samenstellen eenvoudig maakt.",
-        en: "WizardFrame integrates image, sound, technology and design in one frame or wall. A product you put together to measure, which calls for a brand with allure and a configurator that makes putting it together easy.",
+        nl: "WizardFrame integreert beeld, geluid, techniek en design in één frame of wand. Een product dat je op maat samenstelt, voor thuis of voor hospitality, en dat dus een merk vraagt met allure en een configurator die het samenstellen eenvoudig maakt.",
+        en: "WizardFrame integrates image, sound, technology and design in one frame or wall. A product you put together to measure, for the home or for hospitality, which calls for a brand with allure and a configurator that makes putting it together easy.",
       },
       approach: {
-        nl: "We ontwierpen het logo, met een variant voor WizardWall, en legden het merk vast in een brandbook: diep paars met goud, de productlijnen WizardFrame, AtelierFrame, BoardFrame en OutdoorFrame, en de materiaal- en meubelpartners. Een uitlegbeeld laat zien wat er in het frame zit. Het brandbook staat ook als business case klaar om te downloaden. De productconfigurator is een flow met logica: in vier stappen kies je het type, residentieel of hospitality, het model en de opties, en controleer je het overzicht: geluidspakket, kleur en extra's als ambient light of een HDMI-poort, met een beeld dat direct meeverandert.",
-        en: "We designed the logo, with a variant for WizardWall, and captured the brand in a brandbook: deep purple with gold, the product lines WizardFrame, AtelierFrame, BoardFrame and OutdoorFrame, and the material and furniture partners. An explainer visual shows what is inside the frame. The brandbook is also available to download as a business case. The product configurator is a flow with built-in logic: in four steps you choose the type, residential or hospitality, the model and the options, and check the overview: sound package, colour and extras such as ambient light or an HDMI port, with an image that changes along with you.",
+        nl: "We ontwierpen het logo en legden het merk vast in een brandbook: diep paars met goud, de productlijnen en de materiaal- en meubelpartners. Een uitlegbeeld laat zien wat er in het frame zit, en het brandbook staat als business case klaar om te downloaden op wizardframe.com. Voor de website maakten we een herovideo. De productconfigurator op configurator.wizardframe.com is een flow met logica in vier stappen. Eerst kies je het type: residentieel (B2C) of hospitality (B2B), elk met de bijbehorende partners. Daarna kies je een model en stel je de opties samen: de afwerking, de opties die standaard in elk WizardFrame zitten en extra's als ambient light, een extra HDMI-ingang of een camera. Opties die van elkaar afhangen, worden pas beschikbaar als de basis erin zit, en niet elke optie past bij elke kleur. Je keuzes staan steeds in een overzicht naast de configurator, en aan het eind controleer je alles en verstuur je je configuratie.",
+        en: "We designed the logo and captured the brand in a brandbook: deep purple with gold, the product lines and the material and furniture partners. An explainer visual shows what is inside the frame, and the brandbook is available to download as a business case on wizardframe.com. For the website we made a hero video. The product configurator at configurator.wizardframe.com is a four-step flow with built-in logic. First you choose the type: residential (B2C) or hospitality (B2B), each with its partners. Then you choose a model and put together the options: the finish, the options every WizardFrame comes with as standard, and extras such as ambient light, an extra HDMI input or a camera. Options that depend on others only become available once the basis is in, and not every option suits every colour. Your choices stay visible in a summary next to the configurator, and at the end you check everything and send your configuration.",
       },
       result: {
-        nl: "Een luxe merk en een configurator waarmee je je eigen frame samenstelt en direct ziet.",
-        en: "A luxurious brand and a configurator that lets you put together your own frame and see it straight away.",
+        nl: "Een luxe merk en een configurator waarmee je je eigen WizardFrame samenstelt, van type en model tot de laatste optie.",
+        en: "A luxurious brand and a configurator that lets you put together your own WizardFrame, from type and model to the very last option.",
       },
-      concept: true,
+      url: "https://wizardframe.com",
       shape: "wide",
     },
     {

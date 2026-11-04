@@ -4,7 +4,7 @@
   ["buitenstate", "buitenstate-tools"],
   ["steddion-tools", "steddion"],
   ["expociety-app", "expociety-branding"],
-  ["bernheze-makelaars-rebranding", "bernheze-makelaars-video"],
+  ["bernheze-makelaars-rebranding", "bernheze-makelaars-website", "bernheze-makelaars-taxatieportaal", "bernheze-makelaars-investment-memorandums", "bernheze-makelaars-video"],
   ["sublime-branding", "sublime-video"],
   ["bctn", "bctn-qhse"],
   ["digital-newsgroup", "digital-newsgroup-platform"],

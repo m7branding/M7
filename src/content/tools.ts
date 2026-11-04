@@ -54,6 +54,7 @@ export const TOOLS = t({
   flutter: { name: "Flutter", category: "development", si: "siFlutter" },
   supabase: { name: "Supabase", category: "development", si: "siSupabase" },
   firebase: { name: "Firebase", category: "development", si: "siFirebase" },
+  wized: { name: "Wized", category: "development", color: "FFFFFF", url: "https://www.wized.com" },
   postgresql: { name: "PostgreSQL", category: "development", si: "siPostgresql" },
   php: { name: "PHP", category: "development", si: "siPhp" },
   tailwind: { name: "Tailwind CSS", category: "development", si: "siTailwindcss" },
