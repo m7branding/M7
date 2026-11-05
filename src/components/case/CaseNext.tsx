@@ -32,7 +32,7 @@ export function CaseNext({ c, locale, kicker, cursor }: { c: Case; locale: Local
         <span className="cx-next__inner">
           <span className="kicker">{kicker}</span>
           <span className="cx-next__title">
-            {c.client}
+            <span className="cx-next__name">{c.client}</span>
             <Icon name="arrowRight" size={48} stroke={1.6} />
           </span>
           <span className="cx-next__sub">{tr(c.title, locale)}</span>

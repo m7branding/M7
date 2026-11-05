@@ -2,6 +2,7 @@ import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
 import { HeroScene } from "@/components/sections/HeroScene";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { BtnInner, btnClass } from "@/components/ui/Button";
 import { CaseCover } from "@/components/ui/CaseCard";
 import type { Case, Locale, Service } from "@/content/types";
 import { getDict } from "@/lib/dict";
@@ -16,7 +17,8 @@ const MOBILE_TAGS = 3;
 /**
  * Case-hero: schermvullend, ingesprongen en afgerond (zoals de overige heroes), met het beeld
  * of de gerenderde hero-video full-bleed op de achtergrond. Donker verloop linksonder, daarop
- * de diensten, het jaar en de titel groot; rechtsonder het logo van de klant op glas.
+ * de diensten, het jaar en de titel groot, met de CTA die naar het project scrolt;
+ * rechtsonder het logo van de klant op glas.
  */
 export function CaseHero({ c, locale, media, services }: { c: Case; locale: Locale; media: HeroMedia; services: Service[] }) {
   const d = getDict(locale);
@@ -81,6 +83,12 @@ export function CaseHero({ c, locale, media, services }: { c: Case; locale: Loca
                 ) : null}
               </ul>
               <SplitText as="h1" id="cx-title" className={`cx-hero__title${title.length > 56 ? " is-long" : title.length > 38 ? " is-mid" : ""}`} parts={title} delay={0.15} />
+              {/* naar de samenvatting (het anker vóór CaseFacts); een gewone hash-link, die scrolt via Lenis */}
+              <div className="cx-hero__actions" data-reveal="fade" style={{ ["--d" as string]: "0.45s" }}>
+                <a href={`#${c.slug}`} className={btnClass({ className: "cx-hero__cta" })}>
+                  <BtnInner>{locale === "nl" ? "Ontdek het project" : "Explore the project"}</BtnInner>
+                </a>
+              </div>
             </div>
             {c.logo ? (
               <div className="cx-hero__logo" data-reveal="fade" style={{ ["--d" as string]: "0.5s" }}>
