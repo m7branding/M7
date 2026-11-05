@@ -739,6 +739,85 @@
   font-size: 0.88rem;
   line-height: 1.55;
 }
+.explorer__group {
+  /* anker (#dienst) zonder JS: de kop valt net onder de navigatie en de dienstenbalk */
+  scroll-margin-top: calc(var(--header-h) + 80px);
+}
+/* Mobiel: glazen dienstenbalk onder de navigatie (zelfde glas als de header), verschijnt
+   zodra de filters uit beeld zijn; schuift mee omhoog als de navigatie verdwijnt. */
+.explorer__jump {
+  display: none;
+}
+@media (max-width: 900px) {
+  .explorer__jump {
+    --jump-y: 0px;
+    position: fixed;
+    z-index: 790;
+    inset: var(--header-h) 0 auto 0;
+    display: block;
+    background: rgba(5, 5, 7, 0.62);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    backdrop-filter: blur(18px) saturate(1.4);
+    border-bottom: 1px solid var(--line);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(0, calc(var(--jump-y) - 8px), 0);
+    transition:
+      transform 1s var(--ease-out) 0.15s,
+      opacity 0.35s var(--ease-soft),
+      visibility 0s linear 0.35s;
+  }
+  .explorer__jump.is-on {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate3d(0, var(--jump-y), 0);
+    transition:
+      transform 1s var(--ease-out) 0.15s,
+      opacity 0.35s var(--ease-soft);
+  }
+  /* de navigatie schuift weg bij naar beneden scrollen: de balk neemt dan haar plek bovenin in */
+  body:has(.hdr.is-hidden) .explorer__jump {
+    --jump-y: calc(-1 * var(--header-h));
+  }
+  .explorer__jump-track {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - 28px), transparent);
+  }
+  .explorer__jump-track::-webkit-scrollbar {
+    display: none;
+  }
+  .explorer__jump .chip {
+    flex: none;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+  .explorer__jump-search {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--text);
+    background: var(--surface-2);
+    box-shadow: 0 0 0 1px var(--line);
+  }
+}
+@media (max-width: 900px) and (prefers-reduced-motion: reduce) {
+  .explorer__jump,
+  .explorer__jump.is-on {
+    transition: none;
+  }
+}
 
 /* ---------------- Sectoren ---------------- */
 .sector-grid {

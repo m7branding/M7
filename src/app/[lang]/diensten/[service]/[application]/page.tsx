@@ -4,13 +4,15 @@ import { GlowField } from "@/components/motion/GlowField";
 import { PixelGrid } from "@/components/motion/PixelGrid";
 import { SplitText } from "@/components/motion/SplitText";
 import { TLink } from "@/components/motion/TLink";
-import { Mockup } from "@/components/mockups";
+import { AppHeroVisual } from "@/components/application/AppHeroVisual";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
 import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { LevelUp } from "@/components/sections/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Showcase } from "@/components/showcase";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Btn } from "@/components/ui/Button";
+import { ArrowLink } from "@/components/ui/ArrowLink";
 import { AppCard, SectionHead } from "@/components/ui/Cards";
 import { CasesMasonry } from "@/components/ui/CaseCard";
 import { Faq } from "@/components/ui/Faq";
@@ -28,6 +30,7 @@ import {
   relatedApplications,
   sectorsForApplication,
 } from "@/lib/content";
+import { applicationVisual } from "@/lib/application-visual";
 import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
@@ -63,10 +66,13 @@ export default function ApplicationPage({ params }: P) {
   const cases = casesForApplicationOrService(a).slice(0, 5);
   const related = relatedApplications(a, 10);
   const sectors = sectorsForApplication(a.slug);
+  // eigen media gaat voor; anders een vast projectbeeld: de showcase van home of een beeld/video uit een gekoppelde case
+  const visual = a.media ? null : applicationVisual(a);
+  const show = visual?.kind === "show" ? visual.service : null;
 
   return (
     <article className="app" style={{ ["--accent" as string]: s.color }}>
-      <section className="page-hero app-hero">
+      <section className={`page-hero app-hero svc-hero${show ? " svc-hero--show" : ""}`}>
         <div className="page-hero__bg">
           <GlowField
             blobs={[
@@ -106,10 +112,22 @@ export default function ApplicationPage({ params }: P) {
               </TLink>
             </div>
           </div>
-          <div className="svc-hero__visual" data-reveal="scale" style={{ ["--d" as string]: "0.2s" }}>
-            {a.media ? <ServiceMedia media={a.media} alt={title} placement="hero" /> : s.media ? <ServiceMedia media={s.media} alt={title} placement="hero" /> : <Mockup kind={s.mockup} accent={s.color} />}
-          </div>
+          {show ? null : (
+            <div className="svc-hero__visual" data-reveal="scale" style={{ ["--d" as string]: "0.2s" }}>
+              {a.media ? (
+                <ServiceMedia media={a.media} alt={title} placement="hero" />
+              ) : visual && visual.kind !== "show" ? (
+                <AppHeroVisual visual={visual} title={title} viewCase={d.cta.viewCase} />
+              ) : null}
+            </div>
+          )}
         </div>
+        {/* dezelfde showcase als op home en de dienstpagina: komt onderin uit de vouw van de hero omhoog */}
+        {show ? (
+          <div className="svc-hero__show">
+            <Showcase slug={show} hero />
+          </div>
+        ) : null}
       </section>
 
       {/* ---------- Inhoud + wat je krijgt ---------- */}
@@ -177,9 +195,7 @@ export default function ApplicationPage({ params }: P) {
         <section className="section app-cases">
           <div className="container">
             <SectionHead kicker={d.service.projects} title={d.service.projectsTitle}>
-              <TLink href={`${paths.cases}?dienst=${s.slug}`} className="link-dash">
-                {d.nav.allCases}
-              </TLink>
+              <ArrowLink href={`${paths.cases}?dienst=${s.slug}`}>{d.nav.allCases}</ArrowLink>
             </SectionHead>
             <div className="svc-cases__grid">
               <CasesMasonry list={cases} locale={locale} label={d.cta.viewCase} />
@@ -192,9 +208,9 @@ export default function ApplicationPage({ params }: P) {
       <section className="section app-related">
         <div className="container">
           <SectionHead kicker={d.service.otherApplications} title={locale === "nl" ? "Combineer slim." : "Combine smartly."}>
-            <TLink href={paths.service(s)} className="link-dash">
+            <ArrowLink href={paths.service(s)}>
               {d.service.allApplicationsOf} {tr(s.short, locale)}
-            </TLink>
+            </ArrowLink>
           </SectionHead>
         </div>
         <div className="svc-apps__slider" data-reveal="fade">
@@ -229,9 +245,9 @@ export default function ApplicationPage({ params }: P) {
             <h2 className="h2" data-reveal="up">
               {d.service.faqTitle}
             </h2>
-            <TLink href={paths.service(s) + "#faq"} className="link-dash" data-reveal="up">
+            <ArrowLink href={paths.service(s) + "#faq"} data-reveal="up">
               {locale === "nl" ? `Alle vragen over ${tr(s.short, locale)}` : `All questions about ${tr(s.short, locale)}`}
-            </TLink>
+            </ArrowLink>
           </div>
           <Faq faqs={a.faqs} locale={locale} moreLabel={d.cta.moreAnswers} answersPath={s.answersPath} />
         </div>

@@ -17,6 +17,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { TeamLine } from "@/components/support/TeamLine";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Btn } from "@/components/ui/Button";
+import { ArrowLink } from "@/components/ui/ArrowLink";
 import { AppCard, SectionHead } from "@/components/ui/Cards";
 import { CasesMasonry } from "@/components/ui/CaseCard";
 import { ChapterBlock } from "@/components/ui/Chapter";
@@ -210,9 +211,9 @@ export default function ServicePage({ params }: P) {
         <section className="section svc-cases" id="projecten" aria-labelledby="cases-title">
           <div className="container">
             <SectionHead kicker={d.service.projects} title={d.service.projectsTitle} id="cases-title">
-              <TLink href={`${paths.cases}?dienst=${s.slug}`} className="link-dash">
+              <ArrowLink href={`${paths.cases}?dienst=${s.slug}`}>
                 {d.nav.allCases} <span className="count-badge">{cases.length}</span>
-              </TLink>
+              </ArrowLink>
             </SectionHead>
             <div className="svc-cases__grid">
               <CasesMasonry list={cases.slice(0, 7)} locale={locale} label={d.cta.viewCase} />

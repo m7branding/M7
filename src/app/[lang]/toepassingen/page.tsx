@@ -72,7 +72,12 @@ export default function ApplicationsPage({ params }: P) {
         <div className="container">
           <ApplicationsExplorer
             groups={groups}
-            labels={{ all: d.cases.filterAll, search: locale === "nl" ? "Zoek een toepassing…" : "Search an application…", none: locale === "nl" ? "Niets gevonden." : "Nothing found." }}
+            labels={{
+              all: d.cases.filterAll,
+              search: locale === "nl" ? "Zoek een toepassing…" : "Search an application…",
+              none: locale === "nl" ? "Niets gevonden." : "Nothing found.",
+              jump: d.nav.services,
+            }}
           />
           <p className="center" style={{ marginTop: 56 }}>
             <TLink href={paths.services} className="link-dash">

@@ -1,4 +1,5 @@
 import { TLink } from "@/components/motion/TLink";
+import { ArrowLink } from "@/components/ui/ArrowLink";
 import { SectionHead } from "@/components/ui/Cards";
 import { logoDesigns, type LogoDesign } from "@/content/logo-designs";
 import type { Locale } from "@/content/types";
@@ -33,9 +34,9 @@ export function LogoWall({ locale, id = "logos" }: { locale: Locale; id?: string
       <div className="container">
         <SectionHead kicker={tr(COPY.kicker, locale)} title={tr(COPY.title, locale)} text={tr(COPY.text, locale)} id={titleId}>
           {app ? (
-            <TLink href={paths.application(app)} className="link-dash">
+            <ArrowLink href={paths.application(app)}>
               {tr(COPY.more, locale)} <span className="count-badge">{logoDesigns.length}</span>
-            </TLink>
+            </ArrowLink>
           ) : null}
         </SectionHead>
         <LogoWallSpot className="lwall__frame" label={`${logoDesigns.length} ${tr(COPY.count, locale)}`}>
