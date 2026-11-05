@@ -33,12 +33,221 @@
   }
 }
 
+/* ---------------- Filterbalk ----------------
+   Eén rij: de diensten als chips, sector en sortering als select. Plakt onder de
+   navigatie (en schuift mee naar boven als die wegschuift); zodra hij plakt krijgt
+   hij hetzelfde glas als de header. Op mobiel en tablet scrollt de hele rij horizontaal,
+   breder alleen de chips (sector en sortering staan dan vast rechts, met pijlen voor de muis). */
+.cfilter__bar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 600;
+  padding-block: 10px;
+  transition: top 0.7s var(--ease-out);
+}
+html:has(.hdr.is-hidden) .cfilter__bar {
+  top: 0;
+}
+.cfilter__bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(5, 5, 7, 0.62);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-soft);
+}
+.cfilter__bar[data-stuck]::before {
+  opacity: 1;
+}
+.cfilter__scroll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cfilter__track {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+/* ruimte voor de focusring en de rand van de chips (de rij knipt af) */
+.cfilter__row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin: -6px -4px;
+  padding: 6px 4px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.cfilter__row::-webkit-scrollbar,
+.cfilter__scroll::-webkit-scrollbar {
+  display: none;
+}
+.cfilter__row .chip {
+  flex: none;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+}
+.cfilter__opts {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cfilter__select {
+  position: relative;
+  display: block;
+  flex: none;
+}
+.cfilter__select select {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 38px;
+  padding: 0 34px 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23fff' stroke-opacity='.7' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    no-repeat right 14px center / 10px 6px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--text);
+  color-scheme: dark;
+  max-width: 13rem;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+.cfilter__select select:hover {
+  box-shadow: inset 0 0 0 1px var(--line-2);
+}
+.cfilter__select.is-set select {
+  box-shadow: inset 0 0 0 1px rgba(58, 255, 255, 0.45);
+}
+.cfilter__select--sort select {
+  padding-left: 36px;
+}
+.cfilter__sorticon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  color: var(--teal);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+/* vervagen waar de rij nog verder gaat (helemaal weg onder de pijl) */
+.cfilter__row {
+  --fade-l: 0px;
+  --fade-r: 0px;
+  -webkit-mask-image: linear-gradient(90deg, transparent calc(var(--fade-l) * 0.3), #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent calc(100% - var(--fade-r) * 0.3));
+  mask-image: linear-gradient(90deg, transparent calc(var(--fade-l) * 0.3), #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent calc(100% - var(--fade-r) * 0.3));
+}
+.cfilter__bar[data-prev] .cfilter__row {
+  --fade-l: 88px;
+}
+.cfilter__bar[data-next] .cfilter__row {
+  --fade-r: 88px;
+}
+/* pijlen alleen met een muis (op touch veeg je gewoon) */
+.cfilter__arrow {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) and (min-width: 1001px) {
+  .cfilter__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(22, 22, 26, 0.92);
+    box-shadow: inset 0 0 0 1px var(--line-2);
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.3s,
+      background 0.3s;
+  }
+  .cfilter__arrow:hover {
+    background: rgba(40, 40, 46, 0.96);
+  }
+  .cfilter__arrow--prev {
+    left: 0;
+  }
+  .cfilter__arrow--next {
+    right: 0;
+  }
+  .cfilter__bar[data-prev] .cfilter__arrow--prev,
+  .cfilter__bar[data-next] .cfilter__arrow--next {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@media (max-width: 1000px) {
+  /* de hele rij veegt, van rand tot rand */
+  .cfilter__scroll {
+    margin: -6px calc(-1 * var(--gutter));
+    padding: 6px var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .cfilter__track {
+    flex: none;
+  }
+  .cfilter__row {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+  .cfilter__row,
+  .cfilter__bar[data-next] .cfilter__row,
+  .cfilter__bar[data-prev] .cfilter__row {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .cfilter__scroll {
+    -webkit-mask-image: linear-gradient(90deg, transparent calc(var(--fade-l) * 0.2), #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent calc(100% - var(--fade-r) * 0.2));
+    mask-image: linear-gradient(90deg, transparent calc(var(--fade-l) * 0.2), #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent calc(100% - var(--fade-r) * 0.2));
+  }
+  .cfilter__bar {
+    --fade-l: 0px;
+    --fade-r: 0px;
+  }
+  .cfilter__bar[data-prev] {
+    --fade-l: 48px;
+  }
+  .cfilter__bar[data-next] {
+    --fade-r: 48px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cfilter__bar,
+  .cfilter__bar::before {
+    transition: none;
+  }
+}
+
+.cfilter__body {
+  padding-top: clamp(20px, 2.6vw, 32px);
+}
+
 /* Aantal resultaten + wissen (alleen met een actief filter) */
 .cfilter__status {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin: -16px 0 28px;
+  margin: 0 0 22px;
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 600;

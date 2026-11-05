@@ -7,6 +7,8 @@ import { CaseLightbox } from "@/components/case/CaseLightbox";
 import { CaseLine } from "@/components/case/CaseLine";
 import { CaseNext } from "@/components/case/CaseNext";
 import { CasePart } from "@/components/case/CasePart";
+import { CaseToc } from "@/components/case/CaseToc";
+import { storyToc, type TocItem } from "@/components/case/toc";
 import "@/components/case/case.css";
 import { TLink } from "@/components/motion/TLink";
 import { CaseStory } from "@/components/sections/CaseStory";
@@ -63,6 +65,13 @@ export default function CasePage({ params }: P) {
   const next = nextCase(c.slug);
   const title = tr(c.title, locale);
   const story = storyFor(c);
+  const restStories = rest.map((p) => storyFor(p));
+  // "In dit project": de samenvatting, de hoofdstukken en (bij een storyline) de volgende delen met hun hoofdstukken
+  const toc: TocItem[] = [
+    { id: c.slug, label: locale === "nl" ? "Over het project" : "About the project" },
+    ...storyToc(story, locale),
+    ...rest.flatMap((p, k) => [{ id: p.slug, label: tr(p.title, locale), part: true }, ...storyToc(restStories[k], locale, `${p.slug}-`)]),
+  ];
 
   return (
     <article className="case cx" style={{ ["--cc" as string]: c.color, ["--accent" as string]: services[0]?.color }}>
@@ -90,7 +99,7 @@ export default function CasePage({ params }: P) {
             services={p.services.map((s) => getService(s)!).filter(Boolean)}
             media={heroOf(p)}
           />
-          <CaseStory blocks={storyFor(p)} c={p} locale={locale} idPrefix={`${p.slug}-`} />
+          <CaseStory blocks={restStories[k]} c={p} locale={locale} idPrefix={`${p.slug}-`} />
         </Fragment>
       ))}
 
@@ -118,6 +127,7 @@ export default function CasePage({ params }: P) {
       </div>
 
       <LevelUp locale={locale} />
+      {toc.length >= 3 ? <CaseToc items={toc} title={locale === "nl" ? "In dit project" : "In this project"} /> : null}
       <CaseLightbox
         labels={
           locale === "nl"

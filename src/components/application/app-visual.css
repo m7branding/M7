@@ -1,0 +1,109 @@
+/* ============================================================
+   Projectbeeld in de hero van een toepassingspagina (AppHeroVisual).
+   Kader zoals de case-hero, gloed in de dienstkleur (--accent),
+   label "Project · klant" zoals op de sectortegels (.sb-chip).
+   ============================================================ */
+
+.app-visual {
+  position: relative;
+  margin: 0;
+}
+.app-visual__glow {
+  position: absolute;
+  inset: -16% -12%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--teal)) 20%, transparent), transparent 72%);
+  pointer-events: none;
+}
+.app-visual__frame {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--r-lg);
+  background: #0b0b0e;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 40px 90px -40px rgba(0, 0, 0, 0.9);
+}
+.app-visual__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+}
+.app-visual__frame img,
+.app-visual__frame video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* video faded pas in als hij echt speelt; tot dan staat de poster er */
+.app-visual__frame video {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-soft);
+}
+.app-visual__frame video.is-on {
+  opacity: 1;
+}
+/* stilstaand beeld: heel rustig inzoomen, zodat het naast de video's niet stil valt */
+.app-visual--image .app-visual__frame img {
+  transform-origin: 50% 45%;
+  animation: app-visual-zoom 26s ease-in-out infinite alternate;
+}
+@keyframes app-visual-zoom {
+  from {
+    transform: scale(1.01);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+.app-visual__chip {
+  z-index: 4;
+  left: clamp(12px, 1.6vw, 18px);
+  bottom: clamp(12px, 1.6vw, 18px);
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
+}
+.app-visual__chip svg {
+  color: var(--muted);
+  transition:
+    color 0.3s,
+    transform 0.4s var(--ease-out);
+}
+.app-visual__chip:hover,
+.app-visual__chip:focus-visible {
+  background: rgba(14, 15, 19, 0.88);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--accent, var(--teal)) 55%, transparent),
+    0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.app-visual__chip:hover svg,
+.app-visual__chip:focus-visible svg {
+  color: var(--text);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 600px) {
+  /* op de telefoon iets hoger, zodat het beeld niet als een strookje onder de knoppen staat */
+  .app-visual__frame {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-md);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-visual--image .app-visual__frame img {
+    animation: none;
+  }
+}

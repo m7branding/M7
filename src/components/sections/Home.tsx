@@ -15,6 +15,7 @@ import { Mockup } from "@/components/mockups";
 import { IntakeCta } from "@/components/overlay/OverlayButton";
 import { ServiceMedia } from "@/components/mockups/ServiceMedia";
 import { Showcase, hasShowcase } from "@/components/showcase";
+import { Btn } from "@/components/ui/Button";
 import { CaseCover } from "@/components/ui/CaseCard";
 import { Icon } from "@/components/ui/Icon";
 import { Marquee } from "@/components/ui/Marquee";
@@ -62,14 +63,14 @@ export function HomeHero({ locale }: { locale: Locale }) {
             delay={0.15}
           />
         </h1>
-        <p className="lead hero__sub" data-reveal="up" style={{ ["--d" as string]: "0.55s" }}>
+        <p className="lead hero__sub" data-reveal="up" style={{ ["--d" as string]: "0.6s" }}>
           {d.home.heroSub}
         </p>
-        <span className="hero__line" aria-hidden="true" data-reveal="fade" style={{ ["--d" as string]: "0.8s" }} />
-        <div className="hero__cta" data-reveal="up" style={{ ["--d" as string]: "0.9s" }}>
+        <span className="hero__line" aria-hidden="true" data-reveal="fade" style={{ ["--d" as string]: "0.85s" }} />
+        <div className="hero__cta" data-reveal="up" style={{ ["--d" as string]: "1.05s" }}>
           <IntakeCta>{d.cta.launch}</IntakeCta>
         </div>
-        <div className="hero__visual" data-reveal="fade" style={{ ["--d" as string]: "0.3s" }}>
+        <div className="hero__visual" data-reveal="fade" style={{ ["--d" as string]: "0.45s" }}>
           <HeroScene>
             <ScrollSequence
               src="/media/sequences/hero"
@@ -83,7 +84,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <a className="partner" href={site.partner.url} target="_blank" rel="noopener" data-reveal="up" style={{ ["--d" as string]: "1.1s" }}>
+      {/* geen data-reveal: de badge staat onderin het scherm, buiten het zichtveld van de reveal-observer
+          (die pas onder 8% van de onderkant telt); hij komt met een eigen laad-animatie binnen */}
+      <a className="partner" href={site.partner.url} target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
           <path d="M17.8 7.2s-2.1 6.6-2.3 7.2c-.1-.8-1.5-11.5-1.5-11.5-3.5 0-5.3 2.5-6.3 5.1 0 0-2.4 6.3-2.6 6.8 0-.5-.4-6.7-.4-6.7C4.5 5 2.3 3 0 3l2.6 16.2c3.4 0 5.2-2.3 6.2-4.9 0 0 2-5.3 2.1-5.6 0 .4 1.5 10.5 1.5 10.5 3.4 0 5.2-2.2 6.2-4.6L24 3c-3.4 0-5.2 2.3-6.2 4.2Z" />
         </svg>
@@ -185,7 +188,21 @@ export function FolderGrid({ locale }: { locale: Locale }) {
 }
 
 /* ---------------- Peiler-kaarten (zoals in het design: tekst | mockup, afwisselend) ---------------- */
-export function PillarStack({ locale, from = 0, to, anchors }: { locale: Locale; from?: number; to?: number; anchors?: boolean }) {
+export function PillarStack({
+  locale,
+  from = 0,
+  to,
+  anchors,
+  allLink = !anchors,
+}: {
+  locale: Locale;
+  from?: number;
+  to?: number;
+  /** id per kaart (alleen op het dienstenoverzicht zelf) */
+  anchors?: boolean;
+  /** tweede link "Bekijk alle diensten"; standaard niet op het overzicht zelf (anchors) */
+  allLink?: boolean;
+}) {
   const d = getDict(locale);
   const all = allServices();
   const list = all.slice(from, to ?? all.length);
@@ -209,10 +226,14 @@ export function PillarStack({ locale, from = 0, to, anchors }: { locale: Locale;
                   </h2>
                   <p className="pillar__body">{tr(s.description, locale).split("\n\n")[0]}</p>
                   <div className="pillar__cta">
-                    <IntakeCta>{d.cta.launch}</IntakeCta>
-                    <TLink href={paths.service(s)} className="link-dash">
-                      {d.cta.discover} {tr(s.short, locale)}
-                    </TLink>
+                    <Btn href={paths.service(s)}>
+                      {d.cta.moreAbout} {tr(s.short, locale)}
+                    </Btn>
+                    {allLink ? (
+                      <TLink href={paths.services} className="link-dash">
+                        {d.cta.viewAllServices}
+                      </TLink>
+                    ) : null}
                   </div>
                 </div>
                 {hasShowcase(s.slug) ? (

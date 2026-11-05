@@ -20,7 +20,10 @@ const plain = (s: string) => s.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, 
  * masonry-secties, grote hoofdstukken, schermvullende quotes/statements en beeld, de showcase,
  * beeld naast tekst, tijdlijn/checklist en de cijfers.
  */
-/** `idPrefix`: bij meerdere delen op één pagina (storyline van een klant) blijven de ankers uniek. */
+/**
+ * `idPrefix`: bij meerdere delen op één pagina (storyline van een klant) blijven de ankers uniek.
+ * De koppen krijgen `${idPrefix}story-${index}` als anker; "In dit project" (case/toc.ts) gebruikt dezelfde.
+ */
 export function CaseStory({ blocks, c, locale, idPrefix = "" }: { blocks: CaseBlock[]; c: Case; locale: Locale; idPrefix?: string }) {
   // per masonry: welke sectie (ritme) en het nummer van het eerste beeld (doorlopende alt-teksten)
   let gallery = 0;
@@ -85,7 +88,7 @@ function Block({ b, c, locale, i, seed, start, idPrefix }: { b: CaseBlock; c: Ca
               <img src={b.image} alt={tr(b.h, locale)} loading="lazy" decoding="async" />
             </figure>
             <div className="cx-split__text">
-              <SplitText as="h2" className="cx-split__title" parts={tr(b.h, locale)} />
+              <SplitText as="h2" id={`${idPrefix}story-${i}`} className="cx-split__title" parts={tr(b.h, locale)} />
               <div data-reveal="up" style={{ ["--d" as string]: "0.2s" }}>
                 <RichText text={tr(b.body, locale)} className="cx-chapter__text" locale={locale} />
               </div>
@@ -99,7 +102,7 @@ function Block({ b, c, locale, i, seed, start, idPrefix }: { b: CaseBlock; c: Ca
       return (
         <section className="cx-tl">
           <div className="container">
-            {b.title ? <SplitText as="h2" className="cx-tl__title" parts={tr(b.title, locale)} /> : null}
+            {b.title ? <SplitText as="h2" id={`${idPrefix}story-${i}`} className="cx-tl__title" parts={tr(b.title, locale)} /> : null}
             {checklist ? (
               <ul className="cx-list" data-stagger="">
                 {b.items.map((it, k) => (

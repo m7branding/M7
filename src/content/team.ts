@@ -17,14 +17,6 @@ export const team: TeamMember[] = [
     founder: true,
   },
   {
-    slug: "noud-van-der-stappen",
-    name: "Noud van der Stappen",
-    first: "Noud",
-    role: { nl: "Designer & Marketeer", en: "Designer & Marketer" },
-    photo: "/media/team/team-2.webp",
-    avatar: "/media/team/avatar/noud-van-der-stappen.webp",
-  },
-  {
     slug: "alexander-koselka",
     name: "Alexander Koselka",
     first: "Alexander",

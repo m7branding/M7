@@ -5,6 +5,7 @@ import { getDict } from "@/lib/dict";
 import { tr } from "@/lib/i18n";
 import { paths } from "@/lib/paths";
 import { SpecChips } from "./SpecChips";
+import { SpecFold } from "./SpecFold";
 
 /** Hoeveel toepassingen er direct staan; de rest klapt open met "+N". */
 const APPS_VISIBLE = 6;
@@ -22,17 +23,20 @@ function liveLabel(url: string, fallback: string) {
 /**
  * Samenvatting + specificaties: links de samenvatting als lead, rechts een strak uitgelijnd
  * raster van label en waarde. Toepassingen als chips (lange lijsten ingekort met "+N"),
- * tools met hun badges.
+ * tools met hun badges; op mobiel zijn die twee ingeklapt (SpecFold), zodat ze pas ruimte
+ * innemen als je ze opent.
  */
 export function CaseFacts({ c, locale, sector, apps }: { c: Case; locale: Locale; sector?: Sector; apps: Application[] }) {
   const d = getDict(locale);
-  const rows: { k: string; v: React.ReactNode; wide?: boolean }[] = [{ k: d.cases.client, v: c.client }];
+  // fold: het aantal (op mobiel ingeklapt met alleen label en aantal)
+  const rows: { k: string; v: React.ReactNode; wide?: boolean; fold?: number }[] = [{ k: d.cases.client, v: c.client }];
   if (c.year) rows.push({ k: d.cases.year, v: c.year });
   if (sector) rows.push({ k: d.cases.sector, v: <TLink href={paths.sector(sector)} className="cx-specs__link">{tr(sector.title, locale)}</TLink> });
   if (apps.length)
     rows.push({
       k: d.nav.applications,
       wide: true,
+      fold: apps.length,
       v: (
         <SpecChips max={APPS_VISIBLE} more={locale === "nl" ? "Toon alle toepassingen" : "Show all applications"} less={locale === "nl" ? "Toon minder" : "Show less"}>
           {apps.map((a) => (
@@ -47,6 +51,7 @@ export function CaseFacts({ c, locale, sector, apps }: { c: Case; locale: Locale
     rows.push({
       k: d.cases.tools,
       wide: true,
+      fold: c.tools.length,
       v: (
         <div className="cx-specs__tools">
           {c.tools.map((t) => (
@@ -75,12 +80,18 @@ export function CaseFacts({ c, locale, sector, apps }: { c: Case; locale: Locale
           {tr(c.summary, locale)}
         </p>
         <dl className="cx-specs" data-stagger="">
-          {rows.map((r) => (
-            <div key={r.k} className={`cx-specs__row${r.wide ? " is-wide" : ""}`}>
-              <dt>{r.k}</dt>
-              <dd>{r.v}</dd>
-            </div>
-          ))}
+          {rows.map((r) =>
+            r.fold ? (
+              <SpecFold key={r.k} label={r.k} count={r.fold}>
+                {r.v}
+              </SpecFold>
+            ) : (
+              <div key={r.k} className={`cx-specs__row${r.wide ? " is-wide" : ""}`}>
+                <dt>{r.k}</dt>
+                <dd>{r.v}</dd>
+              </div>
+            ),
+          )}
         </dl>
       </div>
     </section>

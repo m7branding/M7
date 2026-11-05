@@ -84,35 +84,40 @@ export default function CasesPage({ params }: P) {
             </p>
             <ReelChips reels={chapters} labels={showreelLabels(locale)} title={tr(HERO_COPY.reels, locale)} close={tr(HERO_COPY.close, locale)} />
           </div>
-          <CasesFilter
-            services={usedServices.map((s) => ({ slug: s.slug, label: tr(s.short, locale), color: s.color }))}
-            sectors={usedSectors.map((s) => ({ slug: s.slug, label: tr(s.title, locale) }))}
-            labels={{
-              all: d.cases.filterAll,
-              service: d.cases.filterService,
-              sector: d.cases.filterSector,
-              none: d.service.noCases,
-              more: locale === "nl" ? "Toon meer cases" : "Show more cases",
-              count: "cases",
-              reset: locale === "nl" ? "Wis filters" : "Clear filters",
-            }}
-            pageSize={PAGE}
-          >
-            <div className="masonry masonry--cases">
-              {cases.map((c, i) => (
-                <div
-                  key={c.slug}
-                  data-case=""
-                  data-services={c.services.join(" ")}
-                  data-sector={c.sector}
-                  data-more={i >= PAGE ? "" : undefined}
-                >
-                  <CaseCard c={c} locale={locale} label={d.cta.viewCase} index={i} />
-                </div>
-              ))}
-            </div>
-          </CasesFilter>
         </div>
+        {/* buiten de container: de plakkende glazen filterbalk loopt van rand tot rand */}
+        <CasesFilter
+          services={usedServices.map((s) => ({ slug: s.slug, label: tr(s.short, locale), color: s.color }))}
+          sectors={usedSectors.map((s) => ({ slug: s.slug, label: tr(s.title, locale) }))}
+          labels={{
+            all: d.cases.filterAll,
+            service: d.cases.filterService,
+            sector: d.cases.filterSector,
+            none: d.service.noCases,
+            more: locale === "nl" ? "Toon meer cases" : "Show more cases",
+            count: "cases",
+            reset: locale === "nl" ? "Wis filters" : "Clear filters",
+            sort: locale === "nl" ? "Sorteer" : "Sort",
+            sorts: locale === "nl" ? { featured: "Uitgelicht", new: "Nieuwste eerst", az: "A–Z" } : { featured: "Featured", new: "Newest first", az: "A–Z" },
+          }}
+          pageSize={PAGE}
+        >
+          <div className="masonry masonry--cases">
+            {cases.map((c, i) => (
+              <div
+                key={c.slug}
+                data-case=""
+                data-services={c.services.join(" ")}
+                data-sector={c.sector}
+                data-year={c.year || undefined}
+                data-name={c.client}
+                data-more={i >= PAGE ? "" : undefined}
+              >
+                <CaseCard c={c} locale={locale} label={d.cta.viewCase} index={i} />
+              </div>
+            ))}
+          </div>
+        </CasesFilter>
       </section>
       <LogoWall locale={locale} />
       <LevelUp locale={locale} />
