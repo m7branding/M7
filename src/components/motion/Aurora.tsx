@@ -63,14 +63,15 @@ void main(){
   float z=1.06+.06*ph;
   vec2 m=(uMouse-.5)*vec2(.010,-.008);
   vec2 uv=v/z+vec2(.5)+vec2(.016,-.014)*ph+m;
-  // ademen: de lagen zwellen en zakken rond het hart van de plooien (rechtsboven)
+  // ademen: de lagen zwellen en zakken rond het hart van de plooien (rechtsboven);
+  // iets ruimer en vlotter dan eerst (was amper te zien), de vorm zelf blijft gelijk
   vec2 C=vec2(.95,.05);
   vec2 d=uv-C;float r=length(d);float a=atan(d.y,d.x);
   vec2 n=d/max(r,1e-3);vec2 tg=vec2(-n.y,n.x);
   float fade=smoothstep(.02,.3,r);
-  float dr=.0085*sin(r*7.5-t*.29+uSeed)*(.65+.35*sin(a*2.2+t*.11+uSeed*1.7))
-          +.0045*sin(a*3.1+r*2.4+t*.19+uSeed*2.3);
-  float dt=.0055*sin(r*5.2+t*.15+uSeed*.7);
+  float dr=.0145*sin(r*7.5-t*.4+uSeed)*(.65+.35*sin(a*2.2+t*.15+uSeed*1.7))
+          +.0072*sin(a*3.1+r*2.4+t*.26+uSeed*2.3);
+  float dt=.0088*sin(r*5.2+t*.21+uSeed*.7);
   uv-=(n*dr+tg*dt)*fade;
   vec3 col=texture2D(uTex,uv).rgb;
   // licht dat traag over de plooien drijft: alleen de lichte delen gloeien iets op

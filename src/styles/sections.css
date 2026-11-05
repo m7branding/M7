@@ -47,12 +47,23 @@
   color: #cfcfd6;
 }
 .hero__line {
+  position: relative;
   display: block;
   width: 2px;
   height: 64px;
   margin-top: 30px;
-  background: repeating-linear-gradient(180deg, var(--teal) 0 7px, transparent 7px 13px);
   opacity: 0.8;
+  /* loopt zacht uit het niets naar de knop toe */
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 78%);
+  mask-image: linear-gradient(180deg, transparent, #000 78%);
+}
+/* de streepjes zelf op een pseudo-element: dat tekent zich bij het laden naar beneden (clip-path),
+   terwijl het element zelf zichtbaar blijft voor de reveal-observer */
+.hero__line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(180deg, var(--teal) 0 7px, transparent 7px 13px);
 }
 .hero__cta {
   position: relative;
@@ -97,6 +108,85 @@
 .partner:hover {
   transform: translateY(-3px);
 }
+html.js .partner {
+  animation: partner-in 1.1s var(--ease-out) 1.3s backwards;
+}
+html.js[data-loading="1"] .partner {
+  animation: none;
+  opacity: 0;
+}
+@keyframes partner-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+}
+
+/* ---- Laad-animatie van de hero (premium reveal) ----
+   titel: woorden komen gestaffeld omhoog uit hun masker en worden scherp;
+   subtitel: omhoog en scherp; stippellijn: tekent zich naar beneden naar de knop;
+   telefoons: rijzen rustig op en faden in. Reduced motion: alles staat meteen (base.css). */
+html.js .hero__title .split[data-reveal] .w > span {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translate3d(0, 105%, 0) rotate(5deg);
+  transition:
+    transform 1.5s var(--ease-out),
+    opacity 1s var(--ease-soft),
+    filter 1.2s var(--ease-soft);
+  transition-delay: calc(var(--d) + var(--i, 0) * 0.1s);
+}
+html.js .hero__title .split[data-reveal].is-in .w > span {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+html.js .hero__sub[data-reveal] {
+  filter: blur(6px);
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 1.2s var(--ease-soft) var(--d),
+    transform 1.4s var(--ease-out) var(--d),
+    filter 1.2s var(--ease-soft) var(--d);
+}
+html.js .hero__sub[data-reveal].is-in {
+  filter: none;
+  transform: none;
+}
+html.js .hero__line[data-reveal] {
+  transition: opacity 0.5s var(--ease-soft) var(--d);
+}
+html.js .hero__line[data-reveal].is-in {
+  opacity: 0.8;
+}
+html.js .hero__line[data-reveal]::before {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.1s var(--ease-in-out) var(--d);
+}
+html.js .hero__line[data-reveal].is-in::before {
+  clip-path: inset(0 0 0 0);
+}
+html.js .hero__visual[data-reveal] {
+  transform: translate3d(0, 56px, 0) scale(0.96);
+  transform-origin: 50% 100%;
+  transition:
+    opacity 1.6s var(--ease-soft) var(--d),
+    transform 2s var(--ease-out) var(--d);
+}
+html.js .hero__visual[data-reveal].is-in {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .hero__title .split[data-reveal] .w > span,
+  html.js .hero__sub[data-reveal],
+  html.js .hero__line[data-reveal]::before {
+    filter: none !important;
+    clip-path: none !important;
+  }
+  html.js .partner {
+    animation: none;
+  }
+}
 .hero__rail {
   position: absolute;
   right: clamp(14px, 3vw, 40px);
@@ -121,10 +211,63 @@
   .hero__rail {
     display: none;
   }
-  .partner {
+  /* Mobiel: de hero is precies één scherm. Tekst bovenin, de telefoons vullen de rest en staan met
+     hun onderkant op de vouw, waar ze zacht in het zwart overlopen (::after). */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(var(--header-h) + clamp(18px, 4.5vh, 48px));
+  }
+  .hero::after {
+    height: 34%;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55) 45%, #000);
+  }
+  .hero__inner {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__line {
+    height: clamp(34px, 6.5vh, 64px);
+    margin-top: clamp(14px, 3vh, 30px);
+  }
+  .hero__visual {
+    flex: 1 1 auto;
+    min-height: 190px;
+    margin-top: -26px;
+  }
+  .hero__scene {
+    position: absolute;
+    inset: 0;
+  }
+  /* zo hoog als de ruimte toelaat, maar de twee telefoons blijven binnen beeld (max-width);
+     het beeld wordt 'contain' en onderaan uitgelijnd getekend (ScrollSequence align="bottom") */
+  .hero__seq {
+    position: absolute;
     left: 50%;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    min-width: 100%;
+    max-width: 175vw;
     translate: -50% 0;
-    bottom: 18px;
+  }
+  /* Webflow-badge: klein, op één regel, linksonder in de hero (zoals op desktop) */
+  .partner {
+    left: var(--gutter);
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    gap: 7px;
+    padding: 6px 10px 6px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    box-shadow: 0 10px 26px -12px rgba(67, 83, 255, 0.8);
+  }
+  .partner svg {
+    width: 14px;
+    height: 14px;
   }
 }
 

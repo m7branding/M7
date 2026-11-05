@@ -88,22 +88,27 @@ html.js:not([data-loading="1"]) .hdr {
   opacity: 0.55;
   transition: stroke-dashoffset 0.6s var(--ease-in-out);
 }
+/* .is-draw: dezelfde animatie, afgespeeld telkens als de header (opnieuw) verschijnt op touch/mobiel (SiteChrome) */
 .hdr__logo:hover .m7d__fill,
-.hdr__logo:focus-visible .m7d__fill {
+.hdr__logo:focus-visible .m7d__fill,
+.hdr__logo.is-draw .m7d__fill {
   opacity: 0;
   transition-delay: 0s;
 }
 .hdr__logo:hover .m7d__lined path,
-.hdr__logo:focus-visible .m7d__lined path {
+.hdr__logo:focus-visible .m7d__lined path,
+.hdr__logo.is-draw .m7d__lined path {
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 1.1s var(--ease-in-out) calc(var(--pi) * 0.09s);
 }
 .hdr__logo:hover .m7d__guides line,
-.hdr__logo:focus-visible .m7d__guides line {
+.hdr__logo:focus-visible .m7d__guides line,
+.hdr__logo.is-draw .m7d__guides line {
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 0.9s var(--ease-out) 0.15s;
 }
-.hdr__logo:hover .m7d__guides line:nth-child(3) {
+.hdr__logo:hover .m7d__guides line:nth-child(3),
+.hdr__logo.is-draw .m7d__guides line:nth-child(3) {
   transition-delay: 0.35s;
 }
 .hdr__nav {
@@ -303,6 +308,12 @@ html.js:not([data-loading="1"]) .hdr {
 @media (max-width: 560px) {
   .hdr__contact {
     display: none;
+  }
+}
+/* mobiel: compact logo, even hoog als het 2x2-menu-icoon rechts (25px) */
+@media (max-width: 760px) {
+  .hdr__logo {
+    width: 44px;
   }
 }
 

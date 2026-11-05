@@ -33,6 +33,38 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
   const lastY = useRef(0);
   const closeTimer = useRef<number>();
 
+  // Op touch/mobiel (geen hover): het logo speelt de hover-animatie af telkens als de header verschijnt
+  // (na laden / page transition en na terugscrollen).
+  const [draw, setDraw] = useState(false);
+  const drawTimers = useRef<number[]>([]);
+  const playLogo = useCallback((delay: number) => {
+    if (!window.matchMedia("(hover: none), (max-width: 760px)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const ts = drawTimers.current;
+    ts.forEach((t) => window.clearTimeout(t));
+    ts.length = 0;
+    ts.push(
+      window.setTimeout(() => setDraw(true), delay),
+      window.setTimeout(() => setDraw(false), delay + 1900),
+    );
+  }, []);
+  useEffect(() => {
+    const onReady = () => playLogo(450);
+    window.addEventListener("m7:ready", onReady);
+    // al klaar (preloader/transition liep vóór dit effect): meteen
+    if (document.documentElement.dataset.loading !== "1") onReady();
+    const timers = drawTimers.current;
+    return () => {
+      window.removeEventListener("m7:ready", onReady);
+      timers.forEach((t) => window.clearTimeout(t));
+    };
+  }, [playLogo]);
+  const wasHidden = useRef(false);
+  useEffect(() => {
+    if (wasHidden.current && !hidden) playLogo(250);
+    wasHidden.current = hidden;
+  }, [hidden, playLogo]);
+
   // Header verbergen bij naar beneden scrollen, tonen bij omhoog
   useScroll((y) => {
     const d = y - lastY.current;
@@ -154,7 +186,7 @@ export function SiteChrome({ nav, dict }: { nav: NavData; dict: Dict }) {
         }}
       >
         <div className="hdr__bar container">
-          <TLink href="/" className="hdr__logo" aria-label="M7 home">
+          <TLink href="/" className={`hdr__logo${draw ? " is-draw" : ""}`} aria-label="M7 home">
             <M7EmblemDraw />
           </TLink>
 
