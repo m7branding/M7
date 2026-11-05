@@ -929,33 +929,7 @@
   box-shadow: 0 0 10px rgba(58, 255, 255, 0.5);
 }
 
-/* ---------------- Cases ---------------- */
-.cfilter__bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 40px;
-}
-.cfilter__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.cfilter__row .chip {
-  padding: 8px 14px;
-  font-size: 0.82rem;
-}
-.cfilter__select select {
-  height: 44px;
-  padding: 0 18px;
-  border-radius: 999px;
-  border: 0;
-  background: var(--surface);
-  box-shadow: inset 0 0 0 1px var(--line);
-  font-weight: 600;
-  font-size: 0.88rem;
-}
+/* ---------------- Cases (filterbalk: src/components/sections/CasesFilter.css) ---------------- */
 .cfilter__none {
   padding: 40px 0;
 }

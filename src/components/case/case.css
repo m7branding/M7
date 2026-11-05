@@ -7,24 +7,26 @@
    ============================================================ */
 
 .cx {
-  /* zelfde inspringing als de hero op de andere pagina's */
-  --cx-pad: clamp(10px, 2rem, 32px);
+  /* zelfde inspringing als de hero op de andere pagina's (/over-m7, /cases): op mobiel 10px */
+  --cx-pad: clamp(10px, 2.2vw, 32px);
   --cx-gap: clamp(8px, 1.1vw, 16px);
   --cx-r: clamp(14px, 1.6vw, 26px);
   --cx-side: clamp(20px, 3.4vw, 64px);
 }
 
-/* ---------------- Hero ---------------- */
+/* ---------------- Hero ----------------
+   Net als de hero van /over-m7: de kaart begint onder de navigatie (het beeld valt
+   er bij het laden niet onder) en heeft dezelfde smalle marge links en rechts. */
 .cx-hero {
-  padding: var(--cx-pad);
+  padding: var(--header-h) var(--cx-pad) var(--cx-pad);
 }
 .cx-hero__frame {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  height: calc(100svh - 2 * var(--cx-pad));
+  height: calc(100svh - var(--header-h) - var(--cx-pad));
   min-height: 560px;
-  border-radius: clamp(20px, 2.4vw, 34px);
+  border-radius: clamp(24px, 3vw, 44px);
   background: #0b0b0e;
 }
 .cx-hero__frame::after {
@@ -83,7 +85,7 @@
     left: -8%;
     width: 116%;
     object-fit: contain;
-    object-position: 50% 27%;
+    object-position: 50% 18%;
   }
   /* de vervaging achter de titel blijft onder de film */
   .cx-hero--film .cx-hero__shade::before {
@@ -129,7 +131,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 32px;
-  padding: calc(var(--header-h) + 18px) var(--cx-side) clamp(24px, 4.2vw, 64px);
+  padding: clamp(18px, 2.6vw, 40px) var(--cx-side) clamp(24px, 4.2vw, 64px);
 }
 .cx-hero__bottom {
   display: flex;
@@ -229,7 +231,7 @@
   max-width: 15ch;
   font-size: clamp(2.3rem, 5.6vw, 6.2rem);
   font-weight: 700;
-  line-height: 0.98;
+  line-height: 1.05;
   letter-spacing: -0.04em;
   color: #fff;
   text-wrap: balance;
@@ -242,7 +244,14 @@
 .cx-hero__title.is-long {
   max-width: 19ch;
   font-size: clamp(2rem, 4.2vw, 4.6rem);
-  line-height: 1.02;
+  line-height: 1.08;
+}
+/* primaire CTA: scrolt naar het project (de pijl wijst daarom omlaag, ook in de hover) */
+.cx-hero__actions {
+  margin-top: clamp(22px, 2.4vw, 34px);
+}
+.cx-hero__cta .btn__dot svg {
+  rotate: 135deg;
 }
 /* logo van de klant rechtsonder, op glas */
 .cx-hero__logo {
@@ -272,15 +281,31 @@
 }
 @media (max-width: 760px) {
   .cx-hero__frame {
-    min-height: 520px;
+    min-height: 560px;
+    border-radius: 26px;
   }
   .cx-hero__inner {
-    padding: calc(var(--header-h) + 12px) 20px 24px;
+    gap: 20px;
+    padding: 16px 18px 20px;
+  }
+  .cx-hero__actions {
+    margin-top: 18px;
+  }
+  /* iets compacter dan de standaard-CTA: de hero moet ook met een lange titel passen */
+  .cx-hero__cta {
+    min-height: 52px;
+    padding: 6px 6px 6px 22px;
+    gap: 14px;
+    font-size: 0.92rem;
+  }
+  .cx-hero__cta .btn__dot {
+    width: 38px;
+    height: 38px;
   }
   .cx-hero__bottom {
     flex-direction: column-reverse;
     align-items: flex-start;
-    gap: 20px;
+    gap: 16px;
   }
   .cx-hero__text {
     max-width: 100%;
@@ -290,6 +315,7 @@
   }
   .cx-hero__meta {
     gap: 6px;
+    margin-bottom: 14px;
   }
   .cx-hero__meta .is-extra {
     display: none;
@@ -304,13 +330,13 @@
   }
   .cx-hero__logo {
     min-width: 0;
-    height: 56px;
-    padding: 12px 18px;
-    border-radius: 16px;
+    height: 48px;
+    padding: 10px 16px;
+    border-radius: 14px;
   }
   .cx-hero__logo img {
-    max-width: 128px;
-    max-height: 28px;
+    max-width: 120px;
+    max-height: 24px;
   }
   .cx-hero__shade {
     background:
@@ -469,6 +495,88 @@
   }
   .cx-specs__row.is-wide dt {
     padding-top: 0;
+  }
+}
+/* toepassingen en tools: op mobiel ingeklapt (SpecFold), breder gewoon open */
+.cx-fold__btn {
+  display: none;
+}
+@media (max-width: 760px) {
+  .cx-fold__k {
+    display: none;
+  }
+  .cx-specs__row.cx-fold {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding-block: 4px;
+  }
+  .cx-specs__row.cx-fold dt {
+    padding-top: 0;
+  }
+  .cx-fold__btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 46px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .cx-fold__btn:hover,
+  .cx-fold[data-open] .cx-fold__btn {
+    color: var(--muted);
+  }
+  .cx-fold__n {
+    min-width: 22px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    letter-spacing: 0;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.07);
+  }
+  .cx-fold__btn svg {
+    margin-left: auto;
+    color: var(--text);
+    transition: transform 0.4s var(--ease-out);
+  }
+  .cx-fold[data-open] .cx-fold__btn svg {
+    transform: rotate(180deg);
+  }
+  .cx-fold:not([data-open]) > dd {
+    display: none;
+  }
+  .cx-fold[data-open] > dd {
+    padding: 4px 0 14px;
+    animation: cx-fold-in 0.45s var(--ease-out);
+  }
+  /* open is open: alle toepassingen, geen tweede "+N" */
+  .cx-fold .cx-chips > .is-extra {
+    display: block;
+  }
+  .cx-fold .cx-chips__toggle {
+    display: none;
+  }
+}
+@keyframes cx-fold-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cx-fold[data-open] > dd {
+    animation: none;
   }
 }
 
@@ -674,6 +782,10 @@ html.js [data-reveal="cx"].is-in > img {
   transform: none;
 }
 @media (max-width: 760px) {
+  /* op de kantlijn van de tekst (niet de brede zwarte randen van vroeger) */
+  .cx-gallery {
+    padding-inline: var(--gutter);
+  }
   .cx-g--trio,
   .cx-g--stack {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
@@ -1295,6 +1407,13 @@ html.js [data-reveal="cx"].is-in > img {
   letter-spacing: -0.04em;
   line-height: 1;
 }
+/* lange klantnamen ("Architectenbureau") breken af in plaats van uit de kaart te lopen */
+.cx-next__name {
+  min-width: 0;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
 .cx-next__title svg {
   flex: none;
   transition: transform 0.6s var(--ease-out);
@@ -1532,5 +1651,218 @@ html.js [data-reveal="cx"].is-in > img {
 @media (max-width: 760px) {
   .cx-part__body {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------------- "In dit project": glazen knopje linksonder met de inhoud als ankers ---------------- */
+/* koppen waar de ankers naartoe springen: niet onder de header (zonder Lenis, bv. bij reduced motion) */
+.cx-chapter__title,
+.cx-split__title,
+.cx-tl__title {
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+.cx-toc {
+  --toc-edge: clamp(16px, 2.2vw, 28px);
+  position: fixed;
+  /* op één lijn met (het midden van) de dock rechtsonder */
+  left: calc(var(--toc-edge) + env(safe-area-inset-left, 0px));
+  bottom: calc(var(--toc-edge) + 6px + env(safe-area-inset-bottom, 0px));
+  z-index: 640;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.6s var(--ease-out),
+    visibility 0s linear 0.6s;
+}
+.cx-toc[data-shown] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+  transition:
+    opacity 0.5s ease,
+    transform 0.8s var(--ease-out),
+    visibility 0s;
+}
+/* weg zolang er iets anders voor ligt (zoals de dock rechtsonder) */
+html.ov-open .cx-toc,
+html.menu-open .cx-toc,
+body:has(.consent) .cx-toc {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.cx-toc__btn,
+.cx-toc__panel {
+  background: rgba(10, 10, 13, 0.72);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 50px -20px rgba(0, 0, 0, 0.95);
+}
+.cx-toc__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  max-width: min(520px, calc(100vw - 2 * var(--toc-edge) - 140px));
+  padding: 0 16px 0 15px;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.cx-toc__btn:hover,
+.cx-toc[data-open] .cx-toc__btn {
+  background: rgba(26, 26, 31, 0.82);
+}
+.cx-toc__ic {
+  flex: none;
+  color: var(--teal);
+}
+.cx-toc__k {
+  flex: none;
+}
+/* breder: ook de kop waar je nu bent */
+.cx-toc__now {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--muted);
+  font-weight: 500;
+}
+.cx-toc__count {
+  flex: none;
+  font-size: 0.74rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+}
+.cx-toc__chev {
+  flex: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: transform 0.4s var(--ease-out);
+}
+.cx-toc[data-open] .cx-toc__chev {
+  transform: rotate(180deg);
+}
+.cx-toc__panel {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  width: min(380px, calc(100vw - 2 * var(--toc-edge)));
+  max-height: min(62svh, 520px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 16px 8px 8px;
+  border-radius: 22px;
+  scrollbar-width: thin;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 10px, 0) scale(0.98);
+  transform-origin: 0 100%;
+  transition:
+    opacity 0.3s ease,
+    transform 0.45s var(--ease-out),
+    visibility 0s linear 0.45s;
+}
+.cx-toc[data-open] .cx-toc__panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.55s var(--ease-out),
+    visibility 0s;
+}
+.cx-toc__title {
+  padding: 0 12px 10px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.46);
+}
+.cx-toc__list {
+  display: grid;
+  gap: 2px;
+}
+.cx-toc__list > .is-part:not(:first-child) {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cx-toc__link {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.72);
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.cx-toc__link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+.cx-toc__link[aria-current] {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
+.is-part .cx-toc__link {
+  font-weight: 700;
+  color: #fff;
+}
+.cx-toc__n {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--faint);
+}
+.cx-toc__link[aria-current] .cx-toc__n {
+  color: var(--teal);
+}
+@media (max-width: 760px) {
+  .cx-toc {
+    --toc-edge: 14px;
+  }
+  .cx-toc__btn {
+    height: 46px;
+    gap: 9px;
+    padding: 0 14px 0 13px;
+    font-size: 0.82rem;
+  }
+  .cx-toc__now {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cx-toc,
+  .cx-toc[data-shown],
+  .cx-toc__panel,
+  .cx-toc[data-open] .cx-toc__panel {
+    transform: none;
+    transition:
+      opacity 0.2s ease,
+      visibility 0s;
   }
 }
