@@ -26,6 +26,9 @@ const nl = {
     viewCase: "Bekijk case",
     viewAll: "Bekijk alles",
     viewAllProjects: "Bekijk alle projecten",
+    viewAllServices: "Bekijk alle diensten",
+    /** primaire knop op de dienstkaarten: "Meer over {dienst}" → de dienstpagina */
+    moreAbout: "Meer over",
     readMore: "Lees verder",
     readLess: "Minder lezen",
     discover: "Ontdek",
@@ -214,6 +217,8 @@ const en: Dict = {
     viewCase: "View case",
     viewAll: "View all",
     viewAllProjects: "View all projects",
+    viewAllServices: "View all services",
+    moreAbout: "Explore",
     readMore: "Read more",
     readLess: "Read less",
     discover: "Discover",

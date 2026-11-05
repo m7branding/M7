@@ -293,6 +293,8 @@ h3 {
     transform 0.5s var(--ease-out),
     box-shadow 0.5s var(--ease-out);
   white-space: nowrap;
+  /* altijd zo breed als de inhoud: een grid- of kolom-ouder rekt de knop anders uit tot volle breedte */
+  width: fit-content;
 }
 .btn::before {
   /* subtiele gradient-rand zoals in het design */
@@ -395,6 +397,23 @@ h3 {
 .btn--light .btn__dot {
   background: #0b0b0d;
   color: #fff;
+}
+/* telefoons: compacter, zodat de knop als knop leest (niet als volle balk) en altijd binnen zijn blok past;
+   een te lang label loopt dan over twee regels i.p.v. uit de kaart */
+@media (max-width: 480px) {
+  .btn {
+    max-width: 100%;
+  }
+  .btn:not(.btn--sm) {
+    gap: 12px;
+    padding-left: 22px;
+    font-size: 0.92rem;
+  }
+  .btn > span:first-child {
+    white-space: normal;
+    text-wrap: balance;
+    line-height: 1.25;
+  }
 }
 
 .link-dash {
@@ -530,10 +549,11 @@ html.js [data-reveal="clip"] {
     clip-path 1.4s var(--ease-out) var(--d),
     opacity 1s var(--ease-out) var(--d);
 }
+/* Geen clip-path hier: die knipte alles af wat buiten het element tekent (de 1px-gradientrand van een
+   .btn, gloed, tooltips). Alleen de "clip"-variant animeert een clip-path (hieronder). */
 html.js [data-reveal].is-in {
   opacity: 1;
   transform: none;
-  clip-path: inset(0 0 0 0 round 0);
 }
 html.js [data-reveal="clip"].is-in {
   clip-path: inset(0 0 0 0 round var(--r-xl));
