@@ -2,6 +2,8 @@
 const caseFamilies = require("./src/content/case-families.json");
 // url's van de vorige (Webflow-)site → de nieuwe pagina's; Engelstalige pagina's naar /en, Nederlandse landingspagina's naar NL
 const legacyRedirects = require("./src/content/legacy-redirects.json");
+// hernoemde/verwijderde/samengevoegde routes; dezelfde lijsten gebruikt de middleware (Netlify draait die vóór deze redirects)
+const rules = require("./src/content/redirect-rules.json");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -18,26 +20,10 @@ const nextConfig = {
   // op WordPress/Webflow of te hosten op een CDN):
   // output: "export",
   async redirects() {
-    // hernoemde sectoren
-    const moved = [
-      ["bouw-vastgoed-architectuur", "bouw-architectuur"],
-      ["e-commerce-retail", "food-retail"],
-    ];
-    // hernoemde diensten (ook de toepassingen eronder)
-    const services = [["marketing-automatisering-funnels", "automation-funnels"]];
-    // samengevoegde cases (zelfde klant)
-    const mergedCases = [["titanium-exhaust-configurator", "maarschall"]];
-    // verwijderde cases zonder beeldmateriaal: naar het overzicht
-    const removedCases = [
-      "debiteurnet",
-      "designershouse",
-      "impeco-chauffeurshandboek",
-      "kds-intranet",
-      "soesoe",
-      "helloflow",
-      "gmu",
-      "spoedfix",
-    ];
+    const moved = rules.movedSectors;
+    const services = rules.renamedServices;
+    const mergedCases = rules.mergedCases;
+    const removedCases = rules.removedCases;
     // losse url's van een deel van de storyline van een klant → de pagina van de host, bij dat hoofdstuk
     const familyParts = caseFamilies.flatMap(([host, ...parts]) => parts.map((part) => [part, host]));
     return [

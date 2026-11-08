@@ -1,5 +1,42 @@
 import { NextResponse, type NextRequest } from "next/server";
+import families from "@/content/case-families.json";
+import legacy from "@/content/legacy-redirects.json";
+import rules from "@/content/redirect-rules.json";
 import { SEGMENTS_EN, SEGMENTS_NL } from "@/lib/i18n";
+
+/* Redirects (oude Webflow-URL's, delen van een klantverhaal, hernoemde/verwijderde routes). Ze staan ook in
+   next.config.js, maar Netlify voert deze middleware uit vóór de redirects van Next; zonder deze kopie zou de
+   middleware zo'n pad al naar de 404 sturen. */
+const EXACT = new Map<string, string>(legacy as [string, string][]);
+for (const [host, ...parts] of families as string[][])
+  for (const p of parts) {
+    EXACT.set(`/cases/${p}`, `/cases/${host}#${p}`);
+    EXACT.set(`/en/cases/${p}`, `/en/cases/${host}#${p}`);
+  }
+for (const [from, to] of rules.mergedCases) {
+  EXACT.set(`/cases/${from}`, `/cases/${to}`);
+  EXACT.set(`/en/cases/${from}`, `/en/cases/${to}`);
+}
+for (const slug of rules.removedCases) {
+  EXACT.set(`/cases/${slug}`, "/cases");
+  EXACT.set(`/en/cases/${slug}`, "/en/cases");
+}
+for (const [from, to] of rules.movedSectors) {
+  EXACT.set(`/sectoren/${from}`, `/sectoren/${to}`);
+  EXACT.set(`/en/sectors/${from}`, `/en/sectors/${to}`);
+}
+const PREFIX = rules.renamedServices.flatMap(([from, to]) => [
+  [`/diensten/${from}`, `/diensten/${to}`],
+  [`/en/services/${from}`, `/en/services/${to}`],
+]);
+
+function redirectFor(pathname: string): string | undefined {
+  const p = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  const hit = EXACT.get(p) ?? EXACT.get(p.toLowerCase());
+  if (hit) return hit;
+  for (const [from, to] of PREFIX) if (p === from || p.startsWith(from + "/")) return to + p.slice(from.length);
+  return undefined;
+}
 
 /**
  * - letsgo.m7branding.com  → serveert de configurator (/letsgo) op de root
@@ -23,6 +60,15 @@ export function middleware(req: NextRequest) {
   const url = req.nextUrl;
   const { pathname } = url;
   const host = req.headers.get("host") || "";
+
+  const to = host.startsWith("letsgo.") ? undefined : redirectFor(pathname);
+  if (to) {
+    const u = url.clone();
+    const [path, hash] = to.split("#");
+    u.pathname = path;
+    u.hash = hash ? `#${hash}` : "";
+    return NextResponse.redirect(u, 308);
+  }
 
   if (host.startsWith("letsgo.")) {
     if (pathname.startsWith("/letsgo")) return NextResponse.next();

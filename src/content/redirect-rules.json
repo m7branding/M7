@@ -1,0 +1,34 @@
+{
+  "movedSectors": [
+    [
+      "bouw-vastgoed-architectuur",
+      "bouw-architectuur"
+    ],
+    [
+      "e-commerce-retail",
+      "food-retail"
+    ]
+  ],
+  "renamedServices": [
+    [
+      "marketing-automatisering-funnels",
+      "automation-funnels"
+    ]
+  ],
+  "mergedCases": [
+    [
+      "titanium-exhaust-configurator",
+      "maarschall"
+    ]
+  ],
+  "removedCases": [
+    "debiteurnet",
+    "designershouse",
+    "impeco-chauffeurshandboek",
+    "kds-intranet",
+    "soesoe",
+    "helloflow",
+    "gmu",
+    "spoedfix"
+  ]
+}
