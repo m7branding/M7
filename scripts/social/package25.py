@@ -54,7 +54,7 @@ def repo_path(rel):
     return rel if rel.startswith("social/") else f"social/{rel}"
 
 
-def calendar(start=dt.date(2026, 11, 16), weeks=12):
+def calendar(start=dt.date(2026, 11, 16), weeks=20, skip=((dt.date(2026, 12, 21), dt.date(2027, 1, 3)),)):
     caps = {p.stem: json.loads(p.read_text()) for p in sorted((D / "captions").glob("*.json"))}
     car = [c for c in caps.values() if c["type"] == "carousel"]
     reels = [c for c in caps.values() if c["type"] == "reel"]
@@ -76,6 +76,10 @@ def calendar(start=dt.date(2026, 11, 16), weeks=12):
     ci = ri = pi = 0
     for w in range(weeks):
         mon = start + dt.timedelta(weeks=w)
+        if any(a <= mon <= b for a, b in skip):          # quiet around Christmas and New Year
+            continue
+        if ci >= len(car) and ri >= len(reels) and pi >= len(posts):
+            break
         tue, wed, thu, sat = (mon + dt.timedelta(days=k) for k in (1, 2, 3, 5))
         if ci < len(car):
             add(tue, "19:30", "Instagram", car[ci], "carousel")
