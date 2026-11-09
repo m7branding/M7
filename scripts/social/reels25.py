@@ -343,7 +343,7 @@ def r_sparta():
         *head(["Sparta Blue Hydrogen"], ["Branding en website voor een", "speler in waterstof."], top=1270, t0=0.6, t1=5.7),
         card(TALL_CLIP, 5.6, 11.4, seq=clip(slug, "r-flow-2.mp4", 0.0, 5.9), pos="4% 50%", kb=kb(1.0, 1.03), bg="#111"),
         line(["Wit en blauw, met een kaart", "van Europa als terugkerend beeld."], LINE_Y, **ld(10.6, 16.2), size=42),
-        card((KX, 640, 1400, 933), 10.6, 16.2, src=furl(slug, "r-14-t2-closeup.webp"), pos="30% 50%", kb=kb(1.0, 1.05, 0, -2), bg="#e8e8e8"),
+        card((KX, 640, 1400, 933), 10.6, 16.2, src=furl(slug, "r-09-d07-phone-stone-b-ui.webp"), pos="10% 50%", kb=kb(1.0, 1.05), bg="#e8e8e8"),
         card((KX, 520, 1300, 866), 15.4, te + 0.7, src=furl(slug, "r-60-brand-wall.webp"), pos="50% 50%", kb=kb(1.0, 1.04), bg="#dedede"),
     ]
     glow = [{"t": 0, "cx": 760, "cy": 820, "r": 900, "a": 0.10}, {"t": 5, "d": 4, "cx": 680, "cy": 1100, "r": 950, "a": 0.10}]
@@ -426,7 +426,7 @@ def r_taylor():
     L = [
         card(OPEN_TOP, 0.9, 6.4, seq=clip(slug, "r-flow-1.mp4", 0.0, 5.6, h=800), pos="55% 50%", kb=kb(1.0, 1.04), bg="#e6e6e6"),
         *head(["Taylor Technologies"], ["Een nieuwe huisstijl en website voor", "zonne-micro-elektronica."], top=1310, t0=0.6, t1=5.7),
-        card((KX, 470, 1000, 1000), 5.6, 11.4, src=furl(slug, "r-12-b06-wall-logo-c.webp"), pos="50% 50%", kb=kb(1.0, 1.04), bg="#141414"),
+        card((KX, 520, 1100, 733), 5.6, 11.4, src=furl(slug, "r-12-b06-wall-logo-c.webp"), pos="0% 50%", kb=kb(1.0, 1.04), bg="#141414"),
         line(["Een heldere, minimalistische huisstijl", "in donkerblauw en geel."], LINE_Y, **ld(10.6, 16.2), size=42),
         card(PAGE, 10.6, 16.2, src=furl(slug, "r-62-brand-sheet-logos.webp"), kb=kb(1.0, 1.03), bg="#ffffff"),
         chips(["#042263", "#FAFAFA"], 1300, 11.8, 15.7),
