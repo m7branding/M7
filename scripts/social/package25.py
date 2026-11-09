@@ -43,7 +43,7 @@ def pdfs():
     for root in (TMP / "carousels", D / "carousels"):
         for d in sorted(p for p in root.glob("*") if p.is_dir()):
             slides = sorted(d.glob("*.png"))
-            if slides:
+            if slides and not d.name.startswith("post-"):      # single-image posts go to LinkedIn as an image, not a PDF
                 made.append(pdf(slides, D / "linkedin" / f"m7-{d.name}.pdf"))
     for m in made:
         print(m.name, f"{m.stat().st_size / 1e6:.1f} MB")
