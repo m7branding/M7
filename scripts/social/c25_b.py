@@ -93,8 +93,8 @@ def carousels():
                        "WooCommerce geeft je volledige vrijheid", "en sluit direct aan op een bestaande", "WordPress-website.", "",
                        "We adviseren op basis van je assortiment,", "groeiplannen, budget en koppelingen."], 450)]),
         slide([c_title(["Gekoppeld aan", "je voorraad"], size=68),
-               c_body(["De shop van Hela is gekoppeld aan PS in", "Food en Business Central, voor voorraad", "en magazijn. Ook de productinformatie,",
-                       "tot de allergenen, komt zo binnen."], 450),
+               c_body(["De shop van Hela is gekoppeld aan PS in", "Food en Business Central, voor voorraad", "en magazijn. Ook productinformatie en",
+                       "allergenen komen via een koppeling binnen."], 450),
                vis(hela_pdp, 700, 1083, bg="#ffffff")]),
         slide([c_title(["Soepel afrekenen"], size=68), c_body(["Via Mollie of Stripe bied je onder meer:"], 380),
                c_rows(["iDEAL", "Creditcard", "Apple Pay en Google Pay", "Bancontact", "Klarna"], 470),
@@ -103,8 +103,9 @@ def carousels():
                c_body(["Voor Digital Newsgroup: een lichte shop", "zonder login of account. Een API haalt alle", "websites en hun domain ratings op."], 450),
                vis(dng, 690, 1080, bg="#ffffff")]),
         slide([c_title(["Abonnementen", "in WooCommerce"], size=68),
-               c_body(["Bij CryptoCoinTalk geeft een abonnement", "toegang tot de University, met funnels die", "leden naar een hoger abonnement leiden."], 450),
-               vis(cct, 690, 1100, bg="#e4e4e6")]),
+               c_body(["Bij CryptoCoinTalk geeft een abonnement", "toegang tot de University. Funnels", "stimuleren leden om naar een hoger",
+                       "abonnement te gaan."], 450),
+               vis(cct, 740, 1100, bg="#e4e4e6")]),
         slide([c_title(["De winkel van de", "farm, ook online"], size=68),
                c_body(["Voor de Alpaca Boutique: een megamenu", "met zeven categorieën, zoeken en filters,", "en digitale cadeaubonnen."], 450),
                vis(alp, 730, 1047, bg="#2a1f3d")]),
@@ -270,7 +271,7 @@ def carousels():
         slide([c_title(["Lokaal zonder", "vestiging?"], size=68),
                c_body(["Gedeeltelijk. Met een werkgebied in je", "Google Bedrijfsprofiel en waardevolle", "regiopagina's kun je ook in omliggende",
                        "plaatsen zichtbaar worden.", "",
-                       "Nep-adressen raden we nadrukkelijk af:", "dat is in strijd met de richtlijnen", "van Google."], 450)]),
+                       "Nep-adressen raden we nadrukkelijk af: dat", "is in strijd met de richtlijnen van Google."], 450)]),
         close(["Zichtbaar voor", "klanten in je regio?"], ["We beginnen bij een sterk Google", "Bedrijfsprofiel als basis."]),
     ]
 
@@ -297,7 +298,7 @@ def carousels():
         slide([c_title(["Domein, DNS", "en e-mail"], size=68),
                c_body(["We registreren je domeinen op naam van", "je organisatie en houden verlengingen in", "de gaten. Inmiddels beheren we meer dan",
                        "275 webdomeinen.", "",
-                       "We configureren SPF, DKIM en DMARC. Dat", "verkleint de kans dat je mail in de spam", "belandt."], 450)]),
+                       "Met SPF, DKIM en DMARC verkleinen we de", "kans dat je mail in de spam belandt."], 450)]),
         close(["Je hosting naar", "M7 verhuizen?"], ["We verhuizen je website, e-mail en domein", "en plannen de overstap zorgvuldig."]),
     ]
 
@@ -336,13 +337,235 @@ def posts():
     P["post-webshop"] = [slide([c_title(["Een goede shop", "verkoopt ook als", "jij slaapt."], size=76),
                                 c_body(["Webshops in Shopify en WooCommerce."], 550), vis(hela, 680, 1060, bg="#2a2a2c")])]
     jp2 = WORK / "img" / "jurgh-portal-detail.jpg"
-    P["post-klantportaal"] = [slide([c_title(["Minder mail en", "telefoon voor jou"], size=76),
+    P["post-klantportaal"] = [slide([c_title(["Minder mail en", "telefoon voor jou."], size=76),
                                      c_body(["Meer gemak en vertrouwen voor je klant,", "in een eigen klantportaal."], 470),
                                      vis(jp2, 680, 1000, bg="#f4f2ef")])]
     atl = prep("atl-desk", MC / "atl-plus" / "r-13-d15-mac-phone-desk-b.webp", (300, 300, 1700, 1033))     # the whole laptop
     P["post-hosting"] = [slide([c_title(["Wij houden je site", "in de gaten,", "jij onderneemt."], size=76),
                                 c_body(["Hosting en onderhoud in één webplan."], 550), vis(atl, 680, 1100, bg="#1e1e20")])]
     return P
+
+
+
+# ---------------------------------------------------------------- captions (copy from the site, nothing invented)
+WS = "src/content/services/websites-webshops.ts"
+WA = "src/content/services/web-apps-portals-apps.ts"
+AF = "src/content/services/automation-funnels.ts"
+AI_ = "src/content/services/ai-consultancy.ts"
+SEO = "src/content/services/seo-aeo-geo.ts"
+CAPTIONS = {
+    "webshop": dict(
+        type="carousel", topic="Webshop (Shopify & WooCommerce)",
+        instagram="Een webshop die verkoopt, van productpagina tot iDEAL-checkout.\n"
+                  "Shopify of WooCommerce? We adviseren op basis van je assortiment, groeiplannen en budget.\n"
+                  "Met voorbeelden van Hela, Digital Newsgroup, CryptoCoinTalk en de Alpaca Boutique.\n"
+                  "Meer op m7branding.com\n"
+                  "#webshop #shopify #woocommerce #ecommerce #webdesign",
+        linkedin="Een goede shop verkoopt ook als jij slaapt.\n\n"
+                 "We bouwen webshops in Shopify en WooCommerce die er premium uitzien, snel laden en soepel afrekenen. "
+                 "Inclusief betalingen via Mollie of Stripe, verzending, btw en koppelingen met je voorraad en boekhouding.\n\n"
+                 "Shopify is de snelste route naar een stabiele, schaalbare shop met weinig onderhoud. WooCommerce geeft je volledige "
+                 "vrijheid en sluit direct aan op een bestaande WordPress-website.\n\n"
+                 "In deze carousel: de shop van Hela, gekoppeld aan PS in Food en Business Central, de shop van Digital Newsgroup zonder "
+                 "login of account, de abonnementen van CryptoCoinTalk en de webshop van de Alpaca Boutique.\n\n"
+                 "Meer op m7branding.com\n\n#webshop #ecommerce",
+        sources=[f"{WS} applications[webshop]: title, summary, intro, body (Shopify of WooCommerce?, Ingericht op conversie), "
+                 "faqs (betaalmethoden, koppeling boekhouding/voorraad)",
+                 f"{WS} service: description (Dan kiezen we samen het platform dat het beste bij je past)",
+                 "src/content/cases-new-b.ts hela: approach (WooCommerce, PS in Food, Business Central, productinformatie, allergenen)",
+                 "src/content/cases-new-b.ts digital-newsgroup: title, approach (shop zonder login of account, API, domain ratings)",
+                 "src/content/cases-new-b.ts cryptocointalk: approach, result (abonnementen, University, funnels)",
+                 "src/content/cases-new-a.ts alpaca-boutique: title, summary, approach (megamenu, zeven categorieën, filters, cadeaubonnen)"]),
+    "klantportaal": dict(
+        type="carousel", topic="Klantportaal",
+        instagram="Een eigen online omgeving waar klanten zelf regelen wat ze nodig hebben.\n"
+                  "Offertes, facturen, orders en documenten, 24/7, gekoppeld aan je CRM, ERP of boekhouding.\n"
+                  "Met voorbeelden van The Digital Clinic, KDS en Bernheze Makelaars.\n"
+                  "Meer op m7branding.com\n"
+                  "#klantportaal #webapp #maatwerk #selfservice #ux",
+        linkedin="Minder mail en telefoon voor jou, meer gemak en vertrouwen voor je klant.\n\n"
+                 "Met een klantportaal geef je klanten 24/7 toegang tot hun offertes, facturen, orders, documenten en tickets. "
+                 "Ze accepteren offertes digitaal, downloaden facturen, betalen direct en volgen de status van hun aanvraag.\n\n"
+                 "We koppelen het portaal met je CRM, ERP of boekhouding, zoals Odoo, HubSpot of Exact Online. Met rollen, rechten en "
+                 "tweestapsverificatie blijven gegevens veilig.\n\n"
+                 "Voorbeelden uit ons werk: het portaal van The Digital Clinic met eigen omgevingen voor cliënt, huisarts en apotheek, "
+                 "het offerteportaal van KDS en het taxatieportaal van Bernheze Makelaars.\n\n"
+                 "Meer op m7branding.com",
+        sources=[f"{WA} applications[klantportaal]: summary, intro, body (Selfservice die tijd bespaart, Gekoppeld aan je systemen), "
+                 "deliverables (Analyse van processen en gebruikersrollen), faqs (verschil met een website)",
+                 "src/content/application-visuals.ts klantportaal: the site's visual for this application (jurgh-detailing/s-portal-1.webp)",
+                 "src/content/cases.ts the-digital-clinic: approach, result (drie soorten gebruikers; van intake en behandeling tot chat en levering)",
+                 "src/content/cases-new-a.ts kds-stansvormen: summary, approach (offerteportaal, prijzensheet met klantcodes, mail met pdf)",
+                 "src/content/cases-archive.ts bernheze-makelaars-taxatieportaal: summary (dossiers, bestanden aanleveren, check op compleetheid)"]),
+    "automation": dict(
+        type="carousel", topic="Workflow-automatisering en CRM-koppelingen",
+        instagram="Je tools werken samen, en jij hoeft niets meer over te typen.\n"
+                  "Van formulier tot factuur in Make, Zapier of n8n, met leads die direct in je CRM landen.\n"
+                  "Met voorbeelden van BCTN, Plenty Planet, Steddion en Silvr.\n"
+                  "Meer op m7branding.com\n"
+                  "#automatisering #crm #workflow #make #n8n",
+        linkedin="Hoeveel tijd gaat er elke week op aan gegevens overtypen, bestanden verplaatsen en mailtjes doorsturen?\n\n"
+                 "Met workflow-automatisering in Make, Zapier of n8n laten we je tools samenwerken. Een aanvraag op je website wordt "
+                 "automatisch een lead in je CRM, een taak voor sales, een bericht in Slack en een concept-offerte in je boekhoudpakket.\n\n"
+                 "Een paar voorbeelden: het QHSE-platform van BCTN mailt elke week automatisch een rapport per terminal. De configurator "
+                 "van Plenty Planet zet aanvragen met een leadscore in Odoo CRM. De tools van Steddion sturen aanvragen naar HubSpot, en "
+                 "bij Silvr loopt elke aanvraag via onze eigen koppeling door naar Teamleader.\n\n"
+                 "We bouwen met foutafhandeling, logging en meldingen, zodat je weet dat alles blijft draaien.\n\n"
+                 "Meer op m7branding.com\n\n#automatisering #crm",
+        sources=[f"{AF} applications[workflow-automatisering]: summary, intro, body (Van formulier tot factuur, Betrouwbaar en beheersbaar)",
+                 f"{AF} applications[crm-implementatie]: intro, body (Inrichting, migratie en adoptie)",
+                 f"{AF} service: intro (CRM-koppelingen en automatiseringen)",
+                 "src/content/inbox/a.ts bctn-qhse: summary (QHSE-rapport per terminal, elke week automatisch gemaild); "
+                 "src/content/application-visuals.ts workflow-automatisering (bctn-qhse/s-fa-checklist-rapport.webp)",
+                 "src/content/cases-new-a.ts plenty-planet: approach (leadscore, koppeling naar Odoo CRM met kans en prioriteit)",
+                 "src/content/cases-new-a.ts steddion-tools: summary, approach (leadfunnel, gekoppeld aan HubSpot)",
+                 "src/content/cases-new-b.ts silvr: summary, approach (eigen koppeling met Teamleader, verrijkte leadgegevens, e-mailopvolging)"]),
+    "ai-ontwikkelen": dict(
+        type="carousel", topic="Ontwikkelen met AI: AI-integraties, AI-agents en AI-chatbots",
+        instagram="AI ingebouwd in je eigen platform, portaal of app, via OpenAI, Claude of Gemini.\n"
+                  "Plus agents die taken uitvoeren in je tools, en chatbots die antwoorden op basis van jouw kennis.\n"
+                  "Met de woningswiper die we voor Buitenstate ontwikkelen, en de supportbot in Monvy.\n"
+                  "Meer op m7branding.com\n"
+                  "#ai #aiintegratie #aiagents #chatbot #softwareontwikkeling",
+        linkedin="AI precies waar je gebruikers al werken.\n\n"
+                 "We integreren taalmodellen via de API's van OpenAI, Claude en Gemini in je bestaande software, webapp of website. "
+                 "Denk aan een zoekfunctie die vragen in gewone taal begrijpt, samenvattingen van dossiers of het classificeren van tickets.\n\n"
+                 "AI-agents voeren zelfstandig taken uit in je bestaande tools. Jij bepaalt wat een agent zelf mag doen en waar een mens "
+                 "akkoord geeft. AI-chatbots antwoorden op basis van jouw eigen kennis, en zeggen het eerlijk als ze iets niet weten.\n\n"
+                 "Uit ons werk: voor Buitenstate ontwikkelen we een woningswiper die woningen voorstelt op basis van wat je in je eigen "
+                 "woorden zoekt. In het platform van Monvy zit een supportbot op basis van ChatGPT.\n\n"
+                 "Meer op m7branding.com\n\n#ai #softwareontwikkeling",
+        sources=[f"{AI_} applications[ai-integraties]: title, summary, intro, body (Slimme functies in je eigen product, Solide gebouwd), faqs (kosten: voorstel op maat)",
+                 f"{AI_} applications[ai-agents]: summary, intro, body (Jij houdt de regie)",
+                 f"{AI_} applications[ai-chatbots]: intro, body (Antwoorden uit jouw eigen kennis)",
+                 "src/content/cases-new-a.ts buitenstate-tools: summary, approach (AI-woningswiper, matchscore, in ontwikkeling)",
+                 "src/content/cases.ts monvy: approach (supportbot op basis van ChatGPT)",
+                 "src/content/cases-new-a.ts alpacafarm-vorstenbosch: approach (AI-chat van qbud.ai geplaatst)"]),
+    "aeo": dict(
+        type="carousel", topic="AEO (Answer Engine Optimization)",
+        instagram="Steeds meer zoekopdrachten eindigen met een direct antwoord.\n"
+                  "Met AEO vergroten we de kans dat dat antwoord van jou komt: in featured snippets, People Also Ask en voice search.\n"
+                  "We doen het zelf ook, op answers.m7branding.com.\n"
+                  "Meer op m7branding.com\n"
+                  "#aeo #seo #featuredsnippets #contentstrategie #zoekmachineoptimalisatie",
+        linkedin="Steeds meer zoekopdrachten eindigen met een direct antwoord.\n\n"
+                 "Met Answer Engine Optimization vergroten we de kans dat dat antwoord van jou komt: in featured snippets, People Also Ask, "
+                 "voice assistants en antwoordblokken.\n\n"
+                 "We brengen in kaart welke vragen je doelgroep stelt en geven elke vraag een helder, beknopt antwoord, met directe "
+                 "antwoorden bovenaan, tussenkoppen in vraagvorm en FAQ-secties met structured data.\n\n"
+                 "Voor The Sandt bouwden we de content zo op dat Google The Sandt als bron noemt in zijn AI-antwoorden. En onze eigen "
+                 "answer hub staat op answers.m7branding.com.\n\n"
+                 "Meer op m7branding.com\n\n#aeo #seo",
+        sources=[f"{SEO} applications[aeo]: summary, intro, body (Vragen als vertrekpunt, Structuur die machines begrijpen), "
+                 "faqs (Wat is AEO?, Wat is een featured snippet?)",
+                 f"{SEO} applications[geo]: body (Een answer hub als bron: answers.m7branding.com), faqs (Wat is een answer hub?)",
+                 f"{SEO} service: chapters (Zichtbaar worden in ChatGPT, Perplexity en AI Overviews: answers.m7branding.com als eigen answer hub)",
+                 "src/content/cases-new-b.ts the-sandt: approach, result (AEO en GEO, gestructureerde FAQ-data, als bron genoemd in AI-antwoorden van Google)",
+                 "visuals: own capture of answers.m7branding.com (viewed only)"]),
+    "lokale-seo": dict(
+        type="carousel", topic="Lokale SEO & Google Bedrijfsprofiel",
+        instagram="Gevonden worden door klanten in jouw regio, in Google Maps en de lokale resultaten.\n"
+                  "Met een sterk Google Bedrijfsprofiel als basis, en locatiepagina's die laten zien waar je actief bent.\n"
+                  "Met Alpacafarm Vorstenbosch als voorbeeld.\n"
+                  "Meer op m7branding.com\n"
+                  "#lokaleseo #googlebedrijfsprofiel #googlemaps #seo #lokaalgevonden",
+        linkedin="Zoekt iemand naar een bedrijf zoals het jouwe 'in de buurt'?\n\n"
+                 "Met lokale SEO zorgen we dat je zichtbaar bent in Google Maps, de lokale zoekresultaten en AI-antwoorden voor jouw regio, "
+                 "met een sterk Google Bedrijfsprofiel als basis.\n\n"
+                 "Google kijkt vooral naar relevantie, afstand en bekendheid. Je beïnvloedt dat met een volledig en actief profiel, "
+                 "reviews met reacties, consistente bedrijfsgegevens en een website met sterke lokale signalen.\n\n"
+                 "Voor Alpacafarm Vorstenbosch maakten we lokale pagina's voor bezoekers en bedrijven uit verschillende steden en regio's.\n\n"
+                 "Meer op m7branding.com\n\n#lokaleseo #googlebedrijfsprofiel",
+        sources=[f"{SEO} applications[lokale-seo]: title, summary, intro, body (Een Google Bedrijfsprofiel dat overtuigt, "
+                 "Lokaal relevant op je website), faqs (Wat is lokale SEO?, Hoe kom ik hoger in Google Maps?, steden zonder vestiging)",
+                 "src/content/application-visuals.ts lokale-seo (alpacafarm-vorstenbosch)",
+                 "src/content/cases-new-a.ts alpacafarm-vorstenbosch: summary, approach (lokale SEO-pagina's, openingstijdenplugin met maandkalender)"]),
+    "hosting": dict(
+        type="carousel", topic="Hosting & onderhoud (webplans), domeinbeheer, DNS & e-mail",
+        instagram="Met een webplan van M7 is je website in goede handen.\n"
+                  "Hosting, SSL, updates, back-ups, monitoring en support, plus je domeinen, DNS en zakelijke e-mail.\n"
+                  "Meer dan 3.000 storingen verholpen, meer dan 275 webdomeinen in beheer.\n"
+                  "Meer op m7branding.com\n"
+                  "#hosting #websiteonderhoud #webflow #wordpress #domeinbeheer",
+        linkedin="Voorkomen is beter dan herstellen.\n\n"
+                 "Veel storingen en hacks zijn te voorkomen met goed onderhoud. We houden CMS, thema's en plugins up-to-date, testen updates "
+                 "voordat ze live gaan, maken automatische back-ups en monitoren je site op uptime en beveiliging. Inmiddels hebben we meer "
+                 "dan 3.000 storingen verholpen.\n\n"
+                 "We stemmen je webplan af op je platform en wensen, en beheren ook je domeinen, DNS en zakelijke e-mail: meer dan 275 "
+                 "webdomeinen inmiddels.\n\n"
+                 "Hosting, domein, e-mail en web bij één team.\n\n"
+                 "Meer op m7branding.com",
+        sources=[f"{WS} applications[hosting-onderhoud]: title, summary, intro, body (Voorkomen is beter dan herstellen, Een webplan dat "
+                 "bij je past), deliverables, benefits (Zorgeloos, Eén aanspreekpunt), faqs (hosting verhuizen)",
+                 f"{WS} applications[domeinbeheer]: title, intro, body (Overzicht en controle: 275 webdomeinen; E-mail die aankomt), faqs (SPF, DKIM en DMARC)",
+                 f"{WS} service: highlights (3.000+ storingen opgelost, 275+ webdomeinen in beheer)",
+                 "src/content/cases-new-a.ts atl-plus: approach (beheer van de aanmeldomgeving en de website); "
+                 "src/content/application-visuals.ts hosting-onderhoud (atl-plus)"]),
+    "consent-mode": dict(
+        type="carousel", topic="Cookie compliance & Consent Mode v2 (marktontwikkeling)",
+        instagram="Sinds 2024 verwacht Google Consent Mode v2 voor advertentiefuncties in de EER.\n"
+                  "Wat het is, wat het betekent voor je website, en hoe een eerlijke cookiebanner werkt.\n"
+                  "Meer op m7branding.com\n"
+                  "#consentmode #cookies #avg #googleads #tracking",
+        linkedin="Sinds 2024 verwacht Google Consent Mode v2 voor advertentiefuncties in de EER.\n\n"
+                 "Met Consent Mode v2 geef je de cookiekeuze van je bezoeker door aan Google-diensten zoals Analytics en Ads. Google vraagt "
+                 "het sinds maart 2024 van adverteerders die in de EER meten en adverteren.\n\n"
+                 "We scannen je website op cookies en scripts van derden, richten een banner in waarin weigeren net zo makkelijk is als "
+                 "accepteren, en laten scripts via Google Tag Manager pas na toestemming laden.\n\n"
+                 "We zijn geen juristen. Voor juridische vragen werken we graag samen met jouw jurist of privacyadviseur.\n\n"
+                 "Meer op m7branding.com\n\n#consentmode #privacy",
+        sources=[f"{WS} applications[cookie-compliance]: title, summary, intro, body (Eerst kijken wat er nu gebeurt, Een banner die "
+                 "eerlijk is en werkt: Consent Mode v2, sinds 2024 voor advertentiefuncties in de EER), faqs (toestemming per cookie, "
+                 "Wat is Consent Mode v2?, juridisch advies)",
+                 f"{AF} applications[tracking-analytics]: faqs (Consent Mode v2: Google vraagt het sinds maart 2024 in de EER)"]),
+    "post-webshop": dict(
+        type="post", topic="Webshop",
+        instagram="Een goede shop verkoopt ook als jij slaapt.\n"
+                  "Met heldere productpagina's, slimme filters en een checkout zonder drempels.\n"
+                  "Meer op m7branding.com\n"
+                  "#webshop #shopify #woocommerce #ecommerce",
+        linkedin="Een goede shop verkoopt ook als jij slaapt.\n\n"
+                 "We ontwerpen productpagina's met heldere usp's, reviews en sterke beelden, slimme filters en een checkout zonder drempels. "
+                 "In Shopify of WooCommerce, met betalingen via Mollie of Stripe en koppelingen met je voorraad en boekhouding.\n\n"
+                 "Meer op m7branding.com",
+        sources=[f"{WS} applications[webshop]: body (Ingericht op conversie), intro",
+                 "visual: public/media/cases/hela (case hela, src/content/cases-new-b.ts)"]),
+    "post-klantportaal": dict(
+        type="post", topic="Klantportaal",
+        instagram="Minder mail en telefoon voor jou, meer gemak en vertrouwen voor je klant.\n"
+                  "Een klantportaal geeft klanten 24/7 toegang tot hun offertes, facturen, orders en documenten.\n"
+                  "Meer op m7branding.com\n"
+                  "#klantportaal #webapp #selfservice",
+        linkedin="Minder mail en telefoon voor jou, meer gemak en vertrouwen voor je klant.\n\n"
+                 "In een klantportaal accepteren klanten offertes digitaal, downloaden ze facturen, betalen ze direct en volgen ze de status "
+                 "van hun aanvraag. Gekoppeld aan je CRM, ERP of boekhouding.\n\n"
+                 "Meer op m7branding.com",
+        sources=[f"{WA} applications[klantportaal]: intro, body (Selfservice die tijd bespaart, Gekoppeld aan je systemen)",
+                 "visual: public/media/cases/jurgh-detailing/s-portal-2.webp (portal design, see application-visuals.ts klantportaal)"]),
+    "post-hosting": dict(
+        type="post", topic="Hosting & onderhoud",
+        instagram="Wij houden je site in de gaten, jij onderneemt.\n"
+                  "Hosting, updates, back-ups, monitoring en support in één webplan.\n"
+                  "Meer op m7branding.com\n"
+                  "#hosting #websiteonderhoud #webplan",
+        linkedin="Wij houden je site in de gaten, jij onderneemt.\n\n"
+                 "Met een webplan van M7 zorgen we voor snelle en veilige hosting, SSL, updates, back-ups en monitoring, en staan we klaar "
+                 "als je hulp nodig hebt of iets wilt aanpassen.\n\n"
+                 "Meer op m7branding.com",
+        sources=[f"{WS} applications[hosting-onderhoud]: benefits (Zorgeloos), intro, summary",
+                 "visual: public/media/cases/atl-plus (case atl-plus, src/content/cases-new-a.ts: beheer van de website)"]),
+}
+
+
+def write_captions():
+    d = OUT / "captions"
+    d.mkdir(parents=True, exist_ok=True)
+    for n, c in CAPTIONS.items():
+        files = sorted(str(f.relative_to(OUT)) for f in (OUT / "carousels" / n).glob(f"m7-{n}-*.png"))
+        doc = {"id": n, "type": c["type"], "files": files, "topic": c["topic"], "instagram": c["instagram"],
+               "linkedin": c["linkedin"], "sources": c["sources"]}
+        (d / f"{n}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
+        print("caption", n, len(files), "files")
 
 
 CAROUSELS = carousels
@@ -355,6 +578,8 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     what = args[0] if args else "stills"
     only = args[1:]
+    if what == "captions":
+        write_captions()
     if what in ("stills", "render"):
         items = {**CAROUSELS(), **POSTS()}
         for n, c in items.items():
