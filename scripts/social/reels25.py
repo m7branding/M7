@@ -14,7 +14,7 @@ The round-24 minimal system (social24.py), stretched over a reel of ~24 s:
 
 Every reel: 1080x1920, 60 fps, the calm music bed (audio.song "calm"), plus a PNG cover.
 
-  python reels25.py list                       the reels and their durations
+  python reels25.py list                       the reels (slugs)
   python reels25.py stills <slug> [t,t,...]    layout check (jpgs into the work folder)
   python reels25.py render <slug> [...]        render mp4 + png into the delivery folder (all when no slug)
 """
@@ -381,7 +381,7 @@ def r_ecos():
         card(TALL_CLIP, 10.8, 16.6, seq=clip(slug, "r-flow-1.mp4", 2.0, 5.9), pos="40% 50%", kb=kb(1.0, 1.03), bg="#d9d6d0"),
         line(["De Fatherhood Collaborative,", "als eerste helemaal uitgewerkt."], LINE_Y, **ld(15.8, 21.4), size=42),
         card(PAGE, 15.8, 21.4, src=furl(slug, "s-fa-fatherhood-posts.webp"), kb=kb(1.0, 1.03), bg="#f4efe4"),
-        card((KX, 520, 1000, 933), 20.6, te + 0.7, src=furl(slug, "r-06-d04-phone-trio-b-ui.webp"), pos="62% 50%", kb=kb(1.0, 1.04), bg="#1d1d1d"),
+        card((KX, 520, 1300, 867), 20.6, te + 0.7, src=furl(slug, "r-06-d04-phone-trio-b-ui.webp"), pos="0% 50%", kb=kb(1.0, 1.03), bg="#1d1d1d"),
     ]
     glow = [{"t": 0, "cx": 760, "cy": 820, "r": 900, "a": 0.10}, {"t": 5, "d": 4, "cx": 700, "cy": 1100, "r": 950, "a": 0.10}]
     return dict(slug=slug, dur=D, seed=107, cover=4.6, layers=frame(D, glow, L))
@@ -412,8 +412,8 @@ def r_kippenkar():
         card(LOW_CLIP, 5.8, 11.6, seq=clip(slug, "r-flow-1.mp4", 0.0, 5.5), rate=0.95, pos="35% 50%", kb=kb(1.0, 1.03), bg="#d9d6d0"),
         card(TALL_CLIP, 10.8, 16.6, seq=clip(slug, "r-flow-2.mp4", 0.0, 5.9), pos="50% 50%", kb=kb(1.04, 1.0), bg="#1c1c1c"),
         line(["Meer dan 50 brochureaanvragen", "op de eerste dag na de lancering."], LINE_Y, **ld(15.8, 21.4), size=42),
-        card(WIDE_HI, 15.8, 21.4, src=furl(slug, "r-14-d10-tablets-iso-c.webp"), pos="20% 50%", kb=kb(1.0, 1.04, 0, -3), bg="#1c1c1c"),
-        logo_card(slug, "logo-white.png", (KX, 640, 1180, 660), 20.6, te + 0.7, "#34383A", scale=0.36),
+        card((KX, 640, 1400, 933), 15.8, 21.4, src=furl(slug, "r-14-d10-tablets-iso-c.webp"), pos="20% 50%", kb=kb(1.0, 1.04, 0, -3), bg="#1c1c1c"),
+        logo_card(slug, "logo.png", (KX, 640, 1180, 660), 20.6, te + 0.7, "#F0EEEC", scale=0.36),
         chips(["#34383A", "#F0EEEC"], 1380, 21.4, te + 0.4),
     ]
     glow = [{"t": 0, "cx": 760, "cy": 820, "r": 900, "a": 0.10}, {"t": 5, "d": 4, "cx": 700, "cy": 1100, "r": 950, "a": 0.10}]
@@ -426,7 +426,7 @@ def r_taylor():
     L = [
         card(OPEN_TOP, 0.9, 6.4, seq=clip(slug, "r-flow-1.mp4", 0.0, 5.6, h=800), pos="55% 50%", kb=kb(1.0, 1.04), bg="#e6e6e6"),
         *head(["Taylor Technologies"], ["Een nieuwe huisstijl en website voor", "zonne-micro-elektronica."], top=1310, t0=0.6, t1=5.7),
-        card(TALL_STILL, 5.6, 11.4, src=furl(slug, "r-12-b06-wall-logo-c.webp"), pos="40% 50%", kb=kb(1.0, 1.05, 0, -2), bg="#141414"),
+        card((KX, 470, 1000, 1000), 5.6, 11.4, src=furl(slug, "r-12-b06-wall-logo-c.webp"), pos="50% 50%", kb=kb(1.0, 1.04), bg="#141414"),
         line(["Een heldere, minimalistische huisstijl", "in donkerblauw en geel."], LINE_Y, **ld(10.6, 16.2), size=42),
         card(PAGE, 10.6, 16.2, src=furl(slug, "r-62-brand-sheet-logos.webp"), kb=kb(1.0, 1.03), bg="#ffffff"),
         chips(["#042263", "#FAFAFA"], 1300, 11.8, 15.7),
@@ -445,7 +445,7 @@ def r_infrai():
              bg="#0b0f5a"),
         card(TALL_STILL, 5.6, 11.4, src=furl(slug, "r-02-d07-phone-stone-b.webp"), pos="50% 50%", kb=kb(1.0, 1.05, 0, -2), bg="#060751"),
         line(["Burgers melden wat er mis is,", "medewerkers pakken het op."], LINE_Y, **ld(10.6, 16.2), size=42),
-        card(WIDE, 10.6, 16.2, src=furl(slug, "s-infra-citex-03-infraxpec-pavement-crack.webp"), pos="60% 50%", kb=kb(1.16, 1.2, 0, -1),
+        card(WIDE, 10.6, 16.2, src=furl(slug, "s-infra-citex-03-infraxpec-pavement-crack.webp"), pos="50% 50%", kb=kb(1.32, 1.37),
              bg="#bfeee0"),
         card(TALL_CLIP, 15.4, te + 0.7, seq=clip(slug, "s-infra-citex-07-infraxpec-app-to-suite.mp4", 2.0, 5.9), pos="45% 50%",
              kb=kb(1.0, 1.03), bg="#0b0f5a"),
@@ -458,7 +458,7 @@ def r_eredivisie():
     slug, D = "eredivisietoppers", 24.0
     te = D - END_D
     L = [
-        card(OPEN_TOP, 0.9, 6.4, seq=clip(slug, "s-eredivisie-07-eredivisie-pack-opening.mp4", 0.0, 5.6, h=800, crop=(0, 110, 1920, 970)),
+        card(OPEN_TOP, 0.9, 6.4, seq=clip(slug, "s-eredivisie-07-eredivisie-pack-opening.mp4", 0.0, 5.6, h=800, crop=(290, 160, 1340, 880)),
              pos="50% 50%", kb=kb(1.0, 1.03), bg="#0b0e1c"),
         *head(["Eredivisietoppers"], ["Pitchdeck en creatief concept voor", "een spaaractie met voetbalplaatjes."], top=1310, t0=0.6, t1=5.7),
         card(TALL_STILL, 5.6, 11.4, src=furl(slug, "s-eredivisie-03-eredivisie-lineup.webp"), pos="50% 50%", kb=kb(1.0, 1.05), bg="#0b0e1c"),
@@ -513,11 +513,11 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     cmd = a[0] if a else "list"
     if cmd == "list":
-        for k, f in REELS.items():
-            print(k, f()["dur"])
+        print("\n".join(REELS))
     elif cmd == "stills":
         ts = [float(x) for x in a[2].split(",")] if len(a) > 2 else None
         print(stills(a[1], ts))
     elif cmd == "render":
         for k in (a[1:] or list(REELS)):
             print("reel", k, "->", render(k), flush=True)
+            clean_frames(k)              # disk is tight: the jpg sequences are rebuilt from the clips when needed
