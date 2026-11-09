@@ -1,7 +1,7 @@
 """Round 22: ten Instagram stories for M7 itself (the agency), not client cases.
 
 Minimal and clean: the dark M7 stage (#030304), lots of space, Montserrat, white type, the teal->green gradient on one
-word or one thin line. Words rise out of a mask with a slight blur-to-sharp, visuals arrive with a calm focus pull
+word or one thin line. No eyebrow labels above the titles (owner: they read as typical AI design). Words rise out of a mask with a slight blur-to-sharp, visuals arrive with a calm focus pull
 (blur easing off), no spring and no overshoot. Only real M7 material: office and team photos, the office clip, the
 approved round-21 reel renders (Buitenstate, Steddion), the real Bernheze Makelaars brandbook and the AI answer that
 the website's own SEO showcase uses. All copy comes from the website's content (see COPY_SOURCES).
@@ -30,7 +30,7 @@ import audio  # noqa: E402
 
 S = Path("/tmp/claude-0/-home-user-M7/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad")
 WORK = Path("/tmp/claude-0/-home-user/34406e25-4e0d-5d51-9717-27228f2c0db3/scratchpad/r22w")
-DELIVER = S / "r22" / "deliver" / "stories-v3"
+DELIVER = S / "r22" / "deliver" / "stories-v4"   # v4: no eyebrow labels (owner feedback), services list without numbers
 HERE = Path(__file__).resolve().parent
 STUDIO = HERE / "studio"
 REPO = Path("/home/user/M7")
@@ -157,7 +157,7 @@ X_JS = r"""
     const rows = o.items.map((it, i) => {
       const r = el("div", "x-row", box);
       Object.assign(r.style, { top: i * o.rowH + "px", height: o.rowH + "px", width: "100%" });
-      const num = el("span", "x-num", r, String(i + 1).padStart(2, "0"));
+      const num = o.nums === false ? null : el("span", "x-num", r, String(i + 1).padStart(2, "0"));
       const w = el("span", "x-w x-name", r);
       w.style.fontSize = (o.size || 40) + "px";
       const wi = el("span", "x-wi", w, esc(it));
@@ -175,7 +175,7 @@ X_JS = r"""
           r.wi.style.transform = `translate3d(0, ${((1 - p) * 104).toFixed(2)}%, 0)`;
           r.wi.style.filter = p < 0.995 ? `blur(${((1 - p) * 6).toFixed(2)}px)` : "none";
           r.wi.style.opacity = (0.35 + 0.65 * p).toFixed(3);
-          r.num.style.opacity = nb.toFixed(3);
+          if (r.num) r.num.style.opacity = nb.toFixed(3);
           r.hl.style.transform = `scaleX(${h.toFixed(4)})`;
         });
         const q = o.t1 != null ? P(t, o.t1 - 0.6, 0.6, "inOutSine") : 0;
@@ -695,9 +695,8 @@ def stories():
                 "Content Marketing & Online Ads", "Foto, Video, 3D & Animatie", "Grafisch Ontwerp & Print Design",
                 "Configurators, Lead Tools & Widgets", "AI & Consultancy"]
     st[2] = story("diensten", 23, 6.6, [
-        kicker("Onze kapstok", 0.3, e + 0.1),
         title(["Jouw", "*one-stop-shop*"], 0.45, e + 0.1, size=100),
-        dict(type="xlist", items=services, x=KX, y=628, w=W - 2 * KX, rowH=84, size=38, t0=1.5, st=0.36, t1=e + 0.1),
+        dict(type="xlist", items=services, nums=False, x=KX, y=628, w=W - 2 * KX, rowH=84, size=38, t0=1.5, st=0.36, t1=e + 0.1),
     ], dy=30)
 
     # 03. One team: the real team portraits (order of the about page), strategy to code at one table.
@@ -712,7 +711,6 @@ def stories():
         cards.append(card(furl(team / f"{p}.webp"), 1.45 + i * 0.18, e + 0.1, r, radius=20, pos="50% 30%",
                           enter={"type": "focus", "d": 1.3, "ease": "inOutSine", "blur": 14, "s0": 1.04, "fade": 1.8}))
     st[3] = story("team", 37, 5.6, [
-        kicker("Het team", 0.3, e + 0.1),
         title(["The people behind", "the *pixels*"], 0.45, e + 0.1),
         *cards,
         sub(["Strategen, designers, developers", "en marketeers aan één tafel."], 3.0, e + 0.1, 1258, size=40, color="#e4e4ea", weight=600),
@@ -725,12 +723,10 @@ def stories():
     pin = nl_project(51.7048, 5.5519)
     m = 4.3            # the cut between the two beats
     st[4] = story("kantoor", 41, 3.5, [
-        kicker("Ons kantoor", 0.3, m),
         title(["Ruimte voor", "grote *ideeën.*"], 0.45, m),
         card(seq_dir(kclip, 30, n=80) | {"rate": 0.78}, 0.95, m + 0.05, {"x": KX, "y": 636, "w": 920, "h": 690}, radius=26, pos="38% 50%",
              kb={"s0": 1.04, "s1": 1.0}, exit_={"type": "focus", "d": 0.7, "ease": "inOutSine", "blur": 14}),
         dict(type="xcap", text="Loosbroekseweg 45, Nistelrode", x=KX, y=1372, size=30, t0=1.9, t1=m),
-        kicker("Klanten wereldwijd", m, e + 0.1),
         title(["Vanuit Nistelrode", "de wereld *over.*"], m + 0.1, e + 0.1),
         dict(type="xmap", svg=nl_svg(), pin=pin, label="Nistelrode", x=138, y=592, w=600, t0=m + 0.35, t1=e + 0.1),
         sub(["Voor klanten in heel Nederland,", "België en daarbuiten."], m + 0.95, e + 0.1, 1336, size=40, color="#e4e4ea", weight=600),
@@ -738,7 +734,6 @@ def stories():
 
     # 05. The process: the five beats every service shares (werkproces page), on one growing line.
     st[5] = story("werkproces", 53, 6.2, [
-        kicker("Altijd hetzelfde ritme", 0.3, e + 0.1),
         title(["Ons", "*werkproces*"], 0.45, e + 0.1, size=100),
         dict(type="xsteps", items=["Luisteren", "Plannen", "Maken", "Lanceren", "Doorgroeien"], x=KX, y=630, w=W - 2 * KX, rowH=148, size=62,
              t0=1.45, st=0.55, t1=e + 0.1),
@@ -748,7 +743,6 @@ def stories():
     # 06. Websites & Webshops: a real snippet of the approved Buitenstate reel (the site on a laptop, scroll + hover).
     bs = SHOTS21 / "buitenstate-top3" / "05-scene"
     st[6] = story("websites", 61, 5.6, [
-        kicker("Websites & Webshops", 0.3, e + 0.1),
         title(["Websites that work", "as *hard* as you do."], 0.45, e + 0.1, size=84),
         card(seq_dir(bs, 60) | {"rate": 0.75}, 1.0, e + 0.05, CARD, pos="50% 46%", kb={"s0": 1.0, "s1": 1.0}),
         dict(type="xcap", text="Buitenstate", x=KX, y=CAP_Y, size=30, t0=2.2, t1=e + 0.1),
@@ -757,7 +751,6 @@ def stories():
     # 07. Branding: the real Bernheze Makelaars brandbook, open on the table (round 20 book still), a slow pan from the
     #     logo page to the colour page and the round logo.
     st[7] = story("branding", 71, 3.4, [
-        kicker("Branding & Rebranding", 0.3, e + 0.1),
         title(["Brands that people", "*remember.*"], 0.45, e + 0.1),
         card(furl(BOOK), 1.0, e + 0.05, CARD, pos="50% 50%", fit="contain", kb=book_pan(1000, 2230, 1300, 0.8), bg="#e9e9e9"),
         dict(type="xcap", text="Bernheze Makelaars · Brandbook", x=KX, y=CAP_Y, size=30, t0=2.2, t1=e + 0.1),
@@ -767,7 +760,6 @@ def stories():
     #     type, Volgende, the profiles, a profile picked, the next step).
     sd = SHOTS21 / "steddion-top2" / "01-scene"
     st[8] = story("tools", 83, 6.2, [
-        kicker("Configurators", 0.3, e + 0.1),
         title(["Click. Configure.", "*Convert.*"], 0.45, e + 0.1),
         card(seq_dir(sd, 60, start=12), 1.0, e + 0.05, CARD, pos="50% 42%", kb={"s0": 1.0, "s1": 1.0}),
         dict(type="xcap", text="Steddion · Energy Property Configurator", x=KX, y=CAP_Y, size=30, t0=2.2, t1=e + 0.1),
@@ -778,7 +770,6 @@ def stories():
     ai = MEDIA / "showcase" / "thesandt" / "ai-answer.webp"
     k = 920 / 1420
     st[9] = story("seo", 97, 6.0, [
-        kicker("SEO, AEO & GEO", 0.3, e + 0.1),
         title(["Found on Google.", "Quoted by *AI.*"], 0.45, e + 0.1),
         card(furl(ai), 1.15, e + 0.05, {"x": KX, "y": 664, "w": 920, "h": round(668 * k)}, radius=24, kb={"s0": 1.0, "s1": 1.0}, bg="#202124",
              shadow="0 30px 80px -20px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.10)"),
@@ -790,7 +781,6 @@ def stories():
     # 10. The call to action: a meeting room at the office, "Liever eerst even kennismaken?", then the end frame with
     #     the site's primary button "Plan een kennismaking".
     st[10] = story("kennismaking", 101, 6.0, [
-        kicker("Kom langs", 0.3, e + 0.1),
         title(["Liever eerst even", "*kennismaken?*"], 0.45, e + 0.1),
         card(furl(off / "meetingroom.webp"), 1.0, e + 0.05, {"x": KX, "y": 628, "w": 920, "h": 690}, radius=26, pos="50% 55%"),
         sub(["Dat kan hier aan tafel,", "of gewoon online."], 2.3, e + 0.1, 1360, size=40, color="#e4e4ea", weight=600),
